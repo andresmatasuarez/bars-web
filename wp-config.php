@@ -15,10 +15,11 @@
  */
 
 // !- START - BARS custom lines -!
-//define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/bars/wordpress');
-//define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . '/bars/');
-//define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-//define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/bars/wp-content');
+define('VH_DOCUMENT_ROOT', 'C:/Users/HELLACOPTER/Documents/Websites/bars-web');
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/bars/wordpress');
+define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . '/bars');
+define('WP_CONTENT_DIR', VH_DOCUMENT_ROOT . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/bars/wp-content');
 // !- END - BARS custom lines -!
 
 // ** MySQL settings - You can get this info from your web host ** //
@@ -91,7 +92,7 @@ define('WP_DEBUG', false);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/bars/');
+	define('ABSPATH', dirname(__FILE__));
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
