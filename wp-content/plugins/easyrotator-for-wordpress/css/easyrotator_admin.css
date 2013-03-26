@@ -1,0 +1,339 @@
+/*
+Copyright 2011 DWUser.com.
+Email contact: support ~attt~ dwuser.com
+
+This file is part of EasyRotator for WordPress.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
+ * Styles specific to the EasyRotator admin panel pages.
+ */ 
+ 
+#icon-easyrotator-adminheader {
+	background: transparent url('../img/admin_icons.png?ver=1') no-repeat 0 -32px;
+}
+
+.easyrotator_admin_subheader {
+	color: #999;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.easyrotator_admin_wrap input.larger-text {
+	width: 30em;
+}
+
+.easyrotator_admin_wrap input.large-text, .easyrotator_admin_wrap textarea.large-text {
+	width: 99%;
+}
+
+
+/**
+ * General stuff that's used in multiple locations
+ */
+
+		/* notice bar; the linespacing is killing me */
+		div.easyrotator_welcome_notice p, div.easyrotator_love_notice p, div.easyrotator_error_notice p {
+			line-height: 1.4em;
+		}
+		
+		div.easyrotator_welcome_notice, div.easyrotator_love_notice {
+			border-color: #55B3E5 !important;
+			background-color: #E0F4FF !important;
+		}
+		
+		div.easyrotator_welcome_notice p.er_titleLine, div.easyrotator_love_notice p.er_titleLine {
+			padding-left: 21px;
+			background: transparent url('../img/er_icon_16.png') no-repeat 0 1px;
+		}
+        div.easyrotator_welcome_notice div.er_chromeAIRBugNote {
+            background: #FCC;
+            border: 1px solid #C00;
+            padding: 3px 10px;
+            color: #C00;
+        }
+		
+		div.easyrotator_welcome_notice .er_hidden {
+			visibility: hidden;
+			position: absolute;
+			/*left: -1000px;
+			width: 0;
+			height: 0;
+			width: 400px; height: 120px; guess what... ie9 doesn't work properly (doesn't render swf).
+			overflow: hidden;
+			*/
+			z-index: -1000;
+		}
+
+		/* admin menu icons: both old and new ways */
+		
+		#toplevel_page_easyrotator_admin_overview div.wp-menu-image,
+		#adminmenu .menu-icon-easyrotator_admin_overview div.wp-menu-image {
+			background: transparent url('../img/admin_icons.png?ver=1') no-repeat scroll 0 -97px;
+		}
+		
+		#toplevel_page_easyrotator_admin_overview:hover div.wp-menu-image, #toplevel_page_easyrotator_admin_overview.wp-has-current-submenu div.wp-menu-image,
+		#adminmenu .menu-icon-easyrotator_admin_overview:hover div.wp-menu-image, #adminmenu .menu-icon-easyrotator_admin_overview.wp-has-current-submenu div.wp-menu-image {
+			background: transparent url('../img/admin_icons.png?ver=1') no-repeat scroll 0 -65px;
+		}
+		
+		/* fs tinymce button for 3.2+ */
+		#wp-fullscreen-buttons .mce_easyrotator .mce_easyrotator {
+			background: transparent url('../img/admin_icons.png?ver=1') no-repeat scroll -6px -165px;
+		}
+		#wp-fullscreen-buttons .mce_easyrotator .mce_easyrotator:hover {
+			background: transparent url('../img/admin_icons.png?ver=1') no-repeat scroll -6px -133px;
+		}
+		
+		/* meta box title icon, more */
+		#easyrotator_edit_shortcut_box .easyrotator_meta_title_icon {
+			display: inline-block;
+			width: 23px; height: 14px;
+			/*margin-bottom: -1px;*/
+			margin: 0 0 -1px 0;
+			padding: 0;
+			background: transparent url('../img/admin_icons.png?ver=1') no-repeat scroll -7px -72px;
+		}
+		#easyrotator_edit_shortcut_box div.inside {
+			padding: 0; /* reset the l,r */
+			margin: 0; /* reset the t,b */
+		}
+		#easyrotator_edit_shortcut_box table.easyrotator_rotator_list {
+			margin-top: 0.2em;
+			margin-bottom: 0.1em;
+			border-collapse: separate;
+			border-spacing: 0;
+		}
+		#easyrotator_edit_shortcut_box table.easyrotator_rotator_list td {
+			border-top: 1px solid #FFF;
+			border-bottom: 1px solid #DDD;
+		}
+		#easyrotator_edit_shortcut_box table.easyrotator_rotator_list tr.alpha td {
+			border-top: none !important;
+		}
+		#easyrotator_edit_shortcut_box table.easyrotator_rotator_list tr.omega td {
+			border-bottom: none !important;
+		}
+		#easyrotator_edit_shortcut_box table.easyrotator_rotator_list span.er_loading_name {
+			color: #999;
+			font-style: italic;
+		}
+		#easyrotator_edit_shortcut_box table.easyrotator_rotator_list td.col1 {
+			width: 100%;
+		}
+
+		/* edit btn styles */		
+		#easyrotator_edit_shortcut_box td.er_nopadcell { padding: 0 !important; margin: 0 !important; }
+		
+		#easyrotator_edit_shortcut_box .er_edit_btn_canvasWrap {
+			position: relative;
+		}
+		
+			/*[note ie9-specific overrides for these styles in easyrotator.php]*/
+		#easyrotator_edit_shortcut_box .er_edit_btn_canvasWrap.er_collapsed {
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			position: absolute;
+		}
+		#easyrotator_edit_shortcut_box .er_edit_btn_canvasWrap.er_expanded {
+			overflow: visible;
+			position: relative;
+		}
+		
+		#easyrotator_edit_shortcut_box .er_edit_btn_canvasWrap.er_collapsed .er_edit_btn_flashOverlay_wrap {
+			visibility: hidden;
+		}
+		#easyrotator_edit_shortcut_box .er_edit_btn_canvasWrap.er_expanded .er_edit_btn_flashOverlay_wrap {
+			visibility: visible;
+		}
+		#easyrotator_edit_shortcut_box .er_edit_btn_flashOverlay_wrap {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: -4px;
+			bottom: -3px; /* allows for button padding issues */
+		}
+		
+		
+		/* widget styles */
+		.easyrotator_widget_form_wrap hr {
+			margin: 1.2em 0 1.2em 0;
+			border: none;
+			border-top: 1px solid #CCC;
+			border-bottom: 1px solid #FFF;
+		}
+		.easyrotator_widget_form_wrap span.er_loading_name {
+			color: #999;
+			font-style: italic;
+		}
+		.easyrotator_widget_form_wrap .er_save_notification {
+			padding: 0.4em 1em !important;
+			background-color: #FFC;
+			border: 1px solid #FC6;
+			color: #F60;
+		}
+		
+		/* widget -> button menu */
+		div.easyrotator_widget_form_wrap .easyrotator_widgetForm_nameWrap {
+			position: relative;
+		}
+		div.easyrotator_widget_form_wrap .easyrotator_widgetForm_curPopup {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		div.easyrotator_widget_form_wrap .easyrotator_widgetForm_curPopup .er_btn
+		{
+			display: block;
+			width: 23px;
+			height: 21px;
+			background: #FEFEFE url('../img/arrows.png') no-repeat 4px 3px;
+			border: 1px solid #BBB;
+			position: absolute;
+			right: 0;
+			top: -3px;
+			z-index: 9;
+			
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+			border-radius: 6px;
+		}
+		div.easyrotator_widget_form_wrap .easyrotator_widgetForm_curPopup .er_floater
+		{
+			/*display: none;
+			position: relative;*/
+			position: absolute;
+			right: -3600px;
+			
+			background: #FEFEFE;
+			border: 1px solid #777;
+			padding: 10px 20px;
+			margin-top: 18px;
+			z-index: 8;
+			
+			-moz-border-radius-topleft: 6px;
+			-moz-border-radius-topright: 0px;
+			-moz-border-radius-bottomright: 6px;
+			-moz-border-radius-bottomleft: 6px;
+			-webkit-border-radius: 6px 0px 6px 6px;
+			border-radius: 6px 0px 6px 6px;
+			
+			-webkit-box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.4);
+			-moz-box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.4);
+			box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.4);
+		}
+		div.easyrotator_widget_form_wrap .easyrotator_widgetForm_curPopup.er_expanded .er_btn
+		{
+			display: block;
+			border-color: #777;
+			border-bottom: 0 none #999;
+			/*background-position: 4px -32px;*/
+			
+			-moz-border-radius-topleft: 6px;
+			-moz-border-radius-topright: 6px;
+			-moz-border-radius-bottomright: 0px;
+			-moz-border-radius-bottomleft: 0px;
+			-webkit-border-radius: 6px 6px 0px 0px;
+			border-radius: 6px 6px 0px 0px;
+		}
+		div.easyrotator_widget_form_wrap .easyrotator_widgetForm_curPopup.er_expanded .er_floater
+		{
+			/*display: block;*/
+			
+			position: relative !important;
+			right: auto !important;
+		}
+		
+		
+		/* widget -> edit btn styles */
+		
+		div.easyrotator_widget_form_wrap .er_edit_btn_canvasWrap {
+			position: relative;
+			display: inline-block;
+		}
+		
+			/*[note ie9-specific overrides for these styles in easyrotator.php]*/
+		div.easyrotator_widget_form_wrap .er_edit_btn_canvasWrap.er_collapsed {
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			position: absolute;
+		}
+		div.easyrotator_widget_form_wrap .er_edit_btn_canvasWrap.er_expanded {
+			overflow: visible;
+			position: relative;
+		}
+		
+		div.easyrotator_widget_form_wrap .er_edit_btn_canvasWrap.er_collapsed .er_edit_btn_flashOverlay_wrap {
+			visibility: hidden;
+		}
+		div.easyrotator_widget_form_wrap .er_edit_btn_canvasWrap.er_expanded .er_edit_btn_flashOverlay_wrap {
+			visibility: visible;
+		}
+		div.easyrotator_widget_form_wrap .er_edit_btn_flashOverlay_wrap {
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: -4px;
+			bottom: -3px; /* allows for button padding issues */
+		}
+		
+		/* tooltip styles */
+		div.easyrotator_tooltip_box {
+			display: none;
+			
+			width: 200px;
+			padding: 10px;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			z-index: 101000;
+			background: #FFF;
+			border: 1px solid #AAA;
+
+			-moz-box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+			-webkit-box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+			box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+			border-radius: 6px;
+		}
+		div.easyrotator_tooltip_box p {
+			margin: 0.7em 0;
+		}
+		div.easyrotator_tooltip_arrowGray {
+			position: absolute;
+		    top: -8px;
+    		left: 20px;
+		    width: 0; height: 0;
+    		border-top: 0 none transparent;
+	    	border-left: 8px solid transparent;
+		    border-right: 8px solid transparent;
+		    border-bottom: 8px solid #AAA;
+		}
+		div.easyrotator_tooltip_arrowWhite {
+			position: absolute;
+			top: -7px;
+			left: 20px;
+			width:0; height:0;
+			border-top:0 none transparent; 
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-bottom: 8px solid #FFF;
+		}

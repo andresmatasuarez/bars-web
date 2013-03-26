@@ -1,0 +1,13 @@
+# Allow uploads to EasyRotator for WordPress
+<IfModule mod_security.c>
+   <Files main.php>
+   SecFilterEngine Off
+   SecFilterScanPOST Off
+   </Files>
+</IfModule>
+# The upload destination is protected via an API key, so override any htpasswd authorization restrictions
+<Files main.php>
+   AuthType none
+   Satisfy Any
+</Files>
+

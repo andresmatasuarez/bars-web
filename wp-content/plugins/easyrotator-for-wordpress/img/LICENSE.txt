@@ -1,0 +1,38 @@
+Copyright 2011 DWUser.com.
+Email contact: support {at] dwuser.com
+
+This file is part of EasyRotator for WordPress.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+----- SOURCE CODE INFORMATION -----
+
+There are three SWF files included in this plugin, all of which are 
+located in this directory.  In order to reduce the file size of the 
+plugin package, source code is not included in this download package;
+rather, links are provided here to the source code for each SWF file:
+
+	- EasyRotatorWizard_installDetector.swf
+		Source available from:
+		http://cdncf.dwuser.com/EasyRotator/OpenSource/EasyRotator_for_WordPress/EasyRotatorWizard_installDetector-source.zip
+	
+	- EasyRotatorWizard_wpEditButton.swf
+		Source available from:
+		http://cdncf.dwuser.com/EasyRotator/OpenSource/EasyRotator_for_WordPress/EasyRotatorWizard_wpEditButton-source.zip
+		
+	- EasyRotatorWizard_wpExplorerOS.swf
+		Source available from:
+		http://cdncf.dwuser.com/EasyRotator/OpenSource/EasyRotator_for_WordPress/EasyRotatorWizard_wpExplorerOS-source.zip
+		
