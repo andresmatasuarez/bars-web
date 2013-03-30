@@ -9,48 +9,43 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC);
 @import url(http://fonts.googleapis.com/css?family=Creepster);
+@import url(http://fonts.googleapis.com/css?family=Trocchi);
+
+/* SlideDeck plugin */
+a.slidedeck-2-bug { display: none !important; }
 
 /* ************** */
 /* Utils ******** */
-.left-arrow {
-	width: 0px;
-	height: 0px;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-right: 10px solid white;
-	float: left;
-}
-.rounded-box {
-	width: 22px;
-	height: 18px;
-	float: left;
-	border-radius: 5px;
-	background-color: white;
-}
+.left-arrow { width: 0px; height: 0px; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid white; float: left; }
+.rounded-box { width: 22px; height: 18px; float: left; border-radius: 5px; background-color: white; }
+.horizontal-scratch { background-image: url("/wp-content/uploads/2013/03/scratch1.png"); width: 673px; height: 6px; margin-right: auto; margin-left: auto; }
 
 /* ************** */
 
 div#page {
-	background-image: url("/wp-content/uploads/2013/03/asfalt-darker.png");
+	background-image: url("/wp-content/uploads/2013/03/dark_wash_wall.png");
 	margin-top: 0;
-	padding: 0 100px  0 100px;
+	margin-bottom: 0;
+	padding: 0 100px  50px 100px;
 	max-width: 58rem;
-	box-shadow: 0px 0px 10px -2px black, 0px 0px 10px -2px black, 0px 0px 10px -2px black;
 	
 	/* TODO CHECK CROSS-BROWSER COMPATIBILITY */
 	-webkit-filter: sepia(20%);
 }
 
 /* Header */
+div#bars-header-logo { background-image: url("/wp-content/uploads/2013/03/bars-logo1.png"); width: 216px; height: 217px; margin: 10px auto -90px auto; } /* TODO CABLE y sMEJORAR */
 div#page h1.site-title { font-family: Creepster, IM Fell English SC; text-align: center; }
+header#masthead { padding-top: 0; padding-bottom: 5px; }
+header .horizontal-scratch { margin-bottom: 10px; }
 
 /* Main menu */
-div.menu-main-container ul#menu-main { border-top: none; border-bottom-width: 3px; border-bottom-color: rgb(155,6,0); text-align: center; font-family: Oswald; }
+div.menu-main-container ul#menu-main { border: none; text-align: center; font-family: Oswald; }
 div.menu-main-container ul#menu-main li { padding: 0; margin: 0; }
-div.menu-main-container ul#menu-main li:hover, div.menu-main-container ul#menu-main li.current-menu-item { background-color: rgb(155,6,0); }
+/*div.menu-main-container ul#menu-main li:hover, div.menu-main-container ul#menu-main li.current-menu-item { background-color: rgb(155,6,0); }*/
 div.menu-main-container ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
-div.menu-main-container ul#menu-main li a { display: block; padding-left: 10px; padding-right: 10px; font-size: 16px; line-height: 2; color: white; }
-div.menu-main-container ul#menu-main li a:hover { color: orange; }
+div.menu-main-container ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); display: block; padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
+div.menu-main-container ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
 
 /* Sidebar */
 div#secondary.widget-area div#bars-widget-featured-video { width: 100%; height: 100px; }
@@ -90,5 +85,5 @@ body.home article.post h1.entry-title a:active, body.home article.post h1.entry-
 body.home article.post h1.entry-title a:hover { color: red; }
 /*body.home article.post div.BARS_entry-subtitle { font-family: Oswald; font-size: 15px; }*/
 
-/* SlideDeck plugin */
-a.slidedeck-2-bug { display: none !important; }
+/* Footer */
+footer.bars-footer { -webkit-filter: brightness(0.3); box-shadow: 0px -5px 10px rgba(0,0,0,1); border-top: 1px solid rgba(255,255,255,1); width: 100%; height: 200px; background-image: url("/wp-content/uploads/2013/03/grey_wash_wall.png"); z-index: 99999; }

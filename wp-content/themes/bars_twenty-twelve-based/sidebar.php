@@ -12,7 +12,6 @@
 
 	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 		<div id="secondary" class="widget-area" role="complementary">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
 			<div id="bars-widget-featured-video">
 				<div id="bars-widget-featured-video-header">
 					<div class="bars-widget-featured-video-header-camera">
