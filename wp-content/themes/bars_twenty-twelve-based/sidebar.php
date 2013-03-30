@@ -11,20 +11,8 @@
 ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+	
 		<div id="secondary" class="widget-area" role="complementary">
-			<div id="bars-widget-featured-video">
-				<div id="bars-widget-featured-video-header">
-					<div class="bars-widget-featured-video-header-camera">
-						<div class="rounded-box"></div>
-						<div class="left-arrow"></div>
-					</div>
-					<div id="bars-widget-featured-video-header-title">
-						Featured video
-					</div>
-				</div>
-				<div id="bars-widget-featured-video-content">
-					
-				</div>
-			</div>
+			<?php dynamic_sidebar( 'sidebar-1' ); ?>
 		</div>
 	<?php endif; ?>

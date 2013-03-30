@@ -35,9 +35,21 @@
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner">
 		
+		<div id="bars-header-social">
+			<div class="column">
+				<div id="bars-header-social-facebook"></div>
+				<div id="bars-header-social-twitter"></div>
+				<div id="bars-header-social-youtube"></div>
+			</div>
+			<div class="column">
+				<div id="bars-header-social-tumblr"></div>
+				<div id="bars-header-social-flickr"></div>
+			</div>
+		</div>
+		
 		<div id="bars-header-logo"></div>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+		<nav id="site-navigation" class="main-navigation bars-header-menu" role="navigation">
 			<h3 class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>
 			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>

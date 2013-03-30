@@ -34,46 +34,46 @@ div#page {
 }
 
 /* Header */
-div#bars-header-logo { background-image: url("/wp-content/uploads/2013/03/bars-logo1.png"); width: 216px; height: 217px; margin: 10px auto -90px auto; } /* TODO CABLE y sMEJORAR */
+	/* Social bar */
+	div#bars-header-social { float: right; }
+	div#bars-header-social div.column { margin: 0 1px; float: right; }
+	div#bars-header-social-facebook, div#bars-header-social-youtube { margin: 0; padding: 0; margin-bottom: 1px; width: 33px; height: 32px; background-repeat: no-repeat; }
+	div#bars-header-social-twitter, div#bars-header-social-tumblr, div#bars-header-social-flickr { margin: 0; padding: 0; margin-bottom: 1px; width: 33px; height: 33px; background-repeat: no-repeat; }
+	div#bars-header-social-facebook { background-image: url("/wp-content/uploads/2013/03/facebook-gray.png"); }
+	div#bars-header-social-facebook:hover { background-image: url("/wp-content/uploads/2013/03/facebook.png"); }
+	div#bars-header-social-twitter { background-image: url("/wp-content/uploads/2013/03/twitter-gray.png"); }
+	div#bars-header-social-twitter:hover { background-image: url("/wp-content/uploads/2013/03/twitter.png"); }
+	div#bars-header-social-youtube { background-image: url("/wp-content/uploads/2013/03/youtube-gray.png"); }
+	div#bars-header-social-youtube:hover { background-image: url("/wp-content/uploads/2013/03/youtube.png"); }
+	div#bars-header-social-tumblr { background-image: url("/wp-content/uploads/2013/03/tumblr-gray.png"); }
+	div#bars-header-social-tumblr:hover { background-image: url("/wp-content/uploads/2013/03/tumblr.png"); }
+	div#bars-header-social-flickr { background-image: url("/wp-content/uploads/2013/03/flickr-gray.png"); }
+	div#bars-header-social-flickr:hover { background-image: url("/wp-content/uploads/2013/03/flickr.png"); }
+
+div#bars-header-logo { background-image: url("/wp-content/uploads/2013/03/bars-logo1.png"); width: 216px; height: 217px; margin: 10px auto -65px auto; } /* TODO CABLE y sMEJORAR */
 div#page h1.site-title { font-family: Creepster, IM Fell English SC; text-align: center; }
 header#masthead { padding-top: 0; padding-bottom: 5px; }
 header .horizontal-scratch { margin-bottom: 10px; }
 
 /* Main menu */
-div.menu-main-container ul#menu-main { border: none; text-align: center; font-family: Oswald; }
-div.menu-main-container ul#menu-main li { padding: 0; margin: 0; }
-/*div.menu-main-container ul#menu-main li:hover, div.menu-main-container ul#menu-main li.current-menu-item { background-color: rgb(155,6,0); }*/
-div.menu-main-container ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
-div.menu-main-container ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); display: block; padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
-div.menu-main-container ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
+	/* Horizontal scratch-only menu */
+/*nav#site-navigation.bars-header-menu { margin: 0 auto; }
+nav#site-navigation.bars-header-menu ul#menu-main { border: none; text-align: center; font-family: Oswald; }
+nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
+nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
+nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
+nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }*/
+
+	/* Vertical scratches menu */
+nav#site-navigation.bars-header-menu { margin: 10px auto -20px auto; background-image: url("/wp-content/uploads/2013/03/vertical-scratchs.png"); background-repeat: no-repeat; background-position: center; width: auto; height: 57px; padding-top: 20px; }
+nav#site-navigation.bars-header-menu ul#menu-main { padding-left: 17px; border: none; text-align: center; font-family: Oswald; }
+nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
+nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
+nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
+nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
 
 /* Sidebar */
-div#secondary.widget-area div#bars-widget-featured-video { width: 100%; height: 100px; }
-div#secondary.widget-area div#bars-widget-featured-video-header { 
-	background-image: linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
-	background-image: -o-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
-	background-image: -moz-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
-	background-image: -webkit-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
-	background-image: -ms-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
 
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.47, rgb(255,26,0)),
-		color-stop(0, rgb(74,4,4))
-	);
-	width: 100%;
-	font-family: oswald;
-	font-size: 1.3em;
-	color: white;
-	border-radius: 5px 5px 0px 0px;
-	padding: 10px 0 10px 0px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
-}
-div#secondary.widget-area div#bars-widget-featured-video-header-camera { margin-left: -15px; }
-div#secondary.widget-area div#bars-widget-featured-video-header-title { margin-left: 5px; float: left; }
-div#secondary.widget-area div#bars-widget-featured-video-content { width: 100%; height: 100px; background-color: blue; }
 
 /* Post */
 body.home article.post { box-shadow: inset 0px 0px 150px 0px rgba(50,0,0,0.4); background-image: url("/wp-content/uploads/2013/03/textured_paper.png"); margin-bottom: 5px; margin-top: 0; display: inline-block; padding: 5px; border: none; border-radius: 10px; }
