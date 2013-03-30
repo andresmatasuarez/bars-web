@@ -1,0 +1,345 @@
+/**
+ * SlideDeck 2 Pro for WordPress Lite Admin CSS
+ * 
+ * More information on this project:
+ * http://www.slidedeck.com/
+ * 
+ * Full Usage Documentation: http://www.slidedeck.com/usage-documentation 
+ * 
+ * @package SlideDeck
+ * @subpackage SlideDeck 2 Pro for WordPress
+ * 
+ * @author dtelepathy
+ */
+
+/*
+Copyright 2012 digital-telepathy  (email : support@digital-telepathy.com)
+
+This file is part of SlideDeck.
+
+SlideDeck is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SlideDeck is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#options-total_slides,
+#options-total_slides:hover {
+	background: none;
+	border: none;
+}
+
+#slidedeck-covers .disabled-mask {
+	display: none;
+}
+
+#slidedeck-covers .lite-disabled-mask {
+	line-height: 64px;
+	padding-left: 780px;
+	white-space: nowrap;
+    background: rgba(255, 255, 255, 0.75);
+    display: block;
+    bottom: 0;
+    left: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 21;
+}
+
+/* Additional Sources Upsell */
+#lite-upsell-additional-sources {
+	width: 564px;
+	margin: 0 auto 22px;
+}
+#lite-upsell-additional-sources .header {
+	background: #484b4f;
+	height: 58px;
+	overflow: hidden;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+#lite-upsell-additional-sources .header .left,
+#lite-upsell-additional-sources .header .right{
+	overflow: hidden;
+}
+#lite-upsell-additional-sources .header .left{
+	float: left;
+	width: 330px;
+	padding-left: 20px;
+    padding-top: 12px;
+}
+#lite-upsell-additional-sources .header .right{
+	float: right;
+    padding-right: 12px;
+    padding-top: 10px;
+    width: 194px;
+}
+#lite-upsell-additional-sources .header p,
+#lite-upsell-additional-sources .header h4 {
+	color: #fff;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+#lite-upsell-additional-sources .header p {
+	font-size: 12px;
+}
+#lite-upsell-additional-sources .header h4 {
+	font-size: 17px;
+}
+#lite-upsell-additional-sources .header .button {
+	float: right;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    font-size: 14px !important;
+    line-height: 36px;
+    padding: 0 25px;
+    height: 38px;
+}
+/* End of Additional Sources Upsell */
+
+#slidedeck-social-buttons .tweeet-button { padding: 17px 0 10px 0; }
+#slidedeck-social-buttons .like-button { height: 32px; }
+/* 7 day discount upgrade */
+#discount-upgrade-notice {
+    width: 978px;
+    height: 35px;
+    margin-top: 31px;
+    border-radius: 4px;
+    border: 1px solid #d0e6d4;
+    background: #ebf7eb;
+    text-align: center;
+    position: relative;
+}
+
+#discount-upgrade-notice > p {
+    font-size: 13px;
+    color: #797f94;
+    font-family: sans-serif;
+    margin: 10px 0 0;
+}
+
+#discount-upgrade-notice > p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+#discount-upgrade-notice > p a {
+    color: #4ba0ff;
+    text-decoration: none;
+}
+
+#discount-upgrade-notice > p a:hover { text-decoration: underline; }
+
+/* Discount upgrade pointer */
+.slidedeck_installation-discount {
+    left: 440px !important;
+    width: 432px !important;
+}
+
+.slidedeck_installation-discount .wp-pointer-content {
+    border: none;
+    background: #f5f6f9;
+    padding-bottom: 0;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content h3 {
+    height: 49px;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    border: none;
+    line-height: 49px;
+    background: url('../images/discount-purple-bar.png') 0 0 repeat-x;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content h3::before {
+    background: url('../images/discount-info.png') 0 0 no-repeat;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info {
+    padding: 25px 33px;
+    overflow: hidden;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info > strong {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info p {
+    margin: 0;
+    padding: 0;
+    color: #797f94;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 15px;
+}
+
+.slidedeck_installation-discount .wp-pointer-arrow {
+    background-image: url('../images/discount-arrow.png');
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info span.the-offer {
+    display: block;
+    position: relative;
+    float: left;
+    width: 174px;
+    height: 43px;
+    margin-left: 10px;
+    background: #3c3c3c;
+    border-radius: 6px;
+    border: 1px solid #222425;
+    box-shadow: 0 3px 0 #222425, inset 0 1px 1px rgba(255,255,255,0.3), inset 0 -1px 0 rgba(255,255,255,0.1);
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 32px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 43px;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info span.the-offer > span {
+    position: absolute;
+    width: 174px;
+    height: 3px;
+    top: 21px;
+    left: 0;
+    background: url('../images/discount-offer-overlay.png') 0 0 repeat-x;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info span.no-margin {
+    margin-left: 0;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info .wrapper {
+    overflow: hidden;
+    clear: both;
+    padding-bottom: 0.5em;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info a.button.slidedeck-noisy-button {
+    top: 25px;
+    z-index: 1000;
+    clear: both;
+    display: inline-block;
+    height: 32px;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-content .more-info a.button.slidedeck-noisy-button span {
+    height: 30px;
+    padding: 0 20px;
+    line-height: 30px;
+    position: relative;
+}
+
+.slidedeck_installation-discount.wp-pointer .wp-pointer-buttons {
+    position: relative;
+    top: -25px;
+    padding-right: 37px;
+}
+
+#slidedeck-upsell-simplemodal.for-need-support {
+    width: 604px;
+    margin-left: -302px;
+}
+#support-team-list,
+#support-team-list li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+#support-team-list{
+    padding-top: 1.5em;
+    margin-bottom: 2.5em;
+}
+#support-team-list li {
+    display: inline-block;
+    width: 65px;
+    border: solid 1px #acb8c6;
+    border-radius: 3px;
+    padding: 4px;
+    margin: 0 3px;
+}
+
+
+/*** Additional Lenses Upgrade to License ***/
+#slidedeck-section-lenses .upgrade-license-lenses {
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+    zoom: 1; /* Triggers has layout? */    
+    display: block;
+    float: left;
+    width: 160px;
+    height: 121px;
+    overflow: hidden;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-right: 30px;
+    margin-bottom: 26px;
+    
+}
+
+#slidedeck-section-lenses .upgrade-license-lenses .upgrade {
+    position: relative;
+    display: block;
+    width: 152px;
+    height: 109px;
+    padding: 10px 3px 0 3px;
+    margin: 0 auto;
+    border: 1px solid #AEB8C6;
+    background: white;
+    border-radius: 5px;
+    z-index: 2;
+    text-align: center;
+    
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0ZTRlNGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjQyNDI0IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: #4e4e4e;
+    background: -moz-radial-gradient(center, ellipse cover, #4e4e4e 0%, #242424 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#4e4e4e), color-stop(100%,#242424));
+    background: -webkit-radial-gradient(center, ellipse cover, #4e4e4e 0%,#242424 100%);
+    background: -o-radial-gradient(center, ellipse cover, #4e4e4e 0%,#242424 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #4e4e4e 0%,#242424 100%);
+    background: radial-gradient(ellipse at center, #4e4e4e 0%,#242424 100%);
+}
+
+#slidedeck-section-lenses .upgrade-license-lenses .upgrade div.upgrade-button-cta {
+    width: auto;
+    float: none;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#slidedeck-section-lenses .upgrade-license-lenses span.shadow {
+    display: block;
+position: absolute;
+top: 122px;
+left: 50%;
+margin-left: -87px;
+width: 170px;
+height: 10px;
+background: url('../images/lens-thumbnail-shadow.png') center center no-repeat;
+z-index: 1;
+}

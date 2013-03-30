@@ -6,23 +6,89 @@
 */
 
 @import url("../twentytwelve/style.css");
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC);
+@import url(http://fonts.googleapis.com/css?family=Creepster);
 
-body { background-color: black; }
-
-div#page {
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	background-color: black;
-	margin-top: 0;
-	padding: 0 100px  0 100px;
-	max-width: 50rem;
-	box-shadow: 6px 0px 10px -2px black, -6px 0px 10px -2px black, 0px 6px 10px -2px black;
+/* ************** */
+/* Utils ******** */
+.left-arrow {
+	width: 0px;
+	height: 0px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid white;
+	float: left;
+}
+.rounded-box {
+	width: 22px;
+	height: 18px;
+	float: left;
+	border-radius: 5px;
+	background-color: white;
 }
 
+/* ************** */
+
+div#page {
+	background-image: url("/wp-content/uploads/2013/03/asfalt-darker.png");
+	margin-top: 0;
+	padding: 0 100px  0 100px;
+	max-width: 58rem;
+	box-shadow: 0px 0px 10px -2px black, 0px 0px 10px -2px black, 0px 0px 10px -2px black;
+	
+	/* TODO CHECK CROSS-BROWSER COMPATIBILITY */
+	-webkit-filter: sepia(20%);
+}
+
+/* Header */
+div#page h1.site-title { font-family: Creepster, IM Fell English SC; text-align: center; }
+
 /* Main menu */
-div.menu-main-container ul#menu-main { border-top: none; border-bottom-width: 3px; border-bottom-color: rgb(155,6,0); text-align: center; font-family: Patua One, 'Open Sans', Helvetica, Arial, sans-serif; }
-div.menu-main-container ul#menu-main li { border-top-right-radius: 5px; border-top-left-radius: 5px; padding: 0; margin: 0; }
+div.menu-main-container ul#menu-main { border-top: none; border-bottom-width: 3px; border-bottom-color: rgb(155,6,0); text-align: center; font-family: Oswald; }
+div.menu-main-container ul#menu-main li { padding: 0; margin: 0; }
 div.menu-main-container ul#menu-main li:hover, div.menu-main-container ul#menu-main li.current-menu-item { background-color: rgb(155,6,0); }
 div.menu-main-container ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
 div.menu-main-container ul#menu-main li a { display: block; padding-left: 10px; padding-right: 10px; font-size: 16px; line-height: 2; color: white; }
 div.menu-main-container ul#menu-main li a:hover { color: orange; }
+
+/* Sidebar */
+div#secondary.widget-area div#bars-widget-featured-video { width: 100%; height: 100px; }
+div#secondary.widget-area div#bars-widget-featured-video-header { 
+	background-image: linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
+	background-image: -o-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
+	background-image: -moz-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
+	background-image: -webkit-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
+	background-image: -ms-linear-gradient(bottom, rgb(255,26,0) 47%, rgb(74,4,4) 0%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.47, rgb(255,26,0)),
+		color-stop(0, rgb(74,4,4))
+	);
+	width: 100%;
+	font-family: oswald;
+	font-size: 1.3em;
+	color: white;
+	border-radius: 5px 5px 0px 0px;
+	padding: 10px 0 10px 0px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+div#secondary.widget-area div#bars-widget-featured-video-header-camera { margin-left: -15px; }
+div#secondary.widget-area div#bars-widget-featured-video-header-title { margin-left: 5px; float: left; }
+div#secondary.widget-area div#bars-widget-featured-video-content { width: 100%; height: 100px; background-color: blue; }
+
+/* Post */
+body.home article.post { box-shadow: inset 0px 0px 150px 0px rgba(50,0,0,0.4); background-image: url("/wp-content/uploads/2013/03/textured_paper.png"); margin-bottom: 5px; margin-top: 0; display: inline-block; padding: 5px; border: none; border-radius: 10px; }
+body.home article.post img.BARS_post_thumbnail_shadow.wp-post-image { border: 1px solid rgba(90,90,90,1); box-shadow: 0px 0px 1px rgba(0, 0, 0, 1); margin-bottom: 0.35rem; border-radius: 10px; }
+body.home article.post header.entry-header { margin-bottom: 10px; }
+body.home article.post div.title-date { font-family: Oswald; color: black; font-size: 12px; }
+body.home article.post h1.entry-title { width: 250px; font-family: Oswald; height: 75px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 1); margin-top: 0.5rem; } 
+body.home article.post h1.entry-title a:active, body.home article.post h1.entry-title a:link, body.home article.post h1.entry-title a:visited { color: darkred; }
+body.home article.post h1.entry-title a:hover { color: red; }
+/*body.home article.post div.BARS_entry-subtitle { font-family: Oswald; font-size: 15px; }*/
+
+/* SlideDeck plugin */
+a.slidedeck-2-bug { display: none !important; }
