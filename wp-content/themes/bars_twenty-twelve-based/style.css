@@ -31,6 +31,7 @@ div#page {
 	
 	/* TODO CHECK CROSS-BROWSER COMPATIBILITY */
 	-webkit-filter: sepia(20%);
+	-moz-filter: sepia(20%);
 }
 
 /* Header */
@@ -51,26 +52,26 @@ div#page {
 	div#bars-header-social-flickr:hover { background-image: url("/wp-content/uploads/2013/03/flickr.png"); }
 
 div#bars-header-logo { background-image: url("/wp-content/uploads/2013/03/bars-logo1.png"); width: 216px; height: 217px; margin: 10px auto -65px auto; } /* TODO CABLE y sMEJORAR */
-div#page h1.site-title { font-family: Creepster, IM Fell English SC; text-align: center; }
+div#page h1.site-title { font-family: Creepster, "IM Fell English SC"; text-align: center; }
 header#masthead { padding-top: 0; padding-bottom: 5px; }
 header .horizontal-scratch { margin-bottom: 10px; }
 
 /* Main menu */
 	/* Horizontal scratch-only menu */
-/*nav#site-navigation.bars-header-menu { margin: 0 auto; }
+nav#site-navigation.bars-header-menu { margin: 0 auto; }
 nav#site-navigation.bars-header-menu ul#menu-main { border: none; text-align: center; font-family: Oswald; }
 nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
 nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
 nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
-nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }*/
+nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
 
 	/* Vertical scratches menu */
-nav#site-navigation.bars-header-menu { margin: 10px auto -20px auto; background-image: url("/wp-content/uploads/2013/03/vertical-scratchs.png"); background-repeat: no-repeat; background-position: center; width: auto; height: 57px; padding-top: 20px; }
+/*nav#site-navigation.bars-header-menu { margin: 10px auto -20px auto; background-image: url("/wp-content/uploads/2013/03/vertical-scratchs.png"); background-repeat: no-repeat; background-position: center; width: auto; height: 57px; padding-top: 20px; }
 nav#site-navigation.bars-header-menu ul#menu-main { padding-left: 17px; border: none; text-align: center; font-family: Oswald; }
 nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
 nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
 nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
-nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
+nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }*/
 
 /* Sidebar */
 
