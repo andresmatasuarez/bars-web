@@ -19,7 +19,7 @@
 				        <div class="slide-meta">
 				            <span class="slide-date"><?php echo $created_at; ?></span>
 				            <?php if( !empty( $author_avatar ) ): ?>
-				                <img src="<?php echo $author_avatar; ?>" alt="<?php echo $author_name; ?>" class="slide-author-avatar" />
+				                <img src="" alt="<?php echo $author_name; ?>" class="slide-author-avatar" data-sd2-slide-image="<?php echo $image; ?>" />
 				            <?php endif; ?>
 				            <span class="slide-author">
 				                <?php if( !empty( $author_url ) && $slidedeck['options']['linkAuthorName'] == true ): ?><a href="<?php echo $author_url; ?>" class="accent-color" target="_blank"><?php endif; ?>
@@ -46,7 +46,7 @@
 			    <div class="slidedeck-vertical-center-middle">
 			        <div class="slidedeck-vertical-center-inner">
 						<a class="sd2-image-link" href="<?php echo $permalink; ?>" target="<?php echo $target; ?>">
-							<img src="<?php echo $nodes['video_meta']['thumbnail']; ?>" alt="<?php echo $title; ?> Image" class="slide-image" style="<?php echo $image_style; ?>" />
+							<img src="" alt="<?php echo $title; ?> Image" class="slide-image" style="<?php echo $image_style; ?>" data-sd2-slide-image="<?php echo $nodes['video_meta']['thumbnail']; ?>" />
 							<span class="sd2-border" style="<?php echo $image_border_style; ?>">&nbsp;</span>
 						</a>
 					</div>

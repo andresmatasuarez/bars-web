@@ -13,7 +13,7 @@
  Plugin Name: SlideDeck 2 Lite
  Plugin URI: http://www.slidedeck.com/wordpress
  Description: Create SlideDecks on your WordPress blogging platform and insert them into templates and posts. Get started creating SlideDecks from the new SlideDeck menu in the left hand navigation.
- Version: 2.1.20130325
+ Version: 2.3.3
  Author: digital-telepathy
  Author URI: http://www.dtelepathy.com
  License: GPL3
@@ -49,7 +49,7 @@ class SlideDeckLitePlugin {
         'ecf3509'
     );
     
-    static $version = '2.1.20130325';
+    static $version = '2.3.3';
     static $license = 'LITE';
 
       // Generally, we are not installing addons. If we are, this gets set to true.
@@ -663,7 +663,6 @@ class SlideDeckLitePlugin {
         add_action( "wp_ajax_{$this->namespace}_verify_license_key", array( &$this, 'ajax_verify_license_key' ) );
         add_action( "wp_ajax_{$this->namespace}_verify_addons_license_key", array( &$this, 'ajax_verify_addons_license_key' ) );
         add_action( "wp_ajax_{$this->namespace}2_blog_feed", array( &$this, 'ajax_blog_feed' ) );
-        add_action( "wp_ajax_{$this->namespace}2_tweet_feed", array( &$this, 'ajax_tweet_feed' ) );
 
         add_action( "wp_ajax_{$this->namespace}_upsell_modal_content", array( &$this, 'ajax_upsell_modal_content' ) );
         add_action( "wp_ajax_{$this->namespace}_anonymous_stats_optin", array( &$this, 'ajax_anonymous_stats_optin' ) );
@@ -974,6 +973,7 @@ class SlideDeckLitePlugin {
             $this->menu['options'] = add_submenu_page( SLIDEDECK2_BASENAME, 'SlideDeck Options', 'Advanced Options', 'manage_options', SLIDEDECK2_BASENAME . '/options', array( &$this, 'page_options' ) );
             $this->menu['upgrades'] = add_submenu_page( SLIDEDECK2_BASENAME, 'Get More Features', 'Get More Features', 'manage_options', SLIDEDECK2_BASENAME . '/upgrades', array( &$this, 'page_upgrades' ) );
             $this->menu['support'] = add_submenu_page( SLIDEDECK2_BASENAME, 'Need Support?', 'Need Support?', 'manage_options', SLIDEDECK2_BASENAME . '/need-support', array( &$this, 'page_route' ) );
+            $this->menu['slidedeck-app'] = add_submenu_page( SLIDEDECK2_BASENAME, 'Try SlideDeck App', 'Try SlideDeck App', 'manage_options', SLIDEDECK2_BASENAME . '/filament', array( &$this, 'page_route' ) );
 
             add_action( "load-{$this->menu['manage']}", array( &$this, "load_admin_page" ) );
             add_action( "load-{$this->menu['lenses']}", array( &$this, "load_admin_page" ) );
@@ -1104,59 +1104,6 @@ class SlideDeckLitePlugin {
 
         include (SLIDEDECK2_DIRNAME . '/views/elements/_options-lenses.php');
         exit ;
-    }
-
-    /**
-     * Outputs SlideDeck Markup for the latest tweets deck
-     *
-     * @uses fetch_feed()
-     * @uses wp_redirect()
-     * @uses SlideDeckPlugin::action()
-     * @uses is_wp_error()
-     * @uses SimplePie::get_item_quantity()
-     * @uses SimplePie::get_items()
-     */
-    function ajax_tweet_feed( ) {
-        if( !SLIDEDECK2_IS_AJAX_REQUEST ) {
-            wp_redirect( $this->action( ) );
-            exit ;
-        }
-
-        // Combines the dt and sd feeds:
-        $rss = fetch_feed( array( 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=slidedeck', 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=dtelepathy', ) );
-
-        // Checks that the object is created correctly
-        if( !is_wp_error( $rss ) ) {
-            // Figure out how many total items there are, but limit it to 5.
-            $maxitems = $rss->get_item_quantity( 5 );
-
-            // Build an array of all the items, starting with element 0 (first
-            // element).
-            $rss_items = $rss->get_items( 0, $maxitems );
-
-            $url_regex = '/((https?|ftp|gopher|telnet|file|notes|ms-help):((\/\/)|(\\\\))+[\w\d:#@%\/\;$()~_?\+-=\\\.&]*)/';
-            $formatted_rss_items = array( );
-            foreach( $rss_items as $key => $value ) {
-                $tweet = $value->get_title( );
-
-                // Remove the 'dtelepathy: ' part at the beginning of the feed:
-                $tweet = preg_replace( '/^[^\s]+:\s/', '', $tweet );
-                // Link all the links:
-                $tweet = preg_replace( $url_regex, '<a href="$1" target="_blank">' . "$1" . '</a>', $tweet );
-                // Link the hashtags and mentions
-                $tweet = preg_replace( array( '/\@([a-zA-Z0-9_]+)/', # Twitter
-                # Usernames
-                '/\#([a-zA-Z0-9_]+)/' # Hash Tags
-                ), array( '<a href="http://twitter.com/$1" target="_blank">@$1</a>', '<a href="http://twitter.com/search?q=%23$1" target="_blank">#$1</a>' ), $tweet );
-
-                $formatted_rss_items[] = array( 'tweet' => $tweet, 'time_ago' => human_time_diff( strtotime( $value->get_date( ) ), current_time( 'timestamp' ) ) . " ago", 'permalink' => $value->get_permalink( ) );
-            }
-
-            include (SLIDEDECK2_DIRNAME . '/views/elements/_latest-tweets.php');
-            exit ;
-        }
-
-        die( "Could not connect to Twitter..." );
     }
 
     /**
@@ -2966,7 +2913,7 @@ class SlideDeckLitePlugin {
         $is_writable = $this->Lens->is_writable( );
         
         $can_edit_lenses = !in_array( self::highest_installed_tier(), array( 'tier_5', 'tier_10', 'tier_20' ) );
-
+        
         include (SLIDEDECK2_DIRNAME . '/views/lenses/manage.php');
     }
 
@@ -3302,6 +3249,11 @@ class SlideDeckLitePlugin {
             exit ;
         }
 
+        if( preg_match( "/admin\.php\?.*page\=" . SLIDEDECK2_BASENAME . "\/filament/", $uri ) ) {
+            wp_redirect( "http://filament.io/applications/slidedeck-app?utm_source=sd2lite_wp&utm_medium=deployment&utm_content=admin&utm_campaign=filament" );
+            exit ;
+        }
+
         do_action( "{$this->namespace}_route", $uri, $protocol, $hostname, $url, $is_post, $nonce );
     }
 
@@ -3502,6 +3454,7 @@ class SlideDeckLitePlugin {
     function shortcode( $atts ) {
         global $post;
         $default_deck_link_text = '';
+        $has_custom_css = false;
         
         if( isset( $atts['id'] ) && !empty( $atts['id'] ) )
             $default_deck_link_text = get_the_title( $atts['id'] ) . ' <small>[' . __( "see the SlideDeck", $this->namespace ) . ']</small>';
@@ -3524,6 +3477,9 @@ class SlideDeckLitePlugin {
             'start' => false
         ), $atts ) );
         
+        $custom_css = get_post_meta( $id, $this->namespace . '_custom_css', true );
+        if( !empty( $custom_css ) ) $has_custom_css = true;
+
         // Make sure that the RESS flag is set so we load the necessary assets in the footer
         if( $ress == true ) {
             $this->page_has_ress_deck = true;
@@ -3537,7 +3493,13 @@ class SlideDeckLitePlugin {
             if( ( $iframe !== false ) || ( $ress !== false ) ) {
                 return $this->_render_iframe( $id, $width, $height, $nocovers, $ress, $proportional );
             } else {
-                return $this->SlideDeck->render( $id, array( 'width' => $width, 'height' => $height ), $include_lens_files, $preview, $echo_js, $start );
+                $deck_output = '';
+
+                if( $has_custom_css ) $deck_output .= '<div class="' . $this->namespace . '-custom-css-wrapper-' . $id . '">';
+                $deck_output .= $this->SlideDeck->render( $id, array( 'width' => $width, 'height' => $height ), $include_lens_files, $preview, $echo_js, $start );
+                if( $has_custom_css ) $deck_output .= '</div>';
+                
+                return $deck_output;
             }
         } else {
             return "";
@@ -3804,7 +3766,7 @@ class SlideDeckLitePlugin {
 
         die( "Saved!" );
     }
-
+    
     /**
      * AJAX submission for updating the stats optin from the modal form
      */
@@ -3873,7 +3835,7 @@ class SlideDeckLitePlugin {
 
         if( $result || is_wp_error( $result ) )
             $file_upload->cleanup( );
-
+        
         include (ABSPATH . 'wp-admin/admin-footer.php');
     }
 
@@ -4115,16 +4077,16 @@ class SlideDeckLitePlugin {
         }
         
         if( $load_assets === true ) {
-    
-            if( $this->get_option( 'dont_enqueue_scrollwheel_library' ) != true ) {
-                wp_enqueue_script( 'scrolling-js' );
-            }
-    
-            if( $this->get_option( 'dont_enqueue_easing_library' ) != true ) {
-                wp_enqueue_script( 'jquery-easing' );
-            }
-    
+            
             if( !is_admin( ) ) {
+                if( $this->get_option( 'dont_enqueue_scrollwheel_library' ) != true ) {
+                    wp_enqueue_script( 'scrolling-js' );
+                }
+        
+                if( $this->get_option( 'dont_enqueue_easing_library' ) != true ) {
+                    wp_enqueue_script( 'jquery-easing' );
+                }
+                
                 wp_enqueue_script( "{$this->namespace}-library-js" );
                 wp_enqueue_script( "{$this->namespace}-public" );
                 wp_enqueue_script( "twitter-intent-api" );

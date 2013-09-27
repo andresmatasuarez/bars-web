@@ -6,7 +6,7 @@
         var el, iframe, i, script, messageHandler, element, container, xdomain,
         props = {
             src : '',
-            width : '100%',
+            width : 0,
             style : 'padding: 0; margin: 0; border: none; display: block; height: 0; overflow: hidden;',
             scrolling : 'no',
             frameBorder : 0,
@@ -35,6 +35,7 @@
             if( SlideDeckUniqueId == props.id ) {
                 startSlide = messageParts[2];
                 document.getElementById( props.id ).style.height = parseInt( newHeight ) + 'px';
+                document.getElementById( props.id ).style.width = '100%';
             }
         }
         
@@ -93,7 +94,8 @@
                 if( widthDiff > widthDelta ) {
                     var newHeight = parseInt(jQuery('#' + props.id + '-wrapper').height());
                     $('#' + props.id + '-wrapper iframe')[0].src = $('#' + props.id + '-wrapper iframe')[0].src
-                    .replace(/outer_width=[0-9]+/,'outer_width=' + endWidth ).replace(/outer_height=[0-9]+/,'outer_height=' + newHeight )
+                    .replace(/outer_width=[0-9]+/,'outer_width=' + endWidth )
+                    .replace(/outer_height=[0-9]+/,'outer_height=' + newHeight )
                     .replace(/width=[0-9]+/, 'width=' + endWidth )
                     .replace(/height=[0-9]+/, 'height=' + newHeight )
                     .replace(/start=([0-9]+)?/, 'start=' + startSlide);

@@ -1931,20 +1931,154 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
     position: absolute;
     bottom: 15px;
     left: 15px;
-    width: 37px;
-    height: 0;
-    padding-top: 29px;
-    background: url('../images/slidedeck-bug.png') 0 0 no-repeat;
+    width: 42px;
+    height: 34px;
+    color: #fff;
     text-decoration: none;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    -o-border-radius: 11px;
+    border-radius: 11px;
     z-index: 100;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
 }
+.slidedeck-frame a.slidedeck-2-bug:after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid #fff;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    -o-border-radius: 11px;
+    border-radius: 11px;
+    -webkit-transition: border 0.3s 0.3s;
+    -moz-transition: border 0.3s 0.3s;
+    -o-transition: border 0.3s 0.3s;
+    transition: border 0.3s 0.3s;
+    z-index: 101;
+}
+.slidedeck-frame a.slidedeck-2-bug.open {
+    width: 145px;
+    -webkit-transition: width 0.3s ease-in-out 0.25s;
+    -moz-transition: width 0.3s ease-in-out 0.25s;
+    -o-transition: width 0.3s ease-in-out 0.25s;
+    transition: width 0.3s ease-in-out 0.25s;
+}
+.slidedeck-frame a.slidedeck-2-bug.open:after {
+    border: 3px solid transparent;
+    -webkit-transition: border 0.25s;
+    -moz-transition: border 0.25s;
+    -o-transition: border 0.25s;
+    transition: border 0.25s;
+}
+.slidedeck-frame a.slidedeck-2-bug span {
+    position: absolute;
+    display: block;
+    height: 34px;
+}
+.slidedeck-frame a.slidedeck-2-bug span.slidedeck-2-bug-logo {
+    overflow: hidden;
+    background: #708ae9;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 0;
+    padding-top: 34px;
+    text-indent: 100%;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    -o-border-radius: 11px;
+    border-radius: 11px;
+    
+    -webkit-transition: -webkit-border-radius 0.25s 0.25s;
+    -moz-transition: -moz-border-radius 0.25s 0.25s;
+    -o-transition: -o-border-radius 0.25s 0.25s;
+    transition: border-radius 0.25s 0.25s;
+    
+    background-image: url('../images/slidedeck-bug.png');
+}
+.slidedeck-frame a.slidedeck-2-bug.open span.slidedeck-2-bug-logo {
+    -webkit-border-radius: 11px 0 0 11px;
+    -moz-border-radius: 11px 0 0 11px;
+    -o-border-radius: 11px 0 0 11px;
+    border-radius: 11px 0 0 11px;
+    
+    -webkit-transition: -webkit-border-radius 0.25s;
+    -moz-transition: -moz-border-radius 0.25s;
+    -o-transition: -o-border-radius 0.25s;
+    transition: border-radius 0.25s;
+}
+.slidedeck-frame a.slidedeck-2-bug span.slidedeck-2-bug-text {
+    width: 103px;
+    height: 34px;
+    top: 0;
+    left: 42px;
+    padding: 5px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 11px;
+    font-family: sans-serif;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.7);
+    -webkit-border-radius: 0 11px 11px 0;
+    -moz-border-radius: 0 11px 11px 0;
+    -o-border-radius: 0 11px 11px 0;
+    border-radius: 0 11px 11px 0;
+}
+.slidedeck-frame a.slidedeck-2-bug span.slidedeck-2-bug-text strong {
+    text-decoration: underline;
+}
+/*bug small*/
 .slidedeck-frame.sd2-small a.slidedeck-2-bug {
-    width: 20px;
-    padding-top: 16px;
     left: 10px;
     bottom: 10px;
-    background: url('../images/slidedeck-bug-small.png') 0 0 no-repeat;
+    width: 25px;
+    height: 20px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
 }
+.slidedeck-frame.sd2-small a.slidedeck-2-bug:after {
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #fff;
+}
+.slidedeck-frame.sd2-small a.slidedeck-2-bug.open {
+    width: 25px;
+}
+.slidedeck-frame.sd2-small a.slidedeck-2-bug.open:after {
+    border: 1px solid transparent;
+}
+.slidedeck-frame.sd2-small a.slidedeck-2-bug span.slidedeck-2-bug-logo,
+.slidedeck-frame.sd2-small a.slidedeck-2-bug.open span.slidedeck-2-bug-logo {
+    width: 25px;
+    padding-top: 20px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    background-image: url('../images/slidedeck-bug-small.png');
+}
+.slidedeck-frame.sd2-small a.slidedeck-2-bug span.slidedeck-2-bug-text { display: none; }
 
 
 /*Full Slide Link*/
@@ -2033,4 +2167,17 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
 
 div.sd2-ress-wrapper {
 	overflow: hidden;
+}
+
+img.sd2-image-lazy-loading,
+div.sd2-image-lazy-loading {
+    background: url('../images/lazy-load-large.gif') no-repeat center center;
+    -webkit-background-size: auto auto !important;
+    -moz-background-size: auto auto !important;
+    -o-background-size: auto auto !important;
+    background-size: auto auto !important;
+}
+.slidedeck-frame.sd2-small img.sd2-image-lazy-loading,
+.slidedeck-frame.sd2-small div.sd2-image-lazy-loading {
+    background-image: url('../images/lazy-load-small.gif');
 }

@@ -32,7 +32,7 @@
 			    <div class="slidedeck-vertical-center-middle">
 			        <div class="slidedeck-vertical-center-inner">
 						<a class="sd2-image-link" href="<?php echo $permalink; ?>" target="<?php echo $target; ?>">
-							<img src="<?php echo $image; ?>" alt="<?php echo $title; ?> Image" class="slide-image" style="<?php echo $image_style; ?>" />
+							<img alt="<?php echo $title; ?> Image" class="slide-image" style="<?php echo $image_style; ?>" data-sd2-slide-image="<?php echo $image; ?>" />
 							<span class="sd2-border" style="<?php echo $image_border_style; ?>">&nbsp;</span>
 						</a>
 					</div>

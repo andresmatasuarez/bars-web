@@ -41,7 +41,3 @@
 	<?php endif; ?>
 	
 </div>
-
-<?php if( isset( $image ) ): ?>
-    <div class="sd2-slide-background" style="background-image: url(<?php echo $image; ?>);"></div>
-<?php endif; ?>

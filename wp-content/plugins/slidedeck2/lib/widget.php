@@ -79,9 +79,14 @@ class SlideDeck2Widget extends WP_Widget {
         $deploy_as_iframe = $instance[$this->namespace . '_deploy_as_iframe'];
         $use_ress = $instance[$this->namespace . '_use_ress'];
         $proportional = $instance[$this->namespace . '_proportional'];
-        $title = strip_tags( $instance[ $this->namespace . '_title'] );
-        $before_deck = $instance[ $this->namespace . '_before_deck'];
-        $after_deck = $instance[ $this->namespace . '_after_deck'];
+
+        $instance_title = ( isset( $instance[ $this->namespace . '_title'] ) ) ? $instance[ $this->namespace . '_title'] : '' ;
+        $instance_before_deck = ( isset( $instance[ $this->namespace . '_before_deck'] ) ) ? $instance[ $this->namespace . '_before_deck'] : '' ;
+        $instance_after_deck = ( isset( $instance[ $this->namespace . '_after_deck'] ) ) ? $instance[ $this->namespace . '_after_deck'] : '' ;
+
+        $title = strip_tags( $instance_title );
+        $before_deck = $instance_before_deck;
+        $after_deck = $instance_after_deck;
         
         
         $namespace = $this->namespace;

@@ -242,31 +242,7 @@ var SlideDeckLens = {};
         
         var bugSet = false;
         var updateBug = function(){
-            /**
-             * This code loads a small image (but does not place it in the DOM) to help
-             * us see where SlideDeck is being deployed and keep apprised of issues people
-             * may be encountering. This also allows us to see deployment examples that
-             * we may want to include in our featured community examples.
-             */
-            
-            var scripts = document.getElementsByTagName('script');
-            for(var i = 0; i < scripts.length; i++){
-                var src = scripts[i].src;
-                if(src.match(/slidedeck\.jquery(\.dev)?\.js/)){
-                    var srcSplit = src.split('?');
-                    if(srcSplit.length > 1){
-                        if(srcSplit[1].match(/noping/)){
-                            bugSet = true;
-                        }
-                    }
-                }
-            }
-            
-            if(bugSet === false){
-                bugSet = true;
-                var bug = new Image();
-                    bug.src = (document.location.protocol == "https:" ? "https:" : "http:") + "//www.slidedeck.com/6885858486f31043e5839c735d99457f045affd0/" + VERSION + "/" + distribution;
-            }
+            return false;
         };
         
 

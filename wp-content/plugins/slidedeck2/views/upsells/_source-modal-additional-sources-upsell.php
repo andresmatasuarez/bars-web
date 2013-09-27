@@ -8,5 +8,5 @@
 			<a href="<?php echo slidedeck2_action( "/upgrades&referrer=More+Sources+Handslap" ); ?>" class="button slidedeck-noisy-button">Upgrade to Personal</a>
 		</div>
 	</div>
-	<img height="201" src="https://s3.amazonaws.com/slidedeck-pro/lite_upsell_assets/images/sources-modal-upsell-source-list.png" alt="Available Sources">
+	<img height="228" src="<?php echo SLIDEDECK2_URLPATH; ?>/images/sources-modal-upsell-source-list.png" alt="Available Sources">
 </div>

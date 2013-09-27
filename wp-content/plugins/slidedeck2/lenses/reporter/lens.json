@@ -9,12 +9,14 @@
         "dribbble",
         "gplusimages",
         "flickr",
-        "twitter",
         "youtube",
         "dailymotion",
         "vimeo",
         "fivehundredpixels",
-        "pinterest"
+        "pinterest",
+        "facebook",
+        "twitter",
+        "nextgengallery"
     ],
     "version": "1.0",
     "author": "dtelepathy",

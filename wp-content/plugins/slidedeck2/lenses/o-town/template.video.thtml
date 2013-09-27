@@ -27,4 +27,6 @@
 
 <span class="slidedeck-index-indicator"><span class="current">x</span>/<span class="total">x</span></span>
 
+<?php if( !empty($video_meta['full_image']) ): ?>
 <div class="sd2-slide-background" style='background-image: url("<?php echo $video_meta['full_image']; ?>"); display:none;'>&nbsp;</div>
+<?php endif; ?>

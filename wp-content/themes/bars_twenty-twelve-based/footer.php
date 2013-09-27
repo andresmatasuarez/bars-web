@@ -11,7 +11,9 @@
  */
 ?>
 	</div><!-- #main .wrapper -->
-</div><!-- #page -->
+</div>	<div class="scratch right"></div>
+	</div><!-- #page -->
+</div>
 
 <footer class="bars-footer">
 	

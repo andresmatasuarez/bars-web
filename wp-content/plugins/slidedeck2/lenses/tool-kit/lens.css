@@ -455,6 +455,7 @@ Tags: images, posts, feeds, pages, slidedeck
     left: 4px;
     width: 40px;
     height: 40px;
+    background-position: center center;
     background-size: cover;
 }
 .lens-tool-kit.sd2-nav-hanging .sd-nav-deck .sd-thumb {
@@ -1916,122 +1917,242 @@ Tags: images, posts, feeds, pages, slidedeck
 
 /*Bug Placement*/
 /*Default*/
-.lens-tool-kit a.slidedeck-2-bug {
-    top: 15px;
-    bottom: auto;
-}
-.lens-tool-kit.sd2-small a.slidedeck-2-bug {
-    top: 15px;
-    bottom: auto;
-}
-.lens-tool-kit.sd2-no-nav.sd2-hairline a.slidedeck-2-bug {
-    top: auto !important;
-    bottom: 15px !important;
-}
-.lens-tool-kit.sd2-no-nav.sd2-hairline.sd2-small a.slidedeck-2-bug {
-    top: auto !important;
-    bottom: 10px !important;
-}
-.lens-tool-kit.sd2-no-nav.sd2-frame a.slidedeck-2-bug {
-    top: auto !important;
-    bottom: 20px !important;
-}
-.lens-tool-kit.sd2-no-nav.sd2-frame.sd2-small a.slidedeck-2-bug {
-    top: auto !important;
-    bottom: 20px !important;
-}
-/*Nav Position Top - Thumb*/
-.lens-tool-kit.sd2-nav-pos-top.sd2-nav-thumb a.slidedeck-2-bug {
-    top: auto;
-    bottom: 15px;
-}
-.lens-tool-kit.sd2-nav-pos-top.sd2-nav-thumb.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 15px;
-}
-/*Nav Position Bottom with Nav Bar - Thumb*/
-.lens-tool-kit.sd2-nav-pos-bottom.sd2-nav-bar.sd2-nav-thumb a.slidedeck-2-bug {
-    top: auto;
-    bottom: 80px;
-}
-.lens-tool-kit.sd2-nav-pos-bottom.sd2-nav-bar.sd2-nav-thumb.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 65px;
-}
-/*Nav Hanging Bottom - Thumb*/
-.lens-tool-kit.sd2-nav-hanging.sd2-nav-pos-bottom.sd2-nav-thumb a.slidedeck-2-bug {
-    top: auto;
-    bottom: 80px;
-}
-.lens-tool-kit.sd2-nav-hanging.sd2-nav-pos-bottom.sd2-nav-thumb.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 75px;
-}
-/*Nav Hanging Bottom w/Frame - Thumb*/
-.lens-tool-kit.sd2-nav-hanging.sd2-nav-pos-bottom.sd2-nav-thumb.sd2-frame a.slidedeck-2-bug {
-    top: auto;
-    bottom: 90px;
-}
-.lens-tool-kit.sd2-nav-hanging.sd2-nav-pos-bottom.sd2-nav-thumb.sd2-frame.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 70px;
-}
-/*Nav Position Top - Dots*/
-.lens-tool-kit.sd2-nav-pos-top.sd2-nav-dots a.slidedeck-2-bug {
-    top: auto;
-    bottom: 15px;
-}
-.lens-tool-kit.sd2-nav-pos-top.sd2-nav-dots.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 10px;
-}
-/*Nav Position Top/w Frame - Dots*/
-.lens-tool-kit.sd2-nav-pos-top.sd2-nav-dots.sd2-frame a.slidedeck-2-bug {
-    top: auto;
-    bottom: 22px;
-}
-.lens-tool-kit.sd2-nav-pos-top.sd2-nav-dots.sd2-frame.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 18px;
-}
-/*Nav Position Bottom with Nav Bar - Dots*/
-.lens-tool-kit.sd2-nav-pos-bottom.sd2-nav-bar.sd2-nav-dots a.slidedeck-2-bug {
-    top: auto;
-    bottom: 65px;
-}
-.lens-tool-kit.sd2-nav-pos-bottom.sd2-nav-bar.sd2-nav-dots.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 45px;
-}
-/*Nav Position Bottom with Dots*/
-.lens-tool-kit.sd2-frame.sd2-nav-pos-bottom.sd2-nav-dots a.slidedeck-2-bug {
-    top: auto;
-    bottom: 20px;
-}
-.lens-tool-kit.sd2-hairline.sd2-nav-pos-bottom.sd2-nav-dots a.slidedeck-2-bug {
-    top: auto;
-    bottom: 20px;
-}
-/*Nav Hanging Bottom - Dots*/
-.lens-tool-kit.sd2-nav-hanging.sd2-nav-pos-bottom.sd2-nav-dots a.slidedeck-2-bug {
-    top: auto;
-    bottom: 45px;
-}
-.lens-tool-kit.sd2-nav-hanging.sd2-nav-pos-bottom.sd2-nav-dots.sd2-small a.slidedeck-2-bug {
-    top: auto;
-    bottom: 40px;
-}
-/*With Frame*/
 .lens-tool-kit.sd2-frame a.slidedeck-2-bug {
+    bottom: 25px;
+    left: 25px;
+    top: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-title-pos-bottom a.slidedeck-2-bug {
     top: 25px;
     bottom: auto;
-    left: 25px;
 }
+.lens-tool-kit.sd2-frame.sd2-title-pos-right a.slidedeck-2-bug {
+    right: 25px;
+    left: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-top a.slidedeck-2-bug {
+    bottom: 25px;
+    left: 25px;
+    top: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-top a.slidedeck-2-bug {
+    bottom: 25px;
+    left: 25px;
+    top: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom a.slidedeck-2-bug {
+    top: 25px;
+    left: 25px;
+    bottom: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-left.sd2-nav-bar a.slidedeck-2-bug {
+    top: auto;
+    left: auto;
+    bottom: 25px;
+    right: 25px;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar a.slidedeck-2-bug {
+    top: auto;
+    left: 25px;
+    bottom: 85px;
+    right: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar.sd2-title-pos-bottom a.slidedeck-2-bug {
+    top: 25px;
+    left: 25px;
+    bottom: auto;
+    right: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-hanging a.slidedeck-2-bug {
+    top: auto;
+    left: 25px;
+    bottom: 95px;
+    right: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-right.sd2-nav-hanging a.slidedeck-2-bug {
+    top: auto;
+    left: 25px;
+    bottom: 25px;
+    right: auto;
+}
+/*default small*/
 .lens-tool-kit.sd2-frame.sd2-small a.slidedeck-2-bug {
+    bottom: 15px;
+    left: 15px;
+    top: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-title-pos-right.sd2-small a.slidedeck-2-bug {
+    right: 15px;
+    left: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-title-pos-bottom.sd2-small a.slidedeck-2-bug {
+    top: 15px;
+    bottom: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-top.sd2-small a.slidedeck-2-bug {
+    bottom: 15px;
+    left: 15px;
+    top: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-top.sd2-small a.slidedeck-2-bug {
+    bottom: 15px;
+    left: 15px;
+    top: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-small a.slidedeck-2-bug {
+    top: 15px;
+    left: 15px;
+    bottom: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-left.sd2-nav-bar.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: auto;
+    bottom: 15px;
+    right: 15px;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: 15px;
+    bottom: 75px;
+    right: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar.sd2-title-pos-bottom.sd2-small a.slidedeck-2-bug {
+    top: 15px;
+    left: 15px;
+    bottom: auto;
+    right: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-hanging.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: 15px;
+    bottom: 85px;
+    right: auto;
+}
+.lens-tool-kit.sd2-frame.sd2-nav-thumb.sd2-nav-pos-right.sd2-nav-hanging.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: 15px;
+    bottom: 15px;
+    right: auto;
+}
+
+/*Hairline and No Frame*/
+.lens-tool-kit a.slidedeck-2-bug {
+    bottom: 20px;
+    left: 20px;
+    top: auto;
+}
+.lens-tool-kit.sd2-title-pos-bottom a.slidedeck-2-bug {
     top: 20px;
     bottom: auto;
-    left: 20px;
 }
+.lens-tool-kit.sd2-title-pos-right a.slidedeck-2-bug {
+    right: 20px;
+    left: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-top a.slidedeck-2-bug {
+    bottom: 20px;
+    left: 20px;
+    top: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-top a.slidedeck-2-bug {
+    bottom: 20px;
+    left: 20px;
+    top: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom a.slidedeck-2-bug {
+    top: 20px;
+    left: 20px;
+    bottom: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-left.sd2-nav-bar a.slidedeck-2-bug {
+    top: auto;
+    left: auto;
+    bottom: 20px;
+    right: 20px;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar a.slidedeck-2-bug {
+    top: auto;
+    left: 20px;
+    bottom: 80px;
+    right: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar.sd2-title-pos-bottom a.slidedeck-2-bug {
+    top: 20px;
+    left: 20px;
+    bottom: auto;
+    right: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-hanging a.slidedeck-2-bug {
+    top: auto;
+    left: 20px;
+    bottom: 90px;
+    right: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-right.sd2-nav-hanging a.slidedeck-2-bug {
+    top: auto;
+    left: 20px;
+    bottom: 20px;
+    right: auto;
+}
+/*Hairline small*/
+.lens-tool-kit.sd2-small a.slidedeck-2-bug {
+    bottom: 10px;
+    left: 10px;
+}
+.lens-tool-kit.sd2-title-pos-right.sd2-small a.slidedeck-2-bug {
+    right: 10px;
+    left: auto;
+}
+.lens-tool-kit.sd2-title-pos-bottom.sd2-small a.slidedeck-2-bug {
+    top: 10px;
+    bottom: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-top.sd2-small a.slidedeck-2-bug {
+    bottom: 10px;
+    left: 10px;
+    top: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-top.sd2-small a.slidedeck-2-bug {
+    bottom: 10px;
+    left: 10px;
+    top: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-small a.slidedeck-2-bug {
+    top: 10px;
+    left: 10px;
+    bottom: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-left.sd2-nav-bar.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: auto;
+    bottom: 10px;
+    right: 10px;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: 10px;
+    bottom: 70px;
+    right: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-bar.sd2-title-pos-bottom.sd2-small a.slidedeck-2-bug {
+    top: 10px;
+    left: 10px;
+    bottom: auto;
+    right: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-bottom.sd2-nav-hanging.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: 10px;
+    bottom: 80px;
+    right: auto;
+}
+.lens-tool-kit.sd2-nav-thumb.sd2-nav-pos-right.sd2-nav-hanging.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: 10px;
+    bottom: 10px;
+    right: auto;
+}
+
 /*Video Deck Bug Positioning*/
 .lens-tool-kit.source-type-videos a.slidedeck-2-bug {
     bottom: auto !important;

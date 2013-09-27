@@ -50,6 +50,7 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
     
     <ul class="sources">
         <?php foreach( $sources as &$source ): ?>
+        <?php if ( $source->name == "twitter" ) { continue; } ?>
             
             <li class="source<?php if( in_array( $source->name, $disabled_sources ) ) echo ' disabled'; ?>">
                 <label>

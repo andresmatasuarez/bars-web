@@ -1,7 +1,7 @@
 <div class="slide-content">
     <div class="video-wrapper">
         <?php echo $video_container; ?>
-        <div class="cover" style="background-image: url('<?php echo $video_meta['full_image']; ?>');">
+        <div class="cover" data-sd2-slide-image="<?php echo $video_meta['full_image']; ?>">
 
             <div class="sd-node-title-box">
                 <div class="slide-title accent-color">

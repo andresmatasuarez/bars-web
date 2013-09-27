@@ -9,7 +9,9 @@
             <?php do_action( "{$namespace}_form_content_source", $slidedeck, $source->name ); ?>
 			
 			<div class="actions">
+				<?php if( $source->name != "twitter" ) : ?>
 			    <a href="#apply" class="slidedeck-ajax-update button button-primary apply"><?php _e( "Apply", $namespace ); ?></a>
+			    <?php endif; ?>
 			    
 			    <?php if( count( $sources ) > 1 ): ?>
 			    	<a href="<?php echo admin_url( 'admin-ajax.php?action=' . $namespace . '_delete_source&_wpnonce=' . wp_create_nonce( $namespace . '-delete-source' ) ); ?>" class="delete link"><?php _e( "Delete", $namespace ); ?></a>

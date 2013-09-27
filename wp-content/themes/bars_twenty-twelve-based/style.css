@@ -10,12 +10,12 @@
 @import url(http://fonts.googleapis.com/css?family=IM+Fell+English+SC);
 @import url(http://fonts.googleapis.com/css?family=Creepster);
 @import url(http://fonts.googleapis.com/css?family=Trocchi);
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica);
 
 /* SlideDeck plugin */
 a.slidedeck-2-bug { display: none !important; }
 
-/* ************** */
-/* Utils ******** */
+/* Utils */
 .left-arrow { width: 0px; height: 0px; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid white; float: left; }
 .rounded-box { width: 22px; height: 18px; float: left; border-radius: 5px; background-color: white; }
 .horizontal-scratch { background-image: url("/wp-content/uploads/2013/03/scratch1.png"); width: 673px; height: 6px; margin-right: auto; margin-left: auto; }
@@ -24,18 +24,52 @@ a.slidedeck-2-bug { display: none !important; }
 
 div#page {
 	background-image: url("/wp-content/uploads/2013/03/dark_wash_wall.png");
-	margin-top: 0;
-	margin-bottom: 0;
-	padding: 0 100px  50px 100px;
-	max-width: 58rem;
-	
+	margin: 0 auto 0 auto;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	max-width: 65rem;
 	/* TODO CHECK CROSS-BROWSER COMPATIBILITY */
 	-webkit-filter: sepia(20%);
 	-moz-filter: sepia(20%);
 }
 
+div.bars-main-container {
+	float: left;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+div.scratch {
+	background-image: url("/wp-content/uploads/2013/08/vert-scratch.png");
+	height: 100%;
+	width: 5px;
+	position: absolute;
+}
+
+div.scratch.left {
+	float: left; left: 0;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+ }
+div.scratch.right {
+	float: left; right: 0;
+	-moz-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+	filter: FlipV;
+	-ms-filter: "FlipV";
+}
+
+article { color: gray; }
+
 /* Header */
-	/* Social bar */
+	/* Social */
 	div#bars-header-social { float: right; }
 	div#bars-header-social div.column { margin: 0 1px; float: right; }
 	div#bars-header-social-facebook, div#bars-header-social-youtube { margin: 0; padding: 0; margin-bottom: 1px; width: 33px; height: 32px; background-repeat: no-repeat; }
@@ -51,30 +85,29 @@ div#page {
 	div#bars-header-social-flickr { background-image: url("/wp-content/uploads/2013/03/flickr-gray.png"); }
 	div#bars-header-social-flickr:hover { background-image: url("/wp-content/uploads/2013/03/flickr.png"); }
 
-div#bars-header-logo { background-image: url("/wp-content/uploads/2013/03/bars-logo1.png"); width: 216px; height: 217px; margin: 10px auto -65px auto; } /* TODO CABLE y sMEJORAR */
+div#bars-header-logo { background-image: url("/wp-content/uploads/2013/08/header-min.png"); width: 668px; height: 228px; margin: 10px auto -65px 9px; } /* TODO CABLE y sMEJORAR */
 div#page h1.site-title { font-family: Creepster, "IM Fell English SC"; text-align: center; }
 header#masthead { padding-top: 0; padding-bottom: 5px; }
-header .horizontal-scratch { margin-bottom: 10px; }
+header .horizontal-scratch.top { margin-top: 10px; }
+header .horizontal-scratch.bottom { margin-top: 10px; margin-bottom: 10px; }
+div#bars-header-caption { text-align: center; font-family: 'IM Fell Double Pica', serif; color: white; font-size: 20pt; }
 
 /* Main menu */
 	/* Horizontal scratch-only menu */
-nav#site-navigation.bars-header-menu { margin: 0 auto; }
-nav#site-navigation.bars-header-menu ul#menu-main { border: none; text-align: center; font-family: Oswald; }
-nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
-nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
-nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
-nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
+	nav#site-navigation.bars-header-menu { margin: 15px auto -15px auto; }
+	nav#site-navigation.bars-header-menu ul#menu-main { border: none; text-align: center; font-family: Oswald; }
+	nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
+	nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
+	nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
+	nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }
 
 	/* Vertical scratches menu */
-/*nav#site-navigation.bars-header-menu { margin: 10px auto -20px auto; background-image: url("/wp-content/uploads/2013/03/vertical-scratchs.png"); background-repeat: no-repeat; background-position: center; width: auto; height: 57px; padding-top: 20px; }
-nav#site-navigation.bars-header-menu ul#menu-main { padding-left: 17px; border: none; text-align: center; font-family: Oswald; }
-nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
-nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
-nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
-nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }*/
-
-/* Sidebar */
-
+	/*nav#site-navigation.bars-header-menu { margin: 10px auto -20px auto; background-image: url("/wp-content/uploads/2013/03/vertical-scratchs.png"); background-repeat: no-repeat; background-position: center; width: auto; height: 57px; padding-top: 20px; }
+	nav#site-navigation.bars-header-menu ul#menu-main { padding-left: 17px; border: none; text-align: center; font-family: Oswald; }
+	nav#site-navigation.bars-header-menu ul#menu-main li { padding: 0; margin: 0; }
+	nav#site-navigation.bars-header-menu ul#menu-main li.current-menu-item  a { font-weight: normal; color: orange !important; }
+	nav#site-navigation.bars-header-menu ul#menu-main li a { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); padding-left: 10px; padding-right: 10px; font-size: 17px; line-height: 2; color: white; }
+	nav#site-navigation.bars-header-menu ul#menu-main li a:hover { text-shadow: 2px 1px 0px rgba(0, 0, 0, 1); color: orange; }*/
 
 /* Post */
 body.home article.post { box-shadow: inset 0px 0px 150px 0px rgba(50,0,0,0.4); background-image: url("/wp-content/uploads/2013/03/textured_paper.png"); margin-bottom: 5px; margin-top: 0; display: inline-block; padding: 5px; border: none; border-radius: 10px; }
@@ -84,7 +117,26 @@ body.home article.post div.title-date { font-family: Oswald; color: black; font-
 body.home article.post h1.entry-title { width: 250px; font-family: Oswald; height: 75px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 1); margin-top: 0.5rem; } 
 body.home article.post h1.entry-title a:active, body.home article.post h1.entry-title a:link, body.home article.post h1.entry-title a:visited { color: darkred; }
 body.home article.post h1.entry-title a:hover { color: red; }
-/*body.home article.post div.BARS_entry-subtitle { font-family: Oswald; font-size: 15px; }*/
+
+/* Main */
+div#main div#content a{ text-decoration: none; font-weight: bold; color: red; }
+div#main div#content a:hover{ color: orange; }
+
+div#main div#content article.page h1.entry-title { font-family: 'IM Fell Double Pica', serif; color: white; font-size: 26pt; }
 
 /* Footer */
-footer.bars-footer { -webkit-filter: brightness(0.3); box-shadow: 0px -5px 10px rgba(0,0,0,1); border-top: 1px solid rgba(255,255,255,1); width: 100%; height: 200px; background-image: url("/wp-content/uploads/2013/03/grey_wash_wall.png"); z-index: 99999; }
+footer.bars-footer { clear: both; -webkit-filter: brightness(0.3); box-shadow: 0px -5px 10px rgba(0,0,0,1); border-top: 1px solid rgba(255,255,255,1); width: 100%; height: 200px; background-image: url("/wp-content/uploads/2013/03/grey_wash_wall.png"); z-index: 99999; }
+
+/* AUSPICIANTES */
+div#sponsors { text-align: center; }
+div#sponsors  img { margin: 15px 20px 50px 20px; }
+
+/* CONVOCATORIA */
+/* BARS info displayer widget */
+.bars-info-displayer { border: 1px solid gray; padding: 5px 13px 5px 13px; margin-bottom: 5px; display: inline-block; clear: both; width: 100%; background-image: url("/wp-content/uploads/2013/08/grunge.jpg"); border-radius: 10px 10px 10px 10px; }
+.bars-info-displayer-header { width: 100%; display: inline-block; clear: both; }
+.bars-info-displayer-header-title { float: left; }
+.bars-info-displayer-header-caption { float: right; font-style: italic; font-size: 90%; }
+.bars-info-displayer-header-line { margin-bottom: 10px; border-top: 1px solid rgba(0, 0, 0, .3);  }
+.bars-hidden-info { display: inline-block; }
+.bars-info-displayer-footer { font-size: 95%; border-top: 1px solid rgba(0, 0, 0, .3);  clear: both; padding: 3px 0 0px 0; text-align: right; }

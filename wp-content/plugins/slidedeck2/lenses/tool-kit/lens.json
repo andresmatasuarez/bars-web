@@ -1,10 +1,31 @@
 {
     "name": "Tool Kit",
     "uri": "http://www.slidedeck.com/",
-    "sources": ["posts","gplus","rss","instagram","dribbble","gplusimages","flickr","twitter","youtube","dailymotion","vimeo","fivehundredpixels","pinterest","custom"],
+    "sources": [
+        "posts",
+        "gplus",
+        "rss",
+        "instagram",
+        "dribbble",
+        "gplusimages",
+        "flickr",
+        "youtube",
+        "dailymotion",
+        "vimeo",
+        "fivehundredpixels",
+        "pinterest",
+        "facebook",
+        "twitter",
+        "nextgengallery",
+        "custom"
+    ],
     "author": "dtelepathy",
     "author_uri": "http://www.dtelepathy.com/",
-    "contributors": ["dtrenkner", "kynatro", "burkett"],
+    "contributors": [
+        "dtrenkner",
+        "kynatro",
+        "burkett"
+    ],
     "description": "The Lens Tool Kit",
     "version": "1.0",
     "sizes": {
@@ -24,9 +45,9 @@
             "height": 550
         },
         "custom": {
-        	"label": "Custom",
-        	"width": 612,
-        	"height": 612
+            "label": "Custom",
+            "width": 612,
+            "height": 612
         }
     },
     "variations": {

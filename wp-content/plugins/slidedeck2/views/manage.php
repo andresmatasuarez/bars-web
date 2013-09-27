@@ -125,14 +125,7 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
                         </div>
 	                </div>
 	            </div>
-	            <div class="right">
-	                <div class="module slidedeck tweets">
-	                    <h3><?php _e( "Latest Tweets", $namespace ); ?></h3>
-	                    <div id="slidedeck-latest-tweets">
-                            <span class="loading"><?php _e( "Fetching Latest Tweets...", $namespace ) ?></span>
-	                    </div>
-	                </div>
-	            </div>
+	            <div class="right"></div>
 	        </div>
 	        <div id="dt-footer-logo">
                 <span id="a-product-of"><?php _e( "A product of", $namespace ); ?></span>

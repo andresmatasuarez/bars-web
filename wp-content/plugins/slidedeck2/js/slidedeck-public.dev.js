@@ -71,6 +71,14 @@ var SlideDeckPrefix = "sd2-";
 // SlideDeck Video Deck Class
 var SlideDeckVideoAPIs;
 var __slideDeckVideos = {};
+var __slideDeckVideosYTAPIReady = false;
+var __slideDeckVideosDMAPIReady = false;
+
+// SlideDeck LazyLoad Class
+var SlideDeckLazyLoad = function(elem){
+    this.elems = {};
+    this.initialize(elem);
+};
 
 /**
  * Vertical SlideDeck Detection
@@ -82,7 +90,7 @@ var __slideDeckVideos = {};
  */
 function __isVerticalDeck( slidedeck ){
     // If the HTML element is passed in, detect differently.
-    if( typeof( slidedeck.deck == 'undefined' ) ) {
+    if( typeof( slidedeck.deck === 'undefined' ) ) {
         if( jQuery(slidedeck).find('.slidesVertical').length > 0 ) {
             return true;
         }
@@ -150,70 +158,9 @@ function __slidedeck2_isMobile(){
  * YouTube Setup Start
  * *****************************************
  */
-// Push the iFrame YouTube API Players
 function onYouTubePlayerAPIReady() {
-    jQuery('.slidedeck').has('.slide-type-video').each(function(){
-        deckElement = jQuery(this);
-        var deckId = this.id;
-        
-        deckElement.find('.video-container.youtube').each(function(){
-            var videoContainer = this;
-            var videoContainerID = jQuery(videoContainer).attr('id');
-            var videoID = '';
-            
-            if( jQuery(videoContainer).data('video-id') ){
-                videoID = jQuery(videoContainer).data('video-id');
-            }else{
-                videoID = videoContainerID.split('__')[1];
-            }
-            
-            var iFrameYouTubePlayer = new YT.Player( videoContainerID, {
-                height: '100%',
-                width: '100%',
-                videoId: videoID,
-                playerVars: {
-                    'wmode': 'opaque',
-                    'showinfo': 0,
-                    'autohide': 1,
-                    'rel': 0,
-                    'disablekb': 1,
-                    'cc_load_policy': 0,
-                    'iv_load_policy': 3,
-                    'modestbranding': 1,
-                    'fs': 1
-                }
-            });
-            
-            jQuery( '#' + videoContainerID ).attr( 'webkitallowfullscreen', true );
-            jQuery( '#' + videoContainerID ).attr( 'mozallowfullscreen', true );
-            
-            // Note the ternary statemnent at the end that handles a vertical deck by adding an offset:
-            var videoIndex = deckElement.find('dd').index( jQuery( '#' + videoContainerID ).parents('dd') ) - ( __isVerticalDeck( deckElement ) ? 1 : 0 );
-            
-            iFrameYouTubePlayer.playerType = 'youtube';
-            iFrameYouTubePlayer.addEventListener("onStateChange", function(video){
-                switch( video.data ){
-                    case 0:
-                        // Video Ended...
-                        jQuery.data( deckElement[0], 'video-slidedeck' ).videoEnded( videoIndex, 'youtube', deckId );
-                    break;
-                    case 1:
-                        // Add the video playing class to the deck if a YouTube video is playing.
-                        jQuery(deckElement[0]).parents('.slidedeck-frame').addClass("sd2-video-playing");
-                        // Pause Autoplay on the SlideDeck when the video API says it's playing.
-                        jQuery(deckElement[0]).slidedeck().pauseAutoPlay = true;
-                    break;
-                }
-                iFrameYouTubePlayer.youTubePlayerState = video.data;
-            });
-            
-            // Push the players into their global space.
-            if( typeof( __slideDeckVideos[ deckElement.attr('id') ] ) != 'object' ){
-                __slideDeckVideos[ deckElement.attr('id') ] = {};
-            }
-            __slideDeckVideos[ deckElement.attr('id') ][ "v" + videoIndex ] = iFrameYouTubePlayer;
-        });
-    });
+    //console.log( "YouTube API Ready" );
+    __slideDeckVideosYTAPIReady = true;
 }
 
 
@@ -223,54 +170,8 @@ function onYouTubePlayerAPIReady() {
  * *****************************************
  */
 window.dmAsyncInit = function(){
-    jQuery('.slidedeck').has('.slide-type-video').each(function(){
-        deckElement = jQuery(this);
-        var deckId = this.id;
-
-        deckElement.find('.video-container.dailymotion').append('<div class="video-player-dm"></div>');
-        deckElement.find('.video-container.dailymotion .video-player-dm').each(function(){
-            var videoContainer = this;
-            var videoContainerID = jQuery(videoContainer).parent().attr('id');
-            var videoID = '';
-            
-            if( jQuery(videoContainer).parent().data('video-id') ){
-                videoID = jQuery(videoContainer).parent().data('video-id');
-            }else{
-                videoID = videoContainerID.split('__')[1];
-            }
-            
-            // Note the ternary statemnent at the end that handles a vertical deck by adding an offset:
-            var videoIndex = deckElement.find('dd').index( jQuery( '#' + videoContainerID ).parents('dd') ) - ( __isVerticalDeck( deckElement ) ? 1 : 0 );
-            
-            var dailymotionPlayer = DM.player( videoContainer, {
-                video: videoID, 
-                width: '100%', 
-                height: '100%', 
-                params: {}
-            });
-            
-            // Store the player type for later use.
-            dailymotionPlayer.playerType = 'dailymotion';
-            
-            // Attach some events on the player (using standard DOM events)
-            dailymotionPlayer.addEventListener("ended", function(e){
-                jQuery.data( deckElement[0], 'video-slidedeck' ).videoEnded( videoIndex, dailymotionPlayer.playerType, deckId );
-            });
-            
-            // Add the video playing class to the deck if a Dailymotion video is playing.
-            dailymotionPlayer.addEventListener("playing", function(e){
-                jQuery(deckElement[0]).parents('.slidedeck-frame').addClass("sd2-video-playing");
-                // Pause Autoplay on the SlideDeck when the video API says it's playing.
-                jQuery(deckElement[0]).slidedeck().pauseAutoPlay = true;
-            });
-            
-            // Push the players into their global space.                
-            if( typeof( __slideDeckVideos[ deckElement.attr('id') ] ) != 'object' ){
-                __slideDeckVideos[ deckElement.attr('id') ] = {};
-            }
-            __slideDeckVideos[ deckElement.attr('id') ][ "v" + videoIndex ] = dailymotionPlayer;
-        });
-    });
+    //console.log( "DailyMotion API Ready" );
+    __slideDeckVideosDMAPIReady = true;
 };
 
 
@@ -369,6 +270,8 @@ function briBriFlex(elem, max){
             autoResumePlayback = true;
         }
         
+        var youTubeAPIRetryCounter = 0;
+        var DailyMotionAPIRetryCounter = 0;
         var slidedeck = $(slidedeck);
         var slidedeckFrame = slidedeck.closest('.slidedeck-frame');
         var deck = slidedeck.slidedeck();
@@ -486,64 +389,6 @@ function briBriFlex(elem, max){
             }
         };
         
-        
-        deck.loaded(function(thedeck){
-            var slides = thedeck.slides;
-            
-            /**
-             * If the deck is a vertical deck, then we need to reset the slides array.
-             * Typically this is the horizontal set of slides but in this case it's the vertical
-             * slides instead.
-             */
-            if( __isVerticalDeck( thedeck.deck ) ){
-                slides = thedeck.vertical().slides;
-            }
-            
-            /**
-             * *****************************************
-             * Vimeo Setup Start
-             * *****************************************
-             */
-            // Sort through the Vimeo videos and load em up!
-            thedeck.deck.find('.video-container.vimeo').each(function(){
-                var videoContainer = this;
-                var videoContainerID = this.id;
-                var videoID = '';
-                if( jQuery(videoContainer).data('video-id') ){
-                    videoID = jQuery(videoContainer).data('video-id');
-                }else{
-                    videoID = videoContainerID.split('__')[1];
-                }
-                
-                jQuery(videoContainer).append( '<iframe id="vimeoiFrame-' + videoContainerID + '" src="http://player.vimeo.com/video/' + videoID + '?api=1&byline=0&title=0&portrait=0&player_id=vimeoiFrame-' + videoContainerID + '" width="100%" height="100%" frameborder="0"></iframe>' );
-                
-                var videoIndex = slides.index( jQuery( '#' + videoContainerID ).closest('dd') );
-                
-                var iFrame = document.getElementById( 'vimeoiFrame-' + videoContainerID );
-                var vimeoPlayer = $f( iFrame ).addEvent( 'ready', function(player_id) {
-                    var froogaloop = $f( player_id );
-                    // Listen for the Finished event
-                    froogaloop.addEvent('finish', function(data) {
-                        jQuery.data( thedeck.deck[0], 'video-slidedeck' ).videoEnded( videoIndex, 'vimeo', thedeck.deck[0].id );
-                    });
-                    
-                    // Add the video playing class to the deck if a Vimeo video is playing.
-                    froogaloop.addEvent('play', function(data) {
-                        jQuery(thedeck.deck[0]).parents('.slidedeck-frame').addClass("sd2-video-playing");
-                        // Pause Autoplay on the SlideDeck when the video API says it's playing.
-                        jQuery(deckElement[0]).slidedeck().pauseAutoPlay = true;
-                    });
-                });
-                vimeoPlayer.playerType = 'vimeo';
-
-                // Push the players into their global space.                
-                if( typeof( __slideDeckVideos[ thedeck.deck.attr('id') ] ) != 'object' ){
-                    __slideDeckVideos[ thedeck.deck.attr('id') ] = {};
-                }
-                __slideDeckVideos[ thedeck.deck.attr('id') ][ "v" + videoIndex ] = vimeoPlayer;
-            });
-        });
-        
         /**
          * Play Video if Paused
          * 
@@ -553,9 +398,13 @@ function briBriFlex(elem, max){
          */
         function playVideoIfPaused( index, playerType ){
             var videoPlayingClass = 'sd2-video-playing';
-            
+            var videosDeckElement = __slideDeckVideos[ deckElement[0].id ];
+
+            // Return if the video isn't there yet
+            if( typeof(videosDeckElement) === 'undefined' ) { return false; }
+
             // Fetch the player using the slide index.
-            var player = __slideDeckVideos[ deckElement[0].id ][ "v" + index ];
+            var player = videosDeckElement[ "v" + index ];
             
             switch( playerType ){
                 case 'youtube':
@@ -602,8 +451,13 @@ function briBriFlex(elem, max){
         
         function playVideo( index, playerType, deckId ){
             var deckElement = $( '#' + deckId );
-            var player = __slideDeckVideos[ deckElement[0].id ][ "v" + (index - 1) ];
-            
+            var videosDeckElement = __slideDeckVideos[ deckElement[0].id ];
+
+            // Return if the video isn't there yet
+            if( typeof(videosDeckElement) === 'undefined' ) { return false; }
+
+            var player = videosDeckElement[ "v" + (index - 1) ];
+
             if( typeof( player ) != 'undefined' ){
                 switch( playerType ){
                     case 'youtube':
@@ -748,7 +602,221 @@ function briBriFlex(elem, max){
                 }          
             }
         };
-        
+
+        this.loadYouTubeVideo = function(deckElement, slideIndex){
+            var self = this;
+
+            deckElement = jQuery(deckElement);
+            var deckId = deckElement.attr('id');
+            var videoContainer = deckElement.find('dd.slide:eq(' + ( slideIndex ) + ') .video-container.youtube');
+
+            // If this is a vertical deck, then we need to source the slides differently
+            if( __isVerticalDeck(deckElement) ){
+                videoContainer = deckElement.find('dl.slidesVertical dd:eq(' + ( slideIndex ) + ') .video-container.youtube');
+            }
+            
+            var videoContainerID = jQuery(videoContainer).attr('id');
+            var videoID = '';
+
+            // Exit if there's no relevant container here.
+            if( typeof(videoContainerID) === 'undefined' ) { return false; }
+            
+            // Legacy support for the video ID format switch
+            if( jQuery(videoContainer).data('video-id') ){
+                videoID = jQuery(videoContainer).data('video-id');
+            }else{
+                videoID = videoContainerID.split('__')[1];
+            }
+
+            // If the APi is not ready, we'll wait until it is
+            // However, we will only try a maxiumum of 30 times.
+            if( __slideDeckVideosYTAPIReady === false ) {
+                //console.log( "Can't load YouTube API yet, trying again..." );
+                if( youTubeAPIRetryCounter < 30 ) {
+                    setTimeout(function(){
+                        self.loadYouTubeVideo(deckElement, slideIndex);
+                    }, 750);
+                    youTubeAPIRetryCounter++;
+                }
+                return false;
+            }
+
+            var iFrameYouTubePlayer = new YT.Player( videoContainerID, {
+                height: '100%',
+                width: '100%',
+                videoId: videoID,
+                playerVars: {
+                    'wmode': 'opaque',
+                    'showinfo': 0,
+                    'autohide': 1,
+                    'rel': 0,
+                    'disablekb': 1,
+                    'cc_load_policy': 0,
+                    'iv_load_policy': 3,
+                    'modestbranding': 1,
+                    'fs': 1
+                }
+            });
+            
+            jQuery( '#' + videoContainerID ).attr( 'webkitallowfullscreen', true );
+            jQuery( '#' + videoContainerID ).attr( 'mozallowfullscreen', true );
+            
+            // Note the ternary statemnent at the end that handles a vertical deck by adding an offset:
+            var videoIndex = deckElement.find('dd').index( jQuery( '#' + videoContainerID ).parents('dd') ) - ( __isVerticalDeck( deckElement ) ? 1 : 0 );
+            
+            iFrameYouTubePlayer.playerType = 'youtube';
+            iFrameYouTubePlayer.addEventListener("onStateChange", function(video){
+                switch( video.data ){
+                    case 0:
+                        // Video Ended...
+                        jQuery.data( deckElement[0], 'video-slidedeck' ).videoEnded( videoIndex, 'youtube', deckId );
+                    break;
+                    case 1:
+                        // Add the video playing class to the deck if a YouTube video is playing.
+                        jQuery(deckElement[0]).parents('.slidedeck-frame').addClass("sd2-video-playing");
+                        // Pause Autoplay on the SlideDeck when the video API says it's playing.
+                        jQuery(deckElement[0]).slidedeck().pauseAutoPlay = true;
+                    break;
+                }
+                iFrameYouTubePlayer.youTubePlayerState = video.data;
+            });
+            
+            // Push the players into their global space.
+            if( typeof( __slideDeckVideos[ deckElement.attr('id') ] ) != 'object' ){
+                __slideDeckVideos[ deckElement.attr('id') ] = {};
+            }
+            __slideDeckVideos[ deckElement.attr('id') ][ "v" + videoIndex ] = iFrameYouTubePlayer;
+        }; // loadYouTubeVideo
+
+        this.loadVimeoVideo = function(deckElement, slideIndex){
+            var self = this;
+
+            deckElement = jQuery(deckElement);
+            var deckId = deckElement.attr('id');
+            var videoContainer = deckElement.find('dd.slide:eq(' + ( slideIndex ) + ') .video-container.vimeo');
+            var slides = deckElement.slidedeck().slides;
+
+            // If this is a vertical deck, then we need to source the slides differently
+            if( __isVerticalDeck(deckElement) ){
+                videoContainer = deckElement.find('dl.slidesVertical dd:eq(' + ( slideIndex ) + ') .video-container.vimeo');
+                slides = deckElement.slidedeck().vertical().slides;
+            }
+            
+            var videoContainerID = jQuery(videoContainer).attr('id');
+            var videoID = '';
+
+            // Exit if there's no relevant container here.
+            if( typeof(videoContainerID) === 'undefined' ) { return false; }
+            
+            // Legacy support for the video ID format switch
+            if( jQuery(videoContainer).data('video-id') ){
+                videoID = jQuery(videoContainer).data('video-id');
+            }else{
+                videoID = videoContainerID.split('__')[1];
+            }
+            
+            jQuery(videoContainer).append( '<iframe id="vimeoiFrame-' + videoContainerID + '" src="http://player.vimeo.com/video/' + videoID + '?api=1&byline=0&title=0&portrait=0&player_id=vimeoiFrame-' + videoContainerID + '" width="100%" height="100%" frameborder="0"></iframe>' );
+            
+            var videoIndex = slides.index( jQuery( '#' + videoContainerID ).closest('dd') );
+            
+            var iFrame = document.getElementById( 'vimeoiFrame-' + videoContainerID );
+            var vimeoPlayer = $f( iFrame ).addEvent( 'ready', function(player_id) {
+                var froogaloop = $f( player_id );
+                // Listen for the Finished event
+                froogaloop.addEvent('finish', function(data) {
+                    jQuery.data( deckElement[0], 'video-slidedeck' ).videoEnded( videoIndex, 'vimeo', deckElement.attr('id') );
+                });
+                
+                // Add the video playing class to the deck if a Vimeo video is playing.
+                froogaloop.addEvent('play', function(data) {
+                    jQuery(deckElement[0]).parents('.slidedeck-frame').addClass("sd2-video-playing");
+                    // Pause Autoplay on the SlideDeck when the video API says it's playing.
+                    jQuery(deckElement[0]).slidedeck().pauseAutoPlay = true;
+                });
+            });
+            vimeoPlayer.playerType = 'vimeo';
+
+            // Push the players into their global space.                
+            if( typeof( __slideDeckVideos[ deckElement.attr('id') ] ) != 'object' ){
+                __slideDeckVideos[ deckElement.attr('id') ] = {};
+            }
+            __slideDeckVideos[ deckElement.attr('id') ][ "v" + videoIndex ] = vimeoPlayer;
+        }; // loadVimeoVideo
+      
+        this.loadDailyMotionVideo = function(deckElement, slideIndex){
+            var self = this;
+
+            deckElement = jQuery(deckElement);
+            var deckId = deckElement.attr('id');
+            var videoContainer = deckElement.find('dd.slide:eq(' + ( slideIndex ) + ') .video-container.dailymotion');
+            var slides = deckElement.slidedeck().slides;
+
+            // If this is a vertical deck, then we need to source the slides differently
+            if( __isVerticalDeck(deckElement) ){
+                videoContainer = deckElement.find('dl.slidesVertical dd:eq(' + ( slideIndex ) + ') .video-container.dailymotion');
+                slides = deckElement.slidedeck().vertical().slides;
+            }
+
+            videoContainer.append('<div class="video-player-dm"></div>');
+
+            var videoContainerID = videoContainer.attr('id');
+            var videoID = '';
+
+            // Exit if there's no relevant container here.
+            if( typeof(videoContainerID) === 'undefined' ) { return false; }
+            
+            // Legacy support for the video ID format switch
+            if( jQuery(videoContainer).data('video-id') ){
+                videoID = jQuery(videoContainer).data('video-id');
+            }else{
+                videoID = videoContainerID.split('__')[1];
+            }
+
+            // If the APi is not ready, we'll wait until it is
+            // However, we will only try a maxiumum of 30 times.
+            if( __slideDeckVideosDMAPIReady === false ) {
+                //console.log( "Can't load Dailymotion API yet, trying again..." );
+                if( DailyMotionAPIRetryCounter < 30 ) {
+                    setTimeout(function(){
+                        self.loadDailyMotionVideo(deckElement, slideIndex);
+                    }, 750);
+                    DailyMotionAPIRetryCounter++;
+                }
+                return false;
+            }
+
+            // Note the ternary statemnent at the end that handles a vertical deck by adding an offset:
+            var videoIndex = deckElement.find('dd').index( jQuery( '#' + videoContainerID ).parents('dd') ) - ( __isVerticalDeck( deckElement ) ? 1 : 0 );
+            
+            var dailymotionPlayer = DM.player( videoContainer[0], {
+                video: videoID, 
+                width: '100%', 
+                height: '100%', 
+                params: {}
+            });
+            
+            // Store the player type for later use.
+            dailymotionPlayer.playerType = 'dailymotion';
+            
+            // Attach some events on the player (using standard DOM events)
+            dailymotionPlayer.addEventListener("ended", function(e){
+                jQuery.data( deckElement[0], 'video-slidedeck' ).videoEnded( videoIndex, dailymotionPlayer.playerType, deckId );
+            });
+            
+            // Add the video playing class to the deck if a Dailymotion video is playing.
+            dailymotionPlayer.addEventListener("playing", function(e){
+                jQuery(deckElement[0]).parents('.slidedeck-frame').addClass("sd2-video-playing");
+                // Pause Autoplay on the SlideDeck when the video API says it's playing.
+                jQuery(deckElement[0]).slidedeck().pauseAutoPlay = true;
+            });
+            
+            // Push the players into their global space.                
+            if( typeof( __slideDeckVideos[ deckElement.attr('id') ] ) != 'object' ){
+                __slideDeckVideos[ deckElement.attr('id') ] = {};
+            }
+            __slideDeckVideos[ deckElement.attr('id') ][ "v" + videoIndex ] = dailymotionPlayer;
+        }; // loadDailyMotionVideo
+
         return true;
     };
     
@@ -1127,6 +1195,167 @@ function briBriFlex(elem, max){
         var url = parent.document.location.href.replace(parent.document.location.hash, "");
         elem.href = elem.href.replace(/url\=(\#|\%23)/, "url=" + escape(url + "#"));
     };
+
+    // Lazy Loading
+    SlideDeckLazyLoad.prototype.lazyLoadImages = function( currentIndex ){
+        var self = this;
+
+        var images = $(this.slidedeck.slides[currentIndex]);
+        if( __isVerticalDeck(this.slidedeck.deck) ){
+            currentIndex = currentIndex--;
+            images = $(this.slidedeck.vertical().slides[currentIndex]);
+        }
+
+        if( images.find('[data-sd2-slide-image]').length != 0 ){
+            // Check and Load current Image
+            var thisSlideImage = images.find('[data-sd2-slide-image]');
+            var imageSrc = thisSlideImage.data('sd2-slide-image');
+            thisSlideImage.addClass('sd2-image-lazy-loading');
+
+            var imageObject = new Image();
+            $(imageObject).load(function(event){
+                if( thisSlideImage.prop("tagName") == "IMG" ){
+                    thisSlideImage.attr('src', imageSrc );
+                }else{
+                    thisSlideImage.css( 'background-image', 'url(' + imageSrc + ')' );
+                }
+                self.slidedeck.deck.trigger( 'slidedeck:image-lazy-loaded', [ currentIndex, imageSrc, self.slidedeck ] );
+                thisSlideImage.removeClass('sd2-image-lazy-loading');
+            }).attr('src', imageSrc);
+
+            thisSlideImage.removeAttr('data-sd2-slide-image');
+        }
+    };
+    SlideDeckLazyLoad.prototype.lazyLoadVideos = function( currentIndex ){
+        currentSlideElement = this.slidedeck.slides.eq( currentIndex );
+        if( __isVerticalDeck(this.slidedeck.deck) ){
+            currentSlideElement = this.slidedeck.vertical().slides.eq( currentIndex );
+        }
+        if( currentSlideElement.hasClass('slide-type-video') ) {
+            if( !currentSlideElement.data('sd2-lazy-loaded') ){
+                this.slidedeck.deck.data('video-slidedeck').loadYouTubeVideo( this.slidedeck.deck, currentIndex );
+                this.slidedeck.deck.data('video-slidedeck').loadVimeoVideo( this.slidedeck.deck, currentIndex );
+                this.slidedeck.deck.data('video-slidedeck').loadDailyMotionVideo( this.slidedeck.deck, currentIndex );
+            }
+            currentSlideElement.data('sd2-lazy-loaded', true);
+        }
+    };
+    SlideDeckLazyLoad.prototype.lazyLoadNext = function( currentIndex, lazyLoadPadding ){
+        var self = this;
+
+        var slidesLength = self.slidedeck.slides.length;
+        if( __isVerticalDeck(self.slidedeck.deck) ){
+            slidesLength = self.slidedeck.vertical().slides.length;
+        }
+
+        // Note that the next slide padding is exaggerated by the <=
+        // this is intentional.
+        for( var i = 0; i <= lazyLoadPadding; i++ ){
+            var next = currentIndex + i + 1;
+            if( next >= slidesLength ){
+                next = i + 1;
+            }
+            self.lazyLoadImages( next );
+        }
+
+        // Videos don't get the same amplification as above
+        // as they are much heavier
+        for( var i = 0; i < lazyLoadPadding; i++ ){
+            var next = currentIndex + i + 1;
+            if( next >= slidesLength ){
+                next = i + 1;
+            }
+            self.lazyLoadVideos( next );
+        }
+
+        clearTimeout( self.lazyLoadPrevTimer );
+        self.lazyLoadPrevTimer = setTimeout(function(){
+            // Check and load prev image(s) - based off lazyLoadPadding
+            self.lazyLoadPrev( currentIndex, lazyLoadPadding );
+        }, Math.round( self.deckAnimationSpeed / 2 ) );
+    };
+    SlideDeckLazyLoad.prototype.lazyLoadPrev = function( currentIndex, lazyLoadPadding ){
+        var self = this;
+
+        var slidesLength = self.slidedeck.slides.length;
+        if( __isVerticalDeck(self.slidedeck.deck) ){
+            slidesLength = self.slidedeck.vertical().slides.length;
+        }
+
+        for( var i = 0; i < lazyLoadPadding; i++ ){
+            var prev = currentIndex - i - 1;
+            if( prev < 0 ){
+                prev = slidesLength - i - 1;
+            }
+            self.lazyLoadImages( prev );
+            self.lazyLoadVideos( prev );
+        }
+    };
+    SlideDeckLazyLoad.prototype.lazyLoad = function(){
+        var self = this;
+
+        var currentIndex = self.slidedeck.current - 1;
+        if( __isVerticalDeck(self.slidedeck.deck) ){
+            currentIndex = self.slidedeck.vertical().current;
+        }
+        var lazyLoadPadding = self.slidedeck.options.lazyLoadPadding;
+
+        self.lazyLoadImages( currentIndex );
+        self.lazyLoadVideos( currentIndex );
+
+        // Preload the next image in the deck
+        clearTimeout( self.lazyLoadNextTimer );
+        self.lazyLoadNextTimer = setTimeout(function(){
+            // Check and load next image(s) - based off lazyLoadPadding
+            self.lazyLoadNext( currentIndex, lazyLoadPadding );
+        }, self.deckAnimationSpeed );
+    };
+    // SlideDeckLazyLoad Class initialization
+    SlideDeckLazyLoad.prototype.initialize = function(elem){
+        var self = this;
+
+        this.elems.slidedeck = $(elem);
+        this.elems.frame = this.elems.slidedeck.closest('.slidedeck-frame');            
+        this.slidedeck = this.elems.slidedeck.slidedeck();
+        this.deckAnimationSpeed = this.slidedeck.options.speed;
+
+        // Let's cautiously set this in case a lens has tried to already
+        var defaultLazyLoadPadding = this.elems.frame.data('sd2-lazy-load-padding');
+        if( typeof( defaultLazyLoadPadding ) === 'undefined' )
+            defaultLazyLoadPadding = 1;
+
+        this.slidedeck.options.lazyLoadPadding = defaultLazyLoadPadding;
+        
+        var oldBefore = this.slidedeck.options.before;
+        this.slidedeck.setOption('before', function(deck){
+            if(typeof(oldBefore) === 'function')
+                oldBefore(deck);
+            
+            // Lazyload
+            self.lazyLoad( deck.current );
+        });
+        
+        if(this.slidedeck.verticalSlides){
+            this.slidedeck.slides.each(function(ind){
+                if(self.slidedeck.verticalSlides[ind]){
+                    if(typeof(self.slidedeck.verticalSlides[ind].slides) != 'undefined'){
+                        var oldVerticalBefore = self.slidedeck.vertical().options.before;
+                        self.slidedeck.vertical().options.before = function(vDeck){
+                            if(typeof(oldVerticalBefore) == 'function')
+                                oldVerticalBefore(vDeck);
+                            
+                            // Lazyload
+                            self.lazyLoad( vDeck.current + 1 );
+                        };
+                    };
+                };
+            });
+        };
+        
+        this.slidedeck.loaded(function(deck){
+            self.lazyLoad( deck.current );
+        });
+    };
     
     $(document).ready(function(){
         // Initialize Overlays and nav for each SlideDeck
@@ -1145,8 +1374,11 @@ function briBriFlex(elem, max){
                 }
             });
             
+            if(!$.data(this, 'SlideDeckLazyLoad')) $.data(this, 'SlideDeckLazyLoad', new SlideDeckLazyLoad(this));
+            
             // Only for IE - detect background image url and update style for DD element
-            if( ie ){                if( ie <= 8.0 ){
+            if( ie ){
+                if( ie <= 8.0 ){
                     $slidedeck.find('.sd2-slide-background').each(function(){
                         var $slideBackground = $(this);
                         var $slide = $slideBackground.closest('dd');
@@ -1163,7 +1395,9 @@ function briBriFlex(elem, max){
                             this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + imgurl + "', sizingMethod='" + sizingMethod + "')";
                         }
                     });
-                }            }        });
+                }
+            }
+        });
     });
 })(jQuery);
 
@@ -1851,13 +2085,32 @@ var SlideDeckCover = function(elem){
 
 /**
  * *****************************************
- * SlideDeck Bug Link to New Tab/Window
+ * SlideDeck Bug Link to New Tab/Window + Toggle
  * *****************************************
  */
 (function($){
-    var slideDeckBugExternal = {
+    var slideDeckBugExternalToggle = {
         linkTargets: function(c){
-            this.setContext(c).context.find('.slidedeck-frame a.slidedeck-2-bug[rel*="external"]').attr('target','_blank');
+            var timer = new Array();
+            var links = this.setContext(c).context.find('.slidedeck-frame a.slidedeck-2-bug[rel*="external"]');
+            links.attr('target','_blank');
+            
+            links.each( function( ind ) {
+                var $bug = $(this);
+                $bug.addClass('open');
+                
+                timer[ind] = window.setTimeout( function(){
+                    $bug.removeClass('open');
+                }, 3000 );
+                
+                $bug.on( 'mouseenter', function( event ) {
+                    window.clearTimeout( timer[ind] );
+                    $bug.addClass( 'open' );
+                } ).on( 'mouseleave', function( event ) {
+                    $bug.removeClass( 'open' );
+                } );
+            } );
+
             return this;
         },
         setContext: function(c){
@@ -1874,10 +2127,9 @@ var SlideDeckCover = function(elem){
         }
     };
     $(document).ready(function(){
-        slideDeckBugExternal.initialize();
+        slideDeckBugExternalToggle.initialize();
     });
 })(jQuery);
-
 
 /*!
 // ┌────────────────────────────────────────────────────────────────────┐ \\

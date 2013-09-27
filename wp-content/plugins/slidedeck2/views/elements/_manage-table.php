@@ -55,6 +55,9 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
             <a href="<?php echo slidedeck2_action( "&action=edit&slidedeck={$slidedeck['id']}" ); ?>" class="slidedeck-title">
                 <?php echo $slidedeck['title']; ?>
                 <span class="slidedeck-modified">Modified <?php echo date( "m-d-Y", strtotime( $slidedeck['updated_at'] ) + ( get_option( 'gmt_offset' ) * 3600 ) ); ?></span>
+                <?php if( in_array( 'twitter', $slidedeck['source'] ) ): ?>
+                <span class="deprecated-warning">(contains deprecated source)</span>
+                <?php endif; ?>
             </a>
             <div class="slidedeck-actions">
                 <div class="slidedeck-delete tooltip" title="<?php _e( "Delete", $namespace ); ?>">

@@ -1,0 +1,81 @@
+#youtube-sidebar-widget ul {
+	width: 100%;
+	list-style-type: none !important;
+	float: left;
+}
+
+#youtube-sidebar-widget ul li {
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
+
+#youtube-sidebar-widget ul li img {
+	margin: 0;
+	position: relative;
+	float: left;
+	z-index: 1;
+	max-width: none;
+}
+
+#youtube-sidebar-widget ul li div.play_arrow {
+	float: left;
+	clear: both;
+	background: url(play_arrow.png) no-repeat center center;
+	cursor: pointer;
+	margin-left: 0 !important;
+	position: relative;
+	z-index: 2;
+}
+
+#youtube-sidebar-widget ul li a {
+	display: block;
+	text-align: center;
+	clear: both;
+}
+
+#ysw-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: #000;
+	z-index: 2147483646;
+	opacity: .75; /* Standard: FF gt 1.5, Opera, Safari */
+	filter: alpha(opacity=75); /* IE lt 8 */
+	-ms-filter: "alpha(opacity=75)"; /* IE 8 */
+	-khtml-opacity: .75; /* Safari 1.x */
+	-moz-opacity: .75; /* FF lt 1.5, Netscape */
+}
+
+#ysw-viewer {
+	width: 680px;
+	height: 430px;
+	display: none;
+	position: fixed;
+	z-index: 2147483647;
+	background: #000;
+}
+
+#ysw-viewer a {
+	width: 660px;
+	height: 20px;
+	display: block;
+	float: left;
+	text-align: right;
+	color: #ccc;
+	text-decoration: none;
+	padding-right: 20px;
+	line-height: 20px;
+}
+
+#ysw-viewer a:hover {
+	text-decoration: underline;
+}
+
+#ysw-viewer iframe {
+	width: 640px;
+	height: 390px;
+	float: left;
+	clear: both;
+	margin: 0 20px 20px 20px;
+}

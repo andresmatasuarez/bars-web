@@ -23,4 +23,6 @@
     <span class="slidedeck-index-indicator"><span class="current">x</span>/<span class="total">x</span></span>
 </div>
 
-<div class="sd2-slide-background" style='background-image: url("<?php echo $image; ?>");'>&nbsp;</div>
+<?php if( !empty($image) ): ?>
+    <div class="sd2-slide-background" data-sd2-slide-image="<?php echo $image; ?>">&nbsp;</div>
+<?php endif; ?>

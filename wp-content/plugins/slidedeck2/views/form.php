@@ -89,6 +89,8 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
                 </div>
                 
             </fieldset>
+
+            <?php do_action( "{$namespace}_before_options_group_wrapper", $slidedeck, $form_action ); ?>
             
             <fieldset id="slidedeck-section-options" class="slidedeck-form-section collapsible clearfix">
                 
@@ -100,6 +102,8 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
                     <?php include( SLIDEDECK2_DIRNAME . '/views/elements/_options.php' ); ?>
                 </div>
             </fieldset>
+
+            <?php do_action( "{$namespace}_after_options_group_wrapper", $slidedeck, $form_action ); ?>
             
             <?php do_action( "{$namespace}_form_bottom", $slidedeck, $form_action ); ?>
             <div class="save-wrapper">

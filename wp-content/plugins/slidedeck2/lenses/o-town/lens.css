@@ -1361,3 +1361,17 @@
     bottom: auto;
     left: auto;
 }
+
+/*SlideDeck 2 Bug Placement */
+.lens-o-town a.slidedeck-2-bug {
+    top: auto;
+    left: auto;
+    right: 15px;
+    bottom: 15px;
+}
+.lens-o-town.sd2-small a.slidedeck-2-bug {
+    top: auto;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
+}

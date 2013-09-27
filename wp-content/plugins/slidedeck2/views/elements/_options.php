@@ -32,6 +32,7 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
 <div id="options-group-wrapper">
+    <?php do_action( "{$namespace}_options_group_wrapper_top", $slidedeck ); ?>
     <div id="slidedeck-options-groups">
         <dl class="slidedeck">
             <dd>
@@ -211,4 +212,5 @@ along with SlideDeck.  If not, see <http://www.gnu.org/licenses/>.
             <span class="right">&nbsp;</span>
         </div>
     </div>
+    <?php do_action( "{$namespace}_options_group_wrapper_bottom", $slidedeck ); ?>
 </div>
