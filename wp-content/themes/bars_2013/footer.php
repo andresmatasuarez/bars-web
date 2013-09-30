@@ -19,7 +19,7 @@
 
 			<div class="site-info">
 				<?php do_action( 'twentythirteen_credits' ); ?>
-				<img src="/wp-content/uploads/2013/09/footer-image.png" />
+				<div id="footer-image"></div>
 				<div id="footer-bottom-text">www.FESTIVALROJOSANGRE.com.ar</div>
 				<div id="footer-text">Festival internacional de cine de terror, fantástico y bizarro</div>
 				<div id="signature">cthulhu fhtagn!</div>
