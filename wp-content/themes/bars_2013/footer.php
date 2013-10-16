@@ -15,15 +15,24 @@
 		</div>
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
-			<?php get_sidebar( 'main' ); ?>
+			<div class="footer-color-overlay">
+				<?php get_sidebar( 'main' ); ?>
 
-			<div class="site-info">
-				<?php do_action( 'twentythirteen_credits' ); ?>
-				<div id="footer-image"></div>
-				<div id="footer-bottom-text">www.FESTIVALROJOSANGRE.com.ar</div>
-				<div id="footer-text">Festival internacional de cine de terror, fantástico y bizarro</div>
-				<div id="signature">cthulhu fhtagn!</div>
-			</div><!-- .site-info -->
+				<div class="site-info">
+				
+					<div class="scratch"></div>
+					<div class="footer-container">
+						<div class="footer-menu">
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+							<?php get_search_form(); ?>
+						</div>
+						<div class="footer-logos">
+							<div class="footer-image"></div>
+							<a href="mailto:amatasuarez@gmail.com"><div class="footer-mylogo festeringslime"></div></a>
+						</div>
+					</div>
+				</div><!-- .site-info -->
+			</div>
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
 

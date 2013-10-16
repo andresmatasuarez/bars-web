@@ -7,7 +7,7 @@ Author: Kenton Farst
 Author URI: http://kent . farst . net
 Donate URI: http://redshiftstudio . com/wp-theater/
 License: GPLv3
-Version: 1.0.8
+Version: 1.0.9
 */
 
 if( defined( 'ABSPATH' ) && defined( 'WPINC' ) && !class_exists( 'WP_Theater' ) ){
@@ -18,7 +18,7 @@ class WP_Theater {
 	 * Version constant
 	 * @since WP Theater 1.0.0
 	 */
-	const VERSION = '1.0.8';
+	const VERSION = '1.0.9';
 
 	/**
 	 * Plugin directory

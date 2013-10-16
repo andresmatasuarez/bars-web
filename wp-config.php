@@ -15,10 +15,9 @@
  */
 
 // !- START - BARS custom lines -!
-define('VH_DOCUMENT_ROOT', 'C:/Users/Andres/workspace/bars-web');
 define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
 define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
-define('WP_CONTENT_DIR', VH_DOCUMENT_ROOT . '/wp-content');
+define('WP_CONTENT_DIR', ABSPATH  . '../wp-content');
 define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 // !- END - BARS custom lines -!
 

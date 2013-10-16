@@ -1,16 +1,27 @@
 jQuery(document).ready(function($) {
 	
-	// Header links
-	$('#header-image').click(function(){
-		window.location.href = '/';
+	// Home page. Clickable latest posts.
+	$('.bars-recent-posts .latest-post').click(function(){
+		window.location.href = $('.post-title a', $(this)).attr('href');
+		return false;
 	});
 	
 	// Convocatoria
 	$('.bars-hidden-info').css('display', 'none');
 
-    $('.bars-info-displayer').click(function(){
-		var info = $(this).find('.bars-hidden-info');
-		info.toggle(400);
+    $('.bars-info-displayer-header').click(function(e){
+		var info = $(this).parent().find('.bars-hidden-info');
+		info.slideToggle('slow');
+		
+		var arrow = $(this).find('.bars-info-displayer-arrow');
+		if (arrow.hasClass('arrow-right')){
+			arrow.removeClass('arrow-right');
+			arrow.addClass('arrow-down');
+		} else {
+			arrow.removeClass('arrow-down');
+			arrow.addClass('arrow-right');
+		}
+		
 		return false;
 	});
 	

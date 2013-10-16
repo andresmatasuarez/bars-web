@@ -23,7 +23,7 @@
 * Plugin Name: AddThis Social Bookmarking Widget
 * Plugin URI: http://www.addthis.com
 * Description: Help your visitor promote your site! The AddThis Social Bookmarking Widget allows any visitor to bookmark your site easily with many popular services. Sign up for an AddThis.com account to see how your visitors are sharing your content--which services they're using for sharing, which content is shared the most, and more. It's all free--even the pretty charts and graphs.
-* Version: 3.5.2
+* Version: 3.5.3
 *
 * Author: The AddThis Team
 * Author URI: http://www.addthis.com/blog
@@ -46,8 +46,8 @@ function addthis_early(){
 
 
 define( 'addthis_style_default' , 'fb_tw_p1_sc');
-define( 'ADDTHIS_PLUGIN_VERSION' , '3.5.1');
-define( 'ADDTHIS_PRODUCT_VERSION' , 'wpp-3.5.1');
+define( 'ADDTHIS_PLUGIN_VERSION' , '3.5.2');
+define( 'ADDTHIS_PRODUCT_VERSION' , 'wpp');
 define( 'ADDTHIS_ATVERSION', '300');
 define( 'ADDTHIS_ATVERSION_MANUAL_UPDATE', -1);
 define( 'ADDTHIS_ATVERSION_AUTO_UPDATE', 0);
@@ -1528,17 +1528,12 @@ function addthis_display_social_widget($content, $filtered = true, $below_excerp
     {
         if ( isset($above) )
         {
-            if ($options['above'] == 'custom' || $options['above'] == 'custom_string')
-                $content = $above . $content;
-            else
-                $content = sprintf($above, $url_above) . $content;
+
+            $content = sprintf($above, $url_above) . $content;
         }
         if ( isset($below) )
         {
-            if ($options['below'] == 'custom' || $options['below'] == 'custom_string')
-                $content = $content . $below;
-            else
-                $content = $content . sprintf($below, $url_below); 
+            $content = $content . sprintf($below, $url_below); 
         }
         if ($filtered == true)
             add_filter('wp_trim_excerpt', 'addthis_remove_tag', 11, 2);

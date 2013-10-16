@@ -38,7 +38,7 @@
 		
 			<div id="header-content">
 				<div id="header-textdiv">Festival internacional de cine de terror, fantástico y bizarro</div>
-				<div id="header-image"></div>
+				<a href="<?php echo get_option('home'); ?>"><div id="header-image"></div></a>
 				<div id="header-social">
 					<a href="https://www.facebook.com/BuenosAiresRojoSangre" target="blank"><div id="bars-header-social-facebook"></div></a>
 					<a href="http://www.youtube.com/user/RojoSangreFestival" target="blank"><div id="bars-header-social-youtube"></div></a>

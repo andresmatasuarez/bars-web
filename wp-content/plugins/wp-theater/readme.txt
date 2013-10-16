@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: video, shortcode, embed, channel, playlist, group, user, youtube, vimeo, lower lights, full window, preset
 Requires at least: 3.6
 Tested up to: 3.6.1
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv3
 
 Shortcodes for YouTube and Vimeo. Includes embeds, "Theater" embed, thumbed previews, playlist, channel, user uploads and groups.
@@ -16,7 +16,7 @@ For a better looking explanation and parameter usage please visit:
 
 http://redshiftstudio.com/wp-theater/
 
-= Usage =
+= Usage =  *ignore/remove the extra spaces that I can't get rid of here*
 **Boring Embed** - The classic
 `[youtube]VideoID[/youtube]
 [vimeo]VideoID[/vimeo]`
@@ -41,7 +41,7 @@ http://redshiftstudio.com/wp-theater/
 **Playlist** - Listing of videos from a user's playlist
 `[youtube playlist]PlaylistID[/youtube]`
 
-**Group** - Listing of vidoes from a specific group
+**Group** - Listing of videos from a specific group
 `[vimeo group]GroupID[/vimeo]`
 
 
@@ -62,14 +62,16 @@ Existing presets are:
 1. PHP 5 with curl
 
 
-== Installation ==
+= TODO FOR 1.1.0 =
 
-1. Unpack the download-package
-1. Upload all files to the `/wp-content/plugins/` directory, include folders
-1. Activate the plugin through the 'Plugins' menu in WordPress
-
+* Add column parameter to help styling across varied content widths
+* Make responsive without knowing the content width or media query break points
+* Either integrate FitVideo.js or apply a similar technique to keep an embed's aspect ratios when not in fullscreen.
 
 == Frequently Asked Questions ==
+
+= Can I use this plugin to show private content from my YouTube or Vimeo account =
+No, this plugin will only show publically available content.  This feature will be part of the advanced plugin which is currently in development along side this plugin.  If you need this feature now you are looking for a plugin that requires an API key from that service.
 
 = What settings can be changed =
 Outside of the shortcode's parameters we enable you to disable the loaded assets as well as the cache life or expiration.
@@ -79,6 +81,8 @@ Outside of the shortcode's parameters we enable you to disable the loaded assets
 * *Use Default JS* - You can choose to disable the built in JS file so that you can write your own.
 * *Cache Expiration* - Feeds are cached using the Transient API and this setting will set the expiration.  A value of 0 (zero) will bypass caching.
 
+= How can I futher customize this plugin =
+Please check the Other Notes section for futher development information.
 
 == Developer FAQ ==
 
@@ -87,32 +91,32 @@ Filters exist that can handle complete customization of the output.
 
 Display -- override built in output
 
-* wp_theater-pre_video_shortcode ( '', $feed, $atts )
-* wp_theater-pre_theater ( '', $atts, $content, $tag )
-* wp_theater-pre_video_preview ( '', $video, $atts, $selected )
+* "wp_theater-pre_video_shortcode" ( '', $feed, $atts )
+* "wp_theater-pre_theater" ( '', $atts, $content, $tag )
+* "wp_theater-pre_video_preview" ( '', $video, $atts, $selected )
 
 Attributes
 
-* wp_theater-capture_no_value_atts ( $atts )
-* wp_theater-format_params ( $atts, $content, $tag )
+* "wp_theater-capture_no_value_atts" ( $atts )
+* "wp_theater-format_params" ( $atts, $content, $tag )
 
 API Feeds -- Override built in api request and parsing
 
-* wp_theater-pre_get_api_data ( '', $atts )
-* wp_theater-pre_get_request_url ( '', $atts, $request, $output )
-* wp_theater-pre_parse_feed ( '', $response, $atts )
+* "wp_theater-pre_get_api_data" ( '', $atts )
+* "wp_theater-pre_get_request_url" ( '', $atts, $request, $output )
+* "wp_theater-pre_parse_feed" ( '', $response, $atts )
 
 Content
 
-* wp_theater-section_title ( $title )
-* wp_theater-video_title ( $title )
-* wp_theater-pre_get_more_link ( '', $atts, $first_id )
-* wp_theater-get_more_link ( $more_link, $atts, $first_id )
+* "wp_theater-section_title" ( $title )
+* "wp_theater-video_title" ( $title )
+* "wp_theater-pre_get_more_link" ( '', $atts, $first_id )
+* wp_theater-get_more_link" ( $more_link, $atts, $first_id )
 
 Presets
 
-* wp_theater-get_preset ( $name )
-* wp_theater-set_preset ( $arr, $name )
+* "wp_theater-get_preset" ( $name )
+* "wp_theater-set_preset" ( $arr, $name )
 
 = How do I add my own preset? =
 The following code will create a preset named "my_preset".  We do not currently, but are planning to, offer a method of saving presets to the database so that they stick around between theme's.
@@ -129,6 +133,49 @@ function my_preset_init ($presets) {
 add_action('wp_theater-add_shortcodes', 'my_preset_init');
 `
 
+= What values can I define in presets =
+Listed below are all of the possible settings you can define in a preset with their base values
+
+`
+array(
+	'service' => '',
+	'mode' => 'embed',
+	'id' => '',
+	'embed_width' => 640,
+	'embed_height' => 360,
+	'class'=> '',
+	'img_size' => 'small',
+	'max' => 12,
+	'autoplay_onclick' => TRUE,
+
+	// Title settings
+	'show_title' => TRUE,
+	'show_video_title' => TRUE,
+	'title' => '',
+
+	// More link settings
+	'show_more_link' => TRUE,
+	'more_url' => FALSE,
+	'more_text' => FALSE,
+
+	// Theater options
+	'show_theater' => TRUE,
+	'theater_id' => FALSE,
+	'show_fullwindow' => FALSE,
+	'show_lowerlights' => FALSE,
+
+	'modes' => array(),
+
+	'classes' => array(
+		'section' => '',
+		'theater' => '',
+		'embed' => '',
+		'listing' => '',
+		'preview' => ''
+	)
+)
+`
+
 = How can I modify the embed url? =
 Each preset requires a modes array to store the different link formats used.  You can directly access and modify these yourself through a theme's functions.php.
 e.g.
@@ -142,7 +189,7 @@ function my_preset_init ($presets) {
 add_action('wp_theater-add_shortcodes', 'my_preset_init');
 `
 
-= What do the reformatted feeds look like? =
+= What do the formatted feeds look like? =
 Vimeo's feed will return exactly what their API states except we merge their info and video requests into one and clone values to help normalize the feeds.  Youtube on the other hand is almost completely reformatted into a format based on Vimeo's
 
 As of v1.0.0 you can count on the full feeds returning the following content with an exception being that single preview feeds do not have the feed title or url:
@@ -173,10 +220,19 @@ object
 
 == Screenshots ==
 
-1. Sample screen shot of how a Vimeo group will look like.  Image shows the title, theater, lower-lights & full window buttons, videos listing with thumb & title and a link to more content.
+1. Sample screen shot of how a Vimeo group would look.  Image shows the title, theater, lower-lights & full window buttons, videos listing with thumb & title and a link to more content.
 
 
 == Changelog ==
+
+= 1.0.9 (10/08/2013) =
+
+* Fixed *class* parameter so it is applied to previews when the mode is preview.
+* Fixed *class* parameter so it is not applied to multiple elements, just the leading parent element for a given mode.
+* Added the preset name as a class for the section, theater and preview.
+* Added *classes* array parameter for presets to define default classes for the different areas -- section, theater, embed, list and	preview, when used.
+* Modified JS to make it less likely to conflict with other plugins.
+
 = 1.0.8 (09/17/2013) =
 
 * Fixed validation of *modes'* link formats against requested mode
@@ -216,5 +272,5 @@ object
 
 == Upgrade Notice ==
 
-= 1.0.7 =
-More changes you'd expect from a quality plugin developer.
+= 1.0.8 =
+Updates to the *class* parameter and a new *classes* parameter for presets to use.

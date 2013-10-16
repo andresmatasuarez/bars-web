@@ -53,10 +53,15 @@ class WP_Theater_Shortcodes  {
 			'show_fullwindow' => FALSE,
 			'show_lowerlights' => FALSE,
 
-			/* Modes cannot be defined except through a preset and should always:
-			 * - minimally contain %id% in place of the ID or User Name -- Will eventually include %request% and %format% variable positions
-			 */
+			// Modes and classes cannot be defined except through a preset:
 			'modes' => array(),
+			'classes' => array(
+				'section' => '',
+				'theater' => '',
+				'embed' => '',
+				'list' => '',
+				'preview' => ''
+			)
 		));
 
 		// Add YouTube preset
@@ -149,8 +154,11 @@ class WP_Theater_Shortcodes  {
 				$content = $this->get_iframe($atts);
 
 		$theater_data = ($atts['mode'] == 'theater' && $atts['theater_id']) ? ' id="' . esc_attr($atts['theater_id']) . '"' : '';
+		$class = ' ' . $atts['service'] . ' ' . $atts['preset'] . ' ' . $atts['classes']['theater']; 
+		if ($atts['mode'] == 'theater')
+			$class .= ' ' . $atts['class'];
 
-		$result  = '<div class="wp-theater-bigscreen ' . esc_attr($atts['service']) . ' ' . esc_attr($atts['class']) . '"' . $theater_data . '>';
+		$result  = '<div class="wp-theater-bigscreen ' . esc_attr($class) . '"' . $theater_data . '>';
 		$result .= '	<div class="wp-theater-bigscreen-inner">';
 		$result .= 			$content;
 		$result .= '		<div class="wp-theater-bigscreen-options">';
@@ -197,7 +205,7 @@ class WP_Theater_Shortcodes  {
 			return $this->theater_shortcode($atts, $content, $tag);
 		}
 
-		// Else we need data
+		//// Else we need data ////
 
 		// get the cache life int
 		$options = get_option('wp_theater_options');
@@ -231,7 +239,7 @@ class WP_Theater_Shortcodes  {
 			$feed->videos = $max_videos;
 		}
 
-		// Feed is formatted & ready to display
+		//// Feed is formatted & ready to display ////
 
 		// do we just need one video?
 		if($mode == 'preview') {
@@ -244,10 +252,15 @@ class WP_Theater_Shortcodes  {
 		$result = apply_filters('wp_theater-pre_video_shortcode', '', $feed, $atts, $content, $tag);
 		if(!empty($result)) return $result;
 
-		// Start formatting results
-
+		// add the data attr if need be
 		$theater_data = !$show_theater && $theater_id ? ' data-theater-id="' . esc_attr($theater_id) . '"' : '';
-		$result = '<section class="entry-section wp-theater-section ' . esc_attr($service) . ' ' . esc_attr($mode) . ' ' . esc_attr($atts['class']) . '"' .  $theater_data . '>';
+
+		// build the classes
+		$class = ' ' . $service . ' ' . $mode . ' ' . $preset . ' ' . $atts['classes']['section'] . ' ' . $atts['class'];
+
+		//// Start formatting results ////
+
+		$result = '<section class="entry-section wp-theater-section' . esc_attr($class) . '"' .  $theater_data . '>';
 
 		// insert the title
 		if($show_title && !empty($title)) {
@@ -264,7 +277,7 @@ class WP_Theater_Shortcodes  {
 		}
 
 		// start the listing of videos
-		$result .= '	<ul class="wp-theater-listing">';
+		$result .= '	<ul class="wp-theater-listing ' . $atts['classes']['list'] . '">';
 		$is_first = TRUE;
 
 		foreach($feed->videos as $video) {
@@ -330,11 +343,16 @@ class WP_Theater_Shortcodes  {
 			// bad idea to not parse and reformat but it's a bit too costly.
 			$embed_url .= '&autoplay=1';
 
-		$result .= '	<' . $wrapper_element . ' class="video-preview ' . esc_attr($atts['class']) . ($selected ? ' selected' : '') . '"' . 
+		$class = ' ' . $atts['service'] . ' ' . $atts['preset'] . ' ' . $atts['classes']['preview'] . ($selected ? ' selected' : ''); 
+		if ($atts['mode'] == 'preview')
+			$class .= ' ' . $atts['class'];
+
+		$result .= '	<' . $wrapper_element . ' class="video-preview' . esc_attr($class) . '"' . 
 		           ' data-id="' . esc_attr($video->id) . '"' . 
 							 ' data-embed-url="' . esc_url($embed_url) . '"' .
 							 ' data-embed-width="' . esc_attr($atts['embed_width']) . '"' .
 							 ' data-embed-height="' . esc_attr($atts['embed_height']) . '"' .
+
 							 '>';
 
 		$result .= '		<a class="img-link" href="' . esc_url($video->url) . '" rel="nofollow" target="_blank" title="Watch ' . esc_attr($video->title) . '">';
@@ -357,8 +375,13 @@ class WP_Theater_Shortcodes  {
 	 * @return array A formatted string to display an embeded iframe
 	 */
 	protected function get_iframe($atts) {
-		if ($atts['mode'] != 'embed') $atts['class'] = '';
-		$result = '<iframe class="wp-theater-iframe ' . esc_attr($atts['service']) . ' ' . esc_attr($atts['mode']) . ' ' . esc_attr($atts['class']) . '" width="' . esc_attr($atts['embed_width']) . '" height="' . esc_attr($atts['embed_height']) . '" src="' . esc_url($this->get_request_url($atts)) . '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>';
+		$class = ' ' . $atts['service'] . ' ' . $atts['preset'] . ' ' . $atts['classes']['embed'];
+		if ($atts['mode'] == 'embed')
+			$class .= ' ' . $atts['class'];
+		else
+			$class .= ' ' . $atts['mode'];
+
+		$result = '<iframe class="wp-theater-iframe ' . esc_attr($class) . '" width="' . esc_attr($atts['embed_width']) . '" height="' . esc_attr($atts['embed_height']) . '" src="' . esc_url($this->get_request_url($atts)) . '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>';
 		return $result;
 	}
 
@@ -377,9 +400,11 @@ class WP_Theater_Shortcodes  {
 		// make attribues like [0] => 'hide_title' into ['show_title'] => FALSE
 		$atts = $this->capture_no_value_atts($atts);
 
-		// just in case someone tries to reset the modes array that is used for link formatting
+		// just in case someone tries to reset the modes or classes arrays
 		if (isset($atts['modes']))
 			unset($atts['modes']);
+		if (isset($atts['classes']))
+			unset($atts['classes']);
 
 		$presets = WP_Theater::$presets;
 
@@ -490,6 +515,8 @@ class WP_Theater_Shortcodes  {
 	 *
 	 * @return array Combined and filtered attribute list.
 	 */
+
+	// needs removed all together or integrated with format_params and capture_no_value_atts
 	public function shortcode_atts($pairs, $atts) {
 		$atts = (array) $atts;
 		$out = array();
