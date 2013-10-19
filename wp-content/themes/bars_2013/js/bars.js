@@ -1,5 +1,6 @@
+
 jQuery(document).ready(function($) {
-	
+
 	// Home page. Clickable latest posts.
 	$('.bars-recent-posts .latest-post').click(function(){
 		window.location.href = $('.post-title a', $(this)).attr('href');

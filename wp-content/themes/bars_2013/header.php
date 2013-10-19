@@ -29,6 +29,7 @@
 	<![endif]-->
 	<?php wp_head(); ?>
 	
+	<script type="text/javascript" src="<? echo get_stylesheet_directory_uri();?>/js/jquery.embedly.min.js"></script>
 	<script type="text/javascript" src="<? echo get_stylesheet_directory_uri();?>/js/bars.js"></script>
 </head>
 

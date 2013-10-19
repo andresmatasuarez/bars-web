@@ -300,27 +300,32 @@ body.page.page-template-template-auspiciantes-php .auspiciantes-quintadimension 
 body.page.page-template-template-auspiciantes-php .auspiciantes-incaa { background: url("images/auspiciantes/auspiciantes_incaa.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-videoflims { background: url("images/auspiciantes/auspiciantes_videoflims.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-findlingfilms { background: url("images/auspiciantes/auspiciantes_findlingfilms.png"); }
-body.page.page-template-template-auspiciantes-php .auspiciantes-multiplex { background: url("images/auspiciantes/auspiciantes_multiplex.png"); }
+body.page.page-template-template-auspiciantes-php .auspiciantes-monumental { background: url("images/auspiciantes/auspiciantes_monumental.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-cinesargentinos { background: url("images/auspiciantes/auspiciantes_cinesargentinos.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-mostaza { background: url("images/auspiciantes/auspiciantes_mostaza.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-cunnington { background: url("images/auspiciantes/auspiciantes_cunnington.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-campari { background: url("images/auspiciantes/auspiciantes_campari.png"); }
+body.page.page-template-template-auspiciantes-php .auspiciantes-sony { background: url("images/auspiciantes/auspiciantes_sony.png"); }
+body.page.page-template-template-auspiciantes-php .auspiciantes-syfy { background: url("images/auspiciantes/auspiciantes_syfy.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-nacionalrock { background: url("images/auspiciantes/auspiciantes_nacionalrock.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-filmoteca { background: url("images/auspiciantes/auspiciantes_filmoteca.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-rarovhs { background: url("images/auspiciantes/auspiciantes_rarovhs.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-piromaniafx { background: url("images/auspiciantes/auspiciantes_piromaniafx.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-planetarycomics { background: url("images/auspiciantes/auspiciantes_planetarycomics.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-rentalbsas { background: url("images/auspiciantes/auspiciantes_rentalbsas.png"); }
+body.page.page-template-template-auspiciantes-php .auspiciantes-ticoral { background: url("images/auspiciantes/auspiciantes_ticoral.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-eda{ background: url("images/auspiciantes/auspiciantes_eda.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-ab { background: url("images/auspiciantes/auspiciantes_ab.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-vacomoloco { background: url("images/auspiciantes/auspiciantes_vacomoloco.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-toronja { background: url("images/auspiciantes/auspiciantes_toronja.png"); }
+body.page.page-template-template-auspiciantes-php .auspiciantes-leotripi { background: url("images/auspiciantes/auspiciantes_leotripi.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-festeringslime { background: url("images/auspiciantes/auspiciantes_festeringslime.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-metamorfosisfx { background: url("images/auspiciantes/auspiciantes_metamorfosisfx.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-bsasciudad { background: url("images/auspiciantes/auspiciantes_bsasciudad.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-rafma { background: url("images/auspiciantes/auspiciantes_rafma.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-fantafestivales { background: url("images/auspiciantes/auspiciantes_fantafestivales.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-cinefania { background: url("images/auspiciantes/auspiciantes_cinefania.png"); }
+body.page.page-template-template-auspiciantes-php .auspiciantes-requiem { background: url("images/auspiciantes/auspiciantes_requiem.png"); }
 body.page.page-template-template-auspiciantes-php .auspiciantes-lacripta { background: url("images/auspiciantes/auspiciantes_lacripta.png"); }
 
 /* Convocatoria */
@@ -342,3 +347,36 @@ body.page-id-16 .wpcf7 textarea { margin-left: 60px; }
 body.page-id-10 .wpcf7 input[type=text],
 body.page-id-10 .wpcf7 input[type=email],
 body.page-id-10 .wpcf7 textarea { margin-left: 60px; }
+
+/* Programación */
+.movie-posts { font-family: 'Oswald'; margin: 0 auto; overflow: hidden; }
+.movie-posts .movie-post { float: left; margin: 0 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; filter: brightness(80%); -webkit-filter: brightness(80%); -moz-filter: brightness(80%); -o-filter: brightness(80%); -ms-filter: brightness(80%); }
+.movie-posts .movie-post:hover { cursor: pointer; background-color: rgba(0,0,0,1); filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%); }
+.movie-posts .movie-post .movie-post-thumbnail { text-align: center; width: auto; }
+.movie-posts .movie-post .movie-post-title { padding: 5px 5px 0 5px; font-size: 16px !important; }
+.movie-posts .movie-post .movie-post-info { padding: 0 5px; font-size: 12px; }
+.movie-posts .movie-post:hover a { text-decoration: none; color: white; }
+.movie-posts .movie-post a { text-decoration: none; color: #bbbbbb; }
+
+/* Movie info */
+.movie { overflow: hidden; }
+article[id^=movie] { padding: 20px 10px 0 10px; overflow: hidden; }
+article[id^=movie] .movie-image-container { float: left; color: white; }
+article[id^=movie] .movie-info-container { overflow: hidden; color: white; }
+article[id^=movie] .movie-image-container { padding: 0 10px 0 0; }
+article[id^=movie] .movie-info-container .movie-title { color: white; font-family: 'Oswald'; font-size: 20px; }
+article[id^=movie] .movie-info-container .movie-year,
+article[id^=movie] .movie-info-container .movie-country,
+article[id^=movie] .movie-info-container .movie-links,
+article[id^=movie] .movie-info-container .movie-runtime,
+article[id^=movie] .movie-info-container .movie-directors,
+article[id^=movie] .movie-info-container .movie-cast,
+article[id^=movie] .movie-info-container .movie-synopsis { color: white; font-family: 'Oswald'; font-size: 12px; }
+
+article[id^=movie] .movie-info-container .movie-directors { padding-top: 10px; }
+article[id^=movie] .movie-info-container .movie-synopsis { padding-top: 20px; }
+
+/* Lightbox Plus Colorbox override */
+#cboxContent{ background: rgba(0,0,0,0.8) !important; }
+#cboxLoadedContent { background: none !important; border: 1px solid rgba(255,255,255,0.1); }
+#cboxBottomCenter, #cboxClose { display: none; }

@@ -37,8 +37,8 @@ get_header(); ?>
 							<div class="auspiciantes auspiciantes-findlingfilms">
 								<a href="http://findlingfilms.com/" target="_blank" alt="Findling Films" ></a>
 							</div>
-							<div class="auspiciantes auspiciantes-multiplex">
-								<a href="http://www.cinesmultiplex.com.ar/" target="_blank" alt="Cines Multiplex" ></a>
+							<div class="auspiciantes auspiciantes-monumental">
+								<a href="http://www.cinesmultiplex.com.ar/" target="_blank" alt="Monumental Lavalle" ></a>
 							</div>
 							<div class="auspiciantes auspiciantes-cinesargentinos">
 								<a href="http://www.cinesargentinos.com.ar/" target="_blank" alt="Cines Argentinos" ></a>
@@ -51,6 +51,12 @@ get_header(); ?>
 							</div>
 							<div class="auspiciantes auspiciantes-campari">
 								<a href="http://www.campari.com/ar/es/" target="_blank" alt="Campari Argentina" ></a>
+							</div>
+							<div class="auspiciantes auspiciantes-sony">
+								<a href="http://www.sonypictures.com.ar" target="_blank" alt="Sony Pictures" ></a>
+							</div>
+							<div class="auspiciantes auspiciantes-syfy">
+								<a href="http://www.syfy.com" target="_blank" alt="SyFy" ></a>
 							</div>
 							<div class="auspiciantes auspiciantes-nacionalrock">
 								<a href="http://nacionalrock.com/‎" target="_blank" alt="Nacional Rock" ></a>
@@ -70,6 +76,9 @@ get_header(); ?>
 							<div class="auspiciantes auspiciantes-rentalbsas">
 								<a href="http://www.rental-bsas.com.ar/" target="_blank" alt="Rental Bs. As." ></a>
 							</div>
+							<div class="auspiciantes auspiciantes-ticoral">
+								<a href="http://www.ticoral.com" target="_blank" alt="Ticoral" ></a>
+							</div>
 							<div class="auspiciantes auspiciantes-eda">
 								<a href="http://www.edaeditores.com.ar/" target="_blank" alt="EDA" ></a>
 							</div>
@@ -81,6 +90,9 @@ get_header(); ?>
 							</div>
 							<div class="auspiciantes auspiciantes-toronja">
 								<a href="http://www.toronjaproducciones.com.ar/" target="_blank" alt="Toronja Producciones" ></a>
+							</div>
+							<div class="auspiciantes auspiciantes-leotripi">
+								<!-- <a href="" target="_blank" alt="Toronja Producciones" ></a> -->
 							</div>
 							<div class="auspiciantes auspiciantes-festeringslime">
 								<a href="mailto:amatasuarez@gmail.com" target="_blank" alt="Festering Slime Web Design" ></a>
@@ -100,8 +112,11 @@ get_header(); ?>
 							<div class="auspiciantes auspiciantes-cinefania">
 								<a href="http://www.cinefania.com/" target="_blank" alt="Cinefanía" ></a>
 							</div>
+							<div class="auspiciantes auspiciantes-requiem">
+								<a href="https://www.facebook.com/pages/Requiem/56147413104" target="_blank" alt="Requiem club" ></a>
+							</div>
 							<div class="auspiciantes auspiciantes-lacripta">
-								<a href="http://reservas.salaslacripta.com.ar/" target="_blank" alt="Salas La Cripta" ></a>
+								<!-- <a href="http://reservas.salaslacripta.com.ar/" target="_blank" alt="Salas La Cripta" ></a> -->
 							</div>
 						</div>
 					</div><!-- .entry-content -->
