@@ -13,11 +13,14 @@
  *
  * @package WordPress
  */
+ 
+ // 'Warning: Missing Argument 2 of save_movie...' -> http://make.wordpress.org/core/2012/12/12/php-warning-missing-argument-2-for-wpdb-prepare/
+ @ini_set('display_errors', 0);
 
 // !- START - BARS custom lines -!
 define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
 define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
-define('WP_CONTENT_DIR', substr(ABSPATH, 0, strrpos(ABSPATH, '\\wordpress')) . '\\wp-content');
+define('WP_CONTENT_DIR', substr(ABSPATH, 0, strrpos(ABSPATH, 'wordpress/')) . 'wp-content');
 define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 // !- END - BARS custom lines -!
 

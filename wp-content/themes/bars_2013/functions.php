@@ -14,31 +14,10 @@ if ( function_exists( 'add_theme_support' ) ) {
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'search-thumbnail', 200, 150, true);
 	add_image_size( 'recent-post-thumbnail', 322, 160, true);
-	add_image_size( 'movie-post-thumbnail', 175, 88, true);
-	add_image_size( 'movie-post-image', 200, 117, true);
+	add_image_size( 'movie-post-thumbnail', 160, 81, true);
+	add_image_size( 'movie-post-image', 220, 129, true);
 }
 
-/* ************ HIDE SLIDEDECK2 FROM WORDPRESS PANEL ************ */
-if (is_admin() && ! current_user_can('install_plugins')) {
-    add_action('admin_init', 'remove_slidedeck_menu_page');
-    add_action('admin_footer', 'remove_slidedeck_media_button');
-}
-
-// Remove SlideDeck2 menu page.
-function remove_slidedeck_menu_page() {
-    remove_menu_page('slidedeck2-lite.php');
-}
-
-// Remove the SlideDeck2 button from the post editor.
-function remove_slidedeck_media_button() {
-    echo <<<JQUERY
-<script>
-jQuery(document).ready(function($) {
-	$('#add_slidedeck').remove();
-});
-</script>
-JQUERY;
-}
 
 /* ************ SEARCH ONLY THROUGH POSTS ************ */
 function SearchFilter($query) {
@@ -61,4 +40,57 @@ function disqus_embed($disqus_shortname) {
         var disqus_url = "' . get_permalink($post->ID) . '";
         var disqus_identifier = "' . $disqus_shortname . '-' . $post->ID . '";
     </script>';
+}
+
+/**
+ * Display the post content. Optinally allows post ID to be passed
+ * @uses the_content()
+ *
+ * @param int $id Optional. Post ID.
+ * @param string $more_link_text Optional. Content for when there is more text.
+ * @param bool $stripteaser Optional. Strip teaser content before the more text. Default is false.
+ *
+ * @src http://stephenharris.info/get-post-content-by-id/
+ */
+function get_content_by_id( $post_id=0, $more_link_text = null, $stripteaser = false ){
+    global $post;
+    $post = &get_post($post_id);
+    setup_postdata( $post, $more_link_text, $stripteaser );
+    the_content();
+    wp_reset_postdata( $post );
+}
+
+/**
+ * @src http://www.uplifted.net/programming/wordpress-get-the-excerpt-automatically-using-the-post-id-outside-of-the-loop/
+ */
+function get_excerpt_by_id($post_id, $word_count = 15){
+    $the_post = get_post($post_id); //Gets post ID
+    $the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
+    $excerpt_length = $word_count; //Sets excerpt length by word count
+    $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+    $words = explode(' ', $the_excerpt, $excerpt_length + 1);
+
+    if(count($words) > $excerpt_length) :
+        array_pop($words);
+        array_push($words, '…');
+        $the_excerpt = implode(' ', $words);
+    endif;
+
+    $the_excerpt = '<p>' . $the_excerpt . '</p>';
+
+    return $the_excerpt;
+}
+
+/* ************ English to spanish day name translation ************ */
+function getSpanishDayName($englishDay){
+	switch(strtolower($englishDay)){
+		case 'sunday':		return 'domingo';
+		case 'monday':		return 'lunes';
+		case 'tuesday':		return 'martes';
+		case 'wednesday':	return 'miércoles';
+		case 'thursday':	return 'jueves';
+		case 'friday':		return 'viernes';
+		case 'saturday':	return 'sábado';
+		default:			return null;
+	}
 }

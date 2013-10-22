@@ -30,10 +30,7 @@ body { background: url("images/bgpattern3.png"); }
 #signature { margin-right: 20px; float: right !important; text-transform: uppercase !important; }
 
 /* Header */
-header.site-header { padding-top: 15px; font-family: 'Oswald';
-	background: black;
-	/*background: -webkit-linear-gradient(top, rgba(0,0,0,0) -40%, rgba(0,0,0,1) 100%), url("images/footer_back.png");*/
-}
+header.site-header { padding-top: 15px; font-family: 'Oswald'; background: black; }
 header.site-header div#header-content { overflow: auto;
 	background: url("images/logo_bg.png") no-repeat;
 	background-position: center;
@@ -89,17 +86,9 @@ div#header-menu ul.nav-menu li.current-menu-item { font-weight: normal; color: w
 /* Sidebar */
 #tertiary { width: 320px; background-color: rgba(0,0,0,0.4); padding: 0 10px 10px 10px; }
 #tertiary .widget-area { width: 100%; }
-#tertiary aside.widget { overflow: hidden; padding: 5px 0 0 0; color: white; background: none; margin-bottom: 30px; }
-#tertiary .widget-title { float: left; display: block; padding: 3px; border-radius: 5px; width: 100%; font-style: normal; font-family: 'Oswald' !important; text-transform: uppercase; font-size: 1.3em; font-weight: bolder; letter-spacing: 1px; background-color: rgba(50,50,50,0.4); }
+#tertiary aside.widget { overflow: hidden; padding: 0; margin-top: 5px; border: 1px solid rgba(255,255,255,0.1); color: white; background: none; margin-bottom: 30px; }
+#tertiary .widget-title { float: left; display: block; padding: 3px; width: 100%; font-style: normal; font-family: 'Oswald' !important; text-transform: uppercase; font-size: 1.3em; font-weight: bolder; letter-spacing: 1px; background-color: rgba(50,50,50,0.4); }
 #tertiary .widget-title:before { content: ''; display: block; float: left; margin-right: 10px; width: 29px; height: 29px; background: url("images/loguito.png") no-repeat 0 0;  }
-
-/* Sidebar newsletter widget */
-#form-wysija-2 { text-align: right; }
-.wysija-input { width: 85%; margin: 0; }
-.wysija-paragraph { margin: 0; display: inline; }
-.wysija-submit{ margin: 0 !important; padding: 6px 5px !important; width: 20px; display: inline !important; width: 13%; }
-.wysija-submit { background: rgb(210,0,0) !important; border-bottom: 3px solid rgb(140,0,0) !important; border: none !important; }
-.wysija-submit:hover { background: rgb(255,0,0) !important; }
 
 /* Sidebar youtube channel plugin */
 /* #youtube-sidebar-widget ul li:first-child img, #youtube-sidebar-widget ul li:first-child a, #youtube-sidebar-widget ul li:first-child div { overflow: hidden; width: 100% !important; }
@@ -187,7 +176,6 @@ article.page .entry-content { color: rgb(201, 201, 201); font-family: 'Verdana';
 #main header .entry-title { font-family: 'Oswald'; letter-spacing: 3px; text-transform: uppercase; font-size: 1.5em; }
 
 /* Home page */
-body.page-template-home-template-php .slidedeck-frame {  }
 body.page-template-home-template-php article.page { padding: 0; }
 body.page-template-home-template-php article.page .entry-content { padding: 0 0 0 0 !important; }
 body.page-template-home-template-php article.page .bars-recent-posts { padding: 7px 7px 0 7px; overflow: hidden; }
@@ -203,14 +191,7 @@ div.latest-post .post-title { text-shadow: 2px 2px 0.1em black; padding-top: 5px
 div.latest-post .post-title a { color: red; }
 div.latest-post:hover .post-title a { text-decoration: none; }
 div.latest-post .post-date { position: absolute; top: 5px; left: 0; padding-left: 8px; padding-right: 8px; font-family: 'Oswald'; background-color: rgba(0,0,0,0.5); }
-
-/* Slider */
-.slidedeck-2-bug { display: none !important; }
-.slidedeck-frame { height: inherit !important; }
-.slidedeck-frame dd.sd-nav-dot { display: inline-block; margin: 0 2px 0 2px; float: left; }
-.slidedeck-frame, .slidedeck, .slidedeck  dd,
-.slidedeck-frame .slide-text, .slidedeck-frame .slide-title { text-shadow: 2px 2px 0.1em black; text-indent: 0 !important; margin: 0 !important; width: 100% !important; }
-.slidedeck-frame .sd-node-title-box { padding: 10px 10px 20px 10px; }
+div.latest-post .post-thumbnail img { width: 322px !important; height: 160px !important; }
 
 /* Single post */
 body.single article.post  { color: rgb(201, 201, 201); padding-top: 0 !important; padding-bottom: 0; }
@@ -286,7 +267,7 @@ body.search .bars-post-excerpt  .entry-title, body.archive .bars-post-excerpt  .
 
 /* Responsive Image Widget */
 aside.ResponsiveImageWidget .responsive-image-widget { position: inherit !important; }
-aside.ResponsiveImageWidget .widget-title { background-color: rgba(0,0,0,0.8) !important; border-radius: 0 !important; }
+aside.ResponsiveImageWidget .widget-title { text-shadow: 2px 2px 0.1em black; background-color: rgba(0,0,0,0.93) !important; border-radius: 0 !important; }
 
 /* ############################## STATIC PAGES ############################################### */
 
@@ -349,34 +330,76 @@ body.page-id-10 .wpcf7 input[type=email],
 body.page-id-10 .wpcf7 textarea { margin-left: 60px; }
 
 /* Programación */
-.movie-posts { font-family: 'Oswald'; margin: 0 auto; overflow: hidden; }
-.movie-posts .movie-post { float: left; margin: 0 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; filter: brightness(80%); -webkit-filter: brightness(80%); -moz-filter: brightness(80%); -o-filter: brightness(80%); -ms-filter: brightness(80%); }
-.movie-posts .movie-post:hover { cursor: pointer; background-color: rgba(0,0,0,1); filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%); }
-.movie-posts .movie-post .movie-post-thumbnail { text-align: center; width: auto; }
-.movie-posts .movie-post .movie-post-title { padding: 5px 5px 0 5px; font-size: 16px !important; }
-.movie-posts .movie-post .movie-post-info { padding: 0 5px; font-size: 12px; }
-.movie-posts .movie-post:hover a { text-decoration: none; color: white; }
-.movie-posts .movie-post a { text-decoration: none; color: #bbbbbb; }
+body.page.page-template-template-programacion-php #schedule .scratch { opacity: 0.1; }
+body.page.page-template-template-programacion-php .schedule-week { font-family: 'Oswald'; margin-left: 70px; font-size: 12px; text-transform: lowercase; margin-bottom: 5px; text-align: left; margin-top: 5px; }
+body.page.page-template-template-programacion-php .entry-content { padding: 10px !important; }
+body.page.page-template-template-programacion-php .schedule-filters { font-family: 'Oswald'; font-size: 13px; text-align: right; padding: 0 0 30px 0; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts { font-family: 'Oswald'; margin: 0 auto; overflow: hidden; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post { color: white; position: relative; border: 1px solid rgba(255,255,255,0.1); float: left; margin: 0 5px 10px 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; filter: brightness(80%); -webkit-filter: brightness(80%); -moz-filter: brightness(80%); -o-filter: brightness(80%); -ms-filter: brightness(80%); }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post:hover { cursor: pointer; background-color: rgba(0,0,0,1); filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%); }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-hour { top: 0; z-index: 1; text-shadow: 1px 1px 0.1em black; position: absolute; right: 0; padding: 2px 5px 2px 5px; background-color: rgba(180,10,0,0.8); font-weight: bold; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-thumbnail { position: relative; text-align: center; width: auto; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-section { text-shadow: 1px 1px 0.1em black; position: absolute; left: 0; bottom: 0; background-color: rgba(180, 10, 0, 0.8); padding: 0 5px; font-size: 10px; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-title { padding: 0 0 0 2px; font-size: 16px !important; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-info { padding: 0 0 0 2px; font-size: 12px; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post:hover a { text-decoration: none; color: white; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post a { text-decoration: none; color: #bbbbbb; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post { width: 160px; }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-title { width: 145px; }
+
+body.page.page-template-template-programacion-php .schedule-day { overflow: hidden; padding: 5px; }
+body.page.page-template-template-programacion-php .schedule-day.even { background-color: rgba(0,0,0,0.3); }
+body.page.page-template-template-programacion-php .schedule-day.odd { background-color: none; }
+body.page.page-template-template-programacion-php .schedule-day .schedule-day-info { width: 110px; text-shadow: 2px 2px 0.1em black; text-align: center; font-family: 'Oswald'; font-size: 16px; float: left; margin: 0 auto; }
+body.page.page-template-template-programacion-php .schedule-day .schedule-day-info .schedule-day-number { font-size: 36px; }
 
 /* Movie info */
-.movie { overflow: hidden; }
-article[id^=movie] { padding: 20px 10px 0 10px; overflow: hidden; }
-article[id^=movie] .movie-image-container { float: left; color: white; }
-article[id^=movie] .movie-info-container { overflow: hidden; color: white; }
-article[id^=movie] .movie-image-container { padding: 0 10px 0 0; }
-article[id^=movie] .movie-info-container .movie-title { color: white; font-family: 'Oswald'; font-size: 20px; }
-article[id^=movie] .movie-info-container .movie-year,
-article[id^=movie] .movie-info-container .movie-country,
-article[id^=movie] .movie-info-container .movie-links,
-article[id^=movie] .movie-info-container .movie-runtime,
-article[id^=movie] .movie-info-container .movie-directors,
-article[id^=movie] .movie-info-container .movie-cast,
-article[id^=movie] .movie-info-container .movie-synopsis { color: white; font-family: 'Oswald'; font-size: 12px; }
-
-article[id^=movie] .movie-info-container .movie-directors { padding-top: 10px; }
-article[id^=movie] .movie-info-container .movie-synopsis { padding-top: 20px; }
+#movie { overflow: hidden; margin: 10px 10px; }
+#movie article { overflow: hidden; padding: 0; }
+#movie .movie-info-container {  }
+#movie .movie-info-container .movie-image { float: left; color: white; }
+#movie .movie-info-container .movie-info { overflow: hidden; color: white; }
+#movie .movie-info-container .movie-image { padding: 0 10px 0 0; }
+#movie .movie-info-container .movie-info .movie-title { color: white; font-family: 'Oswald'; font-size: 20px; }
+#movie .movie-info-container .movie-info .movie-year,
+#movie .movie-info-container .movie-info .movie-country,
+#movie .movie-info-container .movie-info .movie-links,
+#movie .movie-info-container .movie-info .movie-runtime,
+#movie .movie-info-container .movie-info .movie-directors,
+#movie .movie-info-container .movie-info .movie-cast { color: white; font-family: 'Oswald'; font-size: 12px; }
+#movie .movie-info-container .movie-info .movie-directors { padding-top: 10px; }
+#movie .movie-synopsis { padding-top: 20px; color: white; font-family: 'Oswald'; font-size: 12px; }
+#movie .movie-trailer-container { height: 350px; }
+#movie .movie-screenings-info { position: absolute; top: 0; right: 0; color: white; font-family: 'Oswald'; }
+#movie .movie-screenings-info .movie-section { background-color: rgba(180,10,0,0.8); padding: 5px; font-size: 18px; text-align: right; }
+#movie .movie-screenings-info .movie-screenings .movie-screenings-caption { float: right; background-color: rgba(180,10,0,0.8); padding: 2px; font-size: 13px; text-align: right; margin-top: 5px; }
+#movie .movie-screenings-info .movie-screenings .movie-screening { font-size: 12px; float: right; padding: 5px 10px 5px 10px; text-align: center; }
+#movie .movie-screenings-info .movie-screenings .movie-screening .movie-screening-daynumber { font-size: 20px; margin-top: -5px; }
 
 /* Lightbox Plus Colorbox override */
-#cboxContent{ background: rgba(0,0,0,0.8) !important; }
+#cboxContent { background: rgba(0,0,0,0.8) !important; }
 #cboxLoadedContent { background: none !important; border: 1px solid rgba(255,255,255,0.1); }
-#cboxBottomCenter, #cboxClose { display: none; }
+#cboxBottomCenter, #cboxClose { display: none !important; }
+/* Height & hidden overflow fix */
+#colorbox, #cboxWrapper { overflow: visible !important; }
+#cboxWrapper, #cboxContent, #cboxLoadedContent { height: auto !important; }
+
+/* Sticky navigation menu */
+#header-menu { z-index: 9999; width: 100%; }
+
+/* Slider */
+#slider { overflow: hidden; position: relative; width: 100%; height: 344px; border: 2px solid black; }
+#slider .slider-controls { z-index: 100; }
+#slider:hover { cursor: pointer; }
+#slider:hover .slider-controls { display: block; }
+#slider .slider-controls .circle { position: absolute; top: 50%; border-radius: 50%; width: 45px; height: 45px; opacity: 0.8; background-color: rgba(0,0,0,0.9); }
+#slider .slider-controls .circle:hover { opacity: 1; }
+#slider .slider-controls .circle.slider-control.left{ left: 0; margin-left: 10px; }
+#slider .slider-controls .circle.slider-control.right { right: 0; margin-right: 10px;  }
+#slider .slider-controls .arrow { width: 18px; height: 22px; background-image: url("images/arrows.png"); }
+#slider .slider-controls .slider-control.left .arrow { margin: 12px 0 0 12px; }
+#slider .slider-controls .slider-control.right .arrow { margin: 12px 0 0 15px; width: 18px; height: 22px; background-position: -17px 0; background-image: url("images/arrows.png"); }
+#slider .slide { font-family: 'Oswald'; width: 100%; height: 100%; position: absolute; display: block; }
+#slider .slide .slide-caption { width: 100%; background-color: rgba(0,0,0,0.8); position: absolute; bottom: 0; padding: 15px 15px 15px 20px; }
+#slider .slide .slide-caption .slide-title { color: #ad0000; font-size: 22px; text-shadow: 2px 2px 0.1em black; text-indent: 0 !important; }
+#slider .slide .slide-caption .slide-excerpt p { text-shadow: 2px 2px 0.1em black; text-indent: 0; color: white; margin: 0; font-size: 14px; }

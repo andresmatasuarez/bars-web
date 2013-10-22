@@ -13,21 +13,39 @@
 	add_action('add_meta_boxes', 'add_movie_meta_box');
 	add_action('save_post', 'save_movie');
 
+	/* ***** MOVIE SECTIONS ***** */
+	$sections = array (
+		'opening' => array ( 'label' => 'Función de apertura', 'value' => 'opening' ),
+		'internationalFeatureFilmCompetition' => array ( 'label' => 'Competencia Internacional', 'value' => 'internationalFeatureFilmCompetition' ),
+		'iberoamericanFeatureFilmCompetition' => array ( 'label' => 'Competencia Iberoamericana', 'value' => 'iberoamericanFeatureFilmCompetition' ),
+		'releases' => array ( 'label' => 'Novedades', 'value' => 'releases' ),
+		'shortFilmSeries' => array ( 'label' => 'Programa de Cortos', 'value' => 'shortFilmSeries' ),
+		'shortFilmCompetition' => array ( 'label' => 'Competencia de Cortos', 'value' => 'shortFilmCompetition' ),
+		'raroVhs' => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
+		'anioVerde' => array ( 'label' => 'Argentina Año Verde', 'value' => 'anioVerde' ),
+		'herederosDelTerror' => array ( 'label' => 'Herederos Del Teror', 'value' => 'herederosDelTerror' ),
+		'filmotecaPresenta' => array ( 'label' => 'Filmoteca Presenta', 'value' => 'filmotecaPresenta' ),
+		'laCripta' => array ( 'label' => 'La Cripta', 'value' => 'laCripta' ),
+		'sangreSudorYLagrimas' => array ( 'label' => 'Sangre, Sudor y Lágrimas', 'value' => 'sangreSudorYLagrimas' ),
+		'documentary' => array ( 'label' => 'Documental', 'value' => 'documentary' ),
+		'imperdibles' => array ( 'label' => 'Imperdibles', 'value' => 'imperdibles' )
+	);
+
 
 	/* ***** MOVIE FIELD DEFINITIONS ***** */
-	// Name, trailer, poster, country, year of release, runtime, synopsis, website, imdb
 	$prefix = '_movie_';
 	$movie_fields = array(
 		array(
 			'id'    => $prefix . 'edition',
 			'label' => 'Edition',
 			'type'  => 'select',
-			'options' => array (  
-							'bars14' => array (  
-								'label' => 'BARS 14',
-								'value' => 'bars14'
-							)  
-						)
+			'options' => array ( 'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' ) )
+		),
+		array(
+			'id'    => $prefix . 'section',
+			'label' => 'Section',
+			'type'  => 'select',
+			'options' => $sections
 		),
 		array(
 			'id'    => $prefix . 'name',
@@ -81,17 +99,25 @@
 		array(
 			'id'    => $prefix . 'screenings',
 			'label' => 'Film screenings',
-			'desc' => 'Format: mm-dd-yyyy. comma-separated',
+			'desc' => 'Format: mm-dd-yyyy hh:mm. comma-separated',
 			'type'  => 'text'
 		),
 		array(
 			'id'    => $prefix . 'synopsis',
 			'label' => 'Synopsis',
 			'type'  => 'textarea'
+		),
+		array(
+			'id'    => $prefix . 'comments',
+			'label' => 'Comments',
+			'type'  => 'textarea'
 		)
 	);
 	
-	
+	function sectionByValue($value){
+		global $sections;
+		return $sections[$value]['label'];
+	}
 	
 	/* ***** FUNCTIONS ***** */
 	function create_movie_post_type() {
@@ -200,7 +226,6 @@
 			return;
 			
 		// Check permissions
-		//echo '<script type="text/javascript">alert("' .  . '");</script>';
 		if ($_POST['post_type'] != 'movie' || !current_user_can('edit_post', $post_id))
 			return;
 		  

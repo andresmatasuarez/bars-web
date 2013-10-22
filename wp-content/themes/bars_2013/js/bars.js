@@ -1,11 +1,48 @@
 
 jQuery(document).ready(function($) {
 
+	// Sticky navigation menu
+	$('#header-menu').stickymenu();
+	
+	$('#slider').slider();
+	
 	// Home page. Clickable latest posts.
 	$('.bars-recent-posts .latest-post').click(function(){
 		window.location.href = $('.post-title a', $(this)).attr('href');
 		return false;
 	});
+	
+	// Programación
+	$('#schedule-section-filters').movieSectionFilter();
+	$('.movie-post .movie-post-title').ThreeDots({ text_span_class: 'movie-post-title-text', max_rows: 1, alt_text_e: true, alt_text_t: true });
+	
+	// Sort movies by hour asc.
+	$('.schedule-day .movie-posts').each(function(){
+		var movies = $(this).find('.movie-post');
+		movies.sort(function(x, y){
+			var hourX = $(x).find('.movie-post-hour').html().split(':');
+			var hourY = $(y).find('.movie-post-hour').html().split(':');
+			
+			var dateX = new Date();
+			dateX.setHours(parseInt(hourX[0]));
+			dateX.setMinutes(parseInt(hourX[1]));
+			
+			var dateY = new Date();
+			dateY.setHours(parseInt(hourY[0]));
+			dateY.setMinutes(parseInt(hourY[1]));
+			
+			x = dateX.getTime();
+			y = dateY.getTime();	
+
+			return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+		});
+		
+		$(this).find('.movie-post').remove();
+		
+		$(this).append(movies);
+		
+	});
+	
 	
 	// Convocatoria
 	$('.bars-hidden-info').css('display', 'none');
@@ -79,37 +116,126 @@ function barsSearch_postHoverOut(thumb, title){
 	title.css('background-color', 'rgba(0,0,0,0.5)');
 }
 
+(function ($) {
+	
+	// Movie section filter.
+	$.fn.movieSectionFilter = function (){
+		var object = this;
+		
+		// Default filter: all sections.
+		object.val('all');
+		
+		object.change(function(){
+			var selected = object.val();
+			if (selected == 'all'){
+				object.closest('article').find('.schedule-day, .movie-post').fadeIn(300);
+			} else {
+				object.closest('article').find('.schedule-day, .movie-post').fadeOut(300);
+				object.closest('article').find('.movie-post[section="' + object.val() + '"]').each(function(){
+					$(this).fadeIn(300);
+					$(this).closest('.schedule-day').fadeIn(300);
+				});
+			}
+			
+			object.closest('article').find('.schedule-day:visible:odd').removeClass('odd even').addClass('odd');
+			object.closest('article').find('.schedule-day:visible:even').removeClass('odd even').addClass('even');
+		});
+		
+	}
 
-/** WaitUntilExists 
- * http://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
- */
- (function ($) {
+	// Sticky navigation menu.
+	$.fn.stickymenu = function (){
+		var object = this;
+		var adminBarOffset = $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
+		var headerHeight = this.parent().height();
+		var stickyTop = this.offset().top - adminBarOffset;
 
-/**
-* @function
-* @property {object} jQuery plugin which runs handler function once specified element is inserted into the DOM
-* @param {function} handler A function to execute at the time when the element is inserted
-* @param {bool} shouldRunHandlerOnce Optional: if true, handler is unbound after its first invocation
-* @example $(selector).waitUntilExists(function);
-*/
+		$(window).scroll(function(){
+			var st = $(this).scrollTop();
+			var scrollTop = $(window).scrollTop(); 
 
-$.fn.waitUntilExists = function (handler, shouldRunHandlerOnce, isChild) {
-    var found       = 'found';
-    var $this       = $(this.selector);
-    var $elements   = $this.not(function () { return $(this).data(found); }).each(handler).data(found, true);
-
-    if (!isChild)
-    {
-        (window.waitUntilExists_Intervals = window.waitUntilExists_Intervals || {})[this.selector] =
-            window.setInterval(function () { $this.waitUntilExists(handler, shouldRunHandlerOnce, true); }, 500)
-        ;
-    }
-    else if (shouldRunHandlerOnce && $elements.length)
-    {
-        window.clearInterval(window.waitUntilExists_Intervals[this.selector]);
-    }
-
-    return $this;
-}
-
+			// If we scroll more than the navigation, change its position to fixed and add class 'sticky'.
+			// Otherwise, change it back to absolute and remove the class.
+			if (scrollTop > stickyTop) {
+				object.css({ 'position': 'fixed', 'top': adminBarOffset }).addClass('sticky');	
+			} else {
+				object.parent().height(headerHeight);
+				object.css({ 'position': 'absolute', 'top': stickyTop }).removeClass('sticky'); 
+			}
+			
+		});
+	}
+	
+	// Recent posts slider.
+	$.fn.slider = function(){
+		var object = this;
+		var w = object.width();
+		var h = object.height();
+		var slides = object.find('.slide');
+		var slidesCount = slides.length;
+		var interval = null;
+		
+		var currentSlide = object.find('.slide[slide-position=0]');
+		
+		var slideFunction = function(toLeft){
+			var currentSlidePosition = parseInt(currentSlide.attr('slide-position'));
+			var d;
+			if (currentSlidePosition == 0 && toLeft)
+				d = slidesCount - 1;
+			else if (currentSlidePosition == slidesCount-1 && !toLeft)
+				d = 0;
+			else
+				d = currentSlidePosition + (toLeft ? -1 : 1);
+			
+			slides.each(function(){
+				$(this).animate({'left': ((parseInt($(this).attr('slide-position')) - d) * w) + 'px'}, 'slow', function(){
+					if (interval == null){
+						interval = setInterval(function(){
+							slideFunction(false);
+						}, 5000);
+					}
+				});
+			});
+			currentSlide = object.find('.slide[slide-position=' + d + ']');
+		};
+		
+		// Slider controls behaviour
+		object.find('.slider-control').on('click', function(el, event){
+			if (interval != null){
+				clearInterval(interval);
+				interval = null;
+			}
+			slideFunction($(this).hasClass('left'));
+		});
+		
+		// Slider interval function.
+		interval = setInterval(function(){
+			slideFunction(false);
+		}, 5000);
+		
+		// Hide slider controls.
+		object.find('.slider-controls').hide();
+		object.hover(function(){
+			object.find('.slider-controls').fadeToggle(200);
+		});
+		
+		// Link slides to respective posts.
+		slides.each(function(){
+			$(this).click(function(){
+				window.location = $(this).attr('permalink');
+			});
+		});
+		
+		// Place slides in a consecutive way.
+		var left = 0;
+		slides.each(function(){
+			$(this).css('left', left + 'px');
+			$(this).find('img').resizecrop({
+				width: w,
+				height: h
+			});
+			left += w;
+		});
+	}
+	
 }(jQuery));
