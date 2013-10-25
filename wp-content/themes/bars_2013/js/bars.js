@@ -15,6 +15,11 @@ jQuery(document).ready(function($) {
 	// Programación
 	$('#schedule-section-filters').movieSectionFilter();
 	$('.movie-post .movie-post-title').ThreeDots({ text_span_class: 'movie-post-title-text', max_rows: 1, alt_text_e: true, alt_text_t: true });
+	$('#movieblock .movie-selectors #movie-selector').live('click', function(){
+		var id = $(this).attr('movieid');
+		$('#movieblock .movie-info-displayer .movie').fadeOut(300);
+		$('#movieblock .movie-info-displayer #movie-' + id).fadeIn(300);
+	});
 	
 	// Sort movies by hour asc.
 	$('.schedule-day .movie-posts').each(function(){
@@ -94,7 +99,8 @@ jQuery(document).ready(function($) {
 		}, function(obj){
 			barsSearch_postHoverOut($('.bars-post-thumbnail', $(this).closest('.bars-post-search')), $(this));
 			return false;
-		});
+		}
+	);
 	
 });
 

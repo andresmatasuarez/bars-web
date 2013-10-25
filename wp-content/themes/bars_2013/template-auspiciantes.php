@@ -56,7 +56,7 @@ get_header(); ?>
 								<a href="http://www.sonypictures.com.ar" target="_blank" alt="Sony Pictures" ></a>
 							</div>
 							<div class="auspiciantes auspiciantes-syfy">
-								<a href="http://www.syfy.com" target="_blank" alt="SyFy" ></a>
+								<a href="http://www.syfyla.com/es" target="_blank" alt="SyFy" ></a>
 							</div>
 							<div class="auspiciantes auspiciantes-nacionalrock">
 								<a href="http://nacionalrock.com/‎" target="_blank" alt="Nacional Rock" ></a>

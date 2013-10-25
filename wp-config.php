@@ -15,7 +15,7 @@
  */
  
  // 'Warning: Missing Argument 2 of save_movie...' -> http://make.wordpress.org/core/2012/12/12/php-warning-missing-argument-2-for-wpdb-prepare/
- @ini_set('display_errors', 0);
+//@ini_set('display_errors', 0);
 
 // !- START - BARS custom lines -!
 define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');

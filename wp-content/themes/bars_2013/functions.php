@@ -1,10 +1,5 @@
 <?php
 
-//if( !is_admin()){
-//	wp_deregister_script('jquery');
-//	wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, '1.9.1');
-//	wp_enqueue_script('jquery');
-//}
 
 /* ************************ THUMBNAIL SIZES ************************ */
 if ( function_exists( 'add_theme_support' ) ) {
@@ -16,6 +11,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'recent-post-thumbnail', 322, 160, true);
 	add_image_size( 'movie-post-thumbnail', 160, 81, true);
 	add_image_size( 'movie-post-image', 220, 129, true);
+	add_image_size( 'movieblock-post-image', 110, 65, true);
 }
 
 

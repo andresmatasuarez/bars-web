@@ -63,23 +63,14 @@ get_header(); ?>
 							
 							// For each festival day, show all the films that will be screened that day.
 							foreach($days as $key => $day){
-								$args = array(
-									'post_type' => 'movie',
-									'meta_query' => array(
-											array( 'key' => '_movie_edition', 'value' => $edition ),
-											array( 'key' => '_movie_screenings', 'value' => $day, 'compare' => 'LIKE' )
-									),
-									'post_status' => 'publish',
-									'posts_per_page' => -1,
-									'caller_get_posts'=> 1
-								);
-								
-								$query = new WP_Query($args);
+							
+								$posts = getMoviesAndMovieBlocks($edition, $day);
 								
 								// If no movies for this day, then continue with the next one.
-								if (!$query->have_posts()){
+								if (count($posts) == 0){
 									continue;
 								}
+								
 								
 								$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $day)->format('l')));
 								$dayNumber = DateTime::createFromFormat('m-d-Y', $day)->format('d');
@@ -95,35 +86,55 @@ get_header(); ?>
 									echo '</div>';
 									echo '<div class="movie-posts">';
 										
-										while ($query->have_posts()){
-											$query->the_post();
-											$sectionValue = get_post_meta($post->ID, '_movie_section', true);
+										foreach($posts as $post){
+											// post object only has post ID.
+											setup_postdata($post);
+											
+											// Preparing data
+											$isMovie = get_post_type($post->ID) == 'movie';
+											$sectionValue = get_post_meta($post->ID, $isMovie ? '_movie_section' : '_movieblock_section', true);
+											$screeningsValue = get_post_meta($post->ID, $isMovie ? '_movie_screenings' : '_movieblock_screenings', true);
+											
+											if ($isMovie){
+												$year = get_post_meta($post->ID, '_movie_year', true);
+												$country = get_post_meta($post->ID, '_movie_country', true);
+												$runtime = get_post_meta($post->ID, '_movie_runtime', true);
+												$info = ($year != '') ? $year : '';
+												if ($country != '')
+													$info = ($info != '' ? $info . ' - ' : '') . $country;
+												if ($runtime)
+													$info = ($info != '' ? $info . ' - ' : '') . $runtime . ' min.';
+													
+											} else {
+												$info = get_post_meta($post->ID, '_movieblock_runtime', true) . ' min.';
+											}
 											
 											// Extract screening hour for this day.
-											$screenings = array_map('trim', explode(',', get_post_meta($post->ID, '_movie_screenings', true)));
+											$screenings = array_map('trim', explode(',', $screeningsValue));
 											foreach($screenings as $key => $screening){
 												$datetime = preg_split('/[\s]+/', $screening);
-												if ($datetime[0] == $day)
+												if ($datetime[0] == $day){
 													$time = $datetime[1];
+													break;
+												}
 											}
 											
 											echo '<div class="movie-post" section="' . $sectionValue . '">';
 												echo '<div class="movie-post-hour">' . $time . '</div>';
 												echo '<a href="' . get_permalink($post->ID) . '" rel="lightbox[ababab]">';
 													echo '<div class="movie-post-thumbnail">';
-														if ($sectionValue != ''){
-															echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
-														}
+														echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 														echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
 													echo '</div>';
 													echo '<div class="movie-post-title">';
 														echo '<span class="movie-post-title-text">';
-															echo $post->post_title;
+															echo get_the_title($post->ID);
 														echo '</span>';
 													echo '</div>';
-													echo '<div class="movie-post-info">' . get_post_meta($post->ID, '_movie_year', true) . ' - ' . get_post_meta($post->ID, '_movie_country', true) . ' - ' . get_post_meta($post->ID, '_movie_runtime', true) . ' min. </div>';
+													echo '<div class="movie-post-info">' . $info . '</div>';
 												echo '</a>';
 											echo '</div>';
+											
 										}
 										
 										// Restore global post data stomped by the_post().

@@ -40,9 +40,7 @@ header.site-header div#header-content { overflow: auto;
 }
 header.site-header div#header-textdiv { color: white; font-size: 0.65em; letter-spacing: 0.2em; font-weight: lighter; text-align: center; text-transform: uppercase; }
 header.site-header div#header-image:hover { cursor: pointer; }
-header.site-header div#header-image { margin: 6px auto 0 auto; width: 350px; height: 119px;
-	background-image: url("images/header-img.png");
-}
+header.site-header div#header-image { margin: 6px auto 0 auto; width: 350px; height: 119px; background-image: url("images/header-img.png"); }
 header.site-header div#header-clouds { margin-top: -13px; height: 31px; width: 100%; background-image: url("images/scratchs_2.png"); }
 header.site-header div#header-social { overflow: auto; text-align: center; margin-bottom: 15px; }
 header.site-header div#header-social div { display: inline-block; padding: 0; width: 33px; background-repeat: no-repeat; }
@@ -80,25 +78,15 @@ div#header-menu ul.nav-menu li.current-menu-item { font-weight: normal; color: w
 /* Sidebar overlapping fix */
 #main { overflow: hidden; /* needed to stretch parent container since children are floated */ }
 #primary.content-area { width: 680px; float: left; }
-.site-main .sidebar-container { position: static; float: right; width: 30%; height: auto; }
+.site-main .sidebar-container { position: inherit; float: right; width: 30%; height: inherit; }
 .sidebar .entry-header, .sidebar .entry-content, .sidebar .entry-summary, .sidebar .entry-meta { padding: 0; }
 
 /* Sidebar */
 #tertiary { width: 320px; background-color: rgba(0,0,0,0.4); padding: 0 10px 10px 10px; }
 #tertiary .widget-area { width: 100%; }
-#tertiary aside.widget { overflow: hidden; padding: 0; margin-top: 5px; border: 1px solid rgba(255,255,255,0.1); color: white; background: none; margin-bottom: 30px; }
-#tertiary .widget-title { float: left; display: block; padding: 3px; width: 100%; font-style: normal; font-family: 'Oswald' !important; text-transform: uppercase; font-size: 1.3em; font-weight: bolder; letter-spacing: 1px; background-color: rgba(50,50,50,0.4); }
+#tertiary aside.widget { overflow: hidden; padding: 0; margin-top: 5px; border: 1px solid rgba(255,255,255,0.1); color: white; background: none; }
+#tertiary .widget-title { float: left; display: block; padding: 3px; margin: 0; width: 100%; font-style: normal; font-family: 'Oswald' !important; text-transform: uppercase; font-size: 1.3em; font-weight: bolder; letter-spacing: 1px; background-color: rgba(50,50,50,0.4); }
 #tertiary .widget-title:before { content: ''; display: block; float: left; margin-right: 10px; width: 29px; height: 29px; background: url("images/loguito.png") no-repeat 0 0;  }
-
-/* Sidebar youtube channel plugin */
-/* #youtube-sidebar-widget ul li:first-child img, #youtube-sidebar-widget ul li:first-child a, #youtube-sidebar-widget ul li:first-child div { overflow: hidden; width: 100% !important; }
-#youtube-sidebar-widget ul li:first-child img { height: inherit !important; }
-#youtube-sidebar-widget ul li:first-child .play_arrow { width: 100% !important; ; }
-#youtube-sidebar-widget ul li:first-child div { margin-top: -224px !important; height: 224px !important; }
-#youtube-sidebar-widget ul li:first-child a { font-size: 1em !important; }youtube
-#youtube-sidebar-widget ul li:first-child  img { float: none !important; margin: 0 auto !important; display: block !important; }
-#youtube-sidebar-widget ul li a { font-family: 'Oswald'; font-size: 0.9em; }
-#youtube-sidebar-widget ul li { margin-bottom: 0 !important; } */
 
 /* Sidebar youtube channel plugin */
 #youtube-sidebar-widget ul li { margin: 0 auto 10px auto !important; }
@@ -267,7 +255,7 @@ body.search .bars-post-excerpt  .entry-title, body.archive .bars-post-excerpt  .
 
 /* Responsive Image Widget */
 aside.ResponsiveImageWidget .responsive-image-widget { position: inherit !important; }
-aside.ResponsiveImageWidget .widget-title { text-shadow: 2px 2px 0.1em black; background-color: rgba(0,0,0,0.93) !important; border-radius: 0 !important; }
+aside.ResponsiveImageWidget .widget-title { text-shadow: 2px 2px 0.1em black; background-color: rgba(0,0,0,0.93) !important; }
 
 /* ############################## STATIC PAGES ############################################### */
 
@@ -335,8 +323,8 @@ body.page.page-template-template-programacion-php .schedule-week { font-family: 
 body.page.page-template-template-programacion-php .entry-content { padding: 10px !important; }
 body.page.page-template-template-programacion-php .schedule-filters { font-family: 'Oswald'; font-size: 13px; text-align: right; padding: 0 0 30px 0; }
 body.page.page-template-template-programacion-php .schedule-day .movie-posts { font-family: 'Oswald'; margin: 0 auto; overflow: hidden; }
-body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post { color: white; position: relative; border: 1px solid rgba(255,255,255,0.1); float: left; margin: 0 5px 10px 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; filter: brightness(80%); -webkit-filter: brightness(80%); -moz-filter: brightness(80%); -o-filter: brightness(80%); -ms-filter: brightness(80%); }
-body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post:hover { cursor: pointer; background-color: rgba(0,0,0,1); filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%); }
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post { color: white; position: relative; border: 1px solid rgba(255,255,255,0.1); float: left; margin: 0 5px 10px 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; opacity: 0.6; } /* filter: brightness(80%); -webkit-filter: brightness(80%); -moz-filter: brightness(80%); -o-filter: brightness(80%); -ms-filter: brightness(80%); */
+body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post:hover { cursor: pointer; background-color: rgba(0,0,0,1); opacity: 1; } /* filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%); */
 body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-hour { top: 0; z-index: 1; text-shadow: 1px 1px 0.1em black; position: absolute; right: 0; padding: 2px 5px 2px 5px; background-color: rgba(180,10,0,0.8); font-weight: bold; }
 body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-thumbnail { position: relative; text-align: center; width: auto; }
 body.page.page-template-template-programacion-php .schedule-day .movie-posts .movie-post .movie-post-section { text-shadow: 1px 1px 0.1em black; position: absolute; left: 0; bottom: 0; background-color: rgba(180, 10, 0, 0.8); padding: 0 5px; font-size: 10px; }
@@ -354,27 +342,63 @@ body.page.page-template-template-programacion-php .schedule-day .schedule-day-in
 body.page.page-template-template-programacion-php .schedule-day .schedule-day-info .schedule-day-number { font-size: 36px; }
 
 /* Movie info */
-#movie { overflow: hidden; margin: 10px 10px; }
-#movie article { overflow: hidden; padding: 0; }
-#movie .movie-info-container {  }
-#movie .movie-info-container .movie-image { float: left; color: white; }
-#movie .movie-info-container .movie-info { overflow: hidden; color: white; }
-#movie .movie-info-container .movie-image { padding: 0 10px 0 0; }
-#movie .movie-info-container .movie-info .movie-title { color: white; font-family: 'Oswald'; font-size: 20px; }
-#movie .movie-info-container .movie-info .movie-year,
-#movie .movie-info-container .movie-info .movie-country,
-#movie .movie-info-container .movie-info .movie-links,
-#movie .movie-info-container .movie-info .movie-runtime,
-#movie .movie-info-container .movie-info .movie-directors,
-#movie .movie-info-container .movie-info .movie-cast { color: white; font-family: 'Oswald'; font-size: 12px; }
-#movie .movie-info-container .movie-info .movie-directors { padding-top: 10px; }
-#movie .movie-synopsis { padding-top: 20px; color: white; font-family: 'Oswald'; font-size: 12px; }
-#movie .movie-trailer-container { height: 350px; }
-#movie .movie-screenings-info { position: absolute; top: 0; right: 0; color: white; font-family: 'Oswald'; }
-#movie .movie-screenings-info .movie-section { background-color: rgba(180,10,0,0.8); padding: 5px; font-size: 18px; text-align: right; }
-#movie .movie-screenings-info .movie-screenings .movie-screenings-caption { float: right; background-color: rgba(180,10,0,0.8); padding: 2px; font-size: 13px; text-align: right; margin-top: 5px; }
-#movie .movie-screenings-info .movie-screenings .movie-screening { font-size: 12px; float: right; padding: 5px 10px 5px 10px; text-align: center; }
-#movie .movie-screenings-info .movie-screenings .movie-screening .movie-screening-daynumber { font-size: 20px; margin-top: -5px; }
+#movie, #movieblock { overflow: hidden; margin: 10px 10px; }
+#movie article, #movieblock article { overflow: hidden; padding: 0; }
+#movie .info-container .image, #movieblock .info-container .image { float: left; color: white; }
+#movie .info-container .info, #movieblock .info-container .info { overflow: hidden; color: white; }
+#movie .info-container .image, #movieblock .info-container .image { padding: 0 10px 0 0; }
+#movie .info-container .info .title, #movieblock .info-container .info .title { color: white; font-family: 'Oswald'; font-size: 20px; width: 260px; }
+#movie .info-container .info .year,
+#movie .info-container .info .country,
+#movie .info-container .info .links,
+#movie .info-container .info .runtime, #movieblock .info-container .info .runtime,
+#movie .info-container .info .directors,
+#movie .info-container .info .cast { color: white; font-family: 'Oswald'; font-size: 12px; }
+#movie .info-container .info .directors, { padding-top: 10px; }
+#movie .synopsis, #movieblock .synopsis { padding-top: 20px; color: white; font-family: 'Oswald'; font-size: 12px; }
+#movie .trailer-container, #movieblock .trailer-container { height: 350px; }
+#movie .screenings-info { position: absolute; top: 0; right: 0; color: white; font-family: 'Oswald'; }
+#movie .screenings-info .section { background-color: rgba(180,10,0,0.8); padding: 5px; font-size: 18px; text-align: right; }
+#movie .screenings-info .screenings .screenings-caption { float: left; background-color: rgba(180,10,0,0.8); padding: 2px; font-size: 13px; text-align: right; margin-top: 5px; }
+#movie .screenings-info .screenings .screening { font-size: 12px; float: left; padding: 5px 10px 5px 10px; text-align: center; }
+#movie .screenings-info .screenings .screening .screening-daynumber { font-size: 20px; margin-top: -5px; }
+#movieblock .screenings-info { position: absolute; top: 0; right: 0; color: white; font-family: 'Oswald'; }
+#movieblock .screenings-info .section { background-color: rgba(180,10,0,0.8); padding: 5px; font-size: 18px; text-align: right; }
+#movieblock .screenings-info .screenings .screenings-caption { float: left; background-color: rgba(180,10,0,0.8); padding: 2px; font-size: 13px; text-align: right; margin-top: 5px; }
+#movieblock .screenings-info .screenings .screening { font-size: 12px; float: left; padding: 5px 10px 5px 10px; text-align: center; }
+#movieblock .screenings-info .screenings .screening .screening-daynumber { font-size: 20px; margin-top: -5px; }
+
+#movieblock .info-container { height: 90px; }
+#movieblock .movie .info-container { height: auto; }
+#movieblock .movie-selectors { font-family: 'Oswald'; float: left; height: 400px; overflow-y: auto; padding-right: 10px; }
+#movieblock .movie-selectors .movie-post { background-color: rgba(15,15,15,1); color: white; border: 1px solid rgba(255,255,255,0.1); margin: 0 5px 10px 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; opacity: 0.6; } /* filter: brightness(80%); -webkit-filter: brightness(80%); -moz-filter: brightness(80%); -o-filter: brightness(80%); -ms-filter: brightness(80%); */
+#movieblock .movie-selectors .movie-post:hover { cursor: pointer; background-color: rgba(0,0,0,1); opacity: 1; } /* filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%); */
+#movieblock .movie-selectors .movie-post .movie-post-thumbnail { position: relative; text-align: center; width: auto; }
+#movieblock .movie-selectors .movie-post .movie-post-title { width: 145px; padding: 0 0 0 2px; font-size: 16px !important; }
+#movieblock .movie-selectors .movie-post .movie-post-info { padding: 0 0 0 2px; font-size: 12px; }
+#movieblock .movie-selectors .movie-post:hover a { text-decoration: none; color: white; }
+#movieblock .movie-selectors .movie-post a { text-decoration: none; color: #bbbbbb; }
+#movieblock .movie-selectors .movie-post { width: 160px; }
+#movieblock .movie-selectors::-webkit-scrollbar { width: 8px; }
+#movieblock .movie-selectors::-webkit-scrollbar-thumb { background: rgba(150,150,150,1); }
+#movieblock .movie-selectors::-webkit-scrollbar-thumb:window-inactive { background: rgba(255,0,0,0.4); }
+
+#movieblock .movie-info-displayer .image { float: left; color: white; }
+#movieblock .movie-info-displayer .info { overflow: hidden; color: white; }
+#movieblock .movie-info-displayer .image { padding: 0 10px 0 0; }
+#movieblock .movie-info-displayer .info .title { color: white; font-family: 'Oswald'; font-size: 20px; width: 260px; }
+#movieblock .movie-info-displayer .info .year,
+#movieblock .movie-info-displayer .info .country,
+#movieblock .movie-info-displayer .info .links,
+#movieblock .movie-info-displayer .info .runtime,
+#movieblock .movie-info-displayer .info .directors,
+#movieblock .movie-info-displayer .info .cast { color: white; font-family: 'Oswald'; font-size: 12px; }
+#movieblock .movie-info-displayer .info .directors { padding-top: 10px; }
+#movieblock .synopsis { padding-top: 20px; color: white; font-family: 'Oswald'; font-size: 12px; }
+#movieblock .trailer-container { height: 350px; }
+#movieblock .movie-info-displayer { font-family: 'Oswald'; overflow-y: auto; overflow-x: hidden; height: 400px; padding: 0 10px; }
+#movieblock .movie-info-displayer .movie:not(:first-child) { display: none; }
+
 
 /* Lightbox Plus Colorbox override */
 #cboxContent { background: rgba(0,0,0,0.8) !important; }
@@ -403,3 +427,6 @@ body.page.page-template-template-programacion-php .schedule-day .schedule-day-in
 #slider .slide .slide-caption { width: 100%; background-color: rgba(0,0,0,0.8); position: absolute; bottom: 0; padding: 15px 15px 15px 20px; }
 #slider .slide .slide-caption .slide-title { color: #ad0000; font-size: 22px; text-shadow: 2px 2px 0.1em black; text-indent: 0 !important; }
 #slider .slide .slide-caption .slide-excerpt p { text-shadow: 2px 2px 0.1em black; text-indent: 0; color: white; margin: 0; font-size: 14px; }
+
+/* WP theater */
+.wp-theater-iframe { height: 200px !important; }

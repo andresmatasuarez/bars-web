@@ -15,13 +15,13 @@
 
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<div class="movie-screenings-info">
-					<div class="movie-section">
+				<div class="screenings-info">
+					<div class="section">
 						<?php echo sectionByValue(get_post_meta($post->ID, '_movie_section', true));?>
 					</div>
 					
-					<div class="movie-screenings">
-						<div class="movie-screenings-caption">Mirala los días</div>
+					<div class="screenings">
+						<div class="screenings-caption">Mirala los días</div>
 					<?php
 						$datetimes = array_map('trim', explode(',', get_post_meta($post->ID, '_movie_screenings', true)));
 						foreach($datetimes as $key => $datetime){
@@ -29,14 +29,14 @@
 							$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $dt[0])->format('l')));
 							$dayNumber = DateTime::createFromFormat('m-d-Y', $dt[0])->format('d');
 							$time = $dt[1];
-							echo '<div class="movie-screening">';
-								echo '<div class="movie-screening-dayname">';
+							echo '<div class="screening">';
+								echo '<div class="screening-dayname">';
 									echo $dayName;
 								echo '</div>';
-								echo '<div class="movie-screening-daynumber">';
+								echo '<div class="screening-daynumber">';
 									echo $dayNumber;
 								echo '</div>';
-								echo '<div class="movie-screening-hour">';
+								echo '<div class="screening-hour">';
 									echo $time;
 								echo '</div>';
 							echo '</div>';
@@ -46,14 +46,25 @@
 				</div>
 
 				<article id="movie-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<div class="movie-info-container">
-						<div class="movie-image">
+					<div class="info-container">
+						<div class="image">
 							<?php the_post_thumbnail('movie-post-image'); ?>
 						</div>
-						<div class="movie-info">
-							<div class="movie-year movie-country"><?php echo get_post_meta($post->ID, '_movie_year', true); ?> | <?php echo get_post_meta($post->ID, '_movie_country', true);?></div>
-							<div class="movie-title"><?php the_title(); ?></div>
-							<div class="movie-links">
+						<div class="info">
+							<div class="year country">
+							<?php
+								$year = get_post_meta($post->ID, '_movie_year', true);
+								$country = get_post_meta($post->ID, '_movie_country', true);
+								$runtime = get_post_meta($post->ID, '_movie_runtime', true);
+								$info = ($year != '') ? $year : '';
+								if ($country != '')
+									$info = ($info != '' ? $info . ' | ' : '') . $country;
+
+								echo $info;
+							
+							?></div>
+							<div class="title"><?php the_title(); ?></div>
+							<div class="links">
 								<?php
 									$website = get_post_meta($post->ID, '_movie_website', true);
 									$imdb = get_post_meta($post->ID, '_movie_imdb', true);
@@ -65,8 +76,12 @@
 										echo '<a target="_blank" href="' . $imdb . '">IMDB</a>';
 								?>
 							</div>
-							<div class="movie-runtime"><?php echo get_post_meta($post->ID, '_movie_runtime', true); ?> minutos</div>
-							<div class="movie-directors">
+							
+							<?php
+								if ($runtime != '')
+									echo '<div class="runtime">' . $runtime . ' minutos.</div>';
+							?>
+							<div class="directors">
 								<?php
 									$directors = explode(',', get_post_meta($post->ID, '_movie_directors', true));
 									
@@ -80,7 +95,7 @@
 								
 								?>
 							</div>
-							<div class="movie-cast">
+							<div class="cast">
 								<?php
 									$cast = explode(',', get_post_meta($post->ID, '_movie_cast', true));
 									
@@ -94,12 +109,12 @@
 								?>
 							</div>
 						</div>
-						<div class="movie-synopsis">
+						<div class="synopsis">
 							<p><?php echo get_post_meta($post->ID, '_movie_synopsis', true); ?></p>
 						</div>
 					</div>
 					
-					<div class="movie-trailer-container">
+					<div class="trailer-container">
 						<?php echo wp_oembed_get( get_post_meta($post->ID, '_movie_trailer', true), array( 'width' => '100%' ) ); ?>
 					</div>
 			</article>
