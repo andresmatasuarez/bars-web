@@ -18,15 +18,16 @@
 //@ini_set('display_errors', 0);
 
 // !- START - BARS custom lines -!
-define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
-define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
+define('APACHE_DEV_PORT', ':8082');		// For local testing
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT . '/wordpress');
+define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT);
 define('WP_CONTENT_DIR', substr(ABSPATH, 0, strrpos(ABSPATH, 'wordpress/')) . 'wp-content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT . '/wp-content');
 // !- END - BARS custom lines -!
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'bars-dev');
+define('DB_NAME', 'bars');
 
 /** MySQL database username */
 define('DB_USER', 'admin');

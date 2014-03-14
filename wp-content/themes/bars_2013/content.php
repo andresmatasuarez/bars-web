@@ -19,7 +19,7 @@
 				?>
 			</div>
 			<div class="bars-post-excerpt">
-				<div class="entry-date"><?php the_date(); ?></div>
+				<div class="entry-date"><?php echo get_the_date(); ?></div>
 				<div class="entry-title"><?php the_title(); ?></div>
 				<!-- <div class="entry-summary"><?php the_excerpt(); ?></div> -->
 				<div class="entry-categories">Categorías: <?php the_category(', '); ?></div>

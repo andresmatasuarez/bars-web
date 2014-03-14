@@ -37,7 +37,6 @@
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
-		
 			<div id="header-content">
 				<div id="header-textdiv">Festival internacional de cine de terror, fantástico y bizarro</div>
 				<a href="<?php echo get_option('home'); ?>"><div id="header-image"></div></a>
@@ -47,6 +46,39 @@
 					<a href="https://twitter.com/rojosangre" target="blank"><div id="bars-header-social-twitter"></div></a>
 				</div>
 				<div id="header-clouds"></div>
+			</div>
+			<div id="festival-ribbon">
+				<div class="ribbon-container">
+					<div class="container">
+						<div class="base">
+							<div class="festival-starting">Arranca el BARS 14!</div>
+							<div class="festival-opening">
+								<div>Jueves</br></div>
+								<div>31</br></div>
+								<div>Octubre</div>
+							</div>
+							<div class="festival-closing">
+								<div>Miércoles</div>
+								<div>6</div>
+								<div>Noviembre</div>
+							</div>
+							<div class="festival-to">
+								<div></br></div>
+								<div>al</div>
+							</div>
+							<div class="festival-cinemas">
+								<div><strong>Complejo Monumental</strong><br/></div>
+								<div>Sala 9, 10, 11: Lavalle 836<br/></div>
+								<div>Sala 3: Lavalle 780</div>
+							</div>
+						</div>
+						<div class="left_dashes"></div>
+						<div class="right_dashes"></div>
+						<div class="borders"></div>
+						<!-- <div class="left_corner"></div>
+						<div class="right_corner"></div> -->
+					</div>
+				</div>
 			</div>
 
 			<div id="header-menu">

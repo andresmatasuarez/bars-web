@@ -28,7 +28,7 @@
 						</div>
 						<div class="footer-logos">
 							<div class="footer-image"></div>
-							<a href="mailto:amatasuarez@gmail.com"><div class="footer-mylogo festeringslime"></div></a>
+							<a href="mailto:amatasuarez@gmail.com"><div id="festeringslime" class="footer-mylogo"></div></a>
 						</div>
 					</div>
 				</div><!-- .site-info -->

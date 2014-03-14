@@ -1,6 +1,8 @@
 
 jQuery(document).ready(function($) {
 
+	// Place & show festival ribbon
+
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
 	
@@ -108,8 +110,6 @@ function barsSearch_postHoverIn(thumb, title){
 	thumb.css('cursor', 'pointer');
 	title.css('cursor', 'pointer');
 	thumb.css('border', '7px solid rgba(255,0,0,0.5)');
-	thumb.css('-webkit-filter', 'grayscale(0%)');
-	thumb.css('filter', 'filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");');
 	title.css('background-color', 'rgba(201,0,0,0.5)');
 }
 
@@ -117,8 +117,6 @@ function barsSearch_postHoverOut(thumb, title){
 	thumb.css('cursor', 'default');
 	title.css('cursor', 'default');
 	thumb.css('border', 'border: 7px solid rgba(201,201,201, 0.2)');
-	thumb.css('-webkit-filter', 'grayscale(100%)');
-	thumb.css('filter', 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale")');
 	title.css('background-color', 'rgba(0,0,0,0.5)');
 }
 
