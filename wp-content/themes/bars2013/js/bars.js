@@ -4,6 +4,19 @@ jQuery(document).ready(function($) {
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
 	
+	// Fancybox initialization
+	$(".fancybox").fancybox({
+        padding: 2,
+		beforeShow: function(){
+			$(document.body).addClass('overflow-hidden');
+			$(this).css('z-index', $('#header-menu').css('z-index'));
+		},
+		beforeClose: function(){
+			$(document.body).removeClass('overflow-hidden');
+		}
+    });
+	
+	// Slider
 	$('#slider').slider();
 	
 	// Home page. Clickable latest posts.
