@@ -42,13 +42,10 @@
 					<div id="news" >
 					
 					</div>
-				</div>
+				</div><!-- #content -->
 				
-				<div id="sidebar-container">
-					<?php get_sidebar(); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<?php get_footer(); ?>
+				
+	<?php
+		get_sidebar();
+		get_footer();
+	?>
