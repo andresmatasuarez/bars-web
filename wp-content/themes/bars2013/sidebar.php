@@ -5,6 +5,8 @@
  * @subpackage bars2013
  */
  ?>
+	
+	</div><!-- #content -->
 
 	<div id="sidebar-container">
 		<div id="sidebar" >

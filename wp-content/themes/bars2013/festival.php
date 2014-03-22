@@ -41,7 +41,6 @@
 
 						<p>El BARS fue declarado de interés por el Instituto Nacional de Cinematografía y Artes Audiovisuales, auspiciado por el Museo del Cine de la Ciudad de Buenos Aires y declarado de Interés Cultural por la Legislatura de la Ciudad Autónoma de Buenos Aires. Estas instituciones han comprendido que este festival es el único espacio para un tipo de cine que tradicionalmente ha sido olvidado. Indudablemente el Buenos Aires Rojo Sangre, un festival especializado que ya se ha convertido en un referente para la producción nacional de ciencia ficción, terror y fantasía.</p>
 					</div>
-				</div><!-- #content -->
 				
 	<?php
 		get_sidebar();

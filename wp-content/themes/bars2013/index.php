@@ -42,7 +42,6 @@
 					<div id="news" >
 					
 					</div>
-				</div><!-- #content -->
 				
 				
 	<?php

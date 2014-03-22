@@ -8,13 +8,17 @@ jQuery(document).ready(function($) {
 	$(".fancybox").fancybox({
         padding: 2,
 		beforeShow: function(){
+			// Hide body overflow to simulate scroll lock.
 			$(document.body).addClass('overflow-hidden');
-			$(this).css('z-index', $('#header-menu').css('z-index'));
 		},
 		beforeClose: function(){
+			// Re-enable scrolling.
 			$(document.body).removeClass('overflow-hidden');
 		}
     });
+	
+	
+	
 	
 	// Slider
 	$('#slider').slider();
