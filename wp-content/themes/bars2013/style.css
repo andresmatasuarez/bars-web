@@ -10,7 +10,12 @@ Author URI:		mailto:author@bmb.com
 @import url("../bars2013/css/auspiciantes.css");
 @import url("../bars2013/css/ribbon.css");
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
-/* @import url(http://fonts.googleapis.com/css?family=Bitter:700); */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+
+/* Text styles */
+p { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; text-indent: 16pt; }
+.page-header { font-family: 'Open Sans'; font-size: 22pt; color: #CECECE; }
 
 /* Utils */
 .scratch { opacity: 0.4; width: 100%; height: 1px; background-image: url("images/scratch.png"); }
@@ -60,9 +65,11 @@ div#header-menu .nav-menu ul li.current-menu-item { background-color: rgb(175, 0
 
 /* Main container */
 #main { background: url("images/bgpattern2.png"); overflow: hidden; }
-#main-logo-bg { background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; overflow: hidden; }
-#main-container { width: 955px; margin: 0 auto; padding: 0 0 0 0; overflow: hidden; background-color: rgba(10,0,0,0.4); }
+#main-logo-bg { background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; overflow: hidden; background-color: rgba(10,0,0,0.4); }
+#main-container { width: 955px; margin: 0 auto; padding: 0 0 0 0; overflow: hidden; /*background-color: rgba(10,0,0,0.4);*/ }
 #content { width: 650px; float: left; }
+#content .page-header { margin-top: 15px; }
+#content .page-content { padding: 10px 20px 20px 20px; }
 
 /* Sidebar */
 #sidebar-container { width: 280px; /*background-color: rgba(25,0,0,0.4);*/ margin-left: 5px; padding: 0 10px 10px 10px; float: left; overflow: hidden; }
@@ -70,6 +77,12 @@ div#header-menu .nav-menu ul li.current-menu-item { background-color: rgb(175, 0
 #sidebar-container .sidebar-widget-header { font-family: 'Oswald'; text-transform: uppercase; font-size: 1.3em; letter-spacing: 1px; font-style: normal; overflow: hidden; padding: 3px 0px 3px 3px; position: absolute; top: 0; z-index: 10; width: 100%; background-color: rgba(0,0,0,0.95); }
 #sidebar-container .sidebar-widget-title { float: left; margin-top: -1px; }
 #sidebar-container .sidebar-widget-logo { float: left; margin-right: 5px; }
+
+/* Sidebar image crop widget */
+.sidebar-widget.sidebar-image { cursor: pointer; }
+
+/* Overlay popup */
+.overlay {  }
 
 /* Footer */
 #footer { overflow: hidden; text-align: center; box-shadow: inset 0px 70px 50px -30px black; background: rgba(0,0,0,0.6); }
@@ -83,8 +96,15 @@ div#header-menu .nav-menu ul li.current-menu-item { background-color: rgb(175, 0
 #footer .footer-logos .fs-image:hover { background-image: url("images/footer/footer_festeringslime.png"); }
 
 
-
-
+/* Convocatoria (call.php -> tmpl_call) */
+#page-call .bars-info-displayer { margin-bottom: 35px; }
+#page-call .bars-info-displayer-arrow { float: left; margin-top: 4px; margin-right: 10px; }
+#page-call .bars-info-displayer-header:hover { cursor: pointer; }
+#page-call .bars-info-displayer-header { background-color: rgba(50,50,50,0.4); border-radius: 10px 10px 0 0; padding: 8px 15px 5px 15px; overflow: hidden; }
+#page-call .bars-info-displayer-footer { background-color: rgba(50,50,50,0.4); border-radius: 0 0 10px 10px; padding: 10px; font-family: 'Oswald'; }
+#page-call .bars-info-displayer-header-title { float: left; font-size: 18px; }
+#page-call .bars-info-displayer-header-caption { float: right; }
+#page-call .bars-hidden-info { background-color: rgba(0,0,0,0.4); padding: 15px; }
 
 
 
@@ -190,16 +210,6 @@ aside.ResponsiveImageWidget .responsive-image-widget { position: inherit !import
 aside.ResponsiveImageWidget .widget-title { text-shadow: 2px 2px 0.1em black; background-color: rgba(0,0,0,0.93) !important; }
 
 /* ############################## STATIC PAGES ############################################### */
-
-/* Convocatoria */
-body.page.page-template-template-convocatoria-php .bars-info-displayer { margin-bottom: 35px; }
-body.page.page-template-template-convocatoria-php .bars-info-displayer-arrow { float: left; margin-top: 4px; margin-right: 10px; }
-body.page.page-template-template-convocatoria-php .bars-info-displayer-header:hover { cursor: pointer; }
-body.page.page-template-template-convocatoria-php .bars-info-displayer-header { background-color: rgba(50,50,50,0.4); border-radius: 10px 10px 0 0; padding: 8px 15px 5px 15px; overflow: hidden; font-family: 'Oswald'; }
-body.page.page-template-template-convocatoria-php .bars-info-displayer-footer { background-color: rgba(50,50,50,0.4); border-radius: 0 0 10px 10px; padding: 10px; font-family: 'Oswald'; }
-body.page.page-template-template-convocatoria-php .bars-info-displayer-header-title { float: left; font-size: 18px; }
-body.page.page-template-template-convocatoria-php .bars-info-displayer-header-caption { float: right; }
-body.page.page-template-template-convocatoria-php .bars-hidden-info { background-color: rgba(0,0,0,0.4); padding: 15px; }
 
 /* Prensa */
 body.page-id-16 .wpcf7 input[type=text],

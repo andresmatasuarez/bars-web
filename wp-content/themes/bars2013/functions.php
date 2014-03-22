@@ -14,9 +14,18 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'movieblock-post-image', 110, 65, true);
 }
 
-/* Add sidebar widget function */
-function add_sidebar_widget($id, $title, $content){
-	return '<div id="' . $id . '" class="sidebar-widget">
+/* ************ SIDEBAR WIDGETS ************ */
+function add_youtube_sidebar_widget($class, $title, $video_id, $width, $height){
+	return widgetify($class, $title, youtube_widget($video_id, $width, $height));
+}
+
+function add_image_sidebar_widget($class, $title, $img_url, $width, $widget_height=''){
+	return widgetify($class, $title, image_widget($img_url, $width, $widget_height));
+}
+
+/* private: decorate content as a sidebar widget */
+function widgetify($class, $title, $content){
+	return '<div class="sidebar-widget ' . $class . '">
 		<div class="sidebar-widget-header">
 			<div class="small-logo sidebar-widget-logo"></div>
 			<div class="sidebar-widget-title">' . $title . '</div>
@@ -25,14 +34,16 @@ function add_sidebar_widget($id, $title, $content){
 	</div><!-- .sidebar-widget -->';
 }
 
-/* YouTube video widget*/
-function youtube_sidebar_widget($class, $video_id, $width, $height){
-	return '<div class="' . $class . '"><iframe width="' . $width . '" height="' . $height . '" src="//www.youtube.com/embed/' . $video_id . '" frameborder="0" allowfullscreen></iframe></div>';
+/* private: YouTube video widget */
+function youtube_widget($video_id, $width, $height){
+	return '<div class="youtube-video">
+		<iframe width="' . $width . '" height="' . $height . '" src="//www.youtube.com/embed/' . $video_id . '" frameborder="0" allowfullscreen></iframe>
+	</div>';
 }
 
-/* Sidebar image widget */
-function image_sidebar_widget($class, $img_url, $width, $widget_height=''){
-	return '<div class="' . $class . '" style="height: ' . $widget_height . '; position: relative; overflow: hidden;">
+/* private: Sidebar image widget */
+function image_widget($img_url, $width, $widget_height=''){
+	return '<div class="image-crop" style="height: ' . $widget_height . '; position: relative; overflow: hidden;">
 		<img src="' . $img_url . '" width="' . $width . '" height="auto" style="position: absolute;">
 	</div>';
 }

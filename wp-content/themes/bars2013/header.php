@@ -30,9 +30,9 @@
 	?>
 	
 	<link rel="stylesheet" href="<?php echo bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen">
-	<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/js/jquery.resizecrop-1.0.3.min.js"></script>
 	<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/js/jquery.ThreeDots.min.js"></script>
 	<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/js/bars.js"></script>
+	<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/js/bars.image-widget.js"></script>
 	
 </head>
 

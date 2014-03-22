@@ -1,8 +1,6 @@
 
 jQuery(document).ready(function($) {
 
-	// Place & show festival ribbon
-
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
 	
