@@ -8,7 +8,7 @@
 ?>
 
 <div class="movie" id="movie-<?php the_ID(); ?>">
-	<div class="screenings-info">
+	<div class="screenings-info text-oswald">
 		<div class="section">
 			<?php echo sectionByValue(get_post_meta($post->ID, '_movie_section', true));?>
 		</div>
@@ -39,7 +39,7 @@
 		</div>
 	</div>
 
-	<div class="info-container">
+	<div class="info-container text-oswald">
 		<div class="image">
 			<?php the_post_thumbnail('movie-post-image'); ?>
 		</div>
@@ -103,10 +103,10 @@
 		</div>
 	</div>
 	<div class="clear"></div>
-	<div class="overflow-hidden">
+	<div class="movie-synopsis text-opensans">
 		<div class="trailer-container">
 			<iframe src="//www.youtube.com/embed/<?php echo get_post_meta($post->ID, '_movie_trailer', true); ?>" frameborder="0" allowfullscreen></iframe>
 		</div>
-		<p><?php echo get_post_meta($post->ID, '_movie_synopsis', true); ?></p>
+		<p class="text-opensans"><?php echo get_post_meta($post->ID, '_movie_synopsis', true); ?></p>
 	</div>
 </div>
