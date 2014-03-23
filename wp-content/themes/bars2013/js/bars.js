@@ -54,6 +54,16 @@ jQuery(document).ready(function($) {
 	// Selections
 	$('#schedule-section-filters').movieSectionFilter();
 	
+	// Wufoo Press & Contact forms behaviour
+	// Hide 'Medio de prensa' by default and show it if previous YES radio checked
+	//$('#page-contact li#foli16').hide();
+	//$('#page-contact #Field12_1').prop('checked', true);
+	//$('#page-contact .field[name=Field12]').change(function(){
+	//	if ($(this).is(':checked') && $(this).attr('id') == 'Field12_0')
+	//		$('li#foli16').fadeIn(300);
+	//	else
+	//		$('li#foli16').fadeOut(300);
+	//});
 	
 	
 	

@@ -7,12 +7,14 @@ Author:         Andrés Mata Suárez
 Author URI:		mailto:author@bmb.com
 */
 
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+@import url("../bars2013/css/wufoo.css");
 @import url("../bars2013/css/links.css");
 @import url("../bars2013/css/text.css");
 @import url("../bars2013/css/sponsors.css");
 @import url("../bars2013/css/ribbon.css");
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 /* Utils */
 .scratch { opacity: 0.4; width: 100%; height: 1px; background-image: url("images/scratch.png"); }
@@ -62,7 +64,7 @@ div#bars-header-social-youtube:hover { background-image: url("images/youtube.png
 #main-container { width: 955px; margin: 0 auto; padding: 0 0 0 0; overflow: hidden; /*background-color: rgba(10,0,0,0.4);*/ }
 #content { width: 650px; float: left; }
 #content .page-header { margin-top: 15px; }
-#content .page-content { padding: 10px 20px 20px 20px; }
+#content .page-content { padding: 20px; }
 
 /* Sidebar */
 #sidebar-container { width: 280px; /*background-color: rgba(25,0,0,0.4);*/ margin-left: 5px; padding: 0 10px 10px 10px; float: left; overflow: hidden; }
@@ -123,7 +125,7 @@ div#bars-header-social-youtube:hover { background-image: url("images/youtube.png
 
 /* Movie / Movie block info (single-movie.php / single-movieblock.php	) */
 .movie, .movieblock { background: black; width: 700px; padding: 10px; position: relative; }
-.movie .screenings-info { position: absolute; top: 0; right: 0; }
+.movie .screenings-info { float: right; margin: -10px -10px 0 30px; } /* -10px counter act against padding 10px in previous line */
 .movie .screenings-info .section { background-color: rgba(180,10,0,0.8); padding: 5px; font-size: 18px; text-align: right; }
 .movie .screenings-info .screenings { overflow: hidden; }
 .movie .screenings-info .screenings .screenings-caption { width: 100%; float: left; background-color: rgba(180,10,0,0.8); padding-left: 5px; margin-top: 5px; }
@@ -133,9 +135,20 @@ div#bars-header-social-youtube:hover { background-image: url("images/youtube.png
 .movie .info-container .info, .movieblock .info-container .info { overflow: hidden; }
 .movie .info-container .image, .movieblock .info-container .image { padding: 0 10px 0 0; }
 .movie .info-container .info .directors { margin-top: 10px; }
+.movie .movie-synopsis { overflow: hidden; }
 .movie .trailer-container, .movieblock .trailer-container { width: 300px; float: right; margin: 20px 0 5px 10px; }
 
-
+/* Press & Contact page */
+#page-contact form.contact-form label, #page-contact form.contact-form input { display: block; }
+#page-contact form.contact-form .contact-form-input { margin-bottom: 20px; }
+#page-contact form.contact-form .contact-form-input .required:after { content: '*'; font-weight: bold; color: red; margin: 0 5px; }
+#page-contact .contact-form-input-name, #page-contact .contact-form-input-name input,
+#page-contact .contact-form-input-email, #page-contact .contact-form-input-email input,
+#page-contact .contact-form-input-media, #page-contact .contact-form-input-media input { width: 350px; }
+#page-contact .contact-form-input-subject, #page-contact .contact-form-input-subject input,
+#page-contact .contact-form-input-message, #page-contact .contact-form-input-message textarea { width: 100%; }
+#page-contact .contact-form-input-message textarea { height: 150px; }
+#page-contact .contact-form-input-hint { float: right; }
 
 
 

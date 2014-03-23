@@ -27,7 +27,7 @@
 #page-selection .schedule-day .movie-post:hover a { text-decoration: none; color: white; }
 
 /* Movie info (movie.php) */
-.movie .screenings-info, .movie .info-container .info, .movieblock .info-container .info { color: white; font-family: 'Oswald'; }
+.movie .screenings-info, .movie .info-container .info { color: white; }
 .movie .screenings-info .section { font-size: 13.5pt; }
 .movie .screenings-info .screenings .screenings-caption { font-size: 10pt; }
 .movie .screenings-info .screenings .screening, .movie .info-container .info .links, .movie .info-container .info .specs,
@@ -35,3 +35,6 @@
 .movie .info-container .info .cast { font-size: 9pt; }
 .movie .screenings-info .screenings .screening .screening-daynumber,
 .movie .info-container .info .title, .movieblock .info-container .info .title { font-size: 14.5pt; }
+
+/* Contact (contact.php) */
+#page-contact .contact-form-input-hint { font-size: 8pt; font-style: italic; }
