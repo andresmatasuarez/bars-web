@@ -12,7 +12,7 @@
 						Acerca del festival
 					</div>
 					
-					<div id="festival-info" class="page-content" >
+					<div id="page-festival" class="page-content text-opensans" >
 						<p>El Buenos Aires Rojo Sangre es el único festival especializado en cine fantástico y bizarro que se hace en Argentina. Es una muestra orientada básicamente a producciones independientes y de bajo presupuesto.</p>
 
 						<p>Su concreción surgió naturalmente, a partir de la creciente realización en Argentina de films de estos géneros. Generalmente realizados en video y en forma ultraindependiente, estas películas no lograban hacerse un lugar en los principales festivales cinematográficos locales. Por eso los realizadores de muy interesantes largos, medios y cortometrajes debían conformarse con unas pocas proyecciones autogestionadas. Esto es porque el fantástico es aún considerado en ciertos círculos como un “género menor”.</p>

@@ -51,7 +51,7 @@
 						<div class="schedule">
 						
 						<?php
-							
+							$parity = 0;
 							// For each festival day, show all the films that will be screened that day.
 							foreach($days as $key => $day){
 							
@@ -65,7 +65,7 @@
 								$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $day)->format('l')));
 								$dayNumber = DateTime::createFromFormat('m-d-Y', $day)->format('d');
 								
-								echo '<div class="schedule-day ' . ($key % 2 == 0 ? 'even' : 'odd') . '">';
+								echo '<div class="schedule-day ' . ($parity % 2 == 0 ? 'even' : 'odd') . '">';
 									echo '<div class="schedule-day-info">';
 										echo '<div class="schedule-day-name">';
 											echo $dayName;
@@ -111,7 +111,7 @@
 											
 											echo '<div class="movie-post" section="' . $sectionValue . '">';
 												echo '<div class="movie-post-hour">' . $time . '</div>';
-												echo '<a class="fancybox fancybox.iframe" href="' . get_permalink($post->ID) . '">';
+												echo '<a class="fancybox" href="#movie-container" link="' . get_permalink($post->ID) . '">';
 													echo '<div class="movie-post-thumbnail">';
 														echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 														echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
@@ -133,13 +133,18 @@
 									
 									echo '</div>';
 								echo '</div>';
-								echo '<div class="clear scratch"></div>';
+								echo '<div class="scratch clear"></div>';
+								
+								$parity++;
 							}
 							
 						?>
 						
 						</div>
 
+					</div>
+					
+					<div id="movie-container" class="hidden-movie-container">
 					</div>
 				
 	<?php
