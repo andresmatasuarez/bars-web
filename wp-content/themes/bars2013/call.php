@@ -111,10 +111,13 @@
 										<li>
 											La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.
 										</li>
-
+									</ul>
 								</div>
 								<div class="bars-info-displayer-footer">
-									<a href="#">Ir al formulario online</a> | <a href="#">Ver la hoja de autorización</a>
+									<a class="fancybox fancybox.iframe" href="http://rojosangre.quintadimension.com/inscr_largo.php">Ir al formulario online</a>
+									| Ver la hoja de autorización
+									<!--<a href="#">Ver la hoja de autorización</a>-->
+									
 								</div>
 							</div>
 						</div>
@@ -222,7 +225,9 @@
 									</ul>
 								</div>
 								<div class="bars-info-displayer-footer">
-									<a href="#">Ir al formulario online</a> | <a href="#">Ver la hoja de autorización</a>
+									<a class="fancybox fancybox.iframe" href="http://rojosangre.quintadimension.com/inscr_corto.php">Ir al formulario online</a>
+									| Ver la hoja de autorización
+									<!--<a href="#">Ver la hoja de autorización</a>-->
 								</div>
 							</div>
 						</div>

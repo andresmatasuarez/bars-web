@@ -37,6 +37,19 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
+	// Fancybox initialization for entry forms in call.php.
+	$('#page-call .fancybox').fancybox({
+		padding: 2,
+		beforeShow: function(){
+			// Hide body overflow to simulate scroll lock.
+			$(document.body).addClass('overflow-hidden');
+		},
+		beforeClose: function(){
+			// Re-enable scrolling.
+			$(document.body).removeClass('overflow-hidden');
+		}
+	});
+	
 	
 	// Selections
 	$('#schedule-section-filters').movieSectionFilter();
