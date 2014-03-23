@@ -1,0 +1,13 @@
+/* Links */
+a { color: rgb(255,97,0); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header menu */
+#header-menu .nav-menu ul li a { padding: 8px; }
+#header-menu .nav-menu ul li:hover { background-color: rgb(36, 31, 31); }
+#header-menu .nav-menu ul li a:link,
+#header-menu .nav-menu ul li a:visited,
+#header-menu .nav-menu ul li a:hover,
+#header-menu .nav-menu ul li a:active { background: none; font-style: normal; text-decoration: none; font-weight: normal; color: white; }
+
+#header-menu .nav-menu ul li.current_page_item { background-color: rgb(175, 0, 0); font-size: 1.1em; }

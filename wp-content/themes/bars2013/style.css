@@ -7,6 +7,7 @@ Author:         Andrés Mata Suárez
 Author URI:		mailto:author@bmb.com
 */
 
+@import url("../bars2013/css/links.css");
 @import url("../bars2013/css/text.css");
 @import url("../bars2013/css/sponsors.css");
 @import url("../bars2013/css/ribbon.css");
@@ -48,18 +49,9 @@ div#bars-header-social-youtube { background-image: url("images/youtube-gray.png"
 div#bars-header-social-youtube:hover { background-image: url("images/youtube.png"); }
 
 /* Header menu */
-div#header-menu { background-color: black; text-align: center; text-transform: uppercase; margin: 0; padding: 0; }
-div#header-menu .nav-menu ul { margin: 0; padding: 0; }
-div#header-menu .nav-menu ul li { display: inline-block; }
-div#header-menu .nav-menu ul li,
-div#header-menu .nav-menu ul li a { padding: 8px; }
-div#header-menu .nav-menu ul li:hover { background-color: rgb(36, 31, 31); }
-div#header-menu .nav-menu ul li a:link,
-div#header-menu .nav-menu ul li a:visited,
-div#header-menu .nav-menu ul li a:hover,
-div#header-menu .nav-menu ul li a:active { background: none; font-style: normal; text-decoration: none; font-weight: normal; color: white; }
-div#header-menu .nav-menu ul li.current-menu-item a { font-size: 1.1em; }
-div#header-menu .nav-menu ul li.current-menu-item { background-color: rgb(175, 0, 0); }
+#header-menu { background-color: black; text-align: center; text-transform: uppercase; margin: 0; padding: 0; }
+#header-menu .nav-menu ul { margin: 0; padding: 0; }
+#header-menu .nav-menu ul li { display: inline-block; vertical-align: middle; padding: 8px; }
 
 /* Sticky menu fix */
 #header-menu { z-index: 99; width: 100%; }
@@ -146,16 +138,6 @@ div#header-menu .nav-menu ul li.current-menu-item { background-color: rgb(175, 0
 
 
 
-
-
-.entry-content p, .entry-content strong{ font-family: 'Oswald';  }
-article.page .entry-header { padding: 0 !important; margin: 0; }
-article.page .entry-content { padding: 25px 40px 0 60px !important; }
-article.page .entry-content p { text-indent: 60px; }
-article.page .entry-title { padding-left: 50px; }
-article.page .entry-content { color: rgb(201, 201, 201); font-family: 'Verdana'; font-size: 0.8em; }
-#main header.entry-header { text-align: left; color: white; margin-left: 0; padding-right: 250px; }
-#main header .entry-title { font-family: 'Oswald'; letter-spacing: 3px; text-transform: uppercase; font-size: 1.5em; }
 
 /* Home page */
 body.page-template-home-template-php article.page { padding: 0; }
@@ -246,15 +228,6 @@ body.search .bars-post-excerpt  .entry-title, body.archive .bars-post-excerpt  .
 
 /* ############################## STATIC PAGES ############################################### */
 
-/* Prensa */
-body.page-id-16 .wpcf7 input[type=text],
-body.page-id-16 .wpcf7 input[type=email],
-body.page-id-16 .wpcf7 textarea { margin-left: 60px; }
-
-/* Contacto */
-body.page-id-10 .wpcf7 input[type=text],
-body.page-id-10 .wpcf7 input[type=email],
-body.page-id-10 .wpcf7 textarea { margin-left: 60px; }
 
 /* Movie block info */
 #movieblock .screenings-info { position: absolute; top: 0; right: 0; color: white; font-family: 'Oswald'; }

@@ -35,6 +35,3 @@
 .movie .info-container .info .cast { font-size: 9pt; }
 .movie .screenings-info .screenings .screening .screening-daynumber,
 .movie .info-container .info .title, .movieblock .info-container .info .title { font-size: 14.5pt; }
-
-/* Links */
-a { color: rgb(255,97,0); text-decoration: none; }
