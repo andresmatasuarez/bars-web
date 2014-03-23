@@ -4,8 +4,9 @@ jQuery(document).ready(function($) {
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
 	
-	// Fancybox initialization
-	$(".fancybox").fancybox({
+	// Fancybox initialization for sidebar image widgets
+	$(".fancybox.sidebar").fancybox({
+		type: 'image',
         padding: 2,
 		beforeShow: function(){
 			// Hide body overflow to simulate scroll lock.
@@ -17,8 +18,41 @@ jQuery(document).ready(function($) {
 		}
     });
 	
+	// Fancybox initialization for movie displayers.
+	$('.movie-post .fancybox').fancybox({
+		padding: 2,
+		beforeLoad: function(){
+			$('#movie-container').load($(this.element).attr('link'));
+		},
+		beforeShow: function(){
+			// Hide body overflow to simulate scroll lock.
+			$(document.body).addClass('overflow-hidden');
+		},
+		beforeClose: function(){
+			// Re-enable scrolling.
+			$(document.body).removeClass('overflow-hidden');
+		},
+		afterClose: function(){
+			$('#movie-container').empty();
+		}
+	});
 	
 	
+	// Selections
+	$('#schedule-section-filters').movieSectionFilter();
+	
+	
+	
+	
+	
+	
+	
+	// Programación
+	$('#movieblock .movie-selectors #movie-selector').live('click', function(){
+		var id = $(this).attr('movieid');
+		$('#movieblock .movie-info-displayer .movie').fadeOut(300);
+		$('#movieblock .movie-info-displayer #movie-' + id).fadeIn(300);
+	});
 	
 	// Slider
 	$('#slider').slider();
@@ -27,15 +61,6 @@ jQuery(document).ready(function($) {
 	$('.bars-recent-posts .latest-post').click(function(){
 		window.location.href = $('.post-title a', $(this)).attr('href');
 		return false;
-	});
-	
-	// Programación
-	$('#schedule-section-filters').movieSectionFilter();
-	$('.movie-post .movie-post-title').ThreeDots({ text_span_class: 'movie-post-title-text', max_rows: 1, alt_text_e: true, alt_text_t: true });
-	$('#movieblock .movie-selectors #movie-selector').live('click', function(){
-		var id = $(this).attr('movieid');
-		$('#movieblock .movie-info-displayer .movie').fadeOut(300);
-		$('#movieblock .movie-info-displayer #movie-' + id).fadeIn(300);
 	});
 	
 	// Sort movies by hour asc.
@@ -136,31 +161,6 @@ function barsSearch_postHoverOut(thumb, title){
 }
 
 (function ($) {
-	
-	// Movie section filter.
-	$.fn.movieSectionFilter = function (){
-		var object = this;
-		
-		// Default filter: all sections.
-		object.val('all');
-		
-		object.change(function(){
-			var selected = object.val();
-			if (selected == 'all'){
-				object.closest('article').find('.schedule-day, .movie-post').fadeIn(300);
-			} else {
-				object.closest('article').find('.schedule-day, .movie-post').fadeOut(300);
-				object.closest('article').find('.movie-post[section="' + object.val() + '"]').each(function(){
-					$(this).fadeIn(300);
-					$(this).closest('.schedule-day').fadeIn(300);
-				});
-			}
-			
-			object.closest('article').find('.schedule-day:visible:odd').removeClass('odd even').addClass('odd');
-			object.closest('article').find('.schedule-day:visible:even').removeClass('odd even').addClass('even');
-		});
-		
-	}
 
 	// Sticky navigation menu.
 	$.fn.stickymenu = function (){
@@ -184,6 +184,35 @@ function barsSearch_postHoverOut(thumb, title){
 			}
 			
 		});
+	}
+	
+	// Initialize movie section filter.
+	$.fn.movieSectionFilter = function (){
+		var fadeTime = 300;
+		var object = this;
+		
+		// Default filter: all sections.
+		object.val('all');
+		
+		object.change(function(){
+			var selected = object.val();
+			
+			// First of all, fade out all schedule days and movie posts.
+			$('.schedule-day, .schedule-day .movie-post').fadeOut(fadeTime);
+			
+			if (selected == 'all'){
+				$('.schedule-day, .schedule-day .movie-post').fadeIn(fadeTime);
+			} else {
+				$('.schedule-day .movie-post[section="' + selected + '"]').each(function(){
+					$(this).fadeIn(fadeTime);
+					$(this).closest('.schedule-day').fadeIn(fadeTime);
+				});
+			}
+			
+			$('.schedule-day:visible:odd').removeClass('odd even').addClass('odd');
+			$('.schedule-day:visible:even').removeClass('odd even').addClass('even');
+		});
+		
 	}
 	
 	// Recent posts slider.

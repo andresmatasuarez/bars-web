@@ -1,0 +1,37 @@
+.page-header.sponsors-header { margin: 10px auto 0 auto; }
+.sponsors { text-align: center; overflow: hidden; width: 100%; margin: 0 auto; }
+.auspiciante { margin: 20px 35px 0 35px; width:140px; height:80px; display:inline-block; overflow:hidden; background-repeat: no-repeat; background:url("../images/auspiciantes/auspiciantes_gray.png");}
+.auspiciante a { display: block; height: 100%; width: 100%; }
+.auspiciante:hover { background-image: url("../images/auspiciantes/auspiciantes.png"); }
+
+.auspiciante_ab {background-position: -854px -166px}
+.auspiciante_bsasciudad {background-position: -712px -166px}
+.auspiciante_campari {background-position: -570px -330px}
+.auspiciante_cinefania {background-position: -570px -248px}
+.auspiciante_cinesargentinos {background-position: -570px -166px}
+.auspiciante_cunnington {background-position: -854px -84px}
+.auspiciante_eda {background-position: -712px -84px}
+.auspiciante_fantafestivales {background-position: -570px -84px}
+.auspiciante_festeringslime {background-position: -854px -2px}
+.auspiciante_filmoteca {background-position: -712px -2px}
+.auspiciante_findlingfilms {background-position: -570px -2px}
+.auspiciante_incaa {background-position: -428px -330px}
+.auspiciante_lacripta {background-position: -428px -248px}
+.auspiciante_leotripi {background-position: -428px -166px}
+.auspiciante_metamorfosisfx {background-position: -428px -84px}
+.auspiciante_monumental {background-position: -428px -2px}
+.auspiciante_mostaza {background-position: -286px -330px}
+.auspiciante_nacionalrock {background-position: -286px -248px}
+.auspiciante_piromaniafx {background-position: -286px -166px}
+.auspiciante_planetarycomics {background-position: -286px -84px}
+.auspiciante_quintadimension {background-position: -286px -2px}
+.auspiciante_rafma {background-position: -144px -330px}
+.auspiciante_rarovhs {background-position: -144px -248px}
+.auspiciante_rentalbsas {background-position: -144px -166px}
+.auspiciante_requiem {background-position: -144px -84px}
+.auspiciante_sony {background-position: -144px -2px}
+.auspiciante_syfy {background-position: -2px -330px}
+.auspiciante_ticoral {background-position: -2px -248px}
+.auspiciante_toronja {background-position: -2px -166px}
+.auspiciante_vacomoloco {background-position: -2px -84px}
+.auspiciante_videoflims {background-position: -2px -2px}

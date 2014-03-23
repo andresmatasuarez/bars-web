@@ -1,0 +1,40 @@
+/* Text styles */
+.text-oswald { font-family: 'Oswald'; font-size: 10pt; color: #CECECE; text-align: justify; }
+.text-opensans { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; text-align: justify; }
+.size-highlight { font-size: 14pt; }
+
+/* Page contents */
+#content .page-header { font-family: 'Open Sans'; font-size: 22pt; color: #CECECE; }
+#page-festival.page-content, #page-call.page-content p { text-indent: 16pt; }
+
+/* Call for entries (call.php) */
+#page-call .bars-info-displayer { font-family: 'Oswald'; color: #CECECE; font-size: 13.5pt; }
+#page-call .bars-info-displayer-header-caption { font-size: 10pt; }
+#page-call .bars-info-displayer-footer { font-size: 10pt; }
+#page-call .bars-hidden-info .mail-address, #page-call .bars-hidden-info .shortfilm-format { text-indent: 0; }
+
+/* Selections (selection.php) */
+#page-selection .schedule-week { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; }
+#page-selection .schedule-day .schedule-day-info { font-family: 'Oswald'; color: #CECECE; text-shadow: 2px 2px 0.1em black; }
+#page-selection .schedule-day .schedule-day-info .schedule-day-name { font-size: 12pt; }
+#page-selection .schedule-day .schedule-day-info .schedule-day-number { font-size: 36px; }
+#page-selection .schedule-day .movie-posts { font-family: 'Oswald'; color: white; }
+#page-selection .schedule-day .movie-post .movie-post-hour { text-shadow: 1px 1px 0.1em black; font-weight: bold; }
+#page-selection .schedule-day .movie-posts .movie-post .movie-post-section { text-shadow: 1px 1px 0.1em black; font-size: 7.5pt; }
+#page-selection .schedule-day .movie-post .movie-post-title { font-size: 12pt; }
+#page-selection .schedule-day .movie-post .movie-post-info { font-size: 9pt; }
+#page-selection .schedule-day .movie-post a { text-decoration: none; color: #bbbbbb; }
+#page-selection .schedule-day .movie-post:hover a { text-decoration: none; color: white; }
+
+/* Movie info (movie.php) */
+.movie .screenings-info, .movie .info-container .info, .movieblock .info-container .info { color: white; font-family: 'Oswald'; }
+.movie .screenings-info .section { font-size: 13.5pt; }
+.movie .screenings-info .screenings .screenings-caption { font-size: 10pt; }
+.movie .screenings-info .screenings .screening, .movie .info-container .info .links, .movie .info-container .info .specs,
+.movieblock .info-container .info .specs, .movie .info-container .info .directors,
+.movie .info-container .info .cast { font-size: 9pt; }
+.movie .screenings-info .screenings .screening .screening-daynumber,
+.movie .info-container .info .title, .movieblock .info-container .info .title { font-size: 14.5pt; }
+
+/* Links */
+a { color: rgb(255,97,0); text-decoration: none; }

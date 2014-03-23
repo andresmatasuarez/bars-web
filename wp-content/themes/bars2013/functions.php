@@ -44,7 +44,7 @@ function youtube_widget($video_id, $width, $height){
 /* private: Sidebar image widget */
 function image_widget($img_url, $width, $widget_height=''){
 	return '<div class="image-crop" style="height: ' . $widget_height . '; position: relative; overflow: hidden;">
-		<a class="fancybox" href="'. $img_url . '"><img src="' . $img_url . '" width="' . $width . '" height="auto" style="position: absolute;"/></a>
+		<a class="fancybox sidebar" href="'. $img_url . '"><img src="' . $img_url . '" width="' . $width . '" height="auto" style="position: absolute;"/></a>
 	</div>';
 }
 
