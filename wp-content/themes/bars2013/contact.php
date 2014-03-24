@@ -34,8 +34,6 @@
 									</span>
 								</div>
 								
-								<div class="clear"></div>
-								
 								<div class="contact-form-input contact-form-input-media"> 
 									<label for="media">Medio de prensa</label>
 									<input type="text" name="media" id="media"  value="" />
