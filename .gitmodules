@@ -1,14 +1,15 @@
 [submodule "wp-content/themes/bars2013/js/fancybox"]
 	path = wp-content/themes/bars2013/js/fancybox
 	url = https://github.com/fancyapps/fancyBox.git
+
 [submodule "wordpress"]
 	path = wordpress
-
 	url = https://github.com/WordPress/WordPress.git
 
 [submodule "wp-content/themes/bars2013/js/jquery-validation"]
 	path = wp-content/themes/bars2013/js/jquery-validation
 	url = https://github.com/jzaefferer/jquery-validation.git
+
 [submodule "wp-content/themes/bars2013/js/jquery-form-plugin"]
 	path = wp-content/themes/bars2013/js/jquery-form-plugin
 	url = https://github.com/malsup/form.git
