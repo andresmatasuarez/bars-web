@@ -1,24 +1,6 @@
 jQuery(document).ready(function($) {
 	
 	$('#contact-form').validate({
-		/*validateDelegate: function() { },
-		onsubmit: true,
-		onkeydown: false,
-		onkeyup: false,
-		onfocusin: false,
-		onfocusout: false,
-		
-
-		errorContainer: "#PanelError",
-		errorLabelContainer: "#PanelError ul",
-		wrapper: "li",
-		ignoreTitle: true,
-		errorClass: "Error",
-
-		highlight: function(element, errorClass, validClass) {
-		},
-		unhighlight: function(element, errorClass, validClass) {
-		},*/
         rules: {
             name: 'required',
             email: {
@@ -40,7 +22,7 @@ jQuery(document).ready(function($) {
         },
 		
         submitHandler: function(form) {
-/*            $(form).ajaxSubmit({
+            $(form).ajaxSubmit({
                 type : "POST",
                 data : $(form).serialize(),
                 url : "../process.php",
@@ -58,7 +40,7 @@ jQuery(document).ready(function($) {
                         $('#error').fadeIn();
                     });
                 }
-            });*/
+            });
 			alert(1);
 			return false;
       }

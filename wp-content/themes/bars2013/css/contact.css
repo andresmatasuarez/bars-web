@@ -1,0 +1,30 @@
+/* Form & Input layout */
+#page-contact form#contact-form label { display: block; }
+#page-contact form#contact-form .contact-form-input { width: 100%; margin-bottom: 20px; }
+#page-contact form#contact-form .contact-form-input label { margin: 0 0 2px 0; }
+#page-contact form#contact-form .contact-form-input label.required:after { content: '*'; font-weight: bold; color: red; margin: 0 5px; }
+#page-contact form#contact-form #name,
+#page-contact form#contact-form #email,
+#page-contact form#contact-form #media,
+#page-contact form#contact-form #subject,
+#page-contact form#contact-form #message,
+#page-contact form#contact-form #message textarea { width: 100%; }
+
+#page-contact form#contact-form label,
+#page-contact form#contact-form .contact-form-input-hint,
+#page-contact form#contact-form #name input,
+#page-contact form#contact-form #email input,
+#page-contact form#contact-form #media input,
+#page-contact form#contact-form #subject input { width: 350px; }
+
+#page-contact form#contact-form #message textarea { height: 150px; }
+#page-contact form#contact-form .contact-form-input-hint { display: none; text-align: right; }
+
+/* Input styling */
+#page-contact form#contact-form input, #page-contact form#contact-form textarea { font-family: 'Open Sans'; font-size: 10pt; margin: 0; padding: 7px; border: 2px solid black; border-radius: 8px; }
+
+/* Validation messages styling */
+#page-contact form#contact-form .contact-form-input input.error,
+#page-contact form#contact-form .contact-form-input textarea.error { border-color: #FF3A3A; background-color: #FFD6D6; }
+#page-contact form#contact-form .contact-form-input label.error { display: inline; float: right; width: 200px; padding: 5px 10px; background: #FFAAAA; font-weight: bold; color: #B70000; border-radius: 5px; }
+

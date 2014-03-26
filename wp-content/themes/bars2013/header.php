@@ -35,7 +35,8 @@
 	
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/fancybox/source/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-form-plugin/jquery.form.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-validation/src/core.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-validation/jquery.validate.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/nod/nod.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bars.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/form-validation.js"></script>
 	
