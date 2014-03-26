@@ -59,7 +59,11 @@ div#bars-header-social-youtube:hover { background-image: url("images/youtube.png
 #header-menu { z-index: 99; width: 100%; }
 
 /* Main container */
-#main { background: url("images/bgpattern2.png"); overflow: hidden; }
+#main { background: url("images/bgpattern2.png"); overflow: hidden;
+	-moz-box-shadow: inset 0 5px 1px #000000;
+	-webkit-box-shadow: inset 0 5px 1px #000000;
+	box-shadow: inset 0 5px 1px #000000;
+}
 #main-logo-bg { background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; overflow: hidden; background-color: rgba(10,0,0,0.4); }
 #main-container { width: 955px; margin: 0 auto; padding: 0 0 0 0; overflow: hidden; /*background-color: rgba(10,0,0,0.4);*/ }
 #content { width: 650px; float: left; }

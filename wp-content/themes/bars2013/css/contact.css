@@ -1,6 +1,6 @@
 /* Form & Input layout */
-#page-contact form#contact-form label { display: block; }
-#page-contact form#contact-form .contact-form-input { width: 100%; margin-bottom: 20px; }
+#page-contact form#contact-form .contact-form-input { width: 100%; min-height: 80px; }
+#page-contact form#contact-form .contact-form-input-container { display: table-cell; vertical-align: middle; }
 #page-contact form#contact-form .contact-form-input label { margin: 0 0 2px 0; }
 #page-contact form#contact-form .contact-form-input label.required:after { content: '*'; font-weight: bold; color: red; margin: 0 5px; }
 #page-contact form#contact-form #name,
@@ -17,14 +17,15 @@
 #page-contact form#contact-form #media input,
 #page-contact form#contact-form #subject input { width: 350px; }
 
-#page-contact form#contact-form #message textarea { height: 150px; }
-#page-contact form#contact-form .contact-form-input-hint { display: none; text-align: right; }
+#page-contact form#contact-form #message textarea { width: 350px; height: 150px; }
+#page-contact form#contact-form .contact-form-input-hint { text-align: right; }
 
 /* Input styling */
 #page-contact form#contact-form input, #page-contact form#contact-form textarea { font-family: 'Open Sans'; font-size: 10pt; margin: 0; padding: 7px; border: 2px solid black; border-radius: 8px; }
+#page-contact form#contact-form #submit input { padding: 10px; }
 
 /* Validation messages styling */
 #page-contact form#contact-form .contact-form-input input.error,
-#page-contact form#contact-form .contact-form-input textarea.error { border-color: #FF3A3A; background-color: #FFD6D6; }
-#page-contact form#contact-form .contact-form-input label.error { display: inline; float: right; width: 200px; padding: 5px 10px; background: #FFAAAA; font-weight: bold; color: #B70000; border-radius: 5px; }
+#page-contact form#contact-form .contact-form-input textarea.error { border-color: #FF7E7E; background-color: #FFD6D6; }
+#page-contact form#contact-form .contact-form-input label.error { text-align: left; display: inline-block; vertical-align: top; width: 200px; margin-left: 20px; padding: 5px 10px; background-color: #FFD6D6; font-weight: bold; color: #B70000; border-radius: 5px; font-size: 8pt; }
 

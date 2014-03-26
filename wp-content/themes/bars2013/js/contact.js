@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
 	
+	$('#success, #error').hide();
+	
 	$('#contact-form').validate({
         rules: {
             name: 'required',
@@ -12,13 +14,13 @@ jQuery(document).ready(function($) {
         },
 		
         messages: {
-            name: 'Ingresá tu nombre antes de continuar.',
+            name: '• Nombre es un campo requerido.',
             email: {
-                required: 'Ingresá tu dirección de correo electrónico antes de continuar.',
-				email: 'Ingresá una dirección de correo electrónico válida.'
+                required: '• Email es un campo requerido.',
+				email: '• Ingresá una dirección de email válida.'
             },
-			subject: 'Especificá un asunto antes de continuar.',
-            message: 'Escribí un mensaje antes de continuar.'
+			subject: '• Asunto es un campo requerido.',
+            message: '• Mensaje es un campo requerido.'
         },
 		
         submitHandler: function(form) {
@@ -27,21 +29,19 @@ jQuery(document).ready(function($) {
                 data : $(form).serialize(),
                 url : "../process.php",
                 success: function() {
-                    $('#page-contact .contact-form :input').attr('disabled', 'disabled');
-                    $('#page-contact .contact-form').fadeTo( "slow", 0.15, function() {
+                    $('#contact-form :input').attr('disabled', 'disabled');
+                    $('#contact-form').fadeTo( "slow", 0.15, function() {
                         $(this).find(':input').attr('disabled', 'disabled');
                         $(this).find('label').css('cursor','default');
                         $('#success').fadeIn();
                     });
                 },
                 error: function() {
-					alert(1);
-                    $('#page-contact .contact-form').fadeTo( "slow", 0.15, function() {
+                    $('#contact-form').fadeTo( "slow", 0.15, function() {
                         $('#error').fadeIn();
                     });
                 }
             });
-			alert(1);
 			return false;
       }
     });

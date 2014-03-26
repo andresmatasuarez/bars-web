@@ -19,7 +19,7 @@
 						
 						<form class="contact-form" id="contact-form" method="post">
 							<div id="name" class="contact-form-input">
-								<label class="required" for="name" >Nombre</label>
+								<label class="required" for="name" >Tu nombre</label>
 								<div class="contact-form-input-container">
 									<input type="text" name="name" value=""/>
 								</div>
@@ -28,19 +28,9 @@
 								</div>
 							</div>	
 							<div id="email" class="contact-form-input">
-								<label class="required" for="email">Email</label>
+								<label class="required" for="email">Tu email</label>
 								<div class="contact-form-input-container">
 									<input type="text" name="email" value="" />
-								</div>
-								<div class="contact-form-input-hint">
-									45 caracteres restantes.
-								</div>
-							</div>
-							
-							<div id="media" class="contact-form-input"> 
-								<label for="media">Medio de prensa</label>
-								<div class="contact-form-input-container">
-									<input type="text" name="media" value="" />
 								</div>
 								<div class="contact-form-input-hint">
 									45 caracteres restantes.
@@ -67,7 +57,7 @@
 								</div>
 							</div>
 							<div id="message" class="contact-form-input">
-								<label class="required" for="message">Message</label>
+								<label class="required" for="message">Mensaje</label>
 								<div class="contact-form-input-container">
 									<textarea name="message" ></textarea>
 								</div>
@@ -75,24 +65,17 @@
 									255 caracteres restantes.
 								</div>
 							</div>
-							<div id="captcha"class="contact-form-input">
-								<label class="required" for="captcha">Name the small house pet that says "<i>meow</i>"</label>
-								<div class="contact-form-input-container">
-									<input type="text" name="captcha" value="" />
-								</div>
-								<div class="contact-form-input-hint"></div>
-							</div>
-							<div class="contact-form-input">
-								<input id="submit" type="submit" name="submit" value="Send" />
+							<div id="submit" class="contact-form-input">
+								<input id="submit" type="submit" name="submit" value="Enviar" />
 							</div>
 						</form>
 						
 						<div id="success">
 							<p>Your message was sent succssfully! I will be in touch as soon as I can.</p>
 						</div>
-
+						
 						<div id="error">
-							<p>Something went wrong, try refreshing and submitting the form again.</p>
+							<p>Error.</p>
 						</div>
 						
 					</div>
