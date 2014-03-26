@@ -139,7 +139,6 @@ div#bars-header-social-youtube:hover { background-image: url("images/youtube.png
 .movie .trailer-container, .movieblock .trailer-container { width: 300px; float: right; margin: 20px 0 5px 10px; }
 
 
-
 /* Home page */
 body.page-template-home-template-php article.page { padding: 0; }
 body.page-template-home-template-php article.page .entry-content { padding: 0 0 0 0 !important; }
