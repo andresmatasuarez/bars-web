@@ -7,6 +7,9 @@
 #content .page-header { font-family: 'Open Sans'; font-size: 22pt; color: #CECECE; }
 #page-festival.page-content, #page-call.page-content p { text-indent: 16pt; }
 
+/* Widget */
+.bars-widget-header { font-family: 'Oswald'; color: white; text-transform: uppercase; font-size: 16pt; letter-spacing: 1px; font-style: normal;  }
+
 /* Call for entries (call.php) */
 #page-call .bars-info-displayer { font-family: 'Oswald'; color: #CECECE; font-size: 13.5pt; }
 #page-call .bars-info-displayer-header-caption { font-size: 10pt; }

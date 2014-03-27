@@ -26,6 +26,6 @@
 
 /* Validation messages styling */
 #page-contact form#contact-form .contact-form-input input.error,
-#page-contact form#contact-form .contact-form-input textarea.error { border-color: #FF7E7E; background-color: #FFD6D6; }
+#page-contact form#contact-form .contact-form-input textarea.error { border-color: #FF2F2F; background-color: #FFD6D6; }
 #page-contact form#contact-form .contact-form-input label.error { text-align: left; display: inline-block; vertical-align: top; width: 200px; margin-left: 20px; padding: 5px 10px; background-color: #FFD6D6; font-weight: bold; color: #B70000; border-radius: 5px; font-size: 8pt; }
 

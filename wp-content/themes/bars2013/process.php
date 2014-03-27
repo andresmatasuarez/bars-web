@@ -14,7 +14,7 @@
     $media = $_REQUEST['subject'];
     $media = $_REQUEST['message'];
  
-    $fields = { 'name', 'email', 'media', 'subject', 'message' };
+    $fields = [ 'name', 'email', 'media', 'subject', 'message' ];
  
     $body = "Here is what was sent:\n\n";
 	foreach($fields as $field){

@@ -25,13 +25,13 @@ function add_image_sidebar_widget($class, $title, $img_url, $width, $widget_heig
 
 /* private: decorate content as a sidebar widget */
 function widgetify($class, $title, $content){
-	return '<div class="sidebar-widget ' . $class . '">
-		<div class="sidebar-widget-header">
-			<div class="small-logo sidebar-widget-logo"></div>
-			<div class="sidebar-widget-title">' . $title . '</div>
+	return '<div class="bars-widget ' . $class . '">
+		<div class="bars-widget-header">
+			<div class="bars-widget-logo"></div>
+			<div class="bars-widget-title">' . $title . '</div>
 		</div>
-		<div class="sidebar-widget-content">' . $content . '</div>
-	</div><!-- .sidebar-widget -->';
+		<div class="bars-widget-content">' . $content . '</div>
+	</div>';
 }
 
 /* private: YouTube video widget */
@@ -47,6 +47,15 @@ function image_widget($img_url, $width, $widget_height=''){
 		<a class="fancybox sidebar" href="'. $img_url . '"><img src="' . $img_url . '" width="' . $width . '" height="auto" style="position: absolute;"/></a>
 	</div>';
 }
+
+
+
+
+
+
+
+
+
 
 /* ************ SEARCH ONLY THROUGH POSTS ************ */
 function SearchFilter($query) {

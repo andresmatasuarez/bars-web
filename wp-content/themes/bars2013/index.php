@@ -39,8 +39,10 @@
 							</div>
 					</div>
 					
-					<div id="news" >
-					
+					<div id="page-home" >
+						<?php echo widgetify('column-left', 'Reciente', 'APAPAPAP'); ?>
+						
+						<?php echo widgetify('column-right', 'Quick Links', 'papwoifn djf'); ?>
 					</div>
 				
 				
