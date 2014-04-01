@@ -18,7 +18,11 @@
 
 					<div id="slider" >
 						<?php
-							$recent_posts = wp_get_recent_posts( array('numberposts' => '6') );
+						
+							$latestPostsCount = 3;
+							$recentPostsCount = 10;
+						
+							$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
 							$position = 0;
 							foreach( $recent_posts as $recent ){
 								if (get_post_thumbnail_id($recent["ID"]) != ''){
@@ -40,9 +44,82 @@
 					</div>
 					
 					<div id="page-home" >
-						<?php echo widgetify('column-left', 'Reciente', 'APAPAPAP'); ?>
+						<div class="clear scratch"></div>
+						<div class="posts-header">
+							Últimas novedades
+						</div>
+						<div class="clear scratch"></div>
+						<div class="latest-posts">
+							<?php
+								$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
+								foreach( $recent_posts as $recent ){
+									if (get_post_thumbnail_id($recent["ID"]) != ''){
+										echo '<div class="latest-post">';
+											echo '<a href="' . get_permalink($recent["ID"]) . '">';
+												echo '<div class="post-thumbnail">' . get_the_post_thumbnail($recent["ID"], 'recent-post-thumbnail');
+												echo '</div>';
+												echo '<div class="post-date">';
+													echo get_the_time(get_option('date_format'), $recent["ID"]);
+												echo '</div>';
+												echo '<div class="post-title">';
+														echo $recent["post_title"];
+												echo '</div>';
+											echo '</a>';
+										echo '</div>';
+									}
+								}
+							?>
+						</div>
 						
-						<?php echo widgetify('column-right', 'Quick Links', 'papwoifn djf'); ?>
+						<div class="clear scratch"></div>
+						
+						<div class="posts-header">
+							Recientes
+						</div>
+						
+						<div class="recent-posts">
+							<?php
+								$position = 0;
+								$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount + $recentPostsCount) );
+								foreach( $recent_posts as $recent ){
+									if (get_post_thumbnail_id($recent["ID"]) != '' && $position++ >= $latestPostsCount){
+										echo '<div class="clear scratch"></div>';
+										echo '<div class="recent-post">';
+											echo '<div class="post-thumbnail">';
+												echo '<a href="' . get_permalink($recent["ID"]) . '">';
+													echo get_the_post_thumbnail($recent["ID"], 'recent-post-thumbnail');
+												echo '</a>';
+											echo '</div>';
+											echo '<div class="post-info-container">';
+												echo '<div class="post-date">';
+													echo get_the_time(get_option('date_format'), $recent["ID"]);
+												echo '</div>';
+												echo '<div class="post-title">';
+													echo '<a href="' . get_permalink($recent["ID"]) . '">';
+														echo $recent["post_title"];
+													echo '</a>';
+												echo '</div>';
+												echo '<div class="post-excerpt">' . get_excerpt_by_id($recent["ID"]) . '</div>';
+												echo '<div class="post-footer">';
+													echo '<div class="clear scratch"></div>';
+													echo '<div class="post-comment-count">43 comentarios</div>';
+							?>
+													<iframe class="post-fb-like" src="//www.facebook.com/plugins/like.php?href=<?php echo urlencode(get_permalink($recent["ID"])); ?>&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=dark" scrolling="no" frameborder="0" allowTransparency="true" ></iframe>
+							<?php
+												echo '</div>';
+											echo '</div>';
+										echo '</div>';
+									}
+								}
+							?>
+						</div>
+						
+						<div class="clear scratch"></div>
+						<div class="posts-footer">
+							Anteriores
+						</div>
+						<div class="clear scratch"></div>
+						
 					</div>
 				
 				

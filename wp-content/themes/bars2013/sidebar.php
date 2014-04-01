@@ -19,5 +19,9 @@
 			
 			<?php echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura!', get_bloginfo('template_directory') . '/images/bars2013/bars2013_fiesta-clausura.jpg', '300px', '150px'); ?>
 			
+			<div class="bars-widget facebook" >
+				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FBuenosAiresRojoSangre&amp;width=100&amp;height=560&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=true&amp;show_border=false" frameborder="0" style="border:none; overflow:hidden; width:100%; height:560px;" allowtransparency="true"></iframe>
+			</div>
+			
 		</div>
 	</div>

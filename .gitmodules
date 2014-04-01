@@ -13,3 +13,6 @@
 [submodule "wp-content/themes/bars2013/js/jquery-form-plugin"]
 	path = wp-content/themes/bars2013/js/jquery-form-plugin
 	url = https://github.com/malsup/form.git
+[submodule "wp-content/themes/bars2013/js/imgliquid"]
+	path = wp-content/themes/bars2013/js/imgliquid
+	url = https://github.com/karacas/imgLiquid.git

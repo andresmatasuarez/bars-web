@@ -9,7 +9,7 @@
 ?>
 
 					<div class="page-header">
-						Selección
+						Programación
 					</div>
 					
 					<div id="page-selection" class="page-content" >

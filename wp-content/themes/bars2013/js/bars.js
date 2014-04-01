@@ -1,11 +1,37 @@
-
 jQuery(document).ready(function($) {
 
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
 	
+	// Slider
+	$('#slider').slider();
+	
+	// Selections
+	$('#schedule-section-filters').movieSectionFilter();
+	
+	// Home page posts image resize & cropping
+	$('#page-home .latest-post .post-thumbnail img').resizecrop({ width: 205, height: 170 });
+	$('#page-home .recent-post .post-thumbnail img').resizecrop({ width: 280, height: 170 });
+	
+	// Sidebar iage widget resize & cropping
+	//$('#sidebar .bars-widget.sidebar.image .image-container').imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center'});
+	
+	// Programación
+	$('.movieblock .movie-selectors #movie-selector').live('click', function(){
+		var id = $(this).attr('movieid');
+		var scroll = 0;
+		$('#movie-' + $(this).attr('movieid')).prevAll().each(function(index,elem){
+			scroll += $(elem).outerHeight(true);
+		});
+		
+		$('.movie-info-displayer').animate({
+			scrollTop: scroll
+		});
+	});
+	
 	// Fancybox initialization for sidebar image widgets
 	$(".fancybox.sidebar").fancybox({
+		scrolling: 'no',
 		type: 'image',
         padding: 2,
 		beforeShow: function(){
@@ -20,6 +46,7 @@ jQuery(document).ready(function($) {
 	
 	// Fancybox initialization for movie displayers.
 	$('.movie-post .fancybox').fancybox({
+		scrolling: 'no',
 		padding: 2,
 		beforeLoad: function(){
 			$('#movie-container').load($(this.element).attr('link'));
@@ -49,25 +76,6 @@ jQuery(document).ready(function($) {
 			$(document.body).removeClass('overflow-hidden');
 		}
 	});
-	
-	
-	// Selections
-	$('#schedule-section-filters').movieSectionFilter();
-	
-	
-	
-	
-	
-	
-	// Programación
-	$('#movieblock .movie-selectors #movie-selector').live('click', function(){
-		var id = $(this).attr('movieid');
-		$('#movieblock .movie-info-displayer .movie').fadeOut(300);
-		$('#movieblock .movie-info-displayer #movie-' + id).fadeIn(300);
-	});
-	
-	// Slider
-	$('#slider').slider();
 	
 	// Home page. Clickable latest posts.
 	$('.bars-recent-posts .latest-post').click(function(){
@@ -191,7 +199,7 @@ function barsSearch_postHoverOut(thumb, title){
 			// Otherwise, change it back to absolute and remove the class.
 			if (scrollTop > stickyTop) {
 				object.css({ 'position': 'fixed', 'top': adminBarOffset }).addClass('sticky');	
-			} else {
+			} else {	
 				object.css({ 'position': initialPosition, 'top': initialTop }).removeClass('sticky'); 
 			}
 			
@@ -200,7 +208,6 @@ function barsSearch_postHoverOut(thumb, title){
 	
 	// Initialize movie section filter.
 	$.fn.movieSectionFilter = function (){
-		var fadeTime = 300;
 		var object = this;
 		
 		// Default filter: all sections.
@@ -210,19 +217,20 @@ function barsSearch_postHoverOut(thumb, title){
 			var selected = object.val();
 			
 			// First of all, fade out all schedule days and movie posts.
-			$('.schedule-day, .schedule-day .movie-post').fadeOut(fadeTime);
+			$('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').hide();
 			
 			if (selected == 'all'){
-				$('.schedule-day, .schedule-day .movie-post').fadeIn(fadeTime);
+				$('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').show();
 			} else {
-				$('.schedule-day .movie-post[section="' + selected + '"]').each(function(){
-					$(this).fadeIn(fadeTime);
-					$(this).closest('.schedule-day').fadeIn(fadeTime);
+				$('.schedule .schedule-day .movie-post[section="' + selected + '"]').each(function(){
+					$(this).show();
+					$(this).closest('.schedule .schedule-day').show();
+					$(this).closest('.schedule .schedule-day').next('.schedule .scratch').show();
 				});
 			}
 			
-			$('.schedule-day:visible:odd').removeClass('odd even').addClass('odd');
-			$('.schedule-day:visible:even').removeClass('odd even').addClass('even');
+			$('.schedule .schedule-day:visible:odd').removeClass('odd even').addClass('odd');
+			$('.schedule .schedule-day:visible:even').removeClass('odd even').addClass('even');
 		});
 		
 	}

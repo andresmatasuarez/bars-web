@@ -39,6 +39,7 @@
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-form-plugin/jquery.form.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-validation/jquery.validate.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-resizecrop/jquery.resizecrop-1.0.3.min.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/imgliquid/js/imgLiquid-min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bars.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/contact.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slider.js"></script>
@@ -46,7 +47,7 @@
 </head>
 
 <body>
-	<div id="header">
+	<div id="header" >
 		<div id="header-container">
 			<!-- DESCRIPTION & IMAGE -->
 			<div id="header-description">
@@ -66,7 +67,7 @@
 			<div id="header-clouds"></div>
 			
 			<!-- SITE MENU -->
-			<div id="header-menu">
+			<div id="header-menu" class="subtle-shadow-bottom">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 				
 				<!-- Inside #header-menu just to stick with it on scroll. -->

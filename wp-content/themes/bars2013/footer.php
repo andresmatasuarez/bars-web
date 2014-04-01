@@ -12,7 +12,7 @@
 
 		<div class="clear"></div>
 		
-		<div id="footer">
+		<div id="footer" class="subtle-shadow-top">
 			<div class="scratch"></div>
 			<div id="footer-container">
 				<div class="footer-nav">

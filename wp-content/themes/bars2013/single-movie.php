@@ -103,10 +103,13 @@
 		</div>
 	</div>
 	<div class="clear"></div>
-	<div class="movie-synopsis text-opensans">
-		<div class="trailer-container">
-			<iframe src="//www.youtube.com/embed/<?php echo get_post_meta($post->ID, '_movie_trailer', true); ?>" frameborder="0" allowfullscreen></iframe>
-		</div>
+	<div class="scratch"></div>
+	<div class="movie-synopsis text-opensans indented">
+		<?php if (!empty(get_post_meta($query->post->ID, '_movie_trailer', true))){ ?>
+			<div class="trailer-container">
+				<iframe src="<?php echo get_post_meta($query->post->ID, '_movie_trailer', true); ?>" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+		<?php } ?>
 		<p class="text-opensans"><?php echo get_post_meta($post->ID, '_movie_synopsis', true); ?></p>
 	</div>
 </div>
