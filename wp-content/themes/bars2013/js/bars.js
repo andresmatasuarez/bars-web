@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 	$('#page-home .recent-post .post-thumbnail img').resizecrop({ width: 280, height: 170 });
 	
 	// Sidebar iage widget resize & cropping
-	//$('#sidebar .bars-widget.sidebar.image .image-container').imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center'});
+	$('#sidebar .bars-widget.sidebar.image .image-container').imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center'});
 	
 	// Programación
 	$('.movieblock .movie-selectors #movie-selector').live('click', function(){

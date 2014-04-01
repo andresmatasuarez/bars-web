@@ -19,8 +19,8 @@ function add_youtube_sidebar_widget($class, $title, $video_id, $width, $height){
 	return widgetify($class, $title, youtube_widget($video_id, $width, $height));
 }
 
-function add_image_sidebar_widget($class, $title, $img_url, $width, $widget_height=''){
-	return widgetify($class, $title, image_widget($img_url, $width, $widget_height));
+function add_image_sidebar_widget($class, $title, $img_url){
+	return widgetify($class, $title, image_widget($img_url));
 }
 
 /* private: decorate content as a sidebar widget */
@@ -42,9 +42,9 @@ function youtube_widget($video_id, $width, $height){
 }
 
 /* private: Sidebar image widget */
-function image_widget($img_url, $width, $widget_height=''){
-	return '<div class="image-crop" style="height: ' . $widget_height . '; position: relative; overflow: hidden;">
-		<a class="fancybox sidebar" href="'. $img_url . '"><img src="' . $img_url . '" width="' . $width . '" height="auto" style="position: absolute;"/></a>
+function image_widget($img_url){
+	return '<div class="image-container" style="width:300px;height:150px">
+		<a class="fancybox sidebar" href="'. $img_url . '"><img src="' . $img_url . '" /></a>
 	</div>';
 }
 
