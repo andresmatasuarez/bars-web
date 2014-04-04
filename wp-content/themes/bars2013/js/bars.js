@@ -13,7 +13,10 @@ jQuery(document).ready(function($) {
 	$('#page-home .latest-post .post-thumbnail img').resizecrop({ width: 205, height: 170 });
 	$('#page-home .recent-post .post-thumbnail img').resizecrop({ width: 280, height: 170 });
 	
-	// Sidebar iage widget resize & cropping
+	// Single post related posts
+	$('#page-single .post-related-posts .post-related-post img').resizecrop({ width: 200, height: 170 });
+	
+	// Sidebar image widget resize & cropping
 	$('#sidebar .bars-widget.sidebar.image .image-container').imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center'});
 	
 	// Programación
@@ -75,12 +78,6 @@ jQuery(document).ready(function($) {
 			// Re-enable scrolling.
 			$(document.body).removeClass('overflow-hidden');
 		}
-	});
-	
-	// Home page. Clickable latest posts.
-	$('.bars-recent-posts .latest-post').click(function(){
-		window.location.href = $('.post-title a', $(this)).attr('href');
-		return false;
 	});
 	
 	// Sort movies by hour asc.

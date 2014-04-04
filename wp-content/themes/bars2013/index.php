@@ -102,9 +102,14 @@
 												echo '<div class="post-excerpt">' . get_excerpt_by_id($recent["ID"]) . '</div>';
 												echo '<div class="post-footer">';
 													echo '<div class="clear scratch"></div>';
-													echo '<div class="post-comment-count">43 comentarios</div>';
 							?>
-													<iframe class="post-fb-like" src="//www.facebook.com/plugins/like.php?href=<?php echo urlencode(get_permalink($recent["ID"])); ?>&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=dark" scrolling="no" frameborder="0" allowTransparency="true" ></iframe>
+													<div class="post-comment-count" >
+														43 comentarios
+													</div>
+							
+													<iframe class="post-fb-like" src="//www.facebook.com/plugins/like.php?href=<?php echo urlencode(get_permalink($recent["ID"])); ?>&amp;layout=button_count&amp;show_faces=false&amp;appId=1439679999607579&amp;action=like&amp;colorscheme=dark" scrolling="no" frameborder="0" allowTransparency="true" ></iframe>
+													
+													<a href="http://twitter.com/share" class="twitter-share-button" data-url="<?php the_permalink($recent["ID"]); ?>" data-via="wpbeginner" data-text="<?php $recent["post_title"]; ?>" data-count="horizontal">Tweet</a>
 							<?php
 												echo '</div>';
 											echo '</div>';

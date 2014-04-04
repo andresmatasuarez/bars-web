@@ -1,6 +1,7 @@
 /* Text styles */
-.text-oswald { font-family: 'Oswald'; font-size: 10pt; color: #CECECE; text-align: justify; }
-.text-opensans { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; text-align: justify; }
+.text-oswald { font-family: 'Oswald'; font-size: 10pt; color: #CECECE; }
+.text-opensans { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; }
+/*.text-opensans { font-family: 'Lora'; line-height: 1.5em; font-size: 10pt; color: #CECECE; }*/
 .indented { text-indent: 16pt; }
 .size-highlight { font-size: 14pt; }
 
