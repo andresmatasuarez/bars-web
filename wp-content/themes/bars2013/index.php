@@ -91,7 +91,9 @@
 						<div class="clear scratch"></div>
 						
 						<div class="more-posts-header posts-header">
-							Anteriores
+							<a href="?page_id=14">
+								Ver todas
+							</a>
 						</div>
 						
 						<div class="clear scratch"></div>

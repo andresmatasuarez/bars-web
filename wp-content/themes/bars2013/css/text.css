@@ -19,18 +19,22 @@
 
 /* Home (index.php) */
 #page-home .posts-header, #page-single .posts-header { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; text-transform: uppercase; font-size: 18pt; letter-spacing: 2pt; text-align: center; }
-#page-home .latest-posts { font-family: 'Oswald'; color: white; }
-#page-home .latest-posts .post .post-date { font-size: 10pt; }
-#page-home .latest-posts .post .post-title { font-size: 18pt; }
-#page-home .latest-posts .post .post-excerpt { word-wrap: break-word; font-size: 10pt; }
-#page-home .latest-posts .post .post-footer { font-size: 8pt; }
+#page-home .more-posts-header { text-align: right; font-size: 12pt; }
+#page-home .more-posts-header a { color: white; text-decoration: none; }
+
+/* Latest posts / news */
+.latest-posts { font-family: 'Oswald'; color: white; }
+.latest-posts .post .post-date { font-size: 10pt; }
+.latest-posts .post .post-title { font-size: 18pt; }
+.latest-posts .post .post-excerpt { word-wrap: break-word; font-size: 10pt; }
+.latest-posts .post .post-footer { font-size: 8pt; }
 
 /* Single post (single.php) */
 #page-single .post-header { color: white; font-family: 'Oswald'; }
 #page-single .post-header .post-category { font-size: 0.8em; }
 #page-single .post-header .post-date { text-transform: uppercase; font-size: 9pt; }
 #page-single .post-header .post-title { text-shadow: 2px 2px 0.1em black; font-size: 2.3em; letter-spacing: 1px; }
-#page-single .post-leave-us-a-comment { font-family: 'Oswald'; font-size: 0.8em; color: white; }
+#page-single .post-leave-us-a-comment { font-family: 'Open Sans'; font-size: 0.8em; color: white; }
 #page-single .post-previous, #page-single .post-next { font-family: 'Oswald'; color: white; }
 #page-single .post-related-posts { font-family: 'Oswald'; font-size: 12pt; text-align: center; color: white; }
 #page-single .post-related-posts .post-related-post .post-related-post-date { font-size: 8pt; }
@@ -94,10 +98,9 @@
 #page-contact .contact-form-input-hint { font-size: 8pt; font-style: italic; }
 
 /* Genericon pseudo-elements */
+.latest-posts .post .post-comment-count a:before  { content: '\f108'; margin-right: 5px; font-size: 16px; font-family: 'Genericons'; vertical-align: top; }
 #page-home .latest-posts-header:before, #page-home .latest-posts-header:after,
 #page-home .recent-posts-header:before, #page-home .recent-posts-header:after { content: '\f224'; font-size: 24px; font-family: 'Genericons'; vertical-align: middle; }
-#page-home .more-posts-header:before, #page-home .more-posts-header:after { content: '\f431'; font-size: 24px; font-family: 'Genericons'; vertical-align: middle; }
-#page-home .latest-posts .post .post-comment-count a:before  { content: '\f108'; margin-right: 5px; font-size: 16px; font-family: 'Genericons'; vertical-align: top; }
 #page-single .post-header .post-category a:before { content: '\f301'; font-family: 'Genericons'; }
 #page-single .post-leave-us-a-comment a:before { content: '\f300'; font-family: 'Genericons'; padding-right: 5px; }
 #page-single .post-previous a:before { content: '\f430'; font-family: 'Genericons'; vertical-align: middle; }

@@ -12,7 +12,8 @@ a:hover { text-decoration: underline; }
 #header-menu .nav-menu ul li.current_page_item { background-color: rgb(175, 0, 0); font-size: 1.1em; }
 
 /* Home (index.php) */
-#page-home .latest-posts .post .post-footer .post-comment-count a { text-decoration: none; color: white; }
+.latest-posts .post .post-footer .post-comment-count a { text-decoration: none; color: white; }
+.latest-posts .post .post-title a { color: rgb(255,0,0); }
 
 /* Single (single.php) */
 #page-single .post-previous a:hover,
