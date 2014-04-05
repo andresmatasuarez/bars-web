@@ -31,6 +31,7 @@
 	?>
 	
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/genericons/genericons.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/slider.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 

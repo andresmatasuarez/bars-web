@@ -95,53 +95,65 @@ div#bars-header-social-youtube:hover { background-image: url("images/youtube.png
 
 /* Home (index.php) */
 #page-home { overflow: hidden; }
-#page-home .posts-header, #page-home .posts-footer, #page-single .posts-header { background: black; color: white; font-family: 'Oswald'; text-transform: uppercase; font-size: 14pt; padding: 6px 0 6px 6px; letter-spacing: 2pt; }
+#page-home .posts-header, #page-home .posts-footer, #page-single .posts-header { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; text-transform: uppercase; font-size: 18pt; padding: 6px 0 6px 6px; letter-spacing: 2pt; text-align: center; }
 #page-home .posts-footer { text-align: right; padding: 6px 6px 6px 0; }
-#page-home .posts-header:before { content: '>>> '; }
-#page-home .posts-footer:after { content: ' >>>'; }
+#page-home .latest-posts-header { margin-top: 20px; }
+#page-home .recent-posts-header { margin-top: 30px; }
+#page-home .latest-posts-header:before, #page-home .latest-posts-header:after,
+#page-home .recent-posts-header:before, #page-home .recent-posts-header:after { content: '\f224'; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 24px; font-family: 'Genericons'; vertical-align: middle; }
+#page-home .posts-footer { margin-bottom: 20px; }
+#page-home .posts-footer:after { content: '\f458'; width: 24px; height: 24px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 24px; font-family: 'Genericons'; vertical-align: top; }
 
-/* Home page latests posts */
-#page-home .latest-posts { text-align: center; margin-top: 5px; overflow: hidden; }
-#page-home .latest-posts .latest-post { border: 2px solid black; font-size: 12pt; opacity: 0.8; display: inline-block; position: relative; overflow: hidden; margin: 0 3px; text-align: left; }
-#page-home .latest-posts .latest-post:hover { opacity: 1; }
-#page-home .latest-posts .latest-post .post-title { width: 100%; text-shadow: 2px 2px 0.1em black; position: absolute; bottom: 0; left: 0; padding: 5px 10px 12px 10px; background-color: rgba(0,0,0,0.7); font-family: 'Oswald'; margin: 0 auto; text-align: left; }
-#page-home .latest-posts .latest-post .post-date { position: absolute; top: 0; left: 0; padding: 0 5px; font-family: 'Oswald'; font-size: 10pt; color: white; background-color: rgba(0,0,0,0.5); }
+/* Home page latest posts */
+#page-home .latest-posts { font-family: 'Oswald'; color: white; }
+#page-home .latest-posts .post { display: table; border-collapse:separate; border-top: 5px; margin-bottom: 20px; }
+#page-home .latest-posts .post .post-thumbnail { display: table-cell; vertical-align: top; margin-right: 10px; }
+#page-home .latest-posts .post .post-info-container { position: relative; display: table-cell; vertical-align: top; padding-left: 10px; }
+#page-home .latest-posts .post .post-date { font-size: 10pt; }
+#page-home .latest-posts .post .post-title { font-size: 18pt; }
+#page-home .latest-posts .post .post-excerpt { word-wrap: break-word; font-size: 10pt; }
+#page-home .latest-posts .post .post-footer { width: 100%; position: absolute; bottom: 2px; font-size: 8pt; }
+#page-home .latest-posts .post .post-footer .scratch { margin-bottom: 5px; }
+#page-home .latest-posts .post .post-footer .post-fb-like { float: left; height: 21px; width: 84px; }
+#page-home .latest-posts .post .post-footer .post-comment-count { float: left; padding: 0 5px; background: black; padding: 3px 5px; margin-right: 5px; }
+#page-home .latest-posts .post .post-footer .post-comment-count:before  { content: '\f108'; width: 16px; height: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 16px; font-family: 'Genericons'; vertical-align: top; }
 
 /* Home page recent posts */
-#page-home .recent-posts { font-family: 'Oswald'; color: white; }
-#page-home .recent-posts .recent-post { display: table; border-collapse:separate; border-top: 5px; margin-bottom: 10px; }
-#page-home .recent-posts .recent-post .post-thumbnail { display: table-cell; vertical-align: top; margin-right: 10px; }
-#page-home .recent-posts .recent-post .post-info-container { position: relative; display: table-cell; vertical-align: top; padding-left: 10px; }
-#page-home .recent-posts .recent-post .post-date { font-size: 10pt; }
-#page-home .recent-posts .recent-post .post-title { font-size: 18pt; }
-#page-home .recent-posts .recent-post .post-excerpt { word-wrap: break-word; font-size: 10pt; }
-#page-home .recent-posts .recent-post .post-footer { width: 100%; position: absolute; bottom: 2px; font-size: 8pt; }
-#page-home .recent-posts .recent-post .post-footer .scratch { margin-bottom: 5px; }
-#page-home .recent-posts .recent-post .post-footer .post-fb-like { float: left; height: 21px; width: 84px; }
-#page-home .recent-posts .recent-post .post-footer .post-comment-count { float: left; padding: 0 5px; background: black; padding: 2px 5px; margin-right: 5px; }
+#page-home .recent-posts { margin-top: 5px; overflow: hidden; }
+#page-home .recent-posts .post { border: 2px solid black; font-size: 12pt; opacity: 0.8; display: inline-block; position: relative; overflow: hidden; margin: 0 3px; text-align: left; }
+#page-home .recent-posts .post:hover { opacity: 1; }
+#page-home .recent-posts .post .post-title { width: 100%; text-shadow: 2px 2px 0.1em black; position: absolute; bottom: 0; left: 0; padding: 5px 10px 12px 10px; background-color: rgba(0,0,0,0.7); font-family: 'Oswald'; margin: 0 auto; text-align: left; }
+#page-home .recent-posts .post .post-date { position: absolute; top: 0; left: 0; padding: 0 5px; font-family: 'Oswald'; font-size: 10pt; color: white; background-color: rgba(0,0,0,0.5); }
 
 /* Single post (single.php) */
-#page-single .post-header .post-category { text-transform: uppercase; color: white; background: black; padding: 10px 10px; margin: 0 2px 0 0; font-family: 'Oswald'; font-size: 0.8em; }
-#page-single .post-tags,
+#page-single .post-header .post-category { text-transform: uppercase; margin-top: 10px; font-family: 'Oswald'; font-size: 0.8em; }
 #page-single .post-header .post-date,
-#page-single .post-header .post-title { margin-left: 10px; font-family: 'Oswald'; color: white; }
+#page-single .post-header .post-title,
+#page-single .post-header .post-social { font-family: 'Oswald'; color: white; }
+#page-single .post-header .post-date { text-transform: uppercase; }
 #page-single .post-header .post-date,
-#page-single .post-header .post-tags { text-transform: uppercase; }
-#page-single .post-header .post-date { font-size: 9pt; margin-top: 15px; }
-#page-single .post-header .post-tags { margin-bottom: 20px; font-size: 7pt; margin-top: 5px; }
-#page-single .post-header .post-title { text-shadow: 2px 2px 0.1em black; font-size: 2.3em; letter-spacing: 1px; }
+#page-single .post-header .post-social { float: left; margin-right: 10px; }
+#page-single .post-header .post-below-title { overflow: hidden; margin-bottom: 20px; }
+#page-single .post-header .post-date { font-size: 9pt; }
+#page-single .post-header .post-title { margin: 10px 10px 10px 0; text-shadow: 2px 2px 0.1em black; font-size: 2.3em; letter-spacing: 1px; }
+#page-single .post-header .post-social .post-fb-like { height: 21px; }
 #page-single .post-header .post-image { text-align: center; }
-#page-single .post-header .post-image img { width: 98%; height: auto; text-align: center; border: 5px solid black; }
-#page-single .post-content { margin-top: 20px; padding: 0 20px; }
+#page-single .post-header .post-image img { width: 100%; height: auto; text-align: center; border-top: 10px solid rgb(175,0,0); border-bottom: 3px solid rgb(175,0,0); }
+#page-single .post-content { margin: 20px 0 40px 0; padding: 0 10px; }
 
-#page-single .post-navigation { overflow: hidden; margin: 40px 0; }
-#page-single .post-previous, #page-single .post-next { padding: 5px 20px; font-family: 'Oswald'; color: white; }
+#page-single .post-navigation { overflow: hidden; margin: 0 0 40px 0; }
+#page-single .post-previous, #page-single .post-next { padding: 7px 0; font-family: 'Oswald'; color: white; }
 #page-single .post-previous { float: left; }
+#page-single .post-previous a:hover, #page-single .post-next a:hover { text-decoration: none; }
 #page-single .post-next { float: right; }
-#page-single .post-comments { margin: 40px 0; }
+#page-single .post-comments { margin: 10px 0 40px 0; }
+#page-single .post-previous a:before { content: '\f430'; width: 24px; height: 24px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 24px; font-family: 'Genericons'; vertical-align: top; }
+#page-single .post-next a:after { content: '\f429'; width: 24px; height: 24px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 24px; font-family: 'Genericons'; vertical-align: top; }
+#page-single .post-comments-header:before { content: '\f108'; width: 24px; height: 24px; margin-right: 3px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 24px; font-family: 'Genericons'; vertical-align: top; }
+#page-single .post-related-posts-header:before { content: '\f107'; width: 24px; height: 24px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 24px; font-family: 'Genericons'; vertical-align: top; }
 
-#page-single .post-related-posts { font-family: 'Oswald'; font-size: 12pt; text-align: center; }
-#page-single .post-related-posts .post-related-post { padding: 5px; height: 270px; background: black; vertical-align: top; width: 200px; display: inline-block; }
+#page-single .post-related-posts { font-family: 'Oswald'; font-size: 12pt; text-align: center; background: black; }
+#page-single .post-related-posts .post-related-post { padding: 5px; height: 270px; vertical-align: top; width: 200px; display: inline-block; }
 #page-single .post-related-posts .post-related-post .post-related-post-date,
 #page-single .post-related-posts .post-related-post .post-related-post-title { text-align: left; }
 #page-single .post-related-posts .post-related-post .post-related-post-date { margin-top: 5px; color: white; font-size: 8pt; }
