@@ -11,7 +11,6 @@ jQuery(document).ready(function($) {
 	
 	// Home page posts image resize & cropping
 	$('#page-home .latest-posts .post-thumbnail img').resizecrop({ width: 280, height: 170 });
-	$('#page-home .recent-posts .post-thumbnail img').resizecrop({ width: 205, height: 170 });
 	
 	// Single post related posts
 	$('#page-single .post-related-posts .post-related-post img').resizecrop({ width: 200, height: 170 });

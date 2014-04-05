@@ -5,12 +5,37 @@
 .indented { text-indent: 16pt; }
 .size-highlight { font-size: 14pt; }
 
+/* Header */
+#header { font-family: 'Oswald'; color: white; }
+#header-description { font-size: 0.65em; letter-spacing: 0.2em; font-weight: lighter; text-align: center; text-transform: uppercase; }
+#header-menu { text-transform: uppercase; }
+
 /* Page contents */
 #content .page-header { font-family: 'Open Sans'; font-size: 22pt; color: #CECECE; }
 #page-festival.page-content, #page-call.page-content p { text-indent: 16pt; }
 
 /* Widget */
 .bars-widget-header { font-family: 'Oswald'; color: white; text-transform: uppercase; font-size: 16pt; letter-spacing: 1px; font-style: normal;  }
+
+/* Home (index.php) */
+#page-home .posts-header, #page-single .posts-header { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; text-transform: uppercase; font-size: 18pt; letter-spacing: 2pt; text-align: center; }
+#page-home .latest-posts { font-family: 'Oswald'; color: white; }
+#page-home .latest-posts .post .post-date { font-size: 10pt; }
+#page-home .latest-posts .post .post-title { font-size: 18pt; }
+#page-home .latest-posts .post .post-excerpt { word-wrap: break-word; font-size: 10pt; }
+#page-home .latest-posts .post .post-footer { font-size: 8pt; }
+
+/* Single post (single.php) */
+#page-single .post-header { color: white; font-family: 'Oswald'; }
+#page-single .post-header .post-category { font-size: 0.8em; }
+#page-single .post-header .post-date { text-transform: uppercase; font-size: 9pt; }
+#page-single .post-header .post-title { text-shadow: 2px 2px 0.1em black; font-size: 2.3em; letter-spacing: 1px; }
+#page-single .post-leave-us-a-comment { font-family: 'Oswald'; font-size: 0.8em; color: white; }
+#page-single .post-previous, #page-single .post-next { font-family: 'Oswald'; color: white; }
+#page-single .post-related-posts { font-family: 'Oswald'; font-size: 12pt; text-align: center; color: white; }
+#page-single .post-related-posts .post-related-post .post-related-post-date { font-size: 8pt; }
+#page-single .post-related-posts .post-related-post .post-related-post-date,
+#page-single .post-related-posts .post-related-post .post-related-post-title { text-align: left; }
 
 /* Call for entries (call.php) */
 #page-call .bars-info-displayer { font-family: 'Oswald'; color: #CECECE; font-size: 13.5pt; }
@@ -53,6 +78,29 @@
 .movieblock .screenings-info .screenings .screening { font-size: 9pt; text-align: center; }
 .movieblock .screenings-info .screenings .screening .screening-daynumber,
 .movieblock .info-container .info .title { font-size: 14.5pt; }
+.movieblock .movie-selectors { font-family: 'Oswald'; color: white; }
+.movieblock .movie-selectors .movie-post .movie-post-title { font-size: 16px !important; }
+.movieblock .movie-selectors .movie-post .movie-post-info { font-size: 12px; }
+.movieblock .movie-info-displayer { font-family: 'Oswald'; color: white; }
+.movieblock .movie-info-displayer .info .title { font-size: 20px; }
+.movieblock .movie-info-displayer .info .year,
+.movieblock .movie-info-displayer .info .country,
+.movieblock .movie-info-displayer .info .links,
+.movieblock .movie-info-displayer .info .runtime,
+.movieblock .movie-info-displayer .info .directors,
+.movieblock .movie-info-displayer .info .cast { font-size: 12px; }
 
 /* Contact (contact.php) */
 #page-contact .contact-form-input-hint { font-size: 8pt; font-style: italic; }
+
+/* Genericon pseudo-elements */
+#page-home .latest-posts-header:before, #page-home .latest-posts-header:after,
+#page-home .recent-posts-header:before, #page-home .recent-posts-header:after { content: '\f224'; font-size: 24px; font-family: 'Genericons'; vertical-align: middle; }
+#page-home .more-posts-header:before, #page-home .more-posts-header:after { content: '\f431'; font-size: 24px; font-family: 'Genericons'; vertical-align: middle; }
+#page-home .latest-posts .post .post-comment-count a:before  { content: '\f108'; margin-right: 5px; font-size: 16px; font-family: 'Genericons'; vertical-align: top; }
+#page-single .post-header .post-category a:before { content: '\f301'; font-family: 'Genericons'; }
+#page-single .post-leave-us-a-comment a:before { content: '\f300'; font-family: 'Genericons'; padding-right: 5px; }
+#page-single .post-previous a:before { content: '\f430'; font-family: 'Genericons'; vertical-align: middle; }
+#page-single .post-next a:after { content: '\f429'; font-family: 'Genericons'; vertical-align: middle; }
+#page-single .post-comments-header:before, #page-single .post-comments-header:after { content: '\f108'; font-family: 'Genericons'; vertical-align: middle; margin: 0 5px; }
+#page-single .post-related-posts-header:before, #page-single .post-related-posts-header:after { content: '\f416'; font-family: 'Genericons'; vertical-align: middle; }

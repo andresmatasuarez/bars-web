@@ -1,4 +1,4 @@
-a<?php
+<?php
 /**
  * @package WordPress
  * @subpackage bars2013
@@ -25,14 +25,8 @@ a<?php
 								<?php the_title(); ?>
 							</div>
 							
-							<div class="post-below-title">
-								<div class="post-date">
-									Publicado en <?php the_date(); ?>
-								</div>
-								
-								<div class="post-social">
-									<iframe class="post-fb-like" src="//www.facebook.com/plugins/like.php?href=<?php echo urlencode(get_permalink($recent["ID"])); ?>&amp;layout=standard&amp;show_faces=false&amp;action=like&amp;share=true" scrolling="no" frameborder="0" allowTransparency="true" ></iframe>
-								</div>
+							<div class="post-date">
+								Publicado en <?php the_date(); ?>
 							</div>
 							
 							<div class="post-image">
@@ -44,6 +38,19 @@ a<?php
 						<div class="post-content text-opensans indented">
 							<?php the_content(); ?>
 						</div>
+						
+						<div class="post-leave-us-a-comment">
+							<a href="#post-comments">Tenés algo que decir? Dejanos tu comentario!</a>
+						</div>
+						
+						<div class="post-social">
+							<div class="fb-like post-fb-like" data-href="<?php get_permalink($recent["ID"]); ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+							
+							<a href="http://twitter.com/share" class="post-twitter twitter-share-button" data-url="<?php the_permalink($recent["ID"]); ?>" data-via="wpbeginner" data-text="<?php $recent["post_title"]; ?>" data-count="horizontal">Tweet</a>
+						</div>
+						
+						<div class="clear"></div>
+
 						
 						<?php						
 							$orig_post = $post;
@@ -76,11 +83,11 @@ a<?php
 							if( $my_query->have_posts() ) {
 						?>
 						
-						<div class="clear scratch"></div>
-						
 						<div class="post-related-posts-header posts-header">
 							Relacionadas
 						</div>
+						
+						<div class="clear scratch"></div>
 
 						<div class="post-related-posts">
 						<?php
@@ -123,12 +130,10 @@ a<?php
 							</div>
 						</div>
 						
-						
-						<div class="clear scratch"></div>
 						<div class="post-comments-header posts-header">Comentarios</div>
 						<div class="clear scratch"></div>
 								
-						<div class="post-comments">
+						<div id="post-comments" class="post-comments">
 							<?php disqus_embed('buenosairesrojosangre'); ?>
 						</div>
 						

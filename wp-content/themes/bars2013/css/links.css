@@ -9,5 +9,15 @@ a:hover { text-decoration: underline; }
 #header-menu .nav-menu ul li a:visited,
 #header-menu .nav-menu ul li a:hover,
 #header-menu .nav-menu ul li a:active { background: none; font-style: normal; text-decoration: none; font-weight: normal; color: white; }
-
 #header-menu .nav-menu ul li.current_page_item { background-color: rgb(175, 0, 0); font-size: 1.1em; }
+
+/* Home (index.php) */
+#page-home .latest-posts .post .post-footer .post-comment-count a { text-decoration: none; color: white; }
+
+/* Single (single.php) */
+#page-single .post-previous a:hover,
+#page-single .post-next a:hover { text-decoration: none; }
+
+/* Movie block */
+.movieblock .movie-selectors .movie-post:hover a { text-decoration: none; color: white; }
+.movieblock .movie-selectors .movie-post a { text-decoration: none; color: #bbbbbb; }

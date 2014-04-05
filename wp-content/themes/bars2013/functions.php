@@ -7,8 +7,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 if ( function_exists( 'add_image_size' ) ) {
-	//add_image_size( 'recent-post-thumbnail', 205, 160, true);
-	//add_image_size( 'search-thumbnail', 200, 150, true);
 	add_image_size( 'movie-post-thumbnail', 160, 81, true);
 	add_image_size( 'movie-post-image', 220, 129, true);
 	add_image_size( 'movieblock-post-image', 110, 65, true);
@@ -48,6 +46,19 @@ function image_widget($img_url){
 	</div>';
 }
 
+/* ************ DISQUS EMBED COMMENTS ************ */
+function disqus_embed($disqus_shortname) {
+    global $post;
+    wp_enqueue_script('disqus_embed', 'http://' . $disqus_shortname . '.disqus.com/embed.js');
+    echo '<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = "' . $disqus_shortname . '";
+        var disqus_title = "' . $post->post_title . '";
+        var disqus_url = "' . get_permalink($post->ID) . '";
+        var disqus_identifier = "' . $disqus_shortname . '-' . $post->ID . '";
+    </script>';
+}
+
 
 
 
@@ -66,19 +77,6 @@ function SearchFilter($query) {
 }
 
 add_filter('pre_get_posts','SearchFilter');
-
-/* ************ DISQUS EMBED COMMENTS ************ */
-function disqus_embed($disqus_shortname) {
-    global $post;
-    wp_enqueue_script('disqus_embed', 'http://' . $disqus_shortname . '.disqus.com/embed.js');
-    echo '<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = "' . $disqus_shortname . '";
-        var disqus_title = "' . $post->post_title . '";
-        var disqus_url = "' . get_permalink($post->ID) . '";
-        var disqus_identifier = "' . $disqus_shortname . '-' . $post->ID . '";
-    </script>';
-}
 
 /**
  * Display the post content. Optionally allows post ID to be passed
