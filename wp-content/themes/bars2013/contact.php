@@ -38,7 +38,7 @@
 							</div>
 							
 							<div id="media" class="contact-form-input"> 
-								<label for="media">Medio de prensa</label>
+								<label for="media">Organización / Medio de prensa</label>
 								<div class="contact-form-input-container">
 									<input type="text" name="media" value="" />
 								</div>
