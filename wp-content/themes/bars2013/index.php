@@ -44,7 +44,7 @@
 					
 					<div id="page-home" >
 						<div class="latest-posts-header posts-header">
-							Novedades
+							Últimas novedades
 						</div>
 						
 						<div class="latest-posts">
@@ -95,8 +95,6 @@
 								Ver todas
 							</a>
 						</div>
-						
-						<div class="clear scratch"></div>
 						
 					</div>
 				

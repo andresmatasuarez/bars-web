@@ -11,6 +11,8 @@
 						Auspiciantes
 					</div>
 					
+					<div class="clear scratch"></div>
+					
 					<div class="sponsors" >
 						<div class="auspiciante auspiciante_monumental">
 							<a href="http://www.cinesmultiplex.com.ar/" target="_blank" alt="Monumental Lavalle" ></a>
@@ -30,6 +32,8 @@
 						Difunden
 					</div>
 					
+					<div class="clear scratch"></div>
+					
 					<div class="sponsors">
 						<div class="auspiciante auspiciante_syfy">
 							<a href="http://www.syfyla.com/es" target="_blank" alt="SyFy" ></a>
@@ -48,6 +52,8 @@
 					<div class="page-header sponsors-header">
 						Colaboran
 					</div>
+					
+					<div class="clear scratch"></div>
 					
 					<div class="sponsors" >
 						<div class="auspiciante auspiciante_sony">

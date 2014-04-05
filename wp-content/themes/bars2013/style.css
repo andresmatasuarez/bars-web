@@ -32,7 +32,7 @@ ul.checkmark li:before { content: '✔'; margin-left: -1.6em; margin-right: 0.6e
 .arrow-right { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid white; }
 .arrow-down { width: 0; height: 0; border-top: 8px solid white; border-right: 8px solid transparent; border-left: 8px solid transparent; }
 
-body { margin: 0; background: url("images/bgpattern2.png"); }
+body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; }
 
 /* Header */
 #header { background: black; }
@@ -145,7 +145,7 @@ body { margin: 0; background: url("images/bgpattern2.png"); }
 #page-call .bars-info-displayer-header:hover { cursor: pointer; }
 #page-call .bars-info-displayer-header { background-color: rgba(50,50,50,0.4); border-radius: 10px 10px 0 0; padding: 15px; overflow: hidden; }
 #page-call .bars-info-displayer-footer { background-color: rgba(50,50,50,0.4); border-radius: 0 0 10px 10px; padding: 10px; }
-#page-call .bars-info-displayer-header-caption { margin-left: 20px; }
+#page-call .bars-info-displayer-header-caption { text-align: right; padding-left: 20px; }
 #page-call .bars-hidden-info { background-color: rgba(0,0,0,0.4); padding: 15px; }
 #page-call .bars-hidden-info > ul { list-style-type: lower-alpha; }
 #page-call .bars-hidden-info > ul > li { margin: 15px 0; word-wrap: break-word; }
