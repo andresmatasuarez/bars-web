@@ -47,7 +47,7 @@
 							Últimas novedades
 						</div>
 						
-						<div class="latest-posts">
+						<div id="latest-posts" class="posts">
 							<?php
 								$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
 								foreach( $recent_posts as $recent ){

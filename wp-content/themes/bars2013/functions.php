@@ -135,17 +135,12 @@ function pagination($paged){
 
 }
 
-
-
-
-
-
-
-
 /* ************ SEARCH ONLY THROUGH POSTS ************ */
+// s_ha_dum answer --> http://wordpress.stackexchange.com/questions/106961/pagination-wont-work-with-search-results-template
 function SearchFilter($query) {
 	if ($query->is_search) {
 		$query->set('post_type','post');
+		$query->set('posts_per_page',5);
 	}
 	return $query;
 }
@@ -203,4 +198,38 @@ function getSpanishDayName($englishDay){
 		case 'saturday':	return 'sábado';
 		default:			return null;
 	}
+}
+
+/* Render post as part of a list of posts. */
+function renderPostInList($post_id){	
+	echo '
+	<div class="clear scratch"></div>
+	<div class="post">
+		<div class="post-thumbnail">
+			<a href="' . get_permalink($post_id) . '">' . 
+				get_the_post_thumbnail($post_id, 'recent-post-thumbnail') . 
+			'</a>
+		</div>
+		<div class="post-info-container">
+			<div class="post-date">' . 
+				get_the_time(get_option('date_format'), $post_ID) . 
+			'</div>
+			<div class="post-title">
+				<a href="' . get_permalink($post_id) . '">' . 
+					get_the_title($post_id) . 
+				'</a>
+			</div>
+			<div class="post-excerpt">' . get_excerpt_by_id($post_id) . '</div>
+			<div class="post-footer">
+				<div class="clear scratch"></div>
+				<div class="post-comment-count" >
+					<a href="' . get_permalink($post_id) . '#disqus_thread" data-disqus-identifier="buenosairesrojosangre-' . get_the_ID($post_id) . '" ></a>
+				</div>
+				
+				<div class="fb-like post-fb-like" data-href="' . get_permalink($post_id) . '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+				
+				<a href="http://twitter.com/share" class="twitter-share-button" data-url="' . get_permalink($post_id) . '" data-via="wpbeginner" data-text="' . get_the_title($post_id) . '" data-count="horizontal">Tweet</a>
+			</div>
+		</div>
+	</div>';
 }

@@ -1,15 +1,15 @@
 GENERAR:
 	- eliminar transparencias donde sea posible (auspiciantes, programacion, footer)
+	- scratchs con opacity cambiarlos por imagen con esa opacidad.
 	- cambiar font del texto (me parece que es muy chota)
 	- eliminar el ribbon ese, cambiaro por otra cosa.
+	- rever disenio general de headers para cada pagina
+	- i18n
+	- programacion: todo lo relativo a movies
+	- rever disenio de single.
 
+- AUSPICIANTES: sprite de imagenes para mejorar tiempo de recarga.
 
-- PROGRAMACION: al abrir un popup de alguna pelicula, que no se pueda scrollear (deshabilitar scrollbar) O que al scrollear el popup se mantenga en el centro de la pantalla siempre.
+- CONTACTO: cambiar estilo del form y hacer que ande
 
-- AUSPICIANTES: sprite de imagenes para mejorar tiempo de recargar
-
-- CONVOCATORIA:
-    - actualizar texto de cada convocatoria.
-	- links a formularios de inscripcion para cada convocatoria.
-	- fechas de tope de entrega de material para cada convocatoria.
-	- hojas de autorizacion para cada convocatoria.
+- 

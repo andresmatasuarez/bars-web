@@ -8,7 +8,7 @@
 	get_header();
 ?>
 					<div class="page-header sponsors-header">
-						Auspiciantes
+						Auspician
 					</div>
 					
 					<div class="clear scratch"></div>
