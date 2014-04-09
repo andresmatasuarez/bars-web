@@ -5,11 +5,13 @@
  */
 
 	get_header();
+	
+	if (have_posts()) {
+		while (have_posts()) {
+			the_post();
 ?>
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-					<div id="page-single" >
+					<div id="page-single" class="page" >
 					
 						<div class="post-header">
 							<div class="post-category">
@@ -19,7 +21,7 @@
 								?>
 							</div>
 							
-							<div class="clear scratch"></div>
+							<div class="scratch"></div>
 							
 							<div class="post-title">
 								<?php the_title(); ?>
@@ -28,11 +30,12 @@
 							<div class="post-date">
 								Publicado en <?php the_date(); ?>
 							</div>
+						</div>
+						
+						<div class="scratch"></div>
 							
-							<div class="post-image">
-								<?php the_post_thumbnail(); ?>
-							</div>
-							
+						<div class="post-image">
+							<?php the_post_thumbnail(); ?>
 						</div>
 						
 						<div class="post-content text-opensans indented">
@@ -83,7 +86,7 @@
 							if( $my_query->have_posts() ) {
 						?>
 						
-						<div class="post-related-posts-header posts-header">
+						<div class="post-related-header page-section-title">
 							Relacionadas
 						</div>
 						
@@ -120,17 +123,21 @@
 							wp_reset_query();
 						?>
 						
+						<div class="scratch"></div>
+						
 						<div class="post-navigation">
-							<div class="scratch"></div>
 							<div class="post-previous">
-								<?php previous_post_link('%link', '%title'); ?>
+								<?php previous_post_link('%link', '« %title'); ?>
 							</div>
 							<div class="post-next">
-								<?php next_post_link('%link', '%title'); ?>
+								<?php next_post_link('%link', '%title »'); ?>
 							</div>
 						</div>
 						
-						<div class="post-comments-header posts-header">Comentarios</div>
+						<div class="post-comments-header page-section-title">
+							Comentarios
+						</div>
+						
 						<div class="clear scratch"></div>
 								
 						<div id="post-comments" class="post-comments">
@@ -138,11 +145,13 @@
 						</div>
 						
 					</div>
-					
-				<?php endwhile; endif; ?>
 				
 				
-	<?php
-		get_sidebar();
-		get_footer();
-	?>
+<?php
+	
+		}
+	}
+		
+	get_sidebar();
+	get_footer();
+?>

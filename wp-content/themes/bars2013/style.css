@@ -18,7 +18,7 @@ Author URI:		mailto:author@bars.com
 @import url("../bars2013/css/contact.css");
 
 /* Utils */
-.scratch { opacity: 0.4; width: 100%; height: 1px; background-image: url("images/scratch.png"); }
+.scratch { opacity: 0.4; height: 1px; background-image: url("images/scratch.png"); }
 .clear { clear: both; }
 .relative { position: relative; }
 .overflow-hidden { overflow: hidden; }
@@ -32,10 +32,10 @@ ul.checkmark li:before { content: '✔'; margin-left: -1.6em; margin-right: 0.6e
 .arrow-right { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid white; }
 .arrow-down { width: 0; height: 0; border-top: 8px solid white; border-right: 8px solid transparent; border-left: 8px solid transparent; }
 
-body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; }
+body { margin: 0; background: url("images/bgpattern2.png"); }
 
 /* Header */
-#header { background: black; }
+#header { background: black; overflow: hidden; }
 #header-container { padding-top: 15px; background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; }
 #header-image:hover { cursor: pointer; }
 #header-image { margin: 6px auto 0 auto; width: 350px; height: 119px; background-image: url("images/header-img.png"); }
@@ -61,12 +61,20 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #header-menu { z-index: 99; width: 100%; }
 
 /* Main container */
-#main { background: url("images/bgpattern2.png"); overflow: hidden; }
+#main { background: url("images/bgpattern2.png"); }
 #main-logo-bg { background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; overflow: hidden; background-color: rgba(10,0,0,0.4); }
-#main-container { width: 955px; margin: 0 auto; overflow: hidden; }
-#content { width: 650px; float: left; }
-#content .page-header { margin-top: 15px; }
-#content .page-content { padding: 20px; }
+#main-table { margin: 0 auto; border-collapse: collapse; }
+#main-table tbody { vertical-align: top; }
+#main-container { width: 1020px; }
+#content { width: 670px; padding: 0; background: rgba(0,0,0,0.6); }
+
+/* General */
+.page-header { padding: 20px 40px; }
+.page { padding-bottom: 50px; }
+#page-call.page { padding-bottom: 0; }
+#page-single.page { padding-top: 20px; }
+#page-call .page-header { padding-top: 30px; background: #110000; }
+#page-selection .page-header { padding-top: 30px; background: #110000; }
 
 /* Footer */
 #footer { overflow: hidden; text-align: center; background: rgba(0,0,0,0.6); }
@@ -88,18 +96,29 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 .bars-widget-logo { float: left; margin-right: 5px; width: 29px; height: 29px; background: url("images/loguito.png") no-repeat 0 0; }
 
 /* Sidebar */
-#sidebar-container { width: 280px; margin-left: 5px; padding: 0 10px 10px 10px; float: left; overflow: hidden; }
+#sidebar-container { width: 280px; padding: 0 10px 10px 10px; overflow: hidden; }
 #sidebar-container .bars-widget.sidebar { margin-top: 5px; margin-bottom: 15px; }
 
 /* Sidebar image crop widget */
 .bars-widget.sidebar.image { cursor: pointer; }
 
+/* Sponsors (sponsors.php) */
+#page-sponsors .page-header { background: none; }
+
+/* News (news.php) */
+#page-news .posts { padding: 20px 0; }
+
+/* Festival (festival.php) */
+#page-festival .festival-history { padding: 10px 40px; }
+
+/* Contact (contact.php) */
+#page-contact .contact-form-container { padding: 10px 40px; }
+
 /* Home (index.php) */
 #page-home { overflow: hidden; }
-#page-home .posts-header, #page-single .posts-header { padding: 6px 0 6px 6px; }
-#page-home .latest-posts-header { margin-top: 20px; }
-#page-home .more-posts-header { margin-bottom: 20px; padding: 5px; background-color: black; }
-#page-home .more-posts-header:hover { background-color: rgb(175,0,0); }
+#page-home .page-section-title, #page-single .page-section-title { margin: 20px 0 5px 20px; }
+#page-home .more-posts { width: 100px; margin: 0 auto; background-color: rgb(175,0,0); -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+#page-home .more-posts a { display: block; padding: 5px; }
 
 /* Post default listing */
 .posts { padding-bottom: 10px; }
@@ -126,55 +145,48 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 .searchform  input[type=submit] { overflow: visible; position: relative; float: right; border: 0; padding: 0; cursor: pointer; background: rgb(175,0,0); -moz-border-radius: 0 3px 3px 0; -webkit-border-radius: 0 3px 3px 0; border-radius: 0 3px 3px 0; }
 
 /* Search (search.php) */
-#page-search .search-box { border-bottom: 5px solid rgb(175,0,0); border-radius: 10px; padding: 15px; background: rgba(0,0,0,0.6); margin-bottom: 20px; }
+#page-search .search-box { padding: 20px 30px; margin-bottom: 10px; border-bottom: 5px solid rgb(175,0,0); border-radius: 10px; background: rgba(0,0,0,0.6); }
 #page-search .search-summary .keyword { margin-left: 20px; }
 #page-search .search-form-container { overflow: hidden; margin: 10px 0 20px 25px; }
 #page-search .searchform { width: 550px; }
 #page-search .searchform  input[type=text] { width: 430px; height: 20px; padding: 10px 5px; }
 #page-search .searchform  input[type=submit] { width: 110px; height: 40px; }
-#page-search .search-no-results { padding: 20px 20px 50px 20px; background: rgba(0,0,0,0.6); }
+#page-search .search-no-results { padding: 20px 20px 50px 20px; }
 
 /* Single post (single.php) */
-#page-single .post-header .post-category { margin-top: 10px; }
-#page-single .post-header .post-date { margin-bottom: 20px; }
-#page-single .post-header .post-title { margin: 10px 10px 10px 0; }
-#page-single .post-leave-us-a-comment { margin: 20px 10px; }
-#page-single .post-social { float: left; margin: 20px 10px; }
+#page-single .post-header { padding: 0 20px 20px 20px; }
+#page-single .post-header .post-title,
+#page-single .post-header .post-date { padding: 5px 5px 0 5px; }
+#page-single .post-image img { width: 100%; height: auto; border-bottom: 3px solid rgb(175,0,0); }
+#page-single .post-content { padding: 15px 25px 10px 25px; }
+#page-single .post-leave-us-a-comment { padding: 20px; }
+#page-single .post-social { padding: 20px; }
 #page-single .post-social .post-fb-like,
 #page-single .post-social .post-twitter { height: 21px !important; vertical-align: middle; }
-#page-single .post-header .post-image { text-align: center; }
-#page-single .post-header .post-image img { width: 100%; height: auto; text-align: center; border-top: 10px solid rgb(175,0,0); border-bottom: 3px solid rgb(175,0,0); }
-#page-single .post-content { margin-top: 30px; padding: 0 10px; }
-#page-single .post-navigation { overflow: hidden; margin: 0 0 40px 0; }
+#page-single .post-navigation { overflow: hidden; padding: 0 20px; margin-bottom: 40px; }
 #page-single .post-previous, #page-single .post-next { padding: 7px 0; }
 #page-single .post-previous { float: left; }
 #page-single .post-next { float: right; }
-#page-single .post-comments { margin: 10px 0 40px 0; }
+#page-single .post-comments { padding: 10px 20px; }
 #page-single .post-related-posts .post-related-post { padding: 5px; height: 270px; vertical-align: top; width: 200px; display: inline-block; background: black; }
 #page-single .post-related-posts .post-related-post .post-related-post-date { margin-top: 5px; }
 #page-single .post-related-posts .post-related-post .post-related-post-title { margin-bottom: 30px; }
 
 /* Convocatoria (call.php -> tmpl_call) */
-#page-selection.page-content { padding-left: 0; padding-right: 0; }
-#page-call .bars-info-displayer { margin-bottom: 35px; }
-#page-call .bars-info-displayer-arrow { float: left; margin-top: 4px; margin-right: 10px; }
-#page-call .bars-info-displayer-header:hover { cursor: pointer; }
-#page-call .bars-info-displayer-header { background-color: rgba(50,50,50,0.4); border-radius: 10px 10px 0 0; padding: 15px; overflow: hidden; }
-#page-call .bars-info-displayer-footer { background-color: rgba(50,50,50,0.4); border-radius: 0 0 10px 10px; padding: 10px; }
-#page-call .bars-info-displayer-header-caption { text-align: right; padding-left: 20px; }
-#page-call .bars-hidden-info { background-color: rgba(0,0,0,0.4); padding: 15px; }
-#page-call .bars-hidden-info > ul { list-style-type: lower-alpha; }
-#page-call .bars-hidden-info > ul > li { margin: 15px 0; word-wrap: break-word; }
-#page-call .bars-hidden-info .mail-address, #page-call .bars-hidden-info .shortfilm-format { margin-left: 50px; margin-top: 10px; }
+#page-call .basis { padding: 10px 20px 20px 10px; }
+#page-call .basis-footer { padding: 20px 40px 40px 40px; background: #110000;  }
+#page-call .basis > ul { list-style-type: lower-alpha; }
+#page-call .basis > ul > li { margin: 15px 0; word-wrap: break-word; }
+#page-call .basis .mail-address, #page-call .basis .shortfilm-format { margin-left: 50px; margin-top: 10px; }
 
 /* Programación (selection.php -> tmpl_selection) */
-#page-selection .schedule-header { display: table; width: 100%; }
-#page-selection .schedule-header .schedule-week { display:table-cell; vertical-align:middle; text-align: left; }
-#page-selection .schedule-header .schedule-filters { display:table-cell; vertical-align:middle; text-align: right; }
+#page-selection .selection-schedule-container { padding: 10px 0; }
+#page-selection .schedule-header { padding: 0 10px; }
+#page-selection .schedule-header .schedule-filters { vertical-align:middle; text-align: right; }
 #page-selection .schedule { margin-top: 20px; }
 #page-selection .schedule .scratch { opacity: 0.1; }
-#page-selection .schedule-day { overflow: hidden; padding: 5px; }
-#page-selection .schedule-day.odd { background-color: rgba(0,0,0,0.3); }
+#page-selection .schedule-day { overflow: hidden; padding: 15px; }
+#page-selection .schedule-day.odd { background-color: rgba(30,30,30,0.3); }
 #page-selection .schedule-day.even { background-color: transparent; }
 #page-selection .schedule-day .schedule-day-info { width: 90px; text-align: center; float: left; }
 #page-selection .schedule-day .movie-posts { overflow: hidden; }

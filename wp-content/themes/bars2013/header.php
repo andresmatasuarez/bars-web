@@ -115,5 +115,6 @@
 
 	<div id="main" >
 		<div id="main-logo-bg">
-			<div id="main-container">
-				<div id="content">
+		<table id="main-table">
+			<tr id="main-container">
+				<td id="content">

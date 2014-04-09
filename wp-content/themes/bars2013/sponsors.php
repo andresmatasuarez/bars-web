@@ -7,7 +7,8 @@
  */
 	get_header();
 ?>
-					<div class="page-header sponsors-header">
+				<div id="page-sponsors" class="page">
+					<div class="page-header">
 						Auspician
 					</div>
 					
@@ -130,6 +131,7 @@
 						-->
 
 					</div>
+				</div>
 	<?php
 		get_sidebar();
 		get_footer();

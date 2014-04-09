@@ -7,12 +7,14 @@
  */
 	get_header();
 ?>
-
+				<div id="page-festival" class="page">
 					<div class="page-header">
 						Acerca del festival
 					</div>
 					
-					<div id="page-festival" class="page-content text-opensans" >
+					<div class="scratch"></div>
+					
+					<div class="festival-history text-opensans" >
 						<p>El Buenos Aires Rojo Sangre es el único festival especializado en cine fantástico y bizarro que se hace en Argentina. Es una muestra orientada básicamente a producciones independientes y de bajo presupuesto.</p>
 
 						<p>Su concreción surgió naturalmente, a partir de la creciente realización en Argentina de films de estos géneros. Generalmente realizados en video y en forma ultraindependiente, estas películas no lograban hacerse un lugar en los principales festivales cinematográficos locales. Por eso los realizadores de muy interesantes largos, medios y cortometrajes debían conformarse con unas pocas proyecciones autogestionadas. Esto es porque el fantástico es aún considerado en ciertos círculos como un “género menor”.</p>
@@ -41,6 +43,7 @@
 
 						<p>El BARS fue declarado de interés por el Instituto Nacional de Cinematografía y Artes Audiovisuales, auspiciado por el Museo del Cine de la Ciudad de Buenos Aires y declarado de Interés Cultural por la Legislatura de la Ciudad Autónoma de Buenos Aires. Estas instituciones han comprendido que este festival es el único espacio para un tipo de cine que tradicionalmente ha sido olvidado. Indudablemente el Buenos Aires Rojo Sangre, un festival especializado que ya se ha convertido en un referente para la producción nacional de ciencia ficción, terror y fantasía.</p>
 					</div>
+				</div>
 				
 	<?php
 		get_sidebar();

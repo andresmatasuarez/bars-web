@@ -7,14 +7,8 @@
 
 	get_header();
 ?>
-
-					<div class="page-header">
-						Búsqueda
-					</div>
 					
-					<div class="clear scratch"></div>
-					
-					<div id="page-search" >
+					<div id="page-search" class="page" >
 					
 						<div class="search-box">
 							<div class="search-summary">
@@ -36,12 +30,10 @@
 								echo '</div>';
 							} else {
 						?>
-							<div class="clear scratch"></div>
 							<div class="search-no-results">
 								<div class="not-found">No se encontraron resultados!</div>
 								<div class="try-again">Volvé a intentar la búsqueda utilizando otras palabras.</div>
 							</div>
-							<div class="clear scratch"></div>
 						<?php		
 							}
 						?>

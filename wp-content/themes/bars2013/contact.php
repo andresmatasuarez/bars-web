@@ -7,12 +7,14 @@
  */
 	get_header();
 ?>
-
+				<div id="page-contact" class="page">
 					<div class="page-header">
 						Contacto
 					</div>
 					
-					<div id="page-contact" class="page-content text-opensans" >
+					<div class="scratch"></div>
+					
+					<div class="contact-form-container text-opensans" >
 						<p>
 							Por cualquier duda, consulta o si representás a un medio de prensa, dejanos tu mensaje!
 						</p>

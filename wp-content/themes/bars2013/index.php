@@ -16,34 +16,34 @@
 	get_header();
 ?>
 
-					<div id="slider" >
-						<?php
-						
-							$latestPostsCount = 5;
-						
-							$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
-							$position = 0;
-							foreach( $recent_posts as $recent ){
-								if (get_post_thumbnail_id($recent["ID"]) != ''){
-									echo '<div class="slide" slide-position="' . $position++ . '" permalink="' . get_permalink($recent["ID"]) . '">';
-									
-										echo '<img src="' . wp_get_attachment_url( get_post_thumbnail_id($recent["ID"])) . '"></img>';
-										echo '<div class="slide-caption">';
-											echo '<div class="slide-title">' . $recent["post_title"] . '</div>';
-											echo '<div class="slide-excerpt">' . get_excerpt_by_id($recent["ID"]) . '</div>';
+					<div id="page-home" class="page" >
+						<div id="slider" >
+							<?php
+							
+								$latestPostsCount = 5;
+							
+								$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
+								$position = 0;
+								foreach( $recent_posts as $recent ){
+									if (get_post_thumbnail_id($recent["ID"]) != ''){
+										echo '<div class="slide" slide-position="' . $position++ . '" permalink="' . get_permalink($recent["ID"]) . '">';
+										
+											echo '<img src="' . wp_get_attachment_url( get_post_thumbnail_id($recent["ID"])) . '"></img>';
+											echo '<div class="slide-caption">';
+												echo '<div class="slide-title">' . $recent["post_title"] . '</div>';
+												echo '<div class="slide-excerpt">' . get_excerpt_by_id($recent["ID"]) . '</div>';
+											echo '</div>';
 										echo '</div>';
-									echo '</div>';
+									}
 								}
-							}
-						?>
+							?>
 							<div class="slider-controls">
 								<div class="slider-control left circle"><div class="arrow"></div></div>
 								<div class="slider-control right circle"><div class="arrow"></div></div>
 							</div>
-					</div>
+						</div>
 					
-					<div id="page-home" >
-						<div class="latest-posts-header posts-header">
+						<div class="latest-posts-header page-section-title">
 							Últimas novedades
 						</div>
 						
@@ -88,9 +88,7 @@
 							?>
 						</div>
 						
-						<div class="clear scratch"></div>
-						
-						<div class="more-posts-header posts-header">
+						<div class="more-posts">
 							<a href="?page_id=14">
 								Ver todas
 							</a>

@@ -3,7 +3,7 @@
 .text-opensans { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; }
 /*.text-opensans { font-family: 'Lora'; line-height: 1.5em; font-size: 10pt; color: #CECECE; }*/
 .indented { text-indent: 16pt; }
-.size-highlight { font-size: 14pt; }
+.size-highlight { font-size: 18pt; }
 
 /* Header */
 #header { font-family: 'Oswald'; color: white; }
@@ -11,16 +11,23 @@
 #header-menu { text-transform: uppercase; }
 
 /* Page contents */
-#content .page-header { font-family: 'Open Sans'; font-size: 22pt; color: #CECECE; }
-#page-festival.page-content, #page-call.page-content p { text-indent: 16pt; }
+#page-festival .festival-history p,
+#page-call .basis p { text-indent: 16pt; }
+
+/* Page general */
+.page-header { font-family: Oswald; font-size: 24pt; color: #CECECE; }
+.page-header .subheader { font-size: 10pt; }
+#page-selection .page-header { line-height: 0.8; }
+#page-call .page-header { font-size: 18pt; line-height: 1; }
 
 /* Widget */
 .bars-widget-header { font-family: 'Oswald'; color: white; text-transform: uppercase; font-size: 16pt; letter-spacing: 1px; font-style: normal;  }
 
 /* Home (index.php) */
-#page-home .posts-header, #page-single .posts-header { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; text-transform: uppercase; font-size: 18pt; letter-spacing: 2pt; text-align: center; }
-#page-home .more-posts-header { text-align: right; font-size: 12pt; }
-#page-home .more-posts-header a { color: white; text-decoration: none; }
+#page-home .page-section-title,
+#page-single .page-section-title { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; font-size: 18pt; }
+#page-home .more-posts { font-family: Oswald; text-transform: uppercase; text-align: center; font-size: 12pt; }
+#page-home .more-posts a { color: white; text-decoration: none; }
 
 /* Search form */
 .searchform  input[type=text] { font: normal 15px Oswald, sans-serif; }
@@ -42,9 +49,9 @@
 
 /* Single post (single.php) */
 #page-single .post-header { color: white; font-family: 'Oswald'; }
-#page-single .post-header .post-category { font-size: 0.8em; }
-#page-single .post-header .post-date { text-transform: uppercase; font-size: 9pt; }
-#page-single .post-header .post-title { text-shadow: 2px 2px 0.1em black; font-size: 2.3em; letter-spacing: 1px; }
+#page-single .post-header .post-title { text-shadow: 2px 2px 0.1em black; font-size: 2.2em; }
+#page-single .post-header .post-category,
+#page-single .post-header .post-date { font-size: 10pt; }
 #page-single .post-leave-us-a-comment { font-family: 'Open Sans'; font-size: 0.8em; color: white; }
 #page-single .post-previous, #page-single .post-next { font-family: 'Oswald'; color: white; }
 #page-single .post-related-posts { font-family: 'Oswald'; font-size: 12pt; text-align: center; color: white; }
@@ -53,10 +60,7 @@
 #page-single .post-related-posts .post-related-post .post-related-post-title { text-align: left; }
 
 /* Call for entries (call.php) */
-#page-call .bars-info-displayer { font-family: 'Oswald'; color: #CECECE; font-size: 13.5pt; }
-#page-call .bars-info-displayer-header-caption { font-size: 10pt; }
-#page-call .bars-info-displayer-footer { font-size: 10pt; }
-#page-call .bars-hidden-info .mail-address, #page-call .bars-hidden-info .shortfilm-format { text-indent: 0; }
+#page-call .mail-address, #page-call .shortfilm-format { text-indent: 0; }
 
 /* Selections (selection.php) */
 #page-selection .schedule-week { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; }
@@ -110,12 +114,6 @@
 
 /* Genericon pseudo-elements */
 .posts .post .post-comment-count a:before  { content: '\f108'; margin-right: 5px; font-size: 16px; font-family: 'Genericons'; vertical-align: top; }
-#page-home .latest-posts-header:before, #page-home .latest-posts-header:after,
-#page-home .recent-posts-header:before, #page-home .recent-posts-header:after { content: '\f224'; font-size: 24px; font-family: 'Genericons'; vertical-align: middle; }
 #page-single .post-header .post-category a:before { content: '\f301'; font-family: 'Genericons'; }
 #page-single .post-leave-us-a-comment a:before { content: '\f300'; font-family: 'Genericons'; padding-right: 5px; }
-#page-single .post-previous a:before { content: '\f430'; font-family: 'Genericons'; vertical-align: middle; }
-#page-single .post-next a:after { content: '\f429'; font-family: 'Genericons'; vertical-align: middle; }
-#page-single .post-comments-header:before, #page-single .post-comments-header:after { content: '\f108'; font-family: 'Genericons'; vertical-align: middle; margin: 0 5px; }
-#page-single .post-related-posts-header:before, #page-single .post-related-posts-header:after { content: '\f416'; font-family: 'Genericons'; vertical-align: middle; }
 #page-search .search-no-results:before  { content: '\f456'; font-size: 100px; font-family: 'Genericons'; }

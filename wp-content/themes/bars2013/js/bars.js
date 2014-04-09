@@ -106,75 +106,7 @@ jQuery(document).ready(function($) {
 		
 	});
 	
-	
-	// Convocatoria
-	$('.bars-hidden-info').css('display', 'none');
-
-    $('.bars-info-displayer-header').click(function(e){
-		var info = $(this).parent().find('.bars-hidden-info');
-		info.slideToggle('slow');
-		
-		var arrow = $(this).find('.bars-info-displayer-arrow');
-		if (arrow.hasClass('arrow-right')){
-			arrow.removeClass('arrow-right');
-			arrow.addClass('arrow-down');
-		} else {
-			arrow.removeClass('arrow-down');
-			arrow.addClass('arrow-right');
-		}
-		
-		return false;
-	});
-	
-	// Search and archive
-	var linkToPost = function(obj){
-		var postId;
-		var classes = $(this).closest('article').attr('class').split(/\s+/);
-		$.each(classes, function(index, item){
-			if (item.match('^post-'))
-			   postId = item.replace('post-','');
-		});
-		window.location = '/?p=' + postId;
-	};
-	$('body.search .bars-post-thumbnail, body.archive .bars-post-thumbnail').click(linkToPost);
-	$('body.search .entry-title, body.archive .entry-title').click(linkToPost);
-	
-	$('body.search .bars-post-thumbnail, body.archive .bars-post-thumbnail').hover(
-		function(obj){
-			barsSearch_postHoverIn($(this), $('.entry-title', $(this).closest('.bars-post-search')));
-			return false;
-			
-		}, function(obj){
-			barsSearch_postHoverOut($(this), $('.entry-title', $(this).closest('.bars-post-search')));
-			return false;
-		}
-	);
-	
-	$('body.search .entry-title, body.archive .entry-title').hover(
-		function(obj){
-			barsSearch_postHoverIn($('.bars-post-thumbnail', $(this).closest('.bars-post-search')), $(this));
-			return false;
-		}, function(obj){
-			barsSearch_postHoverOut($('.bars-post-thumbnail', $(this).closest('.bars-post-search')), $(this));
-			return false;
-		}
-	);
-	
 });
-
-function barsSearch_postHoverIn(thumb, title){
-	thumb.css('cursor', 'pointer');
-	title.css('cursor', 'pointer');
-	thumb.css('border', '7px solid rgba(255,0,0,0.5)');
-	title.css('background-color', 'rgba(201,0,0,0.5)');
-}
-
-function barsSearch_postHoverOut(thumb, title){
-	thumb.css('cursor', 'default');
-	title.css('cursor', 'default');
-	thumb.css('border', 'border: 7px solid rgba(201,201,201, 0.2)');
-	title.css('background-color', 'rgba(0,0,0,0.5)');
-}
 
 (function ($) {
 
