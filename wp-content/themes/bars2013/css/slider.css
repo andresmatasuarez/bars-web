@@ -1,5 +1,5 @@
 /* Slider */
-#slider { overflow: hidden; position: relative; width: 100%; height: 344px; border: 2px solid black; }
+#slider { overflow: hidden; position: relative; width: 670px; height: 344px; border: 2px solid black; }
 #slider:hover { cursor: pointer; }
 #slider:hover .slider-controls { display: block; }
 
