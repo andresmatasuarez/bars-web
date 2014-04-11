@@ -72,7 +72,7 @@
 						</form>
 						
 						<div id="success">
-							<p>Your message was sent succssfully! I will be in touch as soon as I can.</p>
+							<p>Your message was sent successfully! I will be in touch as soon as I can.</p>
 						</div>
 						
 						<div id="error">
