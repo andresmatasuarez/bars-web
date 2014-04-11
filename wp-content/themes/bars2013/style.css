@@ -35,7 +35,7 @@ ul.checkmark li:before { content: '✔'; margin-left: -1.6em; margin-right: 0.6e
 body { margin: 0; background: url("images/bgpattern2.png"); }
 
 /* Header */
-#header { background: black; overflow: hidden; }
+#header { background: black; }
 #header-container { padding-top: 15px; background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; }
 #header-image:hover { cursor: pointer; }
 #header-image { margin: 6px auto 0 auto; width: 350px; height: 119px; background-image: url("images/header-img.png"); }
