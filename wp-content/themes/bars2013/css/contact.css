@@ -21,21 +21,13 @@
 #page-contact form#contact-form .contact-form-input textarea.error { border-color: red; }
 #page-contact form#contact-form .contact-form-input label.error { float: left; vertical-align: top; padding: 5px 10px; color: red; }
 
-#page-contact form input[type=text], textarea {
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid #DDDDDD;
+/* Shadow transition on focus*/
+#page-contact form input[type=text], textarea { outline: none; padding: 3px 0px 3px 3px; margin: 5px 1px 3px 0px; border: 1px solid #DDDDDD;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
 }
  
-input[type=text]:focus, textarea:focus {
-  box-shadow: 0 0 10px red;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid rgba(81, 203, 238, 1);
-}
+#page-contact form input[type=text]:focus, textarea:focus { box-shadow: 0 0 10px red; padding: 3px 0px 3px 3px; margin: 5px 1px 3px 0px; border: 1px solid rgba(81, 203, 238, 1); }
 

@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	
 	$('#success, #error').hide();
 	
-	$('#contact-form--').validate({
+	$('#contact-form').validate({
         rules: {
             name: 'required',
             email: {
