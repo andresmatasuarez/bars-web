@@ -72,7 +72,7 @@
 			
 			<!-- SITE MENU -->
 			<div id="header-menu" class="subtle-shadow-bottom">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'sort_column' => 'menu_order' ) ); ?>
 				
 				<!-- Inside #header-menu just to stick with it on scroll. -->
 				<div class="scratch" ></div>
