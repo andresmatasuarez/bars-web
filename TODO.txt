@@ -12,4 +12,6 @@ GENERAR:
 
 - CONTACTO: cambiar estilo del form y hacer que ande
 
-- 
+- agregar una foto "No hay foto para esta pelicula" para ubicar si lapelicula no tiene foto.
+
+- Read More en listing post.
