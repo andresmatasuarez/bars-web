@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	
 	$('#success, #error').hide();
 	
-	$('#contact-form').validate({
+	$('#contact-form--').validate({
         rules: {
             name: 'required',
             email: {
@@ -14,18 +14,18 @@ jQuery(document).ready(function($) {
         },
 		
         messages: {
-            name: '• Nombre es un campo requerido.',
+            name: '• Nombre es un campo requerido (*).',
             email: {
-                required: '• Email es un campo requerido.',
+                required: '• Email es un campo requerido (*).',
 				email: '• Ingresá una dirección de email válida.'
             },
-			subject: '• Asunto es un campo requerido.',
-            message: '• Mensaje es un campo requerido.'
+			subject: '• Asunto es un campo requerido (*).',
+            message: '• Mensaje es un campo requerido (*).'
         },
 		
         submitHandler: function(form) {
             $(form).ajaxSubmit({
-                type : "POST",
+                type : 'POST',
                 data : $(form).serialize(),
                 success: function() {
                     $('#contact-form :input').attr('disabled', 'disabled');

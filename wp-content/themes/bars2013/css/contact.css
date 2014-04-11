@@ -1,17 +1,9 @@
 /* Form & Input layout */
-#page-contact form#contact-form .contact-form-input { width: 100%; min-height: 80px; }
-#page-contact form#contact-form .contact-form-input-container { display: table-cell; vertical-align: middle; }
-#page-contact form#contact-form .contact-form-input label { margin: 0 0 2px 0; }
-#page-contact form#contact-form .contact-form-input label.required:after { content: '*'; font-weight: bold; color: red; margin: 0 5px; }
-#page-contact form#contact-form #name,
-#page-contact form#contact-form #email,
-#page-contact form#contact-form #media,
-#page-contact form#contact-form #subject,
-#page-contact form#contact-form #message,
-#page-contact form#contact-form #message textarea { width: 100%; }
+#page-contact form#contact-form table { border-color: transparent; border-spacing: 20px; }
+#page-contact form#contact-form .contact-form-input > * { vertical-align: top; }
+#page-contact form#contact-form .contact-form-input .contact-form-input-label { width: 100px; text-align: right; }
+#page-contact form#contact-form .contact-form-input .contact-form-input-label.required:before { content: '*'; font-weight: bold; color: red; margin: 0 8px 0 0; }
 
-#page-contact form#contact-form label,
-#page-contact form#contact-form .contact-form-input-hint,
 #page-contact form#contact-form #name input,
 #page-contact form#contact-form #email input,
 #page-contact form#contact-form #media input,
@@ -21,11 +13,29 @@
 #page-contact form#contact-form .contact-form-input-hint { text-align: right; }
 
 /* Input styling */
-#page-contact form#contact-form input, #page-contact form#contact-form textarea { font-family: 'Open Sans'; font-size: 10pt; margin: 0; padding: 7px; border: 2px solid black; }
+#page-contact form#contact-form input, #page-contact form#contact-form textarea { font-family: 'Open Sans'; font-size: 10pt; margin: 0; padding: 7px; }
 #page-contact form#contact-form #submit input { padding: 10px; }
 
 /* Validation messages styling */
 #page-contact form#contact-form .contact-form-input input.error,
-#page-contact form#contact-form .contact-form-input textarea.error { border-color: #FF2F2F; }
-#page-contact form#contact-form .contact-form-input label.error { text-align: left; display: inline-block; vertical-align: top; width: 200px; margin-left: 20px; padding: 5px 10px; background-color: #FFD6D6; font-weight: bold; color: #B70000; border-radius: 5px; font-size: 8pt; }
+#page-contact form#contact-form .contact-form-input textarea.error { border-color: red; }
+#page-contact form#contact-form .contact-form-input label.error { float: left; vertical-align: top; padding: 5px 10px; color: red; }
+
+#page-contact form input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 10px red;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
 

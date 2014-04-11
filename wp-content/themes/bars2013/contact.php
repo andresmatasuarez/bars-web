@@ -20,56 +20,55 @@
 						</p>
 						
 						<form class="contact-form" id="contact-form" method="post">
-							<div id="name" class="contact-form-input">
-								<label class="required" for="name" >Tu nombre</label>
-								<div class="contact-form-input-container">
-									<input type="text" name="name" value=""/>
-								</div>
-								<div class="contact-form-input-hint">
-									45 caracteres restantes.
-								</div>
-							</div>	
-							<div id="email" class="contact-form-input">
-								<label class="required" for="email">Tu email</label>
-								<div class="contact-form-input-container">
-									<input type="text" name="email" value="" />
-								</div>
-								<div class="contact-form-input-hint">
-									45 caracteres restantes.
-								</div>
-							</div>
-							
-							<div id="media" class="contact-form-input"> 
-								<label for="media">Organización / Medio de prensa</label>
-								<div class="contact-form-input-container">
-									<input type="text" name="media" value="" />
-								</div>
-								<div class="contact-form-input-hint">
-									45 caracteres restantes.
-								</div>
-							</div>
-							
-							<div id="subject" class="contact-form-input">
-								<label class="required" for="subject">Asunto</label>
-								<div class="contact-form-input-container">
-									<input type="text" name="subject" value="" />
-								</div>
-								<div class="contact-form-input-hint">
-									100 caracteres restantes.
-								</div>
-							</div>
-							<div id="message" class="contact-form-input">
-								<label class="required" for="message">Mensaje</label>
-								<div class="contact-form-input-container">
-									<textarea name="message" ></textarea>
-								</div>
-								<div class="contact-form-input-hint">
-									255 caracteres restantes.
-								</div>
-							</div>
-							<div id="submit" class="contact-form-input">
-								<input id="submit" type="submit" name="submit" value="Enviar" />
-							</div>
+							<table>
+								<tr id="name" class="contact-form-input">
+									<td class="contact-form-input-label required">
+										<label for="name" >Nombre</label>
+									</td>
+									<td class="contact-form-input-container">
+										<input type="text" name="name" value=""/>
+									</td>
+								</tr>	
+								<tr id="email" class="contact-form-input">
+									<td class="contact-form-input-label required">
+										<label for="email">Email</label>
+									</td>
+									<td class="contact-form-input-container">
+										<input type="text" name="email" value="" />
+									</td>
+								</tr>
+								
+								<tr id="media" class="contact-form-input">
+									<td class="contact-form-input-label">
+										<label for="media">Organización / Medio de prensa</label>
+									</td>
+									<td class="contact-form-input-container">
+										<input type="text" name="media" value="" />
+									</td>
+								</tr>
+								
+								<tr id="subject" class="contact-form-input">
+									<td class="contact-form-input-label required">
+										<label for="subject">Asunto</label>
+									</td>
+									<td class="contact-form-input-container">
+										<input type="text" name="subject" value="" />
+									</td>
+								</tr>
+								<tr id="message" class="contact-form-input">
+									<td class="contact-form-input-label required">
+										<label for="message">Mensaje</label>
+									</td>
+									<td class="contact-form-input-container">
+										<textarea name="message" ></textarea>
+									</td>
+								</tr>
+								<tr id="submit" class="contact-form-input">
+									<td>
+										<input id="submit" type="submit" name="submit" action="process.php" value="Enviar" method="post" />
+									</td>
+								</tr>
+							</table>
 						</form>
 						
 						<div id="success">
