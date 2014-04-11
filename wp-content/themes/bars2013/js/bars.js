@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
 	
 	// Selections
 	$('#schedule-section-filters').movieSectionFilter();
+	$('.movie-post .movie-post-title').dotdotdot();
 	
 	// Home page posts image resize & cropping
 	$('.posts .post-thumbnail img').resizecrop({ width: 270, height: 170 });

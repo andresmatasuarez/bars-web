@@ -121,12 +121,14 @@
 															echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 															echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
 														echo '</div>';
-														echo '<div class="movie-post-title">';
-															echo '<span class="movie-post-title-text">';
-																echo get_the_title($post->ID);
-															echo '</span>';
+														echo '<div class="movie-post-title-container">';
+															echo '<div class="movie-post-title">';
+																echo '<span class="movie-post-title-text">';
+																	echo get_the_title($post->ID);
+																echo '</span>';
+															echo '</div>';
+															echo '<div class="movie-post-info">' . $info . '</div>';
 														echo '</div>';
-														echo '<div class="movie-post-info">' . $info . '</div>';
 													echo '</a>';
 												echo '</div>';
 												

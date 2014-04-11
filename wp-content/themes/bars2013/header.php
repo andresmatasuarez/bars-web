@@ -40,6 +40,7 @@
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-form-plugin/jquery.form.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-validation/jquery.validate.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-resizecrop/jquery.resizecrop-1.0.3.min.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-dotdotdot/src/js/jquery.dotdotdot.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/imgliquid/js/imgLiquid-min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bars.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/contact.js"></script>

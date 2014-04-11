@@ -196,7 +196,8 @@ body { margin: 0; background: url("images/bgpattern2.png"); }
 #page-selection .schedule-day .movie-post .movie-post-hour { top: 0; z-index: 1; position: absolute; right: 0; padding: 2px 5px; background-color: rgba(180,10,0,0.8); }
 #page-selection .schedule-day .movie-post .movie-post-thumbnail { position: relative; }
 #page-selection .schedule-day .movie-post .movie-post-section { position: absolute; left: 0; bottom: 0; background-color: rgba(180, 10, 0, 0.8); padding: 0 5px; }
-#page-selection .schedule-day .movie-post .movie-post-title { width: 145px; }
+#page-selection .schedule-day .movie-post .movie-post-title-container { min-height: 45px; }
+#page-selection .schedule-day .movie-post .movie-post-title { max-height: 35px; }
 #page-selection .schedule-day .movie-post .movie-post-title,
 #page-selection .schedule-day .movie-post .movie-post-info { padding: 0 0 0 2px; }
 #page-selection .schedule-day .movie-post { position: relative; border: 1px solid rgba(255,255,255,0.1); float: left; margin: 0 5px 10px 5px; background-color: rgba(0,0,0,0.5); padding: 3px 3px 7px 3px; opacity: 0.6; }
