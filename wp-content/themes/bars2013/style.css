@@ -125,6 +125,7 @@ body { margin: 0; background: url("images/bgpattern2.png"); }
 .posts .post { display: table; border-collapse: separate; border-top: 5px; margin-bottom: 20px; background: rgba(0,0,0,0.6); }
 .posts .post .post-thumbnail { display: table-cell; vertical-align: top; margin-right: 10px; }
 .posts .post .post-info-container { display: table-cell; vertical-align: top; padding-left: 10px; }
+.posts .post .post-info-container .post-excerpt { padding-right: 10px; }
 .posts .post .post-info-container .post-excerpt p { margin: 10px 0; }
 .posts .post .post-footer .scratch { margin-bottom: 5px; }
 .posts .post .post-footer .post-fb-like { float: left; margin-right: 10px; }

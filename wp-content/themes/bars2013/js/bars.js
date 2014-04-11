@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 	$('#schedule-section-filters').movieSectionFilter();
 	
 	// Home page posts image resize & cropping
-	$('.posts .post-thumbnail img').resizecrop({ width: 280, height: 170 });
+	$('.posts .post-thumbnail img').resizecrop({ width: 270, height: 170 });
 	
 	// Single post related posts
 	$('#page-single .post-related-posts .post-related-post img').resizecrop({ width: 200, height: 170 });
