@@ -1,3 +1,11 @@
-/wp-content/uploads
-/wp-content/themes/twentythirteen
-.htaccess
+.htwaccess
+lib
+node_modules
+wp-content/uploads
+wp-content/upgrade
+wp-content/themes/index.php
+wp-content/themes/bars2013/js
+wp-content/themes/bars2013/style.css
+wp-content/themes/bars2013/images
+wp-content/themes/bars2013/resources
+wp-content/themes/twentythirteen

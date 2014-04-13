@@ -1,17 +1,16 @@
 GENERAR:
 	- eliminar transparencias donde sea posible (auspiciantes, programacion, footer)
 	- scratchs con opacity cambiarlos por imagen con esa opacidad.
-	- cambiar font del texto (me parece que es muy chota)
-	- eliminar el ribbon ese, cambiaro por otra cosa.
-	- rever disenio general de headers para cada pagina
 	- i18n
-	- programacion: todo lo relativo a movies
-	- rever disenio de single.
 
-- AUSPICIANTES: sprite de imagenes para mejorar tiempo de recarga.
+- CONTACTO: hacer que ande
 
-- CONTACTO: cambiar estilo del form y hacer que ande
+- spritificar TODAS las imagenes estaticas del sitio menos la del header y el scratch y las de aifches/programacion/fiesta etc
 
 - agregar una foto "No hay foto para esta pelicula" para ubicar si lapelicula no tiene foto.
 
 - Read More en listing post.
+
+- fijarse si se puede reemplazar resizecrop por imgliquid
+
+- agregar a la task de imagemin para copiar las imagenes de fancybox al dir del theme.

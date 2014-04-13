@@ -1,0 +1,38 @@
+{
+	"dest": {
+		"lib": "wp-content/themes/bars2013/js/",
+		"css": "wp-content/themes/bars2013/css/",
+		"img": "wp-content/themes/bars2013/images/",
+		"misc": "wp-content/themes/bars2013/resources/",
+		"libOutput": "wp-content/themes/bars2013/js/lib.min.js",
+		"cssOutput": "wp-content/themes/bars2013/style.css"
+	},
+
+	"src": {
+		"lib": [
+			"lib/fancybox/source/jquery.fancybox.js",
+			"lib/jquery-form/jquery.form.js",
+			"lib/jquery-validation/dist/jquery.validate.js",
+			"lib/jQuery.dotdotdot/src/js/jquery.dotdotdot.js",
+			"lib/imgLiquid/js/imgLiquid.js"
+		],
+
+		"js": [ "js/**/*.js" ],
+		
+		"css": [
+			"css/imports.css",
+			"css/links.css",
+			"css/text.css",
+			"css/sponsors.css",
+			"css/contact.css",
+			"css/main.css",
+			"css/genericons/genericons.css",
+			"css/slider.css",
+			"lib/fancybox/source/jquery.fancybox.css"
+		],
+		
+		"img": [ "img/**/*" ],
+		
+		"misc": [ "misc/**/*" ]
+	}
+}

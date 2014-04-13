@@ -1,22 +1,3 @@
-/*
-Theme Name:     bars2013
-Theme URI:      http://example.com/
-Description:    Buenos Aires Rojo Sangre - Festival Internacional de Cine de Terror, Fantástico y Bizarro
-Version:        1.0
-Author:         Andrés Mata Suárez
-Author URI:		mailto:author@bars.com
-*/
-
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Lora);
-
-@import url("../bars2013/css/links.css");
-@import url("../bars2013/css/text.css");
-@import url("../bars2013/css/sponsors.css");
-@import url("../bars2013/css/ribbon.css");
-@import url("../bars2013/css/contact.css");
-
 /* Utils */
 .scratch { opacity: 0.4; height: 1px; background-image: url("images/scratch.png"); }
 .clear { clear: both; }
@@ -81,9 +62,9 @@ body { margin: 0; background: url("images/bgpattern2.png"); }
 #footer-container { width: 955px; margin: 0 auto; padding: 10px 20px; }
 #footer .footer-nav { overflow: hidden; }
 #footer .footer-logos { overflow: hidden; position: relative; }
-#footer .footer-logos .bars-image { margin: 0 auto; background: url("images/footer/footer_logo.png"); width: 276px; height: 53px; }
-#footer .footer-logos .fs-image { position: absolute; right: 0; top: 0; width: 112px; height: 53px; background: url("images/footer/footer_festeringslime_gray.png"); }
-#footer .footer-logos .fs-image:hover { background-image: url("images/footer/footer_festeringslime.png"); }
+#footer .footer-logos .bars-image { margin: 0 auto; background: url("images/footer_logo.png"); width: 276px; height: 53px; }
+#footer .footer-logos .fs-image { position: absolute; right: 0; top: 0; width: 112px; height: 53px; background: url("images/footer_festeringslime_gray.png"); }
+#footer .footer-logos .fs-image:hover { background-image: url("images/footer_festeringslime.png"); }
 #footer .searchform { width: 340px; margin: 0 auto 30px auto; float: right; }
 #footer .searchform  input[type=text] { width: 250px; height: 10px; padding: 10px 5px; }
 #footer .searchform  input[type=submit] { width: 80px; height: 30px; }

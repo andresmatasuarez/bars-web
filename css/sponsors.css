@@ -1,7 +1,7 @@
 .sponsors { text-align: center; overflow: hidden; width: 100%; margin: 0 auto; }
 .auspiciante { margin: 20px 35px 0 35px; width:140px; height:80px; display:inline-block; overflow:hidden; background-repeat: no-repeat; background:url("../images/auspiciantes/auspiciantes_gray.png");}
 .auspiciante a { display: block; height: 100%; width: 100%; }
-.auspiciante:hover { background-image: url("../images/auspiciantes/auspiciantes.png"); }
+.auspiciante:hover { background-image: url("images/auspiciantes.png"); }
 
 .auspiciante_ab {background-position: -854px -166px}
 .auspiciante_bsasciudad {background-position: -712px -166px}

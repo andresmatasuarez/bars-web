@@ -26,25 +26,13 @@
 	<![endif]-->
 	
 	<?php
-		wp_enqueue_script("jquery");
+		wp_enqueue_script('jquery');
 		wp_head();
 	?>
 	
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/genericons/genericons.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/slider.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 
-	
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/fancybox/source/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-form-plugin/jquery.form.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-validation/jquery.validate.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-resizecrop/jquery.resizecrop-1.0.3.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-dotdotdot/src/js/jquery.dotdotdot.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/imgliquid/js/imgLiquid-min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bars.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/contact.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/slider.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/lib.min.js"></script>
 	
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	
