@@ -19,10 +19,13 @@
 								<?php get_search_form(); ?>
 							</div>
 						</div>
-						
+
 						<?php
 							if (have_posts()){
-								echo '<div class="posts">';
+								echo '<div class="page-section-title">
+												Resultados
+											</div>
+											<div class="posts">';
 								while (have_posts()){
 									the_post();
 									renderPostInList(get_the_ID());
@@ -34,10 +37,9 @@
 								<div class="reason">No se encontraron resultados!</div>
 								<div class="description">Volvé a intentar la búsqueda utilizando otras palabras.</div>
 							</div>
-						<?php		
+						<?php
 							}
 						?>
-						
 						
 						<?php pagination(esc_attr(get_query_var('paged') ? absint(get_query_var('paged')) : 1)); ?>
 						

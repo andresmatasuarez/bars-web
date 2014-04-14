@@ -2,11 +2,11 @@ GENERAR:
 	- eliminar transparencias donde sea posible (auspiciantes, programacion, footer)
 	- scratchs con opacity cambiarlos por imagen con esa opacidad.
 	- i18n
-	- sass, compass o alguna de preprocesado de css
+	- sass, less, compass o alguna de preprocesado de css
 
 - CONTACTO: hacer que ande
 
-- agregar una foto "No hay foto para esta pelicula" para ubicar si la pelicula no tiene foto.
+- agregar una foto "Imagen no disponible" para ubicar si la pelicula no tiene foto.
 
 - agregar a la task de imagemin para copiar las imagenes de fancybox al dir del theme.
 
@@ -15,3 +15,5 @@ GENERAR:
 - agregar task de clean o limpieza.
 
 - agregar NEWER al watch
+
+- volver a intentar con el reemplazador de urls en el css.

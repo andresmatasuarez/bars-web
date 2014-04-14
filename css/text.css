@@ -31,7 +31,8 @@
 
 /* Home (index.php) */
 #page-home .page-section-title,
-#page-single .page-section-title { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; font-size: 18pt; }
+#page-single .page-section-title,
+#page-search .page-section-title { text-shadow: 2px 2px 0.1em black; color: white; font-family: 'Oswald'; font-size: 18pt; }
 #page-home .more-posts { font-family: Oswald; text-transform: uppercase; text-align: center; font-size: 12pt; }
 #page-home .more-posts a { color: white; text-decoration: none; }
 

@@ -99,7 +99,9 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #page-contact .contact-form-container { padding: 10px 40px; }
 
 /* Home (index.php) */
-#page-home .page-section-title, #page-single .page-section-title { margin: 20px 0 5px 20px; }
+#page-home .page-section-title,
+#page-single .page-section-title,
+#page-search .page-section-title { margin: 20px 0 5px 20px; }
 #page-home .more-posts { width: 100px; margin: 0 auto; background-color: rgb(175,0,0); -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 #page-home .more-posts a { display: block; padding: 5px; }
 
