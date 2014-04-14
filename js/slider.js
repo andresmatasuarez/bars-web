@@ -65,13 +65,12 @@
 		// Place slides in a consecutive way.
 		var left = 0;
 		slides.each(function(){
-			$(this).css('left', left + 'px');
-			$(this).find('img').resizecrop({
-				width: w,
-				height: h
+			$(this).find('img').wrap(function() {
+				return '<div style="left: ' + left + 'px; display:block; width:' + w + 'px; height:' + h + 'px;"></div>';
 			});
+			$(this).find('img').parent().imgLiquid();
 			left += w;
 		});
-	}
+	};
 	
 }(jQuery));

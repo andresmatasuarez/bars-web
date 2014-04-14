@@ -5,12 +5,12 @@ GENERAR:
 
 - CONTACTO: hacer que ande
 
-- spritificar TODAS las imagenes estaticas del sitio menos la del header y el scratch y las de aifches/programacion/fiesta etc
-
-- agregar una foto "No hay foto para esta pelicula" para ubicar si lapelicula no tiene foto.
+- agregar una foto "No hay foto para esta pelicula" para ubicar si la pelicula no tiene foto.
 
 - Read More en listing post.
 
-- fijarse si se puede reemplazar resizecrop por imgliquid
-
 - agregar a la task de imagemin para copiar las imagenes de fancybox al dir del theme.
+
+- spritificar TODAS las imagenes estaticas del sitio menos la del header y el scratch y las de aifches/programacion/fiesta etc
+
+- agregar task de clean o limpieza.

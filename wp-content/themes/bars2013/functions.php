@@ -41,9 +41,7 @@ function youtube_widget($video_id, $width, $height){
 
 /* private: Sidebar image widget */
 function image_widget($img_url){
-	return '<div class="image-container" style="width:300px;height:150px">
-		<a class="fancybox sidebar" href="'. $img_url . '"><img src="' . $img_url . '" /></a>
-	</div>';
+	return '<a class="fancybox sidebar" href="'. $img_url . '"><img src="' . $img_url . '" /></a>';
 }
 
 /* ************ DISQUS EMBED COMMENTS ************ */

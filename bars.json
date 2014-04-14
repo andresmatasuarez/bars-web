@@ -8,6 +8,8 @@
 		"cssOutput": "wp-content/themes/bars2013/style.css"
 	},
 
+	"tmp": "tmp/",
+
 	"src": {
 		"lib": [
 			"lib/fancybox/source/jquery.fancybox.js",
@@ -17,8 +19,6 @@
 			"lib/imgLiquid/js/imgLiquid.js"
 		],
 
-		"js": [ "js/**/*.js" ],
-		
 		"css": [
 			"css/imports.css",
 			"css/links.css",
@@ -29,6 +29,12 @@
 			"css/genericons/genericons.css",
 			"css/slider.css",
 			"lib/fancybox/source/jquery.fancybox.css"
+		],
+		
+		"js": [
+			"js/bars.js",
+			"js/contact.js",
+			"js/slider.js"
 		],
 		
 		"img": [ "img/**/*" ],

@@ -5,6 +5,12 @@
 .indented { text-indent: 16pt; }
 .size-highlight { font-size: 18pt; }
 
+.warning { font-family: Oswald, sans-serif; color: #CECECE; text-align: center; }
+.warning .reason { font-size: 24pt; }
+.warning .description { font-size: 14pt; }
+.warning.search-no-results:before  { content: '\f456'; font-size: 100px; font-family: 'Genericons'; }
+.warning.under-construction:before  { content: '\f414'; font-size: 100px; font-family: 'Genericons'; }
+
 /* Header */
 #header { font-family: 'Oswald'; color: white; }
 #header-description { font-size: 0.65em; letter-spacing: 0.2em; font-weight: lighter; text-align: center; text-transform: uppercase; }
@@ -36,9 +42,6 @@
 /* Search (search.php) */
 #page-search .search-summary { font-family: Oswald, sans-serif; color: #CECECE; text-transform: uppercase; }
 #page-search .search-summary .keyword { font-weight: 400; font-size: 20pt; color: rgb(175,0,0); }
-#page-search .search-no-results { font-family: Oswald, sans-serif; color: #CECECE; text-align: center; }
-#page-search .search-no-results .not-found { font-size: 24pt; }
-#page-search .search-no-results .try-again { font-size: 14pt; }
 
 /* Latest posts / news */
 .posts { font-family: 'Oswald'; color: white; }
@@ -116,4 +119,3 @@
 .posts .post .post-comment-count a:before  { content: '\f108'; margin-right: 5px; font-size: 16px; font-family: 'Genericons'; vertical-align: bottom; }
 #page-single .post-header .post-category a:before { content: '\f301'; font-family: 'Genericons'; }
 #page-single .post-leave-us-a-comment a:before { content: '\f300'; font-family: 'Genericons'; padding-right: 5px; }
-#page-search .search-no-results:before  { content: '\f456'; font-size: 100px; font-family: 'Genericons'; }

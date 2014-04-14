@@ -29,9 +29,8 @@
 		wp_enqueue_script('jquery');
 		wp_head();
 	?>
-	
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen">
 
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen"></link>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/lib.min.js"></script>
 	
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>

@@ -13,7 +13,7 @@ ul.checkmark li:before { content: '✔'; margin-left: -1.6em; margin-right: 0.6e
 .arrow-right { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid white; }
 .arrow-down { width: 0; height: 0; border-top: 8px solid white; border-right: 8px solid transparent; border-left: 8px solid transparent; }
 
-body { margin: 0; background: url("images/bgpattern2.png"); }
+body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; }
 
 /* Header */
 #header { background: black; }
@@ -56,6 +56,8 @@ body { margin: 0; background: url("images/bgpattern2.png"); }
 #page-single.page { padding-top: 20px; }
 #page-call .page-header { padding-top: 30px; background: #110000; }
 #page-selection .page-header { padding-top: 30px; background: #110000; }
+
+.warning { padding: 20px 20px 50px 20px; }
 
 /* Footer */
 #footer { overflow: hidden; text-align: center; background: rgba(0,0,0,0.6); }
@@ -134,7 +136,6 @@ body { margin: 0; background: url("images/bgpattern2.png"); }
 #page-search .searchform { width: 550px; }
 #page-search .searchform  input[type=text] { width: 430px; height: 20px; padding: 10px 5px; }
 #page-search .searchform  input[type=submit] { width: 110px; height: 40px; }
-#page-search .search-no-results { padding: 20px 20px 50px 20px; }
 
 /* Single post (single.php) */
 #page-single .post-header { padding: 0 20px 20px 20px; }

@@ -21,8 +21,8 @@ module.exports = function(grunt){
 				'<%= bars.src.js %>'
 			]
 		},
-		
-		// Concat
+
+		//Concat
 		concat: {
 			options: {
 				separator: '\n/*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*/\n'
@@ -71,64 +71,65 @@ module.exports = function(grunt){
 		imagemin: {
 			max: {
 				options: { optimizationLevel: 7 },
-				files: [{
-					expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.img %>', dest: '<%= bars.dest.img %>' }
+				files: [
+					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.img %>', dest: '<%= bars.dest.img %>' }
 				]
 			},
 			low: {
 				options: { optimizationLevel: 3 },
-				files: [{
-					expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.img %>', dest: '<%= bars.dest.img %>' }
+				files: [
+					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.img %>', dest: '<%= bars.dest.img %>' }
 				]
 			}
 		},
 
 		// Watch
 		watch: {
-			dev: {
-				options: {
-					livereload: true,
-					nospawn: true
-				},
+			options: { livereload: true, nospawn: true },
+			js: {
 				files: [
-					'<%= pkg.gruntfile %>',
 					'<%= bars.src.lib %>',
-					'<%= bars.src.js %>',
-					'<%= bars.src.css %>',
-					'<%= bars.src.img %>',
-					'<%= bars.src.misc %>'
+					'<%= bars.src.js %>'
 				],
-				// Dev
-				tasks: [ 'concat:js', 'concat:css', 'copy:misc' ]
+				tasks: [ 'concat:js' ]
 			},
 
-			prod: {
+			css: {
 				files: [
-					'<%= pkg.gruntfile %>',
-					'<%= bars.src.lib %>',
-					'<%= bars.src.js %>',
-					'<%= bars.src.css %>',
-					'<%= bars.src.img %>',
+					'<%= bars.src.css %>'
+				],
+				tasks: [ 'concat:css' ]
+			},
+
+			img: {
+				files: [
+					'<%= bars.src.img %>'
+				],
+				tasks: [ 'imagemin:max' ]
+			},
+
+			misc: {
+				files: [
 					'<%= bars.src.misc %>'
 				],
-				tasks: [ 'prod' ]
+				tasks: [ 'copy:misc' ]
 			}
 		}
 
 	});
 	
 	// Load tasks
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
-	grunt.registerTask('dev', [ 'concat:js',  'concat:css', 'copy:misc', 'imagemin:max', 'watch:dev' ]);
+	grunt.registerTask('dev', [ 'concat', 'copy:misc', 'imagemin:max', 'watch' ]);
 	grunt.registerTask('prod', [ ]);
 	
 };

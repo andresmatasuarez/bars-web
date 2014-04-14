@@ -11,14 +11,23 @@ jQuery(document).ready(function($) {
 	$('.movie-post .movie-post-title').dotdotdot();
 	
 	// Home page posts image resize & cropping
-	$('.posts .post-thumbnail img').resizecrop({ width: 270, height: 170 });
+	$('.posts .post-thumbnail img').wrap(function() {
+		return '<div style="width:270px; height:170px;"></div>';
+	});
+	$('.posts .post-thumbnail img').parent().imgLiquid();
 	
 	// Single post related posts
-	$('#page-single .post-related-posts .post-related-post img').resizecrop({ width: 200, height: 170 });
+	$('#page-single .post-related-posts .post-related-post img').wrap(function() {
+		return '<div style="width:200px; height:170px;"></div>';
+	});
+	$('#page-single .post-related-posts .post-related-post img').parent().imgLiquid();
 	
 	// Sidebar image widget resize & cropping
-	$('#sidebar .bars-widget.sidebar.image .image-container').imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center'});
-	
+	$('#sidebar .bars-widget.sidebar.image img').wrap(function() {
+		return '<div style="width:300px; height:150px;"></div>';
+	});
+	$('#sidebar .bars-widget.sidebar.image img').parent().imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center'});
+
 	// Programación
 	$('.movieblock .movie-selectors #movie-selector').live('click', function(){
 		var id = $(this).attr('movieid');
