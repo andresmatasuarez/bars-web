@@ -64,6 +64,12 @@ module.exports = function(grunt){
 				files: [
 					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.misc %>', dest: '<%= bars.dest.misc %>' }
 				]
+			},
+
+			php: {
+				files: [
+					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.php %>', dest: '<%= bars.dest.php %>' }
+				]
 			}
 		},
 		
@@ -108,6 +114,13 @@ module.exports = function(grunt){
 				tasks: [ 'imagemin:max' ]
 			},
 
+			php: {
+				files: [
+					'<%= bars.src.php %>'
+				],
+				tasks: [ 'copy:php' ]
+			},
+
 			misc: {
 				files: [
 					'<%= bars.src.misc %>'
@@ -129,7 +142,7 @@ module.exports = function(grunt){
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
-	grunt.registerTask('dev', [ 'concat', 'copy:misc', 'imagemin:max', 'watch' ]);
+	grunt.registerTask('dev', [ 'concat', 'copy:php', 'copy:misc', 'imagemin:max', 'watch' ]);
 	grunt.registerTask('prod', [ ]);
 	
 };

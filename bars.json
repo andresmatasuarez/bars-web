@@ -1,5 +1,6 @@
 {
 	"dest": {
+		"php": "wp-content/themes/bars2013/",
 		"lib": "wp-content/themes/bars2013/js/",
 		"css": "wp-content/themes/bars2013/css/",
 		"img": "wp-content/themes/bars2013/images/",
@@ -38,6 +39,8 @@
 		],
 		
 		"img": [ "img/**/*" ],
+
+		"php": [ "php/**/*" ],
 		
 		"misc": [ "misc/**/*" ]
 	}
