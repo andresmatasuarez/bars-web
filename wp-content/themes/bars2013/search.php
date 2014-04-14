@@ -34,7 +34,7 @@
 							} else {
 						?>
 							<div class="warning search-no-results">
-								<div class="reason">No se encontraron resultados!</div>
+								<div class="reason">No se encontraron resultados</div>
 								<div class="description">Volvé a intentar la búsqueda utilizando otras palabras.</div>
 							</div>
 						<?php

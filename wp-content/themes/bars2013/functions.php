@@ -12,6 +12,19 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'movieblock-post-image', 110, 65, true);
 }
 
+/* ************ SEARCH ONLY THROUGH POSTS ************ */
+// s_ha_dum answer
+// 	|-> http://wordpress.stackexchange.com/questions/106961/pagination-wont-work-with-search-results-template
+function SearchFilter($query) {
+	if ($query->is_search) {
+		$query->set('post_type','post');
+		$query->set('posts_per_page',5);
+	}
+	return $query;
+}
+
+add_filter('pre_get_posts','SearchFilter');
+
 /* ************ SIDEBAR WIDGETS ************ */
 function add_youtube_sidebar_widget($class, $title, $video_id, $width, $height){
 	return widgetify($class, $title, youtube_widget($video_id, $width, $height));
@@ -132,18 +145,6 @@ function pagination($paged){
 	echo '</div>';
 
 }
-
-/* ************ SEARCH ONLY THROUGH POSTS ************ */
-// s_ha_dum answer --> http://wordpress.stackexchange.com/questions/106961/pagination-wont-work-with-search-results-template
-function SearchFilter($query) {
-	if ($query->is_search) {
-		$query->set('post_type','post');
-		$query->set('posts_per_page',5);
-	}
-	return $query;
-}
-
-add_filter('pre_get_posts','SearchFilter');
 
 /**
  * Display the post content. Optionally allows post ID to be passed

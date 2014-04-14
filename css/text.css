@@ -10,6 +10,7 @@
 .warning .description { font-size: 14pt; }
 .warning.search-no-results:before  { content: '\f456'; font-size: 100px; font-family: 'Genericons'; }
 .warning.under-construction:before  { content: '\f414'; font-size: 100px; font-family: 'Genericons'; }
+.warning.error404:before  { content: '\f423'; font-size: 200px; font-family: 'Genericons'; line-height: 140px; vertical-align: middle; }
 
 /* Header */
 #header { font-family: 'Oswald'; color: white; }
