@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 	
-	$('#success, #error').hide();
+	$('.email-success, .email-error').hide();
 	
 	$('#contact-form').validate({
         rules: {
@@ -25,19 +25,18 @@ jQuery(document).ready(function($) {
 		
         submitHandler: function(form) {
             $(form).ajaxSubmit({
-                type : 'POST',
-                data : $(form).serialize(),
+                url: '/2.0/wp-content/themes/bars2013/email.php',
+                type: 'POST',
+                data: $(form).formSerialize(),
                 success: function() {
                     $('#contact-form :input').attr('disabled', 'disabled');
-                    $('#contact-form').fadeTo( "slow", 0.15, function() {
-                        $(this).find(':input').attr('disabled', 'disabled');
-                        $(this).find('label').css('cursor','default');
-                        $('#success').fadeIn();
+                    $('#contact-form').fadeOut('slow', function() {
+                        $('.email-success').fadeIn();
                     });
                 },
                 error: function() {
-                    $('#contact-form').fadeTo( "slow", 0.15, function() {
-                        $('#error').fadeIn();
+                    $('#contact-form').fadeTo('slow', function() {
+                        $('.email-error').fadeIn();
                     });
                 }
             });

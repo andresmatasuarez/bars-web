@@ -1,6 +1,7 @@
 .htwaccess
 lib
 node_modules
+vendor
 wp-content/uploads
 wp-content/upgrade
 wp-content/themes/index.php

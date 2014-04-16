@@ -31,6 +31,8 @@
 	?>
 
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen"></link>
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/fancybox/jquery.fancybox.css" type="text/css" media="screen"></link>
+
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/lib.min.js"></script>
 	
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>

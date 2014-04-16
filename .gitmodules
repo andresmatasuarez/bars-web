@@ -2,3 +2,6 @@
 	path = wordpress
 	url = https://github.com/WordPress/WordPress.git
 
+[submodule "php/phpmailer"]
+	path = php/phpmailer
+	url = https://github.com/PHPMailer/PHPMailer.git

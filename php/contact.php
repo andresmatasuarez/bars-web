@@ -5,6 +5,7 @@
  * @package WordPress
  * @subpackage bars2013
  */
+
 	get_header();
 ?>
 				<div id="page-contact" class="page">
@@ -19,7 +20,7 @@
 							Por cualquier duda, consulta o si representás a un medio de prensa, dejanos tu mensaje!
 						</p>
 						
-						<form class="contact-form" id="contact-form" method="post">
+						<form id="contact-form" class="contact-form" method="post">
 							<table>
 								<tr id="name" class="contact-form-input">
 									<td class="contact-form-input-label required">
@@ -66,18 +67,20 @@
 								<tr id="submit" class="contact-form-input">
 									<td></td>
 									<td>
-										<input id="submit" type="submit" name="submit" action="process.php" value="Enviar" method="post" />
+										<input id="submit" type="submit" name="submit" value="Enviar" method="post" />
 									</td>
 								</tr>
 							</table>
 						</form>
 						
-						<div id="success">
-							<p>Your message was sent successfully! I will be in touch as soon as I can.</p>
+						<div class="warning email-success">
+							<div class="reason">Tu mensaje ha sido enviado!</div>
+							<div class="description">Te responderemos a la brevedad.</div>
 						</div>
 						
-						<div id="error">
-							<p>Error.</p>
+						<div class="warning email-error">
+							<div class="reason">Se ha producido un error</div>
+							<div class="description">No se ha podido enviar el mensaje. Volvé a intentar más tarde.</div>
 						</div>
 						
 					</div>

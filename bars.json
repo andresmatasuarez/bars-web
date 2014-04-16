@@ -1,4 +1,8 @@
 {
+	"clean": [
+		"tmp/",
+		"wp-content/themes/bars2013/"
+	],
 	"dest": {
 		"php": "wp-content/themes/bars2013/",
 		"lib": "wp-content/themes/bars2013/js/",
@@ -28,8 +32,7 @@
 			"css/contact.css",
 			"css/main.css",
 			"css/genericons/genericons.css",
-			"css/slider.css",
-			"lib/fancybox/source/jquery.fancybox.css"
+			"css/slider.css"
 		],
 		
 		"js": [
@@ -40,8 +43,30 @@
 		
 		"img": [ "img/**/*" ],
 
-		"php": [ "php/**/*" ],
+		"php": [ "php/*" ],
 		
 		"misc": [ "misc/**/*" ]
+	},
+
+	"fancybox": {
+		"src" : [
+			"lib/fancybox/source/jquery.fancybox.css",
+			"lib/fancybox/source/blank.gif",
+			"lib/fancybox/source/fancybox_loading.gif",
+			"lib/fancybox/source/fancybox_loading@2x.gif",
+			"lib/fancybox/source/fancybox_overlay.png",
+			"lib/fancybox/source/fancybox_sprite.png",
+			"lib/fancybox/source/fancybox_sprite@2x.png"
+		],
+		"dest" : "wp-content/themes/bars2013/fancybox/"
+	},
+
+	"phpmailer": {
+		"src" : [
+			"vendor/phpmailer/phpmailer/class.phpmailer.php",
+			"vendor/phpmailer/phpmailer/class.smtp.php",
+			"vendor/phpmailer/phpmailer/PHPMailerAutoload.php"
+		],
+		"dest" : "wp-content/themes/bars2013/phpmailer"
 	}
 }

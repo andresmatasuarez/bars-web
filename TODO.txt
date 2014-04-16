@@ -1,19 +1,19 @@
-GENERAR:
-	- eliminar transparencias donde sea posible (auspiciantes, programacion, footer)
-	- scratchs con opacity cambiarlos por imagen con esa opacidad.
-	- i18n
-	- sass, less, compass o alguna de preprocesado de css
+GENERAL:
+	- BAJA eliminar transparencias donde sea posible (auspiciantes, programacion, footer)
+	- BAJA scratchs con opacity cambiarlos por imagen con esa opacidad.
+	- MEDIA ALTA i18n
+	- BAJA sass, less, compass o alguna de preprocesado de css
 
-- CONTACTO: hacer que ande
+- BAJA agregar una foto "Imagen no disponible" para ubicar si la pelicula no tiene foto.
 
-- agregar una foto "Imagen no disponible" para ubicar si la pelicula no tiene foto.
+- MEDIA agregar semanas bars 2015
 
-- agregar a la task de imagemin para copiar las imagenes de fancybox al dir del theme.
+- MEDIA agregar algo que resalte que esta abierta la convocatoria.
 
-- spritificar TODAS las imagenes estaticas del sitio menos la del header y el scratch y las de aifches/programacion/fiesta etc
+- ALTA hacer que ande form contacto
 
-- agregar task de clean o limpieza.
+- ALTA bug no se abre el fancybox de las movies.
 
-- agregar NEWER al watch
+- MEDIA exportar a mysql las movies.
 
-- volver a intentar con el reemplazador de urls en el css.
+- BAJA investigar acerca de reescribir urls (probar linkeado a las paginas como /php/contact.php o algo asi a ver que pasaba)

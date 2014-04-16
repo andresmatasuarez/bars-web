@@ -68,7 +68,19 @@ module.exports = function(grunt){
 
 			php: {
 				files: [
-					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.php %>', dest: '<%= bars.dest.php %>' }
+					{ expand: true, flatten: true, filter: 'isFile', src:'<%= bars.src.php %>', dest: '<%= bars.dest.php %>' }
+				]
+			},
+
+			fancybox: {
+				files: [
+					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.fancybox.src %>', dest: '<%= bars.fancybox.dest %>' }
+				]
+			},
+
+			phpmailer: {
+				files: [
+					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.phpmailer.src %>', dest: '<%= bars.phpmailer.dest %>' }
 				]
 			}
 		},
@@ -87,6 +99,10 @@ module.exports = function(grunt){
 					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.img %>', dest: '<%= bars.dest.img %>' }
 				]
 			}
+		},
+
+		clean: {
+			build: ['<%= bars.clean %>']
 		},
 
 		// Watch
@@ -111,21 +127,35 @@ module.exports = function(grunt){
 				files: [
 					'<%= bars.src.img %>'
 				],
-				tasks: [ 'imagemin:max' ]
+				tasks: [ 'newer:imagemin:max' ]
 			},
 
 			php: {
 				files: [
 					'<%= bars.src.php %>'
 				],
-				tasks: [ 'copy:php' ]
+				tasks: [ 'newer:copy:php' ]
 			},
 
 			misc: {
 				files: [
 					'<%= bars.src.misc %>'
 				],
-				tasks: [ 'copy:misc' ]
+				tasks: [ 'newer:copy:misc' ]
+			},
+
+			fancybox: {
+				files: [
+					'<%= bars.fancybox.src %>'
+				],
+				tasks: [ 'newer:copy:fancybox' ]
+			},
+
+			phpmailer: {
+				files: [
+					'<%= bars.phpmailer.src %>'
+				],
+				tasks: [ 'newer:copy:phpmailer' ]
 			}
 		}
 
@@ -139,10 +169,13 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-newer');
+	grunt.loadNpmTasks('grunt-usemin');
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
-	grunt.registerTask('dev', [ 'concat', 'copy:php', 'copy:misc', 'imagemin:max', 'watch' ]);
+	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:phpmailer', 'newer:copy:misc', 'newer:imagemin:max', 'watch' ]);
 	grunt.registerTask('prod', [ ]);
 	
 };
