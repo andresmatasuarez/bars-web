@@ -7,6 +7,7 @@
  */
 
 	get_header();
+
 ?>
 				<div id="page-contact" class="page">
 					<div class="page-header">
@@ -24,7 +25,7 @@
 							<table>
 								<tr id="name" class="contact-form-input">
 									<td class="contact-form-input-label required">
-										<label for="name" >Nombre</label>
+										<label for="name" >Nombre / Medio de prensa</label>
 									</td>
 									<td class="contact-form-input-container">
 										<input type="text" name="name" value=""/>
@@ -39,12 +40,12 @@
 									</td>
 								</tr>
 								
-								<tr id="media" class="contact-form-input">
+								<tr id="url" class="contact-form-input">
 									<td class="contact-form-input-label">
-										<label for="media">Organización / Medio de prensa</label>
+										<label for="url">Sitio web</label>
 									</td>
 									<td class="contact-form-input-container">
-										<input type="text" name="media" value="" />
+										<input type="text" name="url" value="" />
 									</td>
 								</tr>
 								

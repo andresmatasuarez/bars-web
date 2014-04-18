@@ -123,3 +123,4 @@
 .posts .post .post-comment-count a:before  { content: '\f108'; margin-right: 5px; font-size: 16px; font-family: 'Genericons'; vertical-align: bottom; }
 #page-single .post-header .post-category a:before { content: '\f301'; font-family: 'Genericons'; }
 #page-single .post-leave-us-a-comment a:before { content: '\f300'; font-family: 'Genericons'; padding-right: 5px; }
+.screen-reader-text:before { content: '\f400'; font-family: 'Genericons'; }

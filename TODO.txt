@@ -4,16 +4,18 @@ GENERAL:
 	- MEDIA ALTA i18n
 	- BAJA sass, less, compass o alguna de preprocesado de css
 
+- ALTA bug no se abre el fancybox de las movies.
+
+- ALTA imagenes de paginas de festivales al fondo de la convocatoria.
+
 - BAJA agregar una foto "Imagen no disponible" para ubicar si la pelicula no tiene foto.
 
 - MEDIA agregar semanas bars 2015
 
 - MEDIA agregar algo que resalte que esta abierta la convocatoria.
 
-- ALTA hacer que ande form contacto
-
-- ALTA bug no se abre el fancybox de las movies.
-
 - MEDIA exportar a mysql las movies.
 
 - BAJA investigar acerca de reescribir urls (probar linkeado a las paginas como /php/contact.php o algo asi a ver que pasaba)
+
+- disable warnings de php en version de prod

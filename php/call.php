@@ -24,7 +24,7 @@
 								<li>
 								Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe:
 									<ul class="checkmark">
-										<li>Completar el <a href="inscrp2014.php" target="blank">formulario online</a>.</li>
+										<li>Completar el <a href="/inscrp2014.php" target="blank">formulario online</a>.</li>
 										<li>Enviar una copia en DVD por correo, acompañado de la hoja de autorización impresa y cumplimentada o enviar un screener online acompañado de la hoja de autorización completa y escaneada.</li>
 										<li>Enviar un CD (o adjuntar vía mail) con la siguiente información: foto de la película (300 DPI), dossier de prensa del film (sinopsis, ficha técnica, biofilmografía del director, etc.), un trailer en calidad DVD (para los  largometrajes) y guía de diálogos (si fuera necesario). Ese mismo material se puede enviar de manera electrónica.</li>
 										<li>Opcionalmente se podrá enviar pósters impresos u otro material promocional. La fecha tope para la recepción del material es el <strong>1 de agosto de 2014</strong>.</li>
@@ -32,7 +32,7 @@
 								</li>
 								
 								<li>
-									Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (como youtube, vimeo, etc.). Se aceptan envíos a través de la plataformas <a href="http://www.movibeta.com/" target="blank">Movibeta</a>, <a href="http://www.clickforfestivals.com/" target="blank">ClickForFestivals</a> o <a href="http://www.festhome.com/" target="blank">Festhome</a> siempre y cuando completen el <a href="inscrp2014.php" target="blank">formulario online</a>.
+									Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (como youtube, vimeo, etc.). Se aceptan envíos a través de la plataformas <a href="http://www.movibeta.com/" target="blank">Movibeta</a>, <a href="http://www.clickforfestivals.com/" target="blank">ClickForFestivals</a> o <a href="http://www.festhome.com/" target="blank">Festhome</a> siempre y cuando completen el <a href="/inscrp2014.php" target="blank">formulario online</a>.
 									Los envíos de material adicional deben hacerse al siguiente mail: <a href="mailto:materialbars@gmail.com">materialbars@gmail.com</a><br />
 								</li>
 								
@@ -128,7 +128,7 @@
 						<div class="scratch"></div>
 						
 						<div class="basis-footer text-oswald">
-							<a href="inscrp2014.php" target="blank" >Ir al formulario online</a>
+							<a href="/inscrp2014.php" target="blank" >Ir al formulario online</a>
 							| Ver la hoja de autorización
 							<a href="<?php bloginfo('template_directory'); ?>/resources/auth2014_es.pdf" target="blank">ES</a>
 							<a href="<?php bloginfo('template_directory'); ?>/resources/auth2014_en.pdf" target="blank">EN</a>	

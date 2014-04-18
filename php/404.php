@@ -9,8 +9,8 @@
 ?>
 				<div class="page">
 
-					<div class="warning under-construction">
-						<div class="reason">Sección en construcción!</div>
+					<div class="warning error404">
+						<div class="reason">Sitio no encontrado!</div>
 						<div class="description">Estamos trabajando en esto. Volvé a ingresar en unos días!</div>
 					</div>
 
