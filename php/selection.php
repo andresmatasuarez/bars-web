@@ -116,7 +116,7 @@
 												
 												echo '<div class="movie-post" section="' . $sectionValue . '">';
 													echo '<div class="movie-post-hour">' . $time . '</div>';
-													echo '<a class="fancybox" href="#movie-container" link="' . get_permalink($post->ID) . '">';
+													echo '<a href="#movie-container" link="' . get_post_permalink($post->ID) . '">';
 														echo '<div class="movie-post-thumbnail">';
 															echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 															echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
@@ -152,7 +152,9 @@
 
 					</div>
 					
-					<div id="movie-container" class="hidden-movie-container">
+					<div class="fancybox-display-ugly-fix" style="display: none;">
+						<div id="movie-container">
+						</div>
 					</div>
 				
 	<?php

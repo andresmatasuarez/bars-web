@@ -18,22 +18,21 @@
 //@ini_set('display_errors', 0);
 
 // !- START - BARS custom lines -!
-define('APACHE_DEV_PORT', ':8082');		// For local testing
-define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT . '/wordpress');
-define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT);
-define('WP_CONTENT_DIR', substr(ABSPATH, 0, strrpos(ABSPATH, 'wordpress/')) . 'wp-content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT . '/wp-content');
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/2.0/wordpress');
+define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . '/2.0');
+define('WP_CONTENT_DIR', substr(ABSPATH, 0, strrpos(ABSPATH, 'wordpress/')) . 'wp-content/');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/2.0/wp-content');
 // !- END - BARS custom lines -!
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'bars');
+define('DB_NAME', 'barsdb_000001');
 
 /** MySQL database username */
-define('DB_USER', 'admin');
+define('DB_USER', 'barsuser_000001');
 
 /** MySQL database password */
-define('DB_PASSWORD', '1');
+define('DB_PASSWORD', 'vgh83res');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -89,10 +88,9 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', true);
-
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', false);
+define('WP_DEBUG_DISPLAY', false);
 
 /* That's all, stop editing! Happy blogging. */
 

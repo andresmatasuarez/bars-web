@@ -74,7 +74,6 @@
 			
 			echo '<div id="movie-selector" class="movie-post" movieid="' . $query->post->ID . '">';
 				echo '<div class="movie-post-thumbnail">';
-					echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 					echo get_the_post_thumbnail($query->post->ID, 'movie-post-thumbnail');
 				echo '</div>';
 				echo '<div class="movie-post-title">';
@@ -116,13 +115,13 @@
 							$imdb = get_post_meta($query->post->ID, '_movie_imdb', true);
 							
 							if ($website != ''){
-								echo '<a target="_blank" href="' . $website . '">Sitio oficial</a>';
+								echo '<a target="_blank" href="' . addHttp($website) . '">Sitio oficial</a>';
 								if ($imdb != '')
 									echo ' | ';
 							}
 							
 							if ($imdb != '')
-								echo '<a target="_blank" href="' . $imdb . '">IMDB</a>';
+								echo '<a target="_blank" href="' . addHttp($imdb) . '">IMDB</a>';
 						echo '</div>';
 						
 						if ($runtime != '')
@@ -156,10 +155,9 @@
 					echo '</div>';
 				echo '</div>';
 				
-				if (!empty(get_post_meta($query->post->ID, '_movie_trailer', true))){
-					echo '<div class="trailer-container">';
-						echo '<iframe src="' . get_post_meta($query->post->ID, '_movie_trailer', true) . '" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-					echo '</div>';
+				$movie_trailer = get_post_meta($post->ID, '_movie_trailer', true);
+				if (!empty($movie_trailer)){
+					echo '<div class="trailer-container">' . wp_oembed_get($movie_trailer, array('width' => '300')) . '</div>';
 				}
 			echo '</div>';
 			echo '<div class="scratch"></div>';

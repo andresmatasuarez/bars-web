@@ -43,52 +43,31 @@ jQuery(document).ready(function($) {
 	
 	// Fancybox initialization for sidebar image widgets
 	$(".fancybox.sidebar").fancybox({
-		scrolling: 'no',
+		padding: 2,
 		type: 'image',
-        padding: 2,
-		beforeShow: function(){
-			// Hide body overflow to simulate scroll lock.
-			$(document.body).addClass('overflow-hidden');
-		},
-		beforeClose: function(){
-			// Re-enable scrolling.
-			$(document.body).removeClass('overflow-hidden');
-		}
-    });
+		scrolling: 'hidden',
+		helpers: { overlay: { locked: true } }
+  });
 	
 	// Fancybox initialization for movie displayers.
-	$('.movie-post .fancybox').fancybox({
-		scrolling: 'no',
+	$('#page-selection .movie-post > a').fancybox({
 		padding: 2,
+		scrolling: 'hidden',
+		helpers: { overlay: { locked: true } },
 		beforeLoad: function(){
-			$('#movie-container').load($(this.element).attr('link'));
-		},
-		beforeShow: function(){
-			// Hide body overflow to simulate scroll lock.
-			$(document.body).addClass('overflow-hidden');
-		},
-		beforeClose: function(){
-			// Re-enable scrolling.
-			$(document.body).removeClass('overflow-hidden');
+			jQuery.ajax({
+				async: false,
+				url: $(this.element).attr('link'),
+				success: function(data) {
+					$('#movie-container').html(data);
+				}
+			});
 		},
 		afterClose: function(){
 			$('#movie-container').empty();
 		}
 	});
-	
-	// Fancybox initialization for entry forms in call.php.
-	$('#page-call .fancybox').fancybox({
-		padding: 2,
-		beforeShow: function(){
-			// Hide body overflow to simulate scroll lock.
-			$(document.body).addClass('overflow-hidden');
-		},
-		beforeClose: function(){
-			// Re-enable scrolling.
-			$(document.body).removeClass('overflow-hidden');
-		}
-	});
-	
+
 	// Sort movies by hour asc.
 	$('.schedule-day .movie-posts').each(function(){
 		var movies = $(this).find('.movie-post');

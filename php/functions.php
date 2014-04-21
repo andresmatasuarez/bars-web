@@ -209,7 +209,7 @@ function renderPostInList($post_id){
 		</div>
 		<div class="post-info-container">
 			<div class="post-date">' . 
-				get_the_time(get_option('date_format'), $post_ID) . 
+				get_the_time(get_option('date_format'), $post_id) . 
 			'</div>
 			<div class="post-title">
 				<a href="' . get_permalink($post_id) . '">' . 

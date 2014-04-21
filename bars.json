@@ -43,7 +43,10 @@
 		
 		"img": [ "img/**/*" ],
 
-		"php": [ "php/*" ],
+		"php": [
+			"php/*",
+			"!php/exportmovies.php"
+		],
 		
 		"misc": [ "misc/**/*" ]
 	},

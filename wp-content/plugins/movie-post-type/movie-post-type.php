@@ -315,11 +315,15 @@
 				switch($field['type']) {
 					case 'text':
 						echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="30" />';
-						echo '<br /><span class="description">' . $field['desc'] . '</span>';
+						if (isset($field['desc']) && strlen($field['desc']) != 0){
+							echo '<br /><span class="description">' . $field['desc'] . '</span>';
+						}
 						break;
 					case 'textarea':  
 						echo '<textarea name="' . $field['id'] . '" id="' . $field['id'] . '" cols="60" rows="4">' . $meta . '</textarea>';
-						echo '<br /><span class="description">' . $field['desc'] . '</span>';
+						if (isset($field['desc']) && strlen($field['desc']) != 0){
+							echo '<br /><span class="description">' . $field['desc'] . '</span>';
+						}
 						break;
 					case 'checkbox':  
 						echo '<input type="checkbox" name="' . $field['id'] . '" id="' . $field['id'] . '" ', $meta ? ' checked="checked"' : '','/> 
@@ -330,7 +334,9 @@
 						foreach ($field['options'] as $option) {
 							echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="' . $option['value'] . '">' . $option['label'] . '</option>';  
 						}  
-						echo '</select><br /><span class="description">' . $field['desc'] . '</span>';
+						if (isset($field['desc']) && strlen($field['desc']) != 0){
+							echo '<br /><span class="description">' . $field['desc'] . '</span>';
+						}
 						break;
 				} 
 		echo '</td></tr>';
@@ -338,6 +344,10 @@
 		
 	// Save movie data
 	function save_movie($post_id) {
+		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
+			return;
+		}
+
 		global $movie_prefix;
 		global $movie_fields;
 		  
@@ -359,7 +369,13 @@
 				if ($field['id'] == $movie_prefix . 'name'){
 					// To avoid infinite loop: save_post -> wp_update_post -> save_post -> ...
 					remove_action('save_post', 'save_movie');
-					wp_update_post(array('ID' => $post_id, 'post_title' => $_POST[$field['id']]));
+					wp_update_post(array(
+						'ID' => $post_id,
+						'post_title' => $_POST[$field['id']],
+						'post_name' => sanitize_title($_POST[$field['id']]),
+						'post_author' => get_current_user_id(),
+						'post_content' => ''
+					));
 					add_action('save_post', 'save_movie');
 				}
 				update_post_meta( $post_id, $field['id'], $_POST[$field['id']] );
@@ -369,11 +385,15 @@
 	
 	// Save short film series data
 	function save_movieblock($post_id) {
+		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
+			return;
+		}
+
 		global $movieblock_prefix;
 		global $movieblock_fields;
 		  
 		// Verify nonce
-		if (!wp_verify_nonce($_POST['movieblock_meta_box_nonce'], basename(__FILE__)))
+		if (isset($_POST['movieblock_meta_box_nonce']) && !wp_verify_nonce($_POST['movieblock_meta_box_nonce'], basename(__FILE__)))
 			return;
 		
 		// Check autosave  
@@ -390,7 +410,13 @@
 				if ($field['id'] == $movieblock_prefix . 'name'){
 					// To avoid infinite loop: save_post -> wp_update_post -> save_post -> ...
 					remove_action('save_post', 'save_movieblock');
-					wp_update_post(array('ID' => $post_id, 'post_title' => $_POST[$field['id']]));
+					wp_update_post(array(
+						'ID' => $post_id,
+						'post_title' => $_POST[$field['id']],
+						'post_name' => sanitize_title($_POST[$field['id']]),
+						'post_author' => get_current_user_id(),
+						'post_content' => ''
+					));
 					add_action('save_post', 'save_movieblock');
 				}
 				update_post_meta( $post_id, $field['id'], $_POST[$field['id']] );
@@ -429,7 +455,7 @@
 		
 		return $wpdb->get_results($wpdb->prepare("
 			(
-				SELECT	post.ID
+				SELECT	post.ID, post.post_author, post.post_date, post.post_content
 				FROM	{$wpdb->prefix}posts post 
 						INNER JOIN {$wpdb->prefix}postmeta m1 ON post.ID = m1.post_id
 						INNER JOIN {$wpdb->prefix}postmeta m2 ON post.ID = m2.post_id
@@ -448,7 +474,7 @@
 			)
 			UNION
 			(
-				SELECT	post.ID
+				SELECT	post.ID, post.post_author, post.post_date, post.post_content
 				FROM	{$wpdb->prefix}posts post 
 						INNER JOIN {$wpdb->prefix}postmeta m1 ON post.ID = m1.post_id
 						INNER JOIN {$wpdb->prefix}postmeta m2 ON post.ID = m2.post_id
@@ -458,6 +484,14 @@
 				GROUP BY post.ID
 			)
 		", $edition, $day, $edition, $day));
+	}
+
+	// @src http://stackoverflow.com/questions/2762061/how-to-add-http-if-its-not-exists-in-the-url
+	function addHttp($url) {
+		if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+				$url = "http://" . $url;
+		}
+		return $url;
 	}
 	
 ?>

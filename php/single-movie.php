@@ -50,10 +50,10 @@
 					$imdb = get_post_meta($post->ID, '_movie_imdb', true);
 					
 					if ($website != '')
-						echo '<a target="_blank" href="' . $website . '">Sitio oficial</a><span> </span>';
+						echo '<a target="_blank" href="' . addHttp($website) . '">Sitio oficial</a><span> </span>';
 					
 					if ($imdb != '')
-						echo '<a target="_blank" href="' . $imdb . '">IMDB</a>';
+						echo '<a target="_blank" href="' . addHttp($imdb) . '">IMDB</a>';
 				?>
 			</div>
 			<div class="title">
@@ -105,11 +105,12 @@
 	<div class="clear"></div>
 	<div class="scratch"></div>
 	<div class="movie-synopsis text-opensans indented">
-		<?php if (!empty(get_post_meta($query->post->ID, '_movie_trailer', true))){ ?>
-			<div class="trailer-container">
-				<iframe src="<?php echo get_post_meta($query->post->ID, '_movie_trailer', true); ?>" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			</div>
-		<?php } ?>
+		<?php
+			$movie_trailer = get_post_meta($post->ID, '_movie_trailer', true);
+			if (!empty($movie_trailer)){
+				echo '<div class="trailer-container">' . wp_oembed_get($movie_trailer, array('width' => '300')) . '</div>';
+			}
+		?>
 		<p class="text-opensans"><?php echo get_post_meta($post->ID, '_movie_synopsis', true); ?></p>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 
 	DEFINE('RECEIVER_NAME',		'Buenos Aires Rojo Sangre');
-	DEFINE('RECEIVER_EMAIL',	'amatasuarez@gmail.com');
+	DEFINE('RECEIVER_EMAIL',	'materialbars@gmail.com');
 	DEFINE('SENDER_NAME',			'BARS - Contacto');
 	DEFINE('SENDER_EMAIL',		'noreply@bars.com.ar');
 	DEFINE('EMAIL_CHARSET',		'UTF-8');
