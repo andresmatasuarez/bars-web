@@ -21,8 +21,9 @@ function add_image_sidebar_widget($class, $title, $img_url){
 	return widgetify($class, $title, image_widget($img_url));
 }
 
-/* private: decorate content as a sidebar widget */ function widgetify($class,
-$title, $content){   return '<div class="bars-widget ' . $class . '">     <div
+/* private: decorate content as a sidebar widget */
+function widgetify($class, $title, $content){
+	return '<div class="bars-widget ' . $class . '">     <div
 class="bars-widget-header">       <div class="bars-widget-logo"></div>
 <div class="bars-widget-title">' . $title . '</div>     </div>     <div class
 ="bars-widget-content">' . $content . '</div>   </div>'; }

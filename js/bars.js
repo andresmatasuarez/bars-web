@@ -1,5 +1,9 @@
 jQuery(document).ready(function($) {
 
+	// Call is open 2014!
+	$('#header-menu .nav-menu li:nth-child(4) a').addClass('call-is-open');
+	$('#header-menu .nav-menu li:nth-child(4) .call-is-open').text('');
+
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
 	

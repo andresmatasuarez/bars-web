@@ -4,18 +4,14 @@ GENERAL:
 	- MEDIA ALTA i18n
 	- BAJA sass, less, compass o alguna de preprocesado de css
 
-- ALTA imagenes de paginas de festivales al fondo de la convocatoria.
+- ALTA spritificar imagenes estaticas.
 
 - BAJA agregar una foto "Imagen no disponible" para ubicar si la pelicula no tiene foto.
 
 - MEDIA agregar semanas bars 2015
 
-- ALTA --> sprites de auspiciantes normal y grayscale en una misma imagen
-
-- MEDIA agregar algo que resalte que esta abierta la convocatoria.
-
 - MEDIA exportar a mysql las movies.
 
-- BAJA investigar acerca de reescribir urls (probar linkeado a las paginas como /php/contact.php o algo asi a ver que pasaba)
+- BAJA investigar acerca de reescribir urls (probar linkeado a las paginas como /php/contact.php o algo asi a ver que pasa)
 
 - BAJA instagram twitter y newsletter. footer.

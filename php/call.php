@@ -124,7 +124,25 @@
 								</li>
 							</ul>
 						</div>
-						
+
+						<table class="banners">
+							<tr>
+								<td>
+									<a href="http://www.festhome.com/" target="blank"><img src="http://festhome.com/img/festivalkit/festivalkit_small_spa.png"></a>
+								</td>
+								<td>
+									<a href="http://www.moviebeta.com/" target="blank"><img src="http://festival.movibeta.com/web/views/images/user_logo_header.png"></a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<a href="http://www.clickforfestivals.com/" target="blank"><img src="http://www.clickforfestivals.com/images/logo_cabecera.jpg"></a>
+								</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+
 						<div class="scratch"></div>
 						
 						<div class="basis-footer text-oswald">
