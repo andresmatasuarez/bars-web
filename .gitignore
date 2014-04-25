@@ -2,9 +2,11 @@
 lib
 node_modules
 vendor
+tmp
 wp-content/uploads
 wp-content/upgrade
 wp-content/themes/index.php
 wp-content/themes/bars2013
 wp-content/themes/twentythirteen
 wp-content/debug.log
+css/sprites.css

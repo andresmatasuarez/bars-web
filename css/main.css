@@ -18,19 +18,10 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #header { background: black; }
 #header-container { padding-top: 15px; background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; }
 #header-image:hover { cursor: pointer; }
-#header-image { margin: 6px auto 0 auto; width: 350px; height: 119px; background-image: url("images/header-img.png"); }
+#header-image { margin: 6px auto 0 auto; }
 #header-clouds { height: 31px; width: 100%; background-image: url("images/scratchs_2.png"); }
 #header-social { text-align: center; }
 #header-social div { display: inline-block; padding: 0; width: 33px; background-repeat: no-repeat; }
-#bars-header-social-facebook,
-#bars-header-social-youtube { height: 32px; }
-#bars-header-social-twitter { height: 33px; }
-#bars-header-social-facebook { background-image: url("images/facebook-gray.png"); }
-#bars-header-social-twitter { background-image: url("images/twitter-gray.png"); }
-#bars-header-social-youtube { background-image: url("images/youtube-gray.png"); }
-#bars-header-social-facebook:hover { background-image: url("images/facebook.png"); }
-#bars-header-social-twitter:hover { background-image: url("images/twitter.png"); }
-#bars-header-social-youtube:hover { background-image: url("images/youtube.png"); }
 
 /* Header menu */
 #header-menu { position: relative; background-color: black; text-align: center; }
@@ -41,8 +32,7 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #header-menu .nav-menu li:nth-child(4) { position: relative; width: 140px; }
 #header-menu .nav-menu li:nth-child(4):hover { background: none; }
 #header-menu .nav-menu li:nth-child(4).current_page_item:hover { background: #ad0000; }
-#header-menu .nav-menu li:nth-child(4) a.call-is-open { padding: 0; display: block; position: absolute; left: 50%; margin-left: -70px; top: 50%; margin-top: -32px; z-index: 1; width: 140px; height: 68px; background-image: url('images/convocatoria2014.png'); } /* image: 140x68 */
-#header-menu .nav-menu li:nth-child(4) a.call-is-open:hover { background-image: url('images/convocatoria2014_hover.png'); }
+#header-menu .nav-menu li:nth-child(4) a.call-is-open { padding: 0; display: block; position: absolute; left: 50%; margin-left: -70px; top: 50%; margin-top: -32px; z-index: 1; } /* image: 140x68 */
 
 /* Sticky menu fix */
 #header-menu { z-index: 99; width: 100%; }
@@ -70,9 +60,8 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #footer-container { width: 955px; margin: 0 auto; padding: 10px 20px; }
 #footer .footer-nav { overflow: hidden; }
 #footer .footer-logos { overflow: hidden; position: relative; }
-#footer .footer-logos .bars-image { margin: 0 auto; background: url("images/footer_logo.png"); width: 276px; height: 53px; }
-#footer .footer-logos .fs-image { position: absolute; right: 0; top: 0; width: 112px; height: 53px; background: url("images/footer_festeringslime_gray.png"); }
-#footer .footer-logos .fs-image:hover { background-image: url("images/footer_festeringslime.png"); }
+#footer .footer-logos .bars-image { margin: 0 auto; }
+#footer .footer-logos .fs-image { position: absolute; right: 0; top: 0; }
 #footer .searchform { width: 340px; margin: 0 auto 30px auto; float: right; }
 #footer .searchform  input[type=text] { width: 250px; height: 10px; padding: 10px 5px; }
 #footer .searchform  input[type=submit] { width: 80px; height: 30px; }
@@ -82,7 +71,7 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 .bars-widget-header { overflow: hidden; padding: 3px 0px 3px 3px; z-index: 10; width: 100%; background-color: rgba(0,0,0,0.95); }
 .bars-widget.relative .bars-widget-header { position: absolute; top: 0; }
 .bars-widget-title { float: left; margin-top: -1px; }
-.bars-widget-logo { float: left; margin-right: 5px; width: 29px; height: 29px; background: url("images/loguito.png") no-repeat 0 0; }
+.bars-widget-logo { float: left; margin-right: 5px; }
 
 /* Sidebar */
 #sidebar-container { width: 280px; padding: 0 10px 10px 10px; overflow: hidden; }

@@ -9,6 +9,8 @@
 		"css": "wp-content/themes/bars2013/css/",
 		"img": "wp-content/themes/bars2013/images/",
 		"misc": "wp-content/themes/bars2013/resources/",
+		"sprites": "wp-content/themes/bars2013/images/sprites.png",
+		"cssSpritesImgPath": "images/sprites.png",
 		"libOutput": "wp-content/themes/bars2013/js/lib.min.js",
 		"cssOutput": "wp-content/themes/bars2013/style.css"
 	},
@@ -32,7 +34,8 @@
 			"css/contact.css",
 			"css/main.css",
 			"css/genericons/genericons.css",
-			"css/slider.css"
+			"css/slider.css",
+			"css/sprites.css"
 		],
 		
 		"js": [
@@ -41,7 +44,37 @@
 			"js/slider.js"
 		],
 		
-		"img": [ "img/**/*" ],
+		"img": [
+			"img/bars2013/*",
+			"img/logo_bg.png",
+			"img/auspiciantes.png",
+			"img/bgpattern2.png",
+			"img/bgpattern3.png",
+			"img/bottom_footer_back.png",
+			"img/screenshot.png",
+			"img/scratch.png",
+			"img/scratchs_2.png"
+		],
+
+		"sprites": [
+			"img/convocatoria2014.png",
+			"img/hover_convocatoria2014.png",
+			"img/hover_facebook.png",
+			"img/facebook.png",
+			"img/hover_flickr.png",
+			"img/flickr.png",
+			"img/hover_twitter.png",
+			"img/twitter.png",
+			"img/hover_tumblr.png",
+			"img/tumblr.png",
+			"img/hover_youtube.png",
+			"img/youtube.png",
+			"img/hover_festeringslime.png",
+			"img/festeringslime.png",
+			"img/footer_logo.png",
+			"img/header.png",
+			"img/loguito.png"
+		],
 
 		"php": [
 			"php/*",

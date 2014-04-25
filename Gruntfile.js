@@ -157,7 +157,49 @@ module.exports = function(grunt){
 				],
 				tasks: [ 'newer:copy:phpmailer' ]
 			}
-		}
+		},
+
+		sprite:{
+      all: {
+        src: '<%= bars.src.sprites %>',
+        destImg: '<%= bars.dest.sprites %>',
+        destCSS: 'css/sprites.css',
+        imgPath: '<%= bars.dest.cssSpritesImgPath %>',
+        cssOpts: {
+					// CSS template allows for overriding of CSS selectors
+					cssClass: function (item) {
+						var itemName = item.name;
+						var cssSuffix = '';
+						var cssClass = '.sprite-' + itemName;
+
+						// Check if hover image.
+						var imgHoverPrefix = 'hover_';
+						if (itemName.substring(0, imgHoverPrefix.length) === imgHoverPrefix){
+							itemName = itemName.substring(imgHoverPrefix.length);
+							cssSuffix = ':hover';
+						}
+
+						// Associate with existing classes.
+						if (	itemName === 'facebook' || itemName === 'twitter' || itemName === 'youtube' ||
+									itemName === 'tumblr' || itemName === 'flickr'){
+							cssClass = '#bars-header-social-' + itemName;
+						} else if (itemName === 'convocatoria2014'){
+							cssClass = '#header-menu .nav-menu li:nth-child(4) a.call-is-open';
+						} else if (itemName === 'festeringslime'){
+							cssClass = '#footer .footer-logos .fs-image';
+						} else if (itemName === 'footer_logo'){
+							cssClass = '#footer .footer-logos .bars-image';
+						} else if (itemName === 'loguito'){
+							cssClass = '.bars-widget-logo';
+						} else if (itemName === 'header'){
+							cssClass = '#header-image';
+						}
+
+						return cssClass + cssSuffix;
+					}
+				}
+      }
+    }
 
 	});
 	
@@ -172,6 +214,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-usemin');
+	grunt.loadNpmTasks('grunt-spritesmith');
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
