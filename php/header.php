@@ -40,7 +40,31 @@
 </head>
 
 <body>
+
+		
 	<div id="header" >
+		<div id="header-info-container">
+			<div id="header-info">
+				<div class="left">
+					<span class="size-highlight">30 </span>
+					de
+					<span class="size-highlight"> octubre </span>
+					al
+					<span class="size-highlight"> 5 </span>
+					de
+					<span class="size-highlight"> noviembre</span>
+				</div>
+				<div class="center">
+					2014
+				</div>
+				<div class="right size-highlight">
+					Complejo Monumental Lavalle
+				</div>
+			</div>
+		</div>
+
+		<div class="scratch" ></div>
+
 		<div id="header-container">
 			<!-- DESCRIPTION & IMAGE -->
 			<div id="header-description">
@@ -58,15 +82,16 @@
 				<a href="https://twitter.com/rojosangre" target="blank"><div id="bars-header-social-twitter"></div></a>
 			</div>
 			
-			<div id="header-clouds"></div>
+			<!-- <div id="header-clouds"></div> -->
+		</div>
 			
-			<!-- SITE MENU -->
-			<div id="header-menu" class="subtle-shadow-bottom">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'sort_column' => 'menu_order' ) ); ?>
-				
-				<!-- Inside #header-menu just to stick with it on scroll. -->
-				<div class="scratch" ></div>
-			</div>
+		<!-- SITE MENU -->
+		<div id="header-menu" class="subtle-shadow-bottom">
+			<div class="scratch" ></div>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'sort_column' => 'menu_order' ) ); ?>
+			
+			<!-- Inside #header-menu just to stick with it on scroll. -->
+			<div class="scratch" ></div>
 		</div>
 		
 		<div id="festival-ribbon" style="display: none;" >

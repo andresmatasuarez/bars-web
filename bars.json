@@ -53,7 +53,8 @@
 			"img/bottom_footer_back.png",
 			"img/screenshot.png",
 			"img/scratch.png",
-			"img/scratchs_2.png"
+			"img/scratchs_2.png",
+			"img/stardust.png"
 		],
 
 		"sprites": [
@@ -73,7 +74,8 @@
 			"img/festeringslime.png",
 			"img/footer_logo.png",
 			"img/header.png",
-			"img/loguito.png"
+			"img/loguito.png",
+			"img/arrows.png"
 		],
 
 		"php": [

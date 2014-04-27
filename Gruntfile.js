@@ -193,6 +193,8 @@ module.exports = function(grunt){
 							cssClass = '.bars-widget-logo';
 						} else if (itemName === 'header'){
 							cssClass = '#header-image';
+						} else if (itemName === 'arrows'){
+							cssClass = '#slider .slider-controls .arrow';
 						}
 
 						return cssClass + cssSuffix;

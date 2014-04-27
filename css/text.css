@@ -3,7 +3,6 @@
 .text-opensans { font-family: 'Open Sans'; font-size: 10pt; color: #CECECE; }
 /*.text-opensans { font-family: 'Lora'; line-height: 1.5em; font-size: 10pt; color: #CECECE; }*/
 .indented { text-indent: 16pt; }
-.size-highlight { font-size: 18pt; }
 
 .warning { font-family: Oswald, sans-serif; color: #CECECE; text-align: center; }
 .warning .reason { font-size: 24pt; }
@@ -17,6 +16,13 @@
 /* Header */
 #header { font-family: 'Oswald'; color: white; }
 #header-description { font-size: 0.65em; letter-spacing: 0.2em; font-weight: lighter; text-align: center; text-transform: uppercase; }
+#header-info-container { text-shadow: 2px 2px 0.1em black; }
+#header-info { font-size: 6pt; text-transform: uppercase; }
+#header-info .left, #header-info .right { letter-spacing: 0.2em; }
+#header-info .left { text-align: right; }
+#header-info .center { text-align: center; font-size: 16pt; font-weight: bold; letter-spacing: 0.1em; line-height: 1em; }
+#header-info .right { text-align: left; }
+#header-info .size-highlight { font-size: 9pt; }
 #header-menu { text-transform: uppercase; }
 
 /* Page contents */

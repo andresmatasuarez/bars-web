@@ -15,13 +15,19 @@ ul.checkmark li:before { content: '✔'; margin-left: -1.6em; margin-right: 0.6e
 body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; }
 
 /* Header */
-#header { background: black; }
-#header-container { padding-top: 15px; background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; }
+#header { background: url("images/stardust.png"); }
+#header-container { padding: 15px 0; background: url("images/logo_bg.png") no-repeat; background-position: center 120px; background-attachment: fixed; }
+#header-info-container { background: rgba(173,0,0,0.3); padding: 5px 0; }
+#header-info { display: table; margin: 0 auto; }
+#header-info .left, #header-info .right, #header-info .center { vertical-align: middle; display: table-cell; }
+#header-info .left, #header-info .right { width: 350px; }
+#header-info .center { padding: 0 15px; }
 #header-image:hover { cursor: pointer; }
 #header-image { margin: 6px auto 0 auto; }
-#header-clouds { height: 31px; width: 100%; background-image: url("images/scratchs_2.png"); }
+#header-clouds { height: 31px; width: 100%; background: url("images/scratchs_2.png") 0px 1px; background-repeat-y: inherit; }
 #header-social { text-align: center; }
 #header-social div { display: inline-block; padding: 0; width: 33px; background-repeat: no-repeat; }
+
 
 /* Header menu */
 #header-menu { position: relative; background-color: black; text-align: center; }
