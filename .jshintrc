@@ -1,0 +1,17 @@
+{
+	"bitwise": "true",
+	"curly": "true",
+	"eqeqeq": "true",
+	"browser": "true",
+	"freeze": "false",
+	"immed": "true",
+	"eqnull": "true",
+	"latedef": "true",
+	"newcap": "true",
+	"noarg": "true",
+	"strict": "false",
+	"trailing": "true",
+	"undef": "true",
+	"jquery": "true",
+	"devel": "true"
+}

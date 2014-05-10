@@ -1,0 +1,22 @@
+{
+  "name": "bars_2013",
+  "version": "1.0.0",
+  "description": "Buenos Aires Rojo Sangre Film Festival",
+  "homepage": "http://www.festivalrojosangre.com.ar",
+  "repository": {
+    "type": "git",
+    "url": "git://amatasuarez@bitbucket.org/amatasuarez/bars-web.git"
+  },
+  "authors": [
+    "Andres Mata Suarez <amatasuarez@gmail.com>"
+  ],
+  "dependencies": {
+    "imgLiquid": ">= 0.9.944",
+    "jQuery.dotdotdot": ">= 1.6.14",
+    "jquery-form": "git://github.com/malsup/form.git#3.50",
+    "jquery-validation": "git://github.com/jzaefferer/jquery-validation#1.12.0",
+    "jquery": ">= 2.1.0",
+    "fancybox": "~2.1.5"
+  },
+  "private": "true"
+}
