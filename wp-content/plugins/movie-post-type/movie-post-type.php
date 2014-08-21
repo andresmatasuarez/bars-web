@@ -66,7 +66,10 @@
 				'id'    => $movie_prefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => array ( 'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' ) )
+				'options' => array (
+					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
+					'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' )
+				)
 			),
 			array(
 				'id'    => $movie_prefix . 'movieblock',
@@ -153,7 +156,10 @@
 				'id'    => $movieblock_prefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => array ( 'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' ) )
+				'options' => array (
+					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
+					'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' )
+				)
 			),
 			array(
 				'id'    => $movieblock_prefix . 'section',

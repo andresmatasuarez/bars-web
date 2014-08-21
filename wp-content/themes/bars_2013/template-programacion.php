@@ -11,13 +11,21 @@ get_header(); ?>
 			<?php
 
 			// BARS14 edition hardcode. TODO -> remove hardcoding and extend for consequent editions.
-			$edition = 'bars14';
-			$editionLabel = 'BARS 14';
-			
+			$edition = 'bars15';
+			$editionLabel = 'BARS 15';
+
+			/*
 			// BARS14 ordered days array.
 			$days = array(	0 => '10-31-2013', 1 => '11-01-2013', 2 => '11-02-2013',
-							3 => '11-03-2013', 4 => '11-04-2013', 5 => '11-05-2013',
-							6 => '11-06-2013');
+						3 => '11-03-2013', 4 => '11-04-2013', 5 => '11-05-2013',
+						6 => '11-06-2013');
+			*/
+
+			// BARS15 ordered days array.
+			$days = array(
+				0 => '10-31-2013', 1 => '11-01-2013', 2 => '11-02-2013',
+				3 => '11-03-2013', 4 => '11-04-2013', 5 => '11-05-2013',
+				6 => '11-06-2013');
 
 			/* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>

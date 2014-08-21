@@ -93,7 +93,8 @@
 			<!-- Inside #header-menu just to stick with it on scroll. -->
 			<div class="scratch" ></div>
 		</div>
-		
+
+<!--		
 		<div id="festival-ribbon" style="display: none;" >
 			<div class="ribbon-container">
 				<div class="container">
@@ -125,6 +126,7 @@
 				</div>
 			</div>
 		</div>
+-->
 			
 	</div>
 
