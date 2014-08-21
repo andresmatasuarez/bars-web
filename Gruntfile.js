@@ -183,8 +183,10 @@ module.exports = function(grunt){
 						if (	itemName === 'facebook' || itemName === 'twitter' || itemName === 'youtube' ||
 									itemName === 'tumblr' || itemName === 'flickr'){
 							cssClass = '#bars-header-social-' + itemName;
+						/*
 						} else if (itemName === 'convocatoria2014'){
 							cssClass = '#header-menu .nav-menu li:nth-child(4) a.call-is-open';
+						*/
 						} else if (itemName === 'festeringslime'){
 							cssClass = '#footer .footer-logos .fs-image';
 						} else if (itemName === 'footer_logo'){

@@ -35,10 +35,12 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #header-menu .nav-menu ul li { display: table-cell !important; position: relative; right: 50%; vertical-align: middle; padding: 8px; }
 
 /* Call is open! 2014 */
+/*
 #header-menu .nav-menu li:nth-child(4) { position: relative; width: 140px; }
 #header-menu .nav-menu li:nth-child(4):hover { background: none; }
 #header-menu .nav-menu li:nth-child(4).current_page_item:hover { background: #ad0000; }
 #header-menu .nav-menu li:nth-child(4) a.call-is-open { padding: 0; display: block; position: absolute; left: 50%; margin-left: -70px; top: 50%; margin-top: -32px; z-index: 1; } /* image: 140x68 */
+
 
 /* Sticky menu fix */
 #header-menu { z-index: 99; width: 100%; }
