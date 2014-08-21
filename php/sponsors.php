@@ -8,6 +8,28 @@
 	get_header();
 ?>
 				<div id="page-sponsors" class="page">
+
+					<div class="page-header">
+						Organizan
+					</div>
+					
+					<div class="clear scratch"></div>
+
+					<div class="sponsors" >
+						<div class="auspiciante auspiciante_quintadimension">
+							<a href="http://www.quintadimension.com/" target="_blank" alt="Quinta Dimensión" ></a>
+						</div>
+						<div class="auspiciante auspiciante_videoflims">
+							<a href="http://www.videoflims.com.ar/" target="_blank" alt="Video Flims" ></a>
+						</div>
+						<div class="auspiciante auspiciante_incaa">
+							<a href="http://www.incaa.gov.ar/" target="_blank" alt="INCAA" ></a>
+						</div>
+						<div class="auspiciante auspiciante_findlingfilms">
+							<a href="http://findlingfilms.com/" target="_blank" alt="Findling Films" ></a>
+						</div>
+					</div>
+
 					<div class="page-header">
 						Auspician
 					</div>
@@ -116,15 +138,6 @@
 						</div>
 						
 						<!--
-						<div class="auspiciante auspiciante_incaa">
-							<a href="http://www.incaa.gov.ar/" target="_blank" alt="INCAA" ></a>
-						</div>
-						<div class="auspiciante auspiciante_videoflims">
-							<a href="http://www.videoflims.com.ar/" target="_blank" alt="Video Flims" ></a>
-						</div>
-						<div class="auspiciante auspiciante_findlingfilms">
-							<a href="http://findlingfilms.com/" target="_blank" alt="Findling Films" ></a>
-						</div>
 						<div class="auspiciante auspiciante_fantafestivales">
 							<a href="http://www.fantafestivales.org/" target="_blank" alt="Fanta Festivales" ></a>
 						</div>
