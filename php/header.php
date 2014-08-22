@@ -50,7 +50,7 @@
 					de
 					<span class="size-highlight"> octubre </span>
 					al
-					<span class="size-highlight"> 5 </span>
+					<span class="size-highlight"> 9 </span>
 					de
 					<span class="size-highlight"> noviembre</span>
 				</div>
