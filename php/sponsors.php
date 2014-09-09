@@ -28,9 +28,6 @@
 						<div class="auspiciante auspiciante_findlingfilms">
 							<a href="http://findlingfilms.com/" target="_blank" alt="Findling Films" ></a>
 						</div>
-						<div class="auspiciante auspiciante_flaviogrecopaglia">
-							<a href="https://www.behance.net/flaviogreco" target="_blank" alt="Flavio Greco Paglia Dibujante - Ilustrador" ></a>
-						</div>
 					</div>
 
 					<div class="page-header">
@@ -82,11 +79,11 @@
 					<div class="clear scratch"></div>
 
 					<div class="sponsors" >
+						<div class="auspiciante auspiciante_flaviogrecopaglia">
+							<a href="https://www.behance.net/flaviogreco" target="_blank" alt="Flavio Greco Paglia Dibujante - Ilustrador" ></a>
+						</div>
 						<div class="auspiciante auspiciante_sony">
 							<a href="http://www.sonypictures.com.ar" target="_blank" alt="Sony Pictures" ></a>
-						</div>
-						<div class="auspiciante auspiciante_quintadimension">
-							<a href="http://www.quintadimension.com/" target="_blank" alt="Quinta Dimensión" ></a>
 						</div>
 						<div class="auspiciante auspiciante_filmoteca">
 							<a href="http://filmotecabuenosaires.wordpress.com/" target="_blank" alt="Filmoteca Buenos Aires" ></a>
