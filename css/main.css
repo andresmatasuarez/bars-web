@@ -97,7 +97,7 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 /* Festival (festival.php) */
 #page-festival .festival-history { padding: 10px 40px; }
 
-/* 
+/*
  (contact.php) */
 #page-contact .contact-form-container { padding: 10px 40px; }
 
@@ -160,6 +160,13 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #page-single .post-related-posts .post-related-post { padding: 5px; height: 270px; vertical-align: top; width: 200px; display: inline-block; background: black; }
 #page-single .post-related-posts .post-related-post .post-related-post-date { margin-top: 5px; }
 #page-single .post-related-posts .post-related-post .post-related-post-title { margin-bottom: 30px; }
+
+/* CALL IF CLOSED */
+#page-call:not(.call-is-closed) .call-is-closed-message { display: none; }
+#page-call.call-is-closed a { pointer-events: none; cursor: default; text-decoration: underline; color: #777; }
+#page-call.call-is-closed .call-is-closed-message { background: #000; overflow: hidden; padding-top: 20px; padding-bottom: 40px; color: #cecece; font-family: 'Oswald', sans-serif; text-align: center; }
+#page-call.call-is-closed .call-is-closed-message h3 { font-weight: normal; }
+#page-call.call-is-closed .call-is-closed-message .genericon { font-size: 6em; margin: 0; width: auto; height: auto; }
 
 /* Convocatoria (call.php -> tmpl_call) */
 #page-call .basis { padding: 10px 20px 20px 10px; }

@@ -7,18 +7,28 @@
  */
 	get_header();
 ?>
-					
-					<div id="page-call" class="page" >
+
+					<div id="page-call" class="page call-is-closed" >
+
+						<div class="call-is-closed-message">
+							<h1 class="genericon genericon-spam"></h1>
+							<h1>Convocatoria cerrada hasta el año que viene</h1>
+							<h3>Las bases se dejan a la vista para que los interesados se vayan preparando.</h3>
+							<h3>Los links a los formularios de inscripción se encuentran deshabilitados hasta la próxima convocatoria.</h3>
+						</div>
+
+						<div class="scratch"></div>
+
 						<div class="page-header">
 								Convocatoria XV Festival Buenos Aires Rojo Sangre
 							<br />
 							<span class="subheader">
-								[ Semana del 30 de octubre al 5 de noviembre de 2014 --- Recepción de material hasta: 1 de agosto de 2014 ]
+								[ Semana del 30 de octubre al 9 de noviembre de 2014 --- Recepción de material hasta: 1 de agosto de 2014 ]
 							</span>
 						</div>
-						
+
 						<div class="scratch"></div>
-						
+
 						<div class="basis text-opensans">
 							<ul>
 								<li>
@@ -30,12 +40,12 @@
 										<li>Opcionalmente se podrá enviar pósters impresos u otro material promocional. La fecha tope para la recepción del material es el <strong>1 de agosto de 2014</strong>.</li>
 									</ul>
 								</li>
-								
+
 								<li>
 									Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (como youtube, vimeo, etc.). Se aceptan envíos a través de la plataformas <a href="http://www.movibeta.com/" target="blank">Movibeta</a>, <a href="http://www.clickforfestivals.com/" target="blank">ClickForFestivals</a> o <a href="http://www.festhome.com/" target="blank">Festhome</a> siempre y cuando completen el <a href="/inscrp2014.php" target="blank">formulario online</a>.
 									Los envíos de material adicional deben hacerse al siguiente mail: <a href="mailto:materialbars@gmail.com">materialbars@gmail.com</a><br />
 								</li>
-								
+
 								<li>
 									Los envíos por correo tradicional deben hacerse a la siguiente dirección:<br />
 									<div class="mail-address">
@@ -78,15 +88,15 @@
 									</ol>
 									<p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p>
 								</li>
-								
+
 								<li>
 									Se considera largometrajes a producciones de una duración superior a los 60 minutos.
 								</li>
-									
+
 								<li>
 									Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de difusión en medios electrónicos o que no hayan tenido ninguna clase de exhibición pública en la ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.
 								</li>
-								
+
 								<li>
 									La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios:
 									<ul class="checkmark">
@@ -106,19 +116,19 @@
 										El mejor cortometraje argentino participará del festival La Noche Del Cortometraje, organizado por el INCAA.
 									</p>
 								</li>
-								
+
 								<li>
 									El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.
 								</li>
-								
+
 								<li>
 									Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue list o subtitle list) en español o inglés para facilitar la traducción.
 								</li>
-									
+
 								<li>
 									El Festival se compromete a no efectuar más de tres (3) proyecciones del film.
 								</li>
-								
+
 								<li>
 									La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.
 								</li>
@@ -144,16 +154,16 @@
 						</table>
 
 						<div class="scratch"></div>
-						
+
 						<div class="basis-footer text-oswald">
 							<a href="/inscrp2014.php" target="blank" >Ir al formulario online</a>
 							| Ver la hoja de autorización
 							<a href="<?php bloginfo('template_directory'); ?>/resources/auth2014_es.pdf" target="blank">ES</a>
-							<a href="<?php bloginfo('template_directory'); ?>/resources/auth2014_en.pdf" target="blank">EN</a>	
+							<a href="<?php bloginfo('template_directory'); ?>/resources/auth2014_en.pdf" target="blank">EN</a>
 						</div>
-						
+
 					</div>
-				
+
 	<?php
 		get_sidebar();
 		get_footer();
