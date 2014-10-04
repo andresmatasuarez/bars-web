@@ -37,15 +37,16 @@
 			"css/slider.css",
 			"css/sprites.css"
 		],
-		
+
 		"js": [
 			"js/bars.js",
 			"js/contact.js",
 			"js/slider.js"
 		],
-		
+
 		"img": [
 			"img/bars2013/*",
+			"img/bars2014/*",
 			"img/logo_bg.png",
 			"img/auspiciantes.png",
 			"img/bgpattern2.png",
@@ -81,7 +82,7 @@
 			"php/*",
 			"!php/exportmovies.php"
 		],
-		
+
 		"misc": [ "misc/**/*" ]
 	},
 
