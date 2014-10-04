@@ -7,6 +7,7 @@
  */
 	get_header();
 
+	/*
 	// BARS14 edition hardcode. TODO -> remove hardcoding and extend for consequent editions.
 	$edition = 'bars14';
 	$editionLabel = 'BARS 14';
@@ -19,13 +20,12 @@
 		4 => '11-04-2013',	5 => '11-05-2013',
 		6 => '11-06-2013'
 	);
+	*/
 
-	/*
 	// BARS15
 	$edition = 'bars15';
 	$editionLabel = 'BARS 15';
 	$editionTitle = 'XV';
-	// BARS15 ordered days array.
 
 	// BARS15 ordered days array.
 	$days = array(
@@ -36,7 +36,6 @@
 		8 => '11-07-2014', 9 => '11-08-2014',
 		10 => '11-09-2014',
 	);
-	*/
 
 
 	$year = DateTime::createFromFormat('m-d-Y', $days[0])->format('Y');

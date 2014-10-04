@@ -12,24 +12,24 @@
 	function admin_load_scripts() {
 		$admin_movie_file = plugins_url( 'admin-movie.js', __FILE__ );
 		$admin_movie_block_file = plugins_url( 'admin-movie-block.js', __FILE__ );
-		
+
 		wp_enqueue_script('admin-movie', $admin_movie_file, array('jquery'));
 		wp_enqueue_script('admin-movie-block', $admin_movie_block_file, array('jquery'));
 	}
-	
+
 	/************************************************************************************************/
 
 	/* ***** ACTIONS ***** */
 	add_action('init', 'register_movie_post_type' );
 	add_action('add_meta_boxes', 'add_movie_meta_box');
 	add_action('save_post', 'save_movie');
-	
+
 	add_action('init', 'register_movieblock_post_type' );
 	add_action('add_meta_boxes', 'add_movieblock_meta_box');
 	add_action('save_post', 'save_movieblock');
 
 	add_action('init', 'initialize');
-	
+
 	function initialize(){
 		global $sections;
 		global $movie_prefix;
@@ -37,9 +37,9 @@
 		global $movieblock_prefix;
 		global $movieblock_fields;
 		global $movieBlocks;
-		
+
 		$movieBlocks = movieBlocks();
-		
+
 		/* ***** MOVIE SECTIONS ***** */
 		$sections = array (
 			'opening' => array ( 'label' => 'Función de apertura', 'value' => 'opening' ),
@@ -149,7 +149,7 @@
 				'type'  => 'textarea'
 			)
 		);
-		
+
 		$movieblock_prefix = '_movieblock_';
 		$movieblock_fields = array(
 			array(
@@ -186,12 +186,12 @@
 			)
 		);
 	}
-	
+
 	function sectionByValue($value){
 		global $sections;
 		return $sections[$value]['label'];
 	}
-	
+
 	/* ***** FUNCTIONS ***** */
 	function register_movie_post_type() {
 		register_post_type( 'movie',
@@ -210,7 +210,7 @@
 					'not_found_in_trash' => 'No Movie found in Trash',
 					'parent' => 'Parent Movie'
 				),
-	 
+
 				'public' => true,
 				'menu_position' => 15,
 				'supports' => array( 'thumbnail' ),
@@ -221,7 +221,7 @@
 			)
 		);
 	}
-	
+
 	function register_movieblock_post_type() {
 		register_post_type( 'movieblock',
 			array(
@@ -240,7 +240,7 @@
 					'not_found_in_trash' => 'No Movie Block found in Trash',
 					'parent' => 'Parent Movie Block'
 				),
-	 
+
 				'public' => true,
 				'menu_position' => 15,
 				'supports' => array( 'thumbnail' ),
@@ -251,70 +251,70 @@
 			)
 		);
 	}
-	
+
 	// Add movie meta box.
-	function add_movie_meta_box() {  
-		add_meta_box(  
-			'movie_meta_box', // $id  
-			'Movie Info', // $title   
-			'show_movie_meta_box', // $callback  
-			'movie', // $page  
-			'normal', // $context  
-			'high'); // $priority  
-	}	
-	
+	function add_movie_meta_box() {
+		add_meta_box(
+			'movie_meta_box', // $id
+			'Movie Info', // $title
+			'show_movie_meta_box', // $callback
+			'movie', // $page
+			'normal', // $context
+			'high'); // $priority
+	}
+
 	// Add short film series meta box.
-	function add_movieblock_meta_box() {  
-		add_meta_box(  
-			'movieblock_meta_box', // $id  
-			'Movie Block Info', // $title   
-			'show_movieblock_meta_box', // $callback  
-			'movieblock', // $page  
-			'normal', // $context  
-			'high'); // $priority  
-	}	
-	
+	function add_movieblock_meta_box() {
+		add_meta_box(
+			'movieblock_meta_box', // $id
+			'Movie Block Info', // $title
+			'show_movieblock_meta_box', // $callback
+			'movieblock', // $page
+			'normal', // $context
+			'high'); // $priority
+	}
+
 	// Output movie meta box.
 	function show_movie_meta_box() {
 		global $movie_fields;
-		
-		// Use nonce for verification  
+
+		// Use nonce for verification
 		echo '<input type="hidden" name="movie_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
 
 		// Begin the field table and loop
 		echo '<table class="form-table">';
-		
+
 		// Echo each field as a row
 		foreach ($movie_fields as $field) {
 			echo_field($field);
 		}
-		
+
 		echo '</table>';
 	}
-	
+
 	// Output movieblock meta box.
 	function show_movieblock_meta_box() {
 		global $movieblock_fields;
-		
-		// Use nonce for verification  
+
+		// Use nonce for verification
 		echo '<input type="hidden" name="movieblock_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
 
 		// Begin the field table and loop
 		echo '<table class="form-table">';
-		
+
 		// Echo each field as a row
 		foreach ($movieblock_fields as $field) {
 			echo_field($field);
 		}
-		
+
 		echo '</table>';
 	}
-	
+
 	function echo_field($field){
 		global $post;
 		// Get value of this field if it exists for this post
 		$meta = get_post_meta($post->ID, $field['id'], true);
-		
+
 		echo '<tr>
 				<th><label for="' . $field['id'] . '">' . $field['label'] . '</label></th>
 				<td>';
@@ -325,29 +325,29 @@
 							echo '<br /><span class="description">' . $field['desc'] . '</span>';
 						}
 						break;
-					case 'textarea':  
+					case 'textarea':
 						echo '<textarea name="' . $field['id'] . '" id="' . $field['id'] . '" cols="60" rows="4">' . $meta . '</textarea>';
 						if (isset($field['desc']) && strlen($field['desc']) != 0){
 							echo '<br /><span class="description">' . $field['desc'] . '</span>';
 						}
 						break;
-					case 'checkbox':  
-						echo '<input type="checkbox" name="' . $field['id'] . '" id="' . $field['id'] . '" ', $meta ? ' checked="checked"' : '','/> 
-							<label for="' . $field['id'] . '">' . $field['desc'] . '</label>';  
+					case 'checkbox':
+						echo '<input type="checkbox" name="' . $field['id'] . '" id="' . $field['id'] . '" ', $meta ? ' checked="checked"' : '','/>
+							<label for="' . $field['id'] . '">' . $field['desc'] . '</label>';
 						break;
-					case 'select':  
-						echo '<select name="' . $field['id'] . '" id="' . $field['id'] . '">';  
+					case 'select':
+						echo '<select name="' . $field['id'] . '" id="' . $field['id'] . '">';
 						foreach ($field['options'] as $option) {
-							echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="' . $option['value'] . '">' . $option['label'] . '</option>';  
-						}  
+							echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="' . $option['value'] . '">' . $option['label'] . '</option>';
+						}
 						if (isset($field['desc']) && strlen($field['desc']) != 0){
 							echo '<br /><span class="description">' . $field['desc'] . '</span>';
 						}
 						break;
-				} 
+				}
 		echo '</td></tr>';
 	}
-		
+
 	// Save movie data
 	function save_movie($post_id) {
 		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
@@ -356,20 +356,20 @@
 
 		global $movie_prefix;
 		global $movie_fields;
-		  
+
 		// Verify nonce
 		if (!wp_verify_nonce($_POST['movie_meta_box_nonce'], basename(__FILE__)))
 			return;
-		
-		// Check autosave  
+
+		// Check autosave
 		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
 			return;
-			
+
 		// Check permissions
 		if ($_POST['post_type'] != 'movie' || !current_user_can('edit_post', $post_id))
 			return;
-		  
-		// Loop through fields and save the data  
+
+		// Loop through fields and save the data
 		foreach ($movie_fields as $field) {
 			if ( isset( $_POST[$field['id']] ) && $_POST[$field['id']] != '' ) {
 				if ($field['id'] == $movie_prefix . 'name'){
@@ -388,7 +388,7 @@
 			}
 		}
 	}
-	
+
 	// Save short film series data
 	function save_movieblock($post_id) {
 		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
@@ -397,20 +397,20 @@
 
 		global $movieblock_prefix;
 		global $movieblock_fields;
-		  
+
 		// Verify nonce
 		if (isset($_POST['movieblock_meta_box_nonce']) && !wp_verify_nonce($_POST['movieblock_meta_box_nonce'], basename(__FILE__)))
 			return;
-		
-		// Check autosave  
+
+		// Check autosave
 		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
 			return;
-			
+
 		// Check permissions
 		if ($_POST['post_type'] != 'movieblock' || !current_user_can('edit_post', $post_id))
 			return;
-		  
-		// Loop through fields and save the data  
+
+		// Loop through fields and save the data
 		foreach ($movieblock_fields as $field) {
 			if ( isset( $_POST[$field['id']] ) && $_POST[$field['id']] != '' ) {
 				if ($field['id'] == $movieblock_prefix . 'name'){
@@ -429,40 +429,45 @@
 			}
 		}
 	}
-	
+
 	function movieBlocks(){
 		global $post;
 		$query = new WP_Query(array(
 			'post_type' => array( 'movieblock' ),
 			'post_status' => 'publish',
-			'posts_per_page' => -1
+			'posts_per_page' => -1,
+			'meta_query' => array(array(
+			  'key'     => '_movieblock_edition',
+			  'value'   => 'bars15',
+			  'compare' => 'LIKE'
+      ))
 		));
-		
+
 		$movieBlocks = array();
 		$movieBlocks[-1] = array('label' => 'Ninguno', 'value' => -1 );
-		
+
 		while ($query->have_posts()){
 			$query->the_post();
 			$movieBlockID = $post->ID;
 			$movieBlockName = get_post_meta($post->ID, '_movieblock_name', true);
-			
+
 			$movieBlocks[$movieBlockID] = array('label' => strval($movieBlockName), 'value' => $movieBlockID);
 		}
-		
+
 		// Restore global post data stomped by the_post().
 		wp_reset_query();
-	
+
 		return $movieBlocks;
 	}
-	
-	
+
+
 	function getMoviesAndMovieBlocks($edition, $day) {
 		global $wpdb;
-		
+
 		return $wpdb->get_results($wpdb->prepare("
 			(
 				SELECT	post.ID, post.post_author, post.post_date, post.post_content
-				FROM	{$wpdb->prefix}posts post 
+				FROM	{$wpdb->prefix}posts post
 						INNER JOIN {$wpdb->prefix}postmeta m1 ON post.ID = m1.post_id
 						INNER JOIN {$wpdb->prefix}postmeta m2 ON post.ID = m2.post_id
 						INNER JOIN {$wpdb->prefix}postmeta m3 ON post.ID = m3.post_id
@@ -481,7 +486,7 @@
 			UNION
 			(
 				SELECT	post.ID, post.post_author, post.post_date, post.post_content
-				FROM	{$wpdb->prefix}posts post 
+				FROM	{$wpdb->prefix}posts post
 						INNER JOIN {$wpdb->prefix}postmeta m1 ON post.ID = m1.post_id
 						INNER JOIN {$wpdb->prefix}postmeta m2 ON post.ID = m2.post_id
 				WHERE	post.post_status = 'publish' AND post.post_type = 'movieblock'
@@ -499,5 +504,5 @@
 		}
 		return $url;
 	}
-	
+
 ?>

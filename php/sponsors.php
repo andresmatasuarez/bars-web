@@ -65,7 +65,7 @@
 							<a href="http://www.cinesargentinos.com.ar/" target="_blank" alt="Cines Argentinos" ></a>
 						</div>
 						<div class="auspiciante auspiciante_nacionalrock">
-							<a href="http://nacionalrock.com/‎" target="_blank" alt="Nacional Rock" ></a>
+							<a href="http://nacionalrock.com/" target="_blank" alt="Nacional Rock" ></a>
 						</div>
 						<div class="auspiciante auspiciante_bsasciudad">
 							<a href="http://www.buenosaires.gob.ar/" target="_blank" alt="Buenos Aires Ciudad" ></a>
@@ -82,8 +82,8 @@
 						<div class="auspiciante auspiciante_flaviogrecopaglia">
 							<a href="https://www.behance.net/flaviogreco" target="_blank" alt="Flavio Greco Paglia Dibujante - Ilustrador" ></a>
 						</div>
-						<div class="auspiciante auspiciante_sony">
-							<a href="http://www.sonypictures.com.ar" target="_blank" alt="Sony Pictures" ></a>
+						<div class="auspiciante auspiciante_illusiondreamsfx">
+							<a href="https://www.facebook.com/pages/ilusiondreams-fx/185415858195529" target="_blank" alt="Illusion Dreams FX" ></a>
 						</div>
 						<div class="auspiciante auspiciante_filmoteca">
 							<a href="http://filmotecabuenosaires.wordpress.com/" target="_blank" alt="Filmoteca Buenos Aires" ></a>
