@@ -4,6 +4,11 @@
  * @package WordPress
  * @subpackage bars2013
  */
+
+	require_once 'editions.php';
+
+	$edition = Editions::current();
+
  ?>
 
 	</td><!-- #content -->
@@ -15,7 +20,7 @@
 
 			<?php //echo add_image_sidebar_widget('sidebar relative image', 'Programación 2013', get_bloginfo('template_directory') . '/images/bars2013_programacion.jpg'); ?>
 
-			<?php echo add_image_sidebar_widget('sidebar relative image', 'Afiche BARS 15', get_bloginfo('template_directory') . '/images/bars2014_afiche.png'); ?>
+			<?php echo add_image_sidebar_widget('sidebar relative image', 'Afiche ' . $edition['title'], get_bloginfo('template_directory') . '/' . $edition['poster']); ?>
 
 			<?php //echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura!', get_bloginfo('template_directory') . '/images/bars2013_fiesta-clausura.jpg'); ?>
 

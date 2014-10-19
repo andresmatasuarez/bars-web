@@ -83,7 +83,9 @@
 			"!php/exportmovies.php"
 		],
 
-		"misc": [ "misc/**/*" ]
+		"misc": [
+			"misc/**/*"
+		]
 	},
 
 	"fancybox": {
@@ -99,12 +101,8 @@
 		"dest" : "wp-content/themes/bars2013/fancybox/"
 	},
 
-	"phpmailer": {
-		"src" : [
-			"vendor/phpmailer/phpmailer/class.phpmailer.php",
-			"vendor/phpmailer/phpmailer/class.smtp.php",
-			"vendor/phpmailer/phpmailer/PHPMailerAutoload.php"
-		],
-		"dest" : "wp-content/themes/bars2013/phpmailer"
+	"vendor": {
+		"src" : "vendor/**/*",
+		"dest" : "wp-content/themes/bars2013/"
 	}
 }

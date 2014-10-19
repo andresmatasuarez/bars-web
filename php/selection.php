@@ -5,53 +5,29 @@
  * @package WordPress
  * @subpackage bars2013
  */
+
+	require_once 'editions.php';
+
 	get_header();
 
-	/*
-	// BARS14 edition hardcode. TODO -> remove hardcoding and extend for consequent editions.
-	$edition = 'bars14';
-	$editionLabel = 'BARS 14';
-	$editionTitle = 'XIV';
+	$edition = Editions::current();
 
-	// BARS14 ordered days array.
-	$days = array(
-		0 => '10-31-2013',	1 => '11-01-2013',
-		2 => '11-02-2013',	3 => '11-03-2013',
-		4 => '11-04-2013',	5 => '11-05-2013',
-		6 => '11-06-2013'
-	);
-	*/
-
-	// BARS15
-	$edition = 'bars15';
-	$editionLabel = 'BARS 15';
-	$editionTitle = 'XV';
-
-	// BARS15 ordered days array.
-	$days = array(
-		0 => '10-30-2014', 1 => '10-31-2014',
-		2 => '11-01-2014', 3 => '11-02-2014',
-		4 => '11-03-2014', 5 => '11-04-2014',
-		6 => '11-05-2014', 7 => '11-06-2014',
-		8 => '11-07-2014', 9 => '11-08-2014',
-		10 => '11-09-2014',
-	);
-
-
-	$year = DateTime::createFromFormat('m-d-Y', $days[0])->format('Y');
-	$firstDayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $days[0])->format('l')));
-	$firstDayNumber = DateTime::createFromFormat('m-d-Y', $days[0])->format('d/m');
-	$lastDayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $days[count($days) - 1])->format('l')));
-	$lastDayNumber = DateTime::createFromFormat('m-d-Y', $days[count($days) - 1])->format('d/m');
+	$days = Editions::days($edition);
 
 ?>
 
 					<div id="page-selection" class="page" >
 						<div class="page-header">
-							Programación <?php echo $editionTitle; ?>
+							Programación <?php echo $edition['title']; ?>
 							<br/>
 							<span class="subheader">
 							<?php
+								$year           = $days[0]->format('Y');
+								$firstDayName   = ucwords(getSpanishDayName($days[0]->format('l')));
+								$firstDayNumber = $days[0]->format('d/m');
+								$lastDayName    = ucwords(getSpanishDayName($days[count($days) - 1]->format('l')));
+								$lastDayNumber  = $days[count($days) - 1]->format('d/m');
+
 								echo '[ Semana del ' . $firstDayName . ' ' . $firstDayNumber;
 								echo ' al ' . $lastDayName . ' ' . $lastDayNumber . ' de ' . $year . ' ]';
 							?>
@@ -89,8 +65,8 @@
 										continue;
 									}
 
-									$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $day)->format('l')));
-									$dayNumber = DateTime::createFromFormat('m-d-Y', $day)->format('d');
+									$dayName = ucwords(getSpanishDayName($day->format('l')));
+									$dayNumber = $day->format('d');
 
 									echo '<div class="schedule-day ' . ($parity % 2 == 0 ? 'even' : 'odd') . '">';
 										echo '<div class="schedule-day-info">';
@@ -130,7 +106,7 @@
 												$screenings = array_map('trim', explode(',', $screeningsValue));
 												foreach($screenings as $key => $screening){
 													$datetime = preg_split('/[\s]+/', $screening);
-													if ($datetime[0] == $day){
+													if ($datetime[0] == $day->format('m-d-Y')){
 														$time = $datetime[1];
 														break;
 													}

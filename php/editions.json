@@ -1,0 +1,24 @@
+[
+  {
+    "number" : 15,
+    "title" : "BARS 15",
+    "days" : {
+      "from" : "2014-10-30T03:00:00.000Z",
+      "to" : "2014-11-09T03:00:00.000Z"
+    },
+    "poster" : "images/bars2014_afiche.jpg",
+    "call": {
+      "from": "",
+      "to": "2014-08-01T03:00:00.000Z"
+    }
+  },
+  {
+    "number" : 14,
+    "title" : "BARS 14",
+    "days" : {
+      "from" : "2013-10-31T03:00:00.000Z",
+      "to" : "2013-11-06T03:00:00.000Z"
+    },
+    "poster" : "images/bars2013_afiche.jpg"
+  }
+]

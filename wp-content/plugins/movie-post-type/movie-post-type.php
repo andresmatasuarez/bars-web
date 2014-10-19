@@ -464,6 +464,9 @@
 	function getMoviesAndMovieBlocks($edition, $day) {
 		global $wpdb;
 
+		$edition = 'bars' . $edition['number'];
+		$day = $day->format('m-d-Y');
+
 		return $wpdb->get_results($wpdb->prepare("
 			(
 				SELECT	post.ID, post.post_author, post.post_date, post.post_content

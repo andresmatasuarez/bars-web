@@ -5,7 +5,19 @@
  * @package WordPress
  * @subpackage bars2013
  */
+
+	require_once 'editions.php';
+
 	get_header();
+
+	$edition = Editions::current();
+
+	$from          = Editions::from();
+	$to            = Editions::to();
+	$call_deadline = Editions::callDeadline();
+
+	$year = $from->format('Y');
+
 ?>
 
 					<div id="page-call" class="page call-is-closed" >
@@ -20,10 +32,28 @@
 						<div class="scratch"></div>
 
 						<div class="page-header">
-								Convocatoria XV Festival Buenos Aires Rojo Sangre
+								Convocatoria
+								<?php echo $edition['number']; ?>
+								Festival Buenos Aires Rojo Sangre
 							<br />
 							<span class="subheader">
-								[ Semana del 30 de octubre al 9 de noviembre de 2014 --- Recepción de material hasta: 1 de agosto de 2014 ]
+								[ Semana del
+								<?php echo $from->format('j'); ?>
+								de
+								<?php echo getSpanishMonthName($from->format('F')); ?>
+								al
+								<?php echo $to->format('j'); ?>
+								de
+								<?php echo getSpanishMonthName($to->format('F')); ?>
+								de
+								<?php echo $year; ?>
+								--- Recepción de material hasta:
+								<?php echo $call_deadline->format('j'); ?>
+								de
+								<?php echo getSpanishMonthName($call_deadline->format('F')); ?>
+								de
+								<?php echo $year; ?>
+								]
 							</span>
 						</div>
 

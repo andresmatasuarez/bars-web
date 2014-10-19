@@ -58,38 +58,38 @@ function disqus_embed($disqus_shortname) {
 function pagination($paged){
 	if( is_singular() )
 		return;
-		
+
 	global $wp_query;
-	
+
 	// Stop execution if there's only 1 page
 	if( $wp_query->max_num_pages <= 1 )
 		return;
-		
+
 	$max = intval( $wp_query->max_num_pages );
-	
+
 	// Add current page to the array
 	if ( $paged >= 1 )
 		$links[] = $paged;
-		
+
 	// Add the pages around the current page to the array
 	if ( $paged >= 3 ) {
 		$links[] = $paged - 1;
 		$links[] = $paged - 2;
 	}
- 
+
 	if ( ( $paged + 2 ) <= $max ) {
 		$links[] = $paged + 2;
 		$links[] = $paged + 1;
 	}
-	
+
 	echo '<div class="pagination">';
 	echo '<div class="clear scratch"></div>';
 	echo '<ul>';
-		
+
 	// Previous Post Link
 	if ( get_previous_posts_link() )
 		echo '<li class="previous-page">' . get_previous_posts_link() . '</li>';
-		
+
 	// Link to first page, plus ellipses if necessary
 	if ( !in_array( 1, $links ) ) {
 		$class = 1 == $paged ? 'active' : '';
@@ -99,7 +99,7 @@ function pagination($paged){
 		if ( !in_array( 2, $links ) )
 			echo '<li>…</li>';
 	}
-	
+
 	// Link to current page, plus 2 pages in either direction if necessary
 	sort( $links );
 	foreach ( $links as $link ) {
@@ -108,7 +108,7 @@ function pagination($paged){
 			echo '<a href="' . esc_url( get_pagenum_link( $link ) ) . '">' . $link . '</a>';
 		echo '</li>';
 	}
-	
+
 	// Link to last page, plus ellipses if necessary
 	if ( !in_array( $max, $links ) ) {
 		if ( !in_array( $max - 1, $links ) )
@@ -118,7 +118,7 @@ function pagination($paged){
 			echo '<a href="' . esc_url( get_pagenum_link( $max ) ) . '">' . $max . '</a>';
 		echo '</li>';
 	}
-	
+
 	// Next Post Link
 	if ( get_next_posts_link() )
 		echo '<li class="next-page">' . get_next_posts_link() . '</li>';
@@ -187,34 +187,53 @@ function get_excerpt_by_id($post_id, $word_count = 25){
 /* ************ English to spanish day name translation ************ */
 function getSpanishDayName($englishDay){
 	switch(strtolower($englishDay)){
-		case 'sunday':		return 'domingo';
-		case 'monday':		return 'lunes';
-		case 'tuesday':		return 'martes';
-		case 'wednesday':	return 'miércoles';
-		case 'thursday':	return 'jueves';
-		case 'friday':		return 'viernes';
-		case 'saturday':	return 'sábado';
-		default:			return null;
+		case 'sunday'    : return 'domingo';
+		case 'monday'    : return 'lunes';
+		case 'tuesday'   : return 'martes';
+		case 'wednesday' : return 'miércoles';
+		case 'thursday'  : return 'jueves';
+		case 'friday'    : return 'viernes';
+		case 'saturday'  : return 'sábado';
+		default          : return null;
 	}
 }
 
+/* ************ English to spanish month name translation ************ */
+function getSpanishMonthName($englishMonth){
+  switch(strtolower($englishMonth)){
+    case 'january'   :  return 'enero';
+    case 'february'  :  return 'febrero';
+    case 'march'     :  return 'marzo';
+    case 'april'     :  return 'abril';
+    case 'may'       :  return 'mayo';
+    case 'june'      :  return 'junio';
+    case 'july'      :  return 'julio';
+    case 'august'    :  return 'agosto';
+    case 'september' :  return 'septiembre';
+    case 'october'   :  return 'octubre';
+    case 'november'  :  return 'noviembre';
+    case 'december'  :  return 'diciembre';
+    default          :  return null;
+  }
+}
+
 /* Render post as part of a list of posts. */
-function renderPostInList($post_id){	
+function renderPostInList($post_id){
 	echo '
 	<div class="clear scratch"></div>
 	<div class="post">
 		<div class="post-thumbnail">
-			<a href="' . get_permalink($post_id) . '">' . 
-				get_the_post_thumbnail($post_id, 'recent-post-thumbnail') . 
+			<a href="' . get_permalink($post_id) . '">' .
+				get_the_post_thumbnail($post_id, 'recent-post-thumbnail') .
 			'</a>
 		</div>
 		<div class="post-info-container">
-			<div class="post-date">' . 
-				get_the_time(get_option('date_format'), $post_id) . 
+			<div class="post-date">' .
+				get_the_time(get_option('date_format'), $post_id) .
 			'</div>
 			<div class="post-title">
-				<a href="' . get_permalink($post_id) . '">' . 
-					get_the_title($post_id) . 
+				<a href="' . get_permalink($post_id) . '">' .
+					get_the_title($post_id) .
 				'</a>
 			</div>
 			<div class="post-excerpt">' . get_excerpt_by_id($post_id) .
@@ -224,9 +243,9 @@ function renderPostInList($post_id){
 				<div class="post-comment-count" >
 					<a href="' . get_permalink($post_id) . '#disqus_thread" data-disqus-identifier="buenosairesrojosangre-' . get_the_ID($post_id) . '" ></a>
 				</div>
-				
+
 				<div class="fb-like post-fb-like" data-href="' . get_permalink($post_id) . '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-				
+
 				<a href="http://twitter.com/share" class="twitter-share-button" data-url="' . get_permalink($post_id) . '" data-via="wpbeginner" data-text="' . get_the_title($post_id) . '" data-count="horizontal">Tweet</a>
 			</div>
 		</div>

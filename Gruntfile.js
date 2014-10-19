@@ -1,14 +1,14 @@
 
 module.exports = function(grunt){
-	
+
 	'use strict';
-	
+
 	// Package options
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		
+
 		bars: grunt.file.readJSON('bars.json'),
-		
+
 		// JSHint
 		jshint: {
 			// http://www.jshint.com/docs/options/
@@ -57,7 +57,7 @@ module.exports = function(grunt){
 				}
 			}
 		},
-		
+
 		// Copy
 		copy: {
 			misc: {
@@ -78,13 +78,13 @@ module.exports = function(grunt){
 				]
 			},
 
-			phpmailer: {
+			vendor: {
 				files: [
-					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.phpmailer.src %>', dest: '<%= bars.phpmailer.dest %>' }
+					{ src: '<%= bars.vendor.src %>', dest: '<%= bars.vendor.dest %>' }
 				]
 			}
 		},
-		
+
 		// Imagemin
 		imagemin: {
 			max: {
@@ -151,11 +151,11 @@ module.exports = function(grunt){
 				tasks: [ 'newer:copy:fancybox' ]
 			},
 
-			phpmailer: {
+			vendor: {
 				files: [
-					'<%= bars.phpmailer.src %>'
+					'<%= bars.vendor.src %>'
 				],
-				tasks: [ 'newer:copy:phpmailer' ]
+				tasks: [ 'newer:copy:vendor' ]
 			}
 		},
 
@@ -206,7 +206,7 @@ module.exports = function(grunt){
     }
 
 	});
-	
+
 	// Load tasks
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -222,7 +222,7 @@ module.exports = function(grunt){
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
-	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:phpmailer', 'newer:copy:misc', 'newer:imagemin:max', 'watch' ]);
+	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:phpmailer', 'newer:copy:misc', 'newer:imagemin:max', 'sprite:all', 'watch' ]);
 	grunt.registerTask('prod', [ ]);
-	
+
 };
