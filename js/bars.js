@@ -85,12 +85,12 @@ jQuery(document).ready(function($) {
 			var hourY = $(y).find('.movie-post-hour').html().split(':');
 
 			var dateX = new Date();
-			dateX.setHours(parseInt(hourX[0]));
-			dateX.setMinutes(parseInt(hourX[1]));
+			dateX.setHours(parseInt(hourX[0], 10));
+			dateX.setMinutes(parseInt(hourX[1], 10));
 
 			var dateY = new Date();
-			dateY.setHours(parseInt(hourY[0]));
-			dateY.setMinutes(parseInt(hourY[1]));
+			dateY.setHours(parseInt(hourY[0], 10));
+			dateY.setMinutes(parseInt(hourY[1], 10));
 
 			x = dateX.getTime();
 			y = dateY.getTime();
@@ -130,7 +130,7 @@ jQuery(document).ready(function($) {
 			}
 
 		});
-	}
+	};
 
 	// Initialize movie section filter.
 	$.fn.movieSectionFilter = function (){
@@ -159,6 +159,6 @@ jQuery(document).ready(function($) {
 			$('.schedule .schedule-day:visible:even').removeClass('odd even').addClass('even');
 		});
 
-	}
+	};
 
 }(jQuery));

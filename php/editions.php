@@ -1,16 +1,11 @@
 <?php
 
-require_once 'vendor/autoload.php';
-
-use Underscore\Parse;
-use Underscore\Types\Arrays;
-
 class Editions {
 
   private static $editions;
 
   public static function initialize($filepath){
-    self::$editions = Parse::fromJSON(file_get_contents($filepath));
+    self::$editions = json_decode(file_get_contents($filepath), true);
   }
 
   public static function current(){
@@ -36,7 +31,7 @@ class Editions {
 
     $diff = $from->diff($to);
 
-    $days = [ $from ];
+    $days = array($from);
     while(count($days) < $diff->days + 1){
       $previous = clone $days[count($days) - 1];
       $days[] = $previous->add($one_day);

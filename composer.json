@@ -1,6 +1,5 @@
 {
     "require": {
-        "phpmailer/phpmailer": "dev-master",
-        "anahkiasen/underscore-php" : "dev-master"
+        "phpmailer/phpmailer": "dev-master"
     }
 }

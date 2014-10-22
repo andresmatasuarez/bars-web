@@ -94,7 +94,7 @@ module.exports = function(grunt){
 				]
 			},
 			low: {
-				options: { optimizationLevel: 3 },
+				options: { optimizationLevel: 0 },
 				files: [
 					{ expand: true, flatten: true, filter: 'isFile', src: '<%= bars.src.img %>', dest: '<%= bars.dest.img %>' }
 				]
@@ -222,7 +222,7 @@ module.exports = function(grunt){
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
-	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:vendor', 'newer:copy:misc', 'newer:imagemin:max', 'sprite:all', 'watch' ]);
+	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:vendor', 'newer:copy:misc', 'newer:imagemin:low', 'sprite:all', 'watch' ]);
 	grunt.registerTask('prod', [ ]);
 
 };
