@@ -7,7 +7,6 @@
 	License: GPLv2
 */
 
-
 	add_action('admin_init', 'admin_load_scripts');
 	function admin_load_scripts() {
 		$admin_movie_file = plugins_url( 'admin-movie.js', __FILE__ );
@@ -42,21 +41,28 @@
 
 		/* ***** MOVIE SECTIONS ***** */
 		$sections = array (
-			'opening' => array ( 'label' => 'Función de apertura', 'value' => 'opening' ),
-			'shortFilm' => array ( 'label' => 'Cortos fuera de competencia', 'value' => 'shortFilm' ),
-			'shortFilmCompetition' => array ( 'label' => 'Cortos en competencia', 'value' => 'shortFilmCompetition' ),
-			'mediumLengthFilm' => array ( 'label' => 'Mediometrajes', 'value' => 'mediumLengthFilm' ),
-			'internationalFeatureFilmCompetition' => array ( 'label' => 'Competencia Internacional', 'value' => 'internationalFeatureFilmCompetition' ),
-			'iberoamericanFeatureFilmCompetition' => array ( 'label' => 'Competencia Iberoamericana', 'value' => 'iberoamericanFeatureFilmCompetition' ),
-			'releases' => array ( 'label' => 'Novedades', 'value' => 'releases' ),
-			'raroVhs' => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
-			'anioVerde' => array ( 'label' => 'Argentina Año Verde', 'value' => 'anioVerde' ),
-			'herederosDelTerror' => array ( 'label' => 'Herederos Del Teror', 'value' => 'herederosDelTerror' ),
-			'filmotecaPresenta' => array ( 'label' => 'Filmoteca Presenta', 'value' => 'filmotecaPresenta' ),
-			'laCripta' => array ( 'label' => 'La Cripta', 'value' => 'laCripta' ),
-			'sangreSudorYLagrimas' => array ( 'label' => 'Sangre, Sudor y Lágrimas', 'value' => 'sangreSudorYLagrimas' ),
-			'documentary' => array ( 'label' => 'Documental', 'value' => 'documentary' ),
-			'imperdibles' => array ( 'label' => 'Imperdibles', 'value' => 'imperdibles' )
+			// Bars 2013
+			'opening'                             => array ( 'label' => 'Función de apertura',         'value' => 'opening' ),
+			'shortFilm'                           => array ( 'label' => 'Cortos fuera de competencia', 'value' => 'shortFilm' ),
+			'shortFilmCompetition'                => array ( 'label' => 'Cortos en competencia',       'value' => 'shortFilmCompetition' ),
+			'mediumLengthFilm'                    => array ( 'label' => 'Mediometrajes',               'value' => 'mediumLengthFilm' ),
+			'internationalFeatureFilmCompetition' => array ( 'label' => 'Competencia Internacional',   'value' => 'internationalFeatureFilmCompetition' ),
+			'iberoamericanFeatureFilmCompetition' => array ( 'label' => 'Competencia Iberoamericana',  'value' => 'iberoamericanFeatureFilmCompetition' ),
+			'releases'                            => array ( 'label' => 'Novedades',                   'value' => 'releases' ),
+			'raroVhs'                             => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
+			'anioVerde'                           => array ( 'label' => 'Argentina Año Verde',         'value' => 'anioVerde' ),
+			'herederosDelTerror'                  => array ( 'label' => 'Herederos Del Teror',         'value' => 'herederosDelTerror' ),
+			'filmotecaPresenta'                   => array ( 'label' => 'Filmoteca Presenta',          'value' => 'filmotecaPresenta' ),
+			'laCripta'                            => array ( 'label' => 'La Cripta',                   'value' => 'laCripta' ),
+			'sangreSudorYLagrimas'                => array ( 'label' => 'Sangre, Sudor y Lágrimas',    'value' => 'sangreSudorYLagrimas' ),
+			'documentary'                         => array ( 'label' => 'Documental',                  'value' => 'documentary' ),
+			'imperdibles'                         => array ( 'label' => 'Imperdibles',                 'value' => 'imperdibles' ),
+
+			// Bars 2014 sections are bars 2013 sections plus the following:
+			'bizarreCompetition' => array ( 'label' => 'Competencia Bizarra', 'value' => 'bizarreCompetition' ),
+			'lastPage'           => array ( 'label' => 'Última página',       'value' => 'lastPage' ),
+			'freakingNazis'      => array ( 'label' => 'Jodidos Nazis',       'value' => 'freakingNazis' ),
+			'closingFilm'        => array ( 'label' => 'Película de cierre',  'value' => 'closingFilm' )
 		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
