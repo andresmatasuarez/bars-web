@@ -16,7 +16,8 @@
     "jquery-form": "git://github.com/malsup/form.git#3.50",
     "jquery-validation": "git://github.com/jzaefferer/jquery-validation#1.12.0",
     "jquery": ">= 2.1.0",
-    "fancybox": "~2.1.5"
+    "fancybox": "~2.1.5",
+    "jquery-focuspoint": "https://github.com/jonom/jquery-focuspoint.git#~1.1.1"
   },
   "private": "true"
 }

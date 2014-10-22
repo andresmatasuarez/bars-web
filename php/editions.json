@@ -10,6 +10,154 @@
     "call": {
       "from": "",
       "to": "2014-08-01T03:00:00.000Z"
+    },
+    "awards": {
+      "jury": [
+        "Mejor Largometraje",
+        "Mejor Director Largometraje",
+        "Mejor Actriz Largometraje",
+        "Mejor Actor Largometraje",
+        "Mejor Guion Largometraje",
+        "Mejor Fotografía Largometraje",
+        "Mejores Efectos Especiales Largometraje",
+        "Mejor Cortometraje Internacional",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Nacional",
+        "Mejor Largometraje Iberoamericana",
+        "Mejor Director Largometraje Iberoamericana",
+        "Mejor Actuación Largometraje Iberoamericana"
+      ],
+      "audience": [
+        "Largometraje",
+        "Cortometraje",
+        "Largometraje Competencia Bizarra"
+      ]
+    },
+    "juries": {
+      "Competencia Internacional": [
+        {
+          "name": "Nicanor Loretti",
+          "pic": {
+            "url": "images/jury_nicanor_loretti.jpg",
+            "focus": {
+              "x": -0.19,
+              "y": 0.71,
+              "w": 372,
+              "h": 563
+            }
+          },
+          "description": "<strong>Nicanor Loretti</strong> nació en Buenos Aires en 1978. Dirigió el film de ficción <i>Diablo</i>, ganador de nueve premios en festivales internacionales, el rockumental <i>La H</i>, la serie de ficción <i>Dos por una mentira</i> —con Mónica Ayos y Sergio Boris— y la comedia de acción <i>Socios por accidente</i> —codirigida con Fabián Forte—. Su próximo proyecto es <i>Kryptonita</i>, thriller fantástico basado en el best seller de Leonardo Oyola, que protagonizarán, entre otros, Esteban Lamothe, Pablo Rago, Diego Capusotto y Juan Palomino. Fue jefe de redacción de la revista de cine <i>La Cosa</i> y publicó los libros <i>Cult People</i> (2009), <i>Cult People 2</i> (2012) y <i>Carretera al infierno</i> (2012)."
+        },
+        {
+          "name": "Alexis Puig",
+          "pic": {
+            "url": "images/jury_alexis_puig.jpg",
+            "focus": {
+              "x": -0.19,
+              "y": 0.04,
+              "w": 751,
+              "h": 563
+            }
+          },
+          "description": "<strong>Alexis Puig</strong>, estudió periodismo en la UNLP, periodismo de espectáculos en APTRA y realización cinematográfica en el CIEVYC. Es máster en Cine Documental por la Universidad de Barcelona en España. Fue productor periodístico de <i>Contacto Visual</i> en ATC, creador de <i>El acomodador</i> en Volver y corresponsal en Argentina para la cadena E! Entertainment. Como crítico de cine, se desempeñó en Radio del Plata, Rivadavia y Ciudad; en los programas <i>Intrusos en el Espectáculo</i>, <i>Cotidiano</i> en Canal 9 y <i>Crónicas Picantes</i> en América TV. Fue columnista de la revista Maxim y tiene editados dos libros de cine: <i>El gran libro del vampiro</i> y <i>Pantalla freak</i>. Desde hace 10 años es el periodista de cine del grupo América y participa en todas las ediciones de <i>América Noticias</i>, en A24 y en Radio La Red. Tiene su propio programa de cine, <i>24 x segundo</i>, que ya va por su quinta temporada."
+        },
+        {
+          "name": "Fabio \"Mosquito\" Sancineto",
+          "pic": {
+            "url": "images/jury_mosquito.jpg",
+            "focus": {
+              "x": -0.07,
+              "y": 0.31,
+              "w": 318,
+              "h": 477
+            }
+          },
+          "description": "<strong>Fabio \"Mosquito\" Sancineto</strong>, actor, docente, director, autor. Alma máter del <i>Match de Improvisación</i> desde el año 1990 hasta la actualidad y director de la primera Liga de Improvisación de la República Argentina. Fundó la primera compañía de teatro e improvisación argentina y es diploma de honor Premio Konex 2001, destacado como uno de los mejores 100 artistas de la década. Fue nominado a los premios María Guerrero y Florencio Sánchez 2013, como mejor actor de reparto, por <i>La sombra de Wenceslao</i> de Copi. Ganador del premio Teatro XXI 2014, acaba de estrenar <i>Muñeca</i> de Discépolo, dirigida por Pompeyo Audivert, y conduce en Radio nacional, <i>En mi propia lengua</i> junto a Tom Lupo."
+        }
+      ],
+      "Competencia Iberoamericana": [
+        {
+          "name": "Carina Rodriguez",
+          "pic": {
+            "url": "images/jury_carina_rodriguez.jpg",
+            "focus": {
+              "x" : 0.12,
+              "y" : 0.24,
+              "w" : 553,
+              "h" : 520
+            }
+          },
+          "description": "<strong>Carina Rodríguez</strong> se especializa en cine y televisión de género de terror argentino, sobre lo que ha publicado numerosos artículos y el libro <i>El cine de terror en Argentina: producción, distribución, exhibición y mercado</i> (2000-2010). Es magíster en Industrias Culturales por la Universidad Nacional de Quilmes (UNQ) y docente e investigadora de la UNQ. Ha participado en varios programas de investigación sobre políticas públicas de comunicación, cine y televisión. También trabaja desde hace más de una década realizando divulgación científica y comunicación institucional en la UNQ."
+        },
+        {
+          "name": "Santiago Fernández Calvete",
+          "pic": {
+            "url": "images/jury_santiago_fernandez_calvete.jpg",
+            "focus": {
+
+              "x" : -0.01,
+              "y" : 0.40,
+              "w" : 522,
+              "h" : 563
+            }
+          },
+          "description": "<strong>Santiago Fernández Calvete</strong>, nacido en Buenos Aires en 1974, es guionista y director de cine y desde el 2014 es parte del staff de la prestigiosa revista <i>Scifiworld</i> como corresponsal en Argentina. Dirigió dos largometrajes: <i>La Segunda Muerte</i> —film que ha competido en Sitges 2012, BIFFF 2013, Fantaspoa 2013 y Macabro 2014, entre otros— y <i>Testigo Íntimo</i> —en postproducción—. Actualmente desarrolla su tercer largometraje (<i>Visión Nocturna</i>) para Nimbus Comunicación (México)."
+        },
+        {
+          "name": "Rebeca Martinez",
+          "pic": {
+            "url": "images/jury_rebeca_martinez.jpg",
+            "focus": {
+              "x" : 0.19,
+              "y" : 0.43,
+              "w" : 526,
+              "h" : 563
+            }
+          },
+          "description": "<strong>Rebeca Martinez</strong> nació en la ciudad de Arrecifes en 1982. En el año 2003 viajó a Buenos Aires a estudiar Maquillaje y Efectos especiales y, ya instalada, en el 2004 comenzó su trabajo en cine de género con el grupo Rabbid fx en películas como <i>Director's Cut</i>, <i>The last Gateway</i>, <i>Death Knows Your Name</i>, <i>Malditos Sean</i>, <i>Lo siniestro</i> y <i>Plaga Zombie: Revolución Tóxica</i>, entre otras. Ya a partir del 2009, con estudio propio, trabajó en el maquillaje y los efectos especiales de <i>Aballay</i>, <i>Olvidame</i>, <i>La plegaria del vidente</i>, <i>El túnel de los huesos</i>, <i>La memoria del muerto</i>, <i>Diablo</i>, <i>2/11 Día de los Muertos</i>, <i>Hermanos de sangre</i>, <i>Necrofobia</i> y <i>Resurrección</i>, entre otras."
+        }
+      ],
+      "Cortos en competencia": [
+        {
+          "name": "Liliana Amate",
+          "pic": {
+            "url": "images/jury_liliana_amate.jpg",
+            "focus": {
+              "x" : -0.17,
+              "y" : 0.13,
+              "w" : 599,
+              "h" : 520
+            }
+          },
+          "description": "<strong>Liliana Amate</strong> es docente y realizadora audiovisual. Tiene un máster en Nuevas Tecnologías para el formato documental de la ESCAC (Universidad de Barcelona). Se desempeña como presidente de UNCIPAR (Festival de Cine y Video Independiente de Villa Gesell) y también es curadora de mercados y festivales internacionales. Actualmente es la coordinadora del Departamento de Cortometraje de la Gerencia General del INCAA."
+        },
+        {
+          "name": "Martín Blousson",
+          "pic": {
+            "url": "images/jury_martin_blousson.jpg",
+            "focus": {
+              "x" : -0.27,
+              "y" : 0.20,
+              "w" : 215,
+              "h" : 201
+            }
+          },
+          "description": "<strong>Martín Blousson</strong>, guionista, editor y ocasional asistente de dirección, tuvo la suerte de haber trabajado junto a varios grandes de lo mejor del cine de género en la Argentina. Escribió y participó del montaje de <i>La memoria del muerto</i> de Valentín J. Diment; colaboró y editó <i>Diablo</i> de Nicanor Loreti; coescribió el guión de <i>Hermanos de sangre</i> de De la Vega con el mismo Loreti y otro notable escritor, Germán Val. Recientemente, trabajó junto a De la Vega y Guille Gatti en el montaje de <i>Necrofobia</i>, y ahora está trabajando para terminar su primera película, un documental sobre la movida del roller derby en la Argentina, a la vez que se encamina a participar de la edición del nuevo largometraje de Diment, <i>El eslabón podrido</i>."
+        },
+        {
+          "name": "Leandro Adrian Balbuena",
+          "pic": {
+            "url": "images/jury_leandro_adrian_balbuena.jpg",
+            "focus": {
+              "x" : 0.16,
+              "y" : 0.54,
+              "w" : 347,
+              "h" : 520
+            }
+          },
+          "description": "<strong>Leandro Adrian Balbuena</strong>, panchero, esposo, padre, periodista autodidacta, creador de la web <i>Cine fantástico y bizarro</i>, un sitio en Facebook donde se mezclan el cine <i>mainstream</i> y el <i>under</i> en partes iguales. Ha creado el “mega archivo de cine de género nacional”, donde se encuentran los links para ver o descargar todo lo referido al cine de género de Argentina. Hace poco más de un año decidió lanzar la versión impresa de este portal y ya lleva editados 6 números."
+        }
+      ]
     }
   },
   {

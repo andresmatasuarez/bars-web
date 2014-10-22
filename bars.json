@@ -23,7 +23,8 @@
 			"lib/jquery-form/jquery.form.js",
 			"lib/jquery-validation/dist/jquery.validate.js",
 			"lib/jQuery.dotdotdot/src/js/jquery.dotdotdot.js",
-			"lib/imgLiquid/js/imgLiquid.js"
+			"lib/imgLiquid/js/imgLiquid.js",
+			"lib/jquery-focuspoint/js/jquery.focuspoint.js"
 		],
 
 		"css": [
@@ -35,7 +36,8 @@
 			"css/main.css",
 			"css/genericons/genericons.css",
 			"css/slider.css",
-			"css/sprites.css"
+			"css/sprites.css",
+			"lib/jquery-focuspoint/css/focuspoint.css"
 		],
 
 		"js": [

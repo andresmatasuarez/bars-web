@@ -6,26 +6,31 @@ jQuery(document).ready(function($) {
 
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();
-	
+
+	// Focuspoint
+	$('.focuspoint').focusPoint({
+		throttleDuration: 100 //re-focus images at most once every 100ms.
+	});
+
 	// Slider
 	$('#slider').slider();
-	
+
 	// Selections
 	$('#schedule-section-filters').movieSectionFilter();
 	$('.movie-post .movie-post-title').dotdotdot();
-	
+
 	// Home page posts image resize & cropping
 	$('.posts .post-thumbnail img').wrap(function() {
 		return '<div style="width:270px; height:170px;"></div>';
 	});
 	$('.posts .post-thumbnail img').parent().imgLiquid();
-	
+
 	// Single post related posts
 	$('#page-single .post-related-posts .post-related-post img').wrap(function() {
 		return '<div style="width:200px; height:170px;"></div>';
 	});
 	$('#page-single .post-related-posts .post-related-post img').parent().imgLiquid();
-	
+
 	// Sidebar image widget resize & cropping
 	$('#sidebar .bars-widget.sidebar.image img').wrap(function() {
 		return '<div style="width:300px; height:150px;"></div>';
@@ -39,12 +44,12 @@ jQuery(document).ready(function($) {
 		$('#movie-' + $(this).attr('movieid')).prevAll().each(function(index,elem){
 			scroll += $(elem).outerHeight(true);
 		});
-		
+
 		$('.movie-info-displayer').animate({
 			scrollTop: scroll
 		});
 	});
-	
+
 	// Fancybox initialization for sidebar image widgets
 	$(".fancybox.sidebar").fancybox({
 		padding: 2,
@@ -52,7 +57,7 @@ jQuery(document).ready(function($) {
 		scrolling: 'hidden',
 		helpers: { overlay: { locked: true } }
   });
-	
+
 	// Fancybox initialization for movie displayers.
 	$('#page-selection .movie-post > a').fancybox({
 		padding: 2,
@@ -78,27 +83,27 @@ jQuery(document).ready(function($) {
 		movies.sort(function(x, y){
 			var hourX = $(x).find('.movie-post-hour').html().split(':');
 			var hourY = $(y).find('.movie-post-hour').html().split(':');
-			
+
 			var dateX = new Date();
 			dateX.setHours(parseInt(hourX[0]));
 			dateX.setMinutes(parseInt(hourX[1]));
-			
+
 			var dateY = new Date();
 			dateY.setHours(parseInt(hourY[0]));
 			dateY.setMinutes(parseInt(hourY[1]));
-			
+
 			x = dateX.getTime();
-			y = dateY.getTime();	
+			y = dateY.getTime();
 
 			return ((x < y) ? -1 : ((x > y) ?  1 : 0));
 		});
-		
+
 		$(this).find('.movie-post').remove();
-		
+
 		$(this).append(movies);
-		
+
 	});
-	
+
 });
 
 (function ($) {
@@ -108,38 +113,38 @@ jQuery(document).ready(function($) {
 		var object = $(this);
 		var adminBarOffset = $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
 		var stickyTop = object.offset().top;
-		
+
 		var initialPosition = object.css('position');
 		var initialTop = object.css('top');
 
 		$(window).scroll(function(){
 			var st = $(this).scrollTop();
-			var scrollTop = $(window).scrollTop(); 
+			var scrollTop = $(window).scrollTop();
 
 			// If we scroll more than the navigation, change its position to fixed and add class 'sticky'.
 			// Otherwise, change it back to absolute and remove the class.
 			if (scrollTop > stickyTop) {
-				object.css({ 'position': 'fixed', 'top': adminBarOffset }).addClass('sticky');	
-			} else {	
-				object.css({ 'position': initialPosition, 'top': initialTop }).removeClass('sticky'); 
+				object.css({ 'position': 'fixed', 'top': adminBarOffset }).addClass('sticky');
+			} else {
+				object.css({ 'position': initialPosition, 'top': initialTop }).removeClass('sticky');
 			}
-			
+
 		});
 	}
-	
+
 	// Initialize movie section filter.
 	$.fn.movieSectionFilter = function (){
 		var object = this;
-		
+
 		// Default filter: all sections.
 		object.val('all');
-		
+
 		object.change(function(){
 			var selected = object.val();
-			
+
 			// First of all, fade out all schedule days and movie posts.
 			$('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').hide();
-			
+
 			if (selected == 'all'){
 				$('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').show();
 			} else {
@@ -149,11 +154,11 @@ jQuery(document).ready(function($) {
 					$(this).closest('.schedule .schedule-day').next('.schedule .scratch').show();
 				});
 			}
-			
+
 			$('.schedule .schedule-day:visible:odd').removeClass('odd even').addClass('odd');
 			$('.schedule .schedule-day:visible:even').removeClass('odd even').addClass('even');
 		});
-		
+
 	}
-	
+
 }(jQuery));

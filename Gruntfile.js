@@ -222,7 +222,7 @@ module.exports = function(grunt){
 
 	// Register tasks
 	grunt.registerTask('default', 'dev');
-	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:phpmailer', 'newer:copy:misc', 'newer:imagemin:max', 'sprite:all', 'watch' ]);
+	grunt.registerTask('dev', [ 'clean:build', 'concat', 'newer:copy:php', 'newer:copy:fancybox', 'newer:copy:vendor', 'newer:copy:misc', 'newer:imagemin:max', 'sprite:all', 'watch' ]);
 	grunt.registerTask('prod', [ ]);
 
 };
