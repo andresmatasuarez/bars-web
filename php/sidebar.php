@@ -18,9 +18,17 @@
 
 			<?php //echo add_youtube_sidebar_widget('sidebar relative video', 'Spot 2013', '3KvJWUCNtUQ', '100%', '200px'); ?>
 
-			<?php //echo add_image_sidebar_widget('sidebar relative image', 'Programación 2013', get_bloginfo('template_directory') . '/images/bars2013_programacion.jpg'); ?>
+			<?php
+				if (isset($edition['programme'])) {
+					echo add_image_sidebar_widget('sidebar relative image', 'Programación ' . $edition['title'], get_bloginfo('template_directory') . '/' . $edition['programme']);
+				}
+			?>
 
-			<?php echo add_image_sidebar_widget('sidebar relative image', 'Afiche ' . $edition['title'], get_bloginfo('template_directory') . '/' . $edition['poster']); ?>
+			<?php
+				if (isset($edition['poster'])) {
+					echo add_image_sidebar_widget('sidebar relative image', 'Afiche ' . $edition['title'], get_bloginfo('template_directory') . '/' . $edition['poster']);
+				}
+			?>
 
 			<?php //echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura!', get_bloginfo('template_directory') . '/images/bars2013_fiesta-clausura.jpg'); ?>
 
