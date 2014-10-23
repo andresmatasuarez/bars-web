@@ -12,13 +12,18 @@
 		<div class="section">
 			<?php echo sectionByValue(get_post_meta($post->ID, '_movie_section', true));?>
 		</div>
-		
+
 		<div class="screenings">
 			<div class="screenings-caption">Mirala los días</div>
 			<div class="clear"></div>
 		<?php
 			$datetimes = array_map('trim', explode(',', get_post_meta($post->ID, '_movie_screenings', true)));
 			foreach($datetimes as $key => $datetime){
+				$datetime = trim($datetime);
+				if (empty($datetime)){
+					continue;
+				}
+
 				$dt = preg_split('/[\s]+/', $datetime);
 				$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $dt[0])->format('l')));
 				$dayNumber = DateTime::createFromFormat('m-d-Y', $dt[0])->format('d');
@@ -48,10 +53,10 @@
 				<?php
 					$website = get_post_meta($post->ID, '_movie_website', true);
 					$imdb = get_post_meta($post->ID, '_movie_imdb', true);
-					
+
 					if ($website != '')
 						echo '<a target="_blank" href="' . addHttp($website) . '">Sitio oficial</a><span> </span>';
-					
+
 					if ($imdb != '')
 						echo '<a target="_blank" href="' . addHttp($imdb) . '">IMDB</a>';
 				?>
@@ -59,7 +64,7 @@
 			<div class="title">
 				<?php the_title(); ?>
 			</div>
-			
+
 			<div class="specs">
 				<?php
 					$year = get_post_meta($post->ID, '_movie_year', true);
@@ -68,7 +73,7 @@
 					$info = ($year != '') ? $year : '';
 					if ($country != '')
 						$info = ($info != '' ? $info . ' ' : '') . '(' . $country . ')';
-					
+
 					if ($runtime != '')
 						echo $info . ' - ' . $runtime . ' min.';
 				?>
@@ -76,24 +81,24 @@
 			<div class="directors">
 				<?php
 					$directors = explode(',', get_post_meta($post->ID, '_movie_directors', true));
-					
+
 					if (sizeof($directors) != 0){
 						echo 'Directores: ' . trim(current($directors));
-					
+
 						foreach(array_slice($directors, 1) as $director){
 							echo ', ' . trim($director);
 						}
 					}
-				
+
 				?>
 			</div>
 			<div class="cast">
 				<?php
 					$cast = explode(',', get_post_meta($post->ID, '_movie_cast', true));
-					
+
 					if (sizeof($cast) != 0){
 						echo 'Elenco: ' . current($cast);
-					
+
 						foreach(array_slice($cast, 1) as $cast){
 							echo ', ' . $cast;
 						}
