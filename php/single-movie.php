@@ -117,5 +117,7 @@
 			}
 		?>
 		<p class="text-opensans"><?php echo get_post_meta($post->ID, '_movie_synopsis', true); ?></p>
+		<br/>
+		<p class="text-opensans"><?php echo get_post_meta($post->ID, '_movie_comments', true); ?></p>
 	</div>
 </div>
