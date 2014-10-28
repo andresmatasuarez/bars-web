@@ -16,7 +16,13 @@
 	<td id="sidebar-container">
 		<div id="sidebar" >
 
-			<?php //echo add_youtube_sidebar_widget('sidebar relative video', 'Spot 2013', '3KvJWUCNtUQ', '100%', '200px'); ?>
+			<?php
+				if (isset($edition['spot'])) {
+					$vars = array();
+					parse_str(parse_url($edition['spot'], PHP_URL_QUERY), $vars);
+					echo add_youtube_sidebar_widget('sidebar relative video', 'Spot ' . $edition['title'], $vars['v'], '100%', '200px');
+				}
+			?>
 
 			<?php
 				if (isset($edition['programme'])) {
