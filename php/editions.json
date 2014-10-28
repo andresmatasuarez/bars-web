@@ -37,9 +37,9 @@
     "juries": {
       "Competencia Internacional": [
         {
-          "name": "Nicanor Loretti",
+          "name": "Nicanor Loreti",
           "pic": {
-            "url": "images/jury_nicanor_loretti.jpg",
+            "url": "images/jury_nicanor_loreti.jpg",
             "focus": {
               "x": -0.19,
               "y": 0.71,
@@ -47,7 +47,7 @@
               "h": 563
             }
           },
-          "description": "<strong>Nicanor Loretti</strong> nació en Buenos Aires en 1978. Dirigió el film de ficción <i>Diablo</i>, ganador de nueve premios en festivales internacionales, el rockumental <i>La H</i>, la serie de ficción <i>Dos por una mentira</i> —con Mónica Ayos y Sergio Boris— y la comedia de acción <i>Socios por accidente</i> —codirigida con Fabián Forte—. Su próximo proyecto es <i>Kryptonita</i>, thriller fantástico basado en el best seller de Leonardo Oyola, que protagonizarán, entre otros, Esteban Lamothe, Pablo Rago, Diego Capusotto y Juan Palomino. Fue jefe de redacción de la revista de cine <i>La Cosa</i> y publicó los libros <i>Cult People</i> (2009), <i>Cult People 2</i> (2012) y <i>Carretera al infierno</i> (2012)."
+          "description": "<strong>Nicanor Loreti</strong> nació en Buenos Aires en 1978. Dirigió el film de ficción <i>Diablo</i>, ganador de nueve premios en festivales internacionales, el rockumental <i>La H</i>, la serie de ficción <i>Dos por una mentira</i> —con Mónica Ayos y Sergio Boris— y la comedia de acción <i>Socios por accidente</i> —codirigida con Fabián Forte—. Su próximo proyecto es <i>Kryptonita</i>, thriller fantástico basado en el best seller de Leonardo Oyola, que protagonizarán, entre otros, Esteban Lamothe, Pablo Rago, Diego Capusotto y Juan Palomino. Fue jefe de redacción de la revista de cine <i>La Cosa</i> y publicó los libros <i>Cult People</i> (2009), <i>Cult People 2</i> (2012) y <i>Carretera al infierno</i> (2012)."
         },
         {
           "name": "Alexis Puig",
