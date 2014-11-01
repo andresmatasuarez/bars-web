@@ -8,6 +8,7 @@
     },
     "poster" : "images/bars2014_afiche.jpg",
     "programme" : "images/bars2014_programme.jpg",
+    "closing_party" : "images/bars2014_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=XsbUb4SYkw4",
     "call": {
       "from": "",
@@ -171,6 +172,7 @@
     },
     "poster" : "images/bars2013_afiche.jpg",
     "programme" : "images/bars2013_programme.jpg",
+    "closing_party" : "images/bars2013_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=3KvJWUCNtUQ"
   }
 ]
