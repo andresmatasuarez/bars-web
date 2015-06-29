@@ -43,6 +43,7 @@
 
 <body>
 
+	<div id="current-edition-year" style="display: none;"><?php echo Editions::from()->format('Y'); ?></div>
 
 	<div id="header" >
 		<div id="header-info-container">

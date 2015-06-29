@@ -1,8 +1,25 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function($){
+	'use strict';
 
-	// Call is open 2014!
-	//$('#header-menu .nav-menu li:nth-child(4) a').addClass('call-is-open');
-	//$('#header-menu .nav-menu li:nth-child(4) .call-is-open').text('');
+	// Call is open 2015
+	var callNavItem = $('#header-menu .nav-menu li:nth-child(5)');
+	var callNavItemLink = callNavItem.find('a');
+	var callPageHref = callNavItemLink.attr('href');
+	var callNavItemLabel = callNavItemLink.html();
+	callNavItem.addClass('call-is-open');
+	callNavItemLink.css('visibility', 'hidden');
+	callNavItemLink.html('WWWWWWWW'); // Longer text so it takes more horizontal space
+	callNavItem.html([
+		callNavItem.html(),
+		'<span class="call-is-open-label call-is-open-label-pre">Abierta la</span>',
+		'<a class="call-is-open-label call-is-open-link" href="' + callPageHref + '">',
+			callNavItemLabel,
+		'</a>',
+		'<span class="call-is-open-label call-is-open-label-post">',
+			$('#current-edition-year').html(),
+		'</span>'
+	].join('\n'));
+
 
 	// Sticky navigation menu
 	$('#header-menu').stickymenu();

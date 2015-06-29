@@ -65,27 +65,35 @@
 
               <?php
 
-                foreach($edition['juries'] as $section => $juries){
+                if (!isset($edition['juries']) || empty($edition['juries'])){
 
-                  echo '<div class="page-header juries section">';
-                  echo    '<span class="genericon genericon-video"></span>';
-                  echo    $section;
-                  echo    '<div class="scratch"></div>';
-                  echo '</div>';
+                  echo '<div class="content text-opensans indented"><p>Los jurados no han sido seleccionados todavía.</p></div>';
 
-                  echo '<div class="juries">';
-                  foreach($juries as $index => $jury){
-                    echo '<div class="jury">';
-                    echo    '<div class="jury-image focuspoint" data-focus-x="' . $jury['pic']['focus']['x'] . '" data-focus-y="' . $jury['pic']['focus']['y'] . '" data-image-w="' . $jury['pic']['focus']['w'] . '" data-image-h="' . $jury['pic']['focus']['h'] . '">';
-                    echo      '<img src="'. get_bloginfo('template_directory') . '/' . $jury['pic']['url'] . '" />';
-                    echo    '</div>';
-                    echo    '<div class="jury-info">';
-                    echo      '<div class="jury-name text-oswald">' . $jury['name'] . '</div>';
-                    echo      '<p class="text-opensans indented">' . $jury['description'] . '</p>';
-                    echo    '</div>';
+                } else {
+
+                  foreach($edition['juries'] as $section => $juries){
+
+                    echo '<div class="page-header juries section">';
+                    echo    '<span class="genericon genericon-video"></span>';
+                    echo    $section;
+                    echo    '<div class="scratch"></div>';
+                    echo '</div>';
+
+                    echo '<div class="juries">';
+                    foreach($juries as $index => $jury){
+                      echo '<div class="jury">';
+                      echo    '<div class="jury-image focuspoint" data-focus-x="' . $jury['pic']['focus']['x'] . '" data-focus-y="' . $jury['pic']['focus']['y'] . '" data-image-w="' . $jury['pic']['focus']['w'] . '" data-image-h="' . $jury['pic']['focus']['h'] . '">';
+                      echo      '<img src="'. get_bloginfo('template_directory') . '/' . $jury['pic']['url'] . '" />';
+                      echo    '</div>';
+                      echo    '<div class="jury-info">';
+                      echo      '<div class="jury-name text-oswald">' . $jury['name'] . '</div>';
+                      echo      '<p class="text-opensans indented">' . $jury['description'] . '</p>';
+                      echo    '</div>';
+                      echo '</div>';
+                    }
                     echo '</div>';
                   }
-                  echo '</div>';
+
                 }
               ?>
 

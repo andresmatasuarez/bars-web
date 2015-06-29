@@ -56,6 +56,14 @@ class Editions {
     return self::parseDate($edition['days']['to']);
   }
 
+  public static function call($edition = NULL){
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return $edition['call'];
+  }
+
   public static function callDeadline($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();
