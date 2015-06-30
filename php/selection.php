@@ -10,7 +10,7 @@
 
 	get_header();
 
-	$edition = Editions::current();
+	$edition = Editions::getByNumber(15);//Editions::current();
 
 	$days = Editions::days($edition);
 

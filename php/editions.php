@@ -19,6 +19,14 @@ class Editions {
     return $max;
   }
 
+  public static function getByNumber($number){
+    foreach(self::$editions as $key => $edition){
+      if ($edition['number'] == $number){
+        return $edition;
+      }
+    }
+  }
+
   public static function days($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();
