@@ -43,8 +43,9 @@
 			?>
 
 			<div class="bars-widget facebook" >
-				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FBuenosAiresRojoSangre&amp;width=100&amp;height=560&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=true&amp;show_border=false" frameborder="0" style="border:none; overflow:hidden; width:100%; height:560px;" allowtransparency="true"></iframe>
+				<div class="fb-page" data-href="https://www.facebook.com/BuenosAiresRojoSangre" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/BuenosAiresRojoSangre"><a href="https://www.facebook.com/BuenosAiresRojoSangre">Buenos Aires Rojo Sangre film festival</a></blockquote></div></div>
 			</div>
+
 
 		</div>
 	</td>
