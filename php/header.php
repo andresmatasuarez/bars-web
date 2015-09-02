@@ -71,14 +71,29 @@
 						$from = Editions::from();
 						$to = Editions::to();
 						$year = $from->format('Y');
+
+						$sameMonth = $from->format('F') == $to->format('F');
+
+						if ($sameMonth){
 					?>
-					<span class="size-highlight"><?php echo $from->format('j'); ?></span>
-					de
-					<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
-					al
-					<span class="size-highlight"><?php echo $to->format('j'); ?></span>
-					de
-					<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+						<span class="size-highlight"><?php echo $from->format('j'); ?></span>
+						al
+						<span class="size-highlight"><?php echo $to->format('j'); ?></span>
+						de
+						<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+					<?php
+						} else {
+					?>
+						<span class="size-highlight"><?php echo $from->format('j'); ?></span>
+						de
+						<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
+						al
+						<span class="size-highlight"><?php echo $to->format('j'); ?></span>
+						de
+						<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+					<?php
+						}
+					?>
 				</div>
 				<div class="center"><?php echo $year; ?></div>
 				<div class="right size-highlight">
