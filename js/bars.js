@@ -159,7 +159,7 @@ jQuery(document).ready(function($){
 		object.change(function(){
 			var selected = object.val();
 
-			// First of all, fade out all schedule days and movie posts.
+			// First of all, hide all schedule days and movie posts.
 			$('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').hide();
 
 			if (selected == 'all'){

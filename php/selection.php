@@ -10,15 +10,46 @@
 
 	get_header();
 
-	$edition = Editions::getByNumber(15);//Editions::current();
+	if (!isset($_GET['edition'])){
+		$currentEdition = Editions::current();
+	} else {
+		$currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
+	}
 
-	$days = Editions::days($edition);
+	$days = Editions::days($currentEdition);
 
 ?>
-
 					<div id="page-selection" class="page" >
+
 						<div class="page-header">
-							Programación <?php echo $edition['title']; ?>
+
+							Programación <?php echo $currentEdition['title']; ?>
+
+							<select id="festival-edition-filters" >
+								<?php
+									foreach(Editions::all() as $edition){
+										echo '<option value="' . $edition['number'] . '">' . $edition['title'] . '</option>';
+									}
+								?>
+							</select>
+
+							<script>
+								jQuery(document).ready(function($){
+									// Select current edition by default.
+									$('#festival-edition-filters').val('<?php echo $currentEdition['number']; ?>');
+
+									$('#festival-edition-filters').change(function(){
+										var selectedEdition = $(this).val();
+
+										// Triggers a reload with selected edition sent as query param.
+										var queryString = window.location.search == '' ? '?' : window.location.search + '&';
+										window.location.href = window.location.pathname + queryString + $.param({
+											edition: selectedEdition
+										});
+									});
+								});
+							</script>
+
 							<br/>
 							<span class="subheader">
 							<?php
@@ -58,7 +89,7 @@
 								// For each festival day, show all the films that will be screened that day.
 								foreach($days as $key => $day){
 
-									$posts = getMoviesAndMovieBlocks($edition, $day);
+									$posts = getMoviesAndMovieBlocks($currentEdition, $day);
 
 									// If no movies for this day, then continue with the next one.
 									if (count($posts) == 0){

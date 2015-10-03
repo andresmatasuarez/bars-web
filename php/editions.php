@@ -8,6 +8,10 @@ class Editions {
     self::$editions = json_decode(file_get_contents($filepath), true);
   }
 
+  public static function all(){
+    return self::$editions;
+  }
+
   public static function current(){
     $max = NULL;
     foreach(self::$editions as $key => $edition){
