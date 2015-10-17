@@ -102,9 +102,11 @@ body { margin: 0; background: url("images/bgpattern2.png"); overflow-x: hidden; 
 #page-juries .jury .jury-info { padding-right: 10px; line-height: 1.5; }
 #page-juries .jury .jury-info .jury-name { margin-bottom: 10px; font-size: 1.1em; font-weight: bold; }
 
-/*
- (contact.php) */
+/* Contact (contact.php) */
 #page-contact .contact-form-container { padding: 10px 40px; }
+
+/* Press (press.php) */
+#page-press .press-form-container { padding: 10px 40px; }
 
 /* Home (index.php) */
 #page-home .page-section-title,

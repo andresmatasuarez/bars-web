@@ -1,7 +1,7 @@
-		jQuery(document).ready(function($) {
-	
+jQuery(document).ready(function($) {
+
 	$('.email-success, .email-error').hide();
-	
+
 	$('#contact-form').validate({
 				rules: {
 						name: {
@@ -26,7 +26,7 @@
 								maxlength: 450
 						}
 				},
-		
+
 				messages: {
 						name: {
 							required:		'• Nombre es un campo requerido.',
@@ -50,7 +50,7 @@
 							maxlength:	'• Longitud máxima del mensaje: 450 caracteres.'
 						}
 				},
-		
+
 				submitHandler: function(form) {
 						$(form).ajaxSubmit({
 								url: '/2.0/wp-content/themes/bars2013/email.php',

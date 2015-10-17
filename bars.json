@@ -33,6 +33,7 @@
 			"css/text.css",
 			"css/sponsors.css",
 			"css/contact.css",
+			"css/press.css",
 			"css/main.css",
 			"css/genericons/genericons.css",
 			"css/slider.css",
@@ -43,6 +44,7 @@
 		"js": [
 			"js/bars.js",
 			"js/contact.js",
+			"js/press.js",
 			"js/slider.js"
 		],
 

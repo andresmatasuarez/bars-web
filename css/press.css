@@ -1,0 +1,41 @@
+/* Form & Input layout */
+#press-form table { border-color: transparent; border-spacing: 20px; }
+#press-form .press-form-input > * { vertical-align: top; }
+#press-form .press-form-input .press-form-input-label { width: 100px; text-align: right; }
+#press-form .press-form-input .press-form-input-label.required:before { content: '*'; font-weight: bold; color: red; margin: 0 8px 0 0; }
+
+#press-form #accredited_name input,
+#press-form #accredited_id input,
+#press-form #accredited_city input,
+#press-form #accredited_country input,
+#press-form #accredited_mobile input,
+#press-form #accredited_email input,
+#press-form #press_media_name input,
+#press-form #press_media_contact input,
+#press-form #press_media_city input,
+#press-form #press_media_country input,
+#press-form #press_media_editor input { width: 350px; }
+
+#press-form #message textarea { width: 350px; height: 150px; }
+#press-form .press-form-input-hint { text-align: right; }
+
+/* Input styling */
+#press-form input, #press-form textarea { border-radius: 4px; font-family: 'Open Sans'; font-size: 10pt; margin: 0 0 5px 0; padding: 8px; }
+#press-form #submit input { padding: 10px; }
+
+/* Validation messages styling */
+#press-form .press-form-input input.error,
+#press-form .press-form-input textarea.error { border-color: red; }
+#press-form .press-form-input label.error { float: left; vertical-align: top; padding: 5px 10px; color: red; }
+
+/* Shadow transition on focus*/
+#press-form input[type=text], textarea { outline: none; border: 1px solid #DDDDDD;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+}
+
+#press-form input[type=text]:focus, textarea:focus { box-shadow: 0 0 10px red; border: 1px solid rgba(81, 203, 238, 1); }
+
+#press-form #submit input { cursor: pointer; width: 100px; margin: 0 auto; background-color: rgb(175,0,0); border: none; color: white; font-family: Oswald; text-transform: uppercase; font-size: 15px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
