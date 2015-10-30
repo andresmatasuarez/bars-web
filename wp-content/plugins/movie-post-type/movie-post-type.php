@@ -48,6 +48,7 @@
 			'mediumLengthFilm'                    => array ( 'label' => 'Mediometrajes',               'value' => 'mediumLengthFilm' ),
 			'internationalFeatureFilmCompetition' => array ( 'label' => 'Competencia Internacional',   'value' => 'internationalFeatureFilmCompetition' ),
 			'iberoamericanFeatureFilmCompetition' => array ( 'label' => 'Competencia Iberoamericana',  'value' => 'iberoamericanFeatureFilmCompetition' ),
+			'argentinianFeatureFilmCompetition'   => array ( 'label' => 'Competencia Argentina',       'value' => 'argentinianFeatureFilmCompetition' ),
 			'releases'                            => array ( 'label' => 'Novedades',                   'value' => 'releases' ),
 			'anioVerde'                           => array ( 'label' => 'Argentina Año Verde',         'value' => 'anioVerde' ),
 			'herederosDelTerror'                  => array ( 'label' => 'Herederos Del Teror',         'value' => 'herederosDelTerror' ),
