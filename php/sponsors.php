@@ -103,6 +103,15 @@
 						<div class="auspiciante auspiciante_wancamp">
 							<a href="http://www.wancamp.com.ar" target="_blank" alt="Wancamp" ></a>
 						</div>
+						<div class="auspiciante auspiciante_circodelhorror">
+							<a href="https://www.facebook.com/Circo-del-Horror-Argentina-563554043767812/" target="_blank" alt="Circo del Horror" ></a>
+						</div>
+						<div class="auspiciante auspiciante_leonardofavio">
+							<a href="https://www.facebook.com/Academiadecine" target="_blank" alt="Leonardo Favio" ></a>
+						</div>
+						<div class="auspiciante auspiciante_filmsharks">
+							<a href="http://www.filmsharks.com/" target="_blank" alt="Filmsharks" ></a>
+						</div>
 
 					</div>
 				</div>
