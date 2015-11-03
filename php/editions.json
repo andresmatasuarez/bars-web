@@ -39,10 +39,132 @@
       "audience": [
         "Largometraje",
         "Cortometraje",
-        "Largometraje Competencia Bizarra"
+        "Largometraje Competencia Argentina"
       ]
     },
-    "juries": {}
+    "juries": {
+      "Competencia Internacional de largometrajes": [
+        {
+          "name": "Luis Ziembrowski",
+          "pic": {
+            "url": "images/jury_luis_ziembrowski.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 300,
+              "h": 214
+            }
+          },
+          "description": "<strong>Luis Ziembrowski</strong> es un actor argentino que también se ha desempeñado como director de cine y guionista. Saltó a la fama en 2007 con su papel de Donato Aguirre en la telecomedia <i>Lalola</i>, que le valió el Martín Fierro a mejor actor de reparto en comedia. Recibió tres premios Clarín: en el 2002, Revelación masculina (<i>22, el loco</i>), en el 2006, Mejor actor de reparto (<i>Mientras tanto</i>) y en el 2007, Mejor actor de comedia (<i>Lalola</i>). Como director, en 2008 codirigió con Javier Diment el telefilm <i>El Propietario</i> y en el 2013 dirigió <i>Lumpen</i>, su primer largometraje. Próximamente, lo podremos ver como protagonista de <i>El eslabón podrido</i>, de Javier Diment, e integrando un elenco estelar en <i>Kriptonyta</i>, de Nicanor Loretti."
+        },
+        {
+          "name": "Marcelo Panozzo",
+          "pic": {
+            "url": "images/jury_marcelo_panozzo.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 500,
+              "h": 500
+            }
+          },
+          "description": "<strong>Marcelo Panozzo</strong> es periodista, crítico, editor y programador. Nació en Quilmes, Buenos Aires, en 1967, y se inició como periodista especializado en música y cine en los suplementos juveniles de los diarios Sur y Página/12. Fue editor del suplemento \"Sí!\", jefe de \"Espectáculos\" del diario Clarín y editor del suplemento \"Cultura\" del diario La Nación. Dejando de lado el medio periodístico, desarrolla desde hace siete años tareas de editor en Penguin Random House y compiló para el Festival Internacional de Cine de Gijón libros sobre Tsai Ming-liang y Lucrecia Martel. Fue programador y encargado de publicaciones del Buenos Aires Festival Internacional de Cine Independiente (BAFICI), muestra de la que hoy es director artístico."
+        },
+        {
+          "name": "Martín Desalvo",
+          "pic": {
+            "url": "images/jury_martin_desalvo.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 500,
+              "h": 476
+            }
+          },
+          "description": "<strong>Martín Desalvo</strong> nació en Buenos Aires el 3 de febrero de 1973. Ex estudiante de Imagen y Sonido en la UBA, es director de cine y televisión, productor y docente. Trabajó como productor en Pol-Ka Producciones en las miniseries <i>Por el nombre de Dios</i>, <i>Primicias</i>, <i>Vulnerables</i>, <i>Ilusiones</i>, <i>099 central</i> y <i>Culpables</i>. En televisión, dirigió las producciones <i>Amas de casa desesperadas</i>, <i>Valientes</i>, <i>Para vestir santos</i> y los primeros capítulos de <i>El puntero</i>, entre otras. Dirigió las películas <i>Las mantenidas sin sueños</i> y <i>El día trajo la oscuridad</i>. Actualmente es vicepresidente de la asociación de directores de cine PCI."
+        }
+      ],
+
+      "Competencia Iberoamericana de largometrajes": [
+        {
+          "name": "César Jones",
+          "pic": {
+            "url": "images/jury_cesar_jones.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 548,
+              "h": 318
+            }
+          },
+          "description": "<strong>César Jones</strong>, nacido en La Plata en 1971, es director de la productora independiente de films porno LPsexxx realizaciones, surgida en el año 2000. Egresado de la carrera de Comunicación Audiovisual de la Facultad de Bellas Artes de la UNLP, ha dirigido hasta la fecha dieciséis largometrajes dentro del género condicionado. En 2007 recibió el premio al Mejor Director de Cine Porno Argentino, del FICEBA (Festival Internacional de Cine Erótico de Buenos Aires) y en 2015, el premio Sodoma a la Trayectoria, también como director de cine porno argentino. Durante 2003, publicó en la Red \"Argentina Sci-Fi\", un trabajo de investigación exploratoria sobre las relaciones entre la ciencia-ficción y el cine argentino desde comienzos del sonoro hasta los primeros estertores del nuevo milenio."
+        }, {
+          "name": "Emiliano Romero",
+          "pic": {
+            "url": "images/jury_emiliano_romero.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 500,
+              "h": 750
+            }
+          },
+          "description": "<strong>Emiliano Romero</strong> (Buenos Aires, 1979) es director, productor, guionista, montajista y camarógrafo. Egresado de la licenciatura de la Universidad del Cine en el 2003, realizó dos largometrajes, <i>Topos</i> y <i>Sarah</i>, y más de ochenta cortometrajes. Sus películas ganaron treinta y nueve premios internacionales. Dirige también comerciales, videoclips y programas de TV, como actualmente <i>Sucede</i>, para el canal UN3. Es el fundador del Circuito Alternativo de Exhibición \"No solo en cines\" y de la Academia Argentina de Actuación para Cine, donde forma actores para la pantalla grande desde el 2006. Siempre quiso ser una estrella de rock."
+        }, {
+          "name": "Federico Ambrosis",
+          "pic": {
+            "url": "images/jury_federico_ambrosis.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 403,
+              "h": 420
+            }
+          },
+          "description": "<strong>Federico Ambrosis</strong>, nacido en La Plata en 1980, es uno de los directores del FESAALP —Festival Latinoamericano de cine de La Plata— y actualmente se desempeña como director de BAFILM — Área de cine de la Provincia de Buenos Aires—. Es el creador de <i>Opera Prima</i>, programa de cine que lleva 11 años en Radio Universidad La Plata, de <i>FESAALP TV</i>, programa de TV que se emite hace 4 años en canal Somos, y es miembro de RAFMA."
+        }
+      ],
+
+      "Competencia Internacional de cortometrajes": [
+        {
+          "name": "Andrés Valenzuela",
+          "pic": {
+            "url": "images/jury_andres_valenzuela.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 600,
+              "h": 400
+            }
+          },
+          "description": "<strong>Andrés Valenzuela</strong> nació en Buenos Aires en 1981. Es periodista y colabora principalmente con el diario Página/12, donde escribe, entrevista y reseña sobre historieta, cine y tango, entre otros temas. Publicó el libro Ciencia y superhéroes junto a Paula Bombara, llevó adelante el sitio web \"Cuadritos, periodismo de historieta\" durante cinco años y fue jurado de distintos premios de historieta (Solano López en 2010, Banda Dibujada en 2012, Comicópolis en 2015). Hasta el momento, no pidieron su cabeza por ninguno de esos fallos. En su oficio intenta practicar el \"valardohaerismo\" como práctica de promoción cultural."
+        }, {
+          "name": "Nicolás Leonardo Vetromile",
+          "pic": {
+            "url": "images/jury_nicolas_leonardo_vetromile.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 500,
+              "h": 333
+            }
+          },
+          "description": "<strong>Nicolás Leonardo Vetromile</strong> nació en Buenos Aires en 1980. Es ex alumno de la carrera de Montaje del ENERC, donde realizó una gran cantidad de cortometrajes en diferentes roles. Elaboró notas de índole técnico para diferentes publicaciones especializadas como Cine y Artes Audiovisuales y páginas como TandilFilms y Grupo Kane, entre otras. Su filmografía como montajista comprende los cortometrajes <i>Meneses</i> (2004) y <i>Ladrones de la corona</i> (2002), entre muchos otros, y los largometrajes <i>Compañeros, casi amigos</i> (2007) y <i>Radio Olmos</i> (2008). En la actualidad es jefe de departamento y asesor técnico del Centro de Producción Audiovisual de la Coordinación de Comunicación del INCAA."
+        }, {
+          "name": "Germán Magariños",
+          "pic": {
+            "url": "images/jury_german_magarinos.jpg",
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 500,
+              "h": 594
+            }
+          },
+          "description": "<strong>Germán Magariños</strong>, nacido en Buenos Aires en 1978, es fundador y director de todas las películas de Gorevision Films. Desde el 2001, año en que termino su primer largometraje, hasta el 2015, ha realizado y estrenado más de 20 películas. En su mayoría enroladas en lo que se puede denominar \"gore bizarro\", son las más conocidas <i>Sadomaster</i>, <i>Los super bonaerenses</i> y <i>Goretech</i>, ganadora del premio del BARS 2013 a la Mejor Película Iberoamericana. "
+        }
+        ]
+    }
   },
   {
     "number" : 15,
@@ -63,7 +185,7 @@
         "es": "/resources/auth2014_es.pdf",
         "en": "/resources/auth2014_en.pdf"
       },
-      "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li>Completar el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>.</li> <li>Enviar una copia en DVD por correo, acompañado de la hoja de autorización impresa y cumplimentada o enviar un screener online acompañado de la hoja de autorización completa y escaneada.</li> <li>Enviar un CD (o adjuntar vía mail) con la siguiente información: foto de la película (300 DPI), dossier de prensa del film (sinopsis, ficha técnica, biofilmografía del director, etc.), un trailer en calidad DVD (para los  largometrajes) y guía de diálogos (si fuera necesario). Ese mismo material se puede enviar de manera electrónica.</li> <li>Opcionalmente se podrá enviar pósters impresos u otro material promocional. La fecha tope para la recepción del material es el <strong>1 de agosto de 2014</strong>.</li> </ul> </li> <li> Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (como youtube, vimeo, etc.). Se aceptan envíos a través de la plataformas <a href=\"http://www.movibeta.com/\" target=\"blank\">Movibeta</a>, <a href=\"http://www.clickforfestivals.com/\" target=\"blank\">ClickForFestivals</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a> siempre y cuando completen el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>. Los envíos de material adicional deben hacerse al siguiente mail: <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a><br /> </li> <li> Los envíos por correo tradicional deben hacerse a la siguiente dirección:<br /> <div class=\"mail-address\"> <strong>FESTIVAL BUENOS AIRES ROJO SANGRE</strong><br /> Casilla de Correo 19, Correo Argentino<br /> Sucursal 2- Martínez<br /> (CP 1640) Buenos Aires<br /> Argentina </div> <p>En los envíos internacionales, en el sobre debe figurar la leyenda “sin valor comercial – solamente con propósito cultural”. Se recomienda declarar sólo el valor del material virgen (1 u$s por ejemplo), para evitar innecesarias tasas aduaneras. Esta dirección es sólo válida para correo común, si piensa enviar por Fedex, TNT u otro courier, solicítenos la dirección postal específica para tal fin. Se recomienda encarecidamente no hacer envíos por DHL por dificultades burocráticas generadas por esta empresa.</p> </li> <li> <strong>La inscripción al festival no tiene ningún costo.</strong> </li> <li> Los gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros fantástico, bizarro, ciencia–ficción y terror. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección.<br /> Los largometrajes se proyectarán en 35mm, DCP, DVD, Blu-Ray, Betacam o DVcam.<br /> Los cortometrajes se proyectarán en DVD o en HD 720p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br /> Resolución: 720p (standard)<br /> Canales de Audio: 2 (estéreo)<br /> Audio Sample Rate: 48kHz<br /> Audio Bit Depth: 16 ó 24 bits<br /> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al 1 de enero de 2013.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción y en cualquier formato.</li> <li>Secciones internacional competitiva de cortometrajes para películas en cualquier formato, de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al 1 de enero de 2013.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas, formato o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li> Se considera largometrajes a producciones de una duración superior a los 60 minutos. </li> <li> Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de difusión en medios electrónicos o que no hayan tenido ninguna clase de exhibición pública en la ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección. </li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Premio del Público Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Director Cortometraje</li> </ul> <p> Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br /> El mejor cortometraje argentino participará del festival La Noche Del Cortometraje, organizado por el INCAA. </p> </li> <li> El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición. </li> <li> Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue list o subtitle list) en español o inglés para facilitar la traducción. </li> <li> El Festival se compromete a no efectuar más de tres (3) proyecciones del film. </li> <li> La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen. </li> </ul>"
+      "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li>Completar el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>.</li> <li>Enviar una copia en DVD por correo, acompañado de la hoja de autorización impresa y cumplimentada o enviar un screener online acompañado de la hoja de autorización completa y escaneada.</li> <li>Enviar un CD (o adjuntar vía mail) con la siguiente información: foto de la película (300 DPI), dossier de prensa del film (sinopsis, ficha técnica, biofilmografía del director, etc.), un trailer en calidad DVD (para los  largometrajes) y guía de diálogos (si fuera necesario). Ese mismo material se puede enviar de manera electrónica.</li> <li>Opcionalmente se podrá enviar pósters impresos u otro material promocional. La fecha tope para la recepción del material es el <strong>1 de agosto de 2014</strong>.</li> </ul> </li> <li> Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (como youtube, vimeo, etc.). Se aceptan envíos a través de la plataformas <a href=\"http://www.movibeta.com/\" target=\"blank\">Movibeta</a>, <a href=\"http://www.clickforfestivals.com/\" target=\"blank\">ClickForFestivals</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a> siempre y cuando completen el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>. Los envíos de material adicional deben hacerse al siguiente mail: <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a><br /> </li> <li> Los envíos por correo tradicional deben hacerse a la siguiente dirección:<br /> <div class=\"mail-address\"> <strong>FESTIVAL BUENOS AIRES ROJO SANGRE</strong><br /> Casilla de Correo 19, Correo Argentino<br /> Sucursal 2- Martínez<br /> (CP 1640) Buenos Aires<br /> Argentina </div> <p>En los envíos internacionales, en el sobre debe figurar la leyenda \"sin valor comercial – solamente con propósito cultural\". Se recomienda declarar sólo el valor del material virgen (1 u$s por ejemplo), para evitar innecesarias tasas aduaneras. Esta dirección es sólo válida para correo común, si piensa enviar por Fedex, TNT u otro courier, solicítenos la dirección postal específica para tal fin. Se recomienda encarecidamente no hacer envíos por DHL por dificultades burocráticas generadas por esta empresa.</p> </li> <li> <strong>La inscripción al festival no tiene ningún costo.</strong> </li> <li> Los gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros fantástico, bizarro, ciencia–ficción y terror. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección.<br /> Los largometrajes se proyectarán en 35mm, DCP, DVD, Blu-Ray, Betacam o DVcam.<br /> Los cortometrajes se proyectarán en DVD o en HD 720p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br /> Resolución: 720p (standard)<br /> Canales de Audio: 2 (estéreo)<br /> Audio Sample Rate: 48kHz<br /> Audio Bit Depth: 16 ó 24 bits<br /> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al 1 de enero de 2013.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción y en cualquier formato.</li> <li>Secciones internacional competitiva de cortometrajes para películas en cualquier formato, de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al 1 de enero de 2013.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas, formato o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li> Se considera largometrajes a producciones de una duración superior a los 60 minutos. </li> <li> Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de difusión en medios electrónicos o que no hayan tenido ninguna clase de exhibición pública en la ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección. </li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Premio del Público Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Director Cortometraje</li> </ul> <p> Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br /> El mejor cortometraje argentino participará del festival La Noche Del Cortometraje, organizado por el INCAA. </p> </li> <li> El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición. </li> <li> Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue list o subtitle list) en español o inglés para facilitar la traducción. </li> <li> El Festival se compromete a no efectuar más de tres (3) proyecciones del film. </li> <li> La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen. </li> </ul>"
     },
     "awards": {
       "jury": [
@@ -209,7 +331,7 @@
               "h" : 520
             }
           },
-          "description": "<strong>Leandro Adrian Balbuena</strong>, panchero, esposo, padre, periodista autodidacta, creador de la web <i>Cine fantástico y bizarro</i>, un sitio en Facebook donde se mezclan el cine <i>mainstream</i> y el <i>under</i> en partes iguales. Ha creado el “mega archivo de cine de género nacional”, donde se encuentran los links para ver o descargar todo lo referido al cine de género de Argentina. Hace poco más de un año decidió lanzar la versión impresa de este portal y ya lleva editados 6 números."
+          "description": "<strong>Leandro Adrian Balbuena</strong>, panchero, esposo, padre, periodista autodidacta, creador de la web <i>Cine fantástico y bizarro</i>, un sitio en Facebook donde se mezclan el cine <i>mainstream</i> y el <i>under</i> en partes iguales. Ha creado el \"mega archivo de cine de género nacional\", donde se encuentran los links para ver o descargar todo lo referido al cine de género de Argentina. Hace poco más de un año decidió lanzar la versión impresa de este portal y ya lleva editados 6 números."
         }
       ]
     }
