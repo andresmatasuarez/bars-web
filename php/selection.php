@@ -139,27 +139,27 @@
 													$datetime = preg_split('/[\s]+/', $screening);
 													if ($datetime[0] == $day->format('m-d-Y')){
 														$time = $datetime[1];
-														break;
+
+														echo '<div class="movie-post" section="' . $sectionValue . '">';
+															echo '<div class="movie-post-hour">' . $time . '</div>';
+															echo '<a href="#movie-container" link="' . get_post_permalink($post->ID) . '">';
+																echo '<div class="movie-post-thumbnail">';
+																	echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
+																	echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
+																echo '</div>';
+																echo '<div class="movie-post-title-container">';
+																	echo '<div class="movie-post-title">';
+																		echo '<span class="movie-post-title-text">';
+																			echo get_the_title($post->ID);
+																		echo '</span>';
+																	echo '</div>';
+																	echo '<div class="movie-post-info">' . $info . '</div>';
+																echo '</div>';
+															echo '</a>';
+														echo '</div>';
+
 													}
 												}
-
-												echo '<div class="movie-post" section="' . $sectionValue . '">';
-													echo '<div class="movie-post-hour">' . $time . '</div>';
-													echo '<a href="#movie-container" link="' . get_post_permalink($post->ID) . '">';
-														echo '<div class="movie-post-thumbnail">';
-															echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
-															echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
-														echo '</div>';
-														echo '<div class="movie-post-title-container">';
-															echo '<div class="movie-post-title">';
-																echo '<span class="movie-post-title-text">';
-																	echo get_the_title($post->ID);
-																echo '</span>';
-															echo '</div>';
-															echo '<div class="movie-post-info">' . $info . '</div>';
-														echo '</div>';
-													echo '</a>';
-												echo '</div>';
 
 											}
 
