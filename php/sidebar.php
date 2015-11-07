@@ -37,6 +37,12 @@
 			?>
 
 			<?php
+				if (isset($edition['programme_gs']) && !empty($edition['programme_gs'])){
+					echo add_image_sidebar_widget('sidebar relative image', 'Programación ByN', get_bloginfo('template_directory') . '/' . $edition['programme_gs']);
+				}
+			?>
+
+			<?php
 				if (isset($edition['closing_party']) && !empty($edition['closing_party'])){
 					echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura', get_bloginfo('template_directory') . '/' . $edition['closing_party']);
 				}

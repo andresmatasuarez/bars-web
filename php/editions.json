@@ -8,7 +8,8 @@
     },
     "poster" : "images/bars2015_afiche.jpg",
     "programme" : "images/bars2015_programme.jpg",
-    "closing_party" : "",
+    "programme_gs" : "images/bars2015_programme_gs.jpg",
+    "closing_party" : "images/bars2015_fiesta_clausura.jpg",
     "spot": "",
     "call": {
       "from": "",
