@@ -162,8 +162,8 @@ module.exports = function(grunt){
 		sprite:{
       all: {
         src: '<%= bars.src.sprites %>',
-        destImg: '<%= bars.dest.sprites %>',
-        destCSS: 'css/sprites.css',
+        dest: '<%= bars.dest.sprites %>',
+        destCss: 'css/sprites.css',
         imgPath: '<%= bars.dest.cssSpritesImgPath %>',
         cssOpts: {
 					// CSS template allows for overriding of CSS selectors

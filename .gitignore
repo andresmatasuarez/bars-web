@@ -3,6 +3,8 @@ lib
 node_modules
 vendor
 tmp
+composer.phar
+composer.lock
 wp-content/uploads
 wp-content/upgrade
 wp-content/themes/index.php
