@@ -92,8 +92,10 @@
 						<div class="scratch"></div>
 
 						<div class="basis-footer text-oswald">
-							<a href="<?php echo $call['form'] ?>" target="blank" >Ir al formulario online</a>
-							| Ver la hoja de autorización
+							<?php if ($call['form'] !== NULL) { ?>
+								<a href="<?php echo $call['form'] ?>" target="blank" >Ir al formulario online</a> |
+							<?php } ?>
+							Ver la hoja de autorización
 
 							<?php
 								foreach ($call['authorization'] as $key => $value) {
