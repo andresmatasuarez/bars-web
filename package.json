@@ -13,6 +13,7 @@
   "main": "Gruntfile.js",
   "gruntfile": "Gruntfile.js",
   "devDependencies": {
+    "bower": "^1.7.9",
     "grunt": "^0.4.4",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^0.5.0",
