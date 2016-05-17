@@ -22,7 +22,7 @@
 			"lib/fancybox/source/jquery.fancybox.js",
 			"lib/jquery-form/jquery.form.js",
 			"lib/jquery-validation/dist/jquery.validate.js",
-			"lib/jQuery.dotdotdot/src/js/jquery.dotdotdot.js",
+			"lib/jQuery.dotdotdot/src/jquery.dotdotdot.js",
 			"lib/imgLiquid/js/imgLiquid.js",
 			"lib/jquery-focuspoint/js/jquery.focuspoint.js"
 		],
