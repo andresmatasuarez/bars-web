@@ -1,5 +1,4 @@
 .htwaccess
-lib
 node_modules
 vendor
 tmp
