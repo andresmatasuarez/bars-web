@@ -7,9 +7,9 @@
 
 	get_header();
 ?>
-					
+
 					<div id="page-search" class="page" >
-					
+
 						<div class="search-box">
 							<div class="search-summary">
 								<div class="label">Resultados de búsqueda para </div>
@@ -33,19 +33,20 @@
 								echo '</div>';
 							} else {
 						?>
-							<div class="warning search-no-results">
+							<div class="warning">
+								<div><span class="fa fa-exclamation-circle"></span></div>
 								<div class="reason">No se encontraron resultados</div>
 								<div class="description">Volvé a intentar la búsqueda utilizando otras palabras.</div>
 							</div>
 						<?php
 							}
 						?>
-						
+
 						<?php pagination(esc_attr(get_query_var('paged') ? absint(get_query_var('paged')) : 1)); ?>
-						
+
 					</div>
-				
-				
+
+
 	<?php
 		get_sidebar();
 		get_footer();

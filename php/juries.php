@@ -74,7 +74,7 @@
                   foreach($edition['juries'] as $section => $juries){
 
                     echo '<div class="page-header juries section">';
-                    echo    '<span class="genericon genericon-video"></span>';
+                    echo    '<span class="fa fa-film"></span>';
                     echo    $section;
                     echo    '<div class="scratch"></div>';
                     echo '</div>';

@@ -9,13 +9,14 @@
 ?>
 				<div class="page">
 
-					<div class="warning error404">
-						<div class="reason">Sitio no encontrado!</div>
-						<div class="description">Estamos trabajando en esto. Volvé a ingresar en unos días!</div>
+					<div class="warning">
+						<div><span class="fa fa-times"></span></div>
+						<div class="reason">Pagina no encontrada!</div>
+						<div class="description">Esta pagina no existe o dejo de hacerlo. Chequea la direccion y volvé a intentar!</div>
 					</div>
 
 				</div>
-				
+
 	<?php
 		get_sidebar();
 		get_footer();

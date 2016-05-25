@@ -30,10 +30,10 @@ define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT .
 define('DB_NAME', 'bars');
 
 /** MySQL database username */
-define('DB_USER', 'admin');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '1');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

@@ -20,9 +20,9 @@
 				<?php get_search_form(); ?>
 			</div>
 			<div class="footer-logos">
-				<div class="bars-image"></div>
+				<div class="footer-image"></div>
 				<a href="mailto:amatasuarez@gmail.com">
-					<div class="fs-image"></div>
+					<div class="footer-festering-slime"></div>
 				</a>
 			</div>
 		</div>

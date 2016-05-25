@@ -69,7 +69,7 @@
   DEFINE('ERROR_MAIL', 'Surgió un problema al enviar el e-mail. Volvé a intentar más tarde.');
   DEFINE('ERROR_EMAIL_INVALID', 'Formato de e-mail inválido');
 
-  require 'phpmailer/PHPMailerAutoload.php';
+  require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
   date_default_timezone_set('America/Argentina/Buenos_Aires');
 

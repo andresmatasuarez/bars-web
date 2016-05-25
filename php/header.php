@@ -28,14 +28,11 @@
 	<![endif]-->
 
 	<?php
-		wp_enqueue_script('jquery');
 		wp_head();
 	?>
 
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css" media="screen"></link>
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/fancybox/jquery.fancybox.css" type="text/css" media="screen"></link>
-
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/lib.min.js"></script>
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"></link>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/main.js"></script>
 
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
@@ -110,15 +107,21 @@
 				Festival internacional de cine de terror, fantástico y bizarro
 			</div>
 			<a href="<?php echo esc_url('/'); ?>">
-				<div id="header-image">
+				<div class="header-image">
 				</div>
 			</a>
 
 			<!-- SOCIAL ICONS -->
 			<div id="header-social">
-				<a href="https://www.facebook.com/BuenosAiresRojoSangre" target="blank"><div id="bars-header-social-facebook"></div></a>
-				<a href="http://www.youtube.com/user/RojoSangreFestival" target="blank"><div id="bars-header-social-youtube"></div></a>
-				<a href="https://twitter.com/rojosangre" target="blank"><div id="bars-header-social-twitter"></div></a>
+				<a href="https://www.facebook.com/BuenosAiresRojoSangre" target="blank">
+					<span class="fa fa-facebook-square"></span>
+				</a>
+				<a href="http://www.youtube.com/user/RojoSangreFestival" target="blank">
+					<span class="fa fa-youtube-square"></span>
+				</a>
+				<a href="https://twitter.com/rojosangre" target="blank">
+					<span class="fa fa-twitter-square"></span>
+				</a>
 			</div>
 
 			<!-- <div id="header-clouds"></div> -->

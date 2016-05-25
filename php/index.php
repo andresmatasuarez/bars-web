@@ -17,17 +17,17 @@
 ?>
 
 					<div id="page-home" class="page" >
-						<div id="slider" >
+						<div class="slider" >
 							<?php
-							
+
 								$latestPostsCount = 5;
-							
+
 								$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
 								$position = 0;
 								foreach( $recent_posts as $recent ){
 									if (get_post_thumbnail_id($recent["ID"]) != ''){
 										echo '<div class="slide" slide-position="' . $position++ . '" permalink="' . get_permalink($recent["ID"]) . '">';
-										
+
 											echo '<img src="' . wp_get_attachment_url( get_post_thumbnail_id($recent["ID"])) . '"></img>';
 											echo '<div class="slide-caption">';
 												echo '<div class="slide-title">' . $recent["post_title"] . '</div>';
@@ -38,15 +38,19 @@
 								}
 							?>
 							<div class="slider-controls">
-								<div class="slider-control left circle"><div class="arrow"></div></div>
-								<div class="slider-control right circle"><div class="arrow"></div></div>
+								<div class="slider-control left circle">
+									<span class="fa fa-arrow-left"></span>
+								</div>
+								<div class="slider-control right circle">
+									<span class="fa fa-arrow-right"></span>
+								</div>
 							</div>
 						</div>
-					
+
 						<div class="latest-posts-header page-section-title">
 							Últimas novedades
 						</div>
-						
+
 						<div id="latest-posts" class="posts">
 							<?php
 								$recent_posts = wp_get_recent_posts( array('numberposts' => $latestPostsCount) );
@@ -55,16 +59,16 @@
 								}
 							?>
 						</div>
-						
+
 						<div class="more-posts">
 							<a href="?page_id=14">
 								Ver todas
 							</a>
 						</div>
-						
+
 					</div>
-				
-				
+
+
 	<?php
 		get_sidebar();
 		get_footer();

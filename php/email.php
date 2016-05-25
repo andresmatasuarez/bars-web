@@ -5,7 +5,7 @@
 	DEFINE('SENDER_NAME',			'BARS - Contacto');
 	DEFINE('SENDER_EMAIL',		'noreply@bars.com.ar');
 	DEFINE('EMAIL_CHARSET',		'UTF-8');
-	
+
 	DEFINE('DATETIME_FIELD_ID',	'datetime');
 	DEFINE('NAME_FIELD_ID',			'name');
 	DEFINE('EMAIL_FIELD_ID',		'email');
@@ -41,7 +41,7 @@
 	DEFINE('ERROR_EMAIL_INVALID', 'Formato de e-mail inválido');
 	DEFINE('ERROR_URL_INVALID', 'Formato de la URL inválido');
 
-	require 'phpmailer/PHPMailerAutoload.php';
+	require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
 	date_default_timezone_set('America/Argentina/Buenos_Aires');
 
@@ -111,11 +111,11 @@
 	}
 
 	function emailAltBody($datetime, $name, $email, $url, $subject, $message){
-		return	DATETIME_FIELD_LABEL	. ': ' . $datetime . "\r\n" . 
-						NAME_FIELD_LABEL			. ': ' . $name . "\r\n" . 
-						EMAIL_FIELD_LABEL			. ': ' . $email . "\r\n" . 
-						URL_FIELD_LABEL				. ': ' . ($url ?: '') . "\r\n" . 
-						SUBJECT_FIELD_LABEL		. ': ' . $subject . "\r\n" . 
+		return	DATETIME_FIELD_LABEL	. ': ' . $datetime . "\r\n" .
+						NAME_FIELD_LABEL			. ': ' . $name . "\r\n" .
+						EMAIL_FIELD_LABEL			. ': ' . $email . "\r\n" .
+						URL_FIELD_LABEL				. ': ' . ($url ?: '') . "\r\n" .
+						SUBJECT_FIELD_LABEL		. ': ' . $subject . "\r\n" .
 						MESSAGE_FIELD_LABEL		. ': ' . $message . "\r\n";
 	}
 

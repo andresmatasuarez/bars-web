@@ -17,8 +17,12 @@
 	}
 
 	$days = Editions::days($currentEdition);
-
 ?>
+
+<script>
+	window.CURRENT_EDITION = <?php echo $currentEdition['number'] ?>;
+</script>
+
 					<div id="page-selection" class="page" >
 
 						<div class="page-header">
@@ -32,23 +36,6 @@
 									}
 								?>
 							</select>
-
-							<script>
-								jQuery(document).ready(function($){
-									// Select current edition by default.
-									$('#festival-edition-filters').val('<?php echo $currentEdition['number']; ?>');
-
-									$('#festival-edition-filters').change(function(){
-										var selectedEdition = $(this).val();
-
-										// Triggers a reload with selected edition sent as query param.
-										var queryString = window.location.search == '' ? '?' : window.location.search + '&';
-										window.location.href = window.location.pathname + queryString + $.param({
-											edition: selectedEdition
-										});
-									});
-								});
-							</script>
 
 							<br/>
 							<span class="subheader">

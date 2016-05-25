@@ -1,0 +1,35 @@
+/* Links */
+a { color: rgb(220,0,0); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header menu */
+#header-menu .nav-menu ul li {
+  a { padding: 8px; }
+  &:hover { background-color: rgb(36, 31, 31); }
+  a:link, a:visited, a:hover, a:active {
+    background: none;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: normal;
+    color: white;
+  }
+  &.current_page_item { background-color: rgb(175, 0, 0); font-size: 1.1em; }
+}
+
+/* Home (index.php) */
+.posts .post {
+  .post-footer .post-comment-count a { text-decoration: none; color: white; }
+  .post-title a { color: rgb(255,0,0); }
+}
+
+/* Single (single.php) */
+#page-single {
+  .post-previous a:hover,
+  .post-next a:hover { text-decoration: none; }
+}
+
+/* Movie block */
+.movieblock .movie-selectors .movie-post {
+  &:hover a { text-decoration: none; color: white; }
+  a { text-decoration: none; color: #bbbbbb; }
+}

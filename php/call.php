@@ -27,7 +27,9 @@
 					<div id="page-call" class="page <?php echo ($call_is_closed ? 'call-is-closed' : '') ?>" >
 
 						<div class="call-is-closed-message">
-							<h1 class="genericon genericon-spam"></h1>
+							<div>
+								<span class="fa fa-exclamation-circle"></span>
+							</div>
 							<h1>Convocatoria cerrada hasta el año que viene</h1>
 							<h3>Las bases se dejan a la vista para que los interesados se vayan preparando.</h3>
 							<h3>Los links a los formularios de inscripción se encuentran deshabilitados hasta la próxima convocatoria.</h3>
