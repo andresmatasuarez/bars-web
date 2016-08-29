@@ -29,5 +29,5 @@ bars-web
 
 # Installation & Development
 1. `npm install`
-3. `php composer.phar install`
-4. `grunt dev`
+2. `php composer.phar install`
+3. `npm start`

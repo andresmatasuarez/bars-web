@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d4b52fe467365aac15636fa4af9ac37",
+    "hash": "c0de950e846329c386443dcd3ec0e183",
+    "content-hash": "f705f7b9d4e0d611989bb33f8a251c20",
     "packages": [
         {
             "name": "phpmailer/phpmailer",
@@ -12,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "09d40c428f11092f7cce16405594df3f0a348d5a"
+                "reference": "7c1154b63cf729e8cb5daac5c7a3c23883dde8fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/09d40c428f11092f7cce16405594df3f0a348d5a",
-                "reference": "09d40c428f11092f7cce16405594df3f0a348d5a",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/7c1154b63cf729e8cb5daac5c7a3c23883dde8fb",
+                "reference": "7c1154b63cf729e8cb5daac5c7a3c23883dde8fb",
                 "shasum": ""
             },
             "require": {
@@ -25,14 +26,21 @@
             },
             "require-dev": {
                 "phpdocumentor/phpdocumentor": "*",
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "4.7.*"
+            },
+            "suggest": {
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
             },
             "type": "library",
             "autoload": {
                 "classmap": [
                     "class.phpmailer.php",
+                    "class.phpmaileroauth.php",
+                    "class.phpmaileroauthgoogle.php",
+                    "class.smtp.php",
                     "class.pop3.php",
-                    "class.smtp.php"
+                    "extras/EasyPeasyICS.php",
+                    "extras/ntlm_sasl_client.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -57,7 +65,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2014-10-15 09:06:58"
+            "time": "2016-08-29 13:22:56"
         }
     ],
     "packages-dev": [],
@@ -67,6 +75,7 @@
         "phpmailer/phpmailer": 20
     },
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
