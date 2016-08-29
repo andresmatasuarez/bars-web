@@ -18,7 +18,11 @@
 	$call_deadline = Editions::callDeadline();
 
 	$year = $from->format('Y');
-	$terms = str_replace('%%FORM%%', $call['form'], $call['terms']);
+	if (isset($call['form'])) {
+		$terms = str_replace('%%FORM%%', $call['form'], $call['terms']);
+	} else {
+		$terms = $call['terms'];
+	}
 
 	$call_is_closed = strtotime('now') > strtotime($call['to']);
 
@@ -61,6 +65,10 @@
 								<?php echo $year; ?>
 								]
 							</span>
+							<br />
+							<?php if (isset($call['terms_en'])) { ?>
+								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . $call['terms_en']; ?>" target="_blank">Terms in English</a>
+							<?php } ?>
 						</div>
 
 						<div class="scratch"></div>
@@ -94,7 +102,7 @@
 						<div class="scratch"></div>
 
 						<div class="basis-footer text-oswald">
-							<?php if ($call['form'] !== NULL) { ?>
+							<?php if (isset($call['form'])) { ?>
 								<a href="<?php echo $call['form'] ?>" target="blank" >Ir al formulario online</a> |
 							<?php } ?>
 							Ver la hoja de autorización
