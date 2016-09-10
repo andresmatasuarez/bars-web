@@ -38,7 +38,7 @@
 							<a target="_blank" href="http://www.incaa.gov.ar/" alt="INCAA" ></a>
 						</div>
 						<div class="sponsor sponsor-multiplex">
-							<a target="_blank" href="http://www.cinesmultiplex.com.ar/" alt="Monumental Lavalle Multiplex" ></a>
+							<a target="_blank" href="http://www.cinesmultiplex.com.ar/" alt="Multiplex Lavalle" ></a>
 						</div>
 						<div class="sponsor sponsor-nacionalrock">
 							<a target="_blank" href="http://nacionalrock.com/" alt="Nacional Rock" ></a>

@@ -94,7 +94,7 @@
 				</div>
 				<div class="center"><?php echo $year; ?></div>
 				<div class="right size-highlight">
-					Complejo Monumental Lavalle
+					Multiplex Lavalle
 				</div>
 			</div>
 		</div>
@@ -157,7 +157,7 @@
 							<div>al</div>
 						</div>
 						<div class="festival-cinemas">
-							<div><strong>Complejo Monumental</strong><br/></div>
+							<div><strong>Multiplex</strong><br/></div>
 							<div>Sala 9, 10, 11: Lavalle 836<br/></div>
 							<div>Sala 3: Lavalle 780</div>
 						</div>
