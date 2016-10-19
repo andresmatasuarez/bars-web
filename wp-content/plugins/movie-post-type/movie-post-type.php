@@ -68,7 +68,11 @@
 
 			// Bars 2015 new sections
 			'argentinianFeatureFilmCompetition' => array ( 'label' => 'Competencia Argentina', 'value' => 'argentinianFeatureFilmCompetition' ),
-			'reposiciones'                      => array ( 'label' => 'Reposiciones',          'value' => 'reposiciones' )
+			'reposiciones'                      => array ( 'label' => 'Reposiciones',          'value' => 'reposiciones' ),
+
+			// Bars 2016 new sections
+			'deodatoTribute'    => array ( 'label' => 'Homenaje Deodato',     'value' => 'deodatoTribute' ),
+			'specialScreenings' => array ( 'label' => 'Funciones especiales', 'value' => 'specialScreenings' )
 		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
@@ -79,6 +83,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars17' => array ( 'label' => 'BARS 17',	'value' => 'bars17' ),
 					'bars16' => array ( 'label' => 'BARS 16',	'value' => 'bars16' ),
 					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
 					'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' )
@@ -170,6 +175,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars17' => array ( 'label' => 'BARS 17',	'value' => 'bars17' ),
 					'bars16' => array ( 'label' => 'BARS 16',	'value' => 'bars16' ),
 					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
 					'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' )
@@ -452,7 +458,7 @@
 			'posts_per_page' => -1,
 			'meta_query' => array(array(
 			  'key'     => '_movieblock_edition',
-			  'value'   => 'bars16',
+			  'value'   => 'bars17',
 			  'compare' => 'LIKE'
       ))
 		));
