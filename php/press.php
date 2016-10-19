@@ -21,7 +21,8 @@
 							<h3>Política de acreditaciones</h3>
 							<ul>
 								<li>
-									El proceso de acreditaciones se llevará a cabo entre el <strong>lunes 19 de octubre</strong> al <strong>lunes ​2​ de noviembre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
+									<!-- TODO extract dates to editions.json -->
+									El proceso de acreditaciones se llevará a cabo hasta el <strong>lunes 24 de octubre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
 								</li>
 								<li>
 									Se otorgará un cupo limitado de acreditaciones, y sólo una por medio, debido a las capacidades de las salas en las cuales se desarrolla el Festival.
@@ -49,7 +50,8 @@
 								<li>Solicitar entrevistas.</li>
 							</ul>
 							<br />
-							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 12/10 a las 15:30hs</strong>, hasta el <strong>domingo 15/10 inclusive</strong>, en el stand del Festival en el <strong>Complejo Monumental, Lavalle 836</strong>.
+							<!-- TODO extract dates to editions.json -->
+							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 27 de octubre</strong>, hasta el <strong>domingo 30 de octubre inclusive</strong>, en el stand del Festival en el <strong>Complejo Monumental, Lavalle 836</strong>.
 						</p>
 
 						<form id="press-form" class="press-form" method="post">
