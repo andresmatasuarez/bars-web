@@ -40,17 +40,11 @@
 						<div class="sponsor sponsor-multiplex">
 							<a target="_blank" href="http://www.cinesmultiplex.com.ar/" alt="Multiplex Lavalle" ></a>
 						</div>
-						<div class="sponsor sponsor-nacionalrock">
-							<a target="_blank" href="http://nacionalrock.com/" alt="Nacional Rock" ></a>
-						</div>
 						<div class="sponsor sponsor-illusiondreamsfx">
 							<a target="_blank" href="https://www.facebook.com/pages/ilusiondreams-fx/185415858195529" alt="Illusion Dreams FX" ></a>
 						</div>
 						<div class="sponsor sponsor-cunnington">
 							<a target="_blank" href="http://www.cunnington.com.ar/" alt="Cunnington" ></a>
-						</div>
-						<div class="sponsor sponsor-campari">
-							<a target="_blank" href="http://www.campari.com/ar/es/" alt="Campari" ></a>
 						</div>
 					</div>
 
@@ -106,17 +100,20 @@
 						<div class="sponsor sponsor-flaviogrecopaglia">
 							<a target="_blank" href="https://www.behance.net/flaviogreco" alt="Flavio Greco Paglia Dibujante - Ilustrador" ></a>
 						</div>
-						<div class="sponsor sponsor-incaagerencia">
-							<a target="_blank" href="mailto:acfederal@incaa.gov.ar" alt="INCAA Gerencia de Acción Federal" ></a>
+						<div class="sponsor sponsor-aclf">
+							<a target="_blank" href="https://www.facebook.com/Academiadecine" alt="ACLF" ></a>
 						</div>
-						<div class="sponsor sponsor-circodelhorror">
-							<a target="_blank" href="https://www.facebook.com/Circo-del-Horror-Argentina-563554043767812/" alt="Circo del Horror" ></a>
+						<div class="sponsor sponsor-rebisfx">
+							<a target="_blank" href="https://www.facebook.com/RebisFXEfectosespeciales" alt="Rebis FX" ></a>
 						</div>
-						<div class="sponsor sponsor-leonardofavio">
-							<a target="_blank" href="https://www.facebook.com/Academiadecine" alt="Leonardo Favio" ></a>
+						<div class="sponsor sponsor-apima">
+							<a target="_blank" href="http://www.apima.com.ar" alt="APIMA" ></a>
 						</div>
-						<div class="sponsor sponsor-filmsharks">
-							<a target="_blank" href="http://www.filmsharks.com/" alt="Filmsharks" ></a>
+						<div class="sponsor sponsor-marginadoproducciones">
+							<a target="_blank" href="https://www.facebook.com/marginadoproducciones" alt="Marginado Producciones" ></a>
+						</div>
+						<div class="sponsor sponsor-mdpff">
+							<a target="_blank" href="http://www.mardelplatafilmfest.com" alt="Mar del Plata Film Fest" ></a>
 						</div>
 
 					</div>
