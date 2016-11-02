@@ -9,8 +9,8 @@
     "poster" : "resources/bars2016/bars2016_afiche.jpg",
     "programme" : "resources/bars2016/bars2016_programme.jpg",
     "programme_gs" : "",
-    "closing_party" : "",
-    "spot": "",
+    "closing_party" : "resources/bars2016/bars2016_fiesta_clausura.jpg",
+    "spot": "https://www.youtube.com/watch?v=DwmHWFtuIfk",
     "call": {
       "from": "",
       "to": "2016-08-01T03:00:00.000Z",
@@ -134,7 +134,7 @@
     "programme" : "resources/bars2015/bars2015_programme.jpg",
     "programme_gs" : "resources/bars2015/bars2015_programme_gs.jpg",
     "closing_party" : "resources/bars2015/bars2015_fiesta_clausura.jpg",
-    "spot": "",
+    "spot": "https://www.youtube.com/watch?v=eGmKj6-bxpQ",
     "call": {
       "from": "",
       "to": "2015-08-01T03:00:00.000Z",
