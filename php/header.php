@@ -20,6 +20,13 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width">
+
+	<!--
+		Added to avoid screen being "trimmed" on mobile displays
+		more info: http://stackoverflow.com/questions/22732475/div-width-100-percent-not-working-in-mobile-browser
+	-->
+	<meta name="viewport" content="width=1020">
+
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
