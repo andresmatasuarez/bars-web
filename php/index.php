@@ -61,7 +61,7 @@
 						</div>
 
 						<div class="more-posts">
-							<a href="?page_id=14">
+							<a href="<?php echo get_page_link(get_page_by_title('Novedades')->ID); ?>">
 								Ver todas
 							</a>
 						</div>
