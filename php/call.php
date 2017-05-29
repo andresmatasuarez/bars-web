@@ -47,7 +47,7 @@
 								Festival Buenos Aires Rojo Sangre
 							<br />
 							<span class="subheader">
-								[ Semana del
+								Semana del
 								<?php echo $from->format('j'); ?>
 								de
 								<?php echo getSpanishMonthName($from->format('F')); ?>
@@ -57,13 +57,13 @@
 								<?php echo getSpanishMonthName($to->format('F')); ?>
 								de
 								<?php echo $year; ?>
-								--- Recepción de material hasta:
+								---
+								Recepción de material hasta:
 								<?php echo $call_deadline->format('j'); ?>
 								de
 								<?php echo getSpanishMonthName($call_deadline->format('F')); ?>
 								de
 								<?php echo $year; ?>
-								]
 							</span>
 							<br />
 							<?php if (isset($call['terms_en'])) { ?>

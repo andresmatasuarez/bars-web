@@ -7,7 +7,10 @@
 
 	require_once 'editions.php';
 
-	$edition = Editions::current();
+	// TODO-TEMP Search all by TODO-TEMP
+	// $edition = Editions::current();
+	$edition = Editions::getByNumber(17);
+	// TODO-TEMP
 
  ?>
 

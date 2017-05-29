@@ -10,7 +10,10 @@
 
   get_header();
 
-  $edition = Editions::current();
+  // TODO-TEMP Search all by TODO-TEMP
+  // $edition = Editions::current();
+  $edition = Editions::getByNumber(17);
+  // TODO-TEMP
 
 ?>
         <div id="page-juries" class="page">

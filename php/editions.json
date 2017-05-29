@@ -3,8 +3,8 @@
     "number" : 18,
     "title" : "BARS 18",
     "days" : {
-      "from" : "",
-      "to" : ""
+      "from" : "2017-11-30T03:00:00.000Z",
+      "to" : "2017-12-10T03:00:00.000Z"
     },
     "poster" : "",
     "programme" : "",
@@ -13,7 +13,7 @@
     "spot": "",
     "call": {
       "from": "",
-      "to": "2017-08-01T03:00:00.000Z",
+      "to": "2017-08-15T03:00:00.000Z",
       "authorization": {
         "es": "/resources/bars2017/auth2017_es.pdf",
         "en": "/resources/bars2017/auth2017_en.pdf"
