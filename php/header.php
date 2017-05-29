@@ -65,15 +65,21 @@
 	   }(document, 'script', 'facebook-jssdk'));
 	</script>
 
-	<div id="current-edition-year" style="display: none;"><?php echo Editions::from()->format('Y'); ?></div>
+	<?php
+		$edition = Editions::current();
+	?>
+
+	<div id="current-edition-year" style="display: none;">
+		<?php echo Editions::from($edition)->format('Y'); ?>
+	</div>
 
 	<div id="header" >
 		<div id="header-info-container">
 			<div id="header-info">
 				<div class="left">
 					<?php
-						$from = Editions::from();
-						$to = Editions::to();
+						$from = Editions::from($edition);
+						$to = Editions::to($edition);
 						$year = $from->format('Y');
 
 						$sameMonth = $from->format('F') == $to->format('F');

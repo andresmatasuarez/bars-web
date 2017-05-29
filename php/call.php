@@ -12,10 +12,10 @@
 
 	$edition = Editions::current();
 
-	$from          = Editions::from();
-	$to            = Editions::to();
-	$call          = Editions::call();
-	$call_deadline = Editions::callDeadline();
+	$from          = Editions::from($edition);
+	$to            = Editions::to($edition);
+	$call          = Editions::call($edition);
+	$call_deadline = Editions::callDeadline($edition);
 
 	$year = $from->format('Y');
 	if (isset($call['form'])) {
