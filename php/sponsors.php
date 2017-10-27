@@ -19,9 +19,6 @@
 						<div class="sponsor sponsor-quintadimension">
 							<a href="http://www.quintadimension.com/" target="_blank" alt="Quinta Dimensión" ></a>
 						</div>
-						<div class="sponsor sponsor-videoflims">
-							<a href="http://www.videoflims.com.ar/" target="_blank" alt="Video Flims" ></a>
-						</div>
 						<div class="sponsor sponsor-findlingfilms">
 							<a href="http://findlingfilms.com/" target="_blank" alt="Findling Films" ></a>
 						</div>
@@ -70,9 +67,6 @@
 						<div class="sponsor sponsor-ab">
 							<a target="_blank" href="http://arianabouzon.wix.com/arianabouzon#!" alt="AB Producciones" ></a>
 						</div>
-						<div class="sponsor sponsor-vacomoloco">
-							<a target="_blank" href="https://www.facebook.com/vacomoloco" alt="Vacomoloco" ></a>
-						</div>
 						<div class="sponsor sponsor-toronja">
 							<a target="_blank" href="http://www.toronjaproducciones.com.ar/" alt="Toronja Producciones" ></a>
 						</div>
@@ -103,9 +97,6 @@
 						<div class="sponsor sponsor-aclf">
 							<a target="_blank" href="https://www.facebook.com/Academiadecine" alt="ACLF" ></a>
 						</div>
-						<div class="sponsor sponsor-rebisfx">
-							<a target="_blank" href="https://www.facebook.com/RebisFXEfectosespeciales" alt="Rebis FX" ></a>
-						</div>
 						<div class="sponsor sponsor-apima">
 							<a target="_blank" href="http://www.apima.com.ar" alt="APIMA" ></a>
 						</div>
@@ -114,6 +105,9 @@
 						</div>
 						<div class="sponsor sponsor-mdpff">
 							<a target="_blank" href="http://www.mardelplatafilmfest.com" alt="Mar del Plata Film Fest" ></a>
+						</div>
+						<div class="sponsor sponsor-picsi">
+							<a target="_blank" href="http://www.facebook.com/Picsifotocabinas" alt="PICSI Fotocabinas" ></a>
 						</div>
 
 					</div>
