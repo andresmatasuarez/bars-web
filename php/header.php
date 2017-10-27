@@ -107,7 +107,28 @@
 				</div>
 				<div class="center"><?php echo $year; ?></div>
 				<div class="right size-highlight">
-					Multiplex Lavalle
+					<table>
+						<thead>
+							<tr>
+								<th>
+									Multiplex Lavalle
+								</th>
+								<th>
+									Multiplex Belgrano
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									Lavalle 780
+								</td>
+								<td>
+									Vuelta de obligado 2199
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
