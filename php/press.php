@@ -22,7 +22,7 @@
 							<ul>
 								<li>
 									<!-- TODO extract dates to editions.json -->
-									El proceso de acreditaciones se llevará a cabo hasta el <strong>lunes 27 de noviembre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
+									El proceso de acreditaciones se llevará a cabo hasta el <strong>viernes 17 de noviembre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
 								</li>
 								<li>
 									Se otorgará un cupo limitado de acreditaciones, y sólo una por medio, debido a las capacidades de las salas en las cuales se desarrolla el Festival.
@@ -51,7 +51,7 @@
 							</ul>
 							<br />
 							<!-- TODO extract dates to editions.json -->
-							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 30 de octubre</strong>, hasta el <strong>domingo 3 de diciembre inclusive</strong>, en el stand del Festival en el <strong>Complejo Multiplex Lavalle (Lavalle 780)</strong>.
+							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 30 de noviembre</strong>, hasta el <strong>domingo 3 de diciembre inclusive</strong>, en el stand del Festival en el <strong>Complejo Multiplex Lavalle (Lavalle 780)</strong>.
 						</p>
 
 						<form id="press-form" class="press-form" method="post">
