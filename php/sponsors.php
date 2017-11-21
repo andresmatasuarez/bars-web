@@ -112,6 +112,15 @@
  						<div class="sponsor sponsor-osde">
 							<a target="_blank" href="http://www.artefundacionosde.com.ar" alt="Fundación OSDE - Espacio de Arte" ></a>
 						</div>
+ 						<div class="sponsor sponsor-purga">
+							<a target="_blank" href="https://purga.tv" alt="Purga" ></a>
+						</div>
+ 						<div class="sponsor sponsor-manicomiodelterror">
+							<a target="_blank" href="https://www.facebook.com/ManicomioDelTerror" alt="Manicomio del Terror" ></a>
+						</div>
+ 						<div class="sponsor sponsor-guiar">
+							<a target="_blank" href="https://www.facebook.com/asociaciondeguionistasarg" alt="Asociación de Guionistas Argentinos" ></a>
+						</div>
 
 					</div>
 				</div>
