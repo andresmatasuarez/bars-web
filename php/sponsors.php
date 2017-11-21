@@ -109,7 +109,7 @@
 						<div class="sponsor sponsor-picsi">
 							<a target="_blank" href="http://www.facebook.com/Picsifotocabinas" alt="PICSI Fotocabinas" ></a>
 						</div>
-						<div class="sponsor sponsor-osde">
+ 						<div class="sponsor sponsor-osde">
 							<a target="_blank" href="http://www.artefundacionosde.com.ar" alt="Fundación OSDE - Espacio de Arte" ></a>
 						</div>
 
