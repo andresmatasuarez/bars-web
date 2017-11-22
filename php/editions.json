@@ -6,6 +6,16 @@
       "from" : "2017-11-30T03:00:00.000Z",
       "to" : "2017-12-10T03:00:00.000Z"
     },
+    "venues": {
+      "lavalle": {
+        "name": "Multiplex Lavalle",
+        "address": "Lavalle 780"
+      },
+      "belgrano": {
+        "name": "Multiplex Belgrano",
+        "address": "Vuelta de Obligado 2199"
+      }
+    },
     "poster" : "resources/bars2017/bars2017_afiche.jpg",
     "programme" : "",
     "programme_gs" : "",
@@ -130,6 +140,12 @@
       "from" : "2016-10-27T03:00:00.000Z",
       "to" : "2016-11-06T03:00:00.000Z"
     },
+    "venues": {
+      "lavalle": {
+        "name": "Multiplex Lavalle",
+        "address": "Lavalle 780"
+      }
+    },
     "poster" : "resources/bars2016/bars2016_afiche.jpg",
     "programme" : "resources/bars2016/bars2016_programme.jpg",
     "programme_gs" : "",
@@ -253,6 +269,12 @@
     "days" : {
       "from" : "2015-11-12T03:00:00.000Z",
       "to" : "2015-11-22T03:00:00.000Z"
+    },
+    "venues": {
+      "lavalle": {
+        "name": "Multiplex Lavalle",
+        "address": "Lavalle 780"
+      }
     },
     "poster" : "resources/bars2015/bars2015_afiche.jpg",
     "programme" : "resources/bars2015/bars2015_programme.jpg",
@@ -421,6 +443,12 @@
     "days" : {
       "from" : "2014-10-29T03:00:00.000Z",
       "to" : "2014-11-09T03:00:00.000Z"
+    },
+    "venues": {
+      "lavalle": {
+        "name": "Multiplex Lavalle",
+        "address": "Lavalle 780"
+      }
     },
     "poster" : "resources/bars2014/bars2014_afiche.jpg",
     "programme" : "resources/bars2014/bars2014_programme.jpg",
@@ -591,6 +619,12 @@
     "days" : {
       "from" : "2013-10-31T03:00:00.000Z",
       "to" : "2013-11-06T03:00:00.000Z"
+    },
+    "venues": {
+      "lavalle": {
+        "name": "Multiplex Lavalle",
+        "address": "Lavalle 780"
+      }
     },
     "poster" : "resources/bars2013/bars2013_afiche.jpg",
     "programme" : "resources/bars2013/bars2013_programme.jpg",

@@ -68,6 +68,14 @@ class Editions {
     return self::parseDate($edition['days']['to']);
   }
 
+  public static function venues($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return $edition['venues'];
+  }
+
   public static function call($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();

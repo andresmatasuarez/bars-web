@@ -5,6 +5,12 @@
  * @subpackage bars2013
  */
 
+	require_once 'helpers.php';
+	require_once 'elements.php';
+	require_once 'editions.php';
+
+	$edition = Editions::current();
+	$venues = Editions::venues($edition);
 ?>
 
 <div class="movie" id="movie-<?php the_ID(); ?>">
@@ -14,31 +20,29 @@
 		</div>
 
 		<div class="screenings">
-			<div class="screenings-caption">Mirala los días</div>
-			<div class="clear"></div>
 		<?php
-			$datetimes = array_map('trim', explode(',', get_post_meta($post->ID, '_movie_screenings', true)));
-			foreach($datetimes as $key => $datetime){
-				$datetime = trim($datetime);
-				if (empty($datetime)){
-					continue;
-				}
+			$screenings = array_map('trim', explode(',', get_post_meta($post->ID, '_movie_screenings', true)));
+			$groupedScreenings = groupScreeningsByVenue($screenings);
 
-				$dt = preg_split('/[\s]+/', $datetime);
-				$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $dt[0])->format('l')));
-				$dayNumber = DateTime::createFromFormat('m-d-Y', $dt[0])->format('d');
-				$time = $dt[1];
-				echo '<div class="screening">';
-					echo '<div class="screening-dayname">';
-						echo $dayName;
+			$screeningVenuesCount = count($groupedScreenings);
+			if ($screeningVenuesCount == 1) {
+				foreach($groupedScreenings as $venue => $screenings){
+					foreach($screenings as $key => $screening) {
+						renderScreening($screening['date'], $screening['time']);
+					}
+				}
+			} else {
+				foreach($groupedScreenings as $venue => $screenings){
+					echo '<div>';
+						echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
+						echo '<div>';
+							foreach($screenings as $key => $screening) {
+								renderScreening($screening['date'], $screening['time']);
+							}
+						echo '</div>';
 					echo '</div>';
-					echo '<div class="screening-daynumber">';
-						echo $dayNumber;
-					echo '</div>';
-					echo '<div class="screening-hour">';
-						echo $time;
-					echo '</div>';
-				echo '</div>';
+					echo '<div class="clear" />';
+				}
 			}
 		?>
 		</div>

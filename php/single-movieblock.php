@@ -5,6 +5,13 @@
  * @subpackage bars2013
  */
 
+	require_once 'helpers.php';
+	require_once 'elements.php';
+	require_once 'editions.php';
+
+	$edition = Editions::current();
+	$venues = Editions::venues($edition);
+
 ?>
 
 <div class="movieblock" id="movieblock-<?php the_ID(); ?>">
@@ -12,28 +19,31 @@
 		<div class="section">
 			<?php echo sectionByValue(get_post_meta($post->ID, '_movieblock_section', true));?>
 		</div>
-		
+
 		<div class="screenings">
-			<div class="screenings-caption">Mirala los días</div>
-			<div class="clear"></div>
 		<?php
-			$datetimes = array_map('trim', explode(',', get_post_meta($post->ID, '_movieblock_screenings', true)));
-			foreach($datetimes as $key => $datetime){
-				$dt = preg_split('/[\s]+/', $datetime);
-				$dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $dt[0])->format('l')));
-				$dayNumber = DateTime::createFromFormat('m-d-Y', $dt[0])->format('d');
-				$time = $dt[1];
-				echo '<div class="screening">';
-					echo '<div class="screening-dayname">';
-						echo $dayName;
+			$screenings = array_map('trim', explode(',', get_post_meta($post->ID, '_movieblock_screenings', true)));
+			$groupedScreenings = groupScreeningsByVenue($screenings);
+
+			$screeningVenuesCount = count($groupedScreenings);
+			if ($screeningVenuesCount == 1) {
+				foreach($groupedScreenings as $venue => $screenings){
+					foreach($screenings as $key => $screening) {
+						renderScreening($screening['date'], $screening['time']);
+					}
+				}
+			} else {
+				foreach($groupedScreenings as $venue => $screenings){
+					echo '<div>';
+						echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
+						echo '<div>';
+							foreach($screenings as $key => $screening) {
+								renderScreening($screening['date'], $screening['time']);
+							}
+						echo '</div>';
 					echo '</div>';
-					echo '<div class="screening-daynumber">';
-						echo $dayNumber;
-					echo '</div>';
-					echo '<div class="screening-hour">';
-						echo $time;
-					echo '</div>';
-				echo '</div>';
+					echo '<div class="clear" />';
+				}
 			}
 		?>
 		</div>
@@ -59,10 +69,10 @@
 			'posts_per_page' => -1,
 			'post_status' => 'publish'
 		));
-		
+
 		while($query->have_posts()){
 			$query->next_post();
-			
+
 			$year = get_post_meta($query->post->ID, '_movie_year', true);
 			$country = get_post_meta($query->post->ID, '_movie_country', true);
 			$runtime = get_post_meta($query->post->ID, '_movie_runtime', true);
@@ -71,7 +81,7 @@
 				$info = ($info != '' ? $info . ' - ' : '') . $country;
 			if ($runtime)
 				$info = ($info != '' ? $info . ' - ' : '') . $runtime . ' min.';
-			
+
 			echo '<div id="movie-selector" class="movie-post" movieid="' . $query->post->ID . '">';
 				echo '<div class="movie-post-thumbnail">';
 					echo get_the_post_thumbnail($query->post->ID, 'movie-post-thumbnail');
@@ -83,13 +93,13 @@
 				echo '</div>';
 				echo '<div class="movie-post-info">' . $info . '</div>';
 			echo '</div>';
-		
+
 		}
-		
+
 	?>
 	</div>
 	<div class="movie-info-displayer">
-	<?php 
+	<?php
 		$query->rewind_posts();
 
 		while($query->have_posts()){
@@ -107,32 +117,32 @@
 								$info = ($info != '' ? $info . ' | ' : '') . $country;
 
 							echo $info;
-						
+
 						echo '</div>';
 						echo '<div class="title">' . get_the_title($query->post->ID) . '</div>';
 						echo '<div class="links">';
 							$website = get_post_meta($query->post->ID, '_movie_website', true);
 							$imdb = get_post_meta($query->post->ID, '_movie_imdb', true);
-							
+
 							if ($website != ''){
 								echo '<a target="_blank" href="' . addHttp($website) . '">Sitio oficial</a>';
 								if ($imdb != '')
 									echo ' | ';
 							}
-							
+
 							if ($imdb != '')
 								echo '<a target="_blank" href="' . addHttp($imdb) . '">IMDB</a>';
 						echo '</div>';
-						
+
 						if ($runtime != '')
 							echo '<div class="runtime">' . $runtime . ' minutos.</div>';
 
 						echo '<div class="directors">';
 							$directors = explode(',', get_post_meta($query->post->ID, '_movie_directors', true));
-							
+
 							if (sizeof($directors) != 0){
 								echo 'Directores: ' . trim(current($directors));
-							
+
 								foreach(array_slice($directors, 1) as $director){
 									echo ', ' . trim($director);
 								}
@@ -140,10 +150,10 @@
 						echo '</div>';
 						echo '<div class="cast">';
 							$cast = explode(',', get_post_meta($query->post->ID, '_movie_cast', true));
-							
+
 							if (sizeof($cast) != 0){
 								echo 'Elenco: ' . current($cast);
-							
+
 								foreach(array_slice($cast, 1) as $cast){
 									echo ', ' . $cast;
 								}
@@ -154,7 +164,7 @@
 						echo '<p>' . get_post_meta($query->post->ID, '_movie_synopsis', true) . '</p>';
 					echo '</div>';
 				echo '</div>';
-				
+
 				$movie_trailer = get_post_meta($post->ID, '_movie_trailer', true);
 				if (!empty($movie_trailer)){
 					echo '<div class="trailer-container">' . wp_oembed_get($movie_trailer, array('width' => '300')) . '</div>';
@@ -162,9 +172,9 @@
 			echo '</div>';
 			echo '<div class="scratch"></div>';
 		}
-		
+
 		wp_reset_postdata();
-		
+
 	?>
 	</div>
 </div>

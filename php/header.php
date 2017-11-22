@@ -107,25 +107,26 @@
 				</div>
 				<div class="center"><?php echo $year; ?></div>
 				<div class="right size-highlight">
+					<?php
+						$venues = Editions::venues($edition);
+					?>
 					<table>
 						<thead>
 							<tr>
-								<th>
-									Multiplex Lavalle
-								</th>
-								<th>
-									Multiplex Belgrano
-								</th>
+								<?php
+									foreach ($venues as $key => $value) {
+									 	echo '<th>' . $value['name'] . '</th>';
+									}
+								?>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>
-									Lavalle 780
-								</td>
-								<td>
-									Vuelta de obligado 2199
-								</td>
+								<?php
+									foreach ($venues as $key => $value) {
+									 	echo '<td>' . $value['address'] . '</td>';
+									}
+								?>
 							</tr>
 						</tbody>
 					</table>

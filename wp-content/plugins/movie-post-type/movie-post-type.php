@@ -157,7 +157,7 @@
 			array(
 				'id'    => $movie_prefix . 'screenings',
 				'label' => 'Film screenings',
-				'desc' => 'Format: mm-dd-yyyy hh:mm. comma-separated',
+				'desc' => 'Format: (venue:)mm-dd-yyyy hh:mm. Venue is optional when there is only one. Comma-separated. Example: lavalle:11-30-2017 16:00,belgrano:11-30-2017 18:00',
 				'type'  => 'text'
 			),
 			array(
@@ -206,7 +206,7 @@
 			array(
 				'id'    => $movieblock_prefix . 'screenings',
 				'label' => 'Film screenings',
-				'desc' => 'Format: mm-dd-yyyy hh:mm. comma-separated',
+				'desc' => 'Format: (venue:)mm-dd-yyyy hh:mm. Venue is optional when there is only one. Comma-separated. Example: lavalle:11-30-2017 16:00,belgrano:11-30-2017 18:00',
 				'type'  => 'text'
 			)
 		);

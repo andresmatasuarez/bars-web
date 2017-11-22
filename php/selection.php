@@ -6,6 +6,7 @@
  * @subpackage bars2013
  */
 
+	require_once 'helpers.php';
 	require_once 'editions.php';
 
 	get_header();
@@ -16,6 +17,7 @@
 		$currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
 	}
 
+	$venues = Editions::venues($currentEdition);
 	$days = Editions::days($currentEdition);
 ?>
 
@@ -123,14 +125,23 @@
 												// Extract screening hour for this day.
 												$screenings = array_map('trim', explode(',', $screeningsValue));
 												foreach($screenings as $key => $screening){
-													$datetime = preg_split('/[\s]+/', $screening);
-													if ($datetime[0] == $day->format('m-d-Y')){
-														$time = $datetime[1];
+													$parsed = parseScreening($screening);
+
+													$venue = $parsed['venue'];
+													if ($venue != '') {
+														$venue = $venues[$venue]['name'];
+													}
+
+													if ($parsed['date'] == $day->format('m-d-Y')){
+														$time = $parsed['time'];
 
 														echo '<div class="movie-post" section="' . $sectionValue . '">';
 															echo '<div class="movie-post-hour">' . $time . '</div>';
 															echo '<a href="#movie-container" link="' . get_post_permalink($post->ID) . '">';
 																echo '<div class="movie-post-thumbnail">';
+																	if ($venue != '') {
+																		echo '<div class="movie-post-venue">' . $venue . '</div>';
+																	}
 																	echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 																	echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
 																echo '</div>';
