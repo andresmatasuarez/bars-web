@@ -72,7 +72,10 @@
 
 			// Bars 2016 new sections
 			'deodatoTribute'    => array ( 'label' => 'Homenaje Deodato',     'value' => 'deodatoTribute' ),
-			'specialScreenings' => array ( 'label' => 'Funciones especiales', 'value' => 'specialScreenings' )
+			'specialScreenings' => array ( 'label' => 'Funciones especiales', 'value' => 'specialScreenings' ),
+
+			// Bars 2017 new sections
+			'bloodyWeekend' => array ( 'label' => 'Fin de semana sangriento', 'value' => 'bloodyWeekend' )
 		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
@@ -83,6 +86,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars18' => array ( 'label' => 'BARS 18',	'value' => 'bars18' ),
 					'bars17' => array ( 'label' => 'BARS 17',	'value' => 'bars17' ),
 					'bars16' => array ( 'label' => 'BARS 16',	'value' => 'bars16' ),
 					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
@@ -175,6 +179,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars18' => array ( 'label' => 'BARS 18',	'value' => 'bars18' ),
 					'bars17' => array ( 'label' => 'BARS 17',	'value' => 'bars17' ),
 					'bars16' => array ( 'label' => 'BARS 16',	'value' => 'bars16' ),
 					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
@@ -458,7 +463,7 @@
 			'posts_per_page' => -1,
 			'meta_query' => array(array(
 			  'key'     => '_movieblock_edition',
-			  'value'   => 'bars17',
+			  'value'   => 'bars18',
 			  'compare' => 'LIKE'
       ))
 		));
