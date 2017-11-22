@@ -11,10 +11,7 @@
 	get_header();
 
 	if (!isset($_GET['edition'])){
-		// TODO-TEMP Search all by TODO-TEMP
-		// $currentEdition = Editions::current();
-		$currentEdition = Editions::getByNumber(17);
-		// TODO-TEMP
+		$currentEdition = Editions::current();
 	} else {
 		$currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
 	}
