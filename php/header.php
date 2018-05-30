@@ -83,24 +83,41 @@
 						$year = $from->format('Y');
 
 						$sameMonth = $from->format('F') == $to->format('F');
-
-						if ($sameMonth){
+						if (Editions::shouldDisplayOnlyMonths($edition)) {
+							if ($sameMonth){
 					?>
-						<span class="size-highlight"><?php echo $from->format('j'); ?></span>
-						al
-						<span class="size-highlight"><?php echo $to->format('j'); ?></span>
-						de
-						<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+					<?php
+							} else {
+					?>
+								<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
+								/
+								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+						<?php
+							}
+						?>
 					<?php
 						} else {
+							if ($sameMonth){
 					?>
-						<span class="size-highlight"><?php echo $from->format('j'); ?></span>
-						de
-						<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
-						al
-						<span class="size-highlight"><?php echo $to->format('j'); ?></span>
-						de
-						<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+								<span class="size-highlight"><?php echo $from->format('j'); ?></span>
+								al
+								<span class="size-highlight"><?php echo $to->format('j'); ?></span>
+								de
+								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+					<?php
+							} else {
+					?>
+								<span class="size-highlight"><?php echo $from->format('j'); ?></span>
+								de
+								<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
+								al
+								<span class="size-highlight"><?php echo $to->format('j'); ?></span>
+								de
+								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+						<?php
+							}
+						?>
 					<?php
 						}
 					?>

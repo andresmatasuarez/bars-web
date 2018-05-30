@@ -1,5 +1,139 @@
 [
   {
+    "number" : 19,
+    "title" : "BARS 19",
+    "days" : {
+      "only_months": true,
+      "from" : "2018-11-30T03:00:00.000Z",
+      "to" : "2018-12-10T03:00:00.000Z"
+    },
+    "venues": {
+      "lavalle": {
+        "name": "Multiplex Lavalle",
+        "address": "Lavalle 780"
+      },
+      "belgrano": {
+        "name": "Multiplex Belgrano",
+        "address": "Vuelta de Obligado 2199"
+      }
+    },
+    "poster" : "resources/bars2017/bars2017_afiche.jpg",
+    "programme" : "resources/bars2017/bars2017_programme.jpg",
+    "programme_gs" : "",
+    "closing_party" : "resources/bars2017/bars2017_fiesta_clausura.jpg",
+    "spot": "https://www.youtube.com/watch?v=jzcyZrRKnvs",
+    "call": {
+      "from": "",
+      "to": "2018-08-01T03:00:00.000Z",
+      "authorization": {
+        "es": "/resources/bars2018/auth2018_es.pdf",
+        "en": "/resources/bars2018/auth2018_en.pdf"
+      },
+      "terms": "<ul> <li>Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar el enlace a un screener online a traves de las plataformas <a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a>. </li> <li>Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una imagen horizontal de la película, resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li>Subtítulos o guía de diálogos si la película no es hablada en español.</li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>1 de agosto de 2018</strong>.</li> </ul> </li> <li> Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin. </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival tiene un <strong>costo de U$S 3</strong> para todos los cortometrajes <strong>excepto los producidos en países latinoamericanos</strong>, incluyendo Argentina. Los <strong>largometrajes</strong> también están exceptuados.</li> <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li>El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al 1 de enero de 2017.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al 1 de enero de 2017.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li>La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> <p>Premios especiales a corto y largometrajes argentinos:</p> <ul class=\"checkmark\"> <li>Los cortometrajes argentinos en competencia internacional competirán por un premio especial de <a href=\"https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922?sk=likes\" target=\"_blank\">RAFMA</a>.</li> <li> <a href=\"http://www.rental-bsas.com.ar\" target=\"_blank\">Rental BSAS</a> entregará un Premio especial al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio especial consistirá en la entrega de un diploma y un voucher válido por 4 jornadas de alquiler de equipos de sonido e iluminación. </li> <li> <a href=\"http://www.piromaniafx.com.ar\" target=\"_blank\">Piromanía Fx</a> entregará un premio al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio consistirá en la entrega de un diploma y un voucher válido por una explosión de fuego de automóvil o el equivalente sobre edificación. </li> <li><a href=\"http://www.apima.com.ar\">A.P.I.M.A.</a> (asociación de productores independientes de medios audiovisuales) entregará una estatuilla a la mejor película argentina en competencia iberoamericana. </li> <li>La casa de postproducción <a href=\"http://wancamp.com.ar/\">Wancamp POST</a> entregará un premio al que considere el corto nacional mejor editado, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en la corrección de color y el pasaje de DCP de dicho cortometraje. </li> <li>La asociación de Guinosistas de Cine, TV y Nuevos Medios de Argentina <a href=\"http://www.guiarguionistas.org/\">Gui.Ar</a> entregará un premio al corto nacional que determine posee el mejor guión, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en un script doctor de guión de cortometraje.</li> </ul> <p></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> </ul>",
+      "terms_en": "/resources/bars2018/terms2018_en.docx"
+    },
+    "awards": {
+      "jury": [
+        "Mejor Largometraje",
+        "Mejor Director Largometraje",
+        "Mejor Actriz Largometraje",
+        "Mejor Actor Largometraje",
+        "Mejor Guion Largometraje",
+        "Mejor Fotografía Largometraje",
+        "Mejores Efectos Especiales Largometraje",
+        "Mejor Cortometraje Internacional",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Nacional",
+        "Mejor Largometraje Iberoamericana",
+        "Mejor Director Largometraje Iberoamericana",
+        "Mejor Actuación Largometraje Iberoamericana"
+      ],
+      "audience": [
+        "Largometraje",
+        "Cortometraje",
+        "Largometraje Competencia Bizarra"
+      ]
+    },
+    "juries": {
+      "Competencia Internacional de largometrajes": [
+        {
+          "name": "Nicolás Batlle",
+          "pic": {
+            "url": "resources/bars2017/jury_nicolas_batlle.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1002, "h": 904 }
+          },
+          "description": "<strong>Nicolás Batlle</strong> es productor ejecutivo, egresado de la carrera de realización del ENERC (INCAA - Argentina). Desde 1997 es miembro de Magoya Films, desde donde produjo y co-dirigió premiados documentales como <i>Rerum Novarum</i> (2001 – Cóndor de Plata Mejor documental argentino). Productor de <i>Mundo Alas</i> (2009), co-dirigido y protagonizado por León Gieco, <i>Wakolda</i> (2013), <i>El Patrón</i> (2013), entre otras. Fue jurado y capacitador de numerosos concursos del INCAA de Argentina. Presidente de APIMA en el período 2014-2015. Miembro de la Academia de la Artes y Ciencias Cinematográficas de la Argentina. Autor del Libro Producción de Largometraje, Ediciones del CIC, 2016."
+        },
+        {
+          "name": "Andrés Borghi",
+          "pic": {
+            "url": "resources/bars2017/jury_andres_borghi.jpg",
+            "focus": { "x": 0, "y": 0, "w": 5184, "h": 3456 }
+          },
+          "description": "<strong>Andrés Borghi</strong> nace en Argentina en 1982 y a los 12 años empieza a filmar películas. Estudia realización de cine y TV en la escuela Fundación Teba. Sus trabajos más conocidos son el corto <i>Otakus</i>, el cual fue un boom en los principios de YouTube en el año 2007 y <i>Working Day</i>, corto realizado en Nueva Zelanda y premiado por el mismísimo Peter Jackson. Sus últimos trabajos son el corto de terror <i>Alexia</i> y el largometraje <i>Nacido para Morir</i>, ambos actualmente recorriendo festivales."
+        },
+        {
+          "name": "Lautaro Delgado",
+          "pic": {
+            "url": "resources/bars2017/jury_lautaro_delgado.jpg",
+            "focus": { "x": 0, "y": 0, "w": 502, "h": 302 }
+          },
+          "description": "<strong>Lautaro Delgado</strong>, nacido en Buenos Aires en 1978, es actor y director. Egresó en la EMAD y estudió Dirección en la Universidad del Cine y el IDAC. Participó en películas como <i>Kryptonita</i>, <i>Gilda (No me arrepiento de este amor)</i>, <i>Topos</i>, <i>El Desierto</i> y <i>Crónica de una fuga</i>. Además de participar de sendos proyectos televisivos, ganó numerosos premios entre ellos el de Mejor Actor Protagónico en nuestro festival. Actualmente dicta cursos y seminarios de actuación."
+        }
+      ],
+
+      "Competencia Iberoamericana de largometrajes": [
+        {
+          "name": "Mariano Oliveros",
+          "pic": {
+            "url": "resources/bars2017/jury_mariano_oliveros.jpg",
+            "focus": { "x": 0, "y": 0, "w": 480, "h": 480 }
+          },
+          "description": "<strong>Mariano Oliveros</strong> es periodista especializado en el mercado del cine argentino. Ha escrito para distintos medios nacionales entre ellos <i>Ultracine</i>, <i>Haciendo Cine</i> y <i>Cine fantástico</i> y <i>Bizarro</i>. Tiene dos libros publicados: <i>D-culto nacional</i> (Fan ediciones) y <i>Yo veo cine argentino</i> (Editorial Autores de Argentina). Debutó como productor ejecutivo con el filme de terror <i>Los olvidados</i>, exhibida en Sitges, y Mórbido, a estrenarse en cines de Argentina en el primer semestre de 2018."
+        }, {
+          "name": "Nacho Garassino",
+          "pic": {
+            "url": "resources/bars2017/jury_nacho_garassino.jpg",
+            "focus": { "x": 0, "y": 0, "w": 640, "h": 640 }
+          },
+          "description": "<strong>Nacho Garassino</strong> estrenó el documental <i>Pegar La Vuelta</i> (Ternaround) en agosto de 2016; <i>Contrasangre</i>, largometraje de ficción en noviembre de 2015; en 2011 el film <i>El Túnel de los Huesos</i>, este film participó de diversos Festivales y muestras internacionales. En 1994 ganó el premio Martín Fierro por el programa <i>El Otro Lado</i> junto a Fabián Polosecki en calidad de Director. Actualmente trabaja en la preproducción del largometraje <i>El Fusilamiento de Dorrego</i> y el documental <i>Música para un futuro ancestral</i>. Está desarrollando hoy en día <i>¿Te Gustan mis Medias?</i> film de terror sobre guión de Luciano Saracino."
+        }, {
+          "name": "Magalí Nieva",
+          "pic": {
+            "url": "resources/bars2017/jury_magali_nieva.jpg",
+            "focus": { "x": 0, "y": 0, "w": 480, "h": 640 }
+          },
+          "description": "<strong>Magalí Nieva</strong> trabaja desde 1997 en el medio cinematográfico con una trayectoria de 35 películas nacionales e internacionales, publicidades, series de tv internacionales y documentales. Actualmente trabaja como productora y directora de producción de largometrajes de género terror y fantástico con su productora Ninja Films Argentina. En coproducción con Ezio Massa tienen 3 largometrajes estrenados en el 2017, <i>5 AM</i>, <i>La Valija de Benavidez</i> y pronto por estrenar <i>Hotel Infierno</i>, de Marcos Palmieri. Además se encuentra en postproducción el policial negro dirigido por Daniel de la Vega, <i>Punto Muerto</i> con apoyo del INCAA."
+        }
+      ],
+
+      "Competencia Internacional de cortometrajes": [
+        {
+          "name": "Magnus Mefisto",
+          "pic": {
+            "url": "resources/bars2017/jury_magnus_mefisto.jpg",
+            "focus": { "x": 0, "y": 0, "w": 3264, "h": 4928 }
+          },
+          "description": "<strong>Magnus Mefisto</strong> nació en Buenos Aires en 1984 y es creador de contenido audiovisual para varias plataformas digitales. En Youtube es parte de un equipo que se dedica a la exploración urbana de lugares abandonados centrándose en perseguir mitos y leyendas urbanas. En el ámbito musical editó 3 discos promocionados con videoclips realizados por su propia productora. Actualmente maneja el contenido en redes de Purga TV, la primera página streaming de películas y cortos de terror."
+        }, {
+          "name": "Daniela Pereyra",
+          "pic": {
+            "url": "resources/bars2017/jury_daniela_pereyra.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1667, "h": 1772 }
+          },
+          "description": "<strong>Daniela Pereyra</strong> estudió Ciencias de la Comunicación Social en la Universidad de Buenos Aires. Es periodista cultural, especializada en cine y literatura. Condujo y produjo el programa de radio <i>Acá no es</i>, en FM La Tribu entre 2007 y 2014. Desde 2012 forma parte de <i>La Nave de los Sueños</i>, como productora y programadora. Fue asistente de programación en el Festival Audiovisual Bariloche en 2013 y 2014. Fue productora audiovisual en Tecnópolis 2015, en ese año compiló el libro <i>Latidos, El pulso del cine argentino</i>."
+        }, {
+          "name": "Lucila Las Heras",
+          "pic": {
+            "url": "resources/bars2017/jury_lucila_las_heras.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1920, "h": 1920 }
+          },
+          "description": "<strong>Lucila Las Heras</strong> es guionista y directora de cine independiente, egresada de la Carrera de Diseño de Imagen y Sonido de la UBA y del Laboratorio de Guion. Ha escrito numerosos episodios de series de televisión, entre ellas <i>El asombroso mundo de Zamba</i>, <i>Amigos</i>, <i>Minimalitos</i> y <i>Siesta Z</i>, que recientemente obtuvo una nominación al EMMY Kids Internacional. Como realizadora hizo sus cortometrajes <i>El retrato de la peste</i> y <i>La ventana abierta</i> que han sido exhibidos en más de 400 festivales alrededor del mundo, y recibieron varios premios. Actualmente se encuentra en pre-producción de su primer largometraje titulado <i>El Muglúr</i>, un drama fantástico que se rodará el año próximo."
+        }
+      ]
+    }
+  },
+  {
     "number" : 18,
     "title" : "BARS 18",
     "days" : {

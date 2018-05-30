@@ -47,16 +47,57 @@
 								Festival Buenos Aires Rojo Sangre
 							<br />
 							<span class="subheader">
-								Semana del
-								<?php echo $from->format('j'); ?>
-								de
-								<?php echo getSpanishMonthName($from->format('F')); ?>
-								al
-								<?php echo $to->format('j'); ?>
-								de
-								<?php echo getSpanishMonthName($to->format('F')); ?>
-								de
-								<?php echo $year; ?>
+								<?php
+									$sameMonth = $from->format('F') == $to->format('F');
+									if (Editions::shouldDisplayOnlyMonths($edition)) {
+										if ($sameMonth) {
+								?>
+											<span style="text-transform: capitalize;">
+												<?php echo getSpanishMonthName($to->format('F')); ?>
+											</span>
+											de
+											<?php echo $year; ?>
+								<?php
+										} else {
+								?>
+											<span style="text-transform: capitalize;">
+												<?php echo getSpanishMonthName($from->format('F')); ?>
+											</span>
+											/
+											<?php echo getSpanishMonthName($to->format('F')); ?>
+											<?php echo $year; ?>
+								<?php
+										}
+								?>
+								<?php
+									} else {
+										if ($sameMonth) {
+								?>
+											<?php echo $from->format('j'); ?>
+											al
+											<?php echo $to->format('j'); ?>
+											de
+											<?php echo getSpanishMonthName($to->format('F')); ?>
+											de
+											<?php echo $year; ?>
+								<?php
+										} else {
+								?>
+											<?php echo $from->format('j'); ?>
+											de
+											<?php echo getSpanishMonthName($from->format('F')); ?>
+											al
+											<?php echo $to->format('j'); ?>
+											de
+											<?php echo getSpanishMonthName($to->format('F')); ?>
+											de
+											<?php echo $year; ?>
+									<?php
+										}
+									?>
+								<?php
+									}
+								?>
 								---
 								Recepción de material hasta:
 								<?php echo $call_deadline->format('j'); ?>

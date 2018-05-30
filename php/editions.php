@@ -68,6 +68,17 @@ class Editions {
     return self::parseDate($edition['days']['to']);
   }
 
+  public static function shouldDisplayOnlyMonths($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (isset($edition['days']['only_months'])) {
+      return $edition['days']['only_months'];
+    }
+    return false;
+  }
+
   public static function venues($edition = NULL) {
     if (is_null($edition)){
       $edition = self::current();
