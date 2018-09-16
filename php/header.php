@@ -165,6 +165,9 @@
 
 			<!-- SOCIAL ICONS -->
 			<div id="header-social">
+				<a href="https://www.instagram.com/festivalrojosangre" target="blank">
+					<span class="fa fa-instagram"></span>
+				</a>
 				<a href="https://www.facebook.com/BuenosAiresRojoSangre" target="blank">
 					<span class="fa fa-facebook-square"></span>
 				</a>

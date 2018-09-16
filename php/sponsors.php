@@ -103,18 +103,22 @@
 						<div class="sponsor sponsor-marginadoproducciones">
 							<a target="_blank" href="https://www.facebook.com/marginadoproducciones" alt="Marginado Producciones" ></a>
 						</div>
+						<!--
 						<div class="sponsor sponsor-mdpff">
 							<a target="_blank" href="http://www.mardelplatafilmfest.com" alt="Mar del Plata Film Fest" ></a>
 						</div>
+						-->
 						<div class="sponsor sponsor-picsi">
 							<a target="_blank" href="http://www.facebook.com/Picsifotocabinas" alt="PICSI Fotocabinas" ></a>
 						</div>
  						<div class="sponsor sponsor-osde">
 							<a target="_blank" href="http://www.artefundacionosde.com.ar" alt="Fundación OSDE - Espacio de Arte" ></a>
 						</div>
+ 						<!--
  						<div class="sponsor sponsor-purga">
 							<a target="_blank" href="https://purga.tv" alt="Purga" ></a>
 						</div>
+						-->
  						<div class="sponsor sponsor-manicomiodelterror">
 							<a target="_blank" href="https://www.facebook.com/ManicomioDelTerror" alt="Manicomio del Terror" ></a>
 						</div>

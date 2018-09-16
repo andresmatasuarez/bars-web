@@ -1,11 +1,11 @@
 [
   {
     "number" : 19,
-    "title" : "BARS 19",
+    "title" : "BARS 2018",
     "days" : {
-      "only_months": true,
-      "from" : "2018-11-30T03:00:00.000Z",
-      "to" : "2018-12-10T03:00:00.000Z"
+      "only_months": false,
+      "from" : "2018-11-29T03:00:00.000Z",
+      "to" : "2018-12-09T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -24,7 +24,7 @@
     "spot": "https://www.youtube.com/watch?v=jzcyZrRKnvs",
     "call": {
       "from": "",
-      "to": "2018-08-01T03:00:00.000Z",
+      "to": "2018-08-02T02:59:59.999Z",
       "authorization": {
         "es": "/resources/bars2018/auth2018_es.pdf",
         "en": "/resources/bars2018/auth2018_en.pdf"
@@ -135,7 +135,7 @@
   },
   {
     "number" : 18,
-    "title" : "BARS 18",
+    "title" : "BARS 2017",
     "days" : {
       "from" : "2017-11-30T03:00:00.000Z",
       "to" : "2017-12-10T03:00:00.000Z"
