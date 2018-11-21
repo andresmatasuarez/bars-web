@@ -86,11 +86,12 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
-					'bars18' => array ( 'label' => 'BARS 18',	'value' => 'bars18' ),
-					'bars17' => array ( 'label' => 'BARS 17',	'value' => 'bars17' ),
-					'bars16' => array ( 'label' => 'BARS 16',	'value' => 'bars16' ),
-					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
-					'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' )
+					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
+					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
+					'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
+					'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
+					'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
+					'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
 				)
 			),
 			array(
@@ -179,11 +180,12 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
-					'bars18' => array ( 'label' => 'BARS 18',	'value' => 'bars18' ),
-					'bars17' => array ( 'label' => 'BARS 17',	'value' => 'bars17' ),
-					'bars16' => array ( 'label' => 'BARS 16',	'value' => 'bars16' ),
-					'bars15' => array ( 'label' => 'BARS 15',	'value' => 'bars15' ),
-					'bars14' => array ( 'label' => 'BARS 14',	'value' => 'bars14' )
+					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
+					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
+					'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
+					'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
+					'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
+					'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
 				)
 			),
 			array(
@@ -463,7 +465,7 @@
 			'posts_per_page' => -1,
 			'meta_query' => array(array(
 			  'key'     => '_movieblock_edition',
-			  'value'   => 'bars18',
+			  'value'   => 'bars19',
 			  'compare' => 'LIKE'
       ))
 		));
