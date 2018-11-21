@@ -17,10 +17,10 @@
         "address": "Vuelta de Obligado 2199"
       }
     },
-    "poster" : "resources/bars2017/bars2017_afiche.jpg",
-    "programme" : "resources/bars2017/bars2017_programme.jpg",
+    "poster" : "resources/bars2018/bars2018_afiche.jpg",
+    "programme" : "resources/bars2018/bars2018_programme.jpg",
     "programme_gs" : "",
-    "closing_party" : "resources/bars2017/bars2017_fiesta_clausura.jpg",
+    "closing_party" : "resources/bars2018/bars2018_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=jzcyZrRKnvs",
     "call": {
       "from": "",
@@ -268,7 +268,7 @@
   },
   {
     "number" : 17,
-    "title" : "BARS 17",
+    "title" : "BARS 2016",
     "days" : {
       "from" : "2016-10-27T03:00:00.000Z",
       "to" : "2016-11-06T03:00:00.000Z"
@@ -398,7 +398,7 @@
   },
   {
     "number" : 16,
-    "title" : "BARS 16",
+    "title" : "BARS 2015",
     "days" : {
       "from" : "2015-11-12T03:00:00.000Z",
       "to" : "2015-11-22T03:00:00.000Z"
@@ -572,7 +572,7 @@
   },
   {
     "number" : 15,
-    "title" : "BARS 15",
+    "title" : "BARS 2014",
     "days" : {
       "from" : "2014-10-29T03:00:00.000Z",
       "to" : "2014-11-09T03:00:00.000Z"
@@ -748,7 +748,7 @@
   },
   {
     "number" : 14,
-    "title" : "BARS 14",
+    "title" : "BARS 2013",
     "days" : {
       "from" : "2013-10-31T03:00:00.000Z",
       "to" : "2013-11-06T03:00:00.000Z"
