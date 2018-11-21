@@ -4,24 +4,23 @@ import remove from 'lodash/remove';
 export default function(){
 
   // Call is open 2015
-  const callNavItem      = $('#header-menu .nav-menu li:nth-child(5)');
-  const callNavItemLink  = callNavItem.find('a');
-  const callPageHref     = callNavItemLink.attr('href');
-  const callNavItemLabel = callNavItemLink.html();
-
-  callNavItem.addClass('call-is-open');
-  callNavItemLink.css('visibility', 'hidden');
-  callNavItemLink.html('WWWWWWWW'); // Longer text so it takes more horizontal space
-  callNavItem.html(`
-    ${callNavItem.html()}
-    <span class="call-is-open-label call-is-open-label-pre">Abierta la</span>
-    <a class="call-is-open-label call-is-open-link" href="${callPageHref}">
-      ${callNavItemLabel}
-    </a>
-    <span class="call-is-open-label call-is-open-label-post">
-      ${$('#current-edition-year').html()}
-    </span>
-  `);
+  // const callNavItem      = $('#header-menu .nav-menu li:nth-child(6)');
+  // const callNavItemLink  = callNavItem.find('a');
+  // const callPageHref     = callNavItemLink.attr('href');
+  // const callNavItemLabel = callNavItemLink.html();
+  // callNavItem.addClass('call-is-open');
+  // callNavItemLink.css('visibility', 'hidden');
+  // callNavItemLink.html('WWWWWWWW'); // Longer text so it takes more horizontal space
+  // callNavItem.html(`
+  //   ${callNavItem.html()}
+  //   <span class="call-is-open-label call-is-open-label-pre">Abierta la</span>
+  //   <a class="call-is-open-label call-is-open-link" href="${callPageHref}">
+  //     ${callNavItemLabel}
+  //   </a>
+  //   <span class="call-is-open-label call-is-open-label-post">
+  //     ${$('#current-edition-year').html()}
+  //   </span>
+  // `);
 
   // Sticky navigation menu
   $('#header-menu').stickyMenu();
