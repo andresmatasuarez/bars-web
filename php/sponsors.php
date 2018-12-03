@@ -146,10 +146,10 @@
 							<a target="_blank" href="https://shorts.tv/es" alt="TVCortos" ></a>
 						</div>
  						<div class="sponsor sponsor-monster-flex">
-							<a target="_blank" href="" alt="Monster Flex" ></a>
+							<a target="_blank" href="https://www.facebook.com/monsterlabsstudios" alt="Monster Flex" ></a>
 						</div>
  						<div class="sponsor sponsor-netfis">
-							<a target="_blank" href="" alt="Netfis" ></a>
+							<a target="_blank" href="http://elian.netfis.tv" alt="Netfis" ></a>
 						</div>
  						<div class="sponsor sponsor-global-media">
 							<a target="_blank" href="" alt="Global Media Distribution" ></a>
