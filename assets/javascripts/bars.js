@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import remove from 'lodash/remove';
 
 export default function(){
@@ -79,7 +78,7 @@ export default function(){
     scrolling : 'hidden',
     helpers   : { overlay: { locked: true } },
     beforeLoad(){
-      jQuery.ajax({
+      $.ajax({
         async: false,
         url: $(this.element).attr('link'),
         success(data) {

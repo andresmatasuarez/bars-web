@@ -51,7 +51,7 @@
     "jquery": "^2.2.3",
     "jquery-form": "^3.50.0",
     "jquery-validation": "^1.15.0",
-    "jquery.dotdotdot": "^1.7.4",
+    "jquery.dotdotdot": "^1.8.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "lodash": "^4.12.0",

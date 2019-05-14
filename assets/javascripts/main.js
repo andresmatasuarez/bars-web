@@ -1,10 +1,9 @@
 import '../stylesheets/main.less';
 import 'fancybox/dist/css/jquery.fancybox.css';
 
-import $        from 'jquery';
 import fancybox from 'fancybox';
 
-import 'jquery.dotdotdot';
+import 'jquery.dotdotdot/src/jquery.dotdotdot.js';
 import 'jquery-form';
 import 'jquery-validation';
 import 'jquery-focuspoint/js/jquery.focuspoint.js';

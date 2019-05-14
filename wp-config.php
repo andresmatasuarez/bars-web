@@ -27,13 +27,13 @@ define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . APACHE_DEV_PORT .
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'bars');
+define('DB_NAME', 'barsweb');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'barswebadmin');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'barswebadmin');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
