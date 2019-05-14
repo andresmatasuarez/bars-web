@@ -25,7 +25,6 @@
 	}
 
 	$call_is_closed = strtotime('now') > strtotime($call['to']);
-
 ?>
 
 					<div id="page-call" class="page <?php echo ($call_is_closed ? 'call-is-closed' : '') ?>" >
@@ -110,6 +109,9 @@
 							<?php if (isset($call['terms_en'])) { ?>
 								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . $call['terms_en']; ?>" target="_blank">Terms in English</a>
 							<?php } ?>
+							<?php if (isset($call['terms_es'])) { ?>
+								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . $call['terms_es']; ?>" target="_blank">Términos en Español</a>
+							<?php } ?>
 						</div>
 
 						<div class="scratch"></div>
@@ -149,8 +151,19 @@
 							Ver la hoja de autorización
 
 							<?php
-								foreach ($call['authorization'] as $key => $value) {
-									echo '<a href="' . get_bloginfo('template_directory') . $value . '" target="blank">' . strtoupper($key) . '</a> ';
+								$authSheets = $call['authorization'];
+								echo ' - ';
+								if (isset($authSheets['es'])) {
+									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['es']. '" target="blank">ES</a> - ';
+								}
+								if (isset($authSheets['en'])) {
+									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['en']. '" target="blank">EN</a> - ';
+								}
+								if (isset($authSheets['es_docx'])) {
+									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['es_docx']. '" target="blank">ES (.docx)</a> - ';
+								}
+								if (isset($authSheets['en_docx'])) {
+									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['en_docx']. '" target="blank">EN (.docx)</a> -';
 								}
 							?>
 						</div>

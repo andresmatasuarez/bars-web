@@ -80,16 +80,20 @@
                     echo '</div>';
 
                     echo '<div class="juries">';
-                    foreach($juries as $index => $jury){
-                      echo '<div class="jury">';
-                      echo    '<div class="jury-image focuspoint" data-focus-x="' . $jury['pic']['focus']['x'] . '" data-focus-y="' . $jury['pic']['focus']['y'] . '" data-image-w="' . $jury['pic']['focus']['w'] . '" data-image-h="' . $jury['pic']['focus']['h'] . '">';
-                      echo      '<img src="'. get_bloginfo('template_directory') . '/' . $jury['pic']['url'] . '" />';
-                      echo    '</div>';
-                      echo    '<div class="jury-info">';
-                      echo      '<div class="jury-name text-oswald">' . $jury['name'] . '</div>';
-                      echo      '<p class="text-opensans indented">' . $jury['description'] . '</p>';
-                      echo    '</div>';
-                      echo '</div>';
+                    if (empty($juries)) {
+                      echo '<div class="no-juries-yet">Los jurados para esta sección todavía no han sido seleccionados</div>';
+                    } else {
+                      foreach($juries as $index => $jury){
+                        echo '<div class="jury">';
+                        echo    '<div class="jury-image focuspoint" data-focus-x="' . $jury['pic']['focus']['x'] . '" data-focus-y="' . $jury['pic']['focus']['y'] . '" data-image-w="' . $jury['pic']['focus']['w'] . '" data-image-h="' . $jury['pic']['focus']['h'] . '">';
+                        echo      '<img src="'. get_bloginfo('template_directory') . '/' . $jury['pic']['url'] . '" />';
+                        echo    '</div>';
+                        echo    '<div class="jury-info">';
+                        echo      '<div class="jury-name text-oswald">' . $jury['name'] . '</div>';
+                        echo      '<p class="text-opensans indented">' . $jury['description'] . '</p>';
+                        echo    '</div>';
+                        echo '</div>';
+                      }
                     }
                     echo '</div>';
                   }
