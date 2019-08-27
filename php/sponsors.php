@@ -109,12 +109,12 @@
 						<div class="sponsor sponsor-mdpff">
 							<a target="_blank" href="http://www.mardelplatafilmfest.com" alt="Mar del Plata Film Fest" ></a>
 						</div>
-						<div class="sponsor sponsor-picsi">
-							<a target="_blank" href="http://www.facebook.com/Picsifotocabinas" alt="PICSI Fotocabinas" ></a>
-						</div>
 						-->
  						<div class="sponsor sponsor-osde">
 							<a target="_blank" href="http://www.artefundacionosde.com.ar" alt="Fundación OSDE - Espacio de Arte" ></a>
+						</div>
+						<div class="sponsor sponsor-picsi">
+							<a target="_blank" href="http://www.facebook.com/Picsifotocabinas" alt="PICSI Fotocabinas" ></a>
 						</div>
  						<!--
  						<div class="sponsor sponsor-purga">
@@ -130,9 +130,11 @@
  						<div class="sponsor sponsor-argentores">
 							<a target="_blank" href="http://www.argentores.org" alt="Argentores - Sociedad General de Autores de la Argentina" ></a>
 						</div>
+ 						<!--
  						<div class="sponsor sponsor-embajada-espana">
 							<a target="_blank" href="http://cgeonline.com.ar" alt="Consulado General de España en Buenos Aires" ></a>
 						</div>
+						-->
  						<div class="sponsor sponsor-insomnio">
 							<a target="_blank" href="https://www.facebook.com/insomnio.producciones" alt="Insomnio Producciones" ></a>
 						</div>
@@ -142,17 +144,30 @@
  						<div class="sponsor sponsor-fan">
 							<a target="_blank" href="https://www.mixcloud.com.ar/FANelprograma" alt="FAN El Programa" ></a>
 						</div>
+ 						<!--
  						<div class="sponsor sponsor-tvcortos">
 							<a target="_blank" href="https://shorts.tv/es" alt="TVCortos" ></a>
 						</div>
+						-->
  						<div class="sponsor sponsor-monster-flex">
 							<a target="_blank" href="https://www.facebook.com/monsterlabsstudios" alt="Monster Flex" ></a>
 						</div>
  						<div class="sponsor sponsor-netfis">
 							<a target="_blank" href="http://elian.netfis.tv" alt="Netfis" ></a>
 						</div>
+ 						<!--
  						<div class="sponsor sponsor-global-media">
 							<a target="_blank" href="" alt="Global Media Distribution" ></a>
+						</div>
+						-->
+ 						<div class="sponsor sponsor-brujas">
+							<a target="_blank" href="http://www.disfracesbrujas.com.ar" alt="Disfraces Brujas Witchmaster" ></a>
+						</div>
+ 						<div class="sponsor sponsor-museo-sarmiento">
+							<a target="_blank" href="https://museosarmiento.cultura.gob.ar" alt="Museo Histórico Sarmiento" ></a>
+						</div>
+ 						<div class="sponsor sponsor-pintafan">
+							<a target="_blank" href="https://www.instagram.com/pintafancolorpro" alt="Pintafan Color Pro" ></a>
 						</div>
 
 					</div>
