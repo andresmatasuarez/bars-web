@@ -8,10 +8,6 @@
       "to" : "2019-12-01T03:00:00.000Z"
     },
     "venues": {
-      "lavalle": {
-        "name": "Multiplex Lavalle",
-        "address": "Lavalle 780"
-      },
       "belgrano": {
         "name": "Multiplex Belgrano",
         "address": "Vuelta de Obligado 2199"
