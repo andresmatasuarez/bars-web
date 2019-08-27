@@ -86,6 +86,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
 					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
 					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
 					'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
@@ -180,6 +181,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
 					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
 					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
 					'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
@@ -465,7 +467,7 @@
 			'posts_per_page' => -1,
 			'meta_query' => array(array(
 			  'key'     => '_movieblock_edition',
-			  'value'   => 'bars19',
+			  'value'   => 'bars20',
 			  'compare' => 'LIKE'
       ))
 		));
