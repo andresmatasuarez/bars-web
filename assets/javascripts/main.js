@@ -1,5 +1,3 @@
-import 'fancybox/dist/css/jquery.fancybox.css';
-
 import fancybox from 'fancybox';
 
 import 'jquery.dotdotdot/src/jquery.dotdotdot.js';
