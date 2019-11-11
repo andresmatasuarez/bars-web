@@ -21,8 +21,11 @@
 							<h3>Política de acreditaciones</h3>
 							<ul>
 								<li>
-									<!-- TODO extract dates to editions.json -->
-									El proceso de acreditaciones se llevará a cabo hasta el <strong>viernes 17 de noviembre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
+									<!--
+										TODO extract dates to editions.json.
+										Default all previous editions dates to the one from 2019 edition: 17/Nov
+									-->
+									El proceso de acreditaciones se llevará a cabo hasta el <strong>domingo 17 de noviembre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
 								</li>
 								<li>
 									Se otorgará un cupo limitado de acreditaciones, y sólo una por medio, debido a las capacidades de las salas en las cuales se desarrolla el Festival.
@@ -50,8 +53,22 @@
 								<li>Solicitar entrevistas.</li>
 							</ul>
 							<br />
-							<!-- TODO extract dates to editions.json -->
-							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 30 de noviembre</strong>, hasta el <strong>domingo 3 de diciembre inclusive</strong>, en el stand del Festival en el <strong>Complejo Multiplex Lavalle (Lavalle 780)</strong>.
+
+							<!--
+								TODO add press passes pick-up dates to editions.json.
+								Defaultear all previous editions dates to the ones from 2018 edition.
+
+								- 2018 edition
+								  - from date: 30/nov
+								  - to date: 3/dic.
+
+								- 2019 edition
+								  - from date: 21/Nov
+								  - to date: 25/dic.
+
+								Display corresponding festival venues as well.
+							-->
+							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 21 de noviembre a las 16hs</strong>, hasta el <strong>lunes de 25 diciembre inclusive</strong>, en el stand del Festival en el <strong>Complejo Multiplex Belgrano (Vuelta de Obligado 2238)</strong>.
 						</p>
 
 						<form id="press-form" class="press-form" method="post">
