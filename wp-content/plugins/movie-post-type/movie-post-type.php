@@ -75,7 +75,10 @@
 			'specialScreenings' => array ( 'label' => 'Funciones especiales', 'value' => 'specialScreenings' ),
 
 			// Bars 2017 new sections
-			'bloodyWeekend' => array ( 'label' => 'Fin de semana sangriento', 'value' => 'bloodyWeekend' )
+			'bloodyWeekend' => array ( 'label' => 'Fin de semana sangriento', 'value' => 'bloodyWeekend' ),
+
+			// Bars 2019 new sections
+			'japaneseInvasion' => array ( 'label' => 'Invasión Japón', 'value' => 'japaneseInvasion' )
 		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
