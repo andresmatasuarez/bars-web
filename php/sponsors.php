@@ -37,12 +37,14 @@
 						<div class="sponsor sponsor-multiplex">
 							<a target="_blank" href="http://www.cinesmultiplex.com.ar/" alt="Multiplex Lavalle" ></a>
 						</div>
+						<!--
 						<div class="sponsor sponsor-illusiondreamsfx">
 							<a target="_blank" href="https://www.facebook.com/pages/ilusiondreams-fx/185415858195529" alt="Illusion Dreams FX" ></a>
 						</div>
 						<div class="sponsor sponsor-cunnington">
 							<a target="_blank" href="http://www.cunnington.com.ar/" alt="Cunnington" ></a>
 						</div>
+						-->
 					</div>
 
 					<div class="page-header sponsors-header">
@@ -70,9 +72,11 @@
 						<div class="sponsor sponsor-toronja">
 							<a target="_blank" href="http://www.toronjaproducciones.com.ar/" alt="Toronja Producciones" ></a>
 						</div>
+						<!--
 						<div class="sponsor sponsor-requiem">
 							<a target="_blank" href="https://www.facebook.com/pages/Requiem/56147413104" alt="Requiem club" ></a>
 						</div>
+						-->
 						<div class="sponsor sponsor-piromaniafx">
 							<a target="_blank" href="http://www.piromaniafx.com.ar/‎" alt="Piromania FX" ></a>
 						</div>
@@ -109,10 +113,10 @@
 						<div class="sponsor sponsor-mdpff">
 							<a target="_blank" href="http://www.mardelplatafilmfest.com" alt="Mar del Plata Film Fest" ></a>
 						</div>
-						-->
  						<div class="sponsor sponsor-osde">
 							<a target="_blank" href="http://www.artefundacionosde.com.ar" alt="Fundación OSDE - Espacio de Arte" ></a>
 						</div>
+						-->
 						<div class="sponsor sponsor-picsi">
 							<a target="_blank" href="http://www.facebook.com/Picsifotocabinas" alt="PICSI Fotocabinas" ></a>
 						</div>
@@ -134,24 +138,24 @@
  						<div class="sponsor sponsor-embajada-espana">
 							<a target="_blank" href="http://cgeonline.com.ar" alt="Consulado General de España en Buenos Aires" ></a>
 						</div>
-						-->
  						<div class="sponsor sponsor-insomnio">
 							<a target="_blank" href="https://www.facebook.com/insomnio.producciones" alt="Insomnio Producciones" ></a>
 						</div>
+						-->
  						<div class="sponsor sponsor-cfyb">
 							<a target="_blank" href="http://www.revistacfyb.com.ar" alt="Revista CFyB" ></a>
 						</div>
+ 						<!--
  						<div class="sponsor sponsor-fan">
 							<a target="_blank" href="https://www.mixcloud.com.ar/FANelprograma" alt="FAN El Programa" ></a>
 						</div>
- 						<!--
  						<div class="sponsor sponsor-tvcortos">
 							<a target="_blank" href="https://shorts.tv/es" alt="TVCortos" ></a>
 						</div>
-						-->
  						<div class="sponsor sponsor-monster-flex">
 							<a target="_blank" href="https://www.facebook.com/monsterlabsstudios" alt="Monster Flex" ></a>
 						</div>
+						-->
  						<div class="sponsor sponsor-netfis">
 							<a target="_blank" href="http://elian.netfis.tv" alt="Netfis" ></a>
 						</div>
