@@ -35,7 +35,7 @@
 							<a target="_blank" href="http://www.incaa.gov.ar/" alt="INCAA" ></a>
 						</div>
 						<div class="sponsor sponsor-multiplex">
-							<a target="_blank" href="http://www.cinesmultiplex.com.ar/" alt="Multiplex Lavalle" ></a>
+							<a target="_blank" href="http://www.cinesmultiplex.com.ar/" alt="Cines Multiplex" ></a>
 						</div>
 						<!--
 						<div class="sponsor sponsor-illusiondreamsfx">
@@ -45,6 +45,12 @@
 							<a target="_blank" href="http://www.cunnington.com.ar/" alt="Cunnington" ></a>
 						</div>
 						-->
+ 						<div class="sponsor sponsor-museo-sarmiento">
+							<a target="_blank" href="https://museosarmiento.cultura.gob.ar" alt="Museo Histórico Sarmiento" ></a>
+						</div>
+ 						<div class="sponsor sponsor-rebisfx">
+							<a target="_blank" href="https://www.facebook.com/RebisFXEfectosespeciales/" alt="Rebis FX" ></a>
+						</div>
 					</div>
 
 					<div class="page-header sponsors-header">
@@ -59,9 +65,6 @@
 						</div>
 						<div class="sponsor sponsor-bsasciudad">
 							<a href="http://www.buenosaires.gob.ar/" target="_blank" alt="Buenos Aires Ciudad" ></a>
-						</div>
-						<div class="sponsor sponsor-festeringslime">
-							<a target="_blank" href="mailto:amatasuarez@gmail.com" alt="Rest in Festering Slime" ></a>
 						</div>
 						<div class="sponsor sponsor-rafma">
 							<a target="_blank" href="https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922" alt="RAFMA Red Argentina de Festivales y Muestras Audiovisuales" ></a>
@@ -156,8 +159,8 @@
 							<a target="_blank" href="https://www.facebook.com/monsterlabsstudios" alt="Monster Flex" ></a>
 						</div>
 						-->
- 						<div class="sponsor sponsor-netfis">
-							<a target="_blank" href="http://elian.netfis.tv" alt="Netfis" ></a>
+ 						<div class="sponsor sponsor-neftis">
+							<a target="_blank" href="http://elian.neftis.tv" alt="Neftis" ></a>
 						</div>
  						<!--
  						<div class="sponsor sponsor-global-media">
@@ -167,13 +170,27 @@
  						<div class="sponsor sponsor-brujas">
 							<a target="_blank" href="http://www.disfracesbrujas.com.ar" alt="Disfraces Brujas Witchmaster" ></a>
 						</div>
- 						<div class="sponsor sponsor-museo-sarmiento">
-							<a target="_blank" href="https://museosarmiento.cultura.gob.ar" alt="Museo Histórico Sarmiento" ></a>
-						</div>
  						<div class="sponsor sponsor-pintafan">
 							<a target="_blank" href="https://www.instagram.com/pintafancolorpro" alt="Pintafan Color Pro" ></a>
 						</div>
+ 						<div class="sponsor sponsor-brigada-problematica">
+							<a target="_blank" href="https://www.facebook.com/brigadaproblematica/" alt="Brigada Problemática" ></a>
+						</div>
+ 						<div class="sponsor sponsor-okinawa-film-office">
+							<a target="_blank" href="https://filmoffice.ocvb.or.jp" alt="Okinawa Film Office" ></a>
+						</div>
+ 						<div class="sponsor sponsor-felices-las-vacas">
+							<a target="_blank" href="http://feliceslasvacas.com" alt="Felices Las Vacas" ></a>
+						</div>
+ 						<div class="sponsor sponsor-no-pain-tattoos">
+							<a target="_blank" href="https://www.instagram.com/tattoosnopain/?igshid=yuvbb7fg9c5b" alt="No Pain Tattoos" ></a>
+						</div>
+ 						<div class="sponsor sponsor-yubari-festival">
+							<a target="_blank" href="http://yubarifanta.com" alt="Yubari Festival" ></a>
+						</div>
 
+						<div class="sponsor sponsor-mecenazgo-cultural"></div>
+						<div class="sponsor sponsor-festeringslime"></div>
 					</div>
 				</div>
 	<?php
