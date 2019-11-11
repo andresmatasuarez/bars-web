@@ -1,11 +1,12 @@
 <?php
 
   function parseScreening($screening) {
-    preg_match('/^(?:([A-Za-z]+)\s*:\s*)?(.*)\s+(.*)$/', $screening, $matches);
+    preg_match('/(\s*(?<venue>([A-Za-z]+))\s*[^\.]*(\s*\.\s*(?<room>.+))?:\s*)?(?P<date>[^\s]+)\s+(?P<time>.+)/', $screening, $matches);
     return array(
-      'venue' => strtolower($matches[1]),
-      'date' => $matches[2],
-      'time' => $matches[3]
+      'venue' => strtolower(trim($matches['venue'])),
+      'room' => strtolower(trim($matches['room'])),
+      'date' => strtolower(trim($matches['date'])),
+      'time' => strtolower(trim($matches['time']))
     );
   }
 

@@ -132,6 +132,13 @@
 														$venue = $venues[$venue]['name'];
 													}
 
+													// If 'room' was entered and there is only one venue for this edition,
+													// then display the room only.
+													$room = $parsed['room'];
+													if ($room != '' && count($venues) == 1) {
+														$venue = $room;
+													}
+
 													if ($parsed['date'] == $day->format('m-d-Y')){
 														$time = $parsed['time'];
 
@@ -140,7 +147,7 @@
 															echo '<a href="#movie-container" link="' . get_post_permalink($post->ID) . '">';
 																echo '<div class="movie-post-thumbnail">';
 																	if ($venue != '') {
-																		echo '<div class="movie-post-venue">' . $venue . '</div>';
+																		echo '<div class="movie-post-venue">' . ucwords($venue) . '</div>';
 																	}
 																	echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
 																	echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');

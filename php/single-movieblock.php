@@ -29,7 +29,7 @@
 			if ($screeningVenuesCount == 1) {
 				foreach($groupedScreenings as $venue => $screenings){
 					foreach($screenings as $key => $screening) {
-						renderScreening($screening['date'], $screening['time']);
+						renderScreening($screening['date'], $screening['time'], $screening['room']);
 					}
 				}
 			} else {
@@ -38,7 +38,7 @@
 						echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
 						echo '<div>';
 							foreach($screenings as $key => $screening) {
-								renderScreening($screening['date'], $screening['time']);
+								renderScreening($screening['date'], $screening['time'], $screening['room']);
 							}
 						echo '</div>';
 					echo '</div>';
