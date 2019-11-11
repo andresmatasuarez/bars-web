@@ -1,4 +1,3 @@
-import '../stylesheets/main.less';
 import 'fancybox/dist/css/jquery.fancybox.css';
 
 import fancybox from 'fancybox';

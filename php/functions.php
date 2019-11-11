@@ -257,3 +257,13 @@ function renderPostInList($post_id){
 		</div>
 	</div>';
 }
+
+function inline_sponsors_css() {
+  global $post;
+  if ($post->post_name == 'auspiciantes') {
+    $css = file_get_contents(dirname(__FILE__) . '/sponsorsStyles.css');
+    echo '<style type="text/css">' . $css . '</style>';
+  }
+}
+
+add_action('wp_head','inline_sponsors_css');
