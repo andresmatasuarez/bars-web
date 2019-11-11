@@ -12,8 +12,7 @@
 	get_header();
 
 	if (!isset($_GET['edition'])){
-		// $currentEdition = Editions::current();
-		$currentEdition = Editions::getByNumber(19);
+		$currentEdition = Editions::current();
 	} else {
 		$currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
 	}
