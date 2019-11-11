@@ -217,6 +217,11 @@ function getSpanishMonthName($englishMonth){
   }
 }
 
+/* ************ Display date in spanish ************ */
+function displayDateInSpanish($date){
+  return getSpanishDayName($date->format('l')) . ' ' . $date->format('j') . ' de ' . getSpanishMonthName($date->format('F'));
+}
+
 /* Render post as part of a list of posts. */
 function renderPostInList($post_id){
 	echo '

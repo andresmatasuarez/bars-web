@@ -103,12 +103,76 @@ class Editions {
     return self::parseDate($edition['call']['to']);
   }
 
+  public static function getPressPassesDeadline($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    $editionFromDate = self::from($edition);
+    $currentYear = $editionFromDate->format('Y');
+
+    if (isset($edition['press_passes']) && isset($edition['press_passes']['deadline'])) {
+      return self::parseDate($edition['press_passes']['deadline']);
+    }
+
+    // Defaults to 17/november of the given edition's year.
+    // Why 17/november? Because it was the date of the first edition we started tracking the
+    // press passes deadline date, which was 2019 edition.
+    return self::parseDate($currentYear . '-11-17T03:00:00.000Z');
+  }
+
+  public static function getPressPassesPickupDates($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (!isset($edition['press_passes'])) {
+      return array('from' => NULL, 'to' => NULL);
+    }
+
+    if (isset($edition['press_passes']['pickupFrom'])) {
+      $from = self::parseDate($edition['press_passes']['pickupFrom']);
+    }
+
+    if (isset($edition['press_passes']['pickupTo'])) {
+      $to = self::parseDate($edition['press_passes']['pickupTo']);
+    }
+
+    return array('from' => $from, 'to' => $to);
+  }
+
+  public static function getPressPassesPickupLocations($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (
+      isset($edition['press_passes']) &&
+      isset($edition['press_passes']['pickupLocations']) &&
+      !empty($edition['press_passes']['pickupLocations'])
+    ) {
+      return $edition['press_passes']['pickupLocations'];
+    }
+
+    $venues = self::venues($edition);
+
+    if (empty($venues)) {
+      return NULL;
+    }
+
+    $venuePickupLocations = array();
+    foreach($venues as $venueKey => $venueItem) {
+      array_push($venuePickupLocations, $venueItem['name'] . ' (' . $venueItem['address'] . ')');
+    }
+
+    return $venuePickupLocations;
+  }
+
   private static function parseDate($date){
     $date = new DateTime($date);
     $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
     return $date;
   }
-
 }
 
 Editions::initialize(dirname(__FILE__) . '/editions.json');

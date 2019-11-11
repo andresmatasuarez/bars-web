@@ -8,6 +8,11 @@
 
 	get_header();
 
+	$edition = Editions::current();
+
+	$pressPassesDeadline = Editions::getPressPassesDeadline($edition);
+	$pressPassesPickupDates = Editions::getPressPassesPickupDates($edition);
+	$pressPassesPickupLocations = Editions::getPressPassesPickupLocations($edition);
 ?>
 				<div id="page-press" class="page">
 					<div class="page-header">
@@ -21,11 +26,9 @@
 							<h3>Política de acreditaciones</h3>
 							<ul>
 								<li>
-									<!--
-										TODO extract dates to editions.json.
-										Default all previous editions dates to the one from 2019 edition: 17/Nov
-									-->
-									El proceso de acreditaciones se llevará a cabo hasta el <strong>domingo 17 de noviembre</strong> inclusive, realizándose exclusivamente a través de la página web oficial.
+									El proceso de acreditaciones se llevará a cabo hasta el
+									<strong><?php echo displayDateInSpanish($pressPassesDeadline); ?></strong>
+									inclusive, realizándose exclusivamente a través de la página web oficial.
 								</li>
 								<li>
 									Se otorgará un cupo limitado de acreditaciones, y sólo una por medio, debido a las capacidades de las salas en las cuales se desarrolla el Festival.
@@ -68,7 +71,36 @@
 
 								Display corresponding festival venues as well.
 							-->
-							Quienes hayan sido acreditados podrán retirar su credencial desde el <strong>jueves 21 de noviembre a las 16hs</strong>, hasta el <strong>lunes de 25 diciembre inclusive</strong>, en el stand del Festival en el <strong>Complejo Multiplex Belgrano (Vuelta de Obligado 2238)</strong>.
+							Quienes hayan sido acreditados podrán retirar su credencial
+							<?php
+								if (isset($pressPassesPickupDates['from'])) {
+							?>
+								desde el <strong><?php echo displayDateInSpanish($pressPassesPickupDates['from']); ?></strong>
+							<?php
+								}
+
+								if (isset($pressPassesPickupDates['to'])) {
+							?>
+								hasta el <strong><?php echo displayDateInSpanish($pressPassesPickupDates['to']); ?> inclusive</strong>
+							<?php
+								}
+
+								if (isset($pressPassesPickupLocations)) {
+									echo 'en los stands del Festival en ';
+									foreach($pressPassesPickupLocations as $index => $pickupLocation) {
+										echo '<strong>' . $pickupLocation . '</strong>';
+
+										if ($index == count($pressPassesPickupLocations) - 2) {
+											echo ' y ';
+										} else if ($index != count($pressPassesPickupLocations) - 1) {
+											echo ', ';
+										}
+									}
+									echo '.';
+								} else {
+									echo 'en los stands del Festival.';
+								}
+							?>
 						</p>
 
 						<form id="press-form" class="press-form" method="post">
