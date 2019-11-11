@@ -277,3 +277,8 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 .call-is-open .call-is-open-label.call-is-open-link { font-size: 1.7em; left: 8px; top: 4px; padding: 0 !important; margin: 0 !important; }
 .call-is-open .call-is-open-label.call-is-open-label-pre  { left: 23px; top: -11px; }
 .call-is-open .call-is-open-label.call-is-open-label-post { right: 25px; bottom: -15px; }
+
+// hiding images by default to avoid FOUC before imgLiquid runs in bars.js
+.bars-widget.sidebar.image img,
+.posts .post-thumbnail img,
+#page-single .post-related-posts .post-related-post img { display: none; }

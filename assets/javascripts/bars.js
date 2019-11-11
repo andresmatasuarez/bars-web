@@ -2,6 +2,19 @@ import remove from 'lodash/remove';
 
 export default function(){
 
+  // IMAGE THUMBS HANDLING
+  // Home page posts image resize & cropping
+  $('.posts .post-thumbnail img').wrap(() => '<div style="width:270px; height:170px;"></div>');
+  $('.posts .post-thumbnail img').parent().imgLiquid();
+
+  // Single post related posts
+  $('#page-single .post-related-posts .post-related-post img').wrap(() => '<div style="width:200px; height:170px;"></div>');
+  $('#page-single .post-related-posts .post-related-post img').parent().imgLiquid();
+
+  // Sidebar image widget resize & cropping
+  $('#sidebar .bars-widget.sidebar.image img').wrap(() => '<div style="width:300px; height:150px;"></div>');
+  $('#sidebar .bars-widget.sidebar.image img').parent().imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center' });
+
   // Call is open 2015
   const callNavItem      = $('#header-menu .nav-menu li:nth-child(6)');
   const callNavItemLink  = callNavItem.find('a');
@@ -35,22 +48,6 @@ export default function(){
   // Selections
   $('#schedule-section-filters').movieSectionFilter();
   $('.movie-post .movie-post-title').dotdotdot();
-
-  // Home page posts image resize & cropping
-  $('.posts .post-thumbnail img').wrap(() => '<div style="width:270px; height:170px;"></div>');
-  $('.posts .post-thumbnail img').parent().imgLiquid();
-
-  // Single post related posts
-  $('#page-single .post-related-posts .post-related-post img').wrap(() => {
-    return '<div style="width:200px; height:170px;"></div>';
-  });
-  $('#page-single .post-related-posts .post-related-post img').parent().imgLiquid();
-
-  // Sidebar image widget resize & cropping
-  $('#sidebar .bars-widget.sidebar.image img').wrap(() => '<div style="width:300px; height:150px;"></div>');
-  $('#sidebar .bars-widget.sidebar.image img').parent().imgLiquid({
-    horizontalAlign: 'center', verticalAlign: 'center'
-  });
 
   // Programación
   $('.movieblock .movie-selectors').on('click', '#movie-selector', function(){
