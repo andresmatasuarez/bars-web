@@ -48,7 +48,7 @@
     "file-loader": "^0.8.5",
     "font-awesome": "^4.6.1",
     "img-loader": "^1.2.2",
-    "jquery": "^2.2.3",
+    "jquery": "^3.5.0",
     "jquery-form": "^3.50.0",
     "jquery-validation": "^1.15.0",
     "jquery.dotdotdot": "^1.8.0",
