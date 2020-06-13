@@ -1,5 +1,176 @@
 [
   {
+    "number" : 21,
+    "title" : "BARS 2020",
+    "days" : {
+      "tba": true,
+      "only_months": false,
+      "from" : "",
+      "to" : ""
+    },
+    "venues": {
+      "belgrano": {
+        "name": "Multiplex Belgrano",
+        "address": "Vuelta de Obligado 2199"
+      }
+    },
+    "press_passes": {
+      "deadline": "2019-11-17T03:00:00.000Z",
+      "pickupFrom": "2019-11-21T03:00:00.000Z",
+      "pickupTo": "2019-12-25T03:00:00.000Z"
+    },
+    "poster" : "resources/bars2019/bars2019_afiche.jpg",
+    "programme" : "resources/bars2019/bars2019_programme.jpg",
+    "programme_gs" : "",
+    "closing_party" : "resources/bars2019/bars2019_fiesta_clausura.jpg",
+    "spot": "https://www.youtube.com/watch?v=pWGChSjQGSM",
+    "call": {
+      "from": "",
+      "to": "2020-08-02T02:59:59.999Z",
+      "authorization": {
+        "es": "/resources/bars2020/auth2020_es.pdf",
+        "en": "/resources/bars2020/auth2020_en.pdf",
+        "en_docx": "/resources/bars2020/auth2020_en.docx",
+        "es_docx": "/resources/bars2020/auth2020_en.docx"
+      },
+      "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar un screener online a traves de las plataformas <a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a>. </li> <li> Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una imagen horizontal de la película, resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li><strong>Subtítulos o guía de diálogos si la película no es hablada en español.</strong></li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>1 de agosto de 2020</strong>.</li> </ul> </li> <li> Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin. </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival no tiene <strong>costo</strong> para el material producido en <i>Argentina</i>, mientras que tiene un valor de <strong>USD 3</strong> para el material producido en el <i>resto de latinoamérica</i> y de <strong>USD 6</strong> para el material producido en el <i>resto del mundo</i>. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al 1 de enero de 2019.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al 1 de enero de 2019.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que <strong>no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires</strong> y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> <li><strong>En caso de fuerza mayor, y en vistas de la situación con la pandemia de COVID-19, vale señalar que las inscripciones serán válidas para la edición número 21 del Buenos Aires Rojo Sangre aún si ésta es pospuesta o reprogramada.</strong></li> </ul>",
+      "terms_en": "/resources/bars2019/terms2019_en.docx",
+      "terms_es": "/resources/bars2019/terms2019_es.docx"
+    },
+    "awards": {
+      "jury": [
+        "Mejor Largometraje",
+        "Mejor Director Largometraje",
+        "Mejor Actriz Largometraje",
+        "Mejor Actor Largometraje",
+        "Mejor Guion Largometraje",
+        "Mejor Fotografía Largometraje",
+        "Mejores Efectos Especiales Largometraje",
+        "Mejor Cortometraje",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Argentino",
+        "Mejor Largometraje Iberoamericano",
+        "Mejor Director Largometraje Iberoamericano",
+        "Mejor Actuación Largometraje Iberoamericano",
+        "Concurso \"Fin de Semana Sangriento\""
+      ],
+      "audience": [
+        "Largometraje",
+        "Cortometraje",
+        "Largometraje Competencia Bizarra"
+      ]
+    },
+    "juries": {
+      "Competencia Internacional de largometrajes": [
+        {
+          "name": "Federico Bal",
+          "pic": {
+            "url": "resources/bars2019/jury_fede_bal.jpeg",
+            "focus": { "x": -0.5, "y": -0.5, "w": 1344, "h": 896 }
+          },
+          "description": "<strong>Federico Bal</strong> nació en Buenos Aires en 1989. Es actor y productor de cine y teatro. Cuarta generación de una familia de artistas, su acercamiento al cine se dio a muy temprana edad de la mano de sus padres, <strong>Santiago Bal</strong> y <strong>Carmen Barbieri</strong>: dos marcas registradas del cine argentino. Estudió en la FUC y en SICA y comenzó como meritorio de <strong>Carlos Mentasti</strong>, desempeñándose luego como asistente de producción. Tras obtener renombre en la televisión y en el teatro de comedia, en 2017 hizo su debut en la pantalla grande protagonizando junto a su padre <i>Rumbo al mar</i>, para luego incursionar en el thriller psicológico con <i>Crímenes imposibles</i> (2018) y <i>Realidad virtual</i> (2019)."
+        },
+        {
+          "name": "Ezequiel Endelman",
+          "pic": {
+            "url": "resources/bars2019/jury_ezequiel_endelman.jpg",
+            "focus": { "x": 0, "y": 0, "w": 760, "h": 960 }
+          },
+          "description": "<strong>Ezequiel Endelman</strong> co-dirigió y co-produjo varios largometrajes, cortometrajes y videoclips de estética Terror-Pop 80’s como parte de la productora ToyBoys, Inc. Movies, como el largometraje <i>Mirada de cristal</i> (BARS 18), estrenado en el Festival Internacional de Mar del Plata, y que recorrió varios festivales del mundo como el FrightFest, Mórbido y Sitges. Parte de su filmografía consiste de <i>Un viernes negro</i> (BARS 11), <i>Un viernes negro, parte 2 - La maldición del gato</i> (BARS 12), y <i>Golpee antes de entrar, episodio 1</i> de la serie web <i>No podrás dormir esta noche</i> que ganó el Premio del Público al Mejor Cortometraje en el BARS 14. Como vestuarista, trabajó en <i>Grasa</i> (BARS 16), <i>Bruno Motoneta</i>, <i>Soy tóxico</i> (BARS 19 - Mención Especial a Mejor Vestuario) y <i>Tumba para tres</i>. Este año, creó y dirigió el spot de nuestro festival."
+        },
+        {
+          "name": "Noelia Custodio",
+          "pic": {
+            "url": "resources/bars2019/jury_noelia_custodio.jpg",
+            "focus": { "x": 0, "y": 0, "w": 6000, "h": 4000 }
+          },
+          "description": "<strong>Noelia Custodio</strong> nació en Buenos Aires, en 1989. Es comediante de stand up, actriz y parte de la mesa de <i>Segurola y Habana</i>, programa emitido de lunes a viernes de 13 a 16 por FutuRock. Participó del Festival Cuero, Festival Nuestro, Ciudad Emergente, Festival Girl Power, y Comedy Central, entre otros. Se hizo la graciosa en un par de series online, le gusta <strong>Leo Mattioli</strong> y es fan del cine de terror por ser un género incomprendido bancado por soñadores."
+        }
+      ],
+
+      "Competencia Iberoamericana de largometrajes": [
+        {
+          "name": "Laura Sánchez Acosta",
+          "pic": {
+            "url": "resources/bars2019/jury_laura_sanchez_acosta.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 1280, "h": 853 }
+          },
+          "description": "<strong>Laura Sánchez Acosta</strong> nació en Entre Ríos en 1992. Realizadora audiovisual, artista de VFX y amante del cine de terror, dedicada a fomentar y apostar por el cine de género en el interior del país. Trabajó en la producción, guión, montaje, y VFX de varios proyectos audiovisuales, entre los que se destacan <i>Relicto</i> (2016) su primer largometraje como directora, <i>Daemonium</i> (<strong>Pablo Parés</strong>), y su más reciente film <i>La solapa</i> (2019) cortometraje ganador del concurso Blood Window 2017. Actualmente está desarrollando su nuevo largometraje a rodarse en tierras litoraleñas, <i>La salamanca, la cueva de los demonios</i>."
+        },
+        {
+          "name": "Vicu Villanueva",
+          "pic": {
+            "url": "resources/bars2019/jury_vicu_villanueva.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 1280, "h": 853 }
+          },
+          "description": "<strong>Vicu Villanueva</strong> nació en Buenos Aires en 1994. Es artista, música y activista transfeminista. Tiene un canal de YouTube desde 2014 donde sube canciones con un alto contenido de crítica social y realiza entrevistas buscando dar a conocer perspectivas disidentes y diversas. Tiene dos discos solistas, <i>Ironía erótica</i> (2016) y <i>Cancionera</i> (2018), y uno con su banda Dúo Microcentro. Es cinéfila y, particularmente, fan del cine de terror independiente argentino."
+        },
+        {
+          "name": "Matías Sánchez",
+          "pic": {
+            "url": "resources/bars2019/jury_matias_sanchez.jpg",
+            "focus": { "x": 0, "y": 0, "w": 239, "h": 518 }
+          },
+          "description": "<strong>Matías Sánchez</strong> nació en la ciudad de Punta Alta en 1981. Se recibió como realizador audiovisual en la Universidad Nacional del Sur. Dirigió cortometrajes, documentales y videoclips, todos relacionados con el género fantástico, como <i>Colina doble</i> o <i>Escrito en la piedra</i>. En la actualidad, es programador y director del Festival Nacional de Cine de Terror y Fantástico 1000 Gritos —que se encuentra preparando su 9ª edición para 2020— y dirige el programa de televisión <i>1000 Gritos TV</i>."
+        }
+      ],
+
+      "Competencia Internacional de cortometrajes": [
+        {
+          "name": "Georgina Zanardi",
+          "pic": {
+            "url": "resources/bars2019/jury_georgina_zanardi.jpg",
+            "focus": { "x": 0, "y": 0, "w": 4630, "h": 6320 }
+          },
+          "description": "<strong>Georgina Zanardi</strong> es diseñadora de imagen y sonido, egresada de la FADU (UBA), y fundadora de Mondo Lila Producciones, creada en 2007, con la realización del cortometraje <i>Sopa</i>, luego vinieron otros cortometrajes: el documental <i>Kriazombis</i> y cortos de ficción como <i>Amigo imaginario</i> y <i>La noche de los perros de mierda</i>. En 2013 se vino el primer largometraje, <i>Hijos de puta por elección</i>, en 2014 el documental <i>Botánicos</i>, en 2014 su segundo largometraje, <i>El onanista perturbado</i>, en 2016 realiza <i>El puterío de los horrores</i>, ganadora del voto del público en la competencia bizarra en el BARS 17. Actualmente está a punto de estrenar <i>Cazador la película</i>, e <i>Hijos de puta post mortem</i>."
+        },
+        {
+          "name": "Flavio Greco Paglia",
+          "pic": {
+            "url": "resources/bars2019/jury_flavio_greco_paglia.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 985, "h": 1280 }
+          },
+          "description": "<strong>Flavio Greco Paglia</strong>, nacido en Buenos Aires en 1988, es dibujante en cine y animación. Desde 2014 ilustra afiches para festivales y películas, destacándose los del Festival Buenos Aires Rojo Sangre y Blood Window Pinamar —de Ventana Sur / INCAA—, y películas como <i>Presagio</i> (<strong>Matías Salinas</strong>), <i>Malvineitor</i> (<strong>Pablo Marini</strong>) y <i>Punto muerto</i> (<strong>Daniel de la Vega</strong>). En el último año realizó ilustraciones para Warner Bros., MTV, cortometrajes, portada y galería de trabajos para la mítica revista Heavy Metal, y portada para el libro de cuentos de <strong>Andrés Borghi</strong> <i>Reflejado en la sangre</i>, entre otras obras."
+        },
+        {
+          "name": "Constanza Otero",
+          "pic": {
+            "url": "resources/bars2019/jury_constanza_otero.jpg",
+            "focus": { "x": 0, "y": 0, "w": 720, "h": 720 }
+          },
+          "description": "<strong>Constanza Otero</strong>, nacida en Buenos Aires en 1993, es estudiante de letras y creadora de contenido en su canal <i>Coos Burton</i> desde 2015, espacio donde promueve la literatura y el género de terror en todos sus aspectos. Ha participado de certamenes literarios, y actualmente trabaja en una antología del género. Realiza colaboraciones editoriales donde muestra lo nuevo dentro del mundo de la ficción, y lo combina con obras de culto y otras poco revisionadas, para darles visibilidad. La dirección de su canal es <a href=\"https://www.youtube.com/user/CoosBurton\">www.youtube.com/user/CoosBurton</a>."
+        }
+      ],
+
+      "Concurso: 'Fin de Semana Sangriento'": [
+        {
+          "name": "Germán Magariños",
+          "pic": {
+            "url": "resources/bars2019/jury_german_magarinos.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 960, "h": 960 }
+          },
+          "description": "<strong>Germán Magariños</strong> es el fundador de Gorevision Films, productora con la que realizó, desde 2001, casi tres decenas de películas. Estrenó en el BARS desde 2002 (con <i>LSD Frankenstein</i>) y, de ahí en adelante, se convirtió en uno de los realizadores con más películas proyectadas en el festival, participando con <i>Vio la luna y compró un cementerio</i> (2003), <i>Goreinvasión</i> (2004), <i>Sadomaster</i> (2005), <i>Un cazador de zombis</i> (2007), <i>Sadomaster: Locura general</i> (2011), <i>Goretech. Bienvenidos al planeta hijo de puta</i> (2012, premio a Mejor Película Iberoamericana), <i>Los superbonaerenses</i> (2014) y <i>StarWars Goretech</i> (2018). La característica principal de estas producciones es que son extremas en cuanto a exageración, sangre, violencia y “de mal gusto” mezcladas con comedia y una cierta tendencia a la desprolijidad y el Cine Z."
+        },
+        {
+          "name": "Leticia Bobbioni",
+          "pic": {
+            "url": "resources/bars2019/jury_leticia_bobbioni.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1128, "h": 1080 }
+          },
+          "description": "<strong>Leticia Bobbioni</strong> es directora de fotografía, docente e investigadora de la narración, la luz y el movimiento. Se desempeña como directora de fotografía, realizadora de contenidos digitales, VJ y docente. Estudió Dirección de Fotografía en la ENERC y es licenciada en Comunicación Audiovisual y en enseñanza de las Artes Audiovisuales por la UNSAM. También es docente de Dirección de Fotografía en la ENERC y Consejera Académica, y JTP concursada en la UNA en la materia Proyectual de Iluminación y Cámara I a V. Es parte de un equipo de investigación sobre «Realidad virtual, narración transmedia y puestas inmersivas»; en esta misma línea, trabaja como diseñadora de iluminación, VJ, y realizando video- instalaciones site-specific. Ha dirigido diversos comerciales interactivos y series web transmedia."
+        },
+        {
+          "name": "Leandro Cóccaro",
+          "pic": {
+            "url": "resources/bars2019/jury_leandro_coccaro.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1078, "h": 733 }
+          },
+          "description": "<strong>Leandro Cóccaro</strong> es actor y docente teatral. Se formó con <strong>Norman Briski</strong>, <strong>Agustín Alezzo</strong> y <strong>Carlos Gandolfo</strong>, entre otros. Trabajó en innumerables obras teatrales como <i>La voluntad</i>, <i>Máscaras desnudas</i> y <i>Los Kaplan</i>. Como autor y director montó <i>Jardín de la miseria</i> y <i>Fantasmas, the shadows of love</i>. Participó en numerosos ciclos televisivos, destacándose <i>Golpe al corazón</i>, <i>Simona</i>, <i>El elegido</i> y <i>Casi ángeles</i>. En cine actuó en films como <i>Una tumba para tres</i> (2018, <strong>Mariano Cattaneo</strong>), <i>Polvareda</i> (2014, <strong>Juan Schmidt</strong>) y <i>Nacido para morir</i> (2014, <strong>Andrés Borghi</strong>). Además protagonizó, escribió y produjo la serie web <i>Martín Mosca</i>, nominada a los premios Martín Fierro 2013. Actualmente produce, escribe y protagoniza la serie web <i>Planeta Perinola</i>."
+        }
+      ]
+    }
+  },
+  {
     "number" : 20,
     "title" : "BARS 2019",
     "days" : {
