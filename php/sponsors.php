@@ -190,7 +190,6 @@
 						</div>
 
 						<div class="sponsor sponsor-mecenazgo-cultural"></div>
-						<div class="sponsor sponsor-festeringslime"></div>
 					</div>
 				</div>
 	<?php

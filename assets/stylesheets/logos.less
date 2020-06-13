@@ -5,18 +5,23 @@
 }
 
 .footer-logos {
-  overflow: hidden; position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
   .footer-image {
-    width: 276px; height: 53px; margin: 0 auto;
+    width: 276px;
+    height: 53px;
     background-image: url('../images/footer_logo.png');
   }
 
   .footer-festering-slime {
-    width: 112px; height: 53px;
-    position: absolute; right: 0; top: 0;
-    background-image: url('../images/festeringslime.png');
-    &:hover { background-image: url('../images/hover_festeringslime.png'); }
+    width: 140px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+    background-image: url('../images/sponsors/auspiciante_festeringslime_hover.png');;
   }
 }
 
