@@ -15,7 +15,7 @@
 ?>
         <div id="page-juries" class="page">
           <div class="page-header">
-            Premios y Jurados <?php echo $edition['title']; ?>
+            Premios y Jurados <?php echo Editions::getTitle($edition); ?>
           </div>
 
           <div class="scratch"></div>

@@ -42,7 +42,7 @@
 
 						<div class="page-header">
 								Convocatoria
-								<?php echo $edition['number']; ?>
+								<?php echo Editions::getTitle($edition); ?>
 								Festival Buenos Aires Rojo Sangre
 							<br />
 							<span class="subheader">

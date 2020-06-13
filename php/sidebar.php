@@ -20,19 +20,19 @@
 				if (isset($edition['spot']) && !empty($edition['spot'])){
 					$vars = array();
 					parse_str(parse_url($edition['spot'], PHP_URL_QUERY), $vars);
-					echo add_youtube_sidebar_widget('sidebar relative video', 'Spot ' . $edition['title'], $vars['v'], '100%', '200px');
+					echo add_youtube_sidebar_widget('sidebar relative video', 'Spot ' . Editions::getTitle($edition), $vars['v'], '100%', '200px');
 				}
 			?>
 
 			<?php
 				if (isset($edition['programme']) && !empty($edition['programme'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Programación ' . $edition['title'], get_bloginfo('template_directory') . '/' . $edition['programme']);
+					echo add_image_sidebar_widget('sidebar relative image', 'Programación ' . Editions::getTitle($edition), get_bloginfo('template_directory') . '/' . $edition['programme']);
 				}
 			?>
 
 			<?php
 				if (isset($edition['poster']) && !empty($edition['poster'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Afiche ' . $edition['title'], get_bloginfo('template_directory') . '/' . $edition['poster']);
+					echo add_image_sidebar_widget('sidebar relative image', 'Afiche ' . Editions::getTitle($edition), get_bloginfo('template_directory') . '/' . $edition['poster']);
 				}
 			?>
 

@@ -1,5 +1,35 @@
 <?php
 
+// https://stackoverflow.com/questions/14994941/numbers-to-roman-numbers-with-php
+function integerToRoman($number) {
+  $map = array(
+    'M' => 1000,
+    'CM' => 900,
+    'D' => 500,
+    'CD' => 400,
+    'C' => 100,
+    'XC' => 90,
+    'L' => 50,
+    'XL' => 40,
+    'X' => 10,
+    'IX' => 9,
+    'V' => 5,
+    'IV' => 4,
+    'I' => 1
+  );
+  $returnValue = '';
+  while ($number > 0) {
+    foreach ($map as $roman => $int) {
+      if($number >= $int) {
+        $number -= $int;
+        $returnValue .= $roman;
+        break;
+      }
+    }
+  }
+  return $returnValue;
+}
+
 class Editions {
 
   private static $editions;
@@ -29,6 +59,22 @@ class Editions {
         return $edition;
       }
     }
+  }
+
+  public static function romanNumerals($edition = NULL){
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return integerToRoman($edition['number']);
+  }
+
+  public static function getTitle($edition = NULL){
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return 'BARS ' . integerToRoman($edition['number']);
   }
 
   public static function days($edition = NULL){

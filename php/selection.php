@@ -29,12 +29,12 @@
 
 						<div class="page-header">
 
-							Programación <?php echo $currentEdition['title']; ?>
+							Programación <?php echo Editions::getTitle($currentEdition); ?>
 
 							<select id="festival-edition-filters" >
 								<?php
 									foreach(Editions::all() as $edition){
-										echo '<option value="' . $edition['number'] . '">' . $edition['title'] . '</option>';
+										echo '<option value="' . $edition['number'] . '">' . Editions::getTitle($edition) . '</option>';
 									}
 								?>
 							</select>
