@@ -48,7 +48,13 @@
 							<span class="subheader">
 								<?php
 									$sameMonth = $from->format('F') == $to->format('F');
-									if (Editions::shouldDisplayOnlyMonths($edition)) {
+
+									if (Editions::shouldDisplayTBA($edition)) {
+								?>
+										<span>TBA</span>
+										<?php echo $year; ?>
+								<?php
+									} else if (Editions::shouldDisplayOnlyMonths($edition)) {
 										if ($sameMonth) {
 								?>
 											<span style="text-transform: capitalize;">

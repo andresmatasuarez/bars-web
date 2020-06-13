@@ -48,8 +48,8 @@
 								$lastDayName    = ucwords(getSpanishDayName($days[count($days) - 1]->format('l')));
 								$lastDayNumber  = $days[count($days) - 1]->format('d/m');
 
-								echo '[ Semana del ' . $firstDayName . ' ' . $firstDayNumber;
-								echo ' al ' . $lastDayName . ' ' . $lastDayNumber . ' de ' . $year . ' ]';
+								echo 'Semana del ' . $firstDayName . ' ' . $firstDayNumber;
+								echo ' al ' . $lastDayName . ' ' . $lastDayNumber . ' de ' . $year . '';
 							?>
 							</span>
 						</div>

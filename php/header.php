@@ -67,10 +67,11 @@
 
 	<?php
 		$edition = Editions::current();
+		$year = Editions::from($edition)->format('Y');
 	?>
 
 	<div id="current-edition-year" style="display: none;">
-		<?php echo Editions::from($edition)->format('Y'); ?>
+		<?php echo $year; ?>
 	</div>
 
 	<div id="header" >
@@ -78,51 +79,54 @@
 			<div id="header-info">
 				<div class="left">
 					<?php
-						$from = Editions::from($edition);
-						$to = Editions::to($edition);
-						$year = $from->format('Y');
-
-						$sameMonth = $from->format('F') == $to->format('F');
-						if (Editions::shouldDisplayOnlyMonths($edition)) {
-							if ($sameMonth){
+						if (Editions::shouldDisplayTBA($edition)) {
 					?>
-								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
-					<?php
-							} else {
-					?>
-								<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
-								/
-								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
-						<?php
-							}
-						?>
+							<span class="size-highlight">TBA</span>
 					<?php
 						} else {
-							if ($sameMonth){
-					?>
-								<span class="size-highlight"><?php echo $from->format('j'); ?></span>
-								al
-								<span class="size-highlight"><?php echo $to->format('j'); ?></span>
-								de
-								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
-					<?php
-							} else {
-					?>
-								<span class="size-highlight"><?php echo $from->format('j'); ?></span>
-								de
-								<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
-								al
-								<span class="size-highlight"><?php echo $to->format('j'); ?></span>
-								de
-								<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
-						<?php
-							}
+							$from = Editions::from($edition);
+							$to = Editions::to($edition);
+
+							$sameMonth = $from->format('F') == $to->format('F');
+							if (Editions::shouldDisplayOnlyMonths($edition)) {
+								if ($sameMonth){
 						?>
-					<?php
+									<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+						<?php
+								} else {
+						?>
+									<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
+									/
+									<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+							<?php
+								}
+							?>
+						<?php
+							} else {
+								if ($sameMonth){
+						?>
+									<span class="size-highlight"><?php echo $from->format('j'); ?></span>
+									al
+									<span class="size-highlight"><?php echo $to->format('j'); ?></span>
+									de
+									<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+						<?php
+								} else {
+						?>
+									<span class="size-highlight"><?php echo $from->format('j'); ?></span>
+									de
+									<span class="size-highlight"><?php echo getSpanishMonthName($from->format('F')); ?></span>
+									al
+									<span class="size-highlight"><?php echo $to->format('j'); ?></span>
+									de
+									<span class="size-highlight"><?php echo getSpanishMonthName($to->format('F')); ?></span>
+						<?php
+								}
+							}
 						}
 					?>
 				</div>
-				<div class="center"><?php echo $year; ?></div>
+				<div class="center"><?php echo $year; ?> | <?php echo Editions::getTitle($edition); ?></div>
 				<div class="right size-highlight">
 					<?php
 						$venues = Editions::venues($edition);
