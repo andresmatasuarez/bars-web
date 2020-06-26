@@ -492,14 +492,11 @@
 		return $movieBlocks;
 	}
 
-
-	function getMoviesAndMovieBlocks($edition, $day) {
+	function getMovieEntriesQuery($withDayCondition = false) {
 		global $wpdb;
-
-		$edition = 'bars' . $edition['number'];
-		$day = $day->format('m-d-Y');
-
-		return $wpdb->get_results($wpdb->prepare("
+		$movieDayCondition = $withDayCondition ? "AND m2.meta_key = '_movie_screenings' AND m2.meta_value LIKE '%%%s%%'" : "";
+		$movieBlockDayCondition = $withDayCondition ? "AND m2.meta_key = '_movieblock_screenings' AND m2.meta_value LIKE '%%%s%%'" : "";
+		return "
 			(
 				SELECT	post.ID, post.post_author, post.post_date, post.post_content
 				FROM	{$wpdb->prefix}posts post
@@ -508,7 +505,7 @@
 						INNER JOIN {$wpdb->prefix}postmeta m3 ON post.ID = m3.post_id
 				WHERE	post.post_status = 'publish' AND post.post_type = 'movie'
 						AND m1.meta_key = '_movie_edition' AND m1.meta_value = %s
-						AND m2.meta_key = '_movie_screenings' AND m2.meta_value LIKE '%%%s%%'
+						{$movieDayCondition}
 						AND (
 								'_movie_movieblock' NOT IN (
 									SELECT DISTINCT m4.meta_key
@@ -526,10 +523,27 @@
 						INNER JOIN {$wpdb->prefix}postmeta m2 ON post.ID = m2.post_id
 				WHERE	post.post_status = 'publish' AND post.post_type = 'movieblock'
 						AND m1.meta_key = '_movieblock_edition' AND m1.meta_value = %s
-						AND m2.meta_key = '_movieblock_screenings' AND m2.meta_value LIKE '%%%s%%'
+						{$movieBlockDayCondition}
 				GROUP BY post.ID
 			)
-		", $edition, $day, $edition, $day));
+		";
+	}
+
+	function getMoviesAndMovieBlocks($edition, $day) {
+		global $wpdb;
+		$edition = 'bars' . $edition['number'];
+		$day = $day->format('m-d-Y');
+		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, $day, $edition, $day));
+	}
+
+	function countMovieEntriesForEdition($edition) {
+		global $wpdb;
+		$edition = 'bars' . $edition['number'];
+		return $wpdb->get_var($wpdb->prepare("
+			SELECT COUNT(*) FROM (
+				" . getMovieEntriesQuery() . "
+			) as total
+		", $edition, $edition));
 	}
 
 	// @src http://stackoverflow.com/questions/2762061/how-to-add-http-if-its-not-exists-in-the-url

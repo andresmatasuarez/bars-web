@@ -163,6 +163,14 @@ class Editions {
     return self::parseDate($edition['call']['to']);
   }
 
+  public static function isCallClosed($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return strtotime('now') > strtotime($edition['call']['to']);
+  }
+
   public static function getPressPassesDeadline($edition = NULL) {
     if (is_null($edition)){
       $edition = self::current();

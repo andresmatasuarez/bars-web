@@ -192,11 +192,7 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 #page-single .post-related-posts .post-related-post .post-related-post-title { margin-bottom: 30px; }
 
 /* CALL IF CLOSED */
-#page-call:not(.call-is-closed) .call-is-closed-message { display: none; }
 #page-call.call-is-closed a { pointer-events: none; cursor: default; text-decoration: underline; color: #777; }
-#page-call.call-is-closed .call-is-closed-message { background: #000; overflow: hidden; padding-top: 20px; padding-bottom: 40px; color: #cecece; font-family: 'Oswald', sans-serif; text-align: center; }
-#page-call.call-is-closed .call-is-closed-message h3 { font-weight: normal; }
-#page-call.call-is-closed .call-is-closed-message .fa { font-size: 6em; }
 
 /* Convocatoria (call.php -> tmpl_call) */
 #page-call .basis { padding: 10px 20px 20px 10px; }
@@ -389,5 +385,24 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
     .bars-selector {
       width: 250px;
     }
+  }
+}
+
+.bars-warning-message {
+  background: #000;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: #cecece;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+
+  p {
+    font-weight: normal;
+    font-size: 1.17em;
+  }
+
+  .fa {
+    font-size: 6em;
   }
 }

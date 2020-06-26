@@ -6,6 +6,7 @@
  * @subpackage bars2013
  */
 
+	require_once 'helpers.php';
 	require_once 'editions.php';
 
 	get_header();
@@ -16,6 +17,7 @@
 	$to            = Editions::to($edition);
 	$call          = Editions::call($edition);
 	$call_deadline = Editions::callDeadline($edition);
+	$call_is_closed = Editions::isCallClosed($edition);
 
 	$year = $from->format('Y');
 	if (isset($call['form'])) {
@@ -23,20 +25,14 @@
 	} else {
 		$terms = $call['terms'];
 	}
-
-	$call_is_closed = strtotime('now') > strtotime($call['to']);
 ?>
 
 					<div id="page-call" class="page <?php echo ($call_is_closed ? 'call-is-closed' : '') ?>" >
-
-						<div class="call-is-closed-message">
-							<div>
-								<span class="fa fa-exclamation-circle"></span>
-							</div>
-							<h1>Convocatoria cerrada hasta el año que viene</h1>
-							<h3>Las bases se dejan a la vista para que los interesados se vayan preparando.</h3>
-							<h3>Los links a los formularios de inscripción se encuentran deshabilitados hasta la próxima convocatoria.</h3>
-						</div>
+						<?php $call_is_closed && renderWarningMessage(
+							'Convocatoria cerrada hasta el año que viene',
+							"Las bases se dejan a la vista para que los interesados se vayan preparando.<br />
+							Los links a los formularios de inscripción se encuentran deshabilitados hasta la próxima convocatoria."
+						); ?>
 
 						<div class="scratch"></div>
 

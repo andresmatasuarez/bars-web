@@ -45,4 +45,16 @@
 <?php
   }
 
+  function renderWarningMessage($title, $message, $customClass = '') {
+?>
+    <div class="bars-warning-message <?php echo $customClass; ?>">
+      <div>
+        <span class="fa fa-exclamation-circle"></span>
+      </div>
+      <h1><?php echo $title; ?></h1>
+      <p><?php echo $message; ?></p>
+    </div>
+<?php
+  }
+
 ?>
