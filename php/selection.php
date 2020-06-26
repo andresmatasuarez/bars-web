@@ -61,7 +61,7 @@
 										renderWarningMessage(
 											'La programación se está definiendo',
 											'Estate atento!<br />
-											La grilla para este año ya se encuentra en procesión de selección.<br />
+											La grilla para este año ya se encuentra en proceso de selección.<br />
 											Estará disponible en los próximos días. <br />'
 										);
 									} else {
