@@ -26,9 +26,9 @@
     return $grouped;
   }
 
-  function renderSelector($id, $title, $options) {
+  function renderSelector($id, $title, $options, $customClass = '') {
 ?>
-    <div class="bars-selector-wrapper">
+    <div class="bars-selector-wrapper <?php echo $customClass; ?>">
       <div class="bars-selector-title">
         <?php echo $title; ?>
       </div>

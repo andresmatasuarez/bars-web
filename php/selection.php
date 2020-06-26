@@ -57,14 +57,13 @@
 						<div class="selection-schedule-container">
 							<div class="schedule-header">
 								<div class="schedule-filters">
-									<select id="schedule-section-filters" >
-										<option value="all">Todas</option>
-										<?php
-											foreach($sections as $section){
-												echo '<option value="' . $section['value'] . '">' . $section['label'] . '</option>';
-											}
-										?>
-									</select>
+									<?php
+										$movieSections = array('all' => 'Todas');
+										foreach($sections as $section){
+											$movieSections[$section['value']]= $section['label'];
+										}
+										renderSelector('schedule-section-filters', 'Secciones', $movieSections, 'movie-section-selector');
+									?>
 								</div>
 							</div>
 

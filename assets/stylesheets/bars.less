@@ -211,7 +211,6 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 /* Programación (selection.php -> tmpl_selection) */
 #page-selection .selection-schedule-container { padding: 10px 0; }
 #page-selection .schedule-header { padding: 0 10px; }
-#page-selection .schedule-header .schedule-filters { vertical-align:middle; text-align: right; }
 #page-selection .schedule { margin-top: 20px; }
 #page-selection .schedule .scratch { opacity: 0.1; }
 #page-selection .schedule-day { overflow: hidden; padding: 15px; }
@@ -299,12 +298,16 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
   @selector-height: 35px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 
   .bars-selector-title {
     font-size: 12px;
     letter-spacing: 1px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    line-height: 1;
     color: white;
+    font-family: Oswald;
+    letter-spacing: 1px;
   }
 
   .bars-selector {
@@ -363,12 +366,24 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
       color: black;
       font-weight: 600;
       font-size: 15px;
-      font-family: inherit;
+      font-family: Oswald;
       letter-spacing: 1px;
 
       option {
         padding: 0 10px;
       }
+    }
+  }
+
+  &.movie-section-selector {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .bars-selector-title {
+      margin-bottom: 0;
+      margin-right: 10px;
+      font-size: 16px;
     }
   }
 }
