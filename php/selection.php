@@ -29,17 +29,15 @@
 
 						<div class="page-header">
 
-							Programación <?php echo Editions::getTitle($currentEdition); ?>
-
-							<select id="festival-edition-filters" >
+							<div class="page-title">
+								<div class="selection-title">
+									Programación <?php echo Editions::getTitle($currentEdition); ?>
+								</div>
 								<?php
-									foreach(Editions::all() as $edition){
-										echo '<option value="' . $edition['number'] . '">' . Editions::getTitle($edition) . '</option>';
-									}
+									renderSelector('edition-selector', 'Ediciones anteriores', Editions::getMapOfTitleByNumber());
 								?>
-							</select>
+							</div>
 
-							<br/>
 							<span class="subheader">
 							<?php
 								$year           = $days[0]->format('Y');

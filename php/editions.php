@@ -228,6 +228,14 @@ class Editions {
     return $venuePickupLocations;
   }
 
+  public static function getMapOfTitleByNumber() {
+    $indexed = array();
+    foreach (self::all() as $edition) {
+      $indexed[$edition['number']] = Editions::getTitle($edition);
+    }
+    return $indexed;
+  }
+
   private static function parseDate($date){
     $date = new DateTime($date);
     $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));

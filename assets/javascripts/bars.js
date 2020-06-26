@@ -118,9 +118,9 @@ export default function(){
   // Selection page
   // Select current edition by default.
   if (window.CURRENT_EDITION) {
-    $('#festival-edition-filters').val(window.CURRENT_EDITION);
+    $('#edition-selector').val(window.CURRENT_EDITION);
   }
-  $('#festival-edition-filters').change(function(){
+  $('#edition-selector').change(function(){
     const editionParam = $.param({ edition: $(this).val() });
     // Triggers a reload with selected edition sent as query param.
     let queryString = null;

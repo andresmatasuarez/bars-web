@@ -64,7 +64,19 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 #page-call.page { padding-bottom: 0; }
 #page-single.page { padding-top: 20px; }
 #page-call .page-header { padding-top: 30px; background: #110000; }
-#page-selection .page-header { padding-top: 30px; background: #110000; }
+#page-selection .page-header {
+  padding-top: 30px;
+  background: #110000;
+  .page-title {
+    display: flex;
+    align-items: flex-end;
+
+    .selection-title {
+      flex: 1;
+      line-height: 1;
+    }
+  }
+}
 #page-juries .page-header { padding-top: 30px; background: #110000; }
 #page-juries .page-header.juries { padding-top: 30px; background: none; }
 #page-juries .page-header.juries.section { padding: 15px 0 15px 30px; background: none; font-size: 1.4em; }
@@ -282,3 +294,81 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 .bars-widget.sidebar.image img,
 .posts .post-thumbnail img,
 #page-single .post-related-posts .post-related-post img { display: none; }
+
+.bars-selector-wrapper {
+  @selector-height: 35px;
+  display: flex;
+  flex-direction: column;
+
+  .bars-selector-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  .bars-selector {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    height: @selector-height;
+    width: 200px;
+    line-height: normal;
+    border-radius: 0;
+
+    // Arrow
+    &::after {
+      font-size: 10pt;
+      line-height: @selector-height;
+      content: '\25BC';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 1em;
+      cursor: pointer;
+      pointer-events: none;
+      -webkit-transition: .25s all ease;
+      -o-transition: .25s all ease;
+      transition: .25s all ease;
+      background: white;
+      color: black;
+    }
+
+    // Transition
+    &:hover::after {
+      color: #af0000;
+    }
+
+    select {
+      // reset
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      outline: 0;
+      box-shadow: none;
+      border: 0 !important;
+      background-image: none;
+
+      // Remove IE arrow
+      &::-ms-expand {
+        display: none;
+      }
+
+      // custom styles
+      flex: 1;
+      padding: 0 .5em;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: inherit;
+      letter-spacing: 1px;
+
+      option {
+        padding: 0 10px;
+      }
+    }
+  }
+}

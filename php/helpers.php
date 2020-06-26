@@ -26,4 +26,23 @@
     return $grouped;
   }
 
+  function renderSelector($id, $title, $options) {
+?>
+    <div class="bars-selector-wrapper">
+      <div class="bars-selector-title">
+        <?php echo $title; ?>
+      </div>
+      <div class="bars-selector">
+        <select id="<?php echo $id; ?>">
+          <?php
+            foreach($options as $value => $label) {
+              echo '<option value="' . $value . '">' . $label . '</option>';
+            }
+          ?>
+        </select>
+      </div>
+    </div>
+<?php
+  }
+
 ?>
