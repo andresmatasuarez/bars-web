@@ -20,10 +20,12 @@
 	$call_is_closed = Editions::isCallClosed($edition);
 
 	$year = $from->format('Y');
+
+	$terms = $call['terms'];
+	$terms = str_replace('%%DEADLINE%%', getDateInSpanish($call_deadline), $terms);
+	$terms = str_replace('%%ELIGIBILE_FROM_DATE%%', getDateInSpanish(parseDate("{$year}-01-01T03:00:00.000Z")), $terms);
 	if (isset($call['form'])) {
-		$terms = str_replace('%%FORM%%', $call['form'], $call['terms']);
-	} else {
-		$terms = $call['terms'];
+		$terms = str_replace('%%FORM%%', $call['form'], $terms);
 	}
 ?>
 
@@ -76,11 +78,7 @@
 								?>
 											<?php echo $from->format('j'); ?>
 											al
-											<?php echo $to->format('j'); ?>
-											de
-											<?php echo getSpanishMonthName($to->format('F')); ?>
-											de
-											<?php echo $year; ?>
+											<?php echo getDateInSpanish($to); ?>
 								<?php
 										} else {
 								?>
@@ -88,11 +86,7 @@
 											de
 											<?php echo getSpanishMonthName($from->format('F')); ?>
 											al
-											<?php echo $to->format('j'); ?>
-											de
-											<?php echo getSpanishMonthName($to->format('F')); ?>
-											de
-											<?php echo $year; ?>
+											<?php echo getDateInSpanish($to); ?>
 									<?php
 										}
 									?>
@@ -101,11 +95,7 @@
 								?>
 								---
 								Recepción de material hasta:
-								<?php echo $call_deadline->format('j'); ?>
-								de
-								<?php echo getSpanishMonthName($call_deadline->format('F')); ?>
-								de
-								<?php echo $year; ?>
+								<?php echo getDateInSpanish($call_deadline); ?>
 							</span>
 							<br />
 							<?php if (isset($call['terms_en'])) { ?>
@@ -119,30 +109,8 @@
 						<div class="scratch"></div>
 
 						<div class="basis text-opensans">
-
 							<?php echo $terms; ?>
-
 						</div>
-
-<!--
-						<table class="banners">
-							<tr>
-								<td>
-									<a href="http://www.festhome.com/" target="blank"><img src="http://festhome.com/img/festivalkit/festivalkit_small_spa.png"></a>
-								</td>
-								<td>
-									<a href="http://www.moviebeta.com/" target="blank"><img src="http://festival.movibeta.com/web/views/images/user_logo_header.png"></a>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<a href="http://www.clickforfestivals.com/" target="blank"><img src="http://www.clickforfestivals.com/images/logo_cabecera.jpg"></a>
-								</td>
-								<td>
-								</td>
-							</tr>
-						</table>
--->
 
 						<div class="scratch"></div>
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'helpers.php';
+
 // https://stackoverflow.com/questions/14994941/numbers-to-roman-numbers-with-php
 function integerToRoman($number) {
   $map = array(
@@ -103,7 +105,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return self::parseDate($edition['days']['from']);
+    return parseDate($edition['days']['from']);
   }
 
   public static function to($edition = NULL){
@@ -111,7 +113,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return self::parseDate($edition['days']['to']);
+    return parseDate($edition['days']['to']);
   }
 
   public static function shouldDisplayOnlyMonths($edition = NULL) {
@@ -160,7 +162,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return self::parseDate($edition['call']['to']);
+    return parseDate($edition['call']['to']);
   }
 
   public static function isCallClosed($edition = NULL) {
@@ -180,13 +182,13 @@ class Editions {
     $currentYear = $editionFromDate->format('Y');
 
     if (isset($edition['press_passes']) && isset($edition['press_passes']['deadline'])) {
-      return self::parseDate($edition['press_passes']['deadline']);
+      return parseDate($edition['press_passes']['deadline']);
     }
 
     // Defaults to 17/november of the given edition's year.
     // Why 17/november? Because it was the date of the first edition we started tracking the
     // press passes deadline date, which was 2019 edition.
-    return self::parseDate($currentYear . '-11-17T03:00:00.000Z');
+    return parseDate($currentYear . '-11-17T03:00:00.000Z');
   }
 
   public static function getPressPassesPickupDates($edition = NULL) {
@@ -199,11 +201,11 @@ class Editions {
     }
 
     if (isset($edition['press_passes']['pickupFrom'])) {
-      $from = self::parseDate($edition['press_passes']['pickupFrom']);
+      $from = parseDate($edition['press_passes']['pickupFrom']);
     }
 
     if (isset($edition['press_passes']['pickupTo'])) {
-      $to = self::parseDate($edition['press_passes']['pickupTo']);
+      $to = parseDate($edition['press_passes']['pickupTo']);
     }
 
     return array('from' => $from, 'to' => $to);
@@ -242,12 +244,6 @@ class Editions {
       $indexed[$edition['number']] = Editions::getTitle($edition);
     }
     return $indexed;
-  }
-
-  private static function parseDate($date){
-    $date = new DateTime($date);
-    $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
-    return $date;
   }
 }
 

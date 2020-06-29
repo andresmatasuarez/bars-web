@@ -57,4 +57,14 @@
 <?php
   }
 
+  function getDateInSpanish($date) {
+    return $date->format('j') . ' de ' . getSpanishMonthName($date->format('F')) . ' de ' . $date->format('Y');
+  }
+
+  function parseDate($date){
+    $date = new DateTime($date);
+    $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
+    return $date;
+  }
+
 ?>
