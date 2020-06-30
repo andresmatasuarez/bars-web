@@ -15,7 +15,7 @@ export default function(){
   $('#sidebar .bars-widget.sidebar.image img').wrap(() => '<div style="width:300px; height:150px;"></div>');
   $('#sidebar .bars-widget.sidebar.image img').parent().imgLiquid({ horizontalAlign: 'center', verticalAlign: 'center' });
 
-  // Call is open 2015
+  // Call is open
   const callNavItem      = $('#header-menu .nav-menu li:nth-child(6)');
   const callNavItemLink  = callNavItem.find('a');
   const callPageHref     = callNavItemLink.attr('href');

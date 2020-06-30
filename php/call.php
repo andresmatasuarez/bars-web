@@ -19,11 +19,12 @@
 	$call_deadline = Editions::callDeadline($edition);
 	$call_is_closed = Editions::isCallClosed($edition);
 
-	$year = $from->format('Y');
+	$displayYear = is_null($from) ? (new DateTime())->format('Y') : $from->format('Y');
+	$shouldDisplayTBA = is_null($from) || is_null($to);
 
 	$terms = $call['terms'];
 	$terms = str_replace('%%DEADLINE%%', getDateInSpanish($call_deadline), $terms);
-	$terms = str_replace('%%ELIGIBILE_FROM_DATE%%', getDateInSpanish(parseDate("{$year}-01-01T03:00:00.000Z")), $terms);
+	$terms = str_replace('%%ELIGIBILE_FROM_DATE%%', getDateInSpanish(parseDate("{$displayYear}-01-01T03:00:00.000Z")), $terms);
 	if (isset($call['form'])) {
 		$terms = str_replace('%%FORM%%', $call['form'], $terms);
 	}
@@ -45,21 +46,20 @@
 							<br />
 							<span class="subheader">
 								<?php
-									$sameMonth = $from->format('F') == $to->format('F');
-
-									if (Editions::shouldDisplayTBA($edition)) {
+									if ($shouldDisplayTBA) {
 								?>
 										<span>TBA</span>
-										<?php echo $year; ?>
+										<?php echo $displayYear; ?>
 								<?php
 									} else if (Editions::shouldDisplayOnlyMonths($edition)) {
+										$sameMonth = $from->format('F') == $to->format('F');
 										if ($sameMonth) {
 								?>
 											<span style="text-transform: capitalize;">
 												<?php echo getSpanishMonthName($to->format('F')); ?>
 											</span>
 											de
-											<?php echo $year; ?>
+											<?php echo $displayYear; ?>
 								<?php
 										} else {
 								?>
@@ -68,12 +68,13 @@
 											</span>
 											/
 											<?php echo getSpanishMonthName($to->format('F')); ?>
-											<?php echo $year; ?>
+											<?php echo $displayYear; ?>
 								<?php
 										}
 								?>
 								<?php
 									} else {
+										$sameMonth = $from->format('F') == $to->format('F');
 										if ($sameMonth) {
 								?>
 											<?php echo $from->format('j'); ?>

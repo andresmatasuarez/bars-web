@@ -127,20 +127,6 @@ class Editions {
     return false;
   }
 
-  // TODO this is just a quick workaround.
-  // Remove this and make "from"/"to" not default to today's date and
-  // display TBA only if "from" is not defined.
-  public static function shouldDisplayTBA($edition = NULL) {
-    if (is_null($edition)){
-      $edition = self::current();
-    }
-
-    if (isset($edition['days']['tba'])) {
-      return $edition['days']['tba'];
-    }
-    return false;
-  }
-
   public static function venues($edition = NULL) {
     if (is_null($edition)){
       $edition = self::current();

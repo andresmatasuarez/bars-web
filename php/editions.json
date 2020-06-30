@@ -3,7 +3,6 @@
     "number" : 21,
     "title" : "BARS 2020",
     "days" : {
-      "tba": true,
       "only_months": false,
       "from" : "",
       "to" : ""

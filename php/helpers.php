@@ -61,7 +61,11 @@
     return $date->format('j') . ' de ' . getSpanishMonthName($date->format('F')) . ' de ' . $date->format('Y');
   }
 
-  function parseDate($date){
+  function parseDate($date = null){
+    if (empty($date)) {
+      return null;
+    }
+
     $date = new DateTime($date);
     $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
     return $date;

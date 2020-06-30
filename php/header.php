@@ -4,6 +4,7 @@
  * @subpackage bars2013
  */
 
+	require_once 'helpers.php';
 	require_once 'editions.php';
 
 ?>
@@ -67,11 +68,15 @@
 
 	<?php
 		$edition = Editions::current();
-		$year = Editions::from($edition)->format('Y');
+		$from = Editions::from($edition);
+		$to = Editions::to($edition);
+
+		$displayYear = is_null($from) ? (new DateTime())->format('Y') : $from->format('Y');
+		$shouldDisplayTBA = is_null($from) || is_null($to);
 	?>
 
 	<div id="current-edition-year" style="display: none;">
-		<?php echo $year; ?>
+		<?php echo $displayYear; ?>
 	</div>
 
 	<div id="header" >
@@ -79,14 +84,11 @@
 			<div id="header-info">
 				<div class="left">
 					<?php
-						if (Editions::shouldDisplayTBA($edition)) {
+						if ($shouldDisplayTBA) {
 					?>
 							<span class="size-highlight">TBA</span>
 					<?php
 						} else {
-							$from = Editions::from($edition);
-							$to = Editions::to($edition);
-
 							$sameMonth = $from->format('F') == $to->format('F');
 							if (Editions::shouldDisplayOnlyMonths($edition)) {
 								if ($sameMonth){
@@ -126,7 +128,9 @@
 						}
 					?>
 				</div>
-				<div class="center"><?php echo $year; ?> | <?php echo Editions::getTitle($edition); ?></div>
+				<div class="center">
+					<?php echo $displayYear . ' | ' . Editions::getTitle($edition); ?>
+				</div>
 				<div class="right size-highlight">
 					<?php
 						$venues = Editions::venues($edition);
