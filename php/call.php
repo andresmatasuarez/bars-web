@@ -20,7 +20,7 @@
 	$call_is_closed = Editions::isCallClosed($edition);
 
 	$displayYear = is_null($from) ? (new DateTime())->format('Y') : $from->format('Y');
-	$shouldDisplayTBA = is_null($from) || is_null($to);
+	$shouldDisplayTBA = !Editions::areDatesDefined($edition);
 
 	$terms = $call['terms'];
 	$terms = str_replace('%%DEADLINE%%', getDateInSpanish($call_deadline), $terms);

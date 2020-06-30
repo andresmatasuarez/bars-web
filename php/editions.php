@@ -79,6 +79,13 @@ class Editions {
     return 'BARS ' . integerToRoman($edition['number']);
   }
 
+  public static function areDatesDefined($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+    return !is_null(self::from($edition)) && !is_null(self::to($edition));
+  }
+
   public static function days($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();
@@ -165,7 +172,7 @@ class Editions {
     }
 
     $editionFromDate = self::from($edition);
-    $currentYear = $editionFromDate->format('Y');
+    $currentYear = (is_null($editionFromDate) ? new DateTime() : $editionFromDate)->format('Y');
 
     if (isset($edition['press_passes']) && isset($edition['press_passes']['deadline'])) {
       return parseDate($edition['press_passes']['deadline']);

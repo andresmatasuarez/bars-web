@@ -72,7 +72,7 @@
 		$to = Editions::to($edition);
 
 		$displayYear = is_null($from) ? (new DateTime())->format('Y') : $from->format('Y');
-		$shouldDisplayTBA = is_null($from) || is_null($to);
+		$shouldDisplayTBA = !Editions::areDatesDefined($edition);
 	?>
 
 	<div id="current-edition-year" style="display: none;">

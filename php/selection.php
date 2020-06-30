@@ -18,7 +18,6 @@
 	}
 
 	$venues = Editions::venues($currentEdition);
-	$days = Editions::days($currentEdition);
 ?>
 
 <script>
@@ -40,14 +39,17 @@
 
 							<span class="subheader">
 							<?php
-								$year           = $days[0]->format('Y');
-								$firstDayName   = ucwords(getSpanishDayName($days[0]->format('l')));
-								$firstDayNumber = $days[0]->format('d/m');
-								$lastDayName    = ucwords(getSpanishDayName($days[count($days) - 1]->format('l')));
-								$lastDayNumber  = $days[count($days) - 1]->format('d/m');
+								if (Editions::areDatesDefined($currentEdition)) {
+									$days           = Editions::days($currentEdition);
+									$year           = $days[0]->format('Y');
+									$firstDayName   = ucwords(getSpanishDayName($days[0]->format('l')));
+									$firstDayNumber = $days[0]->format('d/m');
+									$lastDayName    = ucwords(getSpanishDayName($days[count($days) - 1]->format('l')));
+									$lastDayNumber  = $days[count($days) - 1]->format('d/m');
 
-								echo 'Semana del ' . $firstDayName . ' ' . $firstDayNumber;
-								echo ' al ' . $lastDayName . ' ' . $lastDayNumber . ' de ' . $year . '';
+									echo 'Semana del ' . $firstDayName . ' ' . $firstDayNumber;
+									echo ' al ' . $lastDayName . ' ' . $lastDayNumber . ' de ' . $year . '';
+								}
 							?>
 							</span>
 						</div>
