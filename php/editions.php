@@ -172,7 +172,8 @@ class Editions {
     }
 
     $editionFromDate = self::from($edition);
-    $currentYear = (is_null($editionFromDate) ? new DateTime() : $editionFromDate)->format('Y');
+    $currentYear = is_null($editionFromDate) ? new DateTime() : $editionFromDate;
+    $currentYear = $currentYear->format('Y');
 
     if (isset($edition['press_passes']) && isset($edition['press_passes']['deadline'])) {
       return parseDate($edition['press_passes']['deadline']);
