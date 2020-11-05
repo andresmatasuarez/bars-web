@@ -1,4 +1,5 @@
 import remove from 'lodash/remove';
+import stickyElement from './sticky_element';
 
 export default function(){
 
@@ -137,5 +138,8 @@ export default function(){
     }
     window.location.href = window.location.pathname + queryString;
   });
+
+  // Sticky days in selection.php
+  stickyElement('.schedule-day', '.schedule-day-info');
 
 };
