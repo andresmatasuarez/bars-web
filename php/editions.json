@@ -8,9 +8,17 @@
       "to" : "2020-12-13T03:00:00.000Z"
     },
     "venues": {
-      "belgrano": {
-        "name": "Multiplex Belgrano",
-        "address": "Vuelta de Obligado 2199"
+      "contar": {
+        "name": "Contar",
+        "address": "cont.ar"
+      },
+      "flixxo": {
+        "name": "Flixxo",
+        "address": "flixxo.com"
+      },
+      "youtube": {
+        "name": "YouTube",
+        "address": "youtube.com"
       }
     },
     "press_passes": {
