@@ -4,8 +4,8 @@
     "title" : "BARS 2020",
     "days" : {
       "only_months": false,
-      "from" : "",
-      "to" : ""
+      "from" : "2020-12-03T03:00:00.000Z",
+      "to" : "2020-12-13T03:00:00.000Z"
     },
     "venues": {
       "belgrano": {
@@ -18,11 +18,11 @@
       "pickupFrom": "2019-11-21T03:00:00.000Z",
       "pickupTo": "2019-12-25T03:00:00.000Z"
     },
-    "poster" : "resources/bars2019/bars2019_afiche.jpg",
-    "programme" : "resources/bars2019/bars2019_programme.jpg",
+    "poster" : "",
+    "programme" : "",
     "programme_gs" : "",
-    "closing_party" : "resources/bars2019/bars2019_fiesta_clausura.jpg",
-    "spot": "https://www.youtube.com/watch?v=pWGChSjQGSM",
+    "closing_party" : "",
+    "spot": "",
     "call": {
       "from": "",
       "to": "2020-08-02T02:59:59.999Z",
