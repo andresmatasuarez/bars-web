@@ -17,6 +17,15 @@
 		<div id="sidebar" >
 
 			<?php
+				$barsStoreImgPath = get_bloginfo('template_directory') . '/resources/tienda-bars.jpg';
+				echo widgetify('sidebar relative image bars-store', null, '
+					<a class="sidebar" target="_blank" rel="noopener noreferrer" href="https://festivalrojosangre.empretienda.com.ar/">
+						<img src="' . $barsStoreImgPath . '" />
+					</a>
+				');
+			?>
+
+			<?php
 				if (isset($edition['spot']) && !empty($edition['spot'])){
 					$vars = array();
 					parse_str(parse_url($edition['spot'], PHP_URL_QUERY), $vars);
