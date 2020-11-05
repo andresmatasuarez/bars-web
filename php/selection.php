@@ -29,7 +29,7 @@
 						<div class="page-header">
 
 							<div class="page-title">
-								<div class="selection-title">
+								<div class="title-text">
 									Programación <?php echo Editions::getTitle($currentEdition); ?>
 								</div>
 								<?php
