@@ -93,8 +93,15 @@ export default function(){
   $('.schedule-day .movie-posts').each(function(){
     const movies = $(this).find('.movie-post');
     movies.sort((x, y) => {
-      const hourX = $(x).find('.movie-post-hour').html().split(':');
-      const hourY = $(y).find('.movie-post-hour').html().split(':');
+      let hourX = $(x).find('.movie-post-hour').html();
+      let hourY = $(y).find('.movie-post-hour').html();
+
+      if (!hourX || !hourY) {
+        return 0;
+      }
+
+      hourX = hourX.split(':');
+      hourY = hourY.split(':');
 
       const dateX = new Date();
       dateX.setHours(parseInt(hourX[0], 10));

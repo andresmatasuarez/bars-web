@@ -131,7 +131,6 @@
 
 														// Preparing data
 														$isMovie = get_post_type($post->ID) == 'movie';
-														$sectionValue = get_post_meta($post->ID, $isMovie ? '_movie_section' : '_movieblock_section', true);
 														$screeningsValue = get_post_meta($post->ID, $isMovie ? '_movie_screenings' : '_movieblock_screenings', true);
 
 														if ($isMovie){
@@ -149,49 +148,38 @@
 														}
 
 														// Extract screening hour for this day.
-														$screenings = array_map('trim', explode(',', $screeningsValue));
+														$screenings = array_map('trim', array_filter(explode(',', $screeningsValue)));
 														foreach($screenings as $key => $screening){
 															$parsed = parseScreening($screening);
 
+															if ($parsed['date'] !== $day->format('m-d-Y')){
+																continue;
+															}
+
 															$venue = $parsed['venue'];
 															if ($venue != '') {
-																$venue = $venues[$venue]['name'];
+															  $venue = $venues[$venue]['name'];
 															}
 
-															// If 'room' was entered and there is only one venue for this edition,
-															// then display the room only.
-															$room = $parsed['room'];
-															if ($room != '' && count($venues) == 1) {
-																$venue = $room;
+															if (!isset($parsed['streaming'])) {
+																// If 'room' was entered and there is only one venue for this edition,
+																// then display only the room.
+																$room = $parsed['room'];
+																if ($room != '' && count($venues) == 1) {
+																  $venue = $room;
+																}
 															}
 
-															if ($parsed['date'] == $day->format('m-d-Y')){
-																$time = $parsed['time'];
-
-																echo '<div class="movie-post" section="' . $sectionValue . '">';
-																	echo '<div class="movie-post-hour">' . $time . '</div>';
-																	echo '<a href="#movie-container" link="' . get_post_permalink($post->ID) . '">';
-																		echo '<div class="movie-post-thumbnail">';
-																			if ($venue != '') {
-																				echo '<div class="movie-post-venue">' . ucwords($venue) . '</div>';
-																			}
-																			echo '<div class="movie-post-section">' . sectionByValue($sectionValue) . '</div>';
-																			echo get_the_post_thumbnail($post->ID, 'movie-post-thumbnail');
-																		echo '</div>';
-																		echo '<div class="movie-post-title-container">';
-																			echo '<div class="movie-post-title">';
-																				echo '<span class="movie-post-title-text">';
-																					echo get_the_title($post->ID);
-																				echo '</span>';
-																			echo '</div>';
-																			echo '<div class="movie-post-info">' . $info . '</div>';
-																		echo '</div>';
-																	echo '</a>';
-																echo '</div>';
-
-															}
+															renderRegularMovieScreening(
+																get_the_title($post->ID),
+																get_post_meta($post->ID, $isMovie ? '_movie_section' : '_movieblock_section', true),
+																get_post_permalink($post->ID),
+																get_the_post_thumbnail($post->ID, 'movie-post-thumbnail'),
+																$venue,
+																isset($parsed['time']) ? $parsed['time'] : NULL,
+																$info
+															);
 														}
-
 													}
 
 													// Restore global post data stomped by the_post().

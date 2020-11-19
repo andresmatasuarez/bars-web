@@ -1,6 +1,15 @@
 <?php
 
   function parseScreening($screening) {
+    if (substr($screening, 0, strlen("streaming!")) === "streaming!") {
+      preg_match('/(\s*streaming!(?<venue>([A-Za-z]+))?:\s*)?(?P<date>[^\s]+)\s*/', $screening, $matches);
+      return array(
+        'streaming' => true,
+        'venue' => strtolower(trim($matches['venue'])),
+        'date' => strtolower(trim($matches['date'])),
+      );
+    }
+
     preg_match('/(\s*(?<venue>([A-Za-z]+))\s*[^\.]*(\s*\.\s*(?<room>.+))?:\s*)?(?P<date>[^\s]+)\s+(?P<time>.+)/', $screening, $matches);
     return array(
       'venue' => strtolower(trim($matches['venue'])),
@@ -71,4 +80,34 @@
     return $date;
   }
 
+  function renderRegularMovieScreening($title, $sectionValue, $permalink, $postThumbnail, $venue, $time, $info) {
+?>
+    <div class="movie-post" section="<?php echo $sectionValue; ?>">
+<?php
+      if (!is_null($time)) {
+        echo '<div class="movie-post-hour">' . $time . '</div>';
+      }
+?>
+      <a href="#movie-container" link="<?php echo $permalink; ?>">
+        <div class="movie-post-thumbnail">
+<?php
+        if ($venue != '') {
+          echo '<div class="movie-post-venue">' . ucwords($venue) . '</div>';
+        }
+?>
+          <div class="movie-post-section"><?php echo sectionByValue($sectionValue); ?></div>
+          <?php echo $postThumbnail; ?>
+        </div>
+        <div class="movie-post-title-container">
+          <div class="movie-post-title">
+            <span class="movie-post-title-text">
+              <?php echo $title; ?>
+            </span>
+          </div>
+          <div class="movie-post-info"><?php echo $info; ?></div>
+        </div>
+      </a>
+    </div>
+<?php
+  }
 ?>

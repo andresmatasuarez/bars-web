@@ -37,6 +37,8 @@
 		global $movieblock_fields;
 		global $movieBlocks;
 
+		$screeningsFormatDescription = 'Format: (venue.room:)mm-dd-yyyy hh:mm.<br />Comma-separated.<br />Venue and room are optional.<br /><br />Example:<br />  - <strong>lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00</strong><br /><br />Example for streaming movies:<br />  - <strong>streaming!contar:full</strong> (available for the whole duration of the festival)<br />  - <strong>streaming!flixxo:11-28-2020,streaming!flixxo:11-29-2020</strong> (available only on specific days)';
+
 		$movieBlocks = movieBlocks();
 
 		/* ***** MOVIE SECTIONS ***** */
@@ -78,7 +80,12 @@
 			'bloodyWeekend' => array ( 'label' => 'Fin de semana sangriento', 'value' => 'bloodyWeekend' ),
 
 			// Bars 2019 new sections
-			'japaneseInvasion' => array ( 'label' => 'Invasión Japón', 'value' => 'japaneseInvasion' )
+			'japaneseInvasion' => array ( 'label' => 'Invasión Japón', 'value' => 'japaneseInvasion' ),
+
+			// Bars 2020 new sections
+			'barsContarPrize' => array ( 'label' => 'Premio BARS/CONTAR', 'value' => 'barsContarPrize' ),
+			'argentinianOutlook' => array ( 'label' => 'Panorama Argentino', 'value' => 'argentinianOutlook' ),
+			'onlineActivities' => array ( 'label' => 'Actividades online', 'value' => 'onlineActivities' ),
 		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
@@ -89,6 +96,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
 					'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
 					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
 					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
@@ -162,7 +170,7 @@
 			array(
 				'id'    => $movie_prefix . 'screenings',
 				'label' => 'Film screenings',
-				'desc' => 'Format: (venue.room:)mm-dd-yyyy hh:mm. Venue and room are optional. Comma-separated. Example: lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00',
+				'desc' => $screeningsFormatDescription,
 				'type'  => 'text'
 			),
 			array(
@@ -184,6 +192,7 @@
 				'label' => 'Edition',
 				'type'  => 'select',
 				'options' => array (
+					'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
 					'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
 					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
 					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
@@ -213,7 +222,7 @@
 			array(
 				'id'    => $movieblock_prefix . 'screenings',
 				'label' => 'Film screenings',
-				'desc' => 'Format: (venue.room:)mm-dd-yyyy hh:mm. Venue and room are optional. Comma-separated. Example: lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00',
+				'desc' => $screeningsFormatDescription,
 				'type'  => 'text'
 			)
 		);
@@ -470,7 +479,7 @@
 			'posts_per_page' => -1,
 			'meta_query' => array(array(
 			  'key'     => '_movieblock_edition',
-			  'value'   => 'bars20',
+			  'value'   => 'bars21',
 			  'compare' => 'LIKE'
       ))
 		));
