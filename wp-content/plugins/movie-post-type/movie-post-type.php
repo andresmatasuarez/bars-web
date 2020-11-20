@@ -174,6 +174,11 @@
 				'type'  => 'text'
 			),
 			array(
+				'id'    => $movie_prefix . 'streamingLink',
+				'label' => 'Streaming link (for online editions only)',
+				'type'  => 'text'
+			),
+			array(
 				'id'    => $movie_prefix . 'synopsis',
 				'label' => 'Synopsis',
 				'type'  => 'textarea'
@@ -224,7 +229,12 @@
 				'label' => 'Film screenings',
 				'desc' => $screeningsFormatDescription,
 				'type'  => 'text'
-			)
+			),
+			array(
+				'id'    => $movie_prefix . 'streamingLink',
+				'label' => 'Streaming link (for online editions only)',
+				'type'  => 'text'
+			),
 		);
 	}
 
