@@ -22,14 +22,15 @@
 
 		<div class="screenings">
 		<?php
-			$screenings = array_map('trim', explode(',', get_post_meta($post->ID, '_movieblock_screenings', true)));
+			$screeningsValue = get_post_meta($post->ID, '_movieblock_screenings', true);
+			$screenings = parseScreenings($screeningsValue);
 			$groupedScreenings = groupScreeningsByVenue($screenings);
 
 			$screeningVenuesCount = count($groupedScreenings);
 			if ($screeningVenuesCount == 1) {
 				foreach($groupedScreenings as $venue => $screenings){
 					foreach($screenings as $key => $screening) {
-						renderScreening($screening['date'], $screening['time'], $screening['room']);
+						renderScreening($screening['date'], @$screening['time'], @$screening['room']);
 					}
 				}
 			} else {
@@ -38,7 +39,7 @@
 						echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
 						echo '<div>';
 							foreach($screenings as $key => $screening) {
-								renderScreening($screening['date'], $screening['time'], $screening['room']);
+								renderScreening($screening['date'], @$screening['time'], @$screening['room']);
 							}
 						echo '</div>';
 					echo '</div>';

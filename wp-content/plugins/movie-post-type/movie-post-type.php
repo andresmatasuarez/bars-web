@@ -513,8 +513,8 @@
 
 	function getMovieEntriesQuery($withDayCondition = false) {
 		global $wpdb;
-		$movieDayCondition = $withDayCondition ? "AND m2.meta_key = '_movie_screenings' AND m2.meta_value LIKE '%%%s%%'" : "";
-		$movieBlockDayCondition = $withDayCondition ? "AND m2.meta_key = '_movieblock_screenings' AND m2.meta_value LIKE '%%%s%%'" : "";
+		$movieDayCondition = $withDayCondition ? "AND m2.meta_key = '_movie_screenings' AND m2.meta_value LIKE '%s'" : "";
+		$movieBlockDayCondition = $withDayCondition ? "AND m2.meta_key = '_movieblock_screenings' AND m2.meta_value LIKE '%s'" : "";
 		return "
 			(
 				SELECT	post.ID, post.post_author, post.post_date, post.post_content
@@ -552,7 +552,13 @@
 		global $wpdb;
 		$edition = 'bars' . $edition['number'];
 		$day = $day->format('m-d-Y');
-		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, $day, $edition, $day));
+		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, "%{$day}%", $edition, "%{$day}%"));
+	}
+
+	function getMoviesAndMovieBlocksAvailableForTheWholeDurationOfTheFestival($edition) {
+		global $wpdb;
+		$edition = 'bars' . $edition['number'];
+		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, "%:full%", $edition, "%:full%"));
 	}
 
 	function countMovieEntriesForEdition($edition) {

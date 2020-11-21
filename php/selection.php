@@ -101,93 +101,36 @@
 									<?php
 										$parity = 0;
 
+										// Render movies that are available for the whole duration of the festival,
+										// not tied to any specific day/time.
+										$posts = getMoviesAndMovieBlocksAvailableForTheWholeDurationOfTheFestival($currentEdition);
+										if (!empty($posts)){
+											// echo '<div class="page-header">Disponibles durante todo el festival</div>';
+											// echo '<div class="scratch clear"></div>';
+
+											$dayDisplay = "<div class=\"schedule-day-name\">MIRALAS<br/>CUALQUIER DÍA</div>";
+											renderScheduleDay('full', $dayDisplay, $parity % 2 === 0, $posts, $venues);
+											echo '<div class="scratch clear"></div>';
+											echo '<br />';
+											echo '<div class="scratch clear"></div>';
+
+											$parity++;
+										}
+
 										// For each festival day, show all the films that will be screened that day.
 										foreach($days as $key => $day){
-
 											$posts = getMoviesAndMovieBlocks($currentEdition, $day);
 
 											// If no movies for this day, then continue with the next one.
-											if (count($posts) == 0){
+											if (empty($posts)){
 												continue;
 											}
 
 											$dayName = ucwords(getSpanishDayName($day->format('l')));
 											$dayNumber = $day->format('d');
+											$dayDisplay = "<div class=\"schedule-day-name\">{$dayName}</div><div class=\"schedule-day-number\">{$dayNumber}</div>";
+											renderScheduleDay($day->format('m-d-Y'), $dayDisplay, $parity % 2 === 0, $posts, $venues);
 
-											echo '<div class="schedule-day ' . ($parity % 2 == 0 ? 'even' : 'odd') . '">';
-												echo '<div class="schedule-day-info">';
-													echo '<div class="schedule-day-name">';
-														echo $dayName;
-													echo '</div>';
-													echo '<div class="schedule-day-number">';
-														echo $dayNumber;
-													echo '</div>';
-												echo '</div>';
-												echo '<div class="movie-posts">';
-
-													foreach($posts as $post){
-														// post object only has post ID.
-														setup_postdata($post);
-
-														// Preparing data
-														$isMovie = get_post_type($post->ID) == 'movie';
-														$screeningsValue = get_post_meta($post->ID, $isMovie ? '_movie_screenings' : '_movieblock_screenings', true);
-
-														if ($isMovie){
-															$year = get_post_meta($post->ID, '_movie_year', true);
-															$country = get_post_meta($post->ID, '_movie_country', true);
-															$runtime = get_post_meta($post->ID, '_movie_runtime', true);
-															$info = ($year != '') ? $year : '';
-															if ($country != '')
-																$info = ($info != '' ? $info . ' - ' : '') . $country;
-															if ($runtime)
-																$info = ($info != '' ? $info . ' - ' : '') . $runtime . ' min.';
-
-														} else {
-															$info = get_post_meta($post->ID, '_movieblock_runtime', true) . ' min.';
-														}
-
-														// Extract screening hour for this day.
-														$screenings = array_map('trim', array_filter(explode(',', $screeningsValue)));
-														foreach($screenings as $key => $screening){
-															$parsed = parseScreening($screening);
-
-															if ($parsed['date'] !== $day->format('m-d-Y')){
-																continue;
-															}
-
-															$venue = $parsed['venue'];
-															if ($venue != '') {
-															  $venue = $venues[$venue]['name'];
-															}
-
-															if (!isset($parsed['streaming'])) {
-																// If 'room' was entered and there is only one venue for this edition,
-																// then display only the room.
-																$room = $parsed['room'];
-																if ($room != '' && count($venues) == 1) {
-																  $venue = $room;
-																}
-															}
-
-															renderRegularMovieScreening(
-																get_the_title($post->ID),
-																get_post_meta($post->ID, $isMovie ? '_movie_section' : '_movieblock_section', true),
-																get_post_permalink($post->ID),
-																get_the_post_thumbnail($post->ID, 'movie-post-thumbnail'),
-																$venue,
-																isset($parsed['time']) ? $parsed['time'] : NULL,
-																$info
-															);
-														}
-													}
-
-													// Restore global post data stomped by the_post().
-													wp_reset_query();
-
-
-												echo '</div>';
-											echo '</div>';
 											echo '<div class="scratch clear"></div>';
 
 											$parity++;

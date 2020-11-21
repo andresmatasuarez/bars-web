@@ -19,17 +19,23 @@
     );
   }
 
+  function parseScreenings($screeningsValue) {
+    $screenings = array_filter(explode(',', $screeningsValue)); // removes empty screenings
+    $screenings = array_map('trim', $screenings);
+    $screenings = array_map('parseScreening', $screenings);
+    return $screenings;
+  }
+
   function groupScreeningsByVenue($screenings) {
     $grouped = array();
     foreach($screenings as $key => $screening){
-      $parsed = parseScreening($screening);
-      $venue = $parsed['venue'];
+      $venue = $screening['venue'];
 
       if (isset($grouped[$venue])) {
-        $grouped[$venue][] = $parsed;
+        $grouped[$venue][] = $screening;
       } else {
         $grouped[$venue] = array();
-        $grouped[$venue][] = $parsed;
+        $grouped[$venue][] = $screening;
       }
     }
     return $grouped;
@@ -80,7 +86,44 @@
     return $date;
   }
 
-  function renderRegularMovieScreening($title, $sectionValue, $permalink, $postThumbnail, $venue, $time, $info) {
+  function prepareMovieForDisplaying($post) {
+    $isMovie = get_post_type($post->ID) === 'movie';
+
+    if ($isMovie){
+      $year = get_post_meta($post->ID, '_movie_year', true);
+      $country = get_post_meta($post->ID, '_movie_country', true);
+      $runtime = get_post_meta($post->ID, '_movie_runtime', true);
+      $info = ($year !== '') ? $year : '';
+
+      if ($country !== '') {
+        $info = ($info !== '' ? $info . ' - ' : '') . $country;
+      }
+
+      if ($runtime) {
+        $info = ($info !== '' ? $info . ' - ' : '') . $runtime . ' min.';
+      }
+
+      $section = get_post_meta($post->ID, '_movie_section', true);
+      $screeningsValue = get_post_meta($post->ID, '_movie_screenings', true);
+    } else {
+      $section = get_post_meta($post->ID, '_movieblock_section', true);
+      $info = get_post_meta($post->ID, '_movieblock_runtime', true) . ' min.';
+      $screeningsValue = get_post_meta($post->ID, '_movieblock_screenings', true);
+    }
+
+    $screenings = parseScreenings($screeningsValue);
+
+    return array(
+      "title" => get_the_title($post->ID),
+      "section" => $section,
+      "permalink" => get_post_permalink($post->ID),
+      "thumbnail" => get_the_post_thumbnail($post->ID, 'movie-post-thumbnail'),
+      "screenings" => $screenings,
+      "info" => $info
+    );
+  }
+
+  function renderRegularMovieScreening($title, $sectionValue, $permalink, $postThumbnail, $info, $venue, $time) {
 ?>
     <div class="movie-post" section="<?php echo $sectionValue; ?>">
 <?php
@@ -117,5 +160,53 @@
         $url = "http://" . $url;
     }
     return $url;
+  }
+
+  function renderScheduleDay($day, $dayDisplay, $isEven, $posts, $venues) {
+?>
+    <div class="schedule-day <?php echo $isEven ? 'even' : 'odd'; ?>">
+      <div class="schedule-day-info">
+        <?php echo $dayDisplay; ?>
+      </div>
+      <div class="movie-posts">
+      <?php
+        foreach($posts as $post){
+          setup_postdata($post); // post object only has post ID.
+
+          $movieToDisplay = prepareMovieForDisplaying($post);
+
+          foreach($movieToDisplay['screenings'] as $key => $screening){
+            if ($screening['date'] !== $day){
+              continue;
+            }
+
+            $venue = $screening['venue'];
+            $venue = $venue === '' ? $venue : $venues[$venue]['name'];
+
+            if (!isset($screening['streaming'])) {
+              // If 'room' was entered and there is only one venue for this edition,
+              // then display only the room.
+              $room = $screening['room'];
+              $venue = $room !== '' && count($venues) === 1 ? $room : $venue;
+            }
+
+            renderRegularMovieScreening(
+              $movieToDisplay['title'],
+              $movieToDisplay['section'],
+              $movieToDisplay['permalink'],
+              $movieToDisplay['thumbnail'],
+              $movieToDisplay['info'],
+              $venue,
+              isset($screening['time']) ? $screening['time'] : NULL
+            );
+          }
+        }
+
+        // Restore global post data stomped by the_post().
+        wp_reset_query();
+      ?>
+      </div>
+    </div>
+<?php
   }
 ?>
