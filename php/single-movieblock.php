@@ -11,7 +11,6 @@
 
 	$edition = Editions::current();
 	$venues = Editions::venues($edition);
-
 ?>
 
 <div class="movieblock" id="movieblock-<?php the_ID(); ?>">
@@ -22,30 +21,7 @@
 
 		<div class="screenings">
 		<?php
-			$screeningsValue = get_post_meta($post->ID, '_movieblock_screenings', true);
-			$screenings = parseScreenings($screeningsValue);
-			$groupedScreenings = groupScreeningsByVenue($screenings);
-
-			$screeningVenuesCount = count($groupedScreenings);
-			if ($screeningVenuesCount == 1) {
-				foreach($groupedScreenings as $venue => $screenings){
-					foreach($screenings as $key => $screening) {
-						renderScreening($screening['date'], @$screening['time'], @$screening['room']);
-					}
-				}
-			} else {
-				foreach($groupedScreenings as $venue => $screenings){
-					echo '<div>';
-						echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
-						echo '<div>';
-							foreach($screenings as $key => $screening) {
-								renderScreening($screening['date'], @$screening['time'], @$screening['room']);
-							}
-						echo '</div>';
-					echo '</div>';
-					echo '<div class="clear" />';
-				}
-			}
+			renderScreenings(get_post_meta($post->ID, '_movieblock_screenings', true), $venues);
 		?>
 		</div>
 	</div>

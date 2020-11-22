@@ -7,6 +7,7 @@
  */
 
   require_once 'helpers.php';
+  require_once 'elements.php';
   require_once 'editions.php';
 
   get_header();
