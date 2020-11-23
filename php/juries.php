@@ -19,8 +19,8 @@
   }
 
   $venues = Editions::venues($currentEdition);
-
 ?>
+
 <script>
   window.CURRENT_EDITION = <?php echo $currentEdition['number'] ?>;
 </script>

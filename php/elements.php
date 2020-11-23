@@ -2,28 +2,34 @@
 
   require_once 'helpers.php';
 
-  function renderScreening($date, $time, $room = NULL) {
-    echo '<div class="screening">';
-    if ($date === 'full') {
-      echo '<div class="screening-daynumber">';
-        echo 'Mirala';
+  function renderScreening($screening) {
+    $time = @$screening['time'];
+    $room = @$screening['room'];
+
+    if ($screening['date'] === 'full') {
+      echo '<div class="screening">';
+        echo '<div class="screening-daynumber">';
+          echo 'Mirala en cualquier momento';
+        echo '</div>';
       echo '</div>';
-      echo '<div class="screening-daynumber">';
-        echo 'CUALQUIER';
-      echo '</div>';
-      echo '<div class="screening-daynumber">';
-        echo 'DÍA';
-      echo '</div>';
-    } else {
-      $dayName = ucwords(getSpanishDayName(DateTime::createFromFormat('m-d-Y', $date)->format('l')));
-      $dayNumber = DateTime::createFromFormat('m-d-Y', $date)->format('d');
+
+      return;
+    }
+
+    $dateNow = new DateTime();
+    $date = DateTime::createFromFormat('m-d-Y', $screening['date']);
+    $dateHasPassed = $date < $dateNow;
+
+    $dayName = ucwords(getSpanishDayName($date->format('l')));
+    $dayNumber = $date->format('d');
+
+    echo '<div class="screening ' .  ($dateHasPassed ? 'date-passed' : '') . '">';
       echo '<div class="screening-dayname">';
         echo $dayName;
       echo '</div>';
       echo '<div class="screening-daynumber">';
         echo $dayNumber;
       echo '</div>';
-    }
 
     if (isset($time)) {
       echo '<div class="screening-hour">';
@@ -31,11 +37,17 @@
       echo '</div>';
     }
 
-      if (isset($room)) {
-        echo '<div>';
-          echo '<strong>' . strtoupper($room) . '</strong>';
-        echo '</div>';
-      }
+    if (isset($room)) {
+      echo '<div>';
+        echo '<strong>' . strtoupper($room) . '</strong>';
+      echo '</div>';
+    }
+
+    if ($dateHasPassed) {
+      echo '<div class="scratch"></div>';
+      echo '<div class="scratch second-scratch"></div>';
+    }
+
     echo '</div>';
   }
 
@@ -43,25 +55,15 @@
     $screenings = parseScreenings($screeningsValue);
     $groupedScreenings = groupScreeningsByVenue($screenings);
 
-    $screeningVenuesCount = count($groupedScreenings);
-    if ($screeningVenuesCount == 1) {
-      foreach($groupedScreenings as $venue => $screenings){
-        foreach($screenings as $key => $screening) {
-          renderScreening($screening['date'], @$screening['time'], @$screening['room']);
-        }
-      }
-    } else {
-      foreach($groupedScreenings as $venue => $screenings){
-        echo '<div>';
-          echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
-          echo '<div>';
-            foreach($screenings as $key => $screening) {
-              renderScreening($screening['date'], @$screening['time'], @$screening['room']);
-            }
-          echo '</div>';
+    foreach($groupedScreenings as $venue => $screenings){
+      echo '<div class="screenings-group">';
+        echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
+        echo '<div class="screenings-container">';
+          foreach($screenings as $key => $screening) {
+            renderScreening($screening);
+          }
         echo '</div>';
-        echo '<div class="clear" />';
-      }
+      echo '</div>';
     }
   }
 
@@ -160,6 +162,15 @@
       ?>
       </div>
     </div>
+<?php
+  }
+
+  function renderStreamingLinkButton($link) {
+?>
+    <a class="watch-button" target="_blank" rel="noopener noreferrer" href="<?php echo $link; ?>">
+      <span class="fa fa-play-circle"></span>
+      Mirala por <?php echo strpos($link, 'cont.ar') ? 'Contar' : 'Flixxo';?>
+    </a>
 <?php
   }
 

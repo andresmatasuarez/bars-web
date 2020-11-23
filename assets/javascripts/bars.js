@@ -79,6 +79,9 @@ export default function(){
       $.ajax({
         async: false,
         url: $(this.element).attr('link'),
+        data: {
+          edition: window.CURRENT_EDITION,
+        },
         success(data) {
           $('#movie-container').html(data);
         }

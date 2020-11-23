@@ -7,6 +7,20 @@ Author:         Andrés Mata Suárez
 Author URI:     mailto:author@bars.com
 */
 
+.rotate(@deg: 90) {
+  /* Safari */
+  -webkit-transform: rotate(@deg * 1deg);
+  /* Firefox */
+  -moz-transform: rotate(@deg * 1deg);
+  /* IE10+ */
+  transform: rotate(@deg * 1deg);
+  /* Opera */
+  -o-transform: rotate(@deg * 1deg);
+  /* Internet Explorer */
+  @IEdeg: round(@deg / 90, 0);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@IEdeg);
+}
+
 @import url('./fonts.less');
 @import url('./links.less');
 @import url('./text.less');

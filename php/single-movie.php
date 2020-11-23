@@ -9,8 +9,12 @@
 	require_once 'elements.php';
 	require_once 'editions.php';
 
-	$edition = Editions::current();
-	$venues = Editions::venues($edition);
+	if (!isset($_GET['edition'])){
+		$currentEdition = Editions::current();
+	} else {
+		$currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
+	}
+	$venues = Editions::venues($currentEdition);
 ?>
 
 <div class="movie" id="movie-<?php the_ID(); ?>">
@@ -21,9 +25,17 @@
 
 		<div class="screenings">
 		<?php
-			renderScreenings(get_post_meta($post->ID, '_movie_screenings', true), $venues);
+			$screeningValue = get_post_meta($post->ID, '_movie_screenings', true);
+			renderScreenings($screeningValue, $venues);
 		?>
 		</div>
+
+		<?php
+			$streamingLink = trim(get_post_meta($post->ID, '_movie_streamingLink', true));
+			if ($streamingLink !== '') {
+				renderStreamingLinkButton($streamingLink);
+			}
+		?>
 	</div>
 
 	<div class="info-container text-oswald">
