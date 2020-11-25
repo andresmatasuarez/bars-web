@@ -171,7 +171,7 @@
       <a class="watch-button <?php echo ($isDisabled ? 'disabled' : ''); ?>" target="_blank" rel="noopener noreferrer" href="<?php echo $link; ?>">
         <span class="fa fa-play-circle"></span>
 
-        <?php echo ($isDisabled ? 'Link disponible sólo durante las fechas' : (strpos($link, 'cont.ar') ? 'Mirala por Contar' : 'Mirala por Flixxo')); ?>
+        <?php echo ($isDisabled ? 'Link se habilita sólo en<br />fechas de proyección' : (strpos($link, 'cont.ar') ? 'Mirala por Contar' : 'Mirala por Flixxo')); ?>
       </a>
     </div>
 <?php
