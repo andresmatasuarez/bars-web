@@ -165,12 +165,27 @@
 <?php
   }
 
-  function renderStreamingLinkButton($link) {
+  function renderStreamingLinkButton($link, $isDisabled = false) {
 ?>
-    <a class="watch-button" target="_blank" rel="noopener noreferrer" href="<?php echo $link; ?>">
-      <span class="fa fa-play-circle"></span>
-      Mirala por <?php echo strpos($link, 'cont.ar') ? 'Contar' : 'Flixxo';?>
-    </a>
+    <div class="watch-button-container">
+      <a class="watch-button <?php echo ($isDisabled ? 'disabled' : ''); ?>" target="_blank" rel="noopener noreferrer" href="<?php echo $link; ?>">
+        <span class="fa fa-play-circle"></span>
+
+        <?php echo ($isDisabled ? 'Link disponible sólo durante las fechas' : (strpos($link, 'cont.ar') ? 'Mirala por Contar' : 'Mirala por Flixxo')); ?>
+      </a>
+    </div>
+<?php
+  }
+
+  function renderWarningMessage($title, $message, $customClass = '') {
+?>
+    <div class="bars-warning-message <?php echo $customClass; ?>">
+      <div>
+        <span class="fa fa-exclamation-circle"></span>
+      </div>
+      <h1><?php echo $title; ?></h1>
+      <p><?php echo $message; ?></p>
+    </div>
 <?php
   }
 

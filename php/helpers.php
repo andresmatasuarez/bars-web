@@ -1,4 +1,5 @@
 <?php
+  require_once 'editions.php';
 
   function parseScreening($screening) {
     if (substr($screening, 0, strlen("streaming!")) === "streaming!") {
@@ -19,11 +20,39 @@
     );
   }
 
+  function sortByDateString($a, $b) {
+    $t1 = strtotime($a['date']);
+    $t2 = strtotime($b['date']);
+    return ($t1 - $t2);
+  }
+
   function parseScreenings($screeningsValue) {
     $screenings = array_filter(explode(',', $screeningsValue)); // removes empty screenings
     $screenings = array_map('trim', $screenings);
     $screenings = array_map('parseScreening', $screenings);
+    usort($screenings, 'sortByDateString');
     return $screenings;
+  }
+
+  function isDateBetween(DateTime $date, DateTime $from, DateTime $to) {
+    return $from <= $date && $date <= $to;
+  }
+
+  function anyScreeningsLeft($screeningsValue) {
+    $screenings = parseScreenings($screeningsValue); // array of screenings comes alreasdy sorted
+    if (count($screenings) === 0) {
+      return false;
+    }
+
+    $from = $screenings[0]['date'];
+
+    if ($from === 'full') {
+      return isDateBetween(withTZ(new DateTime()), Editions::from(), Editions::to());
+    }
+
+    $to = count($screenings) === 1 ? date('m-d-Y', strtotime($from . "+1 days")) : end($screenings)['date'];
+
+    return isDateBetween(withTZ(new DateTime()), parseDate($from, 'm-d-Y'), parseDate($to, 'm-d-Y'));
   }
 
   function groupScreeningsByVenue($screenings) {
@@ -41,30 +70,26 @@
     return $grouped;
   }
 
-  function renderWarningMessage($title, $message, $customClass = '') {
-?>
-    <div class="bars-warning-message <?php echo $customClass; ?>">
-      <div>
-        <span class="fa fa-exclamation-circle"></span>
-      </div>
-      <h1><?php echo $title; ?></h1>
-      <p><?php echo $message; ?></p>
-    </div>
-<?php
-  }
-
   function getDateInSpanish($date) {
     return $date->format('j') . ' de ' . getSpanishMonthName($date->format('F')) . ' de ' . $date->format('Y');
   }
 
-  function parseDate($date = null){
+  function withTZ($date) {
+    $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
+    return $date;
+  }
+
+  function parseDate($date = null, $format = null){
     if (empty($date)) {
       return null;
     }
 
-    $date = new DateTime($date);
-    $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
-    return $date;
+    if (!isset($format) || $format === 'c') {
+      $date = new DateTime($date);
+    } else {
+      $date = DateTime::createFromFormat($format, $date);
+    }
+    return withTZ($date);
   }
 
   function prepareMovieForDisplaying($post) {

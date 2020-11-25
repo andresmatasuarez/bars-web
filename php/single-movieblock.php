@@ -25,15 +25,16 @@
 
 		<div class="screenings">
 		<?php
-			$screeningValue = get_post_meta($post->ID, '_movieblock_screenings', true);
-			renderScreenings(get_post_meta($screeningValue, $venues));
+			$screeningsValue = get_post_meta($post->ID, '_movieblock_screenings', true);
+			renderScreenings(get_post_meta($screeningsValue, $venues));
 		?>
 		</div>
 
 		<?php
 			$streamingLink = trim(get_post_meta($post->ID, '_movie_streamingLink', true));
 			if ($streamingLink !== '') {
-				renderStreamingLinkButton($streamingLink);
+				echo '<div class="scratch"></div>';
+				renderStreamingLinkButton($streamingLink, !anyScreeningsLeft($screeningsValue));
 			}
 		?>
 	</div>
