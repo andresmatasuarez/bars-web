@@ -76,6 +76,7 @@ export default function(){
     scrolling : 'hidden',
     helpers   : { overlay: { locked: true } },
     beforeLoad(){
+      $.fancybox.showLoading();
       $.ajax({
         async: false,
         url: $(this.element).attr('link'),
@@ -84,6 +85,7 @@ export default function(){
         },
         success(data) {
           $('#movie-container').html(data);
+          $.fancybox.hideLoading();
         }
       });
     },
