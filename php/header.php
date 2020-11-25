@@ -75,6 +75,10 @@
 		$shouldDisplayTBA = !Editions::areDatesDefined($edition);
 	?>
 
+	<script>
+		window.IS_CALL_OPEN = <?php echo (Editions::isCallClosed($edition) ? 'false' : 'true'); ?>;
+	</script>
+
 	<div id="current-edition-year" style="display: none;">
 		<?php echo $displayYear; ?>
 	</div>

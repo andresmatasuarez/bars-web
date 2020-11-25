@@ -43,9 +43,32 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 }
 
 /* Header menu */
-#header-menu { position: relative; background-color: black; text-align: center; }
-#header-menu .nav-menu ul { display: table; margin: 0 auto; padding: 0; }
-#header-menu .nav-menu ul li { display: table-cell !important; position: relative; vertical-align: middle; padding: 8px; }
+#header-menu {
+  position: relative;
+  background-color: black;
+  text-align: center;
+
+  .nav-menu {
+    // background: rgb(0,0,0);
+    // background: -moz-linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(121,9,9,0.5116421568627452) 100%);
+    // background: -webkit-linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(121,9,9,0.5116421568627452) 100%);
+    // background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(121,9,9,0.5116421568627452) 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#790909",GradientType=1);
+
+    ul {
+      display: table;
+      margin: 0 auto;
+      padding: 0;
+
+      li {
+        display: table-cell !important;
+        position: relative;
+        vertical-align: middle;
+        padding: 8px;
+      }
+    }
+  }
+}
 
 /* Sticky menu fix */
 #header-menu { z-index: 99; width: 100%; }

@@ -163,7 +163,14 @@ class Editions {
       $edition = self::current();
     }
 
-    return strtotime('now') > strtotime($edition['call']['to']);
+    $to = $edition['call']['to'];
+    $from = isset($edition['call']['from']) && $edition['call']['from'] !== '' ? $edition['call']['from'] : null;
+
+    return is_null($from) ? (
+      strtotime($to) < strtotime('now')
+    ) : (
+      strtotime('now') < strtotime($from) || strtotime($to) < strtotime('now')
+    );
   }
 
   public static function getPressPassesDeadline($edition = NULL) {
