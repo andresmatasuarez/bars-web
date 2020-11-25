@@ -1,29 +1,41 @@
 <?php
   require_once 'editions.php';
 
+  const DATE_FULL_TAG = 'full';
+
+  function sortByDateString($a, $b) {
+    $t1 = $a['date']->getTimestamp();
+    $t2 = $b['date']->getTimestamp();
+    return $t1 - $t2;
+  }
+
   function parseScreening($screening) {
+    $tz = new DateTimeZone('America/Argentina/Buenos_Aires');
+
     if (substr($screening, 0, strlen("streaming!")) === "streaming!") {
       preg_match('/(\s*streaming!(?<venue>([A-Za-z]+))?:\s*)?(?P<date>[^\s]+)\s*/', $screening, $matches);
+      $rawDate = strtolower(trim($matches['date']));
+      $date = $rawDate === DATE_FULL_TAG ? null : dateWithoutTime(parseDate($rawDate . ' ' . $tz->getName(), 'm-d-Y e'));
       return array(
+        'raw' => $screening,
         'streaming' => true,
+        'alwaysAvailable' => $rawDate === DATE_FULL_TAG,
         'venue' => strtolower(trim($matches['venue'])),
-        'date' => strtolower(trim($matches['date'])),
+        'date' => $date
       );
     }
 
     preg_match('/(\s*(?<venue>([A-Za-z]+))\s*[^\.]*(\s*\.\s*(?<room>.+))?:\s*)?(?P<date>[^\s]+)\s+(?P<time>.+)/', $screening, $matches);
+    $date = strtolower(trim($matches['date']));
+    $time = strtolower(trim($matches['time']));
+    $date = parseDate($date . ' ' . $time . ' ' . $tz->getName(), 'm-d-Y H:i e');
     return array(
+      'raw' => $screening,
       'venue' => strtolower(trim($matches['venue'])),
       'room' => strtolower(trim($matches['room'])),
-      'date' => strtolower(trim($matches['date'])),
-      'time' => strtolower(trim($matches['time']))
+      'date' => $date,
+      'time' => $time
     );
-  }
-
-  function sortByDateString($a, $b) {
-    $t1 = strtotime($a['date']);
-    $t2 = strtotime($b['date']);
-    return ($t1 - $t2);
   }
 
   function parseScreenings($screeningsValue) {
@@ -39,20 +51,23 @@
   }
 
   function anyScreeningsLeft($screeningsValue) {
-    $screenings = parseScreenings($screeningsValue); // array of screenings comes alreasdy sorted
+    $screenings = parseScreenings($screeningsValue);
     if (count($screenings) === 0) {
       return false;
     }
 
-    $from = $screenings[0]['date'];
+    // array of screenings comes already sorted, so first screening is the earliest one
+    // and last screening is the latest one.
+    $earliestScreening = $screenings[0];
 
-    if ($from === 'full') {
-      return isDateBetween(withTZ(new DateTime()), Editions::from(), Editions::to());
+    if (!empty($earliestScreening['alwaysAvailable'])) {
+      return isDateBetween(dateWithTZ(new DateTime()), Editions::from(), Editions::to());
     }
 
-    $to = count($screenings) === 1 ? date('m-d-Y', strtotime($from . "+1 days")) : end($screenings)['date'];
+    $from = $earliestScreening['date'];
+    $to = count($screenings) === 1 ? dateOneDayLater($from) : end($screenings)['date'];
 
-    return isDateBetween(withTZ(new DateTime()), parseDate($from, 'm-d-Y'), parseDate($to, 'm-d-Y'));
+    return isDateBetween(dateWithTZ(new DateTime()), $from, $to);
   }
 
   function groupScreeningsByVenue($screenings) {
@@ -74,9 +89,30 @@
     return $date->format('j') . ' de ' . getSpanishMonthName($date->format('F')) . ' de ' . $date->format('Y');
   }
 
-  function withTZ($date) {
-    $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
-    return $date;
+  function dateWithTZ($date) {
+    return $date->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
+  }
+
+  function dateWithoutTime($date) {
+    $newDate = new DateTime();
+    $newDate->setTimestamp($date->getTimestamp());
+    return $newDate->settime(0,0);
+  }
+
+  function dateGetTime($date) {
+    $time = $date->format('H:i');
+    return $time === '00:00' ? NULL : $time;
+  }
+
+  function isSameDay($d1, $d2) {
+    return $d1->format('m-d-Y') === $d2->format('m-d-Y');
+  }
+
+  function dateOneDayLater($date) {
+    $newDate = new DateTime();
+    $newDate->setTimestamp($date->getTimestamp());
+    $newDate->add(new DateInterval('P1D'));
+    return $newDate;
   }
 
   function parseDate($date = null, $format = null){
@@ -89,7 +125,7 @@
     } else {
       $date = DateTime::createFromFormat($format, $date);
     }
-    return withTZ($date);
+    return dateWithTZ($date);
   }
 
   function prepareMovieForDisplaying($post) {

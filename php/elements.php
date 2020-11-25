@@ -3,10 +3,7 @@
   require_once 'helpers.php';
 
   function renderScreening($screening) {
-    $time = @$screening['time'];
-    $room = @$screening['room'];
-
-    if ($screening['date'] === 'full') {
+    if (!empty($screening['alwaysAvailable'])) {
       echo '<div class="screening">';
         echo '<div class="screening-daynumber">';
           echo 'Mirala en cualquier momento';
@@ -16,12 +13,15 @@
       return;
     }
 
-    $dateNow = new DateTime();
-    $date = DateTime::createFromFormat('m-d-Y', $screening['date']);
-    $dateHasPassed = $date < $dateNow;
+    $date = $screening['date'];
+    $dateNow = dateWithoutTime(new DateTime());
+    $dateHasPassed = dateWithoutTime($date) < $dateNow;
 
     $dayName = ucwords(getSpanishDayName($date->format('l')));
     $dayNumber = $date->format('d');
+
+    $time = dateGetTime($screening['date']);
+    $room = @$screening['room'];
 
     echo '<div class="screening ' .  ($dateHasPassed ? 'date-passed' : '') . '">';
       echo '<div class="screening-dayname">';
@@ -31,7 +31,7 @@
         echo $dayNumber;
       echo '</div>';
 
-    if (isset($time)) {
+    if (!is_null($time)) {
       echo '<div class="screening-hour">';
         echo $time;
       echo '</div>';
@@ -57,7 +57,16 @@
 
     foreach($groupedScreenings as $venue => $screenings){
       echo '<div class="screenings-group">';
-        echo '<div class="screenings-caption">' . $venues[$venue]['name'] . '</div>';
+        echo '<div class="screenings-caption">';
+          if ($venue === '') {
+            // Empty 'venue' means that for the current festival edition,
+            // there's only one venue screening films.
+            // So I simply find the only one venue and show it.
+            echo $venues[array_keys($venues)[0]]['name'];
+          } else {
+            echo $venues[$venue]['name'];
+          }
+        echo '</div>';
         echo '<div class="screenings-container">';
           foreach($screenings as $key => $screening) {
             renderScreening($screening);
@@ -86,7 +95,7 @@
 <?php
   }
 
-  function renderRegularMovieScreening($title, $sectionValue, $permalink, $postThumbnail, $info, $venue, $time) {
+  function renderMovie($title, $sectionValue, $permalink, $postThumbnail, $info, $venue, $time) {
 ?>
     <div class="movie-post" section="<?php echo $sectionValue; ?>">
 <?php
@@ -131,8 +140,22 @@
           $movieToDisplay = prepareMovieForDisplaying($post);
 
           foreach($movieToDisplay['screenings'] as $key => $screening){
-            if ($screening['date'] !== $day){
-              continue;
+            if ($day === DATE_FULL_TAG) {
+              if (!isset($screening['alwaysAvailable']) || !$screening['alwaysAvailable']) {
+                continue;
+              }
+
+              $time = NULL;
+            } else if ($day instanceof DateTime) {
+              if (
+                !isset($screening['date']) ||
+                !($screening['date'] instanceof DateTime) ||
+                !isSameDay($day, $screening['date'])
+              ) {
+                continue;
+              }
+
+              $time = dateGetTime($screening['date']);
             }
 
             $venue = $screening['venue'];
@@ -145,14 +168,14 @@
               $venue = $room !== '' && count($venues) === 1 ? $room : $venue;
             }
 
-            renderRegularMovieScreening(
+            renderMovie(
               $movieToDisplay['title'],
               $movieToDisplay['section'],
               $movieToDisplay['permalink'],
               $movieToDisplay['thumbnail'],
               $movieToDisplay['info'],
               $venue,
-              isset($screening['time']) ? $screening['time'] : NULL
+              $time
             );
           }
         }
@@ -171,7 +194,7 @@
       <a class="watch-button <?php echo ($isDisabled ? 'disabled' : ''); ?>" target="_blank" rel="noopener noreferrer" href="<?php echo $link; ?>">
         <span class="fa fa-play-circle"></span>
 
-        <?php echo ($isDisabled ? 'Link se habilita sólo en<br />fechas de proyección' : (strpos($link, 'cont.ar') ? 'Mirala por Contar' : 'Mirala por Flixxo')); ?>
+        <?php echo ($isDisabled ? 'El link se habilitará sólo <br />en las fechas de proyección' : (strpos($link, 'cont.ar') ? 'Mirala por Contar' : 'Mirala por Flixxo')); ?>
       </a>
     </div>
 <?php
