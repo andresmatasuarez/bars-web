@@ -27,8 +27,8 @@
       "pickupTo": "2019-12-25T03:00:00.000Z"
     },
     "poster" : "resources/bars2020/bars2020_afiche.jpg",
-    "programme" : "",
-    "programme_gs" : "",
+    "programme" : "resources/bars2020/bars2020_programme.jpg",
+    "programme_yt" : "resources/bars2020/bars2020_programme_yt.jpg",
     "closing_party" : "",
     "spot": "https://www.youtube.com/watch?v=erlFS6xGPl8",
     "call": {
@@ -42,6 +42,138 @@
       "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar un screener online a traves de las plataformas <a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a>. </li> <li> Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una imagen horizontal de la película, resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li><strong>Subtítulos o guía de diálogos si la película no es hablada en español.</strong></li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin. </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival no tiene <strong>costo</strong> para el material producido en <i>Argentina</i>, mientras que tiene un valor de <strong>USD 3</strong> para el material producido en el <i>resto de latinoamérica</i> y de <strong>USD 6</strong> para el material producido en el <i>resto del mundo</i>. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que <strong>no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires</strong> y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> <li><strong>En caso de fuerza mayor, y en vistas de la situación con la pandemia de COVID-19, vale señalar que las inscripciones serán válidas para la edición número 21 del Buenos Aires Rojo Sangre aún si ésta es pospuesta o reprogramada.</strong></li> </ul>",
       "terms_en": "/resources/bars2019/terms2019_en.docx",
       "terms_es": "/resources/bars2019/terms2019_es.docx"
+    },
+    "awards": {
+      "jury": [
+        "Mejor Largometraje",
+        "Mejor Director Largometraje",
+        "Mejor Actriz Largometraje",
+        "Mejor Actor Largometraje",
+        "Mejor Guion Largometraje",
+        "Mejor Fotografía Largometraje",
+        "Mejores Efectos Especiales Largometraje",
+        "Mejor Cortometraje Internacional",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Nacional",
+        "Mejor Largometraje Iberoamericano",
+        "Mejor Director Largometraje Iberoamericano",
+        "Mejor Actuación Largometraje Iberoamericano",
+        "Premio \"BARS-Contar\""
+      ],
+      "audience": [
+        "Largometraje",
+        "Cortometraje",
+        "Largometraje Competencia Bizarra"
+      ]
+    },
+    "juries": {
+      "Competencia Internacional de Largometrajes": [
+        {
+          "name": "Edna Campos Tenorio",
+          "pic": {
+            "url": "resources/bars2020/jury_edna_campos_tenorio.jpg",
+            "focus": { "x": 0, "y": 0, "w": 2767, "h": 2319 }
+          },
+          "description": "<strong>Edna Campos Tenorio</strong>. Directora y fundadora de Macabro FICH. Comunicóloga y periodista egresada de la UNAM; especialista en políticas culturales y gestión cultural por la UAM; diplomada en cine, literatura e historia. Co-guionista y co-productora del documental <i>Alucardos: Retrato de un vampiro</i>. Productora audiovisual y editora de libros como <i>Femmes Fatales: 13 escritoras hablan sobre cine de terror</i>, <i>Terror del rudo</i> y <i>40 años de Alucarda</i>. Ha impartido talleres de cine de terror en la Biblioteca de México por diez años consecutivos."
+        },
+        {
+          "name": "Jorge Olguin",
+          "pic": {
+            "url": "resources/bars2020/jury_jorge_olguin.jpg",
+            "focus": { "x": 0, "y": 0, "w": 3456, "h": 2304 }
+          },
+          "description": "<strong>Jorge Olguín</strong>. Destacado y premiado director de cine. Egresado de la Escuela de Cine de la Universidad de las Artes y Ciencias Sociales, Arcis. Considerado como el pionero del género de fantástico y terror en Chile, hizo su debut como director con <i>Ángel Negro</i> (2000) cuando era estudiante universitario. La película se convirtió en un éxito de taquilla y fue acreditada como la primera película de terror chilena. Luego realizó la primera película de efectos especiales en Chile, <i>Sangre Eterna</i> (2002). Más tarde, gana el Fondo Nacional Audiovisual para producir la primera película de ficción chilena en 3D <i>Gritos del Bosque</i> (2014), una película de terror y fantasía inspirada en la mitología mapuche. Su último largometraje <i>La Casa</i> es una película de terror psicológico, inspirada en los eventos reales sobre la conocida Casa Dubois."
+        },
+        {
+          "name": "Fio Sargenti",
+          "pic": {
+            "url": "resources/bars2020/jury_fio_sargenti.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1440, "h": 1800 }
+          },
+          "description": "<strong>Fio Sargenti</strong>. Periodista especializada en cine y series, conductora de radio y podcaster. Actualmente conduce <i>Sensacional Éxito</i> en Metro 95.1 y los podcasts <i>Hoy Trasnoche</i> (cine), <i>Es Una Trampa</i>, <i>Hodor Hodor Hodor</i> y varios más. Ex-editora de la revista La Cosa, también fue colaboradora de Clarín Espectáculos, Infobae, La Nación e Inrockuptibles."
+        }
+      ],
+
+      "Competencia Iberoamericana de Largometrajes": [
+        {
+          "name": "Sol Moreno",
+          "pic": {
+            "url": "resources/bars2020/jury_sol_moreno.jpg",
+            "focus": { "x": 0, "y": 0, "w": 721, "h": 721 }
+          },
+          "description": "<strong>Sol Moreno</strong>. Artista visual y cineasta, le interesa lo feo, lo grotesco, terrorífico, primitivo y lo salvaje, como concepto contrario a lo que la sociedad establece como lo correcto. Esos conceptos los plasma en cerámica, pintura, bordados, fotografía, video y en el cine. Defensora de la contracultura como el movimiento más inmediato de comunicación, edita fanzines, hace videoarte y películas como <i>El Martillo de las Brujas</i>, <i>Megamuerte</i>, no para de explorar. No hace mucho presentó con bombos y platillos el primer largometraje de terror en Panamá: <i>Diablo Rojo</i>, donde trabajó en la dirección y en el departamento de arte. Forma parte del colectivo femenino <i>Ninguna Musa</i>, toca el bajo y pega gritos en varias bandas de lo-fi garage y es directora del festival de cine fantástico y de terror de Panamá."
+        },
+        {
+          "name": "César del Álamo",
+          "pic": {
+            "url": "resources/bars2020/jury_cesar_del_alamo.jpg",
+            "focus": { "x": 0, "y": 0, "w": 640, "h": 800 }
+          },
+          "description": "<strong>César del Álamo</strong>, Madrid, 23 de febrero de 1978. Desde crío se siente fascinado por el cine y, en cuanto puede acceder a una cámara, comienza a rodar cortometrajes. En 2010, estrena su primer largo, el thriller psicológico <i>Mí</i>, protagonizado por <strong>Maya Reyes</strong>, que se abre paso por festivales internacionales con muy buenas críticas. Dos años después, le sigue el neo-giallo <i>Buenas noches, dijo la señorita Pájaro</i>, proyectada en todo el mundo con bastante éxito y ganando los premios a mejor película y mejor actriz (para <strong>Angela Boj</strong>) en el Festival Catacumbas, de Godella. Le sigue <i>La mujer que hablaba con los muertos</i>, una comedia de terror coral, y en 2018 se estrena <i>De la piel del Diablo</i>, suspense y terror con connotaciones metalingüísticas, que es su último trabajo hasta la fecha."
+        },
+        {
+          "name": "Laura Ponce",
+          "pic": {
+            "url": "resources/bars2020/jury_laura_ponce.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1067, "h": 1600 }
+          },
+          "description": "<strong>Laura Ponce</strong> (Buenos Aires, 1972) es escritora, editora y gestora cultural, se especializa en Ciencia Ficción y género fantástico. Desde 2009 dirige Revista Próxima y Ediciones Ayarmanot, sello con el que lleva publicados 20 títulos. Da talleres, cursos y charlas sobre narrativa, lectura y escritura del género. Organiza las Tertulias de Ciencia Ficción y Fantasía de Buenos Aires. Participa en la organización de Pórtico, Encuentro de ciencia ficción, que aúna las características de un evento académico con actividades dedicadas al fandom. Su libro de cuentos <i>Cosmografía Profunda</i> se publicó en Argentina y en España."
+        }
+      ],
+
+      "Competencia Internacional de Cortometrajes": [
+        {
+          "name": "Juan Diego Escobar Alzate",
+          "pic": {
+            "url": "resources/bars2020/jury_juan_diego_escobar_alzate.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1440, "h": 1800 }
+          },
+          "description": "<strong>Juan Diego Escobar Alzate</strong> es un director y guionista colombiano. Director y guionista del largometraje <i>Luz</i> o como es conocida internacionalmente <i>Luz: The Flower of Evil</i> con Premiere Mundial en la Sección Oficial en Competencia de SITGES, el festival más importante de cine de género del mundo, además de haber participado en Glasgow Film Festival, Night Visions en Finlandia, Hard:Line en Alemania, CineQuest en Estados Unidos, entre otros. <i>Luz</i> es distribuída internacionalmente por SHUDDER, Raven Banner y Dark Sky Films, entre otros. Su película <i>El arcoíris negro</i> una coproducción colombo-argentina, está en desarrollo."
+        },
+        {
+          "name": "Carolina Duek",
+          "pic": {
+            "url": "resources/bars2020/jury_carolina_duek.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 1200, "h": 1050 }
+          },
+          "description": "<strong>Carolina Duek</strong> es Investigadora Independiente del CONICET, Doctora en Ciencias Sociales por la Universidad de Buenos Aires, Magíster en Comunicación y Cultura y Licenciada en Ciencias de la Comunicación (UBA). Es directora de proyectos de investigación relacionados con el juego, los medios de comunicación y las infancias contemporáneas (PIP/Conicet, PICT, FLACSO/CONICET y ANPCyT). Ha publicado artículos en revistas científicas nacionales e internacionales y sus trabajos han sido publicados en español, portugués, inglés, francés y turco. Ha publicado cuatro libros: <i>Infancias entre pantallas. hacia la definición de los juegos posibles</i> (EAE, 2011), <i>El juego y los medios. Autitos, muñecas, televisión y consolas</i> (Prometeo Libros, 2012), <i>Infancias entre pantallas</i> (Capital Intelectual, 2013) y <i>Juegos, Juguetes y nuevas tecnologías</i> (Capital Intelectual, 2014). Es docente de “Teorías y prácticas de la comunicación I” en la Facultad de Ciencias Sociales de la Universidad de Buenos Aires. "
+        },
+        {
+          "name": "Amanda Nara",
+          "pic": {
+            "url": "resources/bars2020/jury_amanda_nara.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 853, "h": 1280 }
+          },
+          "description": "<strong>Amanda Nara</strong>, Fotógrafo y Diseñador Gráfico. Se inició en el cine independiente participando en varias áreas de la producción de <i>Daemonium</i>. Participó en el equipo de fotografía de <i>Grasa</i>, <i>Malvineitor</i>, <i>Goretech Star Wars</i>, entre otros. En el año 2019 participó en la producción de <i>PussyCake</i> (Pablo Parés) a estrenarse en 2021. Actualmente forma parte del equipo de fotografía de <i>Gomoso</i>, todavía en producción. Como diseñador realizó los pósters de <i>Naturaleza Muerta</i> (Gabriel Grieco), <i>Necrofobia</i> (Daniel de la Vega), <i>Bruno Motoneta</i> (Pablo Parés), <i>Aterrados</i> (Demian Rugna) y <i>Daemonum</i> (Pablo Parés)."
+        }
+      ],
+
+      "Premio BARS-Contar": [
+        {
+          "name": "Ayi Turzi",
+          "pic": {
+            "url": "resources/bars2020/jury_ayi_turzi.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1440, "h": 1440 }
+          },
+          "description": "<strong>Ayi Turzi</strong> es diseñadora de imagen y sonido egresada de la UBA. Dirigió <i>Y...quién mató al mayordomo?</i> (2012) y <i>Chevysaurios, la película</i> (2019, ganadora de la categoría bizarra en el Buenos Aires Rojo Sangre), además de varios cortometrajes. Escribe desde 2014 en varios medios especializados en cine, siempre poniendo el foco en la divulgación del cine fantástico argentino. También indaga estas temáticas en el ámbito académico, habiendo participado de múltiples actividades como jornadas y congresos, y desarrollando en torno a ellas su tesis de posgrado. Además es autora de ficción, su primer libro <i>Septem Somnia</i> agotó la primera edición y se espera la salida de su segundo libro para el año 2021."
+        },
+        {
+          "name": "Fernando Sandro",
+          "pic": {
+            "url": "resources/bars2020/jury_fernando_sandro.jpg",
+            "focus": { "x": 0, "y": 0, "w": 590, "h": 590 }
+          },
+          "description": "<strong>Fernando Sandro</strong>, oriundo del Oeste del Conurbano Bonaerense. Especializado en cine de género, y cine nacional (cursando un máster en la materia); es periodista, redactor en Revista Cine Fantástico y Bizarro desde sus inicios. También se desarrolló como periodista y crítico de cine en sitios como Alta Peli, Espectador Avezado, el propio sitio de Cine Fantástico y Bizarro, y colaboraciones para Revista Varla, entre otros. Durante 2019 ocupó una columna radial sobre cine bizarro en el programa <i>La previa cinéfila</i>, y realizó un taller online y streamings sobre cine queer y diversidades en el cine de género junto a la comunidad de Osos BA. Este año regresó exitosamente a la programación del ciclo de Cine que desarrolló presencialmente durante 2015/16 <i>Ciclo de la Luna - Cine de Culto y Clase B</i>, ahora en formato online bajo la plataforma Twitch."
+        },
+        {
+          "name": "Matías Orta",
+          "pic": {
+            "url": "resources/bars2020/jury_matias_orta.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1000, "h": 864 }
+          },
+          "description": "<strong>Matías Orta</strong> nació en Lanús en 1980. Dirigió el corto <i>Michifus</i>, de amplia repercusión. Formó parte de las revistas Haciendo Cine, La Cosa y Miradas, de Cablevisión. Es uno de los creadores del portal A Sala Llena, tiene La Columna de Matute en Cine fantástico y bizarro y es guionista en el canal de Youtube de Zepfilms. Fue columnista y productor en FM Nacional Rock y Metro 95.1, respectivamente. Integra La Abadía de Carfax, círculo de escritores de horror y fantasía. Es autor de los libros <i>Encerrados toda la noche: El cine de John Carpenter</i> y <i>Cuerpos fuera de control: el cine de David Cronenberg</i>."
+        }
+      ]
     }
   },
   {
@@ -65,7 +197,6 @@
     },
     "poster" : "resources/bars2019/bars2019_afiche.jpg",
     "programme" : "resources/bars2019/bars2019_programme.jpg",
-    "programme_gs" : "",
     "closing_party" : "resources/bars2019/bars2019_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=pWGChSjQGSM",
     "call": {
@@ -234,7 +365,6 @@
     },
     "poster" : "resources/bars2018/bars2018_afiche.jpg",
     "programme" : "resources/bars2018/bars2018_programme.jpg",
-    "programme_gs" : "",
     "closing_party" : "resources/bars2018/bars2018_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=O2o_13LzShs",
     "call": {
@@ -394,7 +524,6 @@
     },
     "poster" : "resources/bars2017/bars2017_afiche.jpg",
     "programme" : "resources/bars2017/bars2017_programme.jpg",
-    "programme_gs" : "",
     "closing_party" : "resources/bars2017/bars2017_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=jzcyZrRKnvs",
     "call": {
@@ -523,7 +652,6 @@
     },
     "poster" : "resources/bars2016/bars2016_afiche.jpg",
     "programme" : "resources/bars2016/bars2016_programme.jpg",
-    "programme_gs" : "",
     "closing_party" : "resources/bars2016/bars2016_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=DwmHWFtuIfk",
     "call": {

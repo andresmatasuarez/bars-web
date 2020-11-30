@@ -26,7 +26,25 @@
 			?>
 
 			<?php
-				if (isset($edition['spot']) && !empty($edition['spot'])){
+				if (!empty($edition['programme'])){
+					echo add_image_sidebar_widget('sidebar relative image', 'Programación ' . Editions::getTitle($edition), get_bloginfo('template_directory') . '/' . $edition['programme']);
+				}
+			?>
+
+			<?php
+				if (!empty($edition['programme_gs'])){
+					echo add_image_sidebar_widget('sidebar relative image', 'Programación ByN', get_bloginfo('template_directory') . '/' . $edition['programme_gs']);
+				}
+			?>
+
+			<?php
+				if (!empty($edition['programme_yt'])){
+					echo add_image_sidebar_widget('sidebar relative image', 'Actividades vía YouTube', get_bloginfo('template_directory') . '/' . $edition['programme_yt']);
+				}
+			?>
+
+			<?php
+				if (!empty($edition['spot'])){
 					$vars = array();
 					parse_str(parse_url($edition['spot'], PHP_URL_QUERY), $vars);
 					echo add_youtube_sidebar_widget('sidebar relative video', 'Spot ' . Editions::getTitle($edition), $vars['v'], '100%', '200px');
@@ -34,25 +52,13 @@
 			?>
 
 			<?php
-				if (isset($edition['programme']) && !empty($edition['programme'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Programación ' . Editions::getTitle($edition), get_bloginfo('template_directory') . '/' . $edition['programme']);
-				}
-			?>
-
-			<?php
-				if (isset($edition['poster']) && !empty($edition['poster'])){
+				if (!empty($edition['poster'])){
 					echo add_image_sidebar_widget('sidebar relative image', 'Afiche ' . Editions::getTitle($edition), get_bloginfo('template_directory') . '/' . $edition['poster']);
 				}
 			?>
 
 			<?php
-				if (isset($edition['programme_gs']) && !empty($edition['programme_gs'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Programación ByN', get_bloginfo('template_directory') . '/' . $edition['programme_gs']);
-				}
-			?>
-
-			<?php
-				if (isset($edition['closing_party']) && !empty($edition['closing_party'])){
+				if (!empty($edition['closing_party'])){
 					echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura', get_bloginfo('template_directory') . '/' . $edition['closing_party']);
 				}
 			?>
