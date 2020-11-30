@@ -1,5 +1,6 @@
 import remove from 'lodash/remove';
 import stickyElement from './sticky_element';
+import collapsible from './collapsible';
 
 export default function(){
 
@@ -154,6 +155,8 @@ export default function(){
   });
 
   // Sticky days in selection.php
-  stickyElement('.schedule-day', '.schedule-day-info');
+  stickyElement('.schedule-day-info', '.sticky-day-wrapper');
+
+  collapsible('collapsible-trigger', 'collapsible');
 
 };

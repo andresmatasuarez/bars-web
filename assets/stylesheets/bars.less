@@ -238,12 +238,90 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 #page-selection .schedule-header { padding: 0 10px; }
 #page-selection .schedule { margin-top: 20px; }
 #page-selection .schedule .scratch { opacity: 0.1; }
-#page-selection .schedule-day { overflow: hidden; padding: 15px; }
-#page-selection .schedule-day.odd { background-color: rgba(30,30,30,0.3); }
-#page-selection .schedule-day.even { background-color: transparent; }
-@schedule-day-number-width: 90px;
-#page-selection .schedule-day .schedule-day-info { width: @schedule-day-number-width; text-align: center; float: left; }
-#page-selection .movie-posts { overflow: hidden; display: flex; flex-wrap: wrap; }
+
+#page-selection .schedule-day {
+  display: flex;
+  padding: 15px 0;
+  position: relative; // sticky day feature
+
+  &.odd { background-color: rgba(30,30,30,0.3); }
+  &.even { background-color: transparent; }
+
+  @schedule-day-number-width: 90px;
+
+  .schedule-day-info {
+    flex: 0 0 @schedule-day-number-width;
+    text-align: center;
+
+    .sticky-day-wrapper {
+      width: @schedule-day-number-width;
+    }
+  }
+
+  .movie-posts {
+    flex: 1;
+    flex-wrap: wrap;
+    display: flex;
+
+    // arbitrary value for the transition. I guess it's quite improbable that
+    // a movie-posts is bigger than 2000px
+    max-height: 2000px;
+
+    -moz-transition: max-height 0.1s;
+    -webkit-transition: max-height 0.1s;
+    transition: max-height 0.1s;
+  }
+
+  .schedule-day-collapse {
+    flex: 0 0 20px; // using 20px as minimum width to avoid layout shifting when clicking
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    .fa:before {
+      display: inline-block;
+      -moz-transition: transform 0.1s;
+      -webkit-transition: transform 0.1s;
+      transition: transform 0.1s;
+    }
+
+    &[data-collapsed] {
+      .fa:before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &[data-collapsed] {
+    position: relative;
+    padding-bottom: 0;
+
+    .schedule-day-info, .schedule-day-collapse {
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background: rgb(0,0,0);
+      background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+      background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+    }
+
+    .movie-posts {
+      overflow: hidden;
+      max-height: 90px;
+    }
+  }
+}
 #page-selection .movie-post { width: 160px; }
 #page-selection .movie-post .movie-post-hour { top: 0; z-index: 1; position: absolute; right: 0; padding: 2px 5px; background-color: rgb(180,10,0); }
 #page-selection .movie-post .movie-post-thumbnail { position: relative; }
@@ -262,10 +340,6 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
   border-bottom-right-radius: 15px;
 }
 #page-selection .movie-post:hover { background-color: rgba(0,0,0,1); border-color: rgba(255,255,255,0.3); }
-
-// sticky days styles
-#page-selection .schedule-day { position: relative; }
-#page-selection .movie-posts { margin-left: @schedule-day-number-width; }
 
 /* Movie info (single-movie.php) / Movie block info (single-movieblock.php) */
 .movie, .movieblock {

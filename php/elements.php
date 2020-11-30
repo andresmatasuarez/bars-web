@@ -1,6 +1,7 @@
 <?php
 
   require_once 'helpers.php';
+  require_once 'editions.php';
 
   function renderScreening($screening) {
     if (!empty($screening['alwaysAvailable'])) {
@@ -126,11 +127,31 @@
 <?php
   }
 
-  function renderScheduleDay($day, $dayDisplay, $isEven, $posts, $venues) {
+  function renderScheduleDay($selectedEditionNumber, $day, $dayDisplay, $isEven, $posts, $venues) {
+    if ($day === DATE_FULL_TAG) {
+      $dayCollapseId = $selectedEditionNumber . '_' . DATE_FULL_TAG;
+    } else if ($day instanceof DateTime) {
+      $dayCollapseId = $selectedEditionNumber . '_' . $day->format('m-d');
+
+      $dateNow = dateWithoutTime(new DateTime());
+      $startsCollapsed = $selectedEditionNumber === Editions::current()['number'] && dateWithoutTime($day) < $dateNow;
+    }
+
+    $dataCollapsible = '';
+    if (isset($dayCollapseId)) {
+      $dataCollapsible = 'data-collapsible="' . $dayCollapseId . '"';
+    }
+
+    $dataCollapsed = '';
+    if (isset($startsCollapsed) && $startsCollapsed) {
+      $dataCollapsed = 'data-collapsed';
+    }
 ?>
-    <div class="schedule-day <?php echo $isEven ? 'even' : 'odd'; ?>">
+    <div class="schedule-day <?php echo $isEven ? 'even' : 'odd'; ?>" <?php echo $dataCollapsible; ?> <?php echo $dataCollapsed; ?> >
       <div class="schedule-day-info">
-        <?php echo $dayDisplay; ?>
+        <div class="sticky-day-wrapper">
+          <?php echo $dayDisplay; ?>
+        </div>
       </div>
       <div class="movie-posts">
       <?php
@@ -184,6 +205,16 @@
         wp_reset_query();
       ?>
       </div>
+
+      <?php
+        if (isset($dayCollapseId)) {
+      ?>
+          <div class="schedule-day-collapse" data-collapsible-trigger="<?php echo $dayCollapseId; ?>" <?php echo $dataCollapsed; ?>>
+            <span class="fa fa-chevron-down"></span>
+          </div>
+      <?php
+        }
+      ?>
     </div>
 <?php
   }

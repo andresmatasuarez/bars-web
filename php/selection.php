@@ -110,7 +110,7 @@
 											// echo '<div class="scratch clear"></div>';
 
 											$dayDisplay = "<div class=\"schedule-day-name\">MIRALAS<br/>CUALQUIER DÍA</div>";
-											renderScheduleDay(DATE_FULL_TAG, $dayDisplay, $parity % 2 === 0, $posts, $venues);
+											renderScheduleDay($currentEdition['number'], DATE_FULL_TAG, $dayDisplay, $parity % 2 === 0, $posts, $venues);
 											echo '<div class="scratch clear"></div>';
 											echo '<br />';
 											echo '<div class="scratch clear"></div>';
@@ -130,7 +130,7 @@
 											$dayName = ucwords(getSpanishDayName($day->format('l')));
 											$dayNumber = $day->format('d');
 											$dayDisplay = "<div class=\"schedule-day-name\">{$dayName}</div><div class=\"schedule-day-number\">{$dayNumber}</div>";
-											renderScheduleDay($day, $dayDisplay, $parity % 2 === 0, $posts, $venues);
+											renderScheduleDay($currentEdition['number'], $day, $dayDisplay, $parity % 2 === 0, $posts, $venues);
 
 											echo '<div class="scratch clear"></div>';
 
