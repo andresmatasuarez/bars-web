@@ -90,9 +90,10 @@
 										<div class="schedule-filters">
 											<?php
 												$movieSections = array('all' => 'Todas');
-												foreach($sections as $section){
-													$movieSections[$section['value']]= $section['label'];
+												foreach(getSectionsForEdition($currentEdition) as $section){
+													$movieSections[$section]= $sections[$section]['label'];
 												}
+
 												renderSelector('schedule-section-filters', 'Secciones', $movieSections, 'movie-section-selector');
 											?>
 										</div>

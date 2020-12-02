@@ -571,4 +571,14 @@
 		", $edition, $edition));
 	}
 
+	function getSectionsForEdition($edition) {
+		global $wpdb;
+		$edition = 'bars' . $edition['number'];
+		return array_unique(array_map(function ($post) {
+			return get_post_type($post->ID) === 'movie' ?
+				get_post_meta($post->ID, '_movie_section', true) :
+				get_post_meta($post->ID, '_movieblock_section', true);
+		}, $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(false, true), $edition, $edition))));
+	}
+
 ?>
