@@ -94,7 +94,7 @@
   }
 
   function dateWithoutTime($date) {
-    $newDate = new DateTime();
+    $newDate = dateWithTZ(new DateTime());
     $newDate->setTimestamp($date->getTimestamp());
     return $newDate->settime(0,0);
   }
