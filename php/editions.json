@@ -29,7 +29,7 @@
     "poster" : "resources/bars2020/bars2020_afiche.jpg",
     "programme" : "resources/bars2020/bars2020_programme.jpg",
     "programme_yt" : "resources/bars2020/bars2020_programme_yt.jpg",
-    "closing_party" : "",
+    "catalogue": "resources/bars2020/bars2020_catalogo.pdf",
     "spot": "https://www.youtube.com/watch?v=erlFS6xGPl8",
     "call": {
       "to": "2020-08-02T02:59:59.999Z",

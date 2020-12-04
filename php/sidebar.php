@@ -44,6 +44,18 @@
 			?>
 
 			<?php
+				if (!empty($edition['catalogue'])){
+					$barsCatalogueUrl = get_bloginfo('template_directory') . '/' . $edition['catalogue'];
+					$barsStoreImgPath = get_bloginfo('template_directory') . '/resources/bars2020/bars2020_catalogue_thumbnail.jpeg';
+					echo widgetify('sidebar relative image bars-store', null, '
+						<a class="sidebar" target="_blank" rel="noopener noreferrer" href="' . $barsCatalogueUrl . '">
+							<img src="' . $barsStoreImgPath . '" />
+						</a>
+					');
+				}
+			?>
+
+			<?php
 				if (!empty($edition['spot'])){
 					$vars = array();
 					parse_str(parse_url($edition['spot'], PHP_URL_QUERY), $vars);
