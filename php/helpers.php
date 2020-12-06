@@ -65,8 +65,10 @@
     }
 
     $from = $earliestScreening['date'];
-    $to = count($screenings) === 1 ? dateOneDayLater($from) : end($screenings)['date'];
 
+    // Adds one day minus 1 second to last screening
+    $to = dateOneDayLater(count($screenings) === 1 ? $from : end($screenings)['date']);
+    $to = $to->sub(new DateInterval('PT1S'));
     return isDateBetween(dateWithTZ(new DateTime()), $from, $to);
   }
 
@@ -109,7 +111,7 @@
   }
 
   function dateOneDayLater($date) {
-    $newDate = new DateTime();
+    $newDate = dateWithTZ(new DateTime());
     $newDate->setTimestamp($date->getTimestamp());
     $newDate->add(new DateInterval('P1D'));
     return $newDate;
