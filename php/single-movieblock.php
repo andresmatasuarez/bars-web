@@ -72,7 +72,7 @@
 			if ($runtime)
 				$info = ($info != '' ? $info . ' - ' : '') . $runtime . ' min.';
 
-			echo '<div id="movie-selector" class="movie-post" movieid="' . $query->post->ID . '">';
+			echo '<div id="movie-selector" class="movie-post" data-movie-id="' . $query->post->ID . '">';
 				echo '<div class="movie-post-thumbnail">';
 					echo get_the_post_thumbnail($query->post->ID, 'movie-post-thumbnail');
 				echo '</div>';
@@ -94,7 +94,7 @@
 
 		while($query->have_posts()){
 			$query->next_post();
-			echo '<div id="movie-' . $query->post->ID . '" class="movieblock-movie" movieid="' . $query->post->ID . '" >';
+			echo '<div id="movie-' . $query->post->ID . '" class="movieblock-movie" data-movie-id="' . $query->post->ID . '" >';
 				echo '<div class="info-container">';
 					echo '<div class="image">' . get_the_post_thumbnail($query->post->ID, 'movie-post-image') . '</div>';
 					echo '<div class="info">';

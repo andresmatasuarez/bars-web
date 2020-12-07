@@ -54,9 +54,9 @@ export default function(){
   $('.movie-post .movie-post-title').dotdotdot();
 
   // Programación
-  $('.movieblock .movie-selectors').on('click', '#movie-selector', function(){
+  $('body').on('click', '#movie-selector', function(){
     let scroll = 0;
-    $('#movie-' + $(this).attr('movieid')).prevAll().each(function(index,elem){
+    $('#movie-' + $(this).data('movieId')).prevAll().each(function(index,elem){
       scroll += $(elem).outerHeight(true);
     });
 
