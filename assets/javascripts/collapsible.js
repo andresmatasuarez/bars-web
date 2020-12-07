@@ -4,7 +4,6 @@ export default function collapsible(triggerDataAttr, targetDataAttr) {
     const triggerElement = $(this);
 
     const collapsibleId = triggerElement.data(triggerDataAttr);
-    console.log('collapsibleId', collapsibleId);
 
     triggerElement.click(function() {
       const targetSelector = `[data-${targetDataAttr}="${collapsibleId}"]`;

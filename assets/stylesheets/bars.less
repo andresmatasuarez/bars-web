@@ -242,7 +242,6 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 #page-selection .schedule-day {
   display: flex;
   padding: 15px 0;
-  position: relative; // sticky day feature
 
   &.odd { background-color: rgba(30,30,30,0.3); }
   &.even { background-color: transparent; }
@@ -250,6 +249,7 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
   @schedule-day-number-width: 90px;
 
   .schedule-day-info {
+    position: relative; // sticky day feature
     flex: 0 0 @schedule-day-number-width;
     text-align: center;
 

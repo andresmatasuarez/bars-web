@@ -155,7 +155,9 @@ export default function(){
   });
 
   // Sticky days in selection.php
-  stickyElement('.schedule-day-info', '.sticky-day-wrapper');
+  stickyElement('.schedule-day-info', '.sticky-day-wrapper', () => {
+    return $('#header-menu').hasClass('sticky') ? 42 : 0;
+  });
 
   collapsible('collapsible-trigger', 'collapsible');
 

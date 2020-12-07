@@ -1,26 +1,41 @@
-const MARGIN_TOP_WHEN_FIXED = 15;
-const MARGIN_BOTTOM_WHEN_FIXED = 0;
-const OFFSET = 42 + MARGIN_TOP_WHEN_FIXED; // sticky header (.nav-menu height)
+const MOVIE_POST_MARGIN_BOTTOM = 10;
+const SHCEDULE_DAY_PADDING_BOTTOM = 15;
+const MARGIN_BOTTOM_WHEN_FIXED = MOVIE_POST_MARGIN_BOTTOM + SHCEDULE_DAY_PADDING_BOTTOM;
 
-export default function stickyElement(parentElementSelector, stickyElementSelector) {
-  $(parentElementSelector).map(function () {
+const OFFSET = 15; // Space separating element being scrolled from the top
+const MIN_HEIGHT_TO_SCROLL = 100;
+
+export default function stickyElement(
+  parentElementSelector,
+  stickyElementSelector,
+  // allows a dynamic offset to be passed. This callback gets called for  each scroll event.
+  offsetCallback
+) {
+  $(parentElementSelector).map(function (index) {
     const parent = $(this);
-
     const sticky = parent.find(stickyElementSelector);
-    const stickyTop = sticky.offset().top - sticky.outerHeight();
 
     $(window).scroll(function() {
       const windowTop = $(window).scrollTop();
+      const parentOffsetTop = parent.offset().top;
 
-      if (stickyTop - OFFSET < windowTop) {
-        if (parent.offset().top + parent.outerHeight() - sticky.outerHeight() - OFFSET - MARGIN_BOTTOM_WHEN_FIXED > windowTop) {
+      const offset = OFFSET + offsetCallback();
+
+      // If parent's height doesn't surpass min height, element won't be scrolled.
+      // This is to avoid elements to scroll only for a few pixels.
+      if (parent.outerHeight() < MIN_HEIGHT_TO_SCROLL) {
+        return;
+      }
+
+      if (parentOffsetTop < windowTop + offset) {
+        if (parentOffsetTop + parent.outerHeight() - sticky.outerHeight() - offset - MARGIN_BOTTOM_WHEN_FIXED > windowTop) {
           sticky.css('position', 'fixed');
-          sticky.css('top', OFFSET);
+          sticky.css('top', offset);
           sticky.css('bottom', 'unset');
         } else {
           sticky.css('position', 'absolute');
           sticky.css('top', 'unset')
-          sticky.css('bottom', MARGIN_BOTTOM_WHEN_FIXED);
+          sticky.css('bottom', MOVIE_POST_MARGIN_BOTTOM);
         }
       } else {
         sticky.css('position', 'unset');
