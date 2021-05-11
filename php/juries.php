@@ -17,8 +17,6 @@
   } else {
     $currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
   }
-
-  $venues = Editions::venues($currentEdition);
 ?>
 
 <script>

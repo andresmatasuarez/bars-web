@@ -112,7 +112,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return parseDate($edition['days']['from']);
+    return isset($edition['days']['from']) ? parseDate($edition['days']['from']) : null;
   }
 
   public static function to($edition = NULL){
@@ -120,7 +120,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return parseDate($edition['days']['to']);
+    return isset($edition['days']['to']) ? parseDate($edition['days']['to']) : null;
   }
 
   public static function shouldDisplayOnlyMonths($edition = NULL) {
@@ -139,7 +139,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return $edition['venues'];
+    return isset($edition['venues']) ? $edition['venues'] : null;
   }
 
   public static function call($edition = NULL){

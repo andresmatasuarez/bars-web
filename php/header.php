@@ -138,27 +138,32 @@
 				<div class="right size-highlight">
 					<?php
 						$venues = Editions::venues($edition);
+
+						if (empty($venues)) {
 					?>
-					<table>
-						<thead>
-							<tr>
-								<?php
-									foreach ($venues as $key => $value) {
-									 	echo '<th>' . $value['name'] . '</th>';
-									}
-								?>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<?php
-									foreach ($venues as $key => $value) {
-									 	echo '<td>' . $value['address'] . '</td>';
-									}
-								?>
-							</tr>
-						</tbody>
-					</table>
+					<span class="size-highlight">TBA</span>
+					<?php } else { ?>
+						<table>
+							<thead>
+								<tr>
+									<?php
+										foreach ($venues as $key => $value) {
+										 	echo '<th>' . $value['name'] . '</th>';
+										}
+									?>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<?php
+										foreach ($venues as $key => $value) {
+										 	echo '<td>' . $value['address'] . '</td>';
+										}
+									?>
+								</tr>
+							</tbody>
+						</table>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

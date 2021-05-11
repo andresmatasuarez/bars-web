@@ -20,15 +20,17 @@
 	$call_deadline = Editions::callDeadline($edition);
 	$call_is_closed = Editions::isCallClosed($edition);
 
-	$displayYear = intval(is_null($from) ? (new DateTime())->format('Y') : $from->format('Y')) - 1;
+	$displayYear = intval(is_null($from) ? (new DateTime())->format('Y') : $from->format('Y'));
 	$shouldDisplayTBA = !Editions::areDatesDefined($edition);
 
 	$terms = $call['terms'];
 	$terms = str_replace('%%DEADLINE%%', getDateInSpanish($call_deadline), $terms);
+	$terms = str_replace('%%CURRENT_EDITION%%', $edition['number'], $terms);
 
 	// Replace movies' eligible date in terms. Date fallbacks to current year's first day if
 	// festival edition doesn't specifically set it.
-	$moviesEligibleFromDate = is_null($call['moviesEligibleFrom']) ? "{$displayYear}-01-01T03:00:00.000Z" : $call['moviesEligibleFrom'];
+	$eligibilityYear = $displayYear - 1;
+	$moviesEligibleFromDate = isset($call['moviesEligibleFrom']) ? $call['moviesEligibleFrom'] : "{$eligibilityYear}-01-01T03:00:00.000Z";
 	$terms = str_replace('%%ELIGIBILE_FROM_DATE%%', getDateInSpanish(parseDate($moviesEligibleFromDate)), $terms);
 
 	if (isset($call['form'])) {
