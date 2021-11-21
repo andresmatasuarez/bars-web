@@ -3,12 +3,25 @@
     "number" : 22,
     "title" : "BARS 2021",
     "days" : {
-      "only_months": false
+      "only_months": false,
+      "from" : "2021-12-02T03:00:00.000Z",
+      "to" : "2021-12-12T03:00:00.000Z"
+    },
+    "venues": {
+      "belgrano": {
+        "name": "Multiplex Belgrano",
+        "address": "Vuelta de Obligado 2199"
+      },
+      "tba": {
+        "name": "Plataforma virtual",
+        "address": "TBA",
+        "online": true
+      }
     },
     "press_passes": {
-      "deadline": "2020-11-17T03:00:00.000Z",
-      "pickupFrom": "2020-11-21T03:00:00.000Z",
-      "pickupTo": "2020-12-25T03:00:00.000Z"
+      "deadline": "2021-11-26T03:00:00.000Z",
+      "pickupFrom": "2021-12-02T03:00:00.000Z",
+      "pickupTo": "2021-12-08T03:00:00.000Z"
     },
     "poster" : "resources/bars2020/bars2020_afiche.jpg",
     "programme" : "resources/bars2020/bars2020_programme.jpg",
@@ -41,15 +54,18 @@
     "venues": {
       "contar": {
         "name": "Contar",
-        "address": "cont.ar"
+        "address": "cont.ar",
+        "online": true
       },
       "flixxo": {
         "name": "Flixxo",
-        "address": "flixxo.com"
+        "address": "flixxo.com",
+        "online": true
       },
       "youtube": {
         "name": "YouTube",
-        "address": "youtube.com"
+        "address": "youtube.com",
+        "online": true
       }
     },
     "press_passes": {

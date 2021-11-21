@@ -227,6 +227,13 @@ class Editions {
 
     $venues = self::venues($edition);
 
+    // keep live (non-online) venues only
+    function isNonOnlineVenue($venue) {
+      return !array_key_exists('online', $venue) || !$venue['online'];
+    }
+
+    $venues = array_filter($venues, 'isNonOnlineVenue');
+
     if (empty($venues)) {
       return NULL;
     }
