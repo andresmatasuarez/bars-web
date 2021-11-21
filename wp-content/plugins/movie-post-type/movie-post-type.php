@@ -37,9 +37,22 @@
 		global $movieblock_fields;
 		global $movieBlocks;
 
+		$editionOptions = array (
+			'bars22' => array ( 'label' => 'BARS 2021',	'value' => 'bars22' ),
+			'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
+			'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
+			'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
+			'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
+			'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
+			'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
+			'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
+			'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
+		);
+
 		$screeningsFormatDescription = 'Format: (venue.room:)mm-dd-yyyy hh:mm.<br />Comma-separated.<br />Venue and room are optional.<br /><br />Example:<br />  - <strong>lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00</strong><br /><br />Example for streaming movies:<br />  - <strong>streaming!contar:full</strong> (available for the whole duration of the festival)<br />  - <strong>streaming!flixxo:11-28-2020,streaming!flixxo:11-29-2020</strong> (available only on specific days)';
 
-		$movieBlocks = movieBlocks();
+		$currentEditionKey = reset($editionOptions)['value']; // https://stackoverflow.com/a/1028677
+		$movieBlocks = movieBlocks($currentEditionKey);
 
 		/* ***** MOVIE SECTIONS ***** */
 		$sections = array (
@@ -95,16 +108,7 @@
 				'id'    => $movie_prefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => array (
-					'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
-					'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
-					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
-					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
-					'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
-					'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
-					'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
-					'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
-				)
+				'options' => $editionOptions
 			),
 			array(
 				'id'    => $movie_prefix . 'movieblock',
@@ -196,16 +200,7 @@
 				'id'    => $movieblock_prefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => array (
-					'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
-					'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
-					'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
-					'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
-					'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
-					'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
-					'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
-					'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
-				)
+				'options' => $editionOptions
 			),
 			array(
 				'id'    => $movieblock_prefix . 'section',
@@ -481,7 +476,7 @@
 		}
 	}
 
-	function movieBlocks(){
+	function movieBlocks($editionKey){
 		global $post;
 		$query = new WP_Query(array(
 			'post_type' => array( 'movieblock' ),
@@ -489,7 +484,7 @@
 			'posts_per_page' => -1,
 			'meta_query' => array(array(
 			  'key'     => '_movieblock_edition',
-			  'value'   => 'bars21',
+			  'value'   => $editionKey,
 			  'compare' => 'LIKE'
       ))
 		));
