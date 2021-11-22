@@ -25,8 +25,8 @@
     },
     "poster" : "resources/bars2020/bars2020_afiche.jpg",
     "programme" : "resources/bars2020/bars2020_programme.jpg",
-    "programme_yt" : "resources/bars2020/bars2020_programme_yt.jpg",
-    "catalogue": "resources/bars2020/bars2020_catalogo.pdf",
+    "programme_yt" : "",
+    "catalogue": "",
     "spot": "https://www.youtube.com/watch?v=erlFS6xGPl8",
     "call": {
       "to": "2021-08-02T02:59:59.999Z",
@@ -40,8 +40,135 @@
       "terms_en": "/resources/bars2021/terms2021_en.docx",
       "terms_es": "/resources/bars2021/terms2021_es.docx"
     },
-    "awards": {},
-    "juries": {}
+    "awards": {
+      "jury": [
+        "Mejor Largometraje",
+        "Mejor Director Largometraje",
+        "Mejor Actriz Largometraje",
+        "Mejor Actor Largometraje",
+        "Mejor Guion Largometraje",
+        "Mejor Fotografía Largometraje",
+        "Mejores Efectos Especiales Largometraje",
+        "Mejor Cortometraje Internacional",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Nacional",
+        "Mejor Largometraje Iberoamericano",
+        "Mejor Director Largometraje Iberoamericano",
+        "Mejor Actuación Largometraje Iberoamericano",
+        "Competencia \"Reapariciones\""
+      ],
+      "audience": [
+        "Largometraje",
+        "Cortometraje",
+        "Largometraje Competencia Bizarra"
+      ]
+    },
+    "juries": {
+      "Competencia Internacional de Largometrajes": [
+        {
+          "name": "Mónica Trigo",
+          "pic": {
+            "url": "resources/bars2021/jury_trigo.jpg",
+            "focus": { "x": 0, "y": 0, "w": 513, "h": 415 }
+          },
+          "description": "<strong>Mónica Trigo</strong> tiene una especialización en Comunicación y Ciencias Sociales. Trabajó en el Ministerio de Cultura de Brasil. Fue responsable del polo de cine más grande de Brasil y directora de desarrollo y promoción audiovisual de la Empresa Mineira de Comunicação. Realizó festivales nacionales e internacionales de cine: \"1ª Mostra de Cine y Derechos Humanos\", \"Festival de Cine de Paulínia\", \"Cinefantasy - Festival Internacional de Cine Fantástico\" y \"Olhar Periférico Festival de Cine\". Participa en varios festivales de cine como jurada y en comisiones de evaluación de proyectos. Actualmente es presidenta de FANTLATAM - Alianza Latinoamericana de Festivales de Cine Fantástico."
+        },
+        {
+          "name": "Cristian Ponce",
+          "pic": {
+            "url": "resources/bars2021/jury_ponce.png",
+            "focus": { "x": 0, "y": 0, "w": 1170, "h": 832 }
+          },
+          "description": "<strong>Cristian Ponce</strong> es Licenciado, Profesor en Realización Audiovisual, y miembro fundador de la productora Tangram Cine, dentro de la cual escribió o dirigió <i>Un Año sin Televisión</i>, <i>Policompañeros Motorizados</i>, <i>La Obra de mi Vida</i>, <i>Breve Historia en el Planeta</i>, y <i>En Busca del Muñeco Perdido</i>. En 2017 estrenó su primer proyecto animado, <i>La Frecuencia Kirlian</i>, resultado de un desarrollo de casi 10 años. En 2020, <i>Historia de lo Oculto</i>, su primer largometraje como director, se estrenó en varios festivales alrededor del mundo cosechando un gran éxito de crítica y público. Actualmente se encuentra disponible en Netflix."
+        },
+        {
+          "name": "José Luis Ortega Torres",
+          "pic": {
+            "url": "resources/bars2021/jury_ortega_torres.jpg",
+            "focus": { "x": 0, "y": 0, "w": 2448, "h": 3264 }
+          },
+          "description": "<strong>José Luis Ortega Torres</strong> es investigador, docente y crítico de cine. Editó la revista <i>Icónica</i>, <i>Pensamiento fílmico</i> y una docena de libros dedicados al estudio del cine. Algunos de sus ensayos se compilan en los libros <i>El placer de ver cine</i> (2006), <i>La ficción de la historia</i> (2010), <i>Mostrología</i> del cine mexicano (2015) y <i>Posibilidades del análisis cinematográfico</i> (2016). Es fundador de <i>revistacinefagia.com</i>, en línea desde 2003. Ha sido jurado en festivales mexicanos y del extranjero y cofundó y programó la muestra de cine de horror en 35mm Masacre en Xoco. Es profesor de historia y teoría fílmica en Filmoteca de la UNAM y Cineteca Nacional de México. Produce y conduce los podcast <i>VideoMasacre</i> y <i>Cinéfago</i>."
+        }
+      ],
+      "Competencia Iberoamericana de Largometrajes": [
+        {
+          "name": "Paulo Soria",
+          "pic": {
+            "url": "resources/bars2021/jury_soria.jpg",
+            "focus": { "x": 0, "y": 0, "w": 540, "h": 540 }
+          },
+          "description": "<strong>Paulo Soria</strong>. Argentino y guionista. Se sumó a FARSA Producciones en 1996. Escribió y dirigió los films <i>Nunca asistas a este tipo de fiestas</i> (Soria, Parés, Sáez, 2000), <i>100% Lucha vs. El amo de los clones</i> (Soria, Parés, 2009), <i>Kapanga: Todoterreno</i> (Soria, Parés, Sáez, 2009) y el rockumental <i>Blues de los Plomos</i> (Soria, Patrono, 2013). Sus últimos films como guionista fueron <i>Plaga Zombie 3</i> (Parés, Sáez, 2011), <i>Soy Tóxico</i> (Parés, 2018) y <i>Los que vuelven</i> (Casabé, 2019). También escribió para MULATA FILMS las series <i>Creando bestias prehistóricas</i> y <i>Videojuegos sobre ruedas</i>, entre otros proyectos. Desde 2020 coordina el equipo de guion en la Dirección Audiovisual del MINISTERIO DE CULTURA DE LA NACIÓN."
+        },
+        {
+          "name": "Laura Aguerrebehere",
+          "pic": {
+            "url": "resources/bars2021/jury_aguerrebehere.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 904, "h": 810 }
+          },
+          "description": "<strong>Laura Aguerrebehere</strong> (o la flaca de arte), nació en La Plata, Buenos Aires en 1982. Es escenógrafa e ilustradora. Deambula de la luz a la oscuridad entre ilustrar libros infantiles y ambientar películas de género. Egresada en Artes plásticas en la facultad de bellas artes de La Plata. Hace quince años viene trabajando en cine como directora de arte, ambientadora o vestuarista, en su mayoría en películas de género, entre ellas <i>Aterrados</i>, <i>Bruno motoneta</i>, <i>La corporación</i> y <i>Malditos Sean!</i>."
+        },
+        {
+          "name": "Ramiro García Bogliano",
+          "pic": {
+            "url": "resources/bars2021/jury_bogliano.jpg",
+            "focus": { "x": 0, "y": 0, "w": 618, "h": 466 }
+          },
+          "description": "<strong>Ramiro García Bogliano</strong> es guionista y director. Hace el fanzine <i>Confusos</i> en los años 90 que lo lleva, entre otras cosas, a entrevistar a Alex Cox, Alejandro Amenábar, Paul Naschy o visitar el set de rodaje de <i>El Día de la Bestia</i>. Posteriormente estudia cine en la EICTV (Cuba) en la que se gradúa con el cortometraje <i>Policlínico Miserable</i> que escribe en coautoría con su hermano Adrián García Bogliano para luego participar en los guiones de sus películas <i>Habitaciones Para Turistas</i>, <i>36 Pasos</i>, <i>No moriré sola</i> y <i>Sudor Frío</i>. Juntos codirigen <i>Masacre, esta noche</i>, <i>Donde duerme el horror</i> y <i>Penumbra</i>. Colabora como guionista, asistente de dirección o director de segunda unidad con Sebastián de Caro, Daniel de la Vega, Jorge Molina y Patricio Valladares. <i>Expansivas</i>, un thriller de venganza, es su más reciente película como director y ha realizado los guiones de la serie de terror <i>Haunted Latinoamérica</i>, estrenada este año en Netflix."
+        }
+      ],
+      "Competencia Internacional de Cortometrajes": [
+        {
+          "name": "Carla Andrés",
+          "pic": {
+            "url": "resources/bars2021/jury_carla_andres.jpg",
+            "focus": { "x": 0, "y": 0, "w": 1200, "h": 1168 }
+          },
+          "description": "<strong>Carla Andres</strong>, nacida en Buenos Aires, es el ser vivo detrás de las redes de <i>Pedacitos de Terror</i>. Amante desde siempre de este género. Creadora de contenido tanto en Instagram, donde reseña una película por día, como en Youtube, donde realiza videos semanales con la intención de darle lugar a aquellas producciones menos comerciales que suelen pasar desapercibidas, o que han quedado en el olvido, sin dejar de lado los estrenos más importantes para estar siempre al día con el terror."
+        },
+        {
+          "name": "Clara Kovavic",
+          "pic": {
+            "url": "resources/bars2021/jury_kovacic.jpeg",
+            "focus": { "x": 0, "y": 0, "w": 1032, "h": 954 }
+          },
+          "description": "<strong>Clara Kovacic</strong> estudió en el Colegio Northlands donde cursó el bachillerato internacional con especialización en teatro. Vivió un año en Nueva York. Estudió música en el Conservatorio Juan José Castro y en la carrera de Composición Musical de la Universidad Católica Argentina (UCA), donde se especializó en canto y piano. En 2016 editó el álbum <i>Cantando al cielo</i>, componiendo con guitarra y piano. Actuó en films como <i>Abrakadabra</i> (2018), <i>Jazmin</i> (2018), <i>El gran combo</i> (2019), <i>A Night of Horror: Nightmare Radio</i> (2019), <i>Astrogauchos</i> (2019), <i>Asylum</i> (2020), <i>La parte oscura</i> (2020) y <i>El juego de las cien velas</i> (2020)."
+        },
+        {
+          "name": "Dopamina",
+          "pic": {
+            "url": "resources/bars2021/jury_dopa_mina.jpg",
+            "focus": { "x": 0, "y": 0, "w": 594, "h": 602 }
+          },
+          "description": "<strong>Dopamina</strong>, efectista, escultor, grabador, músico y artista nacido en La Plata. Estudio diseño de indumentaria y artes plásticas (UNLP), en paralelo a maquillaje FX. Realizador y productor de efectos especiales de maquillaje y caracterización. Con su productora Rebis FX – Efectos Especiales, intervino en distintos espacios públicos de la ciudad de La Plata y Capital Federal. Diseño y realizó las estatuillas para el Festival Buenos Aires Rojo Sangre (2019, 2020, 2021). Trabajó en la realización artística de numerosos corto y largometrajes, tales como <i>Blood Red Ox</i> (Rodrigo Bellot) y <i>Gaspar</i> (Diego Pino). Combina técnicas de escultura con estudios del cuerpo, performance y horror. Produce esculturas y reproducciones corporales para uso comercial y artístico en su proyecto <i>Rubber Bodies</i>. Es docente y tallerista de FX."
+        }
+      ],
+      "Competencia \"Reapariciones\"": [
+        {
+          "name": "Federico Carestía",
+          "pic": {
+            "url": "resources/bars2021/jury_carestia.jpg",
+            "focus": { "x": 0, "y": 0, "w": 617, "h": 609 }
+          },
+          "description": "<strong>Federico Carestía</strong>, nacido en Bahía Blanca en 1990, es periodista. Desde 2017 trabaja en el mundo de las series y las películas, y realiza entrevistas a través de videollamadas con distintos protagonistas de la industria. Tiene alrededor de 200 entrevistas realizadas que pueden verse en YouTube e Instagram, entre las que se destaca un documental sobre <i>Friends</i>. Su película favorita de la infancia es <i>Mi Pobre Angelito</i> y sueña con entrevistar a Macaulay Culkin."
+        },
+        {
+          "name": "Cristian Calavia",
+          "pic": {
+            "url": "resources/bars2021/jury_calavia.jpg",
+            "focus": { "x": 0, "y": 0, "w": 719, "h": 728 }
+          },
+          "description": "<strong>Cristian Calavia</strong> nació en 1985 en la ciudad de Buenos Aires. Es músico y periodista, aunque también se desempeña como productor de radio y docente. Sus notas fueron publicadas en <i>Cosecha Roja</i>, <i>A Sala Llena</i>, <i>NaN</i>, <i>Cine Fantástico y Bizarro</i>, <i>Vice</i> en español, <i>Revista Urbe</i>, <i>La Cosa Cine</i>, <i>Indie Hoy</i>, <i>Red/Acción</i> e <i>Infobae</i>, entre otros medios digitales y en papel. Además, es creador y director de <i>Cinetópico</i>, sitio dedicado al cine, a las series y a las problemáticas sociales que las atraviesan. Durante la pandemia editó <i>Contar es Urgente: Personajes y Situaciones Extraordinarias de la Vida Real</i>, su primer libro de periodismo y actualmente se encuentra trabajando en su secuela."
+        },
+        {
+          "name": "Silvia Molina",
+          "pic": {
+            "url": "resources/bars2021/jury_silvia_molina.jpg",
+            "focus": { "x": 0, "y": 0, "w": 319, "h": 321 }
+          },
+          "description": "<strong>Silvia Molina</strong>, nacida en Buenos Aires en 1995, año en el que se estrenó Toy Story, su película animada favorita. Estudió periodismo y se egresó en TEA. Pasó por varias ramas (moda, música, deporte), hasta llegar al mundo del cine y de ahí no salió más. Actualmente recomienda películas en <i>De Otra Manera</i>, programa de radio que sale todos los viernes de 16 a 18, y también en su cuenta de Instagram (@silademolina), donde se desempeña como comunicadora desde el baño de su casa. No le hace asco a nada y mira lo que sea, siempre y cuando esté acompañada de un vaso de Fernet."
+        }
+      ]
+    }
   },
   {
     "number" : 21,
