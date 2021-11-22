@@ -99,6 +99,10 @@
 			'barsContarPrize' => array ( 'label' => 'Premio BARS/CONTAR', 'value' => 'barsContarPrize' ),
 			'argentinianOutlook' => array ( 'label' => 'Panorama Argentino', 'value' => 'argentinianOutlook' ),
 			'onlineActivities' => array ( 'label' => 'Actividades online', 'value' => 'onlineActivities' ),
+
+			// Bars 2021 new sections
+			'reaparecidos' => array ( 'label' => 'Reaparecidos', 'value' => 'reaparecidos' ),
+			'madeInTaiwan' => array ( 'label' => 'Made in Taiwan', 'value' => 'madeInTaiwan' ),
 		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
