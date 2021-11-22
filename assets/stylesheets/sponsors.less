@@ -9,135 +9,83 @@
     width: 140px;
     height: 80px;
     a { display: block; height: 100%; width: 100%; }
+
+    // filters: gray-scale + opacity
+    filter: gray opacity(70%); /* IE6-9 */
+    -webkit-filter: grayscale(1) opacity(70%); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1) opacity(70%); /* Microsoft Edge and Firefox 35+ */
+
+    &:hover {
+      -webkit-filter: grayscale(0) opacity(100%);
+      filter: none;
+    }
   }
 
   .sponsor-osde {
     width: 300px;
   }
 
-  .sponsor-ab                    { background-image: url('../images/sponsors/auspiciante_ab_hover.png'); }
-  .sponsor-bsasciudad            { background-image: url('../images/sponsors/auspiciante_bsasciudad_hover.png'); }
-  .sponsor-campari               { background-image: url('../images/sponsors/auspiciante_campari_hover.png'); }
-  .sponsor-cinefania             { background-image: url('../images/sponsors/auspiciante_cinefania_hover.png'); }
-  .sponsor-circodelhorror        { background-image: url('../images/sponsors/auspiciante_circodelhorror_hover.png'); }
-  .sponsor-cunnington            { background-image: url('../images/sponsors/auspiciante_cunnington_hover.png'); }
-  .sponsor-eda                   { background-image: url('../images/sponsors/auspiciante_eda_hover.png'); }
-  .sponsor-fantafestivales       { background-image: url('../images/sponsors/auspiciante_fantafestivales_hover.png'); }
-  .sponsor-filmsharks            { background-image: url('../images/sponsors/auspiciante_filmsharks_hover.png'); }
-  .sponsor-findlingfilms         { background-image: url('../images/sponsors/auspiciante_findlingfilms_hover.png'); }
-  .sponsor-flaviogrecopaglia     { background-image: url('../images/sponsors/auspiciante_flaviogrecopaglia_hover.png'); }
-  .sponsor-illusiondreamsfx      { background-image: url('../images/sponsors/auspiciante_illusiondreamsfx_hover.png'); }
-  .sponsor-incaa                 { background-image: url('../images/sponsors/auspiciante_incaa_hover.png'); }
-  .sponsor-incaagerencia         { background-image: url('../images/sponsors/auspiciante_incaagerencia_hover.png'); }
-  .sponsor-lacripta              { background-image: url('../images/sponsors/auspiciante_lacripta_hover.png'); }
-  .sponsor-metamorfosisfx        { background-image: url('../images/sponsors/auspiciante_metamorfosisfx_hover.png'); }
-  .sponsor-multiplex             { background-image: url('../images/sponsors/auspiciante_multiplex_hover.png'); }
-  .sponsor-nacionalrock          { background-image: url('../images/sponsors/auspiciante_nacionalrock_hover.png'); }
-  .sponsor-piromaniafx           { background-image: url('../images/sponsors/auspiciante_piromaniafx_hover.png'); }
-  .sponsor-quintadimension       { background-image: url('../images/sponsors/auspiciante_quintadimension_hover.png'); }
-  .sponsor-rafma                 { background-image: url('../images/sponsors/auspiciante_rafma_hover.png'); }
-  .sponsor-rentalbsas            { background-image: url('../images/sponsors/auspiciante_rentalbsas_hover.png'); }
-  .sponsor-requiem               { background-image: url('../images/sponsors/auspiciante_requiem_hover.png'); }
-  .sponsor-ticoral               { background-image: url('../images/sponsors/auspiciante_ticoral_hover.png'); }
-  .sponsor-toronja               { background-image: url('../images/sponsors/auspiciante_toronja_hover.png'); }
-  .sponsor-vacomoloco            { background-image: url('../images/sponsors/auspiciante_vacomoloco_hover.png'); }
-  .sponsor-videoflims            { background-image: url('../images/sponsors/auspiciante_videoflims_hover.png'); }
-  .sponsor-wancamp               { background-image: url('../images/sponsors/auspiciante_wancamp_hover.png'); }
-  .sponsor-aclf                  { background-image: url('../images/sponsors/auspiciante_aclf_hover.png'); }
-  .sponsor-apima                 { background-image: url('../images/sponsors/auspiciante_apima_hover.png'); }
-  .sponsor-marginado             { background-image: url('../images/sponsors/auspiciante_marginado_hover.png'); }
-  .sponsor-mdpff                 { background-image: url('../images/sponsors/auspiciante_mdpff_hover.png'); }
-  .sponsor-rebisfx               { background-image: url('../images/sponsors/auspiciante_rebisfx_hover.png'); }
-  .sponsor-picsi                 { background-image: url('../images/sponsors/auspiciante_picsi_hover.png'); }
-  .sponsor-osde                  { background-image: url('../images/sponsors/auspiciante_osde_hover.png'); }
-  .sponsor-guiar                 { background-image: url('../images/sponsors/auspiciante_guiar_hover.png'); }
-  .sponsor-manicomiodelterror    { background-image: url('../images/sponsors/auspiciante_manicomio_del_terror_hover.png'); }
-  .sponsor-purga                 { background-image: url('../images/sponsors/auspiciante_purga_hover.png'); }
-  .sponsor-argentores            { background-image: url('../images/sponsors/auspiciante_argentores_hover.png'); }
-  .sponsor-embajada-espana       { background-image: url('../images/sponsors/auspiciante_embajada_espana_hover.png'); }
-  .sponsor-insomnio              { background-image: url('../images/sponsors/auspiciante_insomnio_hover.png'); }
-  .sponsor-cfyb                  { background-image: url('../images/sponsors/auspiciante_cfyb_hover.png'); }
-  .sponsor-fan                   { background-image: url('../images/sponsors/auspiciante_fan_hover.png'); }
-  .sponsor-tvcortos              { background-image: url('../images/sponsors/auspiciante_tvcortos_hover.png'); }
-  .sponsor-monster-flex          { background-image: url('../images/sponsors/auspiciante_monster_flex_hover.png'); }
-  .sponsor-neftis                { background-image: url('../images/sponsors/auspiciante_neftis_hover.png'); }
-  .sponsor-global-media          { background-image: url('../images/sponsors/auspiciante_global_media_hover.png'); }
-  .sponsor-brujas                { background-image: url('../images/sponsors/auspiciante_brujas.png'); }
-  .sponsor-museo-sarmiento       { background-image: url('../images/sponsors/auspiciante_museo_sarmiento.png'); }
-  .sponsor-pintafan              { background-image: url('../images/sponsors/auspiciante_pintafan.png'); }
-  .sponsor-brigada-problematica  { background-image: url('../images/sponsors/auspiciante_brigada_problematica_hover.png'); }
-  .sponsor-yubari-festival       { background-image: url('../images/sponsors/auspiciante_yubari_festival_hover.png'); }
-  .sponsor-okinawa-film-office   { background-image: url('../images/sponsors/auspiciante_okinawa_film_office_hover.png'); }
-  .sponsor-felices-las-vacas     { background-image: url('../images/sponsors/auspiciante_felices_las_vacas_hover.png'); }
-  .sponsor-no-pain-tattoos       { background-image: url('../images/sponsors/auspiciante_no_pain_tattoos_hover.png'); }
-  .sponsor-contar                { background-image: url('../images/sponsors/auspiciante_contar_hover.png'); }
-  .sponsor-flixxo                { background-image: url('../images/sponsors/auspiciante_flixxo_hover.png'); }
-  .sponsor-ba-audiovisual        { background-image: url('../images/sponsors/auspiciante_ba_audiovisual_hover.png'); }
-  .sponsor-akataka               { background-image: url('../images/sponsors/auspiciante_akataka_hover.png'); }
-  .sponsor-enchulame-la-camara   { background-image: url('../images/sponsors/auspiciante_enchulame_la_camara_hover.png'); }
-  .sponsor-fant-latam            { background-image: url('../images/sponsors/auspiciante_fant_latam_hover.png'); }
-
-  .sponsor-ab:hover                    { background-image: url('../images/sponsors/auspiciante_ab.png'); }
-  .sponsor-bsasciudad:hover            { background-image: url('../images/sponsors/auspiciante_bsasciudad.png'); }
-  .sponsor-campari:hover               { background-image: url('../images/sponsors/auspiciante_campari.png'); }
-  .sponsor-cinefania:hover             { background-image: url('../images/sponsors/auspiciante_cinefania.png'); }
-  .sponsor-circodelhorror:hover        { background-image: url('../images/sponsors/auspiciante_circodelhorror.png'); }
-  .sponsor-cunnington:hover            { background-image: url('../images/sponsors/auspiciante_cunnington.png'); }
-  .sponsor-eda:hover                   { background-image: url('../images/sponsors/auspiciante_eda.png'); }
-  .sponsor-fantafestivales:hover       { background-image: url('../images/sponsors/auspiciante_fantafestivales.png'); }
-  .sponsor-filmsharks:hover            { background-image: url('../images/sponsors/auspiciante_filmsharks.png'); }
-  .sponsor-findlingfilms:hover         { background-image: url('../images/sponsors/auspiciante_findlingfilms.png'); }
-  .sponsor-flaviogrecopaglia:hover     { background-image: url('../images/sponsors/auspiciante_flaviogrecopaglia.png'); }
-  .sponsor-illusiondreamsfx:hover      { background-image: url('../images/sponsors/auspiciante_illusiondreamsfx.png'); }
-  .sponsor-incaa:hover                 { background-image: url('../images/sponsors/auspiciante_incaa.png'); }
-  .sponsor-incaagerencia:hover         { background-image: url('../images/sponsors/auspiciante_incaagerencia.png'); }
-  .sponsor-lacripta:hover              { background-image: url('../images/sponsors/auspiciante_lacripta.png'); }
-  .sponsor-metamorfosisfx:hover        { background-image: url('../images/sponsors/auspiciante_metamorfosisfx.png'); }
-  .sponsor-multiplex:hover             { background-image: url('../images/sponsors/auspiciante_multiplex.png'); }
-  .sponsor-nacionalrock:hover          { background-image: url('../images/sponsors/auspiciante_nacionalrock.png'); }
-  .sponsor-piromaniafx:hover           { background-image: url('../images/sponsors/auspiciante_piromaniafx.png'); }
-  .sponsor-quintadimension:hover       { background-image: url('../images/sponsors/auspiciante_quintadimension.png'); }
-  .sponsor-rafma:hover                 { background-image: url('../images/sponsors/auspiciante_rafma.png'); }
-  .sponsor-rentalbsas:hover            { background-image: url('../images/sponsors/auspiciante_rentalbsas.png'); }
-  .sponsor-requiem:hover               { background-image: url('../images/sponsors/auspiciante_requiem.png'); }
-  .sponsor-ticoral:hover               { background-image: url('../images/sponsors/auspiciante_ticoral.png'); }
-  .sponsor-toronja:hover               { background-image: url('../images/sponsors/auspiciante_toronja.png'); }
-  .sponsor-vacomoloco:hover            { background-image: url('../images/sponsors/auspiciante_vacomoloco.png'); }
-  .sponsor-videoflims:hover            { background-image: url('../images/sponsors/auspiciante_videoflims.png'); }
-  .sponsor-wancamp:hover               { background-image: url('../images/sponsors/auspiciante_wancamp.png'); }
-  .sponsor-aclf:hover                  { background-image: url('../images/sponsors/auspiciante_aclf.png'); }
-  .sponsor-apima:hover                 { background-image: url('../images/sponsors/auspiciante_apima.png'); }
-  .sponsor-marginado:hover             { background-image: url('../images/sponsors/auspiciante_marginado.png'); }
-  .sponsor-mdpff:hover                 { background-image: url('../images/sponsors/auspiciante_mdpff.png'); }
-  .sponsor-rebisfx:hover               { background-image: url('../images/sponsors/auspiciante_rebisfx.png'); }
-  .sponsor-picsi:hover                 { background-image: url('../images/sponsors/auspiciante_picsi.png'); }
-  .sponsor-osde:hover                  { background-image: url('../images/sponsors/auspiciante_osde.png'); }
-  .sponsor-guiar:hover                 { background-image: url('../images/sponsors/auspiciante_guiar.png'); }
-  .sponsor-manicomiodelterror:hover    { background-image: url('../images/sponsors/auspiciante_manicomio_del_terror.png'); }
-  .sponsor-purga:hover                 { background-image: url('../images/sponsors/auspiciante_purga.png'); }
-  .sponsor-argentores:hover            { background-image: url('../images/sponsors/auspiciante_argentores.png'); }
-  .sponsor-embajada-espana:hover       { background-image: url('../images/sponsors/auspiciante_embajada_espana.png'); }
-  .sponsor-insomnio:hover              { background-image: url('../images/sponsors/auspiciante_insomnio.png'); }
-  .sponsor-cfyb:hover                  { background-image: url('../images/sponsors/auspiciante_cfyb.png'); }
-  .sponsor-fan:hover                   { background-image: url('../images/sponsors/auspiciante_fan.png'); }
-  .sponsor-tvcortos:hover              { background-image: url('../images/sponsors/auspiciante_tvcortos.png'); }
-  .sponsor-monster-flex:hover          { background-image: url('../images/sponsors/auspiciante_monster_flex.png'); }
-  .sponsor-neftis:hover                { background-image: url('../images/sponsors/auspiciante_neftis.png'); }
-  .sponsor-global-media:hover          { background-image: url('../images/sponsors/auspiciante_global_media.png'); }
-  .sponsor-brujas:hover                { background-image: url('../images/sponsors/auspiciante_brujas_hover.png'); }
-  .sponsor-museo-sarmiento:hover       { background-image: url('../images/sponsors/auspiciante_museo_sarmiento_hover.png'); }
-  .sponsor-pintafan:hover              { background-image: url('../images/sponsors/auspiciante_pintafan_hover.png'); }
-  .sponsor-brigada-problematica:hover  { background-image: url('../images/sponsors/auspiciante_brigada_problematica.png'); }
-  .sponsor-yubari-festival:hover       { background-image: url('../images/sponsors/auspiciante_yubari_festival.png'); }
-  .sponsor-okinawa-film-office:hover   { background-image: url('../images/sponsors/auspiciante_okinawa_film_office.png'); }
-  .sponsor-felices-las-vacas:hover     { background-image: url('../images/sponsors/auspiciante_felices_las_vacas.png'); }
-  .sponsor-no-pain-tattoos:hover       { background-image: url('../images/sponsors/auspiciante_no_pain_tattoos.png'); }
-  .sponsor-contar:hover                { background-image: url('../images/sponsors/auspiciante_contar.png'); }
-  .sponsor-flixxo:hover                { background-image: url('../images/sponsors/auspiciante_flixxo.png'); }
-  .sponsor-ba-audiovisual:hover        { background-image: url('../images/sponsors/auspiciante_ba_audiovisual.png'); }
-  .sponsor-akataka:hover               { background-image: url('../images/sponsors/auspiciante_akataka.png'); }
-  .sponsor-enchulame-la-camara:hover   { background-image: url('../images/sponsors/auspiciante_enchulame_la_camara.png'); }
-  .sponsor-fant-latam:hover            { background-image: url('../images/sponsors/auspiciante_fant_latam.png'); }
+  .sponsor-ab                    { background-image: url('../images/sponsors/auspiciante_ab.png'); }
+  .sponsor-bsasciudad            { background-image: url('../images/sponsors/auspiciante_bsasciudad.png'); }
+  .sponsor-campari               { background-image: url('../images/sponsors/auspiciante_campari.png'); }
+  .sponsor-cinefania             { background-image: url('../images/sponsors/auspiciante_cinefania.png'); }
+  .sponsor-circodelhorror        { background-image: url('../images/sponsors/auspiciante_circodelhorror.png'); }
+  .sponsor-cunnington            { background-image: url('../images/sponsors/auspiciante_cunnington.png'); }
+  .sponsor-eda                   { background-image: url('../images/sponsors/auspiciante_eda.png'); }
+  .sponsor-fantafestivales       { background-image: url('../images/sponsors/auspiciante_fantafestivales.png'); }
+  .sponsor-filmsharks            { background-image: url('../images/sponsors/auspiciante_filmsharks.png'); }
+  .sponsor-findlingfilms         { background-image: url('../images/sponsors/auspiciante_findlingfilms.png'); }
+  .sponsor-flaviogrecopaglia     { background-image: url('../images/sponsors/auspiciante_flaviogrecopaglia.png'); }
+  .sponsor-illusiondreamsfx      { background-image: url('../images/sponsors/auspiciante_illusiondreamsfx.png'); }
+  .sponsor-incaa                 { background-image: url('../images/sponsors/auspiciante_incaa.png'); }
+  .sponsor-incaagerencia         { background-image: url('../images/sponsors/auspiciante_incaagerencia.png'); }
+  .sponsor-lacripta              { background-image: url('../images/sponsors/auspiciante_lacripta.png'); }
+  .sponsor-metamorfosisfx        { background-image: url('../images/sponsors/auspiciante_metamorfosisfx.png'); }
+  .sponsor-multiplex             { background-image: url('../images/sponsors/auspiciante_multiplex.png'); }
+  .sponsor-nacionalrock          { background-image: url('../images/sponsors/auspiciante_nacionalrock.png'); }
+  .sponsor-piromaniafx           { background-image: url('../images/sponsors/auspiciante_piromaniafx.png'); }
+  .sponsor-quintadimension       { background-image: url('../images/sponsors/auspiciante_quintadimension.png'); }
+  .sponsor-rafma                 { background-image: url('../images/sponsors/auspiciante_rafma.png'); }
+  .sponsor-rentalbsas            { background-image: url('../images/sponsors/auspiciante_rentalbsas.png'); }
+  .sponsor-requiem               { background-image: url('../images/sponsors/auspiciante_requiem.png'); }
+  .sponsor-ticoral               { background-image: url('../images/sponsors/auspiciante_ticoral.png'); }
+  .sponsor-toronja               { background-image: url('../images/sponsors/auspiciante_toronja.png'); }
+  .sponsor-vacomoloco            { background-image: url('../images/sponsors/auspiciante_vacomoloco.png'); }
+  .sponsor-videoflims            { background-image: url('../images/sponsors/auspiciante_videoflims.png'); }
+  .sponsor-wancamp               { background-image: url('../images/sponsors/auspiciante_wancamp.png'); }
+  .sponsor-aclf                  { background-image: url('../images/sponsors/auspiciante_aclf.png'); }
+  .sponsor-apima                 { background-image: url('../images/sponsors/auspiciante_apima.png'); }
+  .sponsor-marginado             { background-image: url('../images/sponsors/auspiciante_marginado.png'); }
+  .sponsor-mdpff                 { background-image: url('../images/sponsors/auspiciante_mdpff.png'); }
+  .sponsor-rebisfx               { background-image: url('../images/sponsors/auspiciante_rebisfx.png'); }
+  .sponsor-picsi                 { background-image: url('../images/sponsors/auspiciante_picsi.png'); }
+  .sponsor-osde                  { background-image: url('../images/sponsors/auspiciante_osde.png'); }
+  .sponsor-guiar                 { background-image: url('../images/sponsors/auspiciante_guiar.png'); }
+  .sponsor-manicomiodelterror    { background-image: url('../images/sponsors/auspiciante_manicomio_del_terror.png'); }
+  .sponsor-purga                 { background-image: url('../images/sponsors/auspiciante_purga.png'); }
+  .sponsor-argentores            { background-image: url('../images/sponsors/auspiciante_argentores.png'); }
+  .sponsor-embajada-espana       { background-image: url('../images/sponsors/auspiciante_embajada_espana.png'); }
+  .sponsor-insomnio              { background-image: url('../images/sponsors/auspiciante_insomnio.png'); }
+  .sponsor-cfyb                  { background-image: url('../images/sponsors/auspiciante_cfyb.png'); }
+  .sponsor-fan                   { background-image: url('../images/sponsors/auspiciante_fan.png'); }
+  .sponsor-tvcortos              { background-image: url('../images/sponsors/auspiciante_tvcortos.png'); }
+  .sponsor-monster-flex          { background-image: url('../images/sponsors/auspiciante_monster_flex.png'); }
+  .sponsor-neftis                { background-image: url('../images/sponsors/auspiciante_neftis.png'); }
+  .sponsor-global-media          { background-image: url('../images/sponsors/auspiciante_global_media.png'); }
+  .sponsor-brujas                { background-image: url('../images/sponsors/auspiciante_brujas_hover.png'); }
+  .sponsor-museo-sarmiento       { background-image: url('../images/sponsors/auspiciante_museo_sarmiento_hover.png'); }
+  .sponsor-pintafan              { background-image: url('../images/sponsors/auspiciante_pintafan_hover.png'); }
+  .sponsor-brigada-problematica  { background-image: url('../images/sponsors/auspiciante_brigada_problematica.png'); }
+  .sponsor-yubari-festival       { background-image: url('../images/sponsors/auspiciante_yubari_festival.png'); }
+  .sponsor-okinawa-film-office   { background-image: url('../images/sponsors/auspiciante_okinawa_film_office.png'); }
+  .sponsor-felices-las-vacas     { background-image: url('../images/sponsors/auspiciante_felices_las_vacas.png'); }
+  .sponsor-no-pain-tattoos       { background-image: url('../images/sponsors/auspiciante_no_pain_tattoos.png'); }
+  .sponsor-contar                { background-image: url('../images/sponsors/auspiciante_contar.png'); }
+  .sponsor-flixxo                { background-image: url('../images/sponsors/auspiciante_flixxo.png'); }
+  .sponsor-ba-audiovisual        { background-image: url('../images/sponsors/auspiciante_ba_audiovisual.png'); }
+  .sponsor-akataka               { background-image: url('../images/sponsors/auspiciante_akataka.png'); }
+  .sponsor-enchulame-la-camara   { background-image: url('../images/sponsors/auspiciante_enchulame_la_camara.png'); }
+  .sponsor-fant-latam            { background-image: url('../images/sponsors/auspiciante_fant_latam.png'); }
 
   // non clickable sponsors
   .sponsor-mecenazgo-cultural    { background-image: url('../images/sponsors/auspiciante_mecenazgo_cultural.png'); }
