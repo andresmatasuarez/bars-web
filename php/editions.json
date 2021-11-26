@@ -12,9 +12,9 @@
         "name": "Multiplex Belgrano",
         "address": "Vuelta de Obligado 2199"
       },
-      "tba": {
-        "name": "Plataforma virtual",
-        "address": "TBA",
+      "vivamoscultura": {
+        "name": "VivamosCultura",
+        "address": "vivamoscultura.buenosaires.gob.ar",
         "online": true
       }
     },
