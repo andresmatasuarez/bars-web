@@ -12,14 +12,16 @@
 
   get_header();
 
+  $latestEdition = Editions::current();
   if (!isset($_GET['edition'])){
-    $currentEdition = Editions::current();
+    $currentEdition = $latestEdition;
   } else {
     $currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
   }
 ?>
 
 <script>
+  window.LATEST_EDITION = <?php echo $latestEdition['number'] ?>;
   window.CURRENT_EDITION = <?php echo $currentEdition['number'] ?>;
 </script>
 

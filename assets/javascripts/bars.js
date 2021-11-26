@@ -1,4 +1,3 @@
-import remove from 'lodash/remove';
 import stickyElement from './sticky_element';
 import collapsible from './collapsible';
 
@@ -137,21 +136,16 @@ export default function(){
     $('#edition-selector').val(window.CURRENT_EDITION);
   }
   $('#edition-selector').change(function(){
-    const editionParam = $.param({ edition: $(this).val() });
-    // Triggers a reload with selected edition sent as query param.
-    let queryString = null;
-    if (window.location.search) {
-      if (window.location.search.indexOf('edition=') === -1) {
-        queryString = window.location.search + `&${editionParam}`;
-      } else {
-        const params = window.location.search.split('&');
-        remove(params, (p) => p.indexOf('edition=') !== -1);
-        queryString = params.join('&') + `&${editionParam}`;
-      }
+    const selectedEdition = parseInt($(this).val(), 10);
+    const queryString = new URLSearchParams(window.location.search);
+
+    if (selectedEdition === window.LATEST_EDITION) {
+      queryString.delete('edition');
     } else {
-      queryString = `?${editionParam}`;
+      queryString.set('edition', selectedEdition);
     }
-    window.location.href = window.location.pathname + queryString;
+
+    window.location.search = queryString.toString();
   });
 
   // Sticky days in selection.php
