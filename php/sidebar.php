@@ -7,8 +7,8 @@
 
 	require_once 'editions.php';
 
-	// $edition = Editions::current();
-	$edition = Editions::getByNumber(Editions::current()['number'] - 1);
+	$edition = Editions::current();
+	//$edition = Editions::getByNumber(Editions::current()['number'] - 1);
 
  ?>
 
