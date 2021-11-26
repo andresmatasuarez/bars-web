@@ -143,7 +143,7 @@
 					?>
 					<span class="size-highlight">TBA</span>
 					<?php } else { ?>
-						<table>
+						<table class="venues-table">
 							<thead>
 								<tr>
 									<?php
