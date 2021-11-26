@@ -4,8 +4,9 @@
   const DATE_FULL_TAG = 'full';
 
   function sortByDateString($a, $b) {
-    $t1 = $a['date']->getTimestamp();
-    $t2 = $b['date']->getTimestamp();
+    // safeguard against NULL values
+    $t1 = isset($a['date']) ? $a['date']->getTimestamp() : 0;
+    $t2 = isset($b['date']) ? $b['date']->getTimestamp() : 0;
     return $t1 - $t2;
   }
 
