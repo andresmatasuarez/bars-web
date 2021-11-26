@@ -48,16 +48,17 @@
 							<a target="_blank" rel="noopener noreferrer" href="https://museosarmiento.cultura.gob.ar" alt="Museo Histórico Sarmiento" ></a>
 						</div>
 						-->
- 						<div class="sponsor sponsor-rebisfx">
-							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/RebisFXEfectosespeciales/" alt="Rebis FX" ></a>
-						</div>
- 						<div class="sponsor sponsor-contar">
+ 						<!-- <div class="sponsor sponsor-contar">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.cont.ar" alt="Contar" ></a>
 						</div>
  						<div class="sponsor sponsor-flixxo">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.flixxo.com" alt="Flixxo" ></a>
 						</div>
 						<div class="sponsor sponsor-ministerio-de-cultura"></div>
+						-->
+ 						<div class="sponsor sponsor-ba-audiovisual">
+							<a target="_blank" rel="noopener noreferrer" href="https://vivamoscultura.buenosaires.gob.ar/" alt="BA Audiovisual" ></a>
+						</div>
 					</div>
 
 					<div class="page-header sponsors-header">
@@ -101,10 +102,10 @@
 						<div class="sponsor sponsor-cinefania">
 							<a target="_blank" rel="noopener noreferrer" href="http://www.cinefania.com/" alt="Cinefanía" ></a>
 						</div>
+						<!--
 						<div class="sponsor sponsor-wancamp">
 							<a target="_blank" rel="noopener noreferrer" href="http://www.wancamp.com.ar" alt="Wancamp" ></a>
 						</div>
-						<!--
 						<div class="sponsor sponsor-ticoral">
 							<a target="_blank" rel="noopener noreferrer" href="http://www.ticoral.com" alt="Ticoral" ></a>
 						</div>
@@ -136,10 +137,10 @@
  						<div class="sponsor sponsor-purga">
 							<a target="_blank" rel="noopener noreferrer" href="https://purga.tv" alt="Purga" ></a>
 						</div>
-						-->
  						<div class="sponsor sponsor-manicomiodelterror">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/ManicomioFreakshow" alt="Manicomio Freakshow" ></a>
 						</div>
+						-->
  						<div class="sponsor sponsor-guiar">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/asociaciondeguionistasarg" alt="Asociación de Guionistas Argentinos" ></a>
 						</div>
@@ -182,10 +183,10 @@
  						<div class="sponsor sponsor-pintafan">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/pintafancolorpro" alt="Pintafan Color Pro" ></a>
 						</div>
+						<!--
  						<div class="sponsor sponsor-brigada-problematica">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/brigadaproblematica/" alt="Brigada Problemática" ></a>
 						</div>
-						<!--
  						<div class="sponsor sponsor-okinawa-film-office">
 							<a target="_blank" rel="noopener noreferrer" href="https://filmoffice.ocvb.or.jp" alt="Okinawa Film Office" ></a>
 						</div>
@@ -199,14 +200,14 @@
  						<div class="sponsor sponsor-yubari-festival">
 							<a target="_blank" rel="noopener noreferrer" href="https://yubarifanta.jp/" alt="Yubari Festival" ></a>
 						</div>
- 						<div class="sponsor sponsor-ba-audiovisual">
-							<a target="_blank" rel="noopener noreferrer" href="https://vivamoscultura.buenosaires.gob.ar/" alt="BA Audiovisual" ></a>
-						</div>
  						<div class="sponsor sponsor-akataka">
 							<a target="_blank" rel="noopener noreferrer" href="https://akataka.com/" alt="Akataka" ></a>
 						</div>
  						<div class="sponsor sponsor-enchulame-la-camara">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.enchulamerental.com/" alt="Enchulame la cámara" ></a>
+						</div>
+ 						<div class="sponsor sponsor-rebisfx">
+							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/RebisFXEfectosespeciales/" alt="Rebis FX" ></a>
 						</div>
 
 						<div class="sponsor sponsor-mecenazgo-cultural"></div>
