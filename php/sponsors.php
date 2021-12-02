@@ -56,9 +56,25 @@
 						</div>
 						<div class="sponsor sponsor-ministerio-de-cultura"></div>
 						-->
+ 						<div class="sponsor sponsor-drag-clash">
+							<a target="_blank" rel="noopener noreferrer" href="http://youtube.com/dragclash" alt="Drag Clash" ></a>
+						</div>
+ 						<div class="sponsor sponsor-itau-fundacion">
+							<a target="_blank" rel="noopener noreferrer" href="https://www.fundacionitau.org.ar/" alt="Itaú Fundación" ></a>
+						</div>
  						<div class="sponsor sponsor-ba-audiovisual">
 							<a target="_blank" rel="noopener noreferrer" href="https://vivamoscultura.buenosaires.gob.ar/" alt="BA Audiovisual" ></a>
 						</div>
+ 						<div class="sponsor sponsor-vivamos-cultura">
+							<a target="_blank" rel="noopener noreferrer" href="https://vivamoscultura.buenosaires.gob.ar/" alt="Vivamos Cultura" ></a>
+						</div>
+ 						<div class="sponsor sponsor-museos-ba">
+							<a target="_blank" rel="noopener noreferrer" href="https://www.buenosaires.gob.ar/cultura/museos" alt="Museos BA" ></a>
+						</div>
+						<div class="sponsor sponsor-bsasciudad">
+							<a target="_blank" rel="noopener noreferrer" href="http://www.buenosaires.gob.ar/" alt="Buenos Aires Ciudad" ></a>
+						</div>
+						<div class="sponsor sponsor-mecenazgo-cultural"></div>
 					</div>
 
 					<div class="page-header sponsors-header">
@@ -70,9 +86,6 @@
 					<div class="sponsors">
 						<div class="sponsor sponsor-lacripta">
 							<a target="_blank" rel="noopener noreferrer" href="http://reservas.salaslacripta.com.ar/" alt="Salas La Cripta" ></a>
-						</div>
-						<div class="sponsor sponsor-bsasciudad">
-							<a target="_blank" rel="noopener noreferrer" href="http://www.buenosaires.gob.ar/" alt="Buenos Aires Ciudad" ></a>
 						</div>
 						<div class="sponsor sponsor-rafma">
 							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922" alt="RAFMA Red Argentina de Festivales y Muestras Audiovisuales" ></a>
@@ -210,7 +223,6 @@
 							<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/RebisFXEfectosespeciales/" alt="Rebis FX" ></a>
 						</div>
 
-						<div class="sponsor sponsor-mecenazgo-cultural"></div>
 						<div class="sponsor sponsor-fant-latam"></div>
 					</div>
 				</div>
