@@ -26,7 +26,7 @@
 		<div class="screenings">
 		<?php
 			$screeningsValue = get_post_meta($post->ID, '_movieblock_screenings', true);
-			renderScreenings(get_post_meta($screeningsValue, $venues));
+			renderScreenings($screeningsValue, $venues);
 		?>
 		</div>
 
