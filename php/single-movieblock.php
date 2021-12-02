@@ -128,9 +128,9 @@
 							echo '<div class="runtime">' . $runtime . ' minutos.</div>';
 
 						echo '<div class="directors">';
-							$directors = explode(',', get_post_meta($query->post->ID, '_movie_directors', true));
+							$directors = array_filter(explode(',', get_post_meta($query->post->ID, '_movie_directors', true)));
 
-							if (sizeof($directors) != 0){
+							if (!empty($directors)){
 								echo 'Directores: ' . trim(current($directors));
 
 								foreach(array_slice($directors, 1) as $director){
@@ -139,9 +139,9 @@
 							}
 						echo '</div>';
 						echo '<div class="cast">';
-							$cast = explode(',', get_post_meta($query->post->ID, '_movie_cast', true));
+							$cast = array_filter(explode(',', get_post_meta($query->post->ID, '_movie_cast', true)));
 
-							if (sizeof($cast) != 0){
+							if (!empty($cast)){
 								echo 'Elenco: ' . current($cast);
 
 								foreach(array_slice($cast, 1) as $cast){
