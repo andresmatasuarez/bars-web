@@ -3,13 +3,15 @@
   require_once 'helpers.php';
   require_once 'editions.php';
 
-  function renderScreening($screening) {
+  function renderScreening($screening, $venue) {
     if (!empty($screening['alwaysAvailable'])) {
+      /*
       echo '<div class="screening">';
         echo '<div class="screening-daynumber">';
           echo 'Mirala en cualquier momento';
         echo '</div>';
       echo '</div>';
+      */
 
       return;
     }
@@ -52,27 +54,33 @@
     echo '</div>';
   }
 
-  function renderScreenings($screeningsValue, $venues) {
+  function renderScreenings($screeningsValue, $streamingLink, $venues) {
     $screenings = parseScreenings($screeningsValue);
     $groupedScreenings = groupScreeningsByVenue($screenings);
 
-    foreach($groupedScreenings as $venue => $screenings){
+    foreach($groupedScreenings as $venueId => $screenings){
       echo '<div class="screenings-group">';
         echo '<div class="screenings-caption">';
-          if ($venue === '') {
+          $venue;
+          if ($venueId === '') {
             // Empty 'venue' means that for the current festival edition,
             // there's only one venue screening films.
             // So I simply find the only one venue and show it.
-            echo $venues[array_keys($venues)[0]]['name'];
+            $venue = $venues[array_keys($venues)[0]];
           } else {
-            echo $venues[$venue]['name'];
+            $venue = $venues[$venueId];
           }
+          echo $venue['name'];
         echo '</div>';
         echo '<div class="screenings-container">';
           foreach($screenings as $key => $screening) {
-            renderScreening($screening);
+            renderScreening($screening, $venue);
           }
         echo '</div>';
+
+        if ($streamingLink !== '' && strpos(strtolower($streamingLink), strtolower($venue['address']))) {
+          renderStreamingLinkButton($streamingLink, !anyScreeningsLeft($screeningsValue), $venue);
+        }
       echo '</div>';
     }
   }
@@ -219,13 +227,15 @@
 <?php
   }
 
-  function renderStreamingLinkButton($link, $isDisabled = false) {
+  function renderStreamingLinkButton($link, $isDisabled = false, $venue) {
 ?>
     <div class="watch-button-container">
       <a class="watch-button <?php echo ($isDisabled ? 'disabled' : ''); ?>" target="_blank" rel="noopener noreferrer" href="<?php echo $link; ?>">
         <span class="fa fa-play-circle"></span>
 
-        <?php echo ($isDisabled ? 'El link se habilitará sólo <br />en las fechas de proyección' : (strpos($link, 'cont.ar') ? 'Mirala por Contar' : 'Mirala por Flixxo')); ?>
+        <?php
+          echo $isDisabled ? 'El link se habilitará sólo <br />en las fechas de proyección' : 'Mirar';
+        ?>
       </a>
     </div>
 <?php
