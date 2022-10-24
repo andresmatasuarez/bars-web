@@ -38,6 +38,7 @@
 		global $movieBlocks;
 
 		$editionOptions = array (
+			'bars23' => array ( 'label' => 'BARS 2022',	'value' => 'bars23' ),
 			'bars22' => array ( 'label' => 'BARS 2021',	'value' => 'bars22' ),
 			'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
 			'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
