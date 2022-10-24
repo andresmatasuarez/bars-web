@@ -1,11 +1,54 @@
 [
   {
-    "number" : 22,
-    "title" : "BARS 2021",
-    "days" : {
+    "number": 23,
+    "title": "BARS 2022",
+    "days": {
       "only_months": false,
-      "from" : "2021-12-02T03:00:00.000Z",
-      "to" : "2021-12-12T03:00:00.000Z"
+      "from": "2022-11-17T03:00:00.000Z",
+      "to": "2022-11-27T03:00:00.000Z"
+    },
+    "venues": {
+      "belgrano": {
+        "name": "Multiplex Belgrano",
+        "address": "Vuelta de Obligado 2199"
+      },
+      "vivamoscultura": {
+        "name": "VivamosCultura",
+        "address": "vivamoscultura.buenosaires.gob.ar",
+        "online": true
+      }
+    },
+    "press_passes": {
+      "deadline": "2022-11-07T03:00:00.000Z"
+    },
+    "poster": "",
+    "programme": "",
+    "programme_yt": "",
+    "catalogue": "",
+    "spot": "",
+    "call": {
+      "to": "2022-08-02T02:59:59.999Z",
+      "authorization": {
+        "es": "/resources/bars2022/auth2022_es.pdf",
+        "en": "/resources/bars2022/auth2022_en.pdf",
+        "en_docx": "/resources/bars2022/auth2022_en.docx",
+        "es_docx": "/resources/bars2022/auth2022_es.docx"
+      },
+      "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar un screener online a traves de las plataformas <a href=\"https://filmfreeway.com/BuenosAiresRojoSangrefilmfestival/\" target=\"blank\">FilmFreeWay</a> o <a href=\"https://filmmakers.festhome.com/es/festival/festival-buenos-aires-rojo-sangre/\" target=\"blank\">Festhome</a>. </li> <li> Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una imagen horizontal de la película, resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li><strong>Subtítulos o guía de diálogos si la película no es hablada en español.</strong></li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival dentro de los plazos establecidos no tiene <strong>costo</strong> para el material producido en <i>Argentina</i>, mientras que tiene un valor de <strong>USD 3</strong> para el material producido en el <i>resto de latinoamérica</i> y de <strong>USD 6</strong> para el material producido en el <i>resto del mundo</i>. <b>Las inscripciones tardias tienen recargo en todas las categorias</b>. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que <strong>no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires</strong> y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> <li><strong>En caso de fuerza mayor, y en vistas de la situación con la pandemia de COVID-19, vale señalar que es posible que la %%CURRENT_EDITION%%° edición del festival Buenos Aires Rojo Sangre se realice de forma presencial, virtual (a través de plataformas a designar) o combinando ambas modalidades</strong></li> </ul>",
+      "terms_en": "/resources/bars2022/terms2022_en.docx",
+      "terms_es": "/resources/bars2022/terms2022_es.docx"
+    },
+    "awards": {},
+    "juries": {}
+  },
+
+  {
+    "number": 22,
+    "title": "BARS 2021",
+    "days": {
+      "only_months": false,
+      "from": "2021-12-02T03:00:00.000Z",
+      "to": "2021-12-12T03:00:00.000Z"
     },
     "venues": {
       "belgrano": {
@@ -23,9 +66,9 @@
       "pickupFrom": "2021-12-02T03:00:00.000Z",
       "pickupTo": "2021-12-08T03:00:00.000Z"
     },
-    "poster" : "resources/bars2021/bars2021_afiche.jpg",
-    "programme" : "resources/bars2021/bars2021_programme.jpg",
-    "programme_yt" : "",
+    "poster": "resources/bars2021/bars2021_afiche.jpg",
+    "programme": "resources/bars2021/bars2021_programme.jpg",
+    "programme_yt": "",
     "catalogue": "",
     "spot": "https://www.youtube.com/watch?v=3gQGFv35Kbw",
     "call": {
@@ -171,12 +214,12 @@
     }
   },
   {
-    "number" : 21,
-    "title" : "BARS 2020",
-    "days" : {
+    "number": 21,
+    "title": "BARS 2020",
+    "days": {
       "only_months": false,
-      "from" : "2020-12-03T03:00:00.000Z",
-      "to" : "2020-12-13T03:00:00.000Z"
+      "from": "2020-12-03T03:00:00.000Z",
+      "to": "2020-12-13T03:00:00.000Z"
     },
     "venues": {
       "contar": {
@@ -200,9 +243,9 @@
       "pickupFrom": "2019-11-21T03:00:00.000Z",
       "pickupTo": "2019-12-25T03:00:00.000Z"
     },
-    "poster" : "resources/bars2020/bars2020_afiche.jpg",
-    "programme" : "resources/bars2020/bars2020_programme.jpg",
-    "programme_yt" : "resources/bars2020/bars2020_programme_yt.jpg",
+    "poster": "resources/bars2020/bars2020_afiche.jpg",
+    "programme": "resources/bars2020/bars2020_programme.jpg",
+    "programme_yt": "resources/bars2020/bars2020_programme_yt.jpg",
     "catalogue": "resources/bars2020/bars2020_catalogo.pdf",
     "spot": "https://www.youtube.com/watch?v=erlFS6xGPl8",
     "call": {
@@ -351,12 +394,12 @@
     }
   },
   {
-    "number" : 20,
-    "title" : "BARS 2019",
-    "days" : {
+    "number": 20,
+    "title": "BARS 2019",
+    "days": {
       "only_months": false,
-      "from" : "2019-11-21T03:00:00.000Z",
-      "to" : "2019-12-02T03:00:00.000Z"
+      "from": "2019-11-21T03:00:00.000Z",
+      "to": "2019-12-02T03:00:00.000Z"
     },
     "venues": {
       "belgrano": {
@@ -369,9 +412,9 @@
       "pickupFrom": "2019-11-21T03:00:00.000Z",
       "pickupTo": "2019-12-25T03:00:00.000Z"
     },
-    "poster" : "resources/bars2019/bars2019_afiche.jpg",
-    "programme" : "resources/bars2019/bars2019_programme.jpg",
-    "closing_party" : "resources/bars2019/bars2019_fiesta_clausura.jpg",
+    "poster": "resources/bars2019/bars2019_afiche.jpg",
+    "programme": "resources/bars2019/bars2019_programme.jpg",
+    "closing_party": "resources/bars2019/bars2019_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=pWGChSjQGSM",
     "call": {
       "from": "",
@@ -520,12 +563,12 @@
     }
   },
   {
-    "number" : 19,
-    "title" : "BARS 2018",
-    "days" : {
+    "number": 19,
+    "title": "BARS 2018",
+    "days": {
       "only_months": false,
-      "from" : "2018-11-29T03:00:00.000Z",
-      "to" : "2018-12-09T03:00:00.000Z"
+      "from": "2018-11-29T03:00:00.000Z",
+      "to": "2018-12-09T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -537,9 +580,9 @@
         "address": "Vuelta de Obligado 2199"
       }
     },
-    "poster" : "resources/bars2018/bars2018_afiche.jpg",
-    "programme" : "resources/bars2018/bars2018_programme.jpg",
-    "closing_party" : "resources/bars2018/bars2018_fiesta_clausura.jpg",
+    "poster": "resources/bars2018/bars2018_afiche.jpg",
+    "programme": "resources/bars2018/bars2018_programme.jpg",
+    "closing_party": "resources/bars2018/bars2018_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=O2o_13LzShs",
     "call": {
       "from": "",
@@ -609,14 +652,16 @@
             "focus": { "x": 0, "y": 0, "w": 293, "h": 580 }
           },
           "description": "<strong>Claudio Cordero</strong> nació en Lima en 1977. Cineasta, periodista, gestor cultural y docente. Licenciado de Ciencias de la Comunicación de la Universidad de Lima. Director fundador de <i>Godard! Revista de Cine</i>, CINI: Festival internacional de cine para niños, Insólito: Festival internacional de terror y fantasía. Director y guionista de los cortometrajes <i>Pulsera</i> (2018), <i>Camina me</i> (2018) y <i>Un filme de prestigio</i> (2015)."
-        }, {
+        },
+        {
           "name": "Catalina Oliva",
           "pic": {
             "url": "resources/bars2018/jury_catalina_oliva.jpg",
             "focus": { "x": 0, "y": 0, "w": 956, "h": 956 }
           },
           "description": "<strong>Catalina Oliva</strong> comenzó su trabajo como directora de arte en el año 2000 con la película independiente <i>Habitaciones para turistas</i>, en paralelo a cursar la carrera de Artes Plásticas de la Universidad de La Plata. Integró la productora Paura Flics, en todos sus trabajos. Desde entonces, ha incursionado en el género en múltiples ocasiones en títulos emblemáticos como <i>Kryptonita</i>, <i>Nafta Súper</i>, <i>27: el club de los malditos</i>, <i>Luciferina</i>, <i>Ataúd blanco</i>, <i>Penumbra</i> o <i>Sudor frío</i>, aunque su labor como directora de arte incluye colaboraciones con realizadores de los estilos más diversos. <i>Matar al dragón</i> de Jimena Monteoliva y <i>Tampoco tan grandes</i> de Federico Sosa son dos de sus trabajos más recientes, pendientes de estreno."
-        }, {
+        },
+        {
           "name": "Santiago Podestá",
           "pic": {
             "url": "resources/bars2018/jury_santiago_podesta.jpg",
@@ -634,14 +679,16 @@
             "focus": { "x": 0, "y": 0, "w": 2448, "h": 2448 }
           },
           "description": "<strong>María Florencia Romero</strong>, nacida en Resistencia (Chaco) en 1989, es técnica en Producción de Medios Audiovisuales y licenciada en Cine y TV graduada en la Universidad Nacional de Córdoba. En 2015 formó parte de la creación de Terror Córdoba Festival Internacional de Cine de Terror y Fantástico, proyecto en el cual hoy participa de la organización en su rol de productora. Radicada en la provincia de Buenos Aires con fines de formación académica y trabajando en producción artística, desde 2017 es parte de <i>La Nave de los Sueños</i> como colaboradora."
-        }, {
+        },
+        {
           "name": "Simon Ratziel",
           "pic": {
             "url": "resources/bars2018/jury_simon_ratziel.jpg",
             "focus": { "x": 0, "y": 0, "w": 328, "h": 301 }
           },
           "description": "<strong>Simon Ratziel</strong>, nacido en 1970, es un artista de los efectos especiales que viene trabajando en cine desde hace veinte años. Participó de películas como <i>Plaga Zombie 3</i>, <i>El muerto cuenta su historia</i> y <i>Malditos Sean!</i> entre muchísimas otras, ademas de coproducir <i>Daemonium</i> y <i>Deus Irae</i>. Actualmente se encuentra trabajando en la preproducción de un proyecto indepediente llamado <i>Pussycake</i>."
-        }, {
+        },
+        {
           "name": "José María Marcos",
           "pic": {
             "url": "resources/bars2018/jury_jose_maria_marcos.jpg",
@@ -680,11 +727,11 @@
     }
   },
   {
-    "number" : 18,
-    "title" : "BARS 2017",
-    "days" : {
-      "from" : "2017-11-30T03:00:00.000Z",
-      "to" : "2017-12-10T03:00:00.000Z"
+    "number": 18,
+    "title": "BARS 2017",
+    "days": {
+      "from": "2017-11-30T03:00:00.000Z",
+      "to": "2017-12-10T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -696,9 +743,9 @@
         "address": "Vuelta de Obligado 2199"
       }
     },
-    "poster" : "resources/bars2017/bars2017_afiche.jpg",
-    "programme" : "resources/bars2017/bars2017_programme.jpg",
-    "closing_party" : "resources/bars2017/bars2017_fiesta_clausura.jpg",
+    "poster": "resources/bars2017/bars2017_afiche.jpg",
+    "programme": "resources/bars2017/bars2017_programme.jpg",
+    "closing_party": "resources/bars2017/bars2017_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=jzcyZrRKnvs",
     "call": {
       "from": "",
@@ -768,14 +815,16 @@
             "focus": { "x": 0, "y": 0, "w": 480, "h": 480 }
           },
           "description": "<strong>Mariano Oliveros</strong> es periodista especializado en el mercado del cine argentino. Ha escrito para distintos medios nacionales entre ellos <i>Ultracine</i>, <i>Haciendo Cine</i> y <i>Cine fantástico</i> y <i>Bizarro</i>. Tiene dos libros publicados: <i>D-culto nacional</i> (Fan ediciones) y <i>Yo veo cine argentino</i> (Editorial Autores de Argentina). Debutó como productor ejecutivo con el filme de terror <i>Los olvidados</i>, exhibida en Sitges, y Mórbido, a estrenarse en cines de Argentina en el primer semestre de 2018."
-        }, {
+        },
+        {
           "name": "Nacho Garassino",
           "pic": {
             "url": "resources/bars2017/jury_nacho_garassino.jpg",
             "focus": { "x": 0, "y": 0, "w": 640, "h": 640 }
           },
           "description": "<strong>Nacho Garassino</strong> estrenó el documental <i>Pegar La Vuelta</i> (Ternaround) en agosto de 2016; <i>Contrasangre</i>, largometraje de ficción en noviembre de 2015; en 2011 el film <i>El Túnel de los Huesos</i>, este film participó de diversos Festivales y muestras internacionales. En 1994 ganó el premio Martín Fierro por el programa <i>El Otro Lado</i> junto a Fabián Polosecki en calidad de Director. Actualmente trabaja en la preproducción del largometraje <i>El Fusilamiento de Dorrego</i> y el documental <i>Música para un futuro ancestral</i>. Está desarrollando hoy en día <i>¿Te Gustan mis Medias?</i> film de terror sobre guión de Luciano Saracino."
-        }, {
+        },
+        {
           "name": "Magalí Nieva",
           "pic": {
             "url": "resources/bars2017/jury_magali_nieva.jpg",
@@ -793,14 +842,16 @@
             "focus": { "x": 0, "y": 0, "w": 3264, "h": 4928 }
           },
           "description": "<strong>Magnus Mefisto</strong> nació en Buenos Aires en 1984 y es creador de contenido audiovisual para varias plataformas digitales. En Youtube es parte de un equipo que se dedica a la exploración urbana de lugares abandonados centrándose en perseguir mitos y leyendas urbanas. En el ámbito musical editó 3 discos promocionados con videoclips realizados por su propia productora. Actualmente maneja el contenido en redes de Purga TV, la primera página streaming de películas y cortos de terror."
-        }, {
+        },
+        {
           "name": "Daniela Pereyra",
           "pic": {
             "url": "resources/bars2017/jury_daniela_pereyra.jpg",
             "focus": { "x": 0, "y": 0, "w": 1667, "h": 1772 }
           },
           "description": "<strong>Daniela Pereyra</strong> estudió Ciencias de la Comunicación Social en la Universidad de Buenos Aires. Es periodista cultural, especializada en cine y literatura. Condujo y produjo el programa de radio <i>Acá no es</i>, en FM La Tribu entre 2007 y 2014. Desde 2012 forma parte de <i>La Nave de los Sueños</i>, como productora y programadora. Fue asistente de programación en el Festival Audiovisual Bariloche en 2013 y 2014. Fue productora audiovisual en Tecnópolis 2015, en ese año compiló el libro <i>Latidos, El pulso del cine argentino</i>."
-        }, {
+        },
+        {
           "name": "Lucila Las Heras",
           "pic": {
             "url": "resources/bars2017/jury_lucila_las_heras.jpg",
@@ -812,11 +863,11 @@
     }
   },
   {
-    "number" : 17,
-    "title" : "BARS 2016",
-    "days" : {
-      "from" : "2016-10-27T03:00:00.000Z",
-      "to" : "2016-11-06T03:00:00.000Z"
+    "number": 17,
+    "title": "BARS 2016",
+    "days": {
+      "from": "2016-10-27T03:00:00.000Z",
+      "to": "2016-11-06T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -824,9 +875,9 @@
         "address": "Lavalle 780"
       }
     },
-    "poster" : "resources/bars2016/bars2016_afiche.jpg",
-    "programme" : "resources/bars2016/bars2016_programme.jpg",
-    "closing_party" : "resources/bars2016/bars2016_fiesta_clausura.jpg",
+    "poster": "resources/bars2016/bars2016_afiche.jpg",
+    "programme": "resources/bars2016/bars2016_programme.jpg",
+    "closing_party": "resources/bars2016/bars2016_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=DwmHWFtuIfk",
     "call": {
       "from": "",
@@ -861,7 +912,6 @@
       ]
     },
     "juries": {
-
       "Competencia Internacional de largometrajes": [
         {
           "name": "Fernando Álvarez",
@@ -897,14 +947,16 @@
             "focus": { "x": 0, "y": 0, "w": 2048, "h": 1360 }
           },
           "description": "<strong>Miguelius Fernández</strong>, nacido en Buenos Aires en 1977, es director de sonido cinematográfico egresado de la ENERC y creador de música electrónica, con sus cuerdas vocales como único instrumento. Fue operador técnico, coordinador de aire y realizador de ediciones artísticas para las radios <i>La Tribu</i>, <i>Supernova</i>, <i>Faro</i> y <i>Municipal</i>. Desde el año 2005 forma parte del colectivo cultural <i>La Nave de los Sueños</i> como encargado técnico y audiovisual. Realiza trabajo de sonido directo y posproducción de sonido para películas y clínicas de videoclips, música electrónica y edición digital. Como músico, formó parte del unplugged de MTV de Diego Torres y es un referente dentro de la escena de la música electrónica."
-        }, {
+        },
+        {
           "name": "Brian Maya",
           "pic": {
             "url": "resources/bars2016/jury_brian_maya.png",
             "focus": { "x": 0, "y": 0, "w": 1113, "h": 750 }
           },
           "description": "<strong>Brian Maya</strong> comenzó su carrera como actor en Nueva York luego de estudiar cine en New York University y actuación en el Lee Strasberg Institute. Al regresar a Buenos Aires, fundó la productora de TJM y desarrolló, produjo y protagonizó el film <i>Palermo Hollywood</i>. Estrenada en Argentina por Warner Bros y nominada a mejor película de competencia mundial en el festival de Sundance 2005, fue premiada por mejor música en el Milán Film Festival. Su última película, <i>Expediente Santiso</i>, un thriller sobrenatural, debutó internacionalmente en el festival de Cannes 2015 como parte de Blood Window y continuó su recorrido en el festival de cine de género más importante de Asia, BIFAN, en Corea. Compitió en el festival Buenos Aires Rojo Sangre en 2015 antes de su estreno comercial en febrero de 2016 en las salas de todo el país. Algunas de las películas en las que ha actuado son <i>Sultanes del sur</i>, junto a Jordi Molla y Ana de la Reguera y <i>Peligrosa obsesión</i>, con Pablo Echarri. En este momento se encuentra en preproducción de su segundo largometraje como director."
-        }, {
+        },
+        {
           "name": "Camilo De Cabo",
           "pic": {
             "url": "resources/bars2016/jury_camilo_de_cabo.jpg",
@@ -922,14 +974,16 @@
             "focus": { "x": 0, "y": 0, "w": 960, "h": 720 }
           },
           "description": "<strong>Marcelo Di Marco</strong>, poeta, ensayista y narrador con unos quince títulos publicados, es el autor del longseller <i>Taller de corte y corrección</i>. Como especialista en literatura y cine de horror sobrenatural, dictó talleres de narrativa fantástica en la facultad de Filosofía y Letras, fue el primer secretario de redacción de <i>La Cosa</i> y fundó el círculo de escritores <i>La Abadía de Carfax</i>. Entre sus obras más escalofriantes se destacan la novela <i>Victoria entre las sombras</i> (Sudamericana Joven, 2011) y el libro de cuentos <i>La mayor astucia del demonio</i> (Zona Borde, 2016). En 2011, integró el jurado para el Premio Municipal de Cuento, bienios 2007-2008 y 2009-2010."
-        }, {
+        },
+        {
           "name": "Martín Araneda",
           "pic": {
             "url": "resources/bars2016/jury_martin_araneda.png",
             "focus": { "x": 0, "y": 0, "w": 314, "h": 294 }
           },
           "description": "<strong>Martín Araneda</strong> es productor del Festival Internacional de Cortos de Animación Cartón, realizado desde 2011 en Buenos Aires, integrante de la Red Federal de Festivales y Muestras Audiovisuales. Asimismo se desempeñó como productor del ciclo CineClub entre 2011 y 2012 en FM La Tribu. Se define como un animador frustrado o en proceso. Es operador y productor de radio desde 2007 y sonidista de Palta (@paltamusica) aunque, aclara, fue convocado por error. <strong>Martin Araneda</strong> es productor del Festival Internacional de Cortos de Animación Cartón, realizado desde 2011 en Buenos Aires, es integrante de la Red Federal de Festivales y Muestras Audiovisuales y fue productor del ciclo CineClub en 2011 y 2012 en FM La Tribu."
-        }, {
+        },
+        {
           "name": "Mariano Castaño",
           "pic": {
             "url": "resources/bars2016/jury_mariano_castano.jpg",
@@ -941,11 +995,11 @@
     }
   },
   {
-    "number" : 16,
-    "title" : "BARS 2015",
-    "days" : {
-      "from" : "2015-11-12T03:00:00.000Z",
-      "to" : "2015-11-22T03:00:00.000Z"
+    "number": 16,
+    "title": "BARS 2015",
+    "days": {
+      "from": "2015-11-12T03:00:00.000Z",
+      "to": "2015-11-22T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -953,10 +1007,10 @@
         "address": "Lavalle 780"
       }
     },
-    "poster" : "resources/bars2015/bars2015_afiche.jpg",
-    "programme" : "resources/bars2015/bars2015_programme.jpg",
-    "programme_gs" : "resources/bars2015/bars2015_programme_gs.jpg",
-    "closing_party" : "resources/bars2015/bars2015_fiesta_clausura.jpg",
+    "poster": "resources/bars2015/bars2015_afiche.jpg",
+    "programme": "resources/bars2015/bars2015_programme.jpg",
+    "programme_gs": "resources/bars2015/bars2015_programme_gs.jpg",
+    "closing_party": "resources/bars2015/bars2015_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=eGmKj6-bxpQ",
     "call": {
       "from": "",
@@ -1046,7 +1100,8 @@
             }
           },
           "description": "<strong>César Jones</strong>, nacido en La Plata en 1971, es director de la productora independiente de films porno LPsexxx realizaciones, surgida en el año 2000. Egresado de la carrera de Comunicación Audiovisual de la Facultad de Bellas Artes de la UNLP, ha dirigido hasta la fecha dieciséis largometrajes dentro del género condicionado. En 2007 recibió el premio al Mejor Director de Cine Porno Argentino, del FICEBA (Festival Internacional de Cine Erótico de Buenos Aires) y en 2015, el premio Sodoma a la Trayectoria, también como director de cine porno argentino. Durante 2003, publicó en la Red \"Argentina Sci-Fi\", un trabajo de investigación exploratoria sobre las relaciones entre la ciencia-ficción y el cine argentino desde comienzos del sonoro hasta los primeros estertores del nuevo milenio."
-        }, {
+        },
+        {
           "name": "Emiliano Romero",
           "pic": {
             "url": "resources/bars2015/jury_emiliano_romero.jpg",
@@ -1058,7 +1113,8 @@
             }
           },
           "description": "<strong>Emiliano Romero</strong> (Buenos Aires, 1979) es director, productor, guionista, montajista y camarógrafo. Egresado de la licenciatura de la Universidad del Cine en el 2003, realizó dos largometrajes, <i>Topos</i> y <i>Sarah</i>, y más de ochenta cortometrajes. Sus películas ganaron treinta y nueve premios internacionales. Dirige también comerciales, videoclips y programas de TV, como actualmente <i>Sucede</i>, para el canal UN3. Es el fundador del Circuito Alternativo de Exhibición \"No solo en cines\" y de la Academia Argentina de Actuación para Cine, donde forma actores para la pantalla grande desde el 2006. Siempre quiso ser una estrella de rock."
-        }, {
+        },
+        {
           "name": "Federico Ambrosis",
           "pic": {
             "url": "resources/bars2015/jury_federico_ambrosis.jpg",
@@ -1086,7 +1142,8 @@
             }
           },
           "description": "<strong>Andrés Valenzuela</strong> nació en Buenos Aires en 1981. Es periodista y colabora principalmente con el diario Página/12, donde escribe, entrevista y reseña sobre historieta, cine y tango, entre otros temas. Publicó el libro Ciencia y superhéroes junto a Paula Bombara, llevó adelante el sitio web \"Cuadritos, periodismo de historieta\" durante cinco años y fue jurado de distintos premios de historieta (Solano López en 2010, Banda Dibujada en 2012, Comicópolis en 2015). Hasta el momento, no pidieron su cabeza por ninguno de esos fallos. En su oficio intenta practicar el \"valardohaerismo\" como práctica de promoción cultural."
-        }, {
+        },
+        {
           "name": "Nicolás Leonardo Vetromile",
           "pic": {
             "url": "resources/bars2015/jury_nicolas_leonardo_vetromile.jpg",
@@ -1098,7 +1155,8 @@
             }
           },
           "description": "<strong>Nicolás Leonardo Vetromile</strong> nació en Buenos Aires en 1980. Es ex alumno de la carrera de Montaje del ENERC, donde realizó una gran cantidad de cortometrajes en diferentes roles. Elaboró notas de índole técnico para diferentes publicaciones especializadas como Cine y Artes Audiovisuales y páginas como TandilFilms y Grupo Kane, entre otras. Su filmografía como montajista comprende los cortometrajes <i>Meneses</i> (2004) y <i>Ladrones de la corona</i> (2002), entre muchos otros, y los largometrajes <i>Compañeros, casi amigos</i> (2007) y <i>Radio Olmos</i> (2008). En la actualidad es jefe de departamento y asesor técnico del Centro de Producción Audiovisual de la Coordinación de Comunicación del INCAA."
-        }, {
+        },
+        {
           "name": "Germán Magariños",
           "pic": {
             "url": "resources/bars2015/jury_german_magarinos.jpg",
@@ -1115,11 +1173,11 @@
     }
   },
   {
-    "number" : 15,
-    "title" : "BARS 2014",
-    "days" : {
-      "from" : "2014-10-29T03:00:00.000Z",
-      "to" : "2014-11-09T03:00:00.000Z"
+    "number": 15,
+    "title": "BARS 2014",
+    "days": {
+      "from": "2014-10-29T03:00:00.000Z",
+      "to": "2014-11-09T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -1127,9 +1185,9 @@
         "address": "Lavalle 780"
       }
     },
-    "poster" : "resources/bars2014/bars2014_afiche.jpg",
-    "programme" : "resources/bars2014/bars2014_programme.jpg",
-    "closing_party" : "resources/bars2014/bars2014_fiesta_clausura.jpg",
+    "poster": "resources/bars2014/bars2014_afiche.jpg",
+    "programme": "resources/bars2014/bars2014_programme.jpg",
+    "closing_party": "resources/bars2014/bars2014_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=XsbUb4SYkw4",
     "call": {
       "from": "",
@@ -1211,10 +1269,10 @@
           "pic": {
             "url": "resources/bars2014/jury_carina_rodriguez.jpg",
             "focus": {
-              "x" : 0.12,
-              "y" : 0.24,
-              "w" : 553,
-              "h" : 520
+              "x": 0.12,
+              "y": 0.24,
+              "w": 553,
+              "h": 520
             }
           },
           "description": "<strong>Carina Rodríguez</strong> se especializa en cine y televisión de género de terror argentino, sobre lo que ha publicado numerosos artículos y el libro <i>El cine de terror en Argentina: producción, distribución, exhibición y mercado</i> (2000-2010). Es magíster en Industrias Culturales por la Universidad Nacional de Quilmes (UNQ) y docente e investigadora de la UNQ. Ha participado en varios programas de investigación sobre políticas públicas de comunicación, cine y televisión. También trabaja desde hace más de una década realizando divulgación científica y comunicación institucional en la UNQ."
@@ -1224,11 +1282,10 @@
           "pic": {
             "url": "resources/bars2014/jury_santiago_fernandez_calvete.jpg",
             "focus": {
-
-              "x" : -0.01,
-              "y" : 0.40,
-              "w" : 522,
-              "h" : 563
+              "x": -0.01,
+              "y": 0.4,
+              "w": 522,
+              "h": 563
             }
           },
           "description": "<strong>Santiago Fernández Calvete</strong>, nacido en Buenos Aires en 1974, es guionista y director de cine y desde el 2014 es parte del staff de la prestigiosa revista <i>Scifiworld</i> como corresponsal en Argentina. Dirigió dos largometrajes: <i>La Segunda Muerte</i> —film que ha competido en Sitges 2012, BIFFF 2013, Fantaspoa 2013 y Macabro 2014, entre otros— y <i>Testigo Íntimo</i> —en postproducción—. Actualmente desarrolla su tercer largometraje (<i>Visión Nocturna</i>) para Nimbus Comunicación (México)."
@@ -1238,10 +1295,10 @@
           "pic": {
             "url": "resources/bars2014/jury_rebeca_martinez.jpg",
             "focus": {
-              "x" : 0.19,
-              "y" : 0.43,
-              "w" : 526,
-              "h" : 563
+              "x": 0.19,
+              "y": 0.43,
+              "w": 526,
+              "h": 563
             }
           },
           "description": "<strong>Rebeca Martinez</strong> nació en la ciudad de Arrecifes en 1982. En el año 2003 viajó a Buenos Aires a estudiar Maquillaje y Efectos especiales y, ya instalada, en el 2004 comenzó su trabajo en cine de género con el grupo Rabbid fx en películas como <i>Director's Cut</i>, <i>The last Gateway</i>, <i>Death Knows Your Name</i>, <i>Malditos Sean</i>, <i>Lo siniestro</i> y <i>Plaga Zombie: Revolución Tóxica</i>, entre otras. Ya a partir del 2009, con estudio propio, trabajó en el maquillaje y los efectos especiales de <i>Aballay</i>, <i>Olvidame</i>, <i>La plegaria del vidente</i>, <i>El túnel de los huesos</i>, <i>La memoria del muerto</i>, <i>Diablo</i>, <i>2/11 Día de los Muertos</i>, <i>Hermanos de sangre</i>, <i>Necrofobia</i> y <i>Resurrección</i>, entre otras."
@@ -1253,10 +1310,10 @@
           "pic": {
             "url": "resources/bars2014/jury_liliana_amate.jpg",
             "focus": {
-              "x" : -0.17,
-              "y" : 0.13,
-              "w" : 599,
-              "h" : 520
+              "x": -0.17,
+              "y": 0.13,
+              "w": 599,
+              "h": 520
             }
           },
           "description": "<strong>Liliana Amate</strong> es docente y realizadora audiovisual. Tiene un máster en Nuevas Tecnologías para el formato documental de la ESCAC (Universidad de Barcelona). Se desempeña como presidente de UNCIPAR (Festival de Cine y Video Independiente de Villa Gesell) y también es curadora de mercados y festivales internacionales. Actualmente es la coordinadora del Departamento de Cortometraje de la Gerencia General del INCAA."
@@ -1266,10 +1323,10 @@
           "pic": {
             "url": "resources/bars2014/jury_martin_blousson.jpg",
             "focus": {
-              "x" : -0.27,
-              "y" : 0.20,
-              "w" : 215,
-              "h" : 201
+              "x": -0.27,
+              "y": 0.2,
+              "w": 215,
+              "h": 201
             }
           },
           "description": "<strong>Martín Blousson</strong>, guionista, editor y ocasional asistente de dirección, tuvo la suerte de haber trabajado junto a varios grandes de lo mejor del cine de género en la Argentina. Escribió y participó del montaje de <i>La memoria del muerto</i> de Valentín J. Diment; colaboró y editó <i>Diablo</i> de Nicanor Loreti; coescribió el guión de <i>Hermanos de sangre</i> de De la Vega con el mismo Loreti y otro notable escritor, Germán Val. Recientemente, trabajó junto a De la Vega y Guille Gatti en el montaje de <i>Necrofobia</i>, y ahora está trabajando para terminar su primera película, un documental sobre la movida del roller derby en la Argentina, a la vez que se encamina a participar de la edición del nuevo largometraje de Diment, <i>El eslabón podrido</i>."
@@ -1279,10 +1336,10 @@
           "pic": {
             "url": "resources/bars2014/jury_leandro_adrian_balbuena.jpg",
             "focus": {
-              "x" : 0.16,
-              "y" : 0.54,
-              "w" : 347,
-              "h" : 520
+              "x": 0.16,
+              "y": 0.54,
+              "w": 347,
+              "h": 520
             }
           },
           "description": "<strong>Leandro Adrian Balbuena</strong>, panchero, esposo, padre, periodista autodidacta, creador de la web <i>Cine fantástico y bizarro</i>, un sitio en Facebook donde se mezclan el cine <i>mainstream</i> y el <i>under</i> en partes iguales. Ha creado el \"mega archivo de cine de género nacional\", donde se encuentran los links para ver o descargar todo lo referido al cine de género de Argentina. Hace poco más de un año decidió lanzar la versión impresa de este portal y ya lleva editados 6 números."
@@ -1291,11 +1348,11 @@
     }
   },
   {
-    "number" : 14,
-    "title" : "BARS 2013",
-    "days" : {
-      "from" : "2013-10-31T03:00:00.000Z",
-      "to" : "2013-11-06T03:00:00.000Z"
+    "number": 14,
+    "title": "BARS 2013",
+    "days": {
+      "from": "2013-10-31T03:00:00.000Z",
+      "to": "2013-11-06T03:00:00.000Z"
     },
     "venues": {
       "lavalle": {
@@ -1303,9 +1360,9 @@
         "address": "Lavalle 780"
       }
     },
-    "poster" : "resources/bars2013/bars2013_afiche.jpg",
-    "programme" : "resources/bars2013/bars2013_programme.jpg",
-    "closing_party" : "resources/bars2013/bars2013_fiesta_clausura.jpg",
+    "poster": "resources/bars2013/bars2013_afiche.jpg",
+    "programme": "resources/bars2013/bars2013_programme.jpg",
+    "closing_party": "resources/bars2013/bars2013_fiesta_clausura.jpg",
     "spot": "https://www.youtube.com/watch?v=3KvJWUCNtUQ"
   }
 ]
