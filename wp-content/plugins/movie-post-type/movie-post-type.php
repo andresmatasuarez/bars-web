@@ -326,7 +326,7 @@
 	}
 
 	// Output movie meta box.
-	function show_movie_meta_box() {
+	function show_movie_meta_box($post) {
 		global $movie_fields;
 
 		// Use nonce for verification
@@ -337,14 +337,14 @@
 
 		// Echo each field as a row
 		foreach ($movie_fields as $field) {
-			echo_field($field);
+			echo_bars_plugin_field($post, $field);
 		}
 
 		echo '</table>';
 	}
 
 	// Output movieblock meta box.
-	function show_movieblock_meta_box() {
+	function show_movieblock_meta_box($post) {
 		global $movieblock_fields;
 
 		// Use nonce for verification
@@ -355,14 +355,13 @@
 
 		// Echo each field as a row
 		foreach ($movieblock_fields as $field) {
-			echo_field($field);
+			echo_bars_plugin_field($post, $field);
 		}
 
 		echo '</table>';
 	}
 
-	function echo_field($field){
-		global $post;
+	function echo_bars_plugin_field($post, $field){
 		// Get value of this field if it exists for this post
 		$meta = get_post_meta($post->ID, $field['id'], true);
 
@@ -381,6 +380,16 @@
 						if (isset($field['desc']) && strlen($field['desc']) != 0){
 							echo '<br /><span class="description">' . $field['desc'] . '</span>';
 						}
+						break;
+					case 'richeditor':
+						wp_editor($meta, $field['id'], array(
+								'wpautop'       => true,
+								'media_buttons' => false,
+								'textarea_name' => $field['id'],
+								'textarea_rows' => 10,
+								'teeny'         => true
+							)
+						);
 						break;
 					case 'checkbox':
 						echo '<input type="checkbox" name="' . $field['id'] . '" id="' . $field['id'] . '" ', $meta ? ' checked="checked"' : '','/>

@@ -253,6 +253,25 @@ class Editions {
     }
     return $indexed;
   }
+
+  public static function getJuries($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    // getJuries defined in jury-post-type.php
+    $juriesFromDB = getJuries($edition);
+
+    if (!empty($juriesFromDB)) {
+      return $juriesFromDB;
+    }
+
+    if (isset($edition['juries']) && !empty($edition['juries'])) {
+      return $edition['juries'];
+    }
+
+    return NULL;
+  }
 }
 
 Editions::initialize(dirname(__FILE__) . '/editions.json');

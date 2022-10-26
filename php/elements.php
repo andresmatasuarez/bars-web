@@ -253,4 +253,31 @@
 <?php
   }
 
+  function renderJury($jury) {
+?>
+    <div class="jury">
+    <?php
+      // Checks whether jury comes from DB or from editions file.
+      if (isset($jury['postId'])) {
+    ?>
+        <div class="jury-image">
+          <img src="<?php echo $jury['thumbnail']; ?>" />
+        </div>
+    <?php
+      } else {
+    ?>
+        <div class="jury-image focuspoint" data-focus-x="<?php echo $jury['pic']['focus']['x']; ?>" data-focus-y="<?php echo $jury['pic']['focus']['y']; ?>" data-image-w="<?php echo $jury['pic']['focus']['w']; ?>" data-image-h="<?php echo $jury['pic']['focus']['h']; ?>">
+          <img src="<?php echo get_bloginfo('template_directory') . '/' . $jury['pic']['url']; ?>" />
+        </div>
+    <?php
+      }
+    ?>
+
+      <div class="jury-info">
+        <div class="jury-name text-oswald"><?php echo $jury['name']; ?></div>
+        <p class="text-opensans indented"><?php echo $jury['description']; ?></p>
+      </div>
+    </div>
+<?php
+  }
 ?>

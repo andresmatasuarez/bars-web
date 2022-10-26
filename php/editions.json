@@ -276,7 +276,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de Largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Mónica Trigo",
           "pic": {
@@ -302,7 +302,7 @@
           "description": "<strong>José Luis Ortega Torres</strong> es investigador, docente y crítico de cine. Editó la revista <i>Icónica</i>, <i>Pensamiento fílmico</i> y una docena de libros dedicados al estudio del cine. Algunos de sus ensayos se compilan en los libros <i>El placer de ver cine</i> (2006), <i>La ficción de la historia</i> (2010), <i>Mostrología</i> del cine mexicano (2015) y <i>Posibilidades del análisis cinematográfico</i> (2016). Es fundador de <i>revistacinefagia.com</i>, en línea desde 2003. Ha sido jurado en festivales mexicanos y del extranjero y cofundó y programó la muestra de cine de horror en 35mm Masacre en Xoco. Es profesor de historia y teoría fílmica en Filmoteca de la UNAM y Cineteca Nacional de México. Produce y conduce los podcast <i>VideoMasacre</i> y <i>Cinéfago</i>."
         }
       ],
-      "Competencia Iberoamericana de Largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Paulo Soria",
           "pic": {
@@ -328,7 +328,7 @@
           "description": "<strong>Ramiro García Bogliano</strong> es guionista y director. Hace el fanzine <i>Confusos</i> en los años 90 que lo lleva, entre otras cosas, a entrevistar a Alex Cox, Alejandro Amenábar, Paul Naschy o visitar el set de rodaje de <i>El Día de la Bestia</i>. Posteriormente estudia cine en la EICTV (Cuba) en la que se gradúa con el cortometraje <i>Policlínico Miserable</i> que escribe en coautoría con su hermano Adrián García Bogliano para luego participar en los guiones de sus películas <i>Habitaciones Para Turistas</i>, <i>36 Pasos</i>, <i>No moriré sola</i> y <i>Sudor Frío</i>. Juntos codirigen <i>Masacre, esta noche</i>, <i>Donde duerme el horror</i> y <i>Penumbra</i>. Colabora como guionista, asistente de dirección o director de segunda unidad con Sebastián de Caro, Daniel de la Vega, Jorge Molina y Patricio Valladares. <i>Expansivas</i>, un thriller de venganza, es su más reciente película como director y ha realizado los guiones de la serie de terror <i>Haunted Latinoamérica</i>, estrenada este año en Netflix."
         }
       ],
-      "Competencia Internacional de Cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Carla Andrés",
           "pic": {
@@ -354,7 +354,7 @@
           "description": "<strong>Dopamina</strong>, efectista, escultor, grabador, músico y artista nacido en La Plata. Estudio diseño de indumentaria y artes plásticas (UNLP), en paralelo a maquillaje FX. Realizador y productor de efectos especiales de maquillaje y caracterización. Con su productora Rebis FX – Efectos Especiales, intervino en distintos espacios públicos de la ciudad de La Plata y Capital Federal. Diseño y realizó las estatuillas para el Festival Buenos Aires Rojo Sangre (2019, 2020, 2021). Trabajó en la realización artística de numerosos corto y largometrajes, tales como <i>Blood Red Ox</i> (Rodrigo Bellot) y <i>Gaspar</i> (Diego Pino). Combina técnicas de escultura con estudios del cuerpo, performance y horror. Produce esculturas y reproducciones corporales para uso comercial y artístico en su proyecto <i>Rubber Bodies</i>. Es docente y tallerista de FX."
         }
       ],
-      "Competencia \"Reapariciones\"": [
+      "reaparicionesCompetition": [
         {
           "name": "Federico Carestía",
           "pic": {
@@ -622,7 +622,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de Largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Edna Campos Tenorio",
           "pic": {
@@ -649,7 +649,7 @@
         }
       ],
 
-      "Competencia Iberoamericana de Largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Sol Moreno",
           "pic": {
@@ -676,7 +676,7 @@
         }
       ],
 
-      "Competencia Internacional de Cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Juan Diego Escobar Alzate",
           "pic": {
@@ -791,7 +791,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Federico Bal",
           "pic": {
@@ -818,7 +818,7 @@
         }
       ],
 
-      "Competencia Iberoamericana de largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Laura Sánchez Acosta",
           "pic": {
@@ -845,7 +845,7 @@
         }
       ],
 
-      "Competencia Internacional de cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Georgina Zanardi",
           "pic": {
@@ -872,7 +872,7 @@
         }
       ],
 
-      "Concurso: 'Fin de Semana Sangriento'": [
+      "finDeSemanaSangriento": [
         {
           "name": "Germán Magariños",
           "pic": {
@@ -955,7 +955,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Fran Gayo",
           "pic": {
@@ -982,7 +982,7 @@
         }
       ],
 
-      "Competencia Iberoamericana de largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Claudio Cordero",
           "pic": {
@@ -1009,7 +1009,7 @@
         }
       ],
 
-      "Competencia Internacional de cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "María Florencia Romero",
           "pic": {
@@ -1036,7 +1036,7 @@
         }
       ],
 
-      "Concurso: 'Fin de Semana Sangriento'": [
+      "finDeSemanaSangriento": [
         {
           "name": "Pablo Parés",
           "pic": {
@@ -1118,7 +1118,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Nicolás Batlle",
           "pic": {
@@ -1145,7 +1145,7 @@
         }
       ],
 
-      "Competencia Iberoamericana de largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Mariano Oliveros",
           "pic": {
@@ -1172,7 +1172,7 @@
         }
       ],
 
-      "Competencia Internacional de cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Magnus Mefisto",
           "pic": {
@@ -1250,7 +1250,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Fernando Álvarez",
           "pic": {
@@ -1277,7 +1277,7 @@
         }
       ],
 
-      "Competencia Iberoamericana de largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Miguelius Fernández",
           "pic": {
@@ -1304,7 +1304,7 @@
         }
       ],
 
-      "Competencia Internacional de cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Marcelo Di Marco",
           "pic": {
@@ -1383,7 +1383,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional de largometrajes": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Luis Ziembrowski",
           "pic": {
@@ -1425,7 +1425,7 @@
         }
       ],
 
-      "Competencia Iberoamericana de largometrajes": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "César Jones",
           "pic": {
@@ -1467,7 +1467,7 @@
         }
       ],
 
-      "Competencia Internacional de cortometrajes": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Andrés Valenzuela",
           "pic": {
@@ -1560,7 +1560,7 @@
       ]
     },
     "juries": {
-      "Competencia Internacional": [
+      "internationalFeatureFilmCompetition": [
         {
           "name": "Nicanor Loreti",
           "pic": {
@@ -1601,7 +1601,7 @@
           "description": "<strong>Fabio \"Mosquito\" Sancineto</strong>, actor, docente, director, autor. Alma máter del <i>Match de Improvisación</i> desde el año 1990 hasta la actualidad y director de la primera Liga de Improvisación de la República Argentina. Fundó la primera compañía de teatro e improvisación argentina y es diploma de honor Premio Konex 2001, destacado como uno de los mejores 100 artistas de la década. Fue nominado a los premios María Guerrero y Florencio Sánchez 2013, como mejor actor de reparto, por <i>La sombra de Wenceslao</i> de Copi. Ganador del premio Teatro XXI 2014, acaba de estrenar <i>Muñeca</i> de Discépolo, dirigida por Pompeyo Audivert, y conduce en Radio nacional, <i>En mi propia lengua</i> junto a Tom Lupo."
         }
       ],
-      "Competencia Iberoamericana": [
+      "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Carina Rodriguez",
           "pic": {
@@ -1642,7 +1642,7 @@
           "description": "<strong>Rebeca Martinez</strong> nació en la ciudad de Arrecifes en 1982. En el año 2003 viajó a Buenos Aires a estudiar Maquillaje y Efectos especiales y, ya instalada, en el 2004 comenzó su trabajo en cine de género con el grupo Rabbid fx en películas como <i>Director's Cut</i>, <i>The last Gateway</i>, <i>Death Knows Your Name</i>, <i>Malditos Sean</i>, <i>Lo siniestro</i> y <i>Plaga Zombie: Revolución Tóxica</i>, entre otras. Ya a partir del 2009, con estudio propio, trabajó en el maquillaje y los efectos especiales de <i>Aballay</i>, <i>Olvidame</i>, <i>La plegaria del vidente</i>, <i>El túnel de los huesos</i>, <i>La memoria del muerto</i>, <i>Diablo</i>, <i>2/11 Día de los Muertos</i>, <i>Hermanos de sangre</i>, <i>Necrofobia</i> y <i>Resurrección</i>, entre otras."
         }
       ],
-      "Cortos en competencia": [
+      "internationalShortFilmCompetition": [
         {
           "name": "Liliana Amate",
           "pic": {

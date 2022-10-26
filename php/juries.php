@@ -18,6 +18,8 @@
   } else {
     $currentEdition = Editions::getByNumber(htmlspecialchars($_GET['edition']));
   }
+
+  $juries = Editions::getJuries($currentEdition);
 ?>
 
 <script>
@@ -57,7 +59,6 @@
                 );
               }
             } else {
-              $noJuriesDefined = !isset($currentEdition['juries']) || empty($currentEdition['juries']);
           ?>
               <div class="content text-opensans indented">
                 <p>
@@ -99,7 +100,7 @@
                 <div class="scratch"></div>
 
                 <?php
-                  if ($noJuriesDefined){
+                  if (empty($juries)){
                     if ($currentEdition === Editions::current()) {
                       renderWarningMessage(
                         'Los jurados todavía no han sido seleccionados',
@@ -117,28 +118,19 @@
                 ?>
                     <div>
                       <?php
-                        foreach($currentEdition['juries'] as $section => $juries){
-
+                        foreach($juries as $sectionId => $juriesForSection){
                           echo '<div class="page-header juries section">';
                           echo    '<span class="fa fa-film"></span>';
-                          echo    $section;
+                          echo    getJurySectionLabel($sectionId);
                           echo    '<div class="scratch"></div>';
                           echo '</div>';
 
                           echo '<div class="juries">';
-                          if (empty($juries)) {
+                          if (empty($juriesForSection)) {
                             echo '<div class="no-juries-yet">Los jurados para esta sección todavía no han sido seleccionados</div>';
                           } else {
-                            foreach($juries as $index => $jury){
-                              echo '<div class="jury">';
-                              echo    '<div class="jury-image focuspoint" data-focus-x="' . $jury['pic']['focus']['x'] . '" data-focus-y="' . $jury['pic']['focus']['y'] . '" data-image-w="' . $jury['pic']['focus']['w'] . '" data-image-h="' . $jury['pic']['focus']['h'] . '">';
-                              echo      '<img src="'. get_bloginfo('template_directory') . '/' . $jury['pic']['url'] . '" />';
-                              echo    '</div>';
-                              echo    '<div class="jury-info">';
-                              echo      '<div class="jury-name text-oswald">' . $jury['name'] . '</div>';
-                              echo      '<p class="text-opensans indented">' . $jury['description'] . '</p>';
-                              echo    '</div>';
-                              echo '</div>';
+                            foreach($juriesForSection as $index => $jury){
+                              renderJury($jury);
                             }
                           }
                           echo '</div>';
