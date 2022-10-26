@@ -580,7 +580,7 @@
 		", $edition, $edition));
 	}
 
-	function getSectionsForEdition($edition) {
+	function getMovieSectionsForEdition($edition) {
 		global $wpdb;
 		$edition = 'bars' . $edition['number'];
 		return array_unique(array_map(function ($post) {

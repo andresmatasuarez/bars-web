@@ -92,7 +92,7 @@
 										<div class="schedule-filters">
 											<?php
 												$movieSections = array('all' => 'Todas');
-												foreach(getSectionsForEdition($currentEdition) as $section){
+												foreach(getMovieSectionsForEdition($currentEdition) as $section){
 													$movieSections[$section]= $sections[$section]['label'];
 												}
 
