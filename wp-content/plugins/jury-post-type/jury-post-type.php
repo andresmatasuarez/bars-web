@@ -28,19 +28,7 @@
 		global $juryPrefix;
 		global $juryFields;
 		global $jurySections;
-
-		$editionOptions = array (
-			'bars23' => array ( 'label' => 'BARS 2022',	'value' => 'bars23' ),
-			'bars22' => array ( 'label' => 'BARS 2021',	'value' => 'bars22' ),
-			'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
-			'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
-			'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
-			'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
-			'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
-			'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
-			'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
-			'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
-		);
+		global $barscommons_editionOptions;
 
 		$jurySections = array (
 			'internationalFeatureFilmCompetition' => array('label' => 'Competencia Internacional de Largometrajes',  'value' => 'internationalFeatureFilmCompetition'),
@@ -57,7 +45,7 @@
 				'id'    => $juryPrefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => $editionOptions
+				'options' => $barscommons_editionOptions
 			),
 			array(
 				'id'    => $juryPrefix . 'section',
@@ -122,61 +110,23 @@
 	// Output jury meta box.
 	function show_jury_meta_box($post) {
 		global $juryFields;
-
-		// Use nonce for verification
-		echo '<input type="hidden" name="jury_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
-
-		// Begin the field table and loop
-		echo '<table class="form-table">';
-
-		// Echo each field as a row
-		foreach ($juryFields as $field) {
-			echo_bars_plugin_field($post, $field);
-		}
-
-		echo '</table>';
+		barscommons_show_meta_box_inputs('jury_meta_box_nonce', basename(__FILE__), $post, $juryFields);
 	}
 
 	// Save jury data
 	function save_jury($post_id) {
-		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
-			return;
-		}
-
 		global $juryPrefix;
 		global $juryFields;
 
-		// Verify nonce
-		if (!wp_verify_nonce($_POST['jury_meta_box_nonce'], basename(__FILE__)))
-			return;
-
-		// Check autosave
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-			return;
-
-		// Check permissions
-		if ($_POST['post_type'] != 'jury' || !current_user_can('edit_post', $post_id))
-			return;
-
-		// Loop through fields and save the data
-		foreach ($juryFields as $field) {
-			if ( isset( $_POST[$field['id']] ) && $_POST[$field['id']] != '' ) {
-
-				if ($field['id'] == $juryPrefix . 'name'){
-					// To avoid infinite loop: save_post -> wp_update_post -> save_post -> ...
-					remove_action('save_post', 'save_jury');
-					wp_update_post(array(
-						'ID' => $post_id,
-						'post_title' => $_POST[$field['id']],
-						'post_name' => sanitize_title($_POST[$field['id']]),
-						'post_author' => get_current_user_id(),
-						'post_content' => ''
-					));
-					add_action('save_post', 'save_jury');
-				}
-				update_post_meta( $post_id, $field['id'], $_POST[$field['id']] );
-			}
-		}
+		barscommons_save_custom_post(
+			'jury',
+			'save_jury',
+			'jury_meta_box_nonce',
+			basename(__FILE__),
+			$post_id,
+			$juryPrefix . 'name',
+			$juryFields
+		);
 	}
 
 	function getJuryEntriesQuery() {

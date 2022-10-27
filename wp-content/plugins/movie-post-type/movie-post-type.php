@@ -30,33 +30,21 @@
 	add_action('init', 'initialize');
 
 	function initialize(){
-		global $sections;
+		global $movieSections;
 		global $movie_prefix;
 		global $movie_fields;
 		global $movieblock_prefix;
 		global $movieblock_fields;
 		global $movieBlocks;
-
-		$editionOptions = array (
-			'bars23' => array ( 'label' => 'BARS 2022',	'value' => 'bars23' ),
-			'bars22' => array ( 'label' => 'BARS 2021',	'value' => 'bars22' ),
-			'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),
-			'bars20' => array ( 'label' => 'BARS 2019',	'value' => 'bars20' ),
-			'bars19' => array ( 'label' => 'BARS 2018',	'value' => 'bars19' ),
-			'bars18' => array ( 'label' => 'BARS 2017',	'value' => 'bars18' ),
-			'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
-			'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
-			'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
-			'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
-		);
+		global $barscommons_editionOptions;
 
 		$screeningsFormatDescription = 'Format: (venue.room:)mm-dd-yyyy hh:mm.<br />Comma-separated.<br />Venue and room are optional.<br /><br />Example:<br />  - <strong>lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00</strong><br /><br />Example for streaming movies:<br />  - <strong>streaming!contar:full</strong> (available for the whole duration of the festival)<br />  - <strong>streaming!flixxo:11-28-2020,streaming!flixxo:11-29-2020</strong> (available only on specific days)';
 
-		$currentEditionKey = reset($editionOptions)['value']; // https://stackoverflow.com/a/1028677
+		$currentEditionKey = reset($barscommons_editionOptions)['value']; // https://stackoverflow.com/a/1028677
 		$movieBlocks = movieBlocks($currentEditionKey);
 
 		/* ***** MOVIE SECTIONS ***** */
-		$sections = array (
+		$movieSections = array (
 			// Bars 2013
 			'opening'                             => array ( 'label' => 'Función de apertura',         'value' => 'opening' ),
 			'shortFilm'                           => array ( 'label' => 'Cortos fuera de competencia', 'value' => 'shortFilm' ),
@@ -72,9 +60,9 @@
 			'imperdibles'                         => array ( 'label' => 'Imperdibles',                 'value' => 'imperdibles' ),
 
 			// Bars 2013-only sections
-			//'raroVhs'                             => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
-			//'filmotecaPresenta'                   => array ( 'label' => 'Filmoteca Presenta',          'value' => 'filmotecaPresenta' ),
-			//'sangreSudorYLagrimas'                => array ( 'label' => 'Sangre, Sudor y Lágrimas',    'value' => 'sangreSudorYLagrimas' ),
+			'raroVhs'                             => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
+			'filmotecaPresenta'                   => array ( 'label' => 'Filmoteca Presenta',          'value' => 'filmotecaPresenta' ),
+			'sangreSudorYLagrimas'                => array ( 'label' => 'Sangre, Sudor y Lágrimas',    'value' => 'sangreSudorYLagrimas' ),
 
 			// Bars 2014 new sections
 			'bizarreCompetition' => array ( 'label' => 'Competencia Bizarra', 'value' => 'bizarreCompetition' ),
@@ -113,7 +101,7 @@
 				'id'    => $movie_prefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => $editionOptions
+				'options' => $barscommons_editionOptions
 			),
 			array(
 				'id'    => $movie_prefix . 'movieblock',
@@ -125,7 +113,7 @@
 				'id'    => $movie_prefix . 'section',
 				'label' => 'Section',
 				'type'  => 'select',
-				'options' => $sections
+				'options' => $movieSections
 			),
 			array(
 				'id'    => $movie_prefix . 'name',
@@ -205,13 +193,13 @@
 				'id'    => $movieblock_prefix . 'edition',
 				'label' => 'Edition',
 				'type'  => 'select',
-				'options' => $editionOptions
+				'options' => $barscommons_editionOptions
 			),
 			array(
 				'id'    => $movieblock_prefix . 'section',
 				'label' => 'Section',
 				'type'  => 'select',
-				'options' => $sections
+				'options' => $movieSections
 			),
 			array(
 				'id'    => $movieblock_prefix . 'name',
@@ -323,166 +311,45 @@
 	// Output movie meta box.
 	function show_movie_meta_box($post) {
 		global $movie_fields;
-
-		// Use nonce for verification
-		echo '<input type="hidden" name="movie_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
-
-		// Begin the field table and loop
-		echo '<table class="form-table">';
-
-		// Echo each field as a row
-		foreach ($movie_fields as $field) {
-			echo_bars_plugin_field($post, $field);
-		}
-
-		echo '</table>';
+		barscommons_show_meta_box_inputs('movie_meta_box_nonce', basename(__FILE__), $post, $movie_fields);
 	}
 
 	// Output movieblock meta box.
 	function show_movieblock_meta_box($post) {
 		global $movieblock_fields;
-
-		// Use nonce for verification
-		echo '<input type="hidden" name="movieblock_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
-
-		// Begin the field table and loop
-		echo '<table class="form-table">';
-
-		// Echo each field as a row
-		foreach ($movieblock_fields as $field) {
-			echo_bars_plugin_field($post, $field);
-		}
-
-		echo '</table>';
-	}
-
-	function echo_bars_plugin_field($post, $field){
-		// Get value of this field if it exists for this post
-		$meta = get_post_meta($post->ID, $field['id'], true);
-
-		echo '<tr>
-				<th><label for="' . $field['id'] . '">' . $field['label'] . '</label></th>
-				<td>';
-				switch($field['type']) {
-					case 'text':
-						echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="30" />';
-						if (isset($field['desc']) && strlen($field['desc']) != 0){
-							echo '<br /><span class="description">' . $field['desc'] . '</span>';
-						}
-						break;
-					case 'textarea':
-						echo '<textarea name="' . $field['id'] . '" id="' . $field['id'] . '" cols="60" rows="4">' . $meta . '</textarea>';
-						if (isset($field['desc']) && strlen($field['desc']) != 0){
-							echo '<br /><span class="description">' . $field['desc'] . '</span>';
-						}
-						break;
-					case 'richeditor':
-						wp_editor($meta, $field['id'], array(
-								'wpautop'       => true,
-								'media_buttons' => false,
-								'textarea_name' => $field['id'],
-								'textarea_rows' => 10,
-								'teeny'         => true
-							)
-						);
-						break;
-					case 'checkbox':
-						echo '<input type="checkbox" name="' . $field['id'] . '" id="' . $field['id'] . '" ', $meta ? ' checked="checked"' : '','/>
-							<label for="' . $field['id'] . '">' . $field['desc'] . '</label>';
-						break;
-					case 'select':
-						echo '<select name="' . $field['id'] . '" id="' . $field['id'] . '">';
-						foreach ($field['options'] as $option) {
-							echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="' . $option['value'] . '">' . $option['label'] . '</option>';
-						}
-						if (isset($field['desc']) && strlen($field['desc']) != 0){
-							echo '<br /><span class="description">' . $field['desc'] . '</span>';
-						}
-						break;
-				}
-		echo '</td></tr>';
+		barscommons_show_meta_box_inputs('movieblock_meta_box_nonce', basename(__FILE__), $post, $movieblock_fields);
 	}
 
 	// Save movie data
 	function save_movie($post_id) {
-		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
-			return;
-		}
-
 		global $movie_prefix;
 		global $movie_fields;
 
-		// Verify nonce
-		if (!wp_verify_nonce($_POST['movie_meta_box_nonce'], basename(__FILE__)))
-			return;
-
-		// Check autosave
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-			return;
-
-		// Check permissions
-		if ($_POST['post_type'] != 'movie' || !current_user_can('edit_post', $post_id))
-			return;
-
-		// Loop through fields and save the data
-		foreach ($movie_fields as $field) {
-			if ( isset( $_POST[$field['id']] ) && $_POST[$field['id']] != '' ) {
-				if ($field['id'] == $movie_prefix . 'name'){
-					// To avoid infinite loop: save_post -> wp_update_post -> save_post -> ...
-					remove_action('save_post', 'save_movie');
-					wp_update_post(array(
-						'ID' => $post_id,
-						'post_title' => $_POST[$field['id']],
-						'post_name' => sanitize_title($_POST[$field['id']]),
-						'post_author' => get_current_user_id(),
-						'post_content' => ''
-					));
-					add_action('save_post', 'save_movie');
-				}
-				update_post_meta( $post_id, $field['id'], $_POST[$field['id']] );
-			}
-		}
+		barscommons_save_custom_post(
+			'movie',
+			'save_movie',
+			'movie_meta_box_nonce',
+			basename(__FILE__),
+			$post_id,
+			$movie_prefix . 'name',
+			$movie_fields
+		);
 	}
 
 	// Save short film series data
 	function save_movieblock($post_id) {
-		if ($_SERVER['REQUEST_METHOD'] != 'POST'){
-			return;
-		}
-
 		global $movieblock_prefix;
 		global $movieblock_fields;
 
-		// Verify nonce
-		if (isset($_POST['movieblock_meta_box_nonce']) && !wp_verify_nonce($_POST['movieblock_meta_box_nonce'], basename(__FILE__)))
-			return;
-
-		// Check autosave
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-			return;
-
-		// Check permissions
-		if ($_POST['post_type'] != 'movieblock' || !current_user_can('edit_post', $post_id))
-			return;
-
-		// Loop through fields and save the data
-		foreach ($movieblock_fields as $field) {
-			if ( isset( $_POST[$field['id']] ) && $_POST[$field['id']] != '' ) {
-				if ($field['id'] == $movieblock_prefix . 'name'){
-					// To avoid infinite loop: save_post -> wp_update_post -> save_post -> ...
-					remove_action('save_post', 'save_movieblock');
-					wp_update_post(array(
-						'ID' => $post_id,
-						'post_title' => $_POST[$field['id']],
-						'post_name' => sanitize_title($_POST[$field['id']]),
-						'post_author' => get_current_user_id(),
-						'post_content' => ''
-					));
-					add_action('save_post', 'save_movieblock');
-				}
-				update_post_meta( $post_id, $field['id'], $_POST[$field['id']] );
-			}
-		}
+		barscommons_save_custom_post(
+			'movieblock',
+			'save_movieblock',
+			'movieblock_meta_box_nonce',
+			basename(__FILE__),
+			$post_id,
+			$movieblock_prefix . 'name',
+			$movieblock_fields
+		);
 	}
 
 	function movieBlocks($editionKey){
