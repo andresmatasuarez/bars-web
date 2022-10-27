@@ -92,8 +92,8 @@
 										<div class="schedule-filters">
 											<?php
 												$movieSections = array('all' => 'Todas');
-												foreach(getMovieSectionsForEdition($currentEdition) as $section){
-													$movieSections[$section]= $sections[$section]['label'];
+												foreach(getMovieSectionsForEdition($currentEdition) as $sectionId){
+													$movieSections[$sectionId]= getMovieSectionLabel($sectionId);
 												}
 
 												renderSelector('schedule-section-filters', 'Secciones', $movieSections, 'movie-section-selector');

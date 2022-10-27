@@ -238,11 +238,6 @@
 		);
 	}
 
-	function sectionByValue($value){
-		global $sections;
-		return $sections[$value]['label'];
-	}
-
 	/* ***** FUNCTIONS ***** */
 	function register_movie_post_type() {
 		register_post_type( 'movie',
@@ -588,6 +583,11 @@
 				get_post_meta($post->ID, '_movie_section', true) :
 				get_post_meta($post->ID, '_movieblock_section', true);
 		}, $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(false, true), $edition, $edition))));
+	}
+
+	function getMovieSectionLabel($value){
+		global $movieSections;
+		return $movieSections[$value]['label'];
 	}
 
 ?>

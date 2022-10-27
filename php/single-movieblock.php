@@ -20,7 +20,7 @@
 <div class="movieblock" id="movieblock-<?php the_ID(); ?>">
 	<div class="screenings-info text-oswald">
 		<div class="section">
-			<?php echo sectionByValue(get_post_meta($post->ID, '_movieblock_section', true));?>
+			<?php echo getMovieSectionLabel(get_post_meta($post->ID, '_movieblock_section', true));?>
 		</div>
 
 		<div class="screenings">

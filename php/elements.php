@@ -119,7 +119,7 @@
           echo '<div class="movie-post-venue">' . ucwords($venue) . '</div>';
         }
 ?>
-          <div class="movie-post-section"><?php echo sectionByValue($sectionValue); ?></div>
+          <div class="movie-post-section"><?php echo getMovieSectionLabel($sectionValue); ?></div>
           <?php echo $postThumbnail; ?>
         </div>
         <div class="movie-post-title-container">
