@@ -21,7 +21,15 @@
     height: 80px;
     position: absolute;
     right: 0;
-    background-image: url('../images/sponsors/auspiciante_festeringslime_hover.png');;
+    background-image: url('../resources/festeringslime.png');
+
+    //
+    // Same styles as in sponsors.less
+    //
+    // filters: gray-scale + opacity
+    filter: gray opacity(70%); /* IE6-9 */
+    -webkit-filter: grayscale(1) opacity(70%); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1) opacity(70%); /* Microsoft Edge and Firefox 35+ */
   }
 }
 
