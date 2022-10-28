@@ -38,7 +38,29 @@
       "terms_en": "/resources/bars2022/terms2022_en.docx",
       "terms_es": "/resources/bars2022/terms2022_es.docx"
     },
-    "awards": {},
+    "awards": {
+      "jury": [
+        "Mejor Largometraje",
+        "Mejor Director Largometraje",
+        "Mejor Actriz Largometraje",
+        "Mejor Actor Largometraje",
+        "Mejor Guion Largometraje",
+        "Mejor Fotografía Largometraje",
+        "Mejores Efectos Especiales Largometraje",
+        "Mejor Cortometraje Internacional",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Nacional",
+        "Mejor Largometraje Iberoamericano",
+        "Mejor Director Largometraje Iberoamericano",
+        "Mejor Actuación Largometraje Iberoamericano"
+      ],
+      "audience": [
+        "Largometraje",
+        "Cortometraje",
+        "Largometraje Competencia Bizarra",
+        "Premio \"Reaparecidos\""
+      ]
+    },
     "juries": {},
     "sponsors": [
       {
