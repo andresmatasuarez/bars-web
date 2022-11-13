@@ -17,6 +17,7 @@
 	<td id="sidebar-container">
 		<div id="sidebar" >
 
+			<!--
 			<?php
 				$barsStoreImgPath = get_bloginfo('template_directory') . '/resources/tienda-bars.jpg';
 				echo widgetify('sidebar relative image bars-store', null, '
@@ -25,6 +26,7 @@
 					</a>
 				');
 			?>
+			-->
 
 			<?php
 				if (!empty($edition['programme'])){
