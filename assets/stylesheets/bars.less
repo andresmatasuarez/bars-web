@@ -20,10 +20,65 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 #header-info-container { background: rgba(173,0,0,0.3); padding: 5px 0; }
 #header-info { display: table; margin: 0 auto; }
 #header-info .left, #header-info .right, #header-info .center { vertical-align: middle; display: table-cell; }
-#header-info .left, #header-info .right { width: 350px; }
+#header-info .left, #header-info .right { width: 500px; }
 #header-info .center { padding: 0 15px; }
-#header-info table tbody td { font-size: 7pt; line-height: 4pt; }
-#header-info table thead th { line-height: 10pt; }
+
+#header-info {
+  .venues-table {
+    display: flex;
+
+    > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      + div {
+        margin-left: 10px;
+      }
+
+      > div {
+        flex: 1;
+        word-break: break-word;
+
+        display: flex;
+        align-items: end;
+      }
+
+      > .venue-name {
+        line-height: 12pt;
+        font-weight: 600;
+      }
+
+      > .venue-address {
+        font-size: 7pt;
+        line-height: 9pt;
+
+        align-items: start;
+        margin-top: 5px;
+      }
+
+      &.venue-has-link {
+        flex: unset;
+
+        + div {
+          margin-left: 15px;
+        }
+
+        > .venue-name {
+          > .venue-link {
+            flex: 0;
+            margin-left: 5px;
+
+            .fa {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 #header-clouds { height: 31px; width: 100%; background: url('../images/scratchs_2.png') 0px 1px; background-repeat-y: inherit; }
 #header-social {
   text-align: center;

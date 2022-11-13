@@ -10,18 +10,25 @@
     "venues": {
       "belgrano": {
         "name": "Multiplex Belgrano",
-        "address": "Vuelta de Obligado 2199"
+        "address": "Vuelta de Obligado 2199",
+        "link": "https://goo.gl/maps/j8JkEPEw72UDBisx5"
+      },
+      "ccsm": {
+        "name": "C.C. San Martín",
+        "address": "Sarmiento 1551",
+        "link": "https://goo.gl/maps/8HhZmY9LNfQWV7YeA"
       },
       "vivamoscultura": {
         "name": "VivamosCultura",
         "address": "vivamoscultura.buenosaires.gob.ar",
-        "online": true
+        "online": true,
+        "link": "https://vivamoscultura.buenosaires.gob.ar/"
       }
     },
     "press_passes": {
-      "deadline": "2022-11-07T03:00:00.000Z"
+      "deadline": "2022-11-13T03:00:00.000Z"
     },
-    "poster": "",
+    "poster": "resources/bars2022/bars2022_afiche.jpg",
     "programme": "",
     "programme_yt": "",
     "catalogue": "",

@@ -143,8 +143,52 @@
 					?>
 					<span class="size-highlight">TBA</span>
 					<?php } else { ?>
-						<table class="venues-table">
-							<thead>
+						<div class="venues-table">
+							<?php
+								foreach ($venues as $key => $venue) {
+							?>
+								 	<div class="<?php echo empty($venue['link']) ? '' : 'venue-has-link'; ?>">
+								 		<div class="venue-name">
+								 			<?php echo $venue['name']; ?>
+
+						 			 		<?php
+						 			 			if (!empty($venue['link'])) {
+						 			 				if (array_key_exists('online', $venue) && $venue['online']) {
+						 			 		?>
+						 						 		<div class="venue-link">
+						 						 			<a href="<?php echo $venue['link']; ?>" target="_blank" rel="noopener noreferrer">
+						 						 				<span class="fa fa-external-link"></span>
+						 						 			</a>
+						 						 		</div>
+						 			 		<?php
+						 			 				} else {
+						 			 		?>
+						 						 		<div class="venue-link">
+						 						 			<a href="<?php echo $venue['link']; ?>" target="_blank" rel="noopener noreferrer">
+						 						 				<span class="fa fa-map-marker"></span>
+						 						 			</a>
+						 						 		</div>
+						 			 		<?php
+						 			 				}
+						 			 			}
+						 			 		?>
+								 		</div>
+
+								 		<?php
+								 			if (empty($venue['link']) && !empty($venue['address'])) {
+								 		?>
+										 		<div class="venue-address">
+										 			<?php echo $venue['address']; ?>
+										 		</div>
+								 		<?php
+								 			}
+								 		?>
+								 	</div>
+							<?php
+								}
+							?>
+
+							<!-- <thead>
 								<tr>
 									<?php
 										foreach ($venues as $key => $value) {
@@ -161,8 +205,8 @@
 										}
 									?>
 								</tr>
-							</tbody>
-						</table>
+							</tbody> -->
+						</div>
 					<?php } ?>
 				</div>
 			</div>
