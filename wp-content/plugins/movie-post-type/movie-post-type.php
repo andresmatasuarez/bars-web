@@ -29,6 +29,56 @@
 
 	add_action('init', 'initialize');
 
+	$MOVIE_SECTIONS = array (
+		// Bars 2013
+		'opening'                             => array ( 'label' => 'Función de apertura',         'value' => 'opening' ),
+		'shortFilm'                           => array ( 'label' => 'Cortos fuera de competencia', 'value' => 'shortFilm' ),
+		'shortFilmCompetition'                => array ( 'label' => 'Cortos en competencia',       'value' => 'shortFilmCompetition' ),
+		'mediumLengthFilm'                    => array ( 'label' => 'Mediometrajes',               'value' => 'mediumLengthFilm' ),
+		'internationalFeatureFilmCompetition' => array ( 'label' => 'Competencia Internacional',   'value' => 'internationalFeatureFilmCompetition' ),
+		'iberoamericanFeatureFilmCompetition' => array ( 'label' => 'Competencia Iberoamericana',  'value' => 'iberoamericanFeatureFilmCompetition' ),
+		'releases'                            => array ( 'label' => 'Novedades',                   'value' => 'releases' ),
+		'anioVerde'                           => array ( 'label' => 'Argentina Año Verde',         'value' => 'anioVerde' ),
+		'herederosDelTerror'                  => array ( 'label' => 'Herederos Del Teror',         'value' => 'herederosDelTerror' ),
+		'laCripta'                            => array ( 'label' => 'La Cripta',                   'value' => 'laCripta' ),
+		'documentary'                         => array ( 'label' => 'Documental',                  'value' => 'documentary' ),
+		'imperdibles'                         => array ( 'label' => 'Imperdibles',                 'value' => 'imperdibles' ),
+
+		// Bars 2013-only sections
+		'raroVhs'                             => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
+		'filmotecaPresenta'                   => array ( 'label' => 'Filmoteca Presenta',          'value' => 'filmotecaPresenta' ),
+		'sangreSudorYLagrimas'                => array ( 'label' => 'Sangre, Sudor y Lágrimas',    'value' => 'sangreSudorYLagrimas' ),
+
+		// Bars 2014 new sections
+		'bizarreCompetition' => array ( 'label' => 'Competencia Bizarra', 'value' => 'bizarreCompetition' ),
+		'lastPage'           => array ( 'label' => 'Última página',       'value' => 'lastPage' ),
+		'freakingNazis'      => array ( 'label' => 'Jodidos Nazis',       'value' => 'freakingNazis' ),
+		'closingFilm'        => array ( 'label' => 'Película de cierre',  'value' => 'closingFilm' ),
+
+		// Bars 2015 new sections
+		'argentinianFeatureFilmCompetition' => array ( 'label' => 'Competencia Argentina', 'value' => 'argentinianFeatureFilmCompetition' ),
+		'reposiciones'                      => array ( 'label' => 'Reposiciones',          'value' => 'reposiciones' ),
+
+		// Bars 2016 new sections
+		'deodatoTribute'    => array ( 'label' => 'Homenaje Deodato',     'value' => 'deodatoTribute' ),
+		'specialScreenings' => array ( 'label' => 'Funciones especiales', 'value' => 'specialScreenings' ),
+
+		// Bars 2017 new sections
+		'bloodyWeekend' => array ( 'label' => 'Fin de semana sangriento', 'value' => 'bloodyWeekend' ),
+
+		// Bars 2019 new sections
+		'japaneseInvasion' => array ( 'label' => 'Invasión Japón', 'value' => 'japaneseInvasion' ),
+
+		// Bars 2020 new sections
+		'barsContarPrize' => array ( 'label' => 'Premio BARS/CONTAR', 'value' => 'barsContarPrize' ),
+		'argentinianOutlook' => array ( 'label' => 'Panorama Argentino', 'value' => 'argentinianOutlook' ),
+		'onlineActivities' => array ( 'label' => 'Actividades online', 'value' => 'onlineActivities' ),
+
+		// Bars 2021 new sections
+		'reaparecidos' => array ( 'label' => 'Reaparecidos', 'value' => 'reaparecidos' ),
+		'madeInTaiwan' => array ( 'label' => 'Made in Taiwan', 'value' => 'madeInTaiwan' ),
+	);
+
 	function initialize(){
 		global $movieSections;
 		global $movie_prefix;
@@ -38,61 +88,12 @@
 		global $movieBlocks;
 		global $barscommons_editionOptions;
 
+		$movieSections = $MOVIE_SECTIONS;
+
 		$screeningsFormatDescription = 'Format: (venue.room:)mm-dd-yyyy hh:mm.<br />Comma-separated.<br />Venue and room are optional.<br /><br />Example:<br />  - <strong>lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00</strong><br /><br />Example for streaming movies:<br />  - <strong>streaming!contar:full</strong> (available for the whole duration of the festival)<br />  - <strong>streaming!flixxo:11-28-2020,streaming!flixxo:11-29-2020</strong> (available only on specific days)';
 
 		$currentEditionKey = reset($barscommons_editionOptions)['value']; // https://stackoverflow.com/a/1028677
 		$movieBlocks = movieBlocks($currentEditionKey);
-
-		/* ***** MOVIE SECTIONS ***** */
-		$movieSections = array (
-			// Bars 2013
-			'opening'                             => array ( 'label' => 'Función de apertura',         'value' => 'opening' ),
-			'shortFilm'                           => array ( 'label' => 'Cortos fuera de competencia', 'value' => 'shortFilm' ),
-			'shortFilmCompetition'                => array ( 'label' => 'Cortos en competencia',       'value' => 'shortFilmCompetition' ),
-			'mediumLengthFilm'                    => array ( 'label' => 'Mediometrajes',               'value' => 'mediumLengthFilm' ),
-			'internationalFeatureFilmCompetition' => array ( 'label' => 'Competencia Internacional',   'value' => 'internationalFeatureFilmCompetition' ),
-			'iberoamericanFeatureFilmCompetition' => array ( 'label' => 'Competencia Iberoamericana',  'value' => 'iberoamericanFeatureFilmCompetition' ),
-			'releases'                            => array ( 'label' => 'Novedades',                   'value' => 'releases' ),
-			'anioVerde'                           => array ( 'label' => 'Argentina Año Verde',         'value' => 'anioVerde' ),
-			'herederosDelTerror'                  => array ( 'label' => 'Herederos Del Teror',         'value' => 'herederosDelTerror' ),
-			'laCripta'                            => array ( 'label' => 'La Cripta',                   'value' => 'laCripta' ),
-			'documentary'                         => array ( 'label' => 'Documental',                  'value' => 'documentary' ),
-			'imperdibles'                         => array ( 'label' => 'Imperdibles',                 'value' => 'imperdibles' ),
-
-			// Bars 2013-only sections
-			'raroVhs'                             => array ( 'label' => 'Raro VHS: Tapes Rojo Sangre', 'value' => 'raroVhs' ),
-			'filmotecaPresenta'                   => array ( 'label' => 'Filmoteca Presenta',          'value' => 'filmotecaPresenta' ),
-			'sangreSudorYLagrimas'                => array ( 'label' => 'Sangre, Sudor y Lágrimas',    'value' => 'sangreSudorYLagrimas' ),
-
-			// Bars 2014 new sections
-			'bizarreCompetition' => array ( 'label' => 'Competencia Bizarra', 'value' => 'bizarreCompetition' ),
-			'lastPage'           => array ( 'label' => 'Última página',       'value' => 'lastPage' ),
-			'freakingNazis'      => array ( 'label' => 'Jodidos Nazis',       'value' => 'freakingNazis' ),
-			'closingFilm'        => array ( 'label' => 'Película de cierre',  'value' => 'closingFilm' ),
-
-			// Bars 2015 new sections
-			'argentinianFeatureFilmCompetition' => array ( 'label' => 'Competencia Argentina', 'value' => 'argentinianFeatureFilmCompetition' ),
-			'reposiciones'                      => array ( 'label' => 'Reposiciones',          'value' => 'reposiciones' ),
-
-			// Bars 2016 new sections
-			'deodatoTribute'    => array ( 'label' => 'Homenaje Deodato',     'value' => 'deodatoTribute' ),
-			'specialScreenings' => array ( 'label' => 'Funciones especiales', 'value' => 'specialScreenings' ),
-
-			// Bars 2017 new sections
-			'bloodyWeekend' => array ( 'label' => 'Fin de semana sangriento', 'value' => 'bloodyWeekend' ),
-
-			// Bars 2019 new sections
-			'japaneseInvasion' => array ( 'label' => 'Invasión Japón', 'value' => 'japaneseInvasion' ),
-
-			// Bars 2020 new sections
-			'barsContarPrize' => array ( 'label' => 'Premio BARS/CONTAR', 'value' => 'barsContarPrize' ),
-			'argentinianOutlook' => array ( 'label' => 'Panorama Argentino', 'value' => 'argentinianOutlook' ),
-			'onlineActivities' => array ( 'label' => 'Actividades online', 'value' => 'onlineActivities' ),
-
-			// Bars 2021 new sections
-			'reaparecidos' => array ( 'label' => 'Reaparecidos', 'value' => 'reaparecidos' ),
-			'madeInTaiwan' => array ( 'label' => 'Made in Taiwan', 'value' => 'madeInTaiwan' ),
-		);
 
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
 		$movie_prefix = '_movie_';
@@ -449,12 +450,12 @@
 			return get_post_type($post->ID) === 'movie' ?
 				get_post_meta($post->ID, '_movie_section', true) :
 				get_post_meta($post->ID, '_movieblock_section', true);
-		}, $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(false, true), $edition, $edition))));
+		}, $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(false), $edition, $edition))));
 	}
 
 	function getMovieSectionLabel($value){
-		global $movieSections;
-		return $movieSections[$value]['label'];
+		global $MOVIE_SECTIONS;
+		return $MOVIE_SECTIONS[$value]['label'];
 	}
 
 ?>
