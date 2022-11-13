@@ -261,7 +261,7 @@
       if (isset($jury['postId'])) {
     ?>
         <div class="jury-image">
-          <img src="<?php echo $jury['thumbnail']; ?>" />
+          <?php echo $jury['thumbnail']; ?>
         </div>
     <?php
       } else {
