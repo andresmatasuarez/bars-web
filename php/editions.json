@@ -121,6 +121,30 @@
             "logo": "/resources/bars2022/sponsors/auspiciante_bsasciudad.png",
             "href": "http://www.buenosaires.gob.ar/",
             "alt": "Buenos Aires Ciudad"
+          },
+
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_ccsm.png",
+            "href": "https://elculturalsanmartin.ar/",
+            "alt": "Centro Cultural San Martín"
+          },
+
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_cinear.png",
+            "href": "http://cine.ar/",
+            "alt": "Cine.ar"
+          },
+
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_ridu.png",
+            "href": "https://www.instagram.com/somosridu",
+            "alt": "Ridu"
+          },
+
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_mubi.png",
+            "href": "https://mubi.com/",
+            "alt": "Mubi"
           }
         ]
       },
@@ -209,6 +233,26 @@
           },
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_fant_latam.png"
+          },
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_netminds.png",
+            "href": "http://www.netminds.com.ar/",
+            "alt": "Netminds"
+          },
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_otroplan.png",
+            "href": "http://otroplanfilms.com/",
+            "alt": "Otro Plan"
+          },
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_streetkitten.png",
+            "href": "https://www.instagram.com/streetkittentienda",
+            "alt": "Street Kitten"
+          },
+          {
+            "logo": "/resources/bars2022/sponsors/auspiciante_uade.png",
+            "href": "https://www.uade.edu.ar/",
+            "alt": "UADE"
           }
         ]
       }
