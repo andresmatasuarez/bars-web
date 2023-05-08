@@ -158,6 +158,14 @@ class Editions {
     return parseDate($edition['call']['to']);
   }
 
+  public static function callDeadlineExtended($edition = NULL){
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return parseDate($edition['call']['extended_to']);
+  }
+
   public static function isCallClosed($edition = NULL) {
     if (is_null($edition)){
       $edition = self::current();

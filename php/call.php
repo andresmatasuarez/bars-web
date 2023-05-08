@@ -18,6 +18,7 @@
 	$to            = Editions::to($edition);
 	$call          = Editions::call($edition);
 	$call_deadline = Editions::callDeadline($edition);
+	$call_deadline_extended = Editions::callDeadlineExtended($edition);
 	$call_is_closed = Editions::isCallClosed($edition);
 
 	$displayYear = intval(is_null($from) ? (new DateTime())->format('Y') : $from->format('Y'));
@@ -105,6 +106,15 @@
 								---
 								Recepción de material hasta:
 								<?php echo getDateInSpanish($call_deadline); ?>
+
+								<?php
+									if (isset($call_deadline_extended)) {
+								?>
+									- extendida hasta:
+									<?php echo getDateInSpanish($call_deadline_extended); ?>
+								<?php
+									}
+								?>
 							</span>
 							<br />
 							<?php if (isset($call['terms_en'])) { ?>
