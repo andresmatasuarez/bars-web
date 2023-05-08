@@ -87,6 +87,7 @@
 		global $movieblock_fields;
 		global $movieBlocks;
 		global $barscommons_editionOptions;
+		global $MOVIE_SECTIONS;
 
 		$movieSections = $MOVIE_SECTIONS;
 
