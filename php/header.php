@@ -80,7 +80,10 @@
 	</script>
 
 	<div id="current-edition-year" style="display: none;">
-		<?php echo $displayYear; ?>
+		<?php
+			$call_deadline = Editions::callDeadline($edition);
+			echo $call_deadline->format('Y');
+		?>
 	</div>
 
 	<div id="header" >
