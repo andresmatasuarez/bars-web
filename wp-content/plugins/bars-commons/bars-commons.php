@@ -23,6 +23,7 @@
 		global $barscommons_editionOptions;
 
 		$barscommons_editionOptions = array (
+			'bars24' => array ( 'label' => 'BARS 2023',	'value' => 'bars24' ),
 			'bars23' => array ( 'label' => 'BARS 2022',	'value' => 'bars23' ),
 			'bars22' => array ( 'label' => 'BARS 2021',	'value' => 'bars22' ),
 			'bars21' => array ( 'label' => 'BARS 2020',	'value' => 'bars21' ),

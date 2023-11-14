@@ -77,6 +77,9 @@
 		// Bars 2021 new sections
 		'reaparecidos' => array ( 'label' => 'Reaparecidos', 'value' => 'reaparecidos' ),
 		'madeInTaiwan' => array ( 'label' => 'Made in Taiwan', 'value' => 'madeInTaiwan' ),
+
+		// Bars 2023 new sections
+		'panoramaBizarro' => array ( 'label' => 'Panorama Bizarro', 'value' => 'panoramaBizarro' ),
 	);
 
 	function initialize(){
