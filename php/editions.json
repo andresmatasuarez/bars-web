@@ -4,8 +4,8 @@
     "title": "BARS 2023",
     "days": {
       "only_months": false,
-      "////////////////////////////////////////from": "2022-11-17T03:00:00.000Z",
-      "////////////////////////////////////////to": "2022-11-27T03:00:00.000Z"
+      "from": "2023-11-23T03:00:00.000Z",
+      "to": "2023-12-03T03:00:00.000Z"
     },
     "venues": {
       "belgrano": {
@@ -28,11 +28,11 @@
     "press_passes": {
       "deadline": "2022-11-13T03:00:00.000Z"
     },
-    "poster": "resources/bars2022/bars2022_afiche.jpg",
-    "programme": "resources/bars2022/bars2022_programme.jpg",
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXposter": "resources/bars2022/bars2022_afiche.jpg",
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXprogramme": "resources/bars2022/bars2022_programme.jpg",
     "programme_yt": "",
     "catalogue": "",
-    "spot": "https://www.youtube.com/watch?v=DYCiEs_qUoM",
+    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXspot": "https://www.youtube.com/watch?v=DYCiEs_qUoM",
     "call": {
       "to": "2023-07-02T02:59:59.999Z",
       "extended_to": "2023-10-02T02:59:59.999Z",
@@ -48,28 +48,29 @@
     },
     "awards": {
       "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejor Cortometraje",
+        "Mejor Largometraje Internacional",
+        "Mejor Director Largometraje Internacional",
+        "Mejor Actriz Largometraje Internacional",
+        "Mejor Actor Largometraje Internacional",
+        "Mejor Guion Largometraje Internacional",
+        "Mejores Efectos Especiales Largometraje Internacional",
+        "Mejor Fotografía Largometraje Internacional",
+        "Mejor Cortometraje Internacional",
         "Mejor Cortometraje Argentino",
         "Mejor Director Cortometraje",
         "Mejor Largometraje Iberoamericano",
         "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actuación Largometraje Iberoamericano",
-        "Mejor largometraje \"Reapariciones\""
+        "Mejor Actriz Largometraje Iberoamericano",
+        "Mejor Largometraje Argentino",
+        "Mejor Director Largometraje Argentino",
+        "Mejor Actriz Largometraje Argentino"
       ],
       "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
+        "Mejor Largometraje",
+        "Mejor Cortometraje",
+        "Mejor Largometraje Reaparecidos"
       ]
     },
-    "juries": {},
     "sponsors": [
       {
         "title": "Organizan",
@@ -328,7 +329,6 @@
         "Premio \"Reaparecidos\""
       ]
     },
-    "juries": {},
     "sponsors": [
       {
         "title": "Organizan",
