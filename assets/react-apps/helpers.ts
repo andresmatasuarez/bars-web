@@ -7,7 +7,7 @@ export function parseDate(date?: string | number): Date | null {
 }
 
 export function getDayName(date: Date) {
-  return date.toLocaleDateString("es-ar", { weekday: "long" });
+  return date.toLocaleDateString('es-ar', { weekday: 'long' });
 }
 
 export function getDayNumber(date: Date): string {
@@ -15,11 +15,9 @@ export function getDayNumber(date: Date): string {
    * Pad number
    * https://stackoverflow.com/a/10073788
    */
-  function pad(n: number, width: number, z = "0"): string {
+  function pad(n: number, width: number, z = '0'): string {
     const str = String(n);
-    return str.length >= width
-      ? str
-      : new Array(width - str.length + 1).join(z) + n;
+    return str.length >= width ? str : new Array(width - str.length + 1).join(z) + n;
   }
 
   return pad(date.getDate(), 2);

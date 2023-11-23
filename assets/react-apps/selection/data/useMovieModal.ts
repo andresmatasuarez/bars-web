@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import { Movie } from "../types";
+import { useCallback, useState } from 'react';
+import { Movie } from '../types';
 
 export type UseModalValues = {
   isOpen: boolean;
@@ -12,15 +12,15 @@ export default function useMovieModal(): UseModalValues {
   const [isOpen, setIsOpen] = useState(false);
   const [movieToDisplay, setMovieToDisplay] = useState<Movie | null>(null);
 
-  const open = useCallback<UseModalValues["open"]>(
+  const open = useCallback<UseModalValues['open']>(
     (movie) => {
       setIsOpen(true);
       setMovieToDisplay(movie);
     },
-    [setIsOpen]
+    [setIsOpen],
   );
 
-  const close = useCallback<UseModalValues["close"]>(() => {
+  const close = useCallback<UseModalValues['close']>(() => {
     setIsOpen(false);
     setMovieToDisplay(null);
   }, [setIsOpen]);

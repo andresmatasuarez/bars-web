@@ -1,27 +1,15 @@
-import { MouseEventHandler, useCallback, useState } from "react";
-import styled from "styled-components";
-import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
-import { Stylable, applyCssStyleProp } from "../../types";
-import { FAIcon } from "../../utils";
+import { MouseEventHandler, useCallback, useState } from 'react';
+import styled from 'styled-components';
+import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { Stylable, applyCssStyleProp } from '../../types';
+import { FAIcon } from '../../utils';
 
-export const IS_ADDED_COLOR = "#ffbe46";
+export const IS_ADDED_COLOR = '#ffbe46';
 
-function WatchlistIcon({
-  isAdded,
-  isHovered,
-}: {
-  isAdded?: boolean;
-  isHovered?: boolean;
-}) {
+function WatchlistIcon({ isAdded, isHovered }: { isAdded?: boolean; isHovered?: boolean }) {
   if (isAdded) {
     if (isHovered) {
-      return (
-        <FAIcon
-          icon={faEyeSlash}
-          color={IS_ADDED_COLOR}
-          title="Remover de mi selección"
-        />
-      );
+      return <FAIcon icon={faEyeSlash} color={IS_ADDED_COLOR} title="Remover de mi selección" />;
     }
 
     return <FAIcon icon={faEye} color={IS_ADDED_COLOR} />;

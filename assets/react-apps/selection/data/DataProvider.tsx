@@ -1,10 +1,4 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useMemo,
-  useState,
-} from "react";
+import React, { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
 import {
   AlwaysAvailableStreamingScreening,
   ExpectsChildren,
@@ -12,27 +6,23 @@ import {
   Movies,
   ScreeningWithMovie,
   ScreeningsByDay,
-} from "../types";
-import { serializeDate } from "../../helpers";
-import {
-  getAlwaysAvailableScreenings,
-  getCurrentEdition,
-  getScreeningsForDay,
-} from "./helpers";
-import Editions, { SingleEdition } from "../Editions";
+} from '../types';
+import { serializeDate } from '../../helpers';
+import { getAlwaysAvailableScreenings, getCurrentEdition, getScreeningsForDay } from './helpers';
+import Editions, { SingleEdition } from '../Editions';
 import useSectionSelector, {
   ChangeSectionHandler,
   SectionOption,
   SectionOptionShape,
-} from "../App/Filters/useSectionSelector";
-import useWatchlist, { UseWatchlistValues } from "./useWatchlist";
-import useModal, { UseModalValues } from "./useMovieModal";
-import MovieModal from "./MovieModal";
-import MovieModalContent from "./MovieModalContent";
+} from '../App/Filters/useSectionSelector';
+import useWatchlist, { UseWatchlistValues } from './useWatchlist';
+import useModal, { UseModalValues } from './useMovieModal';
+import MovieModal from './MovieModal';
+import MovieModalContent from './MovieModalContent';
 
 export enum MovieListType {
-  ALL = "ALL",
-  WATCHLIST = "WATCHLIST",
+  ALL = 'ALL',
+  WATCHLIST = 'WATCHLIST',
 }
 
 type DataContextType = {
@@ -46,15 +36,15 @@ type DataContextType = {
   sectionOptions: SectionOptionShape[];
   changeSection: ChangeSectionHandler;
 
-  isAddedToWatchlist: UseWatchlistValues["isAddedToWatchlist"];
-  addToWatchlist: UseWatchlistValues["addToWatchlist"];
-  removeFromWatchlist: UseWatchlistValues["removeFromWatchlist"];
+  isAddedToWatchlist: UseWatchlistValues['isAddedToWatchlist'];
+  addToWatchlist: UseWatchlistValues['addToWatchlist'];
+  removeFromWatchlist: UseWatchlistValues['removeFromWatchlist'];
 
   currentMovieListType: MovieListType;
   changeMovieListType: Dispatch<SetStateAction<MovieListType>>;
 
-  openMovieModal: UseModalValues["open"];
-  closeMovieModal: UseModalValues["close"];
+  openMovieModal: UseModalValues['open'];
+  closeMovieModal: UseModalValues['close'];
 };
 
 const defaultContext = {
@@ -68,61 +58,44 @@ const defaultContext = {
   selectedSection: null,
   sectionOptions: [],
   changeSection: () => {
-    throw new Error(
-      "`changeSection` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`changeSection` in DataContext hasn't been properly initialized");
   },
 
   isAddedToWatchlist: () => {
-    throw new Error(
-      "`isAddedToWatchlist` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`isAddedToWatchlist` in DataContext hasn't been properly initialized");
   },
   addToWatchlist: () => {
-    throw new Error(
-      "`addToWatchlist` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`addToWatchlist` in DataContext hasn't been properly initialized");
   },
   removeFromWatchlist: () => {
-    throw new Error(
-      "`removeFromWatchlist` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`removeFromWatchlist` in DataContext hasn't been properly initialized");
   },
 
   currentMovieListType: MovieListType.ALL,
   changeMovieListType: () => {
-    throw new Error(
-      "`changeMovieListType` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`changeMovieListType` in DataContext hasn't been properly initialized");
   },
 
   openMovieModal: () => {
-    throw new Error(
-      "`openMovieModal` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`openMovieModal` in DataContext hasn't been properly initialized");
   },
   closeMovieModal: () => {
-    throw new Error(
-      "`closeMovieModal` in DataContext hasn't been properly initialized"
-    );
+    throw new Error("`closeMovieModal` in DataContext hasn't been properly initialized");
   },
 };
 
 export const DataContext = createContext<DataContextType>(defaultContext);
 
 export default function DataProvider({ children }: ExpectsChildren) {
-  const { selectedSection, sectionOptions, changeSection } = useSectionSelector(
-    { movieSections: defaultContext.sections }
-  );
+  const { selectedSection, sectionOptions, changeSection } = useSectionSelector({
+    movieSections: defaultContext.sections,
+  });
 
-  const { watchlist, isAddedToWatchlist, addToWatchlist, removeFromWatchlist } =
-    useWatchlist();
+  const { watchlist, isAddedToWatchlist, addToWatchlist, removeFromWatchlist } = useWatchlist();
 
   const { isOpen, open, close, movieToDisplay } = useModal();
 
-  const [movieListType, changeMovieListType] = useState(
-    defaultContext.currentMovieListType
-  );
+  const [movieListType, changeMovieListType] = useState(defaultContext.currentMovieListType);
 
   const contextValue = useMemo((): DataContextType => {
     const currentEdition = getCurrentEdition();
@@ -133,29 +106,20 @@ export default function DataProvider({ children }: ExpectsChildren) {
       return festivalDates.reduce<ScreeningsByDay>(
         (accum, festivalDate) => ({
           ...accum,
-          [serializeDate(festivalDate)]: getScreeningsForDay(
-            window.MOVIES,
-            festivalDate,
-            {
-              section: selectedSection?.value,
-            }
-          ).filter((screening) =>
-            movieListType === MovieListType.WATCHLIST
-              ? isAddedToWatchlist(screening)
-              : true
+          [serializeDate(festivalDate)]: getScreeningsForDay(window.MOVIES, festivalDate, {
+            section: selectedSection?.value,
+          }).filter((screening) =>
+            movieListType === MovieListType.WATCHLIST ? isAddedToWatchlist(screening) : true,
           ),
         }),
-        {}
+        {},
       );
     })();
 
-    const alwaysAvailableScreenings = getAlwaysAvailableScreenings(
-      window.MOVIES,
-      { section: selectedSection?.value }
-    ).filter((screening) =>
-      movieListType === MovieListType.WATCHLIST
-        ? isAddedToWatchlist(screening)
-        : true
+    const alwaysAvailableScreenings = getAlwaysAvailableScreenings(window.MOVIES, {
+      section: selectedSection?.value,
+    }).filter((screening) =>
+      movieListType === MovieListType.WATCHLIST ? isAddedToWatchlist(screening) : true,
     );
 
     return {
@@ -197,9 +161,7 @@ export default function DataProvider({ children }: ExpectsChildren) {
       {children}
 
       <MovieModal isOpen={isOpen} onRequestClose={close}>
-        {movieToDisplay && (
-          <MovieModalContent movie={movieToDisplay} onClose={close} />
-        )}
+        {movieToDisplay && <MovieModalContent movie={movieToDisplay} onClose={close} />}
       </MovieModal>
     </DataContext.Provider>
   );

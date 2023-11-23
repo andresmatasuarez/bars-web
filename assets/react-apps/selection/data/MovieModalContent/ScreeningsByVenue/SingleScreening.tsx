@@ -1,14 +1,10 @@
-import styled from "styled-components";
-import {
-  ScreeningWithMovie,
-  Stylable,
-  isStreamingScreening,
-} from "../../../types";
-import { dateHasPassed, getDayName, getDayNumber } from "../../../../helpers";
-import AddToWatchlistToggle from "../../../App/MovieScreening/AddToWatchlistToggle";
-import { MouseEventHandler, ReactNode, useCallback, useContext } from "react";
-import { DataContext } from "../../DataProvider";
-import { Divider } from "../../../App/commons";
+import styled from 'styled-components';
+import { ScreeningWithMovie, Stylable, isStreamingScreening } from '../../../types';
+import { dateHasPassed, getDayName, getDayNumber } from '../../../../helpers';
+import AddToWatchlistToggle from '../../../App/MovieScreening/AddToWatchlistToggle';
+import { MouseEventHandler, ReactNode, useCallback, useContext } from 'react';
+import { DataContext } from '../../DataProvider';
+import { Divider } from '../../../App/commons';
 
 const DayName = styled.div`
   text-transform: capitalize;
@@ -25,15 +21,14 @@ const Room = styled.div`
 `;
 
 const Disableable = styled.div<{ isDisabled?: boolean }>`
-  ${(props) => (props.isDisabled ? "color: gray;" : "")}
+  ${(props) => (props.isDisabled ? 'color: gray;' : '')}
 `;
 
 export default styled(function SingleScreening({
   className,
   screening,
 }: Stylable & { screening: ScreeningWithMovie }) {
-  const { isAddedToWatchlist, addToWatchlist, removeFromWatchlist } =
-    useContext(DataContext);
+  const { isAddedToWatchlist, addToWatchlist, removeFromWatchlist } = useContext(DataContext);
 
   const isAdded = isAddedToWatchlist(screening);
 
@@ -49,9 +44,7 @@ export default styled(function SingleScreening({
     return (
       <Disableable
         className={className}
-        isDisabled={
-          !!screening.isoDate && dateHasPassed(new Date(screening.isoDate))
-        }
+        isDisabled={!!screening.isoDate && dateHasPassed(new Date(screening.isoDate))}
       >
         {screening.isoDate && (
           <>
@@ -64,10 +57,7 @@ export default styled(function SingleScreening({
   }
 
   return (
-    <Disableable
-      className={className}
-      isDisabled={dateHasPassed(new Date(screening.isoDate))}
-    >
+    <Disableable className={className} isDisabled={dateHasPassed(new Date(screening.isoDate))}>
       <DayName>{getDayName(new Date(screening.isoDate))}</DayName>
       <DayNumber>{getDayNumber(new Date(screening.isoDate))}</DayNumber>
 
@@ -85,5 +75,5 @@ export default styled(function SingleScreening({
   flex-flow: column;
   align-items: center;
 
-  font-family: "Oswald"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 `;

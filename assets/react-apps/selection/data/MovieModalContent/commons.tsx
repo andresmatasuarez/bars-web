@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { Stylable, applyCssStyleProp } from "../../types";
-import MovieLinks from "./MovieLinks";
+import styled from 'styled-components';
+import { Stylable, applyCssStyleProp } from '../../types';
+import MovieLinks from './MovieLinks';
 
 export const Paragraph = styled.div<Stylable>`
   line-height: 20pt;
   font-size: 12pt;
-  font-family: "Open Sans"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Open Sans'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   ${applyCssStyleProp}
 `;
@@ -25,7 +25,7 @@ export const MovieImageWrapper = styled.div`
   }
 `;
 
-export const INLINE_HEADING_COLOR = "#eb9797";
+export const INLINE_HEADING_COLOR = '#eb9797';
 
 export const InlineHeading = styled.div<Stylable>`
   font-weight: 700;
@@ -45,7 +45,7 @@ export const MovieTitle = styled.div`
 
 export const Specs = styled.div<Stylable>`
   font-size: 12pt;
-  font-family: "Open Sans"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Open Sans'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   display: flex;
   align-items: baseline;
@@ -61,7 +61,7 @@ export const SectionLabel = styled.div`
   color: white;
   padding: 3px 6px;
   border-radius: 3px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-weight: 500;
   background: #b90000;
   text-transform: uppercase;

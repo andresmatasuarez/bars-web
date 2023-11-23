@@ -1,27 +1,26 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   Movie,
   Screening,
   Stylable,
   isScreeningAlwaysAvailable,
   isStreamingScreening,
-} from "../../../types";
-import SingleScreening from "./SingleScreening";
-import { ReactNode, useContext } from "react";
-import { MovieAdditionalData } from "../types";
-import StreamingButton from "./StreamingButton";
-import { isDateBetween } from "../../../../helpers";
-import Editions, { SingleEdition } from "../../../Editions";
-import { DataContext } from "../../DataProvider";
-import { INLINE_HEADING_COLOR, InlineHeading } from "../commons";
+} from '../../../types';
+import SingleScreening from './SingleScreening';
+import { ReactNode, useContext } from 'react';
+import { MovieAdditionalData } from '../types';
+import StreamingButton from './StreamingButton';
+import { isDateBetween } from '../../../../helpers';
+import Editions, { SingleEdition } from '../../../Editions';
+import { DataContext } from '../../DataProvider';
+import { INLINE_HEADING_COLOR, InlineHeading } from '../commons';
 
-const LINK_ONLY_DURING_FESTIVAL =
-  "⚠️ El link se habilitará sólo en las fechas del festival";
+const LINK_ONLY_DURING_FESTIVAL = '⚠️ El link se habilitará sólo en las fechas del festival';
 
 const LINK_ONLY_ON_SCHEDULES_DATES =
-  "⚠️ El link se habilitará sólo en las fechas de proyección estipuladas.";
+  '⚠️ El link se habilitará sólo en las fechas de proyección estipuladas.';
 
-const LINK_UNAVAILABLE = "⚠️ Streaming no disponible";
+const LINK_UNAVAILABLE = '⚠️ Streaming no disponible';
 
 const Title = styled.span`
   font-weight: 600;
@@ -29,14 +28,14 @@ const Title = styled.span`
 
 function anyScreeningsLeftForStreamingMovies(
   currentEdition: SingleEdition,
-  screenings: Screening[]
+  screenings: Screening[],
 ): {
   isDisabled: boolean;
   disabledReason?: ReactNode;
 } {
   if (screenings.some((screening) => !isStreamingScreening(screening))) {
     throw new Error(
-      'Do not call "anyScreeningsLeftForStreamingMovies" on non-streaming screenings.'
+      'Do not call "anyScreeningsLeftForStreamingMovies" on non-streaming screenings.',
     );
   }
 
@@ -46,7 +45,7 @@ function anyScreeningsLeftForStreamingMovies(
 
     if (!from || !to) {
       throw new Error(
-        `From and to dates for edition ${currentEdition.number} should be defined at this point.`
+        `From and to dates for edition ${currentEdition.number} should be defined at this point.`,
       );
     }
 
@@ -64,17 +63,11 @@ function anyScreeningsLeftForStreamingMovies(
 
   if (isScreeningAlwaysAvailable(lastScreening)) {
     throw new Error(
-      "Since we have a screening that is not always available (the first one), there cannot be other screenings that are always available."
+      'Since we have a screening that is not always available (the first one), there cannot be other screenings that are always available.',
     );
   }
 
-  if (
-    isDateBetween(
-      new Date(),
-      new Date(screenings[0].isoDate),
-      new Date(lastScreening.isoDate)
-    )
-  ) {
+  if (isDateBetween(new Date(), new Date(screenings[0].isoDate), new Date(lastScreening.isoDate))) {
     return { isDisabled: false };
   }
 
@@ -132,15 +125,14 @@ export default styled(function ScreeningsGroup({
       {((): ReactNode => {
         if (isScreeningAlwaysAvailable(screenings[0])) {
           if (movieData.streamingLink) {
-            const { isDisabled, disabledReason } =
-              anyScreeningsLeftForStreamingMovies(currentEdition, screenings);
+            const { isDisabled, disabledReason } = anyScreeningsLeftForStreamingMovies(
+              currentEdition,
+              screenings,
+            );
 
             return (
               <StreamingButtonWrapper>
-                <StreamingButton
-                  isDisabled={isDisabled}
-                  streamingUrl={movieData.streamingLink}
-                />
+                <StreamingButton isDisabled={isDisabled} streamingUrl={movieData.streamingLink} />
                 {disabledReason && <span>{disabledReason}</span>}
               </StreamingButtonWrapper>
             );
@@ -174,11 +166,10 @@ export default styled(function ScreeningsGroup({
                */
 
               if (movieData.streamingLink) {
-                const { isDisabled, disabledReason } =
-                  anyScreeningsLeftForStreamingMovies(
-                    currentEdition,
-                    screenings
-                  );
+                const { isDisabled, disabledReason } = anyScreeningsLeftForStreamingMovies(
+                  currentEdition,
+                  screenings,
+                );
 
                 return (
                   <StreamingButtonWrapper>
@@ -208,7 +199,7 @@ export default styled(function ScreeningsGroup({
   gap: 35px;
   justify-content: center;
 
-  font-family: "Open Sans"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Open Sans'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   border-width: 1px;
   border-radius: 10px;

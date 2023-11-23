@@ -1,3 +1,3 @@
-import "./vendor/imgLiquid-min";
+import './vendor/imgLiquid-min';
 
-import "./main.js";
+import './main.js';

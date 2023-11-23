@@ -1,14 +1,10 @@
-import styled from "styled-components";
-import { useEffect, useState } from "react";
-import { Movie, Stylable } from "../../types";
-import {
-  MovieAdditionalData,
-  MovieBlockAdditionalData,
-  isMovieBlockAdditionalData,
-} from "./types";
-import { ModalHeader, ModalLoading, modalContentStyles } from "../MovieModal";
-import MovieBlockModalContent from "./MovieBlockModalContent";
-import RegularMovieModalContent from "./RegularMovieModalContent";
+import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import { Movie, Stylable } from '../../types';
+import { MovieAdditionalData, MovieBlockAdditionalData, isMovieBlockAdditionalData } from './types';
+import { ModalHeader, ModalLoading, modalContentStyles } from '../MovieModal';
+import MovieBlockModalContent from './MovieBlockModalContent';
+import RegularMovieModalContent from './RegularMovieModalContent';
 
 export default styled(function MovieModalContent({
   className,
@@ -18,9 +14,9 @@ export default styled(function MovieModalContent({
   movie: Movie;
   onClose: () => void;
 }) {
-  const [movieData, setMovieData] = useState<
-    MovieAdditionalData | MovieBlockAdditionalData | null
-  >(null);
+  const [movieData, setMovieData] = useState<MovieAdditionalData | MovieBlockAdditionalData | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -57,7 +53,7 @@ export default styled(function MovieModalContent({
   padding: 0 20px 40px 20px;
 
   color: white;
-  font-family: "Oswald"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   > ${ModalHeader} {
     margin-top: 10px;

@@ -65,11 +65,7 @@
         "Mejor Director Largometraje Argentino",
         "Mejor Actriz Largometraje Argentino"
       ],
-      "audience": [
-        "Mejor Largometraje",
-        "Mejor Cortometraje",
-        "Mejor Largometraje Reaparecidos"
-      ]
+      "audience": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
     },
     "sponsors": [
       {
@@ -540,11 +536,7 @@
         "Mejor Actuación Largometraje Iberoamericano",
         "Competencia \"Reapariciones\""
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -717,11 +709,7 @@
         "Mejor Actuación Largometraje Iberoamericano",
         "Premio \"BARS-Contar\""
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -886,11 +874,7 @@
         "Mejor Actuación Largometraje Iberoamericano",
         "Concurso \"Fin de Semana Sangriento\""
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -1050,11 +1034,7 @@
         "Mejor Director Largometraje Iberoamericana",
         "Mejor Actuación Largometraje Iberoamericana"
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -1213,11 +1193,7 @@
         "Mejor Director Largometraje Iberoamericana",
         "Mejor Actuación Largometraje Iberoamericana"
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -1345,11 +1321,7 @@
         "Mejor Director Largometraje Iberoamericana",
         "Mejor Actuación Largometraje Iberoamericana"
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -1478,11 +1450,7 @@
         "Mejor Director Largometraje Iberoamericana",
         "Mejor Actuación Largometraje Iberoamericana"
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Argentina"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Argentina"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [
@@ -1655,11 +1623,7 @@
         "Mejor Director Largometraje Iberoamericana",
         "Mejor Actuación Largometraje Iberoamericana"
       ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra"
-      ]
+      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
     },
     "juries": {
       "internationalFeatureFilmCompetition": [

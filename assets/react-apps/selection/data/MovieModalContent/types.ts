@@ -75,9 +75,9 @@ export type MovieAdditionalData = {
 
 export type MovieBlockAdditionalData = Pick<
   MovieAdditionalData,
-  "id" | "title" | "section" | "image" | "runtime" | "streamingLink"
+  'id' | 'title' | 'section' | 'image' | 'runtime' | 'streamingLink'
 > & {
-  movies: (Omit<MovieAdditionalData, "streamingLink" | "section"> & {
+  movies: (Omit<MovieAdditionalData, 'streamingLink' | 'section'> & {
     /**
      * Movie's thumbnail
      */
@@ -91,13 +91,13 @@ export type MovieBlockAdditionalData = Pick<
 };
 
 export function isMovieBlockAdditionalData(
-  data: MovieAdditionalData | MovieBlockAdditionalData
+  data: MovieAdditionalData | MovieBlockAdditionalData,
 ): data is MovieBlockAdditionalData {
-  return "movies" in data;
+  return 'movies' in data;
 }
 
 export function isRegularMovieAdditionalData(
-  data: MovieAdditionalData | MovieBlockAdditionalData
+  data: MovieAdditionalData | MovieBlockAdditionalData,
 ): data is MovieAdditionalData {
   return !isMovieBlockAdditionalData(data);
 }

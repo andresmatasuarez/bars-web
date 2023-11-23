@@ -1,6 +1,6 @@
-import { serializeDate } from "../../helpers";
-import { DEFAULT_SECTION_ALL } from "../App/Filters/useSectionSelector";
-import Editions, { SingleEdition } from "../Editions";
+import { serializeDate } from '../../helpers';
+import { DEFAULT_SECTION_ALL } from '../App/Filters/useSectionSelector';
+import Editions, { SingleEdition } from '../Editions';
 import {
   Screening,
   ScreeningWithMovie,
@@ -11,14 +11,14 @@ import {
   AlwaysAvailableStreamingScreening,
   RegularStreamingScreening,
   isRegularStreamingScreening,
-} from "../types";
+} from '../types';
 
 /**
  * TODO move to DataProvider?
  */
 export function getCurrentEdition(): SingleEdition {
   const qs = new URLSearchParams(window.location.search);
-  const rawEditionNumber = qs.get("edition");
+  const rawEditionNumber = qs.get('edition');
 
   if (rawEditionNumber) {
     const currentEditionNumber = Number.parseInt(rawEditionNumber, 10);
@@ -34,23 +34,21 @@ export function isLatestEdition(): boolean {
 
 function isScreeningOfDay(
   screening: TraditionalScreening | RegularStreamingScreening,
-  date: Date
+  date: Date,
 ): boolean {
   if (!screening.date) {
     return false;
   }
 
   const serializedDate = serializeDate(date);
-  const day = serializedDate.split("T")[0];
+  const day = serializedDate.split('T')[0];
 
-  const screeningDay = screening.date.date.split(" ")[0];
+  const screeningDay = screening.date.date.split(' ')[0];
   return day === screeningDay;
 }
 
 function filterBySection(sectionId?: string) {
-  return function sectionFilterPredicate(
-    screening: ScreeningWithMovie
-  ): boolean {
+  return function sectionFilterPredicate(screening: ScreeningWithMovie): boolean {
     if (!sectionId || sectionId === DEFAULT_SECTION_ALL.value) {
       return true;
     }
@@ -60,7 +58,7 @@ function filterBySection(sectionId?: string) {
 
 function getScreenings<T extends Screening>(
   movies: Movies,
-  filterFn: (screening: Screening) => screening is T
+  filterFn: (screening: Screening) => screening is T,
 ): ScreeningWithMovie<T>[] {
   const moviesForDay = movies.filter((movie) => {
     return movie.screenings.some(filterFn);
@@ -83,21 +81,16 @@ type ScreeningFilters = {
 export function getScreeningsForDay(
   movies: Movies,
   date: Date,
-  filters?: ScreeningFilters
+  filters?: ScreeningFilters,
 ): ScreeningWithMovie<TraditionalScreening | RegularStreamingScreening>[] {
   return getScreenings(
     movies,
-    (
-      screening
-    ): screening is TraditionalScreening | RegularStreamingScreening => {
+    (screening): screening is TraditionalScreening | RegularStreamingScreening => {
       if (isTraditionalScreening(screening)) {
         return isScreeningOfDay(screening, date);
       }
-      return (
-        isRegularStreamingScreening(screening) &&
-        isScreeningOfDay(screening, date)
-      );
-    }
+      return isRegularStreamingScreening(screening) && isScreeningOfDay(screening, date);
+    },
   )
     .filter(filterBySection(filters?.section))
     .sort((screening1, screening2) => {
@@ -127,9 +120,9 @@ export function getScreeningsForDay(
 
 export function getAlwaysAvailableScreenings(
   movies: Movies,
-  filters?: ScreeningFilters
+  filters?: ScreeningFilters,
 ): ScreeningWithMovie<AlwaysAvailableStreamingScreening>[] {
   return getScreenings(movies, isScreeningAlwaysAvailable).filter(
-    filterBySection(filters?.section)
+    filterBySection(filters?.section),
   );
 }

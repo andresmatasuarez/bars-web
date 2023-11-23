@@ -1,13 +1,13 @@
 import $ from 'jquery';
 
 export default function stickyMenu() {
-  const object          = $(this);
-  const adminBarOffset  = $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
-  const stickyTop       = object.offset().top;
+  const object = $(this);
+  const adminBarOffset = $('#wpadminbar').length ? $('#wpadminbar').height() : 0;
+  const stickyTop = object.offset().top;
   const initialPosition = object.css('position');
-  const initialTop      = object.css('top');
+  const initialTop = object.css('top');
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     const scrollTop = $(window).scrollTop();
 
     // If we scroll more than the navigation, change its position to fixed and add class 'sticky'.

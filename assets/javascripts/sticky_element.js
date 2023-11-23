@@ -9,13 +9,13 @@ export default function stickyElement(
   parentElementSelector,
   stickyElementSelector,
   // allows a dynamic offset to be passed. This callback gets called for  each scroll event.
-  offsetCallback
+  offsetCallback,
 ) {
   $(parentElementSelector).map(function (index) {
     const parent = $(this);
     const sticky = parent.find(stickyElementSelector);
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
       const windowTop = $(window).scrollTop();
       const parentOffsetTop = parent.offset().top;
 
@@ -28,13 +28,20 @@ export default function stickyElement(
       }
 
       if (parentOffsetTop < windowTop + offset) {
-        if (parentOffsetTop + parent.outerHeight() - sticky.outerHeight() - offset - MARGIN_BOTTOM_WHEN_FIXED > windowTop) {
+        if (
+          parentOffsetTop +
+            parent.outerHeight() -
+            sticky.outerHeight() -
+            offset -
+            MARGIN_BOTTOM_WHEN_FIXED >
+          windowTop
+        ) {
           sticky.css('position', 'fixed');
           sticky.css('top', offset);
           sticky.css('bottom', 'unset');
         } else {
           sticky.css('position', 'absolute');
-          sticky.css('top', 'unset')
+          sticky.css('top', 'unset');
           sticky.css('bottom', MOVIE_POST_MARGIN_BOTTOM);
         }
       } else {

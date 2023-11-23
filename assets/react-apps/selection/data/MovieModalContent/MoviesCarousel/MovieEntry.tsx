@@ -1,21 +1,16 @@
-import styled from "styled-components";
-import { Stylable } from "../../../types";
-import { MovieBlockAdditionalData } from "../types";
-import {
-  InlineHeading,
-  MovieHeader,
-  MovieImageWrapper,
-  Paragraph,
-} from "../commons";
-import { DangerousHTML } from "../../../App/commons";
-import MovieLinks from "../MovieLinks";
-import Info from "../Info";
+import styled from 'styled-components';
+import { Stylable } from '../../../types';
+import { MovieBlockAdditionalData } from '../types';
+import { InlineHeading, MovieHeader, MovieImageWrapper, Paragraph } from '../commons';
+import { DangerousHTML } from '../../../App/commons';
+import MovieLinks from '../MovieLinks';
+import Info from '../Info';
 
 export default styled(function MovieEntry({
   className,
   movie,
 }: Stylable & {
-  movie: MovieBlockAdditionalData["movies"][number];
+  movie: MovieBlockAdditionalData['movies'][number];
 }) {
   return (
     <div className={className}>

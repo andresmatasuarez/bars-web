@@ -1,17 +1,12 @@
-import styled from "styled-components";
-import { Movie, Stylable } from "../../types";
-import { MovieAdditionalData } from "./types";
-import {
-  InlineHeading,
-  MovieHeader,
-  MovieImageWrapper,
-  Paragraph,
-} from "./commons";
-import Info from "./Info";
-import { DangerousHTML, Divider } from "../../App/commons";
-import TrailerEmbed from "./TrailerEmbed";
-import ScreeningsByVenue from "./ScreeningsByVenue";
-import MovieLinks from "./MovieLinks";
+import styled from 'styled-components';
+import { Movie, Stylable } from '../../types';
+import { MovieAdditionalData } from './types';
+import { InlineHeading, MovieHeader, MovieImageWrapper, Paragraph } from './commons';
+import Info from './Info';
+import { DangerousHTML, Divider } from '../../App/commons';
+import TrailerEmbed from './TrailerEmbed';
+import ScreeningsByVenue from './ScreeningsByVenue';
+import MovieLinks from './MovieLinks';
 
 export default styled(function RegularMovieModalContent({
   className,
@@ -34,17 +29,12 @@ export default styled(function RegularMovieModalContent({
       {movieData.synopsis && (
         <Paragraph>
           <InlineHeading>Synopsis</InlineHeading>
-          <DangerousHTML
-            html={movieData.synopsis}
-            cssStyle="display: inline;"
-          />
+          <DangerousHTML html={movieData.synopsis} cssStyle="display: inline;" />
         </Paragraph>
       )}
 
       {movieData.comments && (
-        <Paragraph cssStyle="font-style: italic;">
-          {movieData.comments}
-        </Paragraph>
+        <Paragraph cssStyle="font-style: italic;">{movieData.comments}</Paragraph>
       )}
 
       <Divider />

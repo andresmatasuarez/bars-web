@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import scratchSrc from "../../../images/scratch.png";
-import { Stylable, applyCssStyleProp } from "../types";
+import styled from 'styled-components';
+import scratchSrc from '../../../images/scratch.png';
+import { Stylable, applyCssStyleProp } from '../types';
 
 export const Divider = styled.div`
   opacity: 0.4;

@@ -5,9 +5,9 @@ export default function collapsible(triggerDataAttr, targetDataAttr) {
 
     const collapsibleId = triggerElement.data(triggerDataAttr);
 
-    triggerElement.click(function() {
+    triggerElement.click(function () {
       const targetSelector = `[data-${targetDataAttr}="${collapsibleId}"]`;
-      $(targetSelector).map(function() {
+      $(targetSelector).map(function () {
         const targetElement = $(this);
         const isCollapsed = targetElement.attr('data-collapsed');
         if (isCollapsed !== undefined) {

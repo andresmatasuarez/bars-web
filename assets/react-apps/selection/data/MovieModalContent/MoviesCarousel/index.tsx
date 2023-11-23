@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { Stylable } from "../../../types";
-import { MovieBlockAdditionalData } from "../types";
-import { modalScrollbar } from "../../MovieModal";
-import MovieEntry from "./MovieEntry";
-import { Divider } from "../../../App/commons";
+import styled from 'styled-components';
+import { Stylable } from '../../../types';
+import { MovieBlockAdditionalData } from '../types';
+import { modalScrollbar } from '../../MovieModal';
+import MovieEntry from './MovieEntry';
+import { Divider } from '../../../App/commons';
 
 const MovieEntries = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ export default styled(function MoviesCarousel({
   className,
   movies,
 }: Stylable & {
-  movies: MovieBlockAdditionalData["movies"];
+  movies: MovieBlockAdditionalData['movies'];
 }) {
   return (
     <div className={className}>

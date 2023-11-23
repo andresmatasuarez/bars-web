@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { ScreeningsByDay, Stylable } from "../types";
-import { DataContext } from "../data/DataProvider";
-import Screenings from "./Screenings";
-import DayHeading from "./Screenings/DayHeading";
-import { Divider } from "./commons";
-import { isLatestEdition } from "../data/helpers";
-import Filters from "./Filters";
-import { FAIcon } from "../utils";
-import { faHeartCrack } from "@fortawesome/free-solid-svg-icons";
-import { dateHasPassed } from "../../helpers";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import { ScreeningsByDay, Stylable } from '../types';
+import { DataContext } from '../data/DataProvider';
+import Screenings from './Screenings';
+import DayHeading from './Screenings/DayHeading';
+import { Divider } from './commons';
+import { isLatestEdition } from '../data/helpers';
+import Filters from './Filters';
+import { FAIcon } from '../utils';
+import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
+import { dateHasPassed } from '../../helpers';
 
 function noScreeningsForAnyDay(screeningsByDay: ScreeningsByDay): boolean {
   const count = Object.entries(screeningsByDay).reduce(
     (accum, [, screenings]) => accum + screenings.length,
-    0
+    0,
   );
 
   return count === 0;
@@ -27,18 +27,16 @@ const NoScreenings = styled.div`
 
   color: gray;
   padding: 50px;
-  font-family: "Oswald"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   text-align: center;
   font-size: 30px;
 `;
 
 export default styled(function App({ className }: Stylable) {
-  const { screeningsByDay, alwaysAvailableScreenings } =
-    useContext(DataContext);
+  const { screeningsByDay, alwaysAvailableScreenings } = useContext(DataContext);
 
   const noScreeningsAtAll =
-    alwaysAvailableScreenings.length === 0 &&
-    noScreeningsForAnyDay(screeningsByDay);
+    alwaysAvailableScreenings.length === 0 && noScreeningsForAnyDay(screeningsByDay);
 
   return (
     <div className={className}>

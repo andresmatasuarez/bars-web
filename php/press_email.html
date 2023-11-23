@@ -1,98 +1,307 @@
-<table width='100%' style='font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; color: white; padding: 20px 0 40px 0;'>
+<table
+  width="100%"
+  style="
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    color: white;
+    padding: 20px 0 40px 0;
+  "
+>
   <tr>
     <td>
-      <table width='100%' align='center' style='border-spacing: 0; border-collapse: collapse; color: white; text-align: center; '>
-        <tr >
-          <td style='background-color: black; border-top-left-radius: 20px; border-top-right-radius: 20px; padding: 30px 0 10px 0; background-color: black;'>
+      <table
+        width="100%"
+        align="center"
+        style="border-spacing: 0; border-collapse: collapse; color: white; text-align: center"
+      >
+        <tr>
+          <td
+            style="
+              background-color: black;
+              border-top-left-radius: 20px;
+              border-top-right-radius: 20px;
+              padding: 30px 0 10px 0;
+              background-color: black;
+            "
+          >
             <!-- <div style='margin: 0 auto; vertical-align: middle; background-image: url(http://rojosangre.quintadimension.com/2.0/wp-content/themes/bars2013/images/sprites.png); background-position: 0px -672px; width: 350px; height: 119px;' ></div> -->
             <h1>Buenos Aires Rojo Sangre</h1>
           </td>
         </tr>
         <tr>
-          <td style="background-color: black; padding: 10px 0; font-size: 14pt;">
-            Prensa
-          </td>
+          <td style="background-color: black; padding: 10px 0; font-size: 14pt">Prensa</td>
         </tr>
         <tr>
-          <td style='padding: 0;'>
-            <table align='center' width='100%' style='border: 5px solid black; border-spacing: initial; padding: 10px 10px 30px 10px; color: #222222; background-color: white; text-align: center; '>
-                <tr>
-                  <td width='35%' style='font-size: 8pt; padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>Fecha y hora</td>
-                  <td width='65%' style='font-size: 8pt; padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$datetime</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Apellido y nombre del acreditado
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$accredited_name</td>
-                </tr>
-                <tr>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Tipo y número de documento del acreditado
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$accredited_id</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Localidad/Ciudad del acreditado
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; padding: 10px 0; text-align: left; vertical-align: top;'>$accredited_city</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    País del acreditado
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; padding: 10px 0; text-align: left; vertical-align: top;'>$accredited_country</td>
-                </tr>
-                <tr>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Celular de contacto del acreditado
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$accredited_mobile</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    E-mail del acreditado
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$accredited_email</td>
-                </tr>
+          <td style="padding: 0">
+            <table
+              align="center"
+              width="100%"
+              style="
+                border: 5px solid black;
+                border-spacing: initial;
+                padding: 10px 10px 30px 10px;
+                color: #222222;
+                background-color: white;
+                text-align: center;
+              "
+            >
+              <tr>
+                <td
+                  width="35%"
+                  style="
+                    font-size: 8pt;
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Fecha y hora
+                </td>
+                <td
+                  width="65%"
+                  style="
+                    font-size: 8pt;
+                    padding: 10px 10px 10px 0;
+                    text-align: left;
+                    vertical-align: top;
+                  "
+                >
+                  $datetime
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Apellido y nombre del acreditado
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $accredited_name
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Tipo y número de documento del acreditado
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $accredited_id
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Localidad/Ciudad del acreditado
+                </td>
+                <td
+                  width="65%"
+                  style="
+                    padding: 10px 10px 10px 0;
+                    padding: 10px 0;
+                    text-align: left;
+                    vertical-align: top;
+                  "
+                >
+                  $accredited_city
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  País del acreditado
+                </td>
+                <td
+                  width="65%"
+                  style="
+                    padding: 10px 10px 10px 0;
+                    padding: 10px 0;
+                    text-align: left;
+                    vertical-align: top;
+                  "
+                >
+                  $accredited_country
+                </td>
+              </tr>
+              <tr>
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Celular de contacto del acreditado
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $accredited_mobile
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  E-mail del acreditado
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $accredited_email
+                </td>
+              </tr>
 
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Medio al que representa
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$press_media_name</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Nombre del editor del medio de prensa
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$press_media_editor</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Contacto del medio de prensa
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$press_media_contact</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    Ciudad del medio de prensa
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$press_media_city</td>
-                </tr>
-                <tr style='background-color: #EFEFEF;'>
-                  <td width='35%' style='padding: 10px 20px 10px 10px; text-align: right; font-weight: bold; vertical-align: top;'>
-                    País del medio de prensa
-                  </td>
-                  <td width='65%' style='padding: 10px 10px 10px 0; text-align: left; vertical-align: top;'>$press_media_country</td>
-                </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Medio al que representa
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $press_media_name
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Nombre del editor del medio de prensa
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $press_media_editor
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Contacto del medio de prensa
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $press_media_contact
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  Ciudad del medio de prensa
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $press_media_city
+                </td>
+              </tr>
+              <tr style="background-color: #efefef">
+                <td
+                  width="35%"
+                  style="
+                    padding: 10px 20px 10px 10px;
+                    text-align: right;
+                    font-weight: bold;
+                    vertical-align: top;
+                  "
+                >
+                  País del medio de prensa
+                </td>
+                <td
+                  width="65%"
+                  style="padding: 10px 10px 10px 0; text-align: left; vertical-align: top"
+                >
+                  $press_media_country
+                </td>
+              </tr>
             </table>
           </td>
         </tr>
-        <tr >
-          <td style='background-color: black; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; padding: 30px 0 10px 0; background-color: black;'>
-          </td>
+        <tr>
+          <td
+            style="
+              background-color: black;
+              border-bottom-left-radius: 20px;
+              border-bottom-right-radius: 20px;
+              padding: 30px 0 10px 0;
+              background-color: black;
+            "
+          ></td>
         </tr>
       </table>
     </td>

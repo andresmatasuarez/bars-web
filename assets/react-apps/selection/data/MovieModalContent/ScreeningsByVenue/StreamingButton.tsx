@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
-import { Stylable } from "../../../types";
-import { FAIcon } from "../../../utils";
+import styled from 'styled-components';
+import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+import { Stylable } from '../../../types';
+import { FAIcon } from '../../../utils';
 
 export default styled(function StreamingButton({
   className,
@@ -12,12 +12,7 @@ export default styled(function StreamingButton({
   isDisabled?: boolean;
 }) {
   return (
-    <a
-      className={className}
-      target="_blank"
-      rel="noopener noreferrer"
-      href={streamingUrl}
-    >
+    <a className={className} target="_blank" rel="noopener noreferrer" href={streamingUrl}>
       <FAIcon icon={faCirclePlay} size="2x" />
 
       {isDisabled ? (
@@ -36,7 +31,7 @@ export default styled(function StreamingButton({
 
   // Reset anchor color
   color: inherit;
-  font-family: "Oswald"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   text-transform: uppercase;
   padding: 3px 14px;
@@ -61,5 +56,5 @@ export default styled(function StreamingButton({
         background: #515151;
         color: #878787;
       `
-      : ""}
+      : ''}
 `;

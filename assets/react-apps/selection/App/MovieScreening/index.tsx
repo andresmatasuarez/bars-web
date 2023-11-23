@@ -1,16 +1,16 @@
-import React, { MouseEventHandler, useCallback, useContext } from "react";
-import styled, { css } from "styled-components";
-import { DataContext } from "../../data/DataProvider";
-import { DangerousHTML, Label } from "../commons";
+import React, { MouseEventHandler, useCallback, useContext } from 'react';
+import styled, { css } from 'styled-components';
+import { DataContext } from '../../data/DataProvider';
+import { DangerousHTML, Label } from '../commons';
 import {
   ScreeningWithMovie,
   Stylable,
   applyCssStyleProp,
   isTraditionalScreening,
-} from "../../types";
-import Editions from "../../Editions";
-import { getCurrentEdition } from "../../data/helpers";
-import AddToWatchlistToggle from "./AddToWatchlistToggle";
+} from '../../types';
+import Editions from '../../Editions';
+import { getCurrentEdition } from '../../data/helpers';
+import AddToWatchlistToggle from './AddToWatchlistToggle';
 
 const ScreeningTime = styled(Label)`
   top: 0;
@@ -90,13 +90,8 @@ export default styled(function MovieScreening({
 }: Stylable & {
   screening: ScreeningWithMovie;
 }) {
-  const {
-    sections,
-    isAddedToWatchlist,
-    addToWatchlist,
-    removeFromWatchlist,
-    openMovieModal,
-  } = useContext(DataContext);
+  const { sections, isAddedToWatchlist, addToWatchlist, removeFromWatchlist, openMovieModal } =
+    useContext(DataContext);
 
   const isAdded = isAddedToWatchlist(screening);
 
@@ -110,7 +105,7 @@ export default styled(function MovieScreening({
         addToWatchlist(screening);
       }
     },
-    [screening, addToWatchlist, removeFromWatchlist, isAdded]
+    [screening, addToWatchlist, removeFromWatchlist, isAdded],
   );
 
   const currentEdition = getCurrentEdition();
@@ -121,17 +116,14 @@ export default styled(function MovieScreening({
     // If 'room' was entered and there is only one venue for this edition,
     // then display only the room.
     venueName =
-      screening.room &&
-      Object.keys(Editions.venues(currentEdition)).length === 1
+      screening.room && Object.keys(Editions.venues(currentEdition)).length === 1
         ? screening.room
         : venueName;
   }
 
   return (
     <div className={className} onClick={() => openMovieModal(screening.movie)}>
-      {isTraditionalScreening(screening) && (
-        <ScreeningTime>{screening.time}</ScreeningTime>
-      )}
+      {isTraditionalScreening(screening) && <ScreeningTime>{screening.time}</ScreeningTime>}
 
       <Thumbnail>
         <Venue>{venueName}</Venue>

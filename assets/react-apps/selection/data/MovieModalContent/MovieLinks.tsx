@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import { faImdb } from "@fortawesome/free-brands-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { Stylable } from "../../types";
-import { MovieAdditionalData, MovieBlockAdditionalData } from "./types";
-import { FAIcon } from "../../utils";
+import styled from 'styled-components';
+import { faImdb } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { Stylable } from '../../types';
+import { MovieAdditionalData, MovieBlockAdditionalData } from './types';
+import { FAIcon } from '../../utils';
 
 export default styled(function MovieLinks({
   className,
   movieData,
 }: Stylable & {
-  movieData: MovieAdditionalData | MovieBlockAdditionalData["movies"][number];
+  movieData: MovieAdditionalData | MovieBlockAdditionalData['movies'][number];
 }) {
   return (
     <div className={className}>

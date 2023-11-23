@@ -1,6 +1,6 @@
-import EDITIONS from "../../../php/editions.json";
-import { parseDate } from "../helpers";
-import { Venues } from "./types";
+import EDITIONS from '../../../php/editions.json';
+import { parseDate } from '../helpers';
+import { Venues } from './types';
 
 /**
  * TODO
@@ -46,13 +46,13 @@ export default class Editions {
 
     if (!fromDate) {
       throw new Error(
-        `Editions :: The start date of edition ${edition.number} must not be null at this point.`
+        `Editions :: The start date of edition ${edition.number} must not be null at this point.`,
       );
     }
 
     if (!toDate) {
       throw new Error(
-        `Editions :: The end date of edition ${edition.number} must not be null at this point.`
+        `Editions :: The end date of edition ${edition.number} must not be null at this point.`,
       );
     }
 
@@ -71,10 +71,7 @@ export default class Editions {
     return edition.venues ?? null;
   }
 
-  static getVenueName(
-    venueId: string,
-    edition: SingleEdition = this.latest()
-  ): string {
+  static getVenueName(venueId: string, edition: SingleEdition = this.latest()): string {
     const venues = this.venues(edition);
 
     const venue = venues[venueId];

@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { Movie, Screening, Stylable } from "../../../types";
-import ScreeningsGroup from "./ScreeningsGroup";
-import { getCurrentEdition } from "../../helpers";
-import Editions from "../../../Editions";
-import { MovieAdditionalData } from "../types";
+import styled from 'styled-components';
+import { Movie, Screening, Stylable } from '../../../types';
+import ScreeningsGroup from './ScreeningsGroup';
+import { getCurrentEdition } from '../../helpers';
+import Editions from '../../../Editions';
+import { MovieAdditionalData } from '../types';
 
 type ScreeningByVenue = Record</* Venue */ string, Screening[]>;
 

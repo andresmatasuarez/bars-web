@@ -6,16 +6,16 @@ export default function movieSectionFilter() {
   // Default filter: all sections.
   object.val('all');
 
-  object.change(function(){
+  object.change(function () {
     const selected = object.val();
 
     // First of all, hide all schedule days and movie posts.
     $('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').hide();
 
-    if (selected === 'all'){
+    if (selected === 'all') {
       $('.schedule .schedule-day, .schedule .scratch, .schedule .schedule-day .movie-post').show();
     } else {
-      $(`.schedule .schedule-day .movie-post[section="${selected}"]`).each(function(){
+      $(`.schedule .schedule-day .movie-post[section="${selected}"]`).each(function () {
         $(this).show();
         $(this).closest('.schedule .schedule-day').show();
         $(this).closest('.schedule .schedule-day').next('.schedule .scratch').show();

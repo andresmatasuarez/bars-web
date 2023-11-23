@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { RuleSet, css } from "styled-components";
+import { ReactNode } from 'react';
+import { RuleSet, css } from 'styled-components';
 
 export type Stylable = {
   className?: string;
@@ -19,7 +19,7 @@ export const applyCssStyleProp = css<Stylable>`
     props.cssStyle ||
     // default to empty string to avoid rendering
     // the 'undefined' word as part of the resulting CSS
-    ""}
+    ''}
 `;
 
 type BaseScreening = {
@@ -78,9 +78,7 @@ export type RegularStreamingScreening = BaseStreamingScreening & {
   isoDate: string;
 };
 
-export type StreamingScreening =
-  | AlwaysAvailableStreamingScreening
-  | RegularStreamingScreening;
+export type StreamingScreening = AlwaysAvailableStreamingScreening | RegularStreamingScreening;
 
 export type TraditionalScreening = BaseScreening & {
   streaming?: false;
@@ -105,26 +103,22 @@ export type TraditionalScreening = BaseScreening & {
 
 export type Screening = StreamingScreening | TraditionalScreening;
 
-export function isStreamingScreening(
-  screening: Screening
-): screening is StreamingScreening {
+export function isStreamingScreening(screening: Screening): screening is StreamingScreening {
   return !!screening.streaming;
 }
 
-export function isTraditionalScreening(
-  screening: Screening
-): screening is TraditionalScreening {
+export function isTraditionalScreening(screening: Screening): screening is TraditionalScreening {
   return !screening.streaming;
 }
 
 export function isScreeningAlwaysAvailable(
-  screening: Screening
+  screening: Screening,
 ): screening is AlwaysAvailableStreamingScreening {
   return isStreamingScreening(screening) && !!screening.alwaysAvailable;
 }
 
 export function isRegularStreamingScreening(
-  screening: Screening
+  screening: Screening,
 ): screening is RegularStreamingScreening {
   return isStreamingScreening(screening) && !screening.alwaysAvailable;
 }

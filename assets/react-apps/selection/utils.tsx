@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled from "styled-components";
-import { Stylable, applyCssStyleProp } from "./types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from 'styled-components';
+import { Stylable, applyCssStyleProp } from './types';
 
 export const ZIndexes = {
   Modal: 9999,
@@ -12,5 +12,5 @@ export const FAIcon = styled(FontAwesomeIcon)`
 `;
 
 export function explodeCommaSeparated(str: string) {
-  return str.split(",").map((s) => s.trim());
+  return str.split(',').map((s) => s.trim());
 }

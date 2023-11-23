@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import Select from "react-select";
-import { Stylable } from "../../types";
-import { DataContext, MovieListType } from "../../data/DataProvider";
-import { faEye } from "@fortawesome/free-regular-svg-icons";
-import { FAIcon, ZIndexes } from "../../utils";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import Select from 'react-select';
+import { Stylable } from '../../types';
+import { DataContext, MovieListType } from '../../data/DataProvider';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
+import { FAIcon, ZIndexes } from '../../utils';
 
-const FILTERS_BG_COLOR = "#55353b";
+const FILTERS_BG_COLOR = '#55353b';
 
 const TogglesContainer = styled.div`
-  font-family: "Oswald"; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   display: flex;
 
@@ -38,7 +38,7 @@ const Toggle = styled.div<{ isActive?: boolean }>`
           color: white;
           background: #c14949;
         `
-      : ""}
+      : ''}
 `;
 
 export default styled(function Filters({ className }: Stylable) {
@@ -65,37 +65,35 @@ export default styled(function Filters({ className }: Stylable) {
           menuPortal: (base) => ({ ...base, zIndex: ZIndexes.SelectDropdown }),
           container: (base) => ({
             ...base,
-            flex: "0 0 250px",
-            borderRadius: "10px",
+            flex: '0 0 250px',
+            borderRadius: '10px',
           }),
           control: (base, state) => ({
             ...base,
-            fontFamily: "Oswald", // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            fontFamily: 'Oswald', // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             borderColor: FILTERS_BG_COLOR,
             border: `2px solid ${FILTERS_BG_COLOR}`,
-            height: "100%",
+            height: '100%',
 
             // Disables blue 'active' outline
-            boxShadow: "none",
+            boxShadow: 'none',
 
-            "&:hover": {
+            '&:hover': {
               borderColor: FILTERS_BG_COLOR,
             },
           }),
           menu: (base, state) => ({
             ...base,
-            fontFamily: "Oswald", // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            marginTop: "0px",
+            fontFamily: 'Oswald', // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            marginTop: '0px',
             border: `2px solid ${FILTERS_BG_COLOR}`,
-            borderBottomLeftRadius: "10px",
-            borderBottomRightRadius: "10px",
-            overflow: "hidden",
+            borderBottomLeftRadius: '10px',
+            borderBottomRightRadius: '10px',
+            overflow: 'hidden',
           }),
           option: (base, state) => ({
             ...base,
-            backgroundColor: state.isSelected
-              ? "#c14949"
-              : base.backgroundColor,
+            backgroundColor: state.isSelected ? '#c14949' : base.backgroundColor,
           }),
         }}
       />
@@ -120,7 +118,7 @@ export default styled(function Filters({ className }: Stylable) {
           <FAIcon
             icon={faEye}
             beat={currentMovieListType === MovieListType.WATCHLIST}
-            style={{ marginLeft: "6px" }}
+            style={{ marginLeft: '6px' }}
           />
         </Toggle>
       </TogglesContainer>
