@@ -256,7 +256,7 @@ function renderPostInList($post_id){
 			<div class="post-footer">
 				<div class="clear scratch"></div>
 				<div class="post-comment-count" >
-          <span class="fa fa-comments"></span>
+          <span class="fa-solid fa-comments"></span>
 					<a href="' . get_permalink($post_id) . '#disqus_thread" data-disqus-identifier="buenosairesrojosangre-' . get_the_ID($post_id) . '" ></a>
 				</div>
 

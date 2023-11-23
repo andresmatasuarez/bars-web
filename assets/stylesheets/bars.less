@@ -69,7 +69,7 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
             flex: 0;
             margin-left: 5px;
 
-            .fa {
+            .fa-solid, .fa-regular, .fa-brands {
               font-size: 16px;
             }
           }
@@ -89,9 +89,9 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
     &:hover {
       text-decoration: none; // Override decoration from links.less
       .fa-instagram { color: #cd486b; }
-      .fa-facebook-square { color: #3b5998; }
-      .fa-twitter-square { color: #00aced; }
-      .fa-youtube-square { color: #c4302b; }
+      .fa-square-facebook { color: #3b5998; }
+      .fa-square-x-twitter{ color: #00aced; }
+      .fa-square-youtube { color: #c4302b; }
     }
   }
   div { display: inline-block; padding: 0; width: 33px; background-repeat: no-repeat; }
@@ -157,7 +157,11 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
 }
 #page-juries .page-header.juries { padding-top: 30px; background: none; }
 #page-juries .page-header.juries.section { padding: 15px 0 15px 30px; background: none; font-size: 1.4em; }
-#page-juries .page-header.juries.section .fa { line-height: 2.2; margin: 0 5px; }
+#page-juries .page-header.juries.section {
+  .fa-solid, .fa-regular, .fa-brands {
+    line-height: 2.2; margin: 0 5px;
+  }
+}
 
 .warning { padding: 20px 20px 50px 20px; }
 
@@ -334,16 +338,21 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
     justify-content: center;
     cursor: pointer;
 
-    .fa:before {
-      display: inline-block;
-      -moz-transition: transform 0.1s;
-      -webkit-transition: transform 0.1s;
-      transition: transform 0.1s;
+    .fa-solid, .fa-regular, .fa-brands {
+      &:before {
+        display: inline-block;
+        -moz-transition: transform 0.1s;
+        -webkit-transition: transform 0.1s;
+        transition: transform 0.1s;
+      }
     }
 
+
     &[data-collapsed] {
-      .fa:before {
-        transform: rotate(-90deg);
+      .fa-solid, .fa-regular, .fa-brands {
+        &:before {
+          transform: rotate(-90deg);
+        }
       }
     }
   }
@@ -543,7 +552,7 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
       padding: 5px;
       padding-right: 10px;
 
-      .fa {
+      .fa-solid, .fa-regular, .fa-brands {
         font-size: 34px;
         margin-right: 7px;
       }
@@ -716,7 +725,7 @@ body { margin: 0; background: url('../images/bgpattern2.png'); overflow-x: hidde
     font-size: 1.17em;
   }
 
-  .fa {
+  .fa-solid, .fa-regular, .fa-brands {
     font-size: 6em;
   }
 }

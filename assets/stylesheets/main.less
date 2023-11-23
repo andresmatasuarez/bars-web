@@ -16,9 +16,6 @@ Author URI:     mailto:author@bars.com
   transform: rotate(@deg * 1deg);
   /* Opera */
   -o-transform: rotate(@deg * 1deg);
-  /* Internet Explorer */
-  @IEdeg: round(@deg / 90, 0);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@IEdeg);
 }
 
 @import url('./fonts.less');
@@ -30,5 +27,13 @@ Author URI:     mailto:author@bars.com
 @import url('./bars.less');
 @import url('./slider.less');
 
-@import url('~fancybox/dist/css/jquery.fancybox.css');
-@import url('~font-awesome/less/font-awesome.less');
+@import url('fancybox/dist/css/jquery.fancybox.css');
+
+
+// Unrelated to react apps, this is only needed because of font-awesome
+// usage in standalone less/css/html/php files
+@import "@fortawesome/fontawesome-free/less/fontawesome.less";
+@import "@fortawesome/fontawesome-free/less/regular.less";
+@import "@fortawesome/fontawesome-free/less/solid.less";
+@import "@fortawesome/fontawesome-free/less/brands.less";
+@fa-font-path: "@fortawesome/fontawesome-free/webfonts";

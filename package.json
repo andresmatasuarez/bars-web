@@ -5,12 +5,11 @@
   "homepage": "http://www.festivalrojosangre.com.ar",
   "repository": {
     "type": "git",
-    "url": "git://amatasuarez@bitbucket.org/amatasuarez/bars-web.git"
+    "url": "git@github.com:andresmatasuarez/bars-web.git"
   },
   "authors": [
     "Andres Mata Suarez <amatasuarez@gmail.com>"
   ],
-  "main": "Gruntfile.js",
   "config": {
     "dest": "./wp-content/themes/bars2013",
     "php": "./php/**/*",
@@ -18,48 +17,52 @@
     "vendor": "./vendor/**/*"
   },
   "scripts": {
-    "install": "napa",
-    "start": "run-s clean dev",
-    "dev": "run-p -l watch:**",
-    "build": "run-s -l clean copy:** client",
     "clean": "rimraf wp-content/themes/bars2013",
+    "dev": "npm-run-all clean --parallel dev:** watch:**",
+    "dev:main": "npm run build:main -- --watch",
+    "dev:selection": "npm run build:selection -- --watch",
+    "build": "npm-run-all clean --parallel build:** copy:**",
+    "build:main": "vite build --config vite/vite.config.ts",
+    "build:selection": "vite build --config vite/selection.vite.config.ts",
     "copy:php": "cpx \"$npm_package_config_php\" $npm_package_config_dest",
     "copy:resources": "cpx \"$npm_package_config_resources\" $npm_package_config_dest/resources",
     "copy:vendor": "cpx \"$npm_package_config_vendor\" $npm_package_config_dest/vendor",
-    "watch:php": "cpx \"$npm_package_config_php\" $npm_package_config_dest --watch --verbose",
-    "watch:resources": "cpx \"$npm_package_config_resources\" $npm_package_config_dest/resources --watch --verbose",
-    "watch:vendor": "cpx \"$npm_package_config_vendor\" $npm_package_config_dest/vendor --watch --verbose",
-    "watch:client": "webpack -d --watch",
-    "client": "webpack --optimize-minimize --optimize-occurrence-order --optimize-dedupe"
+    "watch:php": "npm run copy:php -- --watch --verbose",
+    "watch:resources": "npm run copy:resources -- --watch --verbose",
+    "watch:vendor": "npm run copy:vendor -- --watch --verbose"
   },
-  "napa": {
-    "jquery-focuspoint": "jonom/jquery-focuspoint",
-    "imgliquid": "karacas/imgLiquid"
+  "overrides": {
+    "react-error-overlay": "6.0.9"
   },
   "devDependencies": {
-    "babel-core": "^6.8.0",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.6.0",
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@rollup/plugin-inject": "^5.0.5",
+    "@types/react-dom": "^18.2.15",
+    "@types/react-modal": "^3.16.3",
+    "@vitejs/plugin-react": "^4.1.1",
     "cpx": "^1.3.1",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "fancybox": "^3.0.0",
-    "file-loader": "^0.8.5",
-    "font-awesome": "^4.6.1",
-    "img-loader": "^1.2.2",
+    "fetch-jsonp": "^1.3.0",
     "jquery": "^2.2.3",
-    "jquery-form": "^3.50.0",
+    "jquery-focuspoint": "^1.1.3",
+    "jquery-form": "^4.3.0",
     "jquery-validation": "^1.15.0",
     "jquery.dotdotdot": "^1.8.0",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
+    "less": "^4.2.0",
     "lodash": "^4.12.0",
-    "napa": "^2.3.0",
-    "npm-run-all": "^2.1.1",
+    "npm-run-all": "^2.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
+    "react-select": "^5.8.0",
     "rimraf": "^2.5.2",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.0"
+    "styled-components": "^6.1.1",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   }
 }

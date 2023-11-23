@@ -156,7 +156,7 @@
 			array(
 				'id'    => $movie_prefix . 'trailer',
 				'label' => 'Trailer',
-				'desc' => 'YouTube video ID',
+				'desc' => 'YouTube/Vimeo video URL',
 				'type'  => 'text'
 			),
 			array(
@@ -424,9 +424,14 @@
 		";
 	}
 
-	function getMoviesAndMovieBlocks($edition, $day) {
+	function getMoviesAndMovieBlocks($edition, $day = NULL) {
 		global $wpdb;
 		$edition = 'bars' . $edition['number'];
+
+		if (is_null($day)) {
+			return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(false), $edition, $edition));
+		}
+
 		$day = $day->format('m-d-Y');
 		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, "%{$day}%", $edition, "%{$day}%"));
 	}

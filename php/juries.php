@@ -120,7 +120,7 @@
                       <?php
                         foreach($juries as $sectionId => $juriesForSection){
                           echo '<div class="page-header juries section">';
-                          echo    '<span class="fa fa-film"></span>';
+                          echo    '<span class="fa-solid fa-film"></span>';
                           echo    getJurySectionLabel($sectionId);
                           echo    '<div class="scratch"></div>';
                           echo '</div>';

@@ -75,13 +75,13 @@
 						</form>
 
 						<div class="warning email-success">
-							<div><span class="fa fa-send"></span></div>
+							<div><span class="fa-solid fa-paper-plane fa-4x"></span></div>
 							<div class="reason">Tu mensaje ha sido enviado!</div>
 							<div class="description">Te responderemos a la brevedad.</div>
 						</div>
 
 						<div class="warning email-error">
-							<div><span class="fa fa-frown-o"></span></div>
+							<div><span class="fa-regular fa-face-frown-open fa-4x"></span></div>
 							<div class="reason">Se ha producido un error</div>
 							<div class="description">No se ha podido enviar el mensaje. Volvé a intentar más tarde.</div>
 						</div>

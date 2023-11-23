@@ -40,7 +40,7 @@
 	?>
 
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" type="text/css"></link>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/main.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/bars.iife.js"></script>
 
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
@@ -160,7 +160,7 @@
 						 			 		?>
 						 						 		<div class="venue-link">
 						 						 			<a href="<?php echo $venue['link']; ?>" target="_blank" rel="noopener noreferrer">
-						 						 				<span class="fa fa-external-link"></span>
+						 						 				<span class="fa-solid fa-arrow-up-right-from-square"></span>
 						 						 			</a>
 						 						 		</div>
 						 			 		<?php
@@ -168,7 +168,7 @@
 						 			 		?>
 						 						 		<div class="venue-link">
 						 						 			<a href="<?php echo $venue['link']; ?>" target="_blank" rel="noopener noreferrer">
-						 						 				<span class="fa fa-map-marker"></span>
+						 						 				<span class="fa-solid fa-location-dot"></span>
 						 						 			</a>
 						 						 		</div>
 						 			 		<?php
@@ -230,16 +230,16 @@
 			<!-- SOCIAL ICONS -->
 			<div id="header-social">
 				<a href="https://www.instagram.com/festivalrojosangre" target="blank">
-					<span class="fa fa-instagram"></span>
+					<span class="fa-brands fa-instagram"></span>
 				</a>
 				<a href="https://www.facebook.com/BuenosAiresRojoSangre" target="blank">
-					<span class="fa fa-facebook-square"></span>
+					<span class="fa-brands fa-square-facebook"></span>
 				</a>
 				<a href="http://www.youtube.com/user/RojoSangreFestival" target="blank">
-					<span class="fa fa-youtube-square"></span>
+					<span class="fa-brands fa-square-youtube"></span>
 				</a>
 				<a href="https://twitter.com/rojosangre" target="blank">
-					<span class="fa fa-twitter-square"></span>
+					<span class="fa-brands fa-square-x-twitter"></span>
 				</a>
 			</div>
 

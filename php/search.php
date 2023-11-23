@@ -34,7 +34,7 @@
 							} else {
 						?>
 							<div class="warning">
-								<div><span class="fa fa-exclamation-circle"></span></div>
+								<div><span class="fa-solid fa-circle-exclamation fa-4x"></span></div>
 								<div class="reason">No se encontraron resultados</div>
 								<div class="description">Volvé a intentar la búsqueda utilizando otras palabras.</div>
 							</div>

@@ -22,7 +22,12 @@
         'streaming' => true,
         'alwaysAvailable' => $rawDate === DATE_FULL_TAG,
         'venue' => strtolower(trim($matches['venue'])),
-        'date' => $date
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+        'date' => $date,
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+        'isoDate' => $date === null ? null : $date->format(DateTime::ATOM)
       );
     }
 
@@ -34,8 +39,13 @@
       'raw' => $screening,
       'venue' => strtolower(trim($matches['venue'])),
       'room' => strtolower(trim($matches['room'])),
+      'time' => $time,
+      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
       'date' => $date,
-      'time' => $time
+      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
+      'isoDate' => $date->format(DateTime::ATOM)
     );
   }
 
@@ -159,6 +169,7 @@
     $screenings = parseScreenings($screeningsValue);
 
     return array(
+      "id" => $post->ID,
       "title" => get_the_title($post->ID),
       "section" => $section,
       "permalink" => get_post_permalink($post->ID),

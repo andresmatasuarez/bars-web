@@ -245,7 +245,7 @@
 ?>
     <div class="bars-warning-message <?php echo $customClass; ?>">
       <div>
-        <span class="fa fa-exclamation-circle"></span>
+        <span class="fa-solid fa-circle-exclamation fa-4x"></span>
       </div>
       <h1><?php echo $title; ?></h1>
       <p><?php echo $message; ?></p>

@@ -15,7 +15,7 @@
 
 						<div class="post-header">
 							<div class="post-category">
-								<span class="fa fa-folder-open"></span>
+								<span class="fa-solid fa-folder-open"></span>
 								<?php
 								if (count(get_the_category()) >= 1)
 									the_category(', ');
@@ -44,7 +44,7 @@
 						</div>
 
 						<div class="post-leave-us-a-comment">
-							<span class="fa fa-comment"></span>
+							<span class="fa-solid fa-comment"></span>
 							<a href="#post-comments">Tenés algo que decir? Dejanos tu comentario!</a>
 						</div>
 

@@ -39,10 +39,10 @@
 							?>
 							<div class="slider-controls">
 								<div class="slider-control left circle">
-									<span class="fa fa-arrow-left"></span>
+									<span class="fa-solid fa-arrow-left"></span>
 								</div>
 								<div class="slider-control right circle">
-									<span class="fa fa-arrow-right"></span>
+									<span class="fa-solid fa-arrow-right"></span>
 								</div>
 							</div>
 						</div>
