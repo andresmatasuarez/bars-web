@@ -1,15 +1,15 @@
+import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { ScreeningsByDay, Stylable } from '../types';
+import { dateHasPassed } from '../../helpers';
 import { DataContext } from '../data/DataProvider';
+import { isLatestEdition } from '../data/helpers';
+import { ScreeningsByDay, Stylable } from '../types';
+import { FAIcon } from '../utils';
+import Filters from './Filters';
 import Screenings from './Screenings';
 import DayHeading from './Screenings/DayHeading';
 import { Divider } from './commons';
-import { isLatestEdition } from '../data/helpers';
-import Filters from './Filters';
-import { FAIcon } from '../utils';
-import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
-import { dateHasPassed } from '../../helpers';
 
 function noScreeningsForAnyDay(screeningsByDay: ScreeningsByDay): boolean {
   const count = Object.entries(screeningsByDay).reduce(
@@ -27,7 +27,7 @@ const NoScreenings = styled.div`
 
   color: gray;
   padding: 50px;
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
   text-align: center;
   font-size: 30px;
 `;

@@ -5,7 +5,7 @@ import MovieLinks from './MovieLinks';
 export const Paragraph = styled.div<Stylable>`
   line-height: 20pt;
   font-size: 12pt;
-  font-family: 'Open Sans'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.OpenSans};
 
   ${applyCssStyleProp}
 `;
@@ -45,7 +45,7 @@ export const MovieTitle = styled.div`
 
 export const Specs = styled.div<Stylable>`
   font-size: 12pt;
-  font-family: 'Open Sans'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.OpenSans};
 
   display: flex;
   align-items: baseline;

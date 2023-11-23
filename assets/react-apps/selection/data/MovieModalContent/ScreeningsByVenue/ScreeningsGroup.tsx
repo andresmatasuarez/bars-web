@@ -1,4 +1,7 @@
+import { ReactNode, useContext } from 'react';
 import styled from 'styled-components';
+import { isDateBetween } from '../../../../helpers';
+import Editions, { SingleEdition } from '../../../Editions';
 import {
   Movie,
   Screening,
@@ -6,14 +9,11 @@ import {
   isScreeningAlwaysAvailable,
   isStreamingScreening,
 } from '../../../types';
-import SingleScreening from './SingleScreening';
-import { ReactNode, useContext } from 'react';
-import { MovieAdditionalData } from '../types';
-import StreamingButton from './StreamingButton';
-import { isDateBetween } from '../../../../helpers';
-import Editions, { SingleEdition } from '../../../Editions';
 import { DataContext } from '../../DataProvider';
 import { INLINE_HEADING_COLOR, InlineHeading } from '../commons';
+import { MovieAdditionalData } from '../types';
+import SingleScreening from './SingleScreening';
+import StreamingButton from './StreamingButton';
 
 const LINK_ONLY_DURING_FESTIVAL = '⚠️ El link se habilitará sólo en las fechas del festival';
 
@@ -199,7 +199,7 @@ export default styled(function ScreeningsGroup({
   gap: 35px;
   justify-content: center;
 
-  font-family: 'Open Sans'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.OpenSans};
 
   border-width: 1px;
   border-radius: 10px;

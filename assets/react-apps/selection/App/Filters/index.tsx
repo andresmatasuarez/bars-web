@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import Select from 'react-select';
-import { Stylable } from '../../types';
-import { DataContext, MovieListType } from '../../data/DataProvider';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
+import React, { useContext } from 'react';
+import Select from 'react-select';
+import styled, { useTheme } from 'styled-components';
+import { DataContext, MovieListType } from '../../data/DataProvider';
+import { Stylable } from '../../types';
 import { FAIcon, ZIndexes } from '../../utils';
 
 const FILTERS_BG_COLOR = '#55353b';
 
 const TogglesContainer = styled.div`
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
 
   display: flex;
 
@@ -51,6 +51,8 @@ export default styled(function Filters({ className }: Stylable) {
     changeMovieListType,
   } = useContext(DataContext);
 
+  const theme = useTheme();
+
   return (
     <div className={className}>
       <Select
@@ -70,7 +72,7 @@ export default styled(function Filters({ className }: Stylable) {
           }),
           control: (base, state) => ({
             ...base,
-            fontFamily: 'Oswald', // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            fontFamily: theme.fontFamily.Oswald,
             borderColor: FILTERS_BG_COLOR,
             border: `2px solid ${FILTERS_BG_COLOR}`,
             height: '100%',
@@ -84,7 +86,7 @@ export default styled(function Filters({ className }: Stylable) {
           }),
           menu: (base, state) => ({
             ...base,
-            fontFamily: 'Oswald', // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            fontFamily: theme.fontFamily.Oswald,
             marginTop: '0px',
             border: `2px solid ${FILTERS_BG_COLOR}`,
             borderBottomLeftRadius: '10px',

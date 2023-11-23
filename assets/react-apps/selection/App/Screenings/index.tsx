@@ -1,9 +1,9 @@
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import React, { MouseEventHandler, ReactNode, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { ScreeningWithMovie, Stylable, applyCssStyleProp } from '../../types';
-import MovieScreening from '../MovieScreening';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FAIcon } from '../../utils';
+import MovieScreening from '../MovieScreening';
 
 export const ALTERNATE_BG = 'rgba(30, 30, 30, 0.4)';
 
@@ -11,7 +11,7 @@ const Heading = styled.div<{ collapsed?: boolean }>`
   font-size: 12pt;
   color: #cecece;
   text-shadow: 2px 2px 0.1em black;
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
 
   flex: 0 0 90px;
   text-align: center;
@@ -23,7 +23,7 @@ const Heading = styled.div<{ collapsed?: boolean }>`
 `;
 
 const MoviesContainer = styled.div<{ collapsed?: boolean }>`
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
   color: white;
 
   flex: 1;

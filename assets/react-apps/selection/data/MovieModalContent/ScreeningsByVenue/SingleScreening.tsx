@@ -1,10 +1,10 @@
+import { MouseEventHandler, ReactNode, useCallback, useContext } from 'react';
 import styled from 'styled-components';
-import { ScreeningWithMovie, Stylable, isStreamingScreening } from '../../../types';
 import { dateHasPassed, getDayName, getDayNumber } from '../../../../helpers';
 import AddToWatchlistToggle from '../../../App/MovieScreening/AddToWatchlistToggle';
-import { MouseEventHandler, ReactNode, useCallback, useContext } from 'react';
-import { DataContext } from '../../DataProvider';
 import { Divider } from '../../../App/commons';
+import { ScreeningWithMovie, Stylable, isStreamingScreening } from '../../../types';
+import { DataContext } from '../../DataProvider';
 
 const DayName = styled.div`
   text-transform: capitalize;
@@ -75,5 +75,5 @@ export default styled(function SingleScreening({
   flex-flow: column;
   align-items: center;
 
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
 `;

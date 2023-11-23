@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Stylable, applyCssStyleProp } from '../../types';
 import { getDayName, getDayNumber } from '../../../helpers';
+import { Stylable, applyCssStyleProp } from '../../types';
 
 const DayName = styled.div`
   font-size: 12pt;
@@ -20,7 +20,7 @@ export default styled(function DayHeading({ className, date }: Stylable & { date
     </div>
   );
 })`
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
   color: #cecece;
   text-shadow: 2px 2px 0.1em black;
 

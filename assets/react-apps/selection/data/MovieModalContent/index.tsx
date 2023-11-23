@@ -1,10 +1,10 @@
-import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { Movie, Stylable } from '../../types';
-import { MovieAdditionalData, MovieBlockAdditionalData, isMovieBlockAdditionalData } from './types';
 import { ModalHeader, ModalLoading, modalContentStyles } from '../MovieModal';
 import MovieBlockModalContent from './MovieBlockModalContent';
 import RegularMovieModalContent from './RegularMovieModalContent';
+import { MovieAdditionalData, MovieBlockAdditionalData, isMovieBlockAdditionalData } from './types';
 
 export default styled(function MovieModalContent({
   className,
@@ -53,7 +53,7 @@ export default styled(function MovieModalContent({
   padding: 0 20px 40px 20px;
 
   color: white;
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
 
   > ${ModalHeader} {
     margin-top: 10px;

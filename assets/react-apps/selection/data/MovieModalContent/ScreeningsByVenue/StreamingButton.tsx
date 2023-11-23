@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 import { Stylable } from '../../../types';
 import { FAIcon } from '../../../utils';
 
@@ -31,7 +31,7 @@ export default styled(function StreamingButton({
 
   // Reset anchor color
   color: inherit;
-  font-family: 'Oswald'; // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  font-family: ${(props) => props.theme.fontFamily.Oswald};
 
   text-transform: uppercase;
   padding: 3px 14px;
