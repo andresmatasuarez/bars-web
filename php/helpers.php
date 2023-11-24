@@ -22,11 +22,6 @@
         'streaming' => true,
         'alwaysAvailable' => $rawDate === DATE_FULL_TAG,
         'venue' => strtolower(trim($matches['venue'])),
-        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
-        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
-        'date' => $date,
-        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
-        // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
         'isoDate' => $date === null ? null : $date->format(DateTime::ATOM)
       );
     }
@@ -40,11 +35,6 @@
       'venue' => strtolower(trim($matches['venue'])),
       'room' => strtolower(trim($matches['room'])),
       'time' => $time,
-      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
-      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
-      'date' => $date,
-      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
-      // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DEPRECATED
       'isoDate' => $date->format(DateTime::ATOM)
     );
   }
@@ -55,47 +45,6 @@
     $screenings = array_map('parseScreening', $screenings);
     usort($screenings, 'sortByDateString');
     return $screenings;
-  }
-
-  function isDateBetween(DateTime $date, DateTime $from, DateTime $to) {
-    return $from <= $date && $date <= $to;
-  }
-
-  function anyScreeningsLeft($screeningsValue) {
-    $screenings = parseScreenings($screeningsValue);
-    if (count($screenings) === 0) {
-      return false;
-    }
-
-    // array of screenings comes already sorted, so first screening is the earliest one
-    // and last screening is the latest one.
-    $earliestScreening = $screenings[0];
-
-    if (!empty($earliestScreening['alwaysAvailable'])) {
-      return isDateBetween(dateWithTZ(new DateTime()), Editions::from(), Editions::to());
-    }
-
-    $from = $earliestScreening['date'];
-
-    // Adds one day minus 1 second to last screening
-    $to = dateOneDayLater(count($screenings) === 1 ? $from : end($screenings)['date']);
-    $to = $to->sub(new DateInterval('PT1S'));
-    return isDateBetween(dateWithTZ(new DateTime()), $from, $to);
-  }
-
-  function groupScreeningsByVenue($screenings) {
-    $grouped = array();
-    foreach($screenings as $key => $screening){
-      $venue = $screening['venue'];
-
-      if (isset($grouped[$venue])) {
-        $grouped[$venue][] = $screening;
-      } else {
-        $grouped[$venue] = array();
-        $grouped[$venue][] = $screening;
-      }
-    }
-    return $grouped;
   }
 
   function getDateInSpanish($date) {
@@ -110,22 +59,6 @@
     $newDate = dateWithTZ(new DateTime());
     $newDate->setTimestamp($date->getTimestamp());
     return $newDate->settime(0,0);
-  }
-
-  function dateGetTime($date) {
-    $time = $date->format('H:i');
-    return $time === '00:00' ? NULL : $time;
-  }
-
-  function isSameDay($d1, $d2) {
-    return $d1->format('m-d-Y') === $d2->format('m-d-Y');
-  }
-
-  function dateOneDayLater($date) {
-    $newDate = dateWithTZ(new DateTime());
-    $newDate->setTimestamp($date->getTimestamp());
-    $newDate->add(new DateInterval('P1D'));
-    return $newDate;
   }
 
   function parseDate($date = null, $format = null){

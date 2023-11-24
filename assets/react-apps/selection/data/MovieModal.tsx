@@ -1,8 +1,10 @@
+import { faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import styled, { css } from 'styled-components';
-import { faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons';
+
+import BARSThemeProvider from '../../BARSThemeProvider';
+import { applyCssStyleProp, Stylable } from '../types';
 import { FAIcon, ZIndexes } from '../utils';
-import { Stylable, applyCssStyleProp } from '../types';
 
 Modal.setAppElement('#react-root-selection');
 
@@ -101,7 +103,7 @@ export const ModalLoading = styled(function ModalLoading({ className }: Stylable
   ${applyCssStyleProp}
 `;
 
-export default function MovieModal(props: Modal.Props) {
+export default function MovieModal({ children, ...props }: Modal.Props) {
   return (
     <Modal
       {...props}
@@ -109,6 +111,9 @@ export default function MovieModal(props: Modal.Props) {
       shouldCloseOnOverlayClick
       contentLabel="Movie Modal"
       style={customStyles}
-    />
+    >
+      {/* Adding BARSThemeProvider here because modals are being rendered in portals */}
+      <BARSThemeProvider>{children}</BARSThemeProvider>
+    </Modal>
   );
 }

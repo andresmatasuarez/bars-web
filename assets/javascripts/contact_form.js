@@ -57,7 +57,7 @@ export default function contactForm() {
             });
           }
         },
-        error(data) {
+        error(/* data */) {
           $('#contact-form :input').attr('disabled', 'disabled');
           $('#contact-form').fadeOut(() => {
             $('.email-error').fadeIn();

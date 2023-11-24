@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import { Stylable, applyCssStyleProp } from './types';
+
+import { applyCssStyleProp } from './types';
 
 export const ZIndexes = {
   Modal: 9999,

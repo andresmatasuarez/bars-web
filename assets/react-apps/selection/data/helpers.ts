@@ -2,15 +2,15 @@ import { serializeDate } from '../../helpers';
 import { DEFAULT_SECTION_ALL } from '../App/Filters/useSectionSelector';
 import Editions, { SingleEdition } from '../Editions';
 import {
+  AlwaysAvailableStreamingScreening,
+  isRegularStreamingScreening,
+  isScreeningAlwaysAvailable,
+  isTraditionalScreening,
+  Movies,
+  RegularStreamingScreening,
   Screening,
   ScreeningWithMovie,
-  Movies,
-  isScreeningAlwaysAvailable,
   TraditionalScreening,
-  isTraditionalScreening,
-  AlwaysAvailableStreamingScreening,
-  RegularStreamingScreening,
-  isRegularStreamingScreening,
 } from '../types';
 
 /**
@@ -36,14 +36,9 @@ function isScreeningOfDay(
   screening: TraditionalScreening | RegularStreamingScreening,
   date: Date,
 ): boolean {
-  if (!screening.date) {
-    return false;
-  }
-
   const serializedDate = serializeDate(date);
   const day = serializedDate.split('T')[0];
-
-  const screeningDay = screening.date.date.split(' ')[0];
+  const screeningDay = screening.isoDate.split('T')[0];
   return day === screeningDay;
 }
 

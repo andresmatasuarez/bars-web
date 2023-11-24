@@ -1,10 +1,11 @@
-import styled from 'styled-components';
-import { Movie, Stylable } from '../../types';
-import { MovieAdditionalData, MovieBlockAdditionalData } from './types';
 import { ReactNode, useContext } from 'react';
+import styled from 'styled-components';
+
+import { Stylable } from '../../types';
 import { explodeCommaSeparated } from '../../utils';
 import { DataContext } from '../DataProvider';
-import { InlineHeading, SectionLabel, Specs, MovieTitle } from './commons';
+import { InlineHeading, MovieTitle,SectionLabel, Specs } from './commons';
+import { MovieAdditionalData, MovieBlockAdditionalData } from './types';
 
 export function getMoviesSpecs(
   movieData: MovieAdditionalData | MovieBlockAdditionalData['movies'][number],

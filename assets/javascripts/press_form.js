@@ -85,7 +85,7 @@ export default function pressForm() {
             });
           }
         },
-        error(data) {
+        error(/* data */) {
           $('#press-form :input').attr('disabled', 'disabled');
           $('#press-form').fadeOut(() => {
             $('.email-error').fadeIn();

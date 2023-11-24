@@ -1,9 +1,9 @@
-import { MouseEventHandler, ReactNode, useCallback, useContext } from 'react';
+import { MouseEventHandler, useCallback, useContext } from 'react';
 import styled from 'styled-components';
+
 import { dateHasPassed, getDayName, getDayNumber } from '../../../../helpers';
 import AddToWatchlistToggle from '../../../App/MovieScreening/AddToWatchlistToggle';
-import { Divider } from '../../../App/commons';
-import { ScreeningWithMovie, Stylable, isStreamingScreening } from '../../../types';
+import { isStreamingScreening,ScreeningWithMovie, Stylable } from '../../../types';
 import { DataContext } from '../../DataProvider';
 
 const DayName = styled.div`

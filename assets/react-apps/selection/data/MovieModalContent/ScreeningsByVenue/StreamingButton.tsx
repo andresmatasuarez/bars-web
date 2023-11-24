@@ -1,5 +1,6 @@
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
+
 import { Stylable } from '../../../types';
 import { FAIcon } from '../../../utils';
 

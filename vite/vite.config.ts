@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import inject from '@rollup/plugin-inject';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [

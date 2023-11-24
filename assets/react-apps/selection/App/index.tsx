@@ -1,15 +1,16 @@
 import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
+
 import { dateHasPassed } from '../../helpers';
 import { DataContext } from '../data/DataProvider';
 import { isLatestEdition } from '../data/helpers';
 import { ScreeningsByDay, Stylable } from '../types';
 import { FAIcon } from '../utils';
+import { Divider } from './commons';
 import Filters from './Filters';
 import Screenings from './Screenings';
 import DayHeading from './Screenings/DayHeading';
-import { Divider } from './commons';
 
 function noScreeningsForAnyDay(screeningsByDay: ScreeningsByDay): boolean {
   const count = Object.entries(screeningsByDay).reduce(

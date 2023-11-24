@@ -58,7 +58,7 @@ export default class Editions {
 
     const daysBetween: Date[] = [];
 
-    let currentDate = fromDate;
+    const currentDate = fromDate;
     while (currentDate <= toDate) {
       daysBetween.push(new Date(currentDate));
       currentDate.setDate(currentDate.getDate() + 1);

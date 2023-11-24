@@ -1,7 +1,8 @@
+import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import { MouseEventHandler, useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import { Stylable, applyCssStyleProp } from '../../types';
+
+import { applyCssStyleProp, Stylable } from '../../types';
 import { FAIcon } from '../../utils';
 
 export const IS_ADDED_COLOR = '#ffbe46';

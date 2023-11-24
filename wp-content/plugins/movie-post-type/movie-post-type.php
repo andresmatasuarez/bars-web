@@ -436,12 +436,6 @@
 		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, "%{$day}%", $edition, "%{$day}%"));
 	}
 
-	function getMoviesAndMovieBlocksAvailableForTheWholeDurationOfTheFestival($edition) {
-		global $wpdb;
-		$edition = 'bars' . $edition['number'];
-		return $wpdb->get_results($wpdb->prepare(getMovieEntriesQuery(true), $edition, "%:full%", $edition, "%:full%"));
-	}
-
 	function countMovieEntriesForEdition($edition) {
 		global $wpdb;
 		$edition = 'bars' . $edition['number'];

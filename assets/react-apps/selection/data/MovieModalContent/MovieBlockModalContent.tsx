@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+
+import { DangerousHTML, Divider } from '../../App/commons';
 import { Movie, Stylable } from '../../types';
-import { MovieBlockAdditionalData } from './types';
 import { MovieHeader, MovieImageWrapper } from './commons';
 import Info from './Info';
-import { DangerousHTML, Divider } from '../../App/commons';
 import MoviesCarousel from './MoviesCarousel';
 import ScreeningsByVenue from './ScreeningsByVenue';
+import { MovieBlockAdditionalData } from './types';
 
 export default styled(function MovieBlockModalContent({
   className,

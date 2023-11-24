@@ -1,24 +1,25 @@
-import React, { Dispatch, SetStateAction, createContext, useMemo, useState } from 'react';
-import {
-  AlwaysAvailableStreamingScreening,
-  ExpectsChildren,
-  MovieSections,
-  Movies,
-  ScreeningWithMovie,
-  ScreeningsByDay,
-} from '../types';
+import { createContext, Dispatch, SetStateAction, useMemo, useState } from 'react';
+
 import { serializeDate } from '../../helpers';
-import { getAlwaysAvailableScreenings, getCurrentEdition, getScreeningsForDay } from './helpers';
-import Editions, { SingleEdition } from '../Editions';
 import useSectionSelector, {
   ChangeSectionHandler,
   SectionOption,
   SectionOptionShape,
 } from '../App/Filters/useSectionSelector';
-import useWatchlist, { UseWatchlistValues } from './useWatchlist';
-import useModal, { UseModalValues } from './useMovieModal';
+import Editions, { SingleEdition } from '../Editions';
+import {
+  AlwaysAvailableStreamingScreening,
+  ExpectsChildren,
+  Movies,
+  MovieSections,
+  ScreeningsByDay,
+  ScreeningWithMovie,
+} from '../types';
+import { getAlwaysAvailableScreenings, getCurrentEdition, getScreeningsForDay } from './helpers';
 import MovieModal from './MovieModal';
 import MovieModalContent from './MovieModalContent';
+import useModal, { UseModalValues } from './useMovieModal';
+import useWatchlist, { UseWatchlistValues } from './useWatchlist';
 
 export enum MovieListType {
   ALL = 'ALL',

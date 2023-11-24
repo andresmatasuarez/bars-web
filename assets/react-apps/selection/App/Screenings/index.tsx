@@ -1,13 +1,15 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import React, { MouseEventHandler, ReactNode, useCallback, useState } from 'react';
+import { CSSProperties, MouseEventHandler, ReactNode, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { ScreeningWithMovie, Stylable, applyCssStyleProp } from '../../types';
+
+import { applyCssStyleProp, ScreeningWithMovie, Stylable } from '../../types';
 import { FAIcon } from '../../utils';
 import MovieScreening from '../MovieScreening';
+import useStickyBetween from './useStickyBetween';
 
 export const ALTERNATE_BG = 'rgba(30, 30, 30, 0.4)';
 
-const Heading = styled.div<{ collapsed?: boolean }>`
+const Heading = styled.div<Stylable & { collapsed?: boolean }>`
   font-size: 12pt;
   color: #cecece;
   text-shadow: 2px 2px 0.1em black;
@@ -16,10 +18,12 @@ const Heading = styled.div<{ collapsed?: boolean }>`
   flex: 0 0 90px;
   text-align: center;
 
-  // sticky day feature
-  position: relative;
+  display: flex;
+  justify-content: center;
 
   ${(props) => (props.collapsed ? 'z-index: 1;' : '')}
+
+  ${applyCssStyleProp}
 `;
 
 const MoviesContainer = styled.div<{ collapsed?: boolean }>`
@@ -84,12 +88,38 @@ const ShadowOverlay = styled.div`
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%);
 `;
 
+/**
+ * These sensors are just empty, transparent pixels used as intersection sensors.
+ * I'm doing these because using the sticky element as sensor as well causes
+ * heavy flickering.
+ *
+ * https://stackoverflow.com/a/73436174
+ */
+const StickySensor = styled.div<Stylable>`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  ${applyCssStyleProp}
+`;
+
+const BASE_OFFSET = 10;
+
+function useHeadersOffset(): number {
+  return useMemo<number>(() => {
+    const wpadminbarElement = document.getElementById('wpadminbar');
+    const headerMenu = document.getElementById('header-menu');
+    let offset = BASE_OFFSET;
+    offset = offset + (wpadminbarElement ? wpadminbarElement.offsetHeight : 0);
+    offset = offset + (headerMenu ? headerMenu.offsetHeight : 0);
+    return offset;
+  }, []);
+}
+
 export default styled(function Screenings({
   className,
   screenings,
   heading,
   startCollapsed,
-  alternateBackground,
 }: Stylable & {
   screenings: ScreeningWithMovie[];
   heading?: ReactNode;
@@ -98,17 +128,40 @@ export default styled(function Screenings({
 }) {
   const [collapsed, setCollapsed] = useState(startCollapsed);
 
+  const headersOffset = useHeadersOffset();
+
+  const { afterTop, afterBottom, topSensorRef, bottomSensorRef, stickyRef } =
+    useStickyBetween(headersOffset);
+
   const toggleCollapsed = useCallback<MouseEventHandler>(() => {
     setCollapsed((previous) => !previous);
   }, [setCollapsed]);
 
+  const styles = useMemo<CSSProperties | undefined>(() => {
+    if (collapsed || !afterTop) {
+      return;
+    }
+
+    if (afterBottom) {
+      return { position: 'absolute', bottom: 0 };
+    }
+
+    return { position: 'fixed', top: `${headersOffset}px` };
+  }, [afterTop, afterBottom, collapsed, headersOffset]);
+
   return (
     <div className={className} style={collapsed ? { position: 'relative' } : {}}>
-      <Heading collapsed={collapsed}>{heading}</Heading>
+      <Heading collapsed={collapsed} cssStyle="position: relative;">
+        <StickySensor ref={topSensorRef} />
+        <div ref={stickyRef} style={styles}>
+          {heading}
+        </div>
+        <StickySensor ref={bottomSensorRef} cssStyle="bottom: 0;" />
+      </Heading>
 
       <MoviesContainer collapsed={collapsed}>
         {screenings.map((screening) => (
-          <MovieScreening screening={screening} />
+          <MovieScreening key={`${screening.movie.id}_${screening.raw}`} screening={screening} />
         ))}
       </MoviesContainer>
 

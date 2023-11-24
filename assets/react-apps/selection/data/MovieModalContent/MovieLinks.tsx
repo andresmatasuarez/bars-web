@@ -1,9 +1,10 @@
-import styled from 'styled-components';
 import { faImdb } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
+
 import { Stylable } from '../../types';
-import { MovieAdditionalData, MovieBlockAdditionalData } from './types';
 import { FAIcon } from '../../utils';
+import { MovieAdditionalData, MovieBlockAdditionalData } from './types';
 
 export default styled(function MovieLinks({
   className,

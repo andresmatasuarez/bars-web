@@ -1,15 +1,16 @@
-import React, { MouseEventHandler, useCallback, useContext } from 'react';
+import { MouseEventHandler, useCallback, useContext } from 'react';
 import styled, { css } from 'styled-components';
+
 import { DataContext } from '../../data/DataProvider';
-import { DangerousHTML, Label } from '../commons';
+import { getCurrentEdition } from '../../data/helpers';
+import Editions from '../../Editions';
 import {
-  ScreeningWithMovie,
-  Stylable,
   applyCssStyleProp,
   isTraditionalScreening,
+  ScreeningWithMovie,
+  Stylable,
 } from '../../types';
-import Editions from '../../Editions';
-import { getCurrentEdition } from '../../data/helpers';
+import { DangerousHTML, Label } from '../commons';
 import AddToWatchlistToggle from './AddToWatchlistToggle';
 
 const ScreeningTime = styled(Label)`
@@ -105,7 +106,7 @@ export default styled(function MovieScreening({
         addToWatchlist(screening);
       }
     },
-    [screening, addToWatchlist, removeFromWatchlist, isAdded],
+    [screening, addToWatchlist, removeFromWatchlist, isAdded]
   );
 
   const currentEdition = getCurrentEdition();

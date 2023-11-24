@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import inject from '@rollup/plugin-inject';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
 export default defineConfig((mode) => ({
   // Fixes: ReferenceError: process is not defined

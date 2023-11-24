@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
-import { MovieSections } from '../../types';
 import { Props as ReactSelectProps, SingleValue } from 'react-select';
+
+import { MovieSections } from '../../types';
 
 export type SectionOptionShape = { value: string; label: string };
 export type ChangeSectionHandler = NonNullable<

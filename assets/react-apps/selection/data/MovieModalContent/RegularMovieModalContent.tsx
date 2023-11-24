@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+
+import { DangerousHTML, Divider } from '../../App/commons';
 import { Movie, Stylable } from '../../types';
-import { MovieAdditionalData } from './types';
 import { InlineHeading, MovieHeader, MovieImageWrapper, Paragraph } from './commons';
 import Info from './Info';
-import { DangerousHTML, Divider } from '../../App/commons';
-import TrailerEmbed from './TrailerEmbed';
-import ScreeningsByVenue from './ScreeningsByVenue';
 import MovieLinks from './MovieLinks';
+import ScreeningsByVenue from './ScreeningsByVenue';
+import TrailerEmbed from './TrailerEmbed';
+import { MovieAdditionalData } from './types';
 
 export default styled(function RegularMovieModalContent({
   className,

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { Movie, Screening, Stylable } from '../../../types';
-import ScreeningsGroup from './ScreeningsGroup';
-import { getCurrentEdition } from '../../helpers';
+
 import Editions from '../../../Editions';
+import { Movie, Screening, Stylable } from '../../../types';
+import { getCurrentEdition } from '../../helpers';
 import { MovieAdditionalData } from '../types';
+import ScreeningsGroup from './ScreeningsGroup';
 
 type ScreeningByVenue = Record</* Venue */ string, Screening[]>;
 
@@ -38,6 +39,7 @@ export default styled(function ScreeningsByVenue({
     <div className={className}>
       {Object.entries(groupedScreenings).map(([venue, screenings]) => (
         <ScreeningsGroup
+          key={venue}
           title={Editions.getVenueName(venue, currentEdition)}
           movie={movie}
           movieData={movieData}

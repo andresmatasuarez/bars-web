@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { RuleSet, css } from 'styled-components';
+import { css, RuleSet } from 'styled-components';
 
 export type Stylable = {
   className?: string;
@@ -40,18 +40,6 @@ export type BaseStreamingScreening = BaseScreening & {
   streaming: true;
 };
 
-/** @deprecated */
-type DateFromBackend = {
-  /** @example "2021-12-06 20:00:00.000000" */
-  date: string;
-
-  /** @example "America/Argentina/Buenos_Aires" */
-  timezone: string;
-
-  /** @example 3 */
-  timezone_type: number;
-};
-
 export type AlwaysAvailableStreamingScreening = BaseStreamingScreening & {
   alwaysAvailable: true;
 
@@ -63,13 +51,6 @@ export type AlwaysAvailableStreamingScreening = BaseStreamingScreening & {
 
 export type RegularStreamingScreening = BaseStreamingScreening & {
   alwaysAvailable?: false;
-  /**
-   * Date comes with no time information, i.e., zeros for hours, minutes, etc.
-   * @example "2021-12-06 00:00:00.000000"
-   *
-   * @deprecated use `isoDate` instead
-   */
-  date: DateFromBackend;
 
   /**
    * The date of the day in ISO format
@@ -85,11 +66,6 @@ export type TraditionalScreening = BaseScreening & {
 
   /** @example "sala 6" */
   room?: string;
-
-  /**
-   * @deprecated use `isoDate` instead
-   */
-  date: DateFromBackend;
 
   /**
    * The date of the day in ISO format

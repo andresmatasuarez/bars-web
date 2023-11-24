@@ -1,7 +1,8 @@
 import { faEye } from '@fortawesome/free-regular-svg-icons';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Select from 'react-select';
 import styled, { useTheme } from 'styled-components';
+
 import { DataContext, MovieListType } from '../../data/DataProvider';
 import { Stylable } from '../../types';
 import { FAIcon, ZIndexes } from '../../utils';
@@ -70,7 +71,7 @@ export default styled(function Filters({ className }: Stylable) {
             flex: '0 0 250px',
             borderRadius: '10px',
           }),
-          control: (base, state) => ({
+          control: (base) => ({
             ...base,
             fontFamily: theme.fontFamily.Oswald,
             borderColor: FILTERS_BG_COLOR,
@@ -84,7 +85,7 @@ export default styled(function Filters({ className }: Stylable) {
               borderColor: FILTERS_BG_COLOR,
             },
           }),
-          menu: (base, state) => ({
+          menu: (base) => ({
             ...base,
             fontFamily: theme.fontFamily.Oswald,
             marginTop: '0px',

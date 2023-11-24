@@ -1,13 +1,14 @@
 import { ReactNode, useContext } from 'react';
 import styled from 'styled-components';
+
 import { isDateBetween } from '../../../../helpers';
 import Editions, { SingleEdition } from '../../../Editions';
 import {
+  isScreeningAlwaysAvailable,
+  isStreamingScreening,
   Movie,
   Screening,
   Stylable,
-  isScreeningAlwaysAvailable,
-  isStreamingScreening,
 } from '../../../types';
 import { DataContext } from '../../DataProvider';
 import { INLINE_HEADING_COLOR, InlineHeading } from '../commons';

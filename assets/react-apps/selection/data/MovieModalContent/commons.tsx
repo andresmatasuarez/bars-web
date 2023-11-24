@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Stylable, applyCssStyleProp } from '../../types';
+
+import { applyCssStyleProp,Stylable } from '../../types';
 import MovieLinks from './MovieLinks';
 
 export const Paragraph = styled.div<Stylable>`

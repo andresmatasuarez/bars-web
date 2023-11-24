@@ -1,10 +1,11 @@
-import styled from 'styled-components';
-import fetchJsonp from 'fetch-jsonp';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { Stylable } from '../../types';
+import fetchJsonp from 'fetch-jsonp';
 import { useEffect, useState } from 'react';
-import { FAIcon } from '../../utils';
+import styled from 'styled-components';
+
 import { DangerousHTML } from '../../App/commons';
+import { Stylable } from '../../types';
+import { FAIcon } from '../../utils';
 
 type OembedVideoData = {
   /**

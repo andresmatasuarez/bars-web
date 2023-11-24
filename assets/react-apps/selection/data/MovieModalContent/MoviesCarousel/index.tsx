@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { Stylable } from '../../../types';
-import { MovieBlockAdditionalData } from '../types';
-import { modalScrollbar } from '../../MovieModal';
-import MovieEntry from './MovieEntry';
+
 import { Divider } from '../../../App/commons';
+import { Stylable } from '../../../types';
+import { modalScrollbar } from '../../MovieModal';
+import { MovieBlockAdditionalData } from '../types';
+import MovieEntry from './MovieEntry';
 
 const MovieEntries = styled.div`
   display: flex;
