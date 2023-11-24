@@ -53,16 +53,22 @@ export default styled(function App({ className }: Stylable) {
       )}
 
       {alwaysAvailableScreenings.length > 0 && (
-        <Screenings
-          heading={
-            <>
-              MIRALAS
-              <br />
-              CUALQUIER DÍA
-            </>
-          }
-          screenings={alwaysAvailableScreenings}
-        />
+        <>
+          <Screenings
+            heading={
+              <>
+                MIRALAS
+                <br />
+                CUALQUIER
+                <br />
+                DÍA
+              </>
+            }
+            screenings={alwaysAvailableScreenings}
+          />
+
+          <Divider />
+        </>
       )}
 
       {Object.entries(screeningsByDay).map(([dateStr, screenings], index) => {
