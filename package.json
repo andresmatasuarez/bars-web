@@ -17,6 +17,9 @@
     "vendor": "./vendor/**/*"
   },
   "scripts": {
+    "lint": "eslint .",
+    "lint:autofix": "eslint . --fix",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf wp-content/themes/bars2013",
     "dev": "npm-run-all clean --parallel dev:** watch:**",
     "dev:main": "npm run build:main -- --watch",
