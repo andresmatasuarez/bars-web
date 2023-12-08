@@ -7,10 +7,13 @@ import {
   isScreeningAlwaysAvailable,
   isStreamingScreening,
   Movie,
+  RegularStreamingScreening,
   Screening,
   Stylable,
+  TraditionalScreening,
 } from '../../../types';
 import { DataContext } from '../../DataProvider';
+import { compareScreenings } from '../../helpers';
 import { INLINE_HEADING_COLOR, InlineHeading } from '../commons';
 import { MovieAdditionalData } from '../types';
 import SingleScreening from './SingleScreening';
@@ -149,12 +152,14 @@ export default styled(function ScreeningsGroup({
 
         return (
           <>
-            {screenings.map((screening) => (
-              <SingleScreening
-                key={`${movie.id}_${screening.raw}`}
-                screening={{ ...screening, movie }}
-              />
-            ))}
+            {(screenings as (TraditionalScreening | RegularStreamingScreening)[])
+              .sort(compareScreenings)
+              .map((screening) => (
+                <SingleScreening
+                  key={`${movie.id}_${screening.raw}`}
+                  screening={{ ...screening, movie }}
+                />
+              ))}
 
             {((): ReactNode => {
               if (!isStreamingScreening(screenings[0])) {

@@ -73,6 +73,36 @@ type ScreeningFilters = {
   section?: string;
 };
 
+export function compareScreenings(
+  screening1: TraditionalScreening | RegularStreamingScreening,
+  screening2: TraditionalScreening | RegularStreamingScreening,
+): number {
+  /**
+   * Regular streaming screenings do not have time information, so we want them
+   * to appear first in the sorted array.
+   */
+  if (isRegularStreamingScreening(screening1)) {
+    // Beware `screening1` here isn't a `RegularStreamingScreening` but a
+    // `ScreeningWithMovie<RegularStreamingScreening>`
+    return -1;
+  }
+
+  if (isRegularStreamingScreening(screening2)) {
+    // Beware `screening2` here isn't a `RegularStreamingScreening` but a
+    // `ScreeningWithMovie<RegularStreamingScreening>`
+    return 1;
+  }
+
+  /**
+   * Sort lexicographically by day/hour/minutes/seconds
+   * https://stackoverflow.com/a/57589653
+   */
+  return (
+    screening1.isoDate.localeCompare(screening2.isoDate) ||
+    screening1.time.localeCompare(screening2.time)
+  );
+}
+
 export function getScreeningsForDay(
   movies: Movies,
   date: Date,
@@ -88,29 +118,7 @@ export function getScreeningsForDay(
     },
   )
     .filter(filterBySection(filters?.section))
-    .sort((screening1, screening2) => {
-      /**
-       * Regular streaming screenings do not have time information, so we want them
-       * to appear first in the sorted array.
-       */
-      if (isRegularStreamingScreening(screening1)) {
-        // Beware `screening1` here isn't a `RegularStreamingScreening` but a
-        // `ScreeningWithMovie<RegularStreamingScreening>`
-        return -1;
-      }
-
-      if (isRegularStreamingScreening(screening2)) {
-        // Beware `screening2` here isn't a `RegularStreamingScreening` but a
-        // `ScreeningWithMovie<RegularStreamingScreening>`
-        return 1;
-      }
-
-      /**
-       * Sort lexicographically by hour/minutes/seconds
-       * https://stackoverflow.com/a/57589653
-       */
-      return screening1.time.localeCompare(screening2.time);
-    });
+    .sort(compareScreenings);
 }
 
 export function getAlwaysAvailableScreenings(
