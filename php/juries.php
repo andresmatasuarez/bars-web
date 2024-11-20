@@ -74,7 +74,7 @@
                 <table class="awards">
                   <tr>
                     <th>Por elección del jurado</th>
-                    <th>Por votación del público</th>
+                    <th>Por elección popular</th>
                   </tr>
                   <tr>
                     <td colspan="2"><div class="scratch"></div></td>

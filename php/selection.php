@@ -97,6 +97,7 @@
 					}
 
 					$movies = getMoviesAndMovieBlocks($currentEdition);
+
 					$prepareMovie = function($movie) {
 						setup_postdata($movie); // post object only has post ID.
 						return prepareMovieForDisplaying($movie);

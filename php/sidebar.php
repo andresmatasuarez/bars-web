@@ -78,7 +78,13 @@
 				}
 			?>
 
-			<div class="bars-widget facebook" >
+			<div class="bars-widget sidebar">
+				<a style="display: flex;" target="_blank" rel="noopener noreferrer" href="https://mubi.com/en/bars">
+					<img src="<?php echo get_bloginfo('template_directory') . '/' . 'resources/bars2024/mubi_banner.gif' ?>" />
+				</a>
+			</div>
+
+			<div class="bars-widget facebook">
 				<div class="fb-page" data-href="https://www.facebook.com/BuenosAiresRojoSangre" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/BuenosAiresRojoSangre"><a href="https://www.facebook.com/BuenosAiresRojoSangre">Buenos Aires Rojo Sangre film festival</a></blockquote></div></div>
 			</div>
 

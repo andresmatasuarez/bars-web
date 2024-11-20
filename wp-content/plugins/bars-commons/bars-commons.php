@@ -23,6 +23,7 @@
 		global $barscommons_editionOptions;
 
 		$barscommons_editionOptions = array (
+			'bars25' => array ( 'label' => 'BARS 2024',	'value' => 'bars25' ),
 			'bars24' => array ( 'label' => 'BARS 2023',	'value' => 'bars24' ),
 			'bars23' => array ( 'label' => 'BARS 2022',	'value' => 'bars23' ),
 			'bars22' => array ( 'label' => 'BARS 2021',	'value' => 'bars22' ),
@@ -33,7 +34,7 @@
 			'bars17' => array ( 'label' => 'BARS 2016',	'value' => 'bars17' ),
 			'bars16' => array ( 'label' => 'BARS 2015',	'value' => 'bars16' ),
 			'bars15' => array ( 'label' => 'BARS 2014',	'value' => 'bars15' ),
-			'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' )
+			'bars14' => array ( 'label' => 'BARS 2013',	'value' => 'bars14' ),
 		);
 	}
 

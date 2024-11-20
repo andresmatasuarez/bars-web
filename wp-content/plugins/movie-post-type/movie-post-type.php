@@ -80,6 +80,9 @@
 
 		// Bars 2023 new sections
 		'panoramaBizarro' => array ( 'label' => 'Panorama Bizarro', 'value' => 'panoramaBizarro' ),
+
+		// Bars 2024 new sections
+    'clasicosDeTerror' => array ( 'label' => 'Clásicos de terror', 'value' => 'clasicosDeTerror' ),
 	);
 
 	function initialize(){

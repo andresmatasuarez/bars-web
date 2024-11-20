@@ -17,8 +17,8 @@
     "press_passes": {
       "deadline": "2024-11-13T03:00:00.000Z"
     },
-    "poster": "resources/bars2023/bars2024_afiche.jpg",
-    "programme": "",
+    "poster": "resources/bars2024/bars2024_afiche.jpg",
+    "programme": "resources/bars2024/bars2024_programme.jpg",
     "programme_yt": "",
     "catalogue": "",
     "spot": "https://www.youtube.com/watch?v=MF0c0yAMP1I",
@@ -41,18 +41,20 @@
         "Mejor Director Largometraje Internacional",
         "Mejor Actriz Largometraje Internacional",
         "Mejor Actor Largometraje Internacional",
-        "Mejor Guion Largometraje Internacional",
+        "Mejor Guión Largometraje Internacional",
         "Mejores Efectos Especiales Largometraje Internacional",
         "Mejor Fotografía Largometraje Internacional",
-        "Mejor Cortometraje Internacional",
-        "Mejor Cortometraje Argentino",
-        "Mejor Director Cortometraje",
         "Mejor Largometraje Iberoamericano",
         "Mejor Director Largometraje Iberoamericano",
         "Mejor Actriz Largometraje Iberoamericano",
+        "Mejor Actor Largometraje Iberoamericano",
         "Mejor Largometraje Argentino",
         "Mejor Director Largometraje Argentino",
-        "Mejor Actriz Largometraje Argentino"
+        "Mejor Actriz Largometraje Argentino",
+        "Mejor Actor Largometraje Argentino",
+        "Mejor Cortometraje Internacional",
+        "Mejor Director Cortometraje",
+        "Mejor Cortometraje Argentino"
       ],
       "audience": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
     },

@@ -36,6 +36,9 @@
 			'internationalShortFilmCompetition'   => array('label' => 'Competencia Internacional de Cortometrajes',  'value' => 'internationalShortFilmCompetition'),
 			'reaparicionesCompetition'            => array('label' => 'Competencia "Reapariciones"',                 'value' => 'reaparicionesCompetition'),
 			'finDeSemanaSangriento'               => array('label' => 'Concurso: "Fin de Semana Sangriento"',        'value' => 'finDeSemanaSangriento'),
+
+			// BARS 2024 sections
+			'competenciaArgentinaDeLargometrajes' => array('label' => 'Competencia Argentina de Largometrajes', 'value' => 'competenciaArgentinaDeLargometrajes'),
 		);
 
 		/* ***** JURY FIELD DEFINITIONS ***** */
