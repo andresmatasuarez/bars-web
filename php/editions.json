@@ -12,6 +12,12 @@
         "name": "Multiplex Belgrano",
         "address": "Vuelta de Obligado 2199",
         "link": "https://goo.gl/maps/j8JkEPEw72UDBisx5"
+      },
+      "flixxo": {
+        "name": "Flixxo",
+        "address": "flixxo.com",
+        "online": true,
+        "link": "https://www.flixxo.com/"
       }
     },
     "press_passes": {
@@ -63,12 +69,12 @@
         "title": "Organizan",
         "items": [
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_quintadimension.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_quintadimension.png",
             "href": "http://www.quintadimension.com/",
             "alt": "Quinta Dimensión"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_findlingfilms.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_findlingfilms.png",
             "href": "http://findlingfilms.com/",
             "alt": "Findling Films"
           }
@@ -78,14 +84,32 @@
         "title": "Auspician",
         "items": [
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_mubi.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_mubi.png",
             "href": "https://mubi.com/",
             "alt": "MUBI"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_multiplex.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_sendfiles.png",
+            "href": "https://sendfiles.com.ar/",
+            "alt": "Sendfiles"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_flixxo.png",
+            "href": "https://www.flixxo.com/",
+            "alt": "Flixxo"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_multiplex.png",
             "href": "http://www.cinesmultiplex.com.ar/",
             "alt": "Cines Multiplex"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_mecenazgo.png"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_santander.png",
+            "href": "https://www.santander.com.ar/",
+            "alt": "Santander"
           }
         ]
       },
@@ -93,67 +117,109 @@
         "title": "Colaboran",
         "items": [
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_rafma.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_rafma.png",
             "href": "https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922",
             "alt": "RAFMA Red Argentina de Festivales y Muestras Audiovisuales"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_argentores.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_argentores.png",
             "href": "http://www.argentores.org",
             "alt": "Argentores - Sociedad General de Autores de la Argentina"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_eda.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_eda.png",
             "href": "http://www.edaeditores.com.ar/",
             "alt": "EDA"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_apima.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_apima.png",
             "href": "http://www.apima.com.ar",
             "alt": "APIMA"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_guiar.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_guiar.png",
             "href": "https://www.facebook.com/asociaciondeguionistasarg",
             "alt": "Asociación de Guionistas Argentinos"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_fant_latam.png"
+            "logo": "/resources/bars2024/sponsors/auspiciante_adf.png",
+            "href": "https://adfcine.org/",
+            "alt": "ADF Autores de Fotografía Cinematográfica Argentina"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_piromaniafx.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_aac.png",
+            "href": "https://www.aacoloristas.org/",
+            "alt": "AAC Asociación Argentina de Coloristas Audiovisuales"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_aada.png",
+            "href": "https://aadarte.com.ar/",
+            "alt": "AADA Asociación Argentina de Directores de Arte Audiovisuales"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_fant_latam.png",
+            "href": "https://www.fantlatam.com/",
+            "alt": "FantLatam Alianza Latinoamericana de Festivales de Cine Fantástico"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_cccoreano.png",
+            "href": "https://argentina.korean-culture.org/ES",
+            "alt": "Centro Cultural Coreano"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_terrorifico.png",
+            "href": "https://terrorificofilms.com.ar/",
+            "alt": "Terrorífico Films"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_piromaniafx.png",
             "href": "http://www.piromaniafx.com.ar",
             "alt": "Piromania FX"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_flaviogrecopaglia.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_flaviogrecopaglia.png",
             "href": "https://www.behance.net/flaviogreco",
             "alt": "Flavio Greco Paglia Dibujante - Ilustrador"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_enchulame_la_camara.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_enchulame_la_camara.png",
             "href": "https://www.enchulamerental.com/",
             "alt": "Enchulame la cámara"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_lacripta.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_silver.png",
+            "href": "https://www.estudiosilver.com/",
+            "alt": "Estudio Silver"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_lacripta.png",
             "href": "http://reservas.salaslacripta.com.ar/",
             "alt": "Salas La Cripta"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_streetkitten.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_f5cine.png",
+            "href": "https://www.instagram.com/f5cine/",
+            "alt": "F5 Cine"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_imaginatorio.png",
+            "href": "https://imaginatoriostudio.com/",
+            "alt": "Imaginatorio"
+          },
+          {
+            "logo": "/resources/bars2024/sponsors/auspiciante_streetkitten.png",
             "href": "https://www.instagram.com/streetkittentienda",
             "alt": "Street Kitten"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_culturageekandpop.png",
+            "logo": "/resources/bars2024/sponsors/auspiciante_culturageekandpop.png",
             "href": "https://elian.neftis.tv/",
             "alt": "Cultura Geek & Pop"
           },
           {
-            "logo": "/resources/bars2023/sponsors/auspiciante_yubari_festival.png",
-            "href": "https://yubarifanta.jp/",
-            "alt": "Yubari Festival"
+            "logo": "/resources/bars2024/sponsors/auspiciante_subiela.png",
+            "href": "https://www.escuelasubiela.com",
+            "alt": "Escuela Subiela: Escuela Profesional de Cine y Artes Visuales Eliseo Subiela"
           }
         ]
       }
