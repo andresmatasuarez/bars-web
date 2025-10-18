@@ -83,6 +83,10 @@
 
 		// Bars 2024 new sections
     'clasicosDeTerror' => array ( 'label' => 'Clásicos de terror', 'value' => 'clasicosDeTerror' ),
+    'cortos25años' => array ( 'label' => 'Cortos BARS 25 años', 'value' => 'cortos25años' ),
+
+    // Bars 2025 new sections
+		'barsAnimado' => array ( 'label' => 'BARS Animado', 'value' => 'barsAnimado' ),
 	);
 
 	function initialize(){

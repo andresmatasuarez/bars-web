@@ -33,4 +33,5 @@
 
 1. `npm install`
 2. `php composer.phar install`
-3. `npm start`
+3. `npm run dev`
+4. Go to: `http://localhost:8082/?`

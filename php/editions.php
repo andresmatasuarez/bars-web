@@ -254,6 +254,22 @@ class Editions {
     return $venuePickupLocations;
   }
 
+  public static function getPressPassesAdditionalInfo($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (
+      isset($edition['press_passes']) &&
+      isset($edition['press_passes']['pickupAdditionalInfo']) &&
+      !empty($edition['press_passes']['pickupAdditionalInfo'])
+    ) {
+      return $edition['press_passes']['pickupAdditionalInfo'];
+    }
+
+    return NULL;
+  }
+
   public static function getMapOfTitleByNumber() {
     $indexed = array();
     foreach (self::all() as $edition) {
