@@ -15,7 +15,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1024,
     emptyOutDir: false,
     sourcemap: true,
-    outDir: './wp-content/themes/bars2013',
+    outDir: './wp-themes/output',
 
     lib: {
       name: 'bars',

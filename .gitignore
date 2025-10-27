@@ -1,13 +1,15 @@
-.htwaccess
-node_modules
-vendor
-composer.phar
-composer.lock
-wp-content/uploads
-wp-content/upgrade
-wp-content/themes/index.php
-wp-content/themes/bars2013
-wp-content/themes/twentythirteen
-wp-content/debug.log
+/.htwaccess
+/node_modules
+/vendor
+/composer.phar
+/composer.lock
+/npm-debug.log
 
-npm-debug.log
+/init-scripts/backup.xml
+/init-scripts/uploads
+
+*.log
+/.env
+/output
+/wp-themes/output/**/*
+!/wp-themes/output/.gitkeep

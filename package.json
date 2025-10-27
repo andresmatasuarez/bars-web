@@ -11,7 +11,7 @@
     "Andres Mata Suarez <amatasuarez@gmail.com>"
   ],
   "config": {
-    "dest": "./wp-content/themes/bars2013",
+    "dest": "./wp-themes/output",
     "php": "./php/**/*",
     "resources": "./assets/resources/**/*",
     "vendor": "./vendor/**/*"
@@ -20,7 +20,7 @@
     "lint": "eslint .",
     "lint:autofix": "eslint . --fix",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "clean": "rimraf wp-content/themes/bars2013",
+    "clean": "rimraf wp-themes/output/* --glob",
     "dev": "npm-run-all clean --parallel dev:** watch:**",
     "dev:main": "npm run build:main -- --watch",
     "dev:selection": "npm run build:selection -- --watch",
@@ -72,7 +72,7 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-select": "^5.8.0",
-    "rimraf": "^2.5.2",
+    "rimraf": "^5.0.9",
     "styled-components": "^6.1.1",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"

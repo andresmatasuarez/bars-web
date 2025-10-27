@@ -1,0 +1,76 @@
+version: "3.8"
+
+volumes:
+  bars-mysql-data:
+  bars-wordpress-data:
+
+services:
+  mysql:
+    image: mysql:lts
+    ports:
+      - ${DB_PORT}:3306
+    volumes:
+      - bars-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ADMIN_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ADMIN_PASSWORD}
+
+  wordpress:
+    image: bitnamilegacy/wordpress:latest
+    ports:
+      - ${WORDPRESS_PORT}:8080 # Map host port to container port 8080 (WordPress default)
+      - ${WORDPRESS_SSL_PORT}:8443 # Map host port to container port 8443 (WordPress default for HTTPS)
+    volumes:
+      - bars-wordpress-data:/bitnami/wordpress
+      # ⚠️ COMMENT THESE ⤵️ VOLUMES BEFORE THE FIRST RUN ########################
+      - ./wp-themes/output:/bitnami/wordpress/wp-content/themes/bars2013
+      - ./wp-plugins/bars-commons:/bitnami/wordpress/wp-content/plugins/bars-commons
+      - ./wp-plugins/jury-post-type:/bitnami/wordpress/wp-content/plugins/jury-post-type
+      - ./wp-plugins/movie-post-type:/bitnami/wordpress/wp-content/plugins/movie-post-type
+      - ./init-scripts:/docker-entrypoint-init.d
+      # ##########################################################################
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    environment:
+      SEED_DATA_OLD_HOSTNAME: http://rojosangre.quintadimension.com/2.0
+      SEED_DATA_NEW_HOSTNAME: http://localhost:${WORDPRESS_PORT}
+
+      WORDPRESS_PLUGINS: wordpress-importer
+      WORDPRESS_BLOG_NAME: Festival Buenos Aires Rojo Sangre
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_DB_TABLE_PREFIX}
+      WORDPRESS_DATABASE_HOST: mysql
+      WORDPRESS_DATABASE_PORT: ${DB_PORT}
+      WORDPRESS_DATABASE_NAME: ${DB_NAME}
+      WORDPRESS_DATABASE_USER: ${DB_USER}
+      WORDPRESS_DATABASE_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_FIRST_NAME: ${WORDPRESS_ADMIN_NAME}
+      WORDPRESS_LAST_NAME: ${WORDPRESS_ADMIN_LASTNAME}
+      WORDPRESS_USERNAME: ${WORDPRESS_ADMIN_USERNAME}
+      WORDPRESS_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
+      WORDPRESS_EMAIL: ${WORDPRESS_ADMIN_EMAIL}
+
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_DEBUG_LOG: 1
+      WORDPRESS_DEBUG_DISPLAY: 0
+
+      # ⚠️ NOT INTENDED FOR PRODUCTION ⚠️
+      # PHP-FPM (used by Bitnami) caches compiled scripts for performance.
+      # For instance, making a change to selection.php takes a couple of refreshes to take
+      # effect, or not even that at times.
+      # This changes PHP OpCache's config to pickup file changes instantly.
+      PHP_OPCACHE_ENABLED: "0"
