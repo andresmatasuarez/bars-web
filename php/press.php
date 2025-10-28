@@ -14,6 +14,7 @@
 	$pressPassesPickupDates = Editions::getPressPassesPickupDates($edition);
 	$pressPassesPickupLocations = Editions::getPressPassesPickupLocations($edition);
 	$pressPassesPickupAdditionalInfo = Editions::getPressPassesAdditionalInfo($edition);
+	$pressPassesCredentialsFormURL = Editions::getPressPassesCredentialsFormURL($edition);
 ?>
 				<div id="page-press" class="page">
 					<div class="page-header">
@@ -29,7 +30,7 @@
 								<li>
 									El proceso de acreditaciones se llevará a cabo hasta el
 									<strong><?php echo displayDateInSpanish($pressPassesDeadline); ?></strong>
-									inclusive, realizándose exclusivamente a través de la página web oficial.
+									inclusive, realizándose exclusivamente a través del siguiente formulario: <a href="<?php echo $pressPassesCredentialsFormURL; ?>" target="_blank">click aquí</a>
 								</li>
 								<li>
 									Una vez evaluada la petición, se responderá con un correo, donde se informará si la acreditación fue aceptada o no por el Festival.

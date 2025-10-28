@@ -270,6 +270,22 @@ class Editions {
     return NULL;
   }
 
+  public static function getPressPassesCredentialsFormURL($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (
+      isset($edition['press_passes']) &&
+      isset($edition['press_passes']['credentialsFormURL']) &&
+      !empty($edition['press_passes']['credentialsFormURL'])
+    ) {
+      return $edition['press_passes']['credentialsFormURL'];
+    }
+
+    return NULL;
+  }
+
   public static function getMapOfTitleByNumber() {
     $indexed = array();
     foreach (self::all() as $edition) {
