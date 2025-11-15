@@ -1,230 +1,251 @@
 [
-{
-  "number": 26,
-  "title": "BARS 2025",
-  "days": {
-    "only_months": false,
-    "from": "2025-11-20T03:00:00.000Z",
-    "to": "2025-11-30T03:00:00.000Z"
-  },
-  "venues": {
-    "belgrano": {
-      "name": "Multiplex Belgrano",
-      "address": "Vuelta de Obligado 2199",
-      "link": "https://goo.gl/maps/j8JkEPEw72UDBisx5"
+  {
+    "number": 26,
+    "title": "BARS 2025",
+    "days": {
+      "only_months": false,
+      "from": "2025-11-20T03:00:00.000Z",
+      "to": "2025-11-30T03:00:00.000Z"
     },
-    "flixxo": {
-      "name": "Flixxo",
-      "address": "flixxo.com",
-      "online": true,
-      "link": "https://www.flixxo.com/"
-    }
-  },
-  "press_passes": {
-    "deadline": "2025-11-09T03:00:00.000Z",
-    "pickupFrom": "2025-11-20T03:00:00.000Z",
-    "pickupTo": "2025-11-27T03:00:00.000Z",
-    "pickupAdditionalInfo": "de 16 a 22hs",
-    "credentialsFormURL": "https://docs.google.com/forms/d/e/1FAIpQLSdRuVCCRvMdD00DbqT8CBvPmNh6S6ByyGxMhABx9nCcnmHnMA/viewform"
-  },
-  "poster": "resources/bars2024/bars2024_afiche.jpg",
-  "programme": "resources/bars2024/bars2024_programme.jpg",
-  "programme_yt": "",
-  "catalogue": "",
-  "spot": "https://www.youtube.com/watch?v=MF0c0yAMP1I",
-  "call": {
-    "to": "2025-09-01T02:59:59.999Z",
-    "extended_to": "2025-09-11T02:59:59.999Z",
-    "authorization": {
-      "es": "/resources/bars2023/auth2023_es.pdf",
-      "en": "/resources/bars2023/auth2023_en.pdf",
-      "en_docx": "/resources/bars2023/auth2023_en.docx",
-      "es_docx": "/resources/bars2023/auth2023_es.docx"
+    "venues": {
+      "belgrano": {
+        "name": "Multiplex Belgrano",
+        "address": "Vuelta de Obligado 2199",
+        "link": "https://goo.gl/maps/j8JkEPEw72UDBisx5"
+      },
+      "flixxo": {
+        "name": "Flixxo",
+        "address": "flixxo.com",
+        "online": true,
+        "link": "https://www.flixxo.com/"
+      }
     },
-    "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar un screener online a traves de las plataformas <a href=\"https://filmfreeway.com/BuenosAiresRojoSangrefilmfestival/\" target=\"blank\">FilmFreeWay</a> o <a href=\"https://filmmakers.festhome.com/es/festival/festival-buenos-aires-rojo-sangre/\" target=\"blank\">Festhome</a>. </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival dentro de los plazos establecidos no tiene <strong>costo</strong> para el material producido en <i>Argentina</i>, mientras que tiene un valor de <strong>USD 6</strong> para el material producido en el <i>resto de latinoamérica</i> y de <strong>USD 12</strong> para el material producido en el <i>resto del mundo</i>. <b>Las inscripciones tardías tienen recargo en todas las categorias, incluída la producción nacional</b>. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán sólo en archivo digital en HD 1080p sólo con la siguiente exportación (enviar sin barras de ajuste): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución:  1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li> Solo podrán participar en las secciones competitivas las películas que no hayan tenido <strong>ningún tipo de difusión en medios electrónicos, estreno comercial en cines en cualquier sala del país</strong>, o que no hayan tenido ninguna clase de <strong>exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 180 días previos al inicio del festival</strong>.  Siempre se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección. La presentación de material a esta convocatoria supone conocimiento de las presentes condiciones. El festival podrá eliminar de su selección, incluso una vez presentada la programación, toda vez que identifique puntos del presente reglamento siendo infringidos.</li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> <li>Mejor largometraje \"Reapariciones\"</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film. En caso de una eventual realizacion de una edicion online, el festival requerirá una autorización explicita por parte de los realizadores.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> </ul>",
-    "terms_en": "/resources/bars2023/terms2023_en.docx",
-    "terms_es": "/resources/bars2023/terms2023_es.docx"
-  },
-  "awards": {
-    "jury": [
-      "Mejor Largometraje Internacional",
-      "Mejor Director Largometraje Internacional",
-      "Mejor Actriz Largometraje Internacional",
-      "Mejor Actor Largometraje Internacional",
-      "Mejor Guión Largometraje Internacional",
-      "Mejores Efectos Especiales Largometraje Internacional",
-      "Mejor Fotografía Largometraje Internacional",
-      "Mejor Largometraje Iberoamericano",
-      "Mejor Director Largometraje Iberoamericano",
-      "Mejor Actriz Largometraje Iberoamericano",
-      "Mejor Actor Largometraje Iberoamericano",
-      "Mejor Largometraje Argentino",
-      "Mejor Director Largometraje Argentino",
-      "Mejor Actriz Largometraje Argentino",
-      "Mejor Actor Largometraje Argentino",
-      "Mejor Cortometraje Internacional",
-      "Mejor Director Cortometraje",
-      "Mejor Cortometraje Argentino"
-    ],
-    "audience": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
-  },
-  "sponsors": [
-    {
-      "title": "Organizan",
-      "items": [
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_quintadimension.png",
-          "href": "http://www.quintadimension.com/",
-          "alt": "Quinta Dimensión"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_findlingfilms.png",
-          "href": "http://findlingfilms.com/",
-          "alt": "Findling Films"
-        }
-      ]
+    "press_passes": {
+      "deadline": "2025-11-09T03:00:00.000Z",
+      "pickupFrom": "2025-11-20T03:00:00.000Z",
+      "pickupTo": "2025-11-27T03:00:00.000Z",
+      "pickupAdditionalInfo": "de 16 a 22hs",
+      "credentialsFormURL": "https://docs.google.com/forms/d/e/1FAIpQLSdRuVCCRvMdD00DbqT8CBvPmNh6S6ByyGxMhABx9nCcnmHnMA/viewform"
     },
-    {
-      "title": "Auspician",
-      "items": [
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_mubi.png",
-          "href": "https://mubi.com/",
-          "alt": "MUBI"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_sendfiles.png",
-          "href": "https://sendfiles.com.ar/",
-          "alt": "Sendfiles"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_flixxo.png",
-          "href": "https://www.flixxo.com/",
-          "alt": "Flixxo"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_multiplex.png",
-          "href": "http://www.cinesmultiplex.com.ar/",
-          "alt": "Cines Multiplex"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_mecenazgo.png"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_santander.png",
-          "href": "https://www.santander.com.ar/",
-          "alt": "Santander"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_subiela.png",
-          "href": "https://www.escuelasubiela.com",
-          "alt": "Escuela Subiela: Escuela Profesional de Cine y Artes Visuales Eliseo Subiela"
-        }
-      ]
+    "poster": "resources/bars2025/bars2025_afiche.jpg",
+    "programme": "",
+    "programme_yt": "",
+    "catalogue": "",
+    "spot": "https://www.youtube.com/watch?v=gPBq2auZmeI",
+    "call": {
+      "to": "2025-09-01T02:59:59.999Z",
+      "extended_to": "2025-09-11T02:59:59.999Z",
+      "authorization": {
+        "es": "/resources/bars2023/auth2023_es.pdf",
+        "en": "/resources/bars2023/auth2023_en.pdf",
+        "en_docx": "/resources/bars2023/auth2023_en.docx",
+        "es_docx": "/resources/bars2023/auth2023_es.docx"
+      },
+      "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar un screener online a traves de las plataformas <a href=\"https://filmfreeway.com/BuenosAiresRojoSangrefilmfestival/\" target=\"blank\">FilmFreeWay</a> o <a href=\"https://filmmakers.festhome.com/es/festival/festival-buenos-aires-rojo-sangre/\" target=\"blank\">Festhome</a>. </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival dentro de los plazos establecidos no tiene <strong>costo</strong> para el material producido en <i>Argentina</i>, mientras que tiene un valor de <strong>USD 6</strong> para el material producido en el <i>resto de latinoamérica</i> y de <strong>USD 12</strong> para el material producido en el <i>resto del mundo</i>. <b>Las inscripciones tardías tienen recargo en todas las categorias, incluída la producción nacional</b>. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán sólo en archivo digital en HD 1080p sólo con la siguiente exportación (enviar sin barras de ajuste): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución:  1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción posterior al <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li> Solo podrán participar en las secciones competitivas las películas que no hayan tenido <strong>ningún tipo de difusión en medios electrónicos, estreno comercial en cines en cualquier sala del país</strong>, o que no hayan tenido ninguna clase de <strong>exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 180 días previos al inicio del festival</strong>.  Siempre se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección. La presentación de material a esta convocatoria supone conocimiento de las presentes condiciones. El festival podrá eliminar de su selección, incluso una vez presentada la programación, toda vez que identifique puntos del presente reglamento siendo infringidos.</li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> <li>Mejor largometraje \"Reapariciones\"</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film. En caso de una eventual realizacion de una edicion online, el festival requerirá una autorización explicita por parte de los realizadores.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> </ul>",
+      "terms_en": "/resources/bars2023/terms2023_en.docx",
+      "terms_es": "/resources/bars2023/terms2023_es.docx"
     },
-    {
-      "title": "Colaboran",
-      "items": [
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_rafma.png",
-          "href": "https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922",
-          "alt": "RAFMA Red Argentina de Festivales y Muestras Audiovisuales"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_argentores.png",
-          "href": "http://www.argentores.org",
-          "alt": "Argentores - Sociedad General de Autores de la Argentina"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_eda.png",
-          "href": "http://www.edaeditores.com.ar/",
-          "alt": "EDA"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_apima.png",
-          "href": "http://www.apima.com.ar",
-          "alt": "APIMA"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_guiar.png",
-          "href": "https://www.facebook.com/asociaciondeguionistasarg",
-          "alt": "Asociación de Guionistas Argentinos"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_adf.png",
-          "href": "https://adfcine.org/",
-          "alt": "ADF Autores de Fotografía Cinematográfica Argentina"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_aac.png",
-          "href": "https://www.aacoloristas.org/",
-          "alt": "AAC Asociación Argentina de Coloristas Audiovisuales"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_aada.png",
-          "href": "https://aadarte.com.ar/",
-          "alt": "AADA Asociación Argentina de Directores de Arte Audiovisuales"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_fant_latam.png",
-          "href": "https://www.fantlatam.com/",
-          "alt": "FantLatam Alianza Latinoamericana de Festivales de Cine Fantástico"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_piromaniafx.png",
-          "href": "http://www.piromaniafx.com.ar",
-          "alt": "Piromania FX"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_flaviogrecopaglia.png",
-          "href": "https://www.behance.net/flaviogreco",
-          "alt": "Flavio Greco Paglia Dibujante - Ilustrador"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_enchulame_la_camara.png",
-          "href": "https://www.enchulamerental.com/",
-          "alt": "Enchulame la cámara"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_silver.png",
-          "href": "https://www.estudiosilver.com/",
-          "alt": "Estudio Silver"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_lacripta.png",
-          "href": "http://reservas.salaslacripta.com.ar/",
-          "alt": "Salas La Cripta"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_streetkitten.png",
-          "href": "https://www.instagram.com/streetkittentienda",
-          "alt": "Street Kitten"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_culturageekandpop.png",
-          "href": "https://elian.neftis.tv/",
-          "alt": "Cultura Geek & Pop"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_lumiton.png",
-          "href": "https://lumiton.ar/",
-          "alt": "Lumiton"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_siniestro.png",
-          "href": "https://www.instagram.com/siniestroprodu/",
-          "alt": "Siniestro"
-        },
-        {
-          "logo": "/resources/bars2025/sponsors/auspiciante_macritas.png",
-          "href": "https://www.instagram.com/nachosmacritas/",
-          "alt": "Macritas"
-        }
-      ]
-    }
-  ]
-},
-{
+    "awards": {
+      "jury": [
+        "Mejor Largometraje Internacional",
+        "Mejor Dirección Largometraje Internacional",
+        "Mejor Guión Largometraje Internacional",
+        "Mejor Fotografía Largometraje Internacional",
+        "Mejor Dirección de arte Largometraje Internacional",
+        "Mejor Montaje Largometraje Internacional",
+        "Mejores Efectos Especiales Largometraje Internacional",
+        "Mejor Actriz Largometraje Internacional",
+        "Mejor Actor Largometraje Internacional",
+        "Mejor Largometraje Iberoamericano",
+        "Mejor Dirección Largometraje Iberoamericano",
+        "Mejor Guión Largometraje Iberoamericano",
+        "Mejor Fotografía Largometraje Iberoamericano",
+        "Mejor Dirección de arte Largometraje Iberoamericano",
+        "Mejor Montaje Largometraje Iberoamericano",
+        "Mejores Efectos Especiales Largometraje Iberoamericano",
+        "Mejor Actriz Largometraje Iberoamericano",
+        "Mejor Actor Largometraje Iberoamericano",
+        "Mejor Largometraje Argentino",
+        "Mejor Dirección Largometraje Argentino",
+        "Mejor Guión Largometraje Argentino",
+        "Mejor Fotografía Largometraje Argentino",
+        "Mejor Dirección de arte Largometraje Argentino",
+        "Mejor Montaje Largometraje Argentino",
+        "Mejores Efectos Especiales Largometraje Argentino",
+        "Mejor Actriz Largometraje Argentino",
+        "Mejor Actor Largometraje Argentino",
+        "Mejor Cortometraje Internacional",
+        "Mejor Cortometraje Nacional",
+        "Mejor Director Cortometraje",
+        "Mejor Guion Cortometraje",
+        "Mejor Fotografía Cortometraje",
+        "Mejor Montaje Cortometraje",
+        "Mejor Actuación Cortometraje"
+      ],
+      "audience": ["Premio del Público Largometraje", "Premio del Público Cortometraje"]
+    },
+    "sponsors": [
+      {
+        "title": "Organizan",
+        "items": [
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_quintadimension.png",
+            "href": "http://www.quintadimension.com/",
+            "alt": "Quinta Dimensión"
+          }
+        ]
+      },
+      {
+        "title": "Auspician",
+        "items": [
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_mubi.png",
+            "href": "https://mubi.com/",
+            "alt": "MUBI"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_sendfiles.png",
+            "href": "https://sendfiles.com.ar/",
+            "alt": "Sendfiles"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_flixxo.png",
+            "href": "https://www.flixxo.com/",
+            "alt": "Flixxo"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_multiplex.png",
+            "href": "http://www.cinesmultiplex.com.ar/",
+            "alt": "Cines Multiplex"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_mecenazgo.png"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_santander.png",
+            "href": "https://www.santander.com.ar/",
+            "alt": "Santander"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_subiela.png",
+            "href": "https://www.escuelasubiela.com",
+            "alt": "Escuela Subiela: Escuela Profesional de Cine y Artes Visuales Eliseo Subiela"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_pan.png",
+            "href": "https://www.pancontenidos.com/",
+            "alt": "PAN Contenidos"
+          }
+        ]
+      },
+      {
+        "title": "Colaboran",
+        "items": [
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_rafma.png",
+            "href": "https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922",
+            "alt": "RAFMA Red Argentina de Festivales y Muestras Audiovisuales"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_argentores.png",
+            "href": "http://www.argentores.org",
+            "alt": "Argentores - Sociedad General de Autores de la Argentina"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_eda.png",
+            "href": "http://www.edaeditores.com.ar/",
+            "alt": "EDA"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_apima.png",
+            "href": "http://www.apima.com.ar",
+            "alt": "APIMA"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_guiar.png",
+            "href": "https://www.facebook.com/asociaciondeguionistasarg",
+            "alt": "Asociación de Guionistas Argentinos"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_adf.png",
+            "href": "https://adfcine.org/",
+            "alt": "ADF Autores de Fotografía Cinematográfica Argentina"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_aac.png",
+            "href": "https://www.aacoloristas.org/",
+            "alt": "AAC Asociación Argentina de Coloristas Audiovisuales"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_aada.png",
+            "href": "https://aadarte.com.ar/",
+            "alt": "AADA Asociación Argentina de Directores de Arte Audiovisuales"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_fant_latam.png",
+            "href": "https://www.fantlatam.com/",
+            "alt": "FantLatam Alianza Latinoamericana de Festivales de Cine Fantástico"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_piromaniafx.png",
+            "href": "http://www.piromaniafx.com.ar",
+            "alt": "Piromania FX"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_flaviogrecopaglia.png",
+            "href": "https://www.behance.net/flaviogreco",
+            "alt": "Flavio Greco Paglia Dibujante - Ilustrador"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_enchulame_la_camara.png",
+            "href": "https://www.enchulamerental.com/",
+            "alt": "Enchulame la cámara"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_silver.png",
+            "href": "https://www.estudiosilver.com/",
+            "alt": "Estudio Silver"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_lacripta.png",
+            "href": "http://reservas.salaslacripta.com.ar/",
+            "alt": "Salas La Cripta"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_streetkitten.png",
+            "href": "https://www.instagram.com/streetkittentienda",
+            "alt": "Street Kitten"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_culturageekandpop.png",
+            "href": "https://elian.neftis.tv/",
+            "alt": "Cultura Geek & Pop"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_lumiton.png",
+            "href": "https://lumiton.ar/",
+            "alt": "Lumiton"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_siniestro.png",
+            "href": "https://www.instagram.com/siniestroprodu/",
+            "alt": "Siniestro"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_macritas.png",
+            "href": "https://www.instagram.com/nachosmacritas/",
+            "alt": "Macritas"
+          },
+          {
+            "logo": "/resources/bars2025/sponsors/auspiciante_gio.png",
+            "href": "https://giochocolates.com/",
+            "alt": "Gio"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "number": 25,
     "title": "BARS 2024",
     "days": {

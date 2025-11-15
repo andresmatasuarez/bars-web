@@ -31,7 +31,7 @@
 			<?php
 				echo widgetify('sidebar relative image', null, '
 					<a class="sidebar" target="_blank" rel="noopener noreferrer" href="https://mubi.com/en/bars">
-						<img src="' . get_bloginfo('template_directory') . '/resources/bars2024/mubi_banner.gif' . '" />
+						<img src="' . get_bloginfo('template_directory') . '/resources/bars2025/mubi_banner.gif' . '" />
 					</a>
 				');
 			?>
