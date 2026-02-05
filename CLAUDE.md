@@ -59,7 +59,9 @@ Two Vite entry points:
   - `movie-post-type/` - Movie custom post type with sections, screenings
   - `jury-post-type/` - Jury member custom post type
   - `bars-commons/` - Shared functionality
-- `init-scripts/` - Docker initialization scripts and seed data
+- `scripts/` - Project scripts
+  - `init-site/` - Docker initialization scripts and seed data
+  - `switch-theme.sh` - CLI tool to switch WordPress themes
 
 ### Adding a New Theme
 

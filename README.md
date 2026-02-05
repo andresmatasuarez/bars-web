@@ -18,7 +18,7 @@ Initial setup consists of getting hold of existing data from the live site and s
 1. Head over to https://rojosangre.quintadimension.com/2.0/wordpress/wp-admin/ and login with admin credentials.
 1. In the left-side menu, go to Tools > Export.
 1. Perform an export selecting **"All content"**.
-1. Rename the downloaded XML file to "backup.xml" and place it inside `<project-root>/init-scripts`.
+1. Rename the downloaded XML file to "backup.xml" and place it inside `<project-root>/scripts/init-site`.
 
 #### 2. Downloading assets
 
@@ -58,7 +58,7 @@ Base Wordpress files need to be installed in the containers before anything else
 
 Once Wordpress basic installation is ready, we now need to initialize our site accordingly with our theme and plugins, seed test data and configure overall settings like permalink structure.
 
-For that, we rely on the scripts found in `<project-root>/init-scripts`, expected to be run once and never again. You just need to run:
+For that, we rely on the scripts found in `<project-root>/scripts/init-site`, expected to be run once and never again. You just need to run:
 
 ```
 docker compose -f docker-compose.yml up -d
@@ -112,7 +112,7 @@ bars-web/
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
-├─ init-scripts/             # Docker initialization scripts
+├─ scripts/                  # Project scripts (init-site/, switch-theme.sh)
 ├─ package.json              # Workspace root
 └─ tsconfig.base.json        # Shared TypeScript compiler options
 ```

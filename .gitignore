@@ -21,5 +21,5 @@ wp-themes/bars2026/**/*
 !wp-themes/bars2026/.gitkeep
 
 # Init scripts data (user-specific)
-init-scripts/backup.xml
-init-scripts/uploads/
+scripts/init-site/backup.xml
+scripts/init-site/uploads/

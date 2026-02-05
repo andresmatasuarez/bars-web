@@ -36,7 +36,7 @@ services:
       - ./wp-plugins/bars-commons:/bitnami/wordpress/wp-content/plugins/bars-commons
       - ./wp-plugins/jury-post-type:/bitnami/wordpress/wp-content/plugins/jury-post-type
       - ./wp-plugins/movie-post-type:/bitnami/wordpress/wp-content/plugins/movie-post-type
-      - ./init-scripts:/docker-entrypoint-init.d
+      - ./scripts/init-site:/docker-entrypoint-init.d
       # ##########################################################################
     depends_on:
       mysql:
