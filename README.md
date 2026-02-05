@@ -1,11 +1,13 @@
 # bars-web
 
+Buenos Aires Rojo Sangre Film Festival website - a monorepo with npm workspaces.
+
 ## Initial setup
 
 1. `nvm install`
-1. `npm install`
-1. `composer install` (instructions: https://stackoverflow.com/a/22586674)
-1. Create a new file `.env` by duplicating `.env-example`. Adjust values to match your local settings.
+2. `npm install` (from project root - installs all workspace deps)
+3. `cd themes/bars2013 && composer install` (PHP dependencies)
+4. Create `.env` by duplicating `.env-example`
 
 ### Seed data
 
@@ -88,34 +90,34 @@ These marker files are stored in the `bars-web_bars-wordpress-data` volume and y
    docker compose -f docker-compose.yml up -d
    ```
 
-## Development
-
-### Directory structure
+## Project Structure
 
 ```bash
 bars-web/
-├─ assets/ # 🛠️
-│  ├─ fonts/ # Fonts
-│  ├─ images/ # Images not related to any specific festival edition
-│  ├─ javascripts/ # Static js/ts files
-│  ├─ react-apps/ # More complex features done with React (e.g. selection page)
-│  ├─ resources/ # Edition-specific assets, like poster, programme and sponsors.
-│  ├─ stylesheets/ # CSS/Less styles
-├─ init-scripts/ # Scripts run on "Site initialization" phase (second run)
-│  ├─ uploads/ # Place the backup uploads here
-├─ php/ # 🛠️ PHP files
-├─ raw/ # Folder to store raw assets, .psd files or misc stuff.
-├─ vite/ # Vite configuration goes here.
-├─ wp-plugins/ # Custom plugins
+├─ themes/
+│  └─ bars2013/              # Main theme (npm workspace)
+│     ├─ assets/             # Source files (LESS, TypeScript, React apps, fonts)
+│     ├─ php/                # Theme-specific PHP templates
+│     ├─ vite/               # Vite configuration
+│     ├─ raw/                # Raw assets, .psd files or misc stuff
+│     ├─ vendor/             # PHP Composer dependencies
+│     ├─ package.json        # Theme-specific npm deps & scripts
+│     └─ tsconfig.json       # Theme TS config (extends base)
+├─ shared/
+│  ├─ resources/             # Edition-specific assets (poster, programme, sponsors)
+│  └─ php/                   # Shared PHP utilities (editions.json, helpers.php)
+├─ wp-themes/
+│  └─ output/                # ⚠️ Build output, DO NOT EDIT
+├─ wp-plugins/               # Custom WordPress plugins
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
-│  ├─ movie-post-type/
-├─ wp-themes/
-│  ├─ deprecated_bars_2013/ # Old, deprecated theme
-│  ├─ output/ # ⚠️ output theme, DO NOT MAKE CHANGES TO FILES INSIDE THIS FOLDER
+│  └─ movie-post-type/
+├─ init-scripts/             # Docker initialization scripts
+├─ package.json              # Workspace root
+└─ tsconfig.base.json        # Shared TypeScript compiler options
 ```
 
-Directories marked with "🛠️" are processed/compiled with Vite and npm scripts and output into `<project-root>/wp-themes/output`.
+## Development
 
 ### Run local version
 
@@ -123,9 +125,14 @@ Running a local version of the site involves two different processes:
 
 1. Listen for changes and output theme files:
    ```
-   npm run dev
+   npm run dev:bars2013
    ```
-1. Start the wordpress/mysql services:
+   Or from the theme directory:
+   ```
+   cd themes/bars2013 && npm run dev
+   ```
+
+2. Start the wordpress/mysql services:
 
    ```
    docker compose -f docker-compose.yml up -d
@@ -139,6 +146,19 @@ Running a local version of the site involves two different processes:
    ```sh
    mysql -h127.0.0.1 -u root -P3307 -p barsweb_docker
    ```
+
+### Available Scripts
+
+From the root:
+- `npm run dev:bars2013` - Start development mode for bars2013 theme
+- `npm run build:bars2013` - Build bars2013 theme for production
+- `npm run lint:bars2013` - Run ESLint on bars2013 theme
+
+From `themes/bars2013`:
+- `npm run dev` - Start development mode
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
 
 ## Deploy
 

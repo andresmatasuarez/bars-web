@@ -1,4 +1,5 @@
 import inject from '@rollup/plugin-inject';
+import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -11,11 +12,16 @@ export default defineConfig({
       jQuery: 'jquery',
     }),
   ],
+  resolve: {
+    alias: {
+      '@shared': path.resolve(__dirname, '../../../shared'),
+    },
+  },
   build: {
     chunkSizeWarningLimit: 1024,
     emptyOutDir: false,
     sourcemap: true,
-    outDir: './wp-themes/output',
+    outDir: '../../wp-themes/bars2013',
 
     lib: {
       name: 'bars',

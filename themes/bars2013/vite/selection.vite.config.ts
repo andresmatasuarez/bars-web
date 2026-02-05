@@ -1,5 +1,6 @@
 import inject from '@rollup/plugin-inject';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig((mode) => ({
@@ -20,11 +21,16 @@ export default defineConfig((mode) => ({
 
     react(),
   ],
+  resolve: {
+    alias: {
+      '@shared': path.resolve(__dirname, '../../../shared'),
+    },
+  },
   build: {
     chunkSizeWarningLimit: 1024,
     emptyOutDir: false,
     sourcemap: true,
-    outDir: './wp-themes/output',
+    outDir: '../../wp-themes/bars2013',
 
     lib: {
       name: 'selection',

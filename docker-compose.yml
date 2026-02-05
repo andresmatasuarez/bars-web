@@ -31,7 +31,7 @@ services:
     volumes:
       - bars-wordpress-data:/bitnami/wordpress
       # ⚠️ COMMENT THESE ⤵️ VOLUMES BEFORE THE FIRST RUN ########################
-      - ./wp-themes/output:/bitnami/wordpress/wp-content/themes/bars2013
+      - ./wp-themes/bars2013:/bitnami/wordpress/wp-content/themes/bars2013
       - ./wp-plugins/bars-commons:/bitnami/wordpress/wp-content/plugins/bars-commons
       - ./wp-plugins/jury-post-type:/bitnami/wordpress/wp-content/plugins/jury-post-type
       - ./wp-plugins/movie-post-type:/bitnami/wordpress/wp-content/plugins/movie-post-type

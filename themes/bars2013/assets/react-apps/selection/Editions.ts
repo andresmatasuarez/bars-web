@@ -1,4 +1,5 @@
-import EDITIONS from '../../../php/editions.json';
+import EDITIONS from '@shared/editions.json';
+
 import { parseDate } from '../helpers';
 import { Venues } from './types';
 
