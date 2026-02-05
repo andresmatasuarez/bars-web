@@ -17,10 +17,21 @@ pages["festival"]="title:BARS,slug:bars,template:festival.php,order:2"
 pages["rojo_sangre_tv"]="title:#RojoSangreTV,slug:rojosangretv,template:rojo_sangre_tv.php,order:3"
 pages["selection"]="title:Programacion,slug:programacion,template:selection.php,order:4"
 pages["juries"]="title:Premios y jurados,slug:premios-y-jurados,template:juries.php,order:5"
-pages["call"]="title:Convocatoria,slug:convocatoria,template:call.php,order:6"
+pages["call"]="title:Convocatoria,slug:convocatoria,template:page-call.php,order:6"
 pages["sponsors"]="title:Auspiciantes,slug:auspiciantes,template:sponsors.php,order:7"
-pages["press"]="title:Prensa,slug:prensa,template:press.php,order:8"
+pages["press"]="title:Prensa,slug:prensa,template:page-press.php,order:8"
 pages["contact"]="title:Contacto,slug:contacto,template:contact.php,order:9"
+
+# --- bars2013 ----------------------
+# pages["news"]="title:Novedades,slug:novedades,template:news.php,order:1"
+# pages["festival"]="title:BARS,slug:bars,template:festival.php,order:2"
+# pages["rojo_sangre_tv"]="title:#RojoSangreTV,slug:rojosangretv,template:rojo_sangre_tv.php,order:3"
+# pages["selection"]="title:Programacion,slug:programacion,template:selection.php,order:4"
+# pages["juries"]="title:Premios y jurados,slug:premios-y-jurados,template:juries.php,order:5"
+# pages["call"]="title:Convocatoria,slug:convocatoria,template:call.php,order:6"
+# pages["sponsors"]="title:Auspiciantes,slug:auspiciantes,template:sponsors.php,order:7"
+# pages["press"]="title:Prensa,slug:prensa,template:press.php,order:8"
+# pages["contact"]="title:Contacto,slug:contacto,template:contact.php,order:9"
 
 # Loop through the pages array
 for page_key in "${!pages[@]}"; do

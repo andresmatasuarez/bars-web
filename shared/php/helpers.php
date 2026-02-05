@@ -3,6 +3,41 @@
 
   const DATE_FULL_TAG = 'full';
 
+  function getSpanishMonthName($englishMonth){
+    switch(strtolower($englishMonth)){
+      case 'january'   :  return 'enero';
+      case 'february'  :  return 'febrero';
+      case 'march'     :  return 'marzo';
+      case 'april'     :  return 'abril';
+      case 'may'       :  return 'mayo';
+      case 'june'      :  return 'junio';
+      case 'july'      :  return 'julio';
+      case 'august'    :  return 'agosto';
+      case 'september' :  return 'septiembre';
+      case 'october'   :  return 'octubre';
+      case 'november'  :  return 'noviembre';
+      case 'december'  :  return 'diciembre';
+      default          :  return null;
+    }
+  }
+
+  function getSpanishDayName($englishDay){
+    switch(strtolower($englishDay)){
+      case 'monday'    :  return 'lunes';
+      case 'tuesday'   :  return 'martes';
+      case 'wednesday' :  return 'miércoles';
+      case 'thursday'  :  return 'jueves';
+      case 'friday'    :  return 'viernes';
+      case 'saturday'  :  return 'sábado';
+      case 'sunday'    :  return 'domingo';
+      default          :  return null;
+    }
+  }
+
+  function displayDateInSpanish($date){
+    return getSpanishDayName($date->format('l')) . ' ' . $date->format('j') . ' de ' . getSpanishMonthName($date->format('F'));
+  }
+
   function sortByDateString($a, $b) {
     // safeguard against NULL values
     $t1 = isset($a['date']) ? $a['date']->getTimestamp() : 0;

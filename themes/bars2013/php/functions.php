@@ -1,5 +1,6 @@
 <?php
 
+require_once 'helpers.php';
 
 /* ************************ THUMBNAIL SIZES ************************ */
 if ( function_exists( 'add_theme_support' ) ) {
@@ -194,43 +195,7 @@ function get_excerpt_by_id($post_id, $word_count = 25){
     return $the_excerpt;
 }
 
-/* ************ English to spanish day name translation ************ */
-function getSpanishDayName($englishDay){
-	switch(strtolower($englishDay)){
-		case 'sunday'    : return 'domingo';
-		case 'monday'    : return 'lunes';
-		case 'tuesday'   : return 'martes';
-		case 'wednesday' : return 'miércoles';
-		case 'thursday'  : return 'jueves';
-		case 'friday'    : return 'viernes';
-		case 'saturday'  : return 'sábado';
-		default          : return null;
-	}
-}
-
-/* ************ English to spanish month name translation ************ */
-function getSpanishMonthName($englishMonth){
-  switch(strtolower($englishMonth)){
-    case 'january'   :  return 'enero';
-    case 'february'  :  return 'febrero';
-    case 'march'     :  return 'marzo';
-    case 'april'     :  return 'abril';
-    case 'may'       :  return 'mayo';
-    case 'june'      :  return 'junio';
-    case 'july'      :  return 'julio';
-    case 'august'    :  return 'agosto';
-    case 'september' :  return 'septiembre';
-    case 'october'   :  return 'octubre';
-    case 'november'  :  return 'noviembre';
-    case 'december'  :  return 'diciembre';
-    default          :  return null;
-  }
-}
-
-/* ************ Display date in spanish ************ */
-function displayDateInSpanish($date){
-  return getSpanishDayName($date->format('l')) . ' ' . $date->format('j') . ' de ' . getSpanishMonthName($date->format('F'));
-}
+/* Spanish date helpers moved to shared/php/helpers.php */
 
 /* Render post as part of a list of posts. */
 function renderPostInList($post_id){

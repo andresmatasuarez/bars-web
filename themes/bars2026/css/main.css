@@ -1,0 +1,179 @@
+@import './fonts.css';
+@import 'tailwindcss';
+
+/* Custom theme configuration for Tailwind v4 */
+@theme {
+  /* Colors */
+  --color-bars-primary: #8b0000;
+  --color-bars-primary-light: rgba(139, 0, 0, 0.27);
+  --color-bars-primary-muted: rgba(139, 0, 0, 0.08);
+  --color-bars-primary-subtle: rgba(139, 0, 0, 0.2);
+  --color-bars-bg-dark: #0a0a0a;
+  --color-bars-bg-medium: #0f0f0f;
+  --color-bars-bg-card: #1a1a1a;
+  --color-bars-bg-elevated: #050505;
+  --color-bars-header: rgba(10, 10, 10, 0.8);
+  --color-bars-footer: #050505;
+  --color-bars-text-primary: #ffffff;
+  --color-bars-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-bars-text-muted: rgba(255, 255, 255, 0.6);
+  --color-bars-text-subtle: rgba(255, 255, 255, 0.4);
+  --color-bars-text-faint: rgba(255, 255, 255, 0.27);
+  --color-bars-text-disabled: rgba(255, 255, 255, 0.2);
+  --color-bars-border-light: rgba(255, 255, 255, 0.2);
+  --color-bars-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-bars-divider: rgba(255, 255, 255, 0.08);
+  --color-bars-link-accent: #d4a574;
+
+  /* Border radius */
+  --radius-bars-sm: 4px;
+  --radius-bars-md: 8px;
+  --radius-bars-lg: 16px;
+  --radius-bars-pill: 20px;
+}
+
+/* Font face declarations */
+@layer base {
+  /* Font family utility classes */
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .font-heading {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bars-bg-dark);
+    color: var(--color-bars-text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  /* Prevent body scroll when mobile menu is open (mobile only) */
+  @media (max-width: 1023px) {
+    body.menu-open {
+      overflow: hidden;
+    }
+  }
+}
+
+/* Component layer - reusable component styles */
+@layer components {
+  /* Primary button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-bars-primary);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var(--radius-bars-sm);
+    transition: background-color 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: #a00000;
+  }
+
+  /* Ghost/outline button */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--color-bars-border-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var(--radius-bars-sm);
+    transition: background-color 0.2s;
+  }
+
+  .btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Reduce button padding on very small screens */
+  @media (max-width: 374px) {
+    .btn-primary,
+    .btn-ghost {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  /* Section container */
+
+  .section-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+}
+
+/* Utility layer - custom utilities */
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Footer brand name - smaller on very small screens to prevent wrapping */
+@media (max-width: 374px) {
+  .footer-brand-name {
+    letter-spacing: 0px !important;
+  }
+}

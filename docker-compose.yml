@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 volumes:
   bars-mysql-data:
@@ -12,7 +12,7 @@ services:
     volumes:
       - bars-mysql-data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ADMIN_PASSWORD}"]
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p${DB_ADMIN_PASSWORD}']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -74,4 +74,4 @@ services:
       # For instance, making a change to selection.php takes a couple of refreshes to take
       # effect, or not even that at times.
       # This changes PHP OpCache's config to pickup file changes instantly.
-      PHP_OPCACHE_ENABLED: "0"
+      PHP_OPCACHE_ENABLED: '0'

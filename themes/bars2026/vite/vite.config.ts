@@ -23,5 +23,17 @@ export default defineConfig({
       fileName: 'bars2026',
       formats: ['iife'],
     },
+
+    rollupOptions: {
+      output: {
+        // Output CSS with predictable name
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'bars2026.css';
+          }
+          return assetInfo.name || 'assets/[name][extname]';
+        },
+      },
+    },
   },
 });

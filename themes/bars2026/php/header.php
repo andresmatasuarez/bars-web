@@ -1,38 +1,169 @@
+<?php
+/**
+ * Header template
+ * @package BARS2026
+ */
+
+$edition_title = Editions::getTitle();
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
+
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('bg-bars-bg-dark text-bars-text-primary font-body antialiased'); ?>>
 <?php wp_body_open(); ?>
 
-<div id="page" class="site">
-    <header id="masthead" class="site-header">
-        <div class="site-branding">
-            <?php if (has_custom_logo()) : ?>
-                <?php the_custom_logo(); ?>
-            <?php else : ?>
-                <h1 class="site-title">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                        <?php bloginfo('name'); ?>
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-bars-header backdrop-blur-sm h-16 lg:h-20 px-5 lg:px-20">
+    <div class="flex items-center justify-between h-full max-w-[1280px] mx-auto">
+        <!-- Logo -->
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo.png"
+                 alt="BARS Logo"
+                 class="w-8 h-8 lg:w-11 lg:h-11 object-contain">
+            <span class="font-display text-xl lg:text-[28px] tracking-wider text-bars-text-primary">
+                <?php echo esc_html($edition_title); ?>
+            </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-10">
+            <ul class="flex items-center gap-10">
+                <li>
+                    <a href="<?php echo home_url('/noticias'); ?>"
+                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-primary hover:text-white transition-colors">
+                        Noticias
                     </a>
-                </h1>
-            <?php endif; ?>
+                </li>
+                <li>
+                    <a href="<?php echo home_url('/programacion'); ?>"
+                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
+                        Programación
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo home_url('/premios'); ?>"
+                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
+                        Premios y Jurados
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo home_url('/convocatoria'); ?>"
+                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
+                        Convocatoria
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo home_url('/prensa'); ?>"
+                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
+                        Prensa
+                    </a>
+                </li>
+            </ul>
+            <a href="<?php echo home_url('/entradas'); ?>"
+               class="inline-flex items-center justify-center px-6 py-3 bg-bars-primary text-white text-[13px] font-semibold tracking-wider uppercase rounded-bars-sm hover:bg-[#A00000] transition-colors">
+                Entradas
+            </a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle"
+                class="lg:hidden flex flex-col justify-center gap-[5px] p-2"
+                aria-label="Menu"
+                aria-expanded="false">
+            <span class="block w-5 h-0.5 bg-bars-text-primary transition-transform"></span>
+            <span class="block w-5 h-0.5 bg-bars-text-primary transition-opacity"></span>
+            <span class="block w-5 h-0.5 bg-bars-text-primary transition-transform"></span>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay"
+     class="fixed inset-0 bg-black/80 z-40 opacity-0 pointer-events-none transition-opacity lg:hidden
+            [.is-visible]:opacity-100 [.is-visible]:pointer-events-auto">
+</div>
+
+<!-- Mobile Menu -->
+<nav id="mobile-menu"
+     class="fixed top-16 left-0 right-0 bottom-0 z-40 bg-bars-bg-dark overflow-y-auto
+            transform translate-x-full transition-transform lg:hidden
+            [&.is-open]:translate-x-0">
+    <div class="flex flex-col min-h-full px-5 py-8 gap-8">
+        <!-- Main Navigation -->
+        <div class="flex flex-col gap-6">
+            <a href="<?php echo home_url('/noticias'); ?>"
+               class="font-heading text-[32px] font-medium text-white">
+                Noticias
+            </a>
+            <a href="<?php echo home_url('/programacion'); ?>"
+               class="font-heading text-[32px] font-medium text-white">
+                Programación
+            </a>
+            <a href="<?php echo home_url('/premios'); ?>"
+               class="font-heading text-[32px] font-medium text-white">
+                Premios y Jurados
+            </a>
+            <a href="<?php echo home_url('/convocatoria'); ?>"
+               class="font-heading text-[32px] font-medium text-white">
+                Convocatoria
+            </a>
+            <a href="<?php echo home_url('/prensa'); ?>"
+               class="font-heading text-[32px] font-medium text-white">
+                Prensa
+            </a>
+            <a href="<?php echo home_url('/sobre-el-festival'); ?>"
+               class="font-heading text-[32px] font-medium text-white">
+                Sobre el Festival
+            </a>
         </div>
 
-        <nav id="site-navigation" class="main-navigation">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'menu_id'        => 'primary-menu',
-                'fallback_cb'    => false,
-            ));
-            ?>
-        </nav>
-    </header>
+        <!-- CTA Button -->
+        <a href="<?php echo home_url('/entradas'); ?>"
+           class="btn-primary w-full text-center">
+            Entradas
+        </a>
 
-    <div id="content" class="site-content">
+        <!-- Social Links -->
+        <div class="flex-1 flex items-end">
+            <div class="flex gap-4">
+                <a href="https://www.facebook.com/buenosairesrojosangre" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center justify-center w-11 h-11 rounded-full bg-white/10">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/festivalrojosangre/" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center justify-center w-11 h-11 rounded-full bg-white/10">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/user/rojosangrefestival" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center justify-center w-11 h-11 rounded-full bg-white/10">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                        <path d="m10 15 5-3-5-3z"/>
+                    </svg>
+                </a>
+                <a href="mailto:festivalrojosangre@gmail.com"
+                   class="flex items-center justify-center w-11 h-11 rounded-full bg-white/10">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main content wrapper - add padding-top for fixed header -->
+<main id="main-content" class="pt-16 lg:pt-20">

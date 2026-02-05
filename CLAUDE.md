@@ -53,8 +53,9 @@ Two Vite entry points:
   - `vite/` - Vite configuration
   - `vendor/` - PHP Composer dependencies
 - `shared/` - Shared resources across themes
+  - `editions.json` - **Single source of truth** for festival data (dates, venues, etc.)
   - `resources/` - Edition-specific assets (poster, programme, sponsors)
-  - `php/` - Shared PHP utilities (editions.json, editions.php, helpers.php)
+  - `php/` - Shared PHP utilities (editions.php, helpers.php)
 - `wp-plugins/` - Custom WordPress plugins:
   - `movie-post-type/` - Movie custom post type with sections, screenings
   - `jury-post-type/` - Jury member custom post type
@@ -73,11 +74,27 @@ Output paths are configured in multiple places that must stay in sync:
 
 ### Path Aliases
 
-TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directory (e.g., `import EDITIONS from '@shared/php/editions.json'`).
+TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directory (e.g., `import EDITIONS from '@shared/editions.json'`).
+
+### Festival Data (`editions.json`)
+
+`shared/editions.json` is the **single source of truth** for all festival information (edition dates, venues, deadlines, etc.).
+
+- **TypeScript/JS files**: Import directly via `import EDITIONS from '@shared/editions.json'`
+- **PHP files**: Use `shared/php/editions.php` which loads and parses `editions.json` behind the scenes, exposing helper functions like `Editions::venues()`, `Editions::from()`, `Editions::to()`, etc.
+- **When you need festival data in PHP**, always check the `Editions` class first for an existing helper. If none exists, add a new static method to `shared/php/editions.php` following the existing patterns in that file. Do not create theme-local wrapper functions around `Editions`.
+
+### Shared Template Parts (bars2026)
+
+- **Page Hero**: All inner pages (everything except the landing) must use `get_template_part('template-parts/sections/page', 'hero', array('title' => '...', 'subtitle' => '...'))` for their heading section. Never inline a custom hero — this ensures consistent height and styling across all pages.
 
 ### Data Flow for Selection App
 
 WordPress DB → PHP queries movies/screenings → JSON embedded in `selection.php` → React app consumes and renders with styled-components
+
+### Screenshots
+
+All screenshots (visual QA, viewport testing, etc.) go in the `screenshots/` directory at the project root. This folder is gitignored. Never save screenshots to the project root or inside theme directories.
 
 ### Docker Setup
 
@@ -86,6 +103,10 @@ Two-phase initialization required for fresh setup:
 2. **Second run**: Uncomment volumes, start containers - init scripts run once to activate theme, plugins, and import seed data
 
 Marker files in `bars-web_bars-wordpress-data` volume control initialization state (`.user_scripts_initialized`, `.import_done`).
+
+## Design-to-Code Conversion Rules
+
+- **Text fidelity**: When converting a .pen design to code, use the **exact same text** as in the design. Do not paraphrase, summarize, or invent copy. The only exception is data that must be dynamically injected (festival dates, venue names/addresses, edition number, deadlines, etc.) — replace those with the appropriate `Editions::` helpers or PHP variables. If you are unsure whether a piece of text is static copy or dynamic data, ask the user.
 
 ## Deploy
 
