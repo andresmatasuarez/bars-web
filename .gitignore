@@ -17,9 +17,8 @@ Thumbs.db
 # Build outputs (themes output to wp-themes/{theme-name}/)
 wp-themes/bars2013/**/*
 !wp-themes/bars2013/.gitkeep
-# Future themes would add similar lines:
-# wp-themes/newtheme/**/*
-# !wp-themes/newtheme/.gitkeep
+wp-themes/bars2026/**/*
+!wp-themes/bars2026/.gitkeep
 
 # Init scripts data (user-specific)
 init-scripts/backup.xml

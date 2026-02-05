@@ -5,6 +5,9 @@
   "scripts": {
     "dev:bars2013": "npm run dev -w themes/bars2013",
     "build:bars2013": "npm run build -w themes/bars2013",
-    "lint:bars2013": "npm run lint -w themes/bars2013"
+    "lint:bars2013": "npm run lint -w themes/bars2013",
+    "dev:bars2026": "npm run dev -w themes/bars2026",
+    "build:bars2026": "npm run build -w themes/bars2026",
+    "lint:bars2026": "npm run lint -w themes/bars2026"
   }
 }

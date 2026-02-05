@@ -1,0 +1,6 @@
+# PHP Composer
+vendor/
+composer.phar
+
+# Theme-specific build artifacts
+*.log
