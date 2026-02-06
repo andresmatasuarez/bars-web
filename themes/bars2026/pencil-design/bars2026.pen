@@ -2608,7 +2608,43 @@
           "id": "LX4Cs",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -9590,7 +9626,43 @@
           "id": "SwTIz",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -14706,7 +14778,43 @@
           "id": "50bEX",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -19789,7 +19897,43 @@
           "id": "qgCAc",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -22364,7 +22508,43 @@
           "id": "oG6d2",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -26544,7 +26724,43 @@
           "id": "BxIDq",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -28346,7 +28562,43 @@
           "id": "lmiHA",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -49872,7 +50124,43 @@
           "y": -270,
           "name": "Page Hero",
           "width": 1440,
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "gap": 16,
           "padding": [
             32,
@@ -60266,7 +60554,43 @@
           "id": "9LBC5",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -62622,7 +62946,43 @@
           "id": "2n6J6",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -68530,7 +68890,43 @@
           "id": "U3P60",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.3,
+              "enabled": true,
+              "url": "./DSC01280.jpg",
+              "mode": "fill"
+            },
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
