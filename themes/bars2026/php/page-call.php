@@ -22,6 +22,7 @@ $call_is_closed = Editions::isCallClosed($edition);
 
 // Get authorization links if available
 $authorization = isset($call['authorization']) ? $call['authorization'] : array();
+$awards = Editions::getAwards($edition);
 ?>
 
 <?php get_template_part('template-parts/sections/page', 'hero', array(
@@ -170,42 +171,23 @@ $authorization = isset($call['authorization']) ? $call['authorization'] : array(
                 La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios:
             </p>
 
+            <?php if (!empty($awards)): ?>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <?php foreach ($awards as $category): ?>
                 <div>
-                    <h4 class="font-heading text-lg font-semibold text-bars-text-primary mb-3">Premios del Jurado - Largometrajes</h4>
+                    <h4 class="font-heading text-lg font-semibold text-bars-text-primary mb-3"><?php echo esc_html($category['heading']); ?></h4>
                     <ul class="text-sm text-bars-text-secondary space-y-1">
-                        <li>Mejor Largometraje</li>
-                        <li>Mejor Dirección</li>
-                        <li>Mejor Guión</li>
-                        <li>Mejor Fotografía</li>
-                        <li>Mejor Dirección de Arte</li>
-                        <li>Mejor Montaje</li>
-                        <li>Mejores Efectos Especiales</li>
-                        <li>Mejor Actriz</li>
-                        <li>Mejor Actor</li>
+                        <?php foreach ($category['items'] as $item): ?>
+                        <li><?php echo esc_html($item); ?></li>
+                        <?php endforeach; ?>
                     </ul>
-                    <p class="text-xs text-bars-text-muted italic mt-3">(por competencia Internacional, Iberoamericana y Argentina)</p>
+                    <?php if (!empty($category['note'])): ?>
+                    <p class="text-xs text-bars-text-muted italic mt-3"><?php echo esc_html($category['note']); ?></p>
+                    <?php endif; ?>
                 </div>
-                <div>
-                    <h4 class="font-heading text-lg font-semibold text-bars-text-primary mb-3">Premios del Jurado - Cortometrajes</h4>
-                    <ul class="text-sm text-bars-text-secondary space-y-1">
-                        <li>Mejor Cortometraje Internacional</li>
-                        <li>Mejor Cortometraje Nacional</li>
-                        <li>Mejor Director Cortometraje</li>
-                        <li>Mejor Guion Cortometraje</li>
-                        <li>Mejor Fotografía Cortometraje</li>
-                        <li>Mejor Montaje Cortometraje</li>
-                        <li>Mejor Actuación Cortometraje</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-heading text-lg font-semibold text-bars-text-primary mb-3">Premios del Público</h4>
-                    <ul class="text-sm text-bars-text-secondary space-y-1">
-                        <li>Premio del Público Largometraje</li>
-                        <li>Premio del Público Cortometraje</li>
-                    </ul>
-                </div>
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
 
             <p class="text-sm lg:text-base text-bars-text-secondary leading-relaxed lg:leading-loose mt-6">
                 Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.

@@ -71,25 +71,21 @@
                   Se entregarán los siguientes premios:
                 </p>
 
-                <table class="awards">
-                  <tr>
-                    <th>Por elección del jurado</th>
-                    <th>Por elección popular</th>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><div class="scratch"></div></td>
-                  </tr>
-                  <?php
-                    $awards_jury     = $currentEdition['awards']['jury'];
-                    $awards_audience = $currentEdition['awards']['audience'];
-                    for($i = 0; $i < count($awards_jury) || $i < count($awards_audience); $i++ ){
-                      echo '<tr>';
-                      echo $i < count($awards_jury) ? '<td>' . $awards_jury[$i] . '</td>' : '<td></td>';
-                      echo $i < count($awards_audience) ? '<td>' . $awards_audience[$i] . '</td>' : '<td></td>';
-                      echo '</tr>';
-                    }
-                  ?>
-                </table>
+                <div class="awards">
+                  <?php foreach ($currentEdition['awards'] as $category): ?>
+                  <div class="awards-category">
+                    <h3><?php echo esc_html($category['heading']); ?></h3>
+                    <ul>
+                      <?php foreach ($category['items'] as $item): ?>
+                      <li><?php echo esc_html($item); ?></li>
+                      <?php endforeach; ?>
+                    </ul>
+                    <?php if (!empty($category['note'])): ?>
+                    <p class="note"><?php echo esc_html($category['note']); ?></p>
+                    <?php endif; ?>
+                  </div>
+                  <?php endforeach; ?>
+                </div>
               </div>
 
               <div>

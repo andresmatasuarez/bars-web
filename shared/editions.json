@@ -45,45 +45,42 @@
       "terms_en": "/resources/bars2023/terms2023_en.docx",
       "terms_es": "/resources/bars2023/terms2023_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje Internacional",
-        "Mejor Dirección Largometraje Internacional",
-        "Mejor Guión Largometraje Internacional",
-        "Mejor Fotografía Largometraje Internacional",
-        "Mejor Dirección de arte Largometraje Internacional",
-        "Mejor Montaje Largometraje Internacional",
-        "Mejores Efectos Especiales Largometraje Internacional",
-        "Mejor Actriz Largometraje Internacional",
-        "Mejor Actor Largometraje Internacional",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Dirección Largometraje Iberoamericano",
-        "Mejor Guión Largometraje Iberoamericano",
-        "Mejor Fotografía Largometraje Iberoamericano",
-        "Mejor Dirección de arte Largometraje Iberoamericano",
-        "Mejor Montaje Largometraje Iberoamericano",
-        "Mejores Efectos Especiales Largometraje Iberoamericano",
-        "Mejor Actriz Largometraje Iberoamericano",
-        "Mejor Actor Largometraje Iberoamericano",
-        "Mejor Largometraje Argentino",
-        "Mejor Dirección Largometraje Argentino",
-        "Mejor Guión Largometraje Argentino",
-        "Mejor Fotografía Largometraje Argentino",
-        "Mejor Dirección de arte Largometraje Argentino",
-        "Mejor Montaje Largometraje Argentino",
-        "Mejores Efectos Especiales Largometraje Argentino",
-        "Mejor Actriz Largometraje Argentino",
-        "Mejor Actor Largometraje Argentino",
-        "Mejor Cortometraje Internacional",
-        "Mejor Cortometraje Nacional",
-        "Mejor Director Cortometraje",
-        "Mejor Guion Cortometraje",
-        "Mejor Fotografía Cortometraje",
-        "Mejor Montaje Cortometraje",
-        "Mejor Actuación Cortometraje"
-      ],
-      "audience": ["Premio del Público Largometraje", "Premio del Público Cortometraje"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Dirección",
+          "Mejor Guión",
+          "Mejor Fotografía",
+          "Mejor Dirección de Arte",
+          "Mejor Montaje",
+          "Mejores Efectos Especiales",
+          "Mejor Actriz",
+          "Mejor Actor"
+        ],
+        "note": "(por competencia Internacional, Iberoamericana y Argentina)"
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Cortometraje Nacional",
+          "Mejor Director Cortometraje",
+          "Mejor Guion Cortometraje",
+          "Mejor Fotografía Cortometraje",
+          "Mejor Montaje Cortometraje",
+          "Mejor Actuación Cortometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Premio del Público Largometraje",
+          "Premio del Público Cortometraje"
+        ]
+      }
+    ],
     "sponsors": [
       {
         "title": "Organizan",
@@ -287,29 +284,54 @@
       "terms_en": "/resources/bars2023/terms2023_en.docx",
       "terms_es": "/resources/bars2023/terms2023_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje Internacional",
-        "Mejor Director Largometraje Internacional",
-        "Mejor Actriz Largometraje Internacional",
-        "Mejor Actor Largometraje Internacional",
-        "Mejor Guión Largometraje Internacional",
-        "Mejores Efectos Especiales Largometraje Internacional",
-        "Mejor Fotografía Largometraje Internacional",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actriz Largometraje Iberoamericano",
-        "Mejor Actor Largometraje Iberoamericano",
-        "Mejor Largometraje Argentino",
-        "Mejor Director Largometraje Argentino",
-        "Mejor Actriz Largometraje Argentino",
-        "Mejor Actor Largometraje Argentino",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Argentino"
-      ],
-      "audience": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes Internacionales",
+        "items": [
+          "Mejor Largometraje Internacional",
+          "Mejor Director Largometraje Internacional",
+          "Mejor Actriz Largometraje Internacional",
+          "Mejor Actor Largometraje Internacional",
+          "Mejor Guión Largometraje Internacional",
+          "Mejores Efectos Especiales Largometraje Internacional",
+          "Mejor Fotografía Largometraje Internacional"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Largometrajes Iberoamericanos",
+        "items": [
+          "Mejor Largometraje Iberoamericano",
+          "Mejor Director Largometraje Iberoamericano",
+          "Mejor Actriz Largometraje Iberoamericano",
+          "Mejor Actor Largometraje Iberoamericano"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Largometrajes Argentinos",
+        "items": [
+          "Mejor Largometraje Argentino",
+          "Mejor Director Largometraje Argentino",
+          "Mejor Actriz Largometraje Argentino",
+          "Mejor Actor Largometraje Argentino"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Argentino"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Cortometraje",
+          "Mejor Largometraje Reaparecidos"
+        ]
+      }
+    ],
     "sponsors": [
       {
         "title": "Organizan",
@@ -518,27 +540,52 @@
       "terms_en": "/resources/bars2023/terms2023_en.docx",
       "terms_es": "/resources/bars2023/terms2023_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje Internacional",
-        "Mejor Director Largometraje Internacional",
-        "Mejor Actriz Largometraje Internacional",
-        "Mejor Actor Largometraje Internacional",
-        "Mejor Guion Largometraje Internacional",
-        "Mejores Efectos Especiales Largometraje Internacional",
-        "Mejor Fotografía Largometraje Internacional",
-        "Mejor Cortometraje Internacional",
-        "Mejor Cortometraje Argentino",
-        "Mejor Director Cortometraje",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actriz Largometraje Iberoamericano",
-        "Mejor Largometraje Argentino",
-        "Mejor Director Largometraje Argentino",
-        "Mejor Actriz Largometraje Argentino"
-      ],
-      "audience": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes Internacionales",
+        "items": [
+          "Mejor Largometraje Internacional",
+          "Mejor Director Largometraje Internacional",
+          "Mejor Actriz Largometraje Internacional",
+          "Mejor Actor Largometraje Internacional",
+          "Mejor Guion Largometraje Internacional",
+          "Mejores Efectos Especiales Largometraje Internacional",
+          "Mejor Fotografía Largometraje Internacional"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Largometrajes Iberoamericanos",
+        "items": [
+          "Mejor Largometraje Iberoamericano",
+          "Mejor Director Largometraje Iberoamericano",
+          "Mejor Actriz Largometraje Iberoamericano"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Largometrajes Argentinos",
+        "items": [
+          "Mejor Largometraje Argentino",
+          "Mejor Director Largometraje Argentino",
+          "Mejor Actriz Largometraje Argentino"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Cortometraje Argentino",
+          "Mejor Director Cortometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Cortometraje",
+          "Mejor Largometraje Reaparecidos"
+        ]
+      }
+    ],
     "sponsors": [
       {
         "title": "Organizan",
@@ -568,7 +615,6 @@
             "href": "http://www.cinesmultiplex.com.ar/",
             "alt": "Cines Multiplex"
           },
-
           {
             "logo": "/resources/bars2023/sponsors/auspiciante_ba_audiovisual.png",
             "href": "https://vivamoscultura.buenosaires.gob.ar/",
@@ -737,29 +783,45 @@
       "terms_en": "/resources/bars2022/terms2022_en.docx",
       "terms_es": "/resources/bars2022/terms2022_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actuación Largometraje Iberoamericano"
-      ],
-      "audience": [
-        "Largometraje",
-        "Cortometraje",
-        "Largometraje Competencia Bizarra",
-        "Premio \"Reaparecidos\""
-      ]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericano",
+          "Mejor Director Largometraje Iberoamericano",
+          "Mejor Actuación Largometraje Iberoamericano"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra",
+          "Premio \"Reaparecidos\""
+        ]
+      }
+    ],
     "sponsors": [
       {
         "title": "Organizan",
@@ -789,49 +851,41 @@
             "href": "http://www.cinesmultiplex.com.ar/",
             "alt": "Cines Multiplex"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_ba_audiovisual.png",
             "href": "https://vivamoscultura.buenosaires.gob.ar/",
             "alt": "BA Audiovisual"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_vivamos_cultura.png",
             "href": "https://vivamoscultura.buenosaires.gob.ar/",
             "alt": "Vivamos Cultura"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_museos_ba.png",
             "href": "https://www.buenosaires.gob.ar/cultura/museos",
             "alt": "Museos BA"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_bsasciudad.png",
             "href": "http://www.buenosaires.gob.ar/",
             "alt": "Buenos Aires Ciudad"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_ccsm.png",
             "href": "https://elculturalsanmartin.ar/",
             "alt": "Centro Cultural San Martín"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_cinear.png",
             "href": "http://cine.ar/",
             "alt": "Cine.ar"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_ridu.png",
             "href": "https://www.instagram.com/somosridu",
             "alt": "Ridu"
           },
-
           {
             "logo": "/resources/bars2022/sponsors/auspiciante_mubi.png",
             "href": "https://mubi.com/",
@@ -949,7 +1003,6 @@
       }
     ]
   },
-
   {
     "number": 22,
     "title": "BARS 2021",
@@ -991,32 +1044,62 @@
       "terms_en": "/resources/bars2021/terms2021_en.docx",
       "terms_es": "/resources/bars2021/terms2021_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actuación Largometraje Iberoamericano",
-        "Competencia \"Reapariciones\""
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericano",
+          "Mejor Director Largometraje Iberoamericano",
+          "Mejor Actuación Largometraje Iberoamericano"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      },
+      {
+        "heading": "Premios Especiales",
+        "items": [
+          "Competencia \"Reapariciones\""
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
           "name": "Mónica Trigo",
           "pic": {
             "url": "resources/bars2021/jury_trigo.jpg",
-            "focus": { "x": 0, "y": 0, "w": 513, "h": 415 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 513,
+              "h": 415
+            }
           },
           "description": "<strong>Mónica Trigo</strong> tiene una especialización en Comunicación y Ciencias Sociales. Trabajó en el Ministerio de Cultura de Brasil. Fue responsable del polo de cine más grande de Brasil y directora de desarrollo y promoción audiovisual de la Empresa Mineira de Comunicação. Realizó festivales nacionales e internacionales de cine: \"1ª Mostra de Cine y Derechos Humanos\", \"Festival de Cine de Paulínia\", \"Cinefantasy - Festival Internacional de Cine Fantástico\" y \"Olhar Periférico Festival de Cine\". Participa en varios festivales de cine como jurada y en comisiones de evaluación de proyectos. Actualmente es presidenta de FANTLATAM - Alianza Latinoamericana de Festivales de Cine Fantástico."
         },
@@ -1024,7 +1107,12 @@
           "name": "Cristian Ponce",
           "pic": {
             "url": "resources/bars2021/jury_ponce.png",
-            "focus": { "x": 0, "y": 0, "w": 1170, "h": 832 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1170,
+              "h": 832
+            }
           },
           "description": "<strong>Cristian Ponce</strong> es Licenciado, Profesor en Realización Audiovisual, y miembro fundador de la productora Tangram Cine, dentro de la cual escribió o dirigió <i>Un Año sin Televisión</i>, <i>Policompañeros Motorizados</i>, <i>La Obra de mi Vida</i>, <i>Breve Historia en el Planeta</i>, y <i>En Busca del Muñeco Perdido</i>. En 2017 estrenó su primer proyecto animado, <i>La Frecuencia Kirlian</i>, resultado de un desarrollo de casi 10 años. En 2020, <i>Historia de lo Oculto</i>, su primer largometraje como director, se estrenó en varios festivales alrededor del mundo cosechando un gran éxito de crítica y público. Actualmente se encuentra disponible en Netflix."
         },
@@ -1032,7 +1120,12 @@
           "name": "José Luis Ortega Torres",
           "pic": {
             "url": "resources/bars2021/jury_ortega_torres.jpg",
-            "focus": { "x": 0, "y": 0, "w": 2448, "h": 3264 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 2448,
+              "h": 3264
+            }
           },
           "description": "<strong>José Luis Ortega Torres</strong> es investigador, docente y crítico de cine. Editó la revista <i>Icónica</i>, <i>Pensamiento fílmico</i> y una docena de libros dedicados al estudio del cine. Algunos de sus ensayos se compilan en los libros <i>El placer de ver cine</i> (2006), <i>La ficción de la historia</i> (2010), <i>Mostrología</i> del cine mexicano (2015) y <i>Posibilidades del análisis cinematográfico</i> (2016). Es fundador de <i>revistacinefagia.com</i>, en línea desde 2003. Ha sido jurado en festivales mexicanos y del extranjero y cofundó y programó la muestra de cine de horror en 35mm Masacre en Xoco. Es profesor de historia y teoría fílmica en Filmoteca de la UNAM y Cineteca Nacional de México. Produce y conduce los podcast <i>VideoMasacre</i> y <i>Cinéfago</i>."
         }
@@ -1042,7 +1135,12 @@
           "name": "Paulo Soria",
           "pic": {
             "url": "resources/bars2021/jury_soria.jpg",
-            "focus": { "x": 0, "y": 0, "w": 540, "h": 540 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 540,
+              "h": 540
+            }
           },
           "description": "<strong>Paulo Soria</strong>. Argentino y guionista. Se sumó a FARSA Producciones en 1996. Escribió y dirigió los films <i>Nunca asistas a este tipo de fiestas</i> (Soria, Parés, Sáez, 2000), <i>100% Lucha vs. El amo de los clones</i> (Soria, Parés, 2009), <i>Kapanga: Todoterreno</i> (Soria, Parés, Sáez, 2009) y el rockumental <i>Blues de los Plomos</i> (Soria, Patrono, 2013). Sus últimos films como guionista fueron <i>Plaga Zombie 3</i> (Parés, Sáez, 2011), <i>Soy Tóxico</i> (Parés, 2018) y <i>Los que vuelven</i> (Casabé, 2019). También escribió para MULATA FILMS las series <i>Creando bestias prehistóricas</i> y <i>Videojuegos sobre ruedas</i>, entre otros proyectos. Desde 2020 coordina el equipo de guion en la Dirección Audiovisual del MINISTERIO DE CULTURA DE LA NACIÓN."
         },
@@ -1050,7 +1148,12 @@
           "name": "Laura Aguerrebehere",
           "pic": {
             "url": "resources/bars2021/jury_aguerrebehere.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 904, "h": 810 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 904,
+              "h": 810
+            }
           },
           "description": "<strong>Laura Aguerrebehere</strong> (o la flaca de arte), nació en La Plata, Buenos Aires en 1982. Es escenógrafa e ilustradora. Deambula de la luz a la oscuridad entre ilustrar libros infantiles y ambientar películas de género. Egresada en Artes plásticas en la facultad de bellas artes de La Plata. Hace quince años viene trabajando en cine como directora de arte, ambientadora o vestuarista, en su mayoría en películas de género, entre ellas <i>Aterrados</i>, <i>Bruno motoneta</i>, <i>La corporación</i> y <i>Malditos Sean!</i>."
         },
@@ -1058,7 +1161,12 @@
           "name": "Ramiro García Bogliano",
           "pic": {
             "url": "resources/bars2021/jury_bogliano.jpg",
-            "focus": { "x": 0, "y": 0, "w": 618, "h": 466 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 618,
+              "h": 466
+            }
           },
           "description": "<strong>Ramiro García Bogliano</strong> es guionista y director. Hace el fanzine <i>Confusos</i> en los años 90 que lo lleva, entre otras cosas, a entrevistar a Alex Cox, Alejandro Amenábar, Paul Naschy o visitar el set de rodaje de <i>El Día de la Bestia</i>. Posteriormente estudia cine en la EICTV (Cuba) en la que se gradúa con el cortometraje <i>Policlínico Miserable</i> que escribe en coautoría con su hermano Adrián García Bogliano para luego participar en los guiones de sus películas <i>Habitaciones Para Turistas</i>, <i>36 Pasos</i>, <i>No moriré sola</i> y <i>Sudor Frío</i>. Juntos codirigen <i>Masacre, esta noche</i>, <i>Donde duerme el horror</i> y <i>Penumbra</i>. Colabora como guionista, asistente de dirección o director de segunda unidad con Sebastián de Caro, Daniel de la Vega, Jorge Molina y Patricio Valladares. <i>Expansivas</i>, un thriller de venganza, es su más reciente película como director y ha realizado los guiones de la serie de terror <i>Haunted Latinoamérica</i>, estrenada este año en Netflix."
         }
@@ -1068,7 +1176,12 @@
           "name": "Carla Andrés",
           "pic": {
             "url": "resources/bars2021/jury_carla_andres.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1200, "h": 1168 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1200,
+              "h": 1168
+            }
           },
           "description": "<strong>Carla Andres</strong>, nacida en Buenos Aires, es el ser vivo detrás de las redes de <i>Pedacitos de Terror</i>. Amante desde siempre de este género. Creadora de contenido tanto en Instagram, donde reseña una película por día, como en Youtube, donde realiza videos semanales con la intención de darle lugar a aquellas producciones menos comerciales que suelen pasar desapercibidas, o que han quedado en el olvido, sin dejar de lado los estrenos más importantes para estar siempre al día con el terror."
         },
@@ -1076,7 +1189,12 @@
           "name": "Clara Kovavic",
           "pic": {
             "url": "resources/bars2021/jury_kovacic.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 1032, "h": 954 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1032,
+              "h": 954
+            }
           },
           "description": "<strong>Clara Kovacic</strong> estudió en el Colegio Northlands donde cursó el bachillerato internacional con especialización en teatro. Vivió un año en Nueva York. Estudió música en el Conservatorio Juan José Castro y en la carrera de Composición Musical de la Universidad Católica Argentina (UCA), donde se especializó en canto y piano. En 2016 editó el álbum <i>Cantando al cielo</i>, componiendo con guitarra y piano. Actuó en films como <i>Abrakadabra</i> (2018), <i>Jazmin</i> (2018), <i>El gran combo</i> (2019), <i>A Night of Horror: Nightmare Radio</i> (2019), <i>Astrogauchos</i> (2019), <i>Asylum</i> (2020), <i>La parte oscura</i> (2020) y <i>El juego de las cien velas</i> (2020)."
         },
@@ -1084,7 +1202,12 @@
           "name": "Dopamina",
           "pic": {
             "url": "resources/bars2021/jury_dopa_mina.jpg",
-            "focus": { "x": 0, "y": 0, "w": 594, "h": 602 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 594,
+              "h": 602
+            }
           },
           "description": "<strong>Dopamina</strong>, efectista, escultor, grabador, músico y artista nacido en La Plata. Estudio diseño de indumentaria y artes plásticas (UNLP), en paralelo a maquillaje FX. Realizador y productor de efectos especiales de maquillaje y caracterización. Con su productora Rebis FX – Efectos Especiales, intervino en distintos espacios públicos de la ciudad de La Plata y Capital Federal. Diseño y realizó las estatuillas para el Festival Buenos Aires Rojo Sangre (2019, 2020, 2021). Trabajó en la realización artística de numerosos corto y largometrajes, tales como <i>Blood Red Ox</i> (Rodrigo Bellot) y <i>Gaspar</i> (Diego Pino). Combina técnicas de escultura con estudios del cuerpo, performance y horror. Produce esculturas y reproducciones corporales para uso comercial y artístico en su proyecto <i>Rubber Bodies</i>. Es docente y tallerista de FX."
         }
@@ -1094,7 +1217,12 @@
           "name": "Federico Carestía",
           "pic": {
             "url": "resources/bars2021/jury_carestia.jpg",
-            "focus": { "x": 0, "y": 0, "w": 617, "h": 609 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 617,
+              "h": 609
+            }
           },
           "description": "<strong>Federico Carestía</strong>, nacido en Bahía Blanca en 1990, es periodista. Desde 2017 trabaja en el mundo de las series y las películas, y realiza entrevistas a través de videollamadas con distintos protagonistas de la industria. Tiene alrededor de 200 entrevistas realizadas que pueden verse en YouTube e Instagram, entre las que se destaca un documental sobre <i>Friends</i>. Su película favorita de la infancia es <i>Mi Pobre Angelito</i> y sueña con entrevistar a Macaulay Culkin."
         },
@@ -1102,7 +1230,12 @@
           "name": "Cristian Calavia",
           "pic": {
             "url": "resources/bars2021/jury_calavia.jpg",
-            "focus": { "x": 0, "y": 0, "w": 719, "h": 728 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 719,
+              "h": 728
+            }
           },
           "description": "<strong>Cristian Calavia</strong> nació en 1985 en la ciudad de Buenos Aires. Es músico y periodista, aunque también se desempeña como productor de radio y docente. Sus notas fueron publicadas en <i>Cosecha Roja</i>, <i>A Sala Llena</i>, <i>NaN</i>, <i>Cine Fantástico y Bizarro</i>, <i>Vice</i> en español, <i>Revista Urbe</i>, <i>La Cosa Cine</i>, <i>Indie Hoy</i>, <i>Red/Acción</i> e <i>Infobae</i>, entre otros medios digitales y en papel. Además, es creador y director de <i>Cinetópico</i>, sitio dedicado al cine, a las series y a las problemáticas sociales que las atraviesan. Durante la pandemia editó <i>Contar es Urgente: Personajes y Situaciones Extraordinarias de la Vida Real</i>, su primer libro de periodismo y actualmente se encuentra trabajando en su secuela."
         },
@@ -1110,7 +1243,12 @@
           "name": "Silvia Molina",
           "pic": {
             "url": "resources/bars2021/jury_silvia_molina.jpg",
-            "focus": { "x": 0, "y": 0, "w": 319, "h": 321 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 319,
+              "h": 321
+            }
           },
           "description": "<strong>Silvia Molina</strong>, nacida en Buenos Aires en 1995, año en el que se estrenó Toy Story, su película animada favorita. Estudió periodismo y se egresó en TEA. Pasó por varias ramas (moda, música, deporte), hasta llegar al mundo del cine y de ahí no salió más. Actualmente recomienda películas en <i>De Otra Manera</i>, programa de radio que sale todos los viernes de 16 a 18, y también en su cuenta de Instagram (@silademolina), donde se desempeña como comunicadora desde el baño de su casa. No le hace asco a nada y mira lo que sea, siempre y cuando esté acompañada de un vaso de Fernet."
         }
@@ -1164,32 +1302,62 @@
       "terms_en": "/resources/bars2019/terms2019_en.docx",
       "terms_es": "/resources/bars2019/terms2019_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actuación Largometraje Iberoamericano",
-        "Premio \"BARS-Contar\""
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericano",
+          "Mejor Director Largometraje Iberoamericano",
+          "Mejor Actuación Largometraje Iberoamericano"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      },
+      {
+        "heading": "Premios Especiales",
+        "items": [
+          "Premio \"BARS-Contar\""
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
           "name": "Edna Campos Tenorio",
           "pic": {
             "url": "resources/bars2020/jury_edna_campos_tenorio.jpg",
-            "focus": { "x": 0, "y": 0, "w": 2767, "h": 2319 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 2767,
+              "h": 2319
+            }
           },
           "description": "<strong>Edna Campos Tenorio</strong>. Directora y fundadora de Macabro FICH. Comunicóloga y periodista egresada de la UNAM; especialista en políticas culturales y gestión cultural por la UAM; diplomada en cine, literatura e historia. Co-guionista y co-productora del documental <i>Alucardos: Retrato de un vampiro</i>. Productora audiovisual y editora de libros como <i>Femmes Fatales: 13 escritoras hablan sobre cine de terror</i>, <i>Terror del rudo</i> y <i>40 años de Alucarda</i>. Ha impartido talleres de cine de terror en la Biblioteca de México por diez años consecutivos."
         },
@@ -1197,7 +1365,12 @@
           "name": "Jorge Olguin",
           "pic": {
             "url": "resources/bars2020/jury_jorge_olguin.jpg",
-            "focus": { "x": 0, "y": 0, "w": 3456, "h": 2304 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 3456,
+              "h": 2304
+            }
           },
           "description": "<strong>Jorge Olguín</strong>. Destacado y premiado director de cine. Egresado de la Escuela de Cine de la Universidad de las Artes y Ciencias Sociales, Arcis. Considerado como el pionero del género de fantástico y terror en Chile, hizo su debut como director con <i>Ángel Negro</i> (2000) cuando era estudiante universitario. La película se convirtió en un éxito de taquilla y fue acreditada como la primera película de terror chilena. Luego realizó la primera película de efectos especiales en Chile, <i>Sangre Eterna</i> (2002). Más tarde, gana el Fondo Nacional Audiovisual para producir la primera película de ficción chilena en 3D <i>Gritos del Bosque</i> (2014), una película de terror y fantasía inspirada en la mitología mapuche. Su último largometraje <i>La Casa</i> es una película de terror psicológico, inspirada en los eventos reales sobre la conocida Casa Dubois."
         },
@@ -1205,18 +1378,27 @@
           "name": "Fio Sargenti",
           "pic": {
             "url": "resources/bars2020/jury_fio_sargenti.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1440, "h": 1800 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 1800
+            }
           },
           "description": "<strong>Fio Sargenti</strong>. Periodista especializada en cine y series, conductora de radio y podcaster. Actualmente conduce <i>Sensacional Éxito</i> en Metro 95.1 y los podcasts <i>Hoy Trasnoche</i> (cine), <i>Es Una Trampa</i>, <i>Hodor Hodor Hodor</i> y varios más. Ex-editora de la revista La Cosa, también fue colaboradora de Clarín Espectáculos, Infobae, La Nación e Inrockuptibles."
         }
       ],
-
       "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Sol Moreno",
           "pic": {
             "url": "resources/bars2020/jury_sol_moreno.jpg",
-            "focus": { "x": 0, "y": 0, "w": 721, "h": 721 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 721,
+              "h": 721
+            }
           },
           "description": "<strong>Sol Moreno</strong>. Artista visual y cineasta, le interesa lo feo, lo grotesco, terrorífico, primitivo y lo salvaje, como concepto contrario a lo que la sociedad establece como lo correcto. Esos conceptos los plasma en cerámica, pintura, bordados, fotografía, video y en el cine. Defensora de la contracultura como el movimiento más inmediato de comunicación, edita fanzines, hace videoarte y películas como <i>El Martillo de las Brujas</i>, <i>Megamuerte</i>, no para de explorar. No hace mucho presentó con bombos y platillos el primer largometraje de terror en Panamá: <i>Diablo Rojo</i>, donde trabajó en la dirección y en el departamento de arte. Forma parte del colectivo femenino <i>Ninguna Musa</i>, toca el bajo y pega gritos en varias bandas de lo-fi garage y es directora del festival de cine fantástico y de terror de Panamá."
         },
@@ -1224,7 +1406,12 @@
           "name": "César del Álamo",
           "pic": {
             "url": "resources/bars2020/jury_cesar_del_alamo.jpg",
-            "focus": { "x": 0, "y": 0, "w": 640, "h": 800 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 640,
+              "h": 800
+            }
           },
           "description": "<strong>César del Álamo</strong>, Madrid, 23 de febrero de 1978. Desde crío se siente fascinado por el cine y, en cuanto puede acceder a una cámara, comienza a rodar cortometrajes. En 2010, estrena su primer largo, el thriller psicológico <i>Mí</i>, protagonizado por <strong>Maya Reyes</strong>, que se abre paso por festivales internacionales con muy buenas críticas. Dos años después, le sigue el neo-giallo <i>Buenas noches, dijo la señorita Pájaro</i>, proyectada en todo el mundo con bastante éxito y ganando los premios a mejor película y mejor actriz (para <strong>Angela Boj</strong>) en el Festival Catacumbas, de Godella. Le sigue <i>La mujer que hablaba con los muertos</i>, una comedia de terror coral, y en 2018 se estrena <i>De la piel del Diablo</i>, suspense y terror con connotaciones metalingüísticas, que es su último trabajo hasta la fecha."
         },
@@ -1232,18 +1419,27 @@
           "name": "Laura Ponce",
           "pic": {
             "url": "resources/bars2020/jury_laura_ponce.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1067, "h": 1600 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1067,
+              "h": 1600
+            }
           },
           "description": "<strong>Laura Ponce</strong> (Buenos Aires, 1972) es escritora, editora y gestora cultural, se especializa en Ciencia Ficción y género fantástico. Desde 2009 dirige Revista Próxima y Ediciones Ayarmanot, sello con el que lleva publicados 20 títulos. Da talleres, cursos y charlas sobre narrativa, lectura y escritura del género. Organiza las Tertulias de Ciencia Ficción y Fantasía de Buenos Aires. Participa en la organización de Pórtico, Encuentro de ciencia ficción, que aúna las características de un evento académico con actividades dedicadas al fandom. Su libro de cuentos <i>Cosmografía Profunda</i> se publicó en Argentina y en España."
         }
       ],
-
       "internationalShortFilmCompetition": [
         {
           "name": "Juan Diego Escobar Alzate",
           "pic": {
             "url": "resources/bars2020/jury_juan_diego_escobar_alzate.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1440, "h": 1800 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 1800
+            }
           },
           "description": "<strong>Juan Diego Escobar Alzate</strong> es un director y guionista colombiano. Director y guionista del largometraje <i>Luz</i> o como es conocida internacionalmente <i>Luz: The Flower of Evil</i> con Premiere Mundial en la Sección Oficial en Competencia de SITGES, el festival más importante de cine de género del mundo, además de haber participado en Glasgow Film Festival, Night Visions en Finlandia, Hard:Line en Alemania, CineQuest en Estados Unidos, entre otros. <i>Luz</i> es distribuída internacionalmente por SHUDDER, Raven Banner y Dark Sky Films, entre otros. Su película <i>El arcoíris negro</i> una coproducción colombo-argentina, está en desarrollo."
         },
@@ -1251,7 +1447,12 @@
           "name": "Carolina Duek",
           "pic": {
             "url": "resources/bars2020/jury_carolina_duek.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 1200, "h": 1050 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1200,
+              "h": 1050
+            }
           },
           "description": "<strong>Carolina Duek</strong> es Investigadora Independiente del CONICET, Doctora en Ciencias Sociales por la Universidad de Buenos Aires, Magíster en Comunicación y Cultura y Licenciada en Ciencias de la Comunicación (UBA). Es directora de proyectos de investigación relacionados con el juego, los medios de comunicación y las infancias contemporáneas (PIP/Conicet, PICT, FLACSO/CONICET y ANPCyT). Ha publicado artículos en revistas científicas nacionales e internacionales y sus trabajos han sido publicados en español, portugués, inglés, francés y turco. Ha publicado cuatro libros: <i>Infancias entre pantallas. hacia la definición de los juegos posibles</i> (EAE, 2011), <i>El juego y los medios. Autitos, muñecas, televisión y consolas</i> (Prometeo Libros, 2012), <i>Infancias entre pantallas</i> (Capital Intelectual, 2013) y <i>Juegos, Juguetes y nuevas tecnologías</i> (Capital Intelectual, 2014). Es docente de “Teorías y prácticas de la comunicación I” en la Facultad de Ciencias Sociales de la Universidad de Buenos Aires. "
         },
@@ -1259,18 +1460,27 @@
           "name": "Amanda Nara",
           "pic": {
             "url": "resources/bars2020/jury_amanda_nara.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 853, "h": 1280 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 853,
+              "h": 1280
+            }
           },
           "description": "<strong>Amanda Nara</strong>, Fotógrafo y Diseñador Gráfico. Se inició en el cine independiente participando en varias áreas de la producción de <i>Daemonium</i>. Participó en el equipo de fotografía de <i>Grasa</i>, <i>Malvineitor</i>, <i>Goretech Star Wars</i>, entre otros. En el año 2019 participó en la producción de <i>PussyCake</i> (Pablo Parés) a estrenarse en 2021. Actualmente forma parte del equipo de fotografía de <i>Gomoso</i>, todavía en producción. Como diseñador realizó los pósters de <i>Naturaleza Muerta</i> (Gabriel Grieco), <i>Necrofobia</i> (Daniel de la Vega), <i>Bruno Motoneta</i> (Pablo Parés), <i>Aterrados</i> (Demian Rugna) y <i>Daemonum</i> (Pablo Parés)."
         }
       ],
-
       "Premio BARS-Contar": [
         {
           "name": "Ayi Turzi",
           "pic": {
             "url": "resources/bars2020/jury_ayi_turzi.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1440, "h": 1440 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 1440
+            }
           },
           "description": "<strong>Ayi Turzi</strong> es diseñadora de imagen y sonido egresada de la UBA. Dirigió <i>Y...quién mató al mayordomo?</i> (2012) y <i>Chevysaurios, la película</i> (2019, ganadora de la categoría bizarra en el Buenos Aires Rojo Sangre), además de varios cortometrajes. Escribe desde 2014 en varios medios especializados en cine, siempre poniendo el foco en la divulgación del cine fantástico argentino. También indaga estas temáticas en el ámbito académico, habiendo participado de múltiples actividades como jornadas y congresos, y desarrollando en torno a ellas su tesis de posgrado. Además es autora de ficción, su primer libro <i>Septem Somnia</i> agotó la primera edición y se espera la salida de su segundo libro para el año 2021."
         },
@@ -1278,7 +1488,12 @@
           "name": "Fernando Sandro",
           "pic": {
             "url": "resources/bars2020/jury_fernando_sandro.jpg",
-            "focus": { "x": 0, "y": 0, "w": 590, "h": 590 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 590,
+              "h": 590
+            }
           },
           "description": "<strong>Fernando Sandro</strong>, oriundo del Oeste del Conurbano Bonaerense. Especializado en cine de género, y cine nacional (cursando un máster en la materia); es periodista, redactor en Revista Cine Fantástico y Bizarro desde sus inicios. También se desarrolló como periodista y crítico de cine en sitios como Alta Peli, Espectador Avezado, el propio sitio de Cine Fantástico y Bizarro, y colaboraciones para Revista Varla, entre otros. Durante 2019 ocupó una columna radial sobre cine bizarro en el programa <i>La previa cinéfila</i>, y realizó un taller online y streamings sobre cine queer y diversidades en el cine de género junto a la comunidad de Osos BA. Este año regresó exitosamente a la programación del ciclo de Cine que desarrolló presencialmente durante 2015/16 <i>Ciclo de la Luna - Cine de Culto y Clase B</i>, ahora en formato online bajo la plataforma Twitch."
         },
@@ -1286,7 +1501,12 @@
           "name": "Matías Orta",
           "pic": {
             "url": "resources/bars2020/jury_matias_orta.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1000, "h": 864 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1000,
+              "h": 864
+            }
           },
           "description": "<strong>Matías Orta</strong> nació en Lanús en 1980. Dirigió el corto <i>Michifus</i>, de amplia repercusión. Formó parte de las revistas Haciendo Cine, La Cosa y Miradas, de Cablevisión. Es uno de los creadores del portal A Sala Llena, tiene La Columna de Matute en Cine fantástico y bizarro y es guionista en el canal de Youtube de Zepfilms. Fue columnista y productor en FM Nacional Rock y Metro 95.1, respectivamente. Integra La Abadía de Carfax, círculo de escritores de horror y fantasía. Es autor de los libros <i>Encerrados toda la noche: El cine de John Carpenter</i> y <i>Cuerpos fuera de control: el cine de David Cronenberg</i>."
         }
@@ -1329,32 +1549,62 @@
       "terms_en": "/resources/bars2019/terms2019_en.docx",
       "terms_es": "/resources/bars2019/terms2019_es.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Argentino",
-        "Mejor Largometraje Iberoamericano",
-        "Mejor Director Largometraje Iberoamericano",
-        "Mejor Actuación Largometraje Iberoamericano",
-        "Concurso \"Fin de Semana Sangriento\""
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericano",
+          "Mejor Director Largometraje Iberoamericano",
+          "Mejor Actuación Largometraje Iberoamericano"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Argentino"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      },
+      {
+        "heading": "Premios Especiales",
+        "items": [
+          "Concurso \"Fin de Semana Sangriento\""
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
           "name": "Federico Bal",
           "pic": {
             "url": "resources/bars2019/jury_fede_bal.jpeg",
-            "focus": { "x": -0.5, "y": -0.5, "w": 1344, "h": 896 }
+            "focus": {
+              "x": -0.5,
+              "y": -0.5,
+              "w": 1344,
+              "h": 896
+            }
           },
           "description": "<strong>Federico Bal</strong> nació en Buenos Aires en 1989. Es actor y productor de cine y teatro. Cuarta generación de una familia de artistas, su acercamiento al cine se dio a muy temprana edad de la mano de sus padres, <strong>Santiago Bal</strong> y <strong>Carmen Barbieri</strong>: dos marcas registradas del cine argentino. Estudió en la FUC y en SICA y comenzó como meritorio de <strong>Carlos Mentasti</strong>, desempeñándose luego como asistente de producción. Tras obtener renombre en la televisión y en el teatro de comedia, en 2017 hizo su debut en la pantalla grande protagonizando junto a su padre <i>Rumbo al mar</i>, para luego incursionar en el thriller psicológico con <i>Crímenes imposibles</i> (2018) y <i>Realidad virtual</i> (2019)."
         },
@@ -1362,7 +1612,12 @@
           "name": "Ezequiel Endelman",
           "pic": {
             "url": "resources/bars2019/jury_ezequiel_endelman.jpg",
-            "focus": { "x": 0, "y": 0, "w": 760, "h": 960 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 760,
+              "h": 960
+            }
           },
           "description": "<strong>Ezequiel Endelman</strong> co-dirigió y co-produjo varios largometrajes, cortometrajes y videoclips de estética Terror-Pop 80’s como parte de la productora ToyBoys, Inc. Movies, como el largometraje <i>Mirada de cristal</i> (BARS 18), estrenado en el Festival Internacional de Mar del Plata, y que recorrió varios festivales del mundo como el FrightFest, Mórbido y Sitges. Parte de su filmografía consiste de <i>Un viernes negro</i> (BARS 11), <i>Un viernes negro, parte 2 - La maldición del gato</i> (BARS 12), y <i>Golpee antes de entrar, episodio 1</i> de la serie web <i>No podrás dormir esta noche</i> que ganó el Premio del Público al Mejor Cortometraje en el BARS 14. Como vestuarista, trabajó en <i>Grasa</i> (BARS 16), <i>Bruno Motoneta</i>, <i>Soy tóxico</i> (BARS 19 - Mención Especial a Mejor Vestuario) y <i>Tumba para tres</i>. Este año, creó y dirigió el spot de nuestro festival."
         },
@@ -1370,18 +1625,27 @@
           "name": "Noelia Custodio",
           "pic": {
             "url": "resources/bars2019/jury_noelia_custodio.jpg",
-            "focus": { "x": 0, "y": 0, "w": 6000, "h": 4000 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 6000,
+              "h": 4000
+            }
           },
           "description": "<strong>Noelia Custodio</strong> nació en Buenos Aires, en 1989. Es comediante de stand up, actriz y parte de la mesa de <i>Segurola y Habana</i>, programa emitido de lunes a viernes de 13 a 16 por FutuRock. Participó del Festival Cuero, Festival Nuestro, Ciudad Emergente, Festival Girl Power, y Comedy Central, entre otros. Se hizo la graciosa en un par de series online, le gusta <strong>Leo Mattioli</strong> y es fan del cine de terror por ser un género incomprendido bancado por soñadores."
         }
       ],
-
       "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Laura Sánchez Acosta",
           "pic": {
             "url": "resources/bars2019/jury_laura_sanchez_acosta.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 1280, "h": 853 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1280,
+              "h": 853
+            }
           },
           "description": "<strong>Laura Sánchez Acosta</strong> nació en Entre Ríos en 1992. Realizadora audiovisual, artista de VFX y amante del cine de terror, dedicada a fomentar y apostar por el cine de género en el interior del país. Trabajó en la producción, guión, montaje, y VFX de varios proyectos audiovisuales, entre los que se destacan <i>Relicto</i> (2016) su primer largometraje como directora, <i>Daemonium</i> (<strong>Pablo Parés</strong>), y su más reciente film <i>La solapa</i> (2019) cortometraje ganador del concurso Blood Window 2017. Actualmente está desarrollando su nuevo largometraje a rodarse en tierras litoraleñas, <i>La salamanca, la cueva de los demonios</i>."
         },
@@ -1389,7 +1653,12 @@
           "name": "Vicu Villanueva",
           "pic": {
             "url": "resources/bars2019/jury_vicu_villanueva.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 1280, "h": 853 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1280,
+              "h": 853
+            }
           },
           "description": "<strong>Vicu Villanueva</strong> nació en Buenos Aires en 1994. Es artista, música y activista transfeminista. Tiene un canal de YouTube desde 2014 donde sube canciones con un alto contenido de crítica social y realiza entrevistas buscando dar a conocer perspectivas disidentes y diversas. Tiene dos discos solistas, <i>Ironía erótica</i> (2016) y <i>Cancionera</i> (2018), y uno con su banda Dúo Microcentro. Es cinéfila y, particularmente, fan del cine de terror independiente argentino."
         },
@@ -1397,18 +1666,27 @@
           "name": "Matías Sánchez",
           "pic": {
             "url": "resources/bars2019/jury_matias_sanchez.jpg",
-            "focus": { "x": 0, "y": 0, "w": 239, "h": 518 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 239,
+              "h": 518
+            }
           },
           "description": "<strong>Matías Sánchez</strong> nació en la ciudad de Punta Alta en 1981. Se recibió como realizador audiovisual en la Universidad Nacional del Sur. Dirigió cortometrajes, documentales y videoclips, todos relacionados con el género fantástico, como <i>Colina doble</i> o <i>Escrito en la piedra</i>. En la actualidad, es programador y director del Festival Nacional de Cine de Terror y Fantástico 1000 Gritos —que se encuentra preparando su 9ª edición para 2020— y dirige el programa de televisión <i>1000 Gritos TV</i>."
         }
       ],
-
       "internationalShortFilmCompetition": [
         {
           "name": "Georgina Zanardi",
           "pic": {
             "url": "resources/bars2019/jury_georgina_zanardi.jpg",
-            "focus": { "x": 0, "y": 0, "w": 4630, "h": 6320 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 4630,
+              "h": 6320
+            }
           },
           "description": "<strong>Georgina Zanardi</strong> es diseñadora de imagen y sonido, egresada de la FADU (UBA), y fundadora de Mondo Lila Producciones, creada en 2007, con la realización del cortometraje <i>Sopa</i>, luego vinieron otros cortometrajes: el documental <i>Kriazombis</i> y cortos de ficción como <i>Amigo imaginario</i> y <i>La noche de los perros de mierda</i>. En 2013 se vino el primer largometraje, <i>Hijos de puta por elección</i>, en 2014 el documental <i>Botánicos</i>, en 2014 su segundo largometraje, <i>El onanista perturbado</i>, en 2016 realiza <i>El puterío de los horrores</i>, ganadora del voto del público en la competencia bizarra en el BARS 17. Actualmente está a punto de estrenar <i>Cazador la película</i>, e <i>Hijos de puta post mortem</i>."
         },
@@ -1416,7 +1694,12 @@
           "name": "Flavio Greco Paglia",
           "pic": {
             "url": "resources/bars2019/jury_flavio_greco_paglia.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 985, "h": 1280 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 985,
+              "h": 1280
+            }
           },
           "description": "<strong>Flavio Greco Paglia</strong>, nacido en Buenos Aires en 1988, es dibujante en cine y animación. Desde 2014 ilustra afiches para festivales y películas, destacándose los del Festival Buenos Aires Rojo Sangre y Blood Window Pinamar —de Ventana Sur / INCAA—, y películas como <i>Presagio</i> (<strong>Matías Salinas</strong>), <i>Malvineitor</i> (<strong>Pablo Marini</strong>) y <i>Punto muerto</i> (<strong>Daniel de la Vega</strong>). En el último año realizó ilustraciones para Warner Bros., MTV, cortometrajes, portada y galería de trabajos para la mítica revista Heavy Metal, y portada para el libro de cuentos de <strong>Andrés Borghi</strong> <i>Reflejado en la sangre</i>, entre otras obras."
         },
@@ -1424,18 +1707,27 @@
           "name": "Constanza Otero",
           "pic": {
             "url": "resources/bars2019/jury_constanza_otero.jpg",
-            "focus": { "x": 0, "y": 0, "w": 720, "h": 720 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 720,
+              "h": 720
+            }
           },
           "description": "<strong>Constanza Otero</strong>, nacida en Buenos Aires en 1993, es estudiante de letras y creadora de contenido en su canal <i>Coos Burton</i> desde 2015, espacio donde promueve la literatura y el género de terror en todos sus aspectos. Ha participado de certamenes literarios, y actualmente trabaja en una antología del género. Realiza colaboraciones editoriales donde muestra lo nuevo dentro del mundo de la ficción, y lo combina con obras de culto y otras poco revisionadas, para darles visibilidad. La dirección de su canal es <a href=\"https://www.youtube.com/user/CoosBurton\">www.youtube.com/user/CoosBurton</a>."
         }
       ],
-
       "finDeSemanaSangriento": [
         {
           "name": "Germán Magariños",
           "pic": {
             "url": "resources/bars2019/jury_german_magarinos.jpeg",
-            "focus": { "x": 0, "y": 0, "w": 960, "h": 960 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 960,
+              "h": 960
+            }
           },
           "description": "<strong>Germán Magariños</strong> es el fundador de Gorevision Films, productora con la que realizó, desde 2001, casi tres decenas de películas. Estrenó en el BARS desde 2002 (con <i>LSD Frankenstein</i>) y, de ahí en adelante, se convirtió en uno de los realizadores con más películas proyectadas en el festival, participando con <i>Vio la luna y compró un cementerio</i> (2003), <i>Goreinvasión</i> (2004), <i>Sadomaster</i> (2005), <i>Un cazador de zombis</i> (2007), <i>Sadomaster: Locura general</i> (2011), <i>Goretech. Bienvenidos al planeta hijo de puta</i> (2012, premio a Mejor Película Iberoamericana), <i>Los superbonaerenses</i> (2014) y <i>StarWars Goretech</i> (2018). La característica principal de estas producciones es que son extremas en cuanto a exageración, sangre, violencia y “de mal gusto” mezcladas con comedia y una cierta tendencia a la desprolijidad y el Cine Z."
         },
@@ -1443,7 +1735,12 @@
           "name": "Leticia Bobbioni",
           "pic": {
             "url": "resources/bars2019/jury_leticia_bobbioni.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1128, "h": 1080 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1128,
+              "h": 1080
+            }
           },
           "description": "<strong>Leticia Bobbioni</strong> es directora de fotografía, docente e investigadora de la narración, la luz y el movimiento. Se desempeña como directora de fotografía, realizadora de contenidos digitales, VJ y docente. Estudió Dirección de Fotografía en la ENERC y es licenciada en Comunicación Audiovisual y en enseñanza de las Artes Audiovisuales por la UNSAM. También es docente de Dirección de Fotografía en la ENERC y Consejera Académica, y JTP concursada en la UNA en la materia Proyectual de Iluminación y Cámara I a V. Es parte de un equipo de investigación sobre «Realidad virtual, narración transmedia y puestas inmersivas»; en esta misma línea, trabaja como diseñadora de iluminación, VJ, y realizando video- instalaciones site-specific. Ha dirigido diversos comerciales interactivos y series web transmedia."
         },
@@ -1451,7 +1748,12 @@
           "name": "Leandro Cóccaro",
           "pic": {
             "url": "resources/bars2019/jury_leandro_coccaro.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1078, "h": 733 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1078,
+              "h": 733
+            }
           },
           "description": "<strong>Leandro Cóccaro</strong> es actor y docente teatral. Se formó con <strong>Norman Briski</strong>, <strong>Agustín Alezzo</strong> y <strong>Carlos Gandolfo</strong>, entre otros. Trabajó en innumerables obras teatrales como <i>La voluntad</i>, <i>Máscaras desnudas</i> y <i>Los Kaplan</i>. Como autor y director montó <i>Jardín de la miseria</i> y <i>Fantasmas, the shadows of love</i>. Participó en numerosos ciclos televisivos, destacándose <i>Golpe al corazón</i>, <i>Simona</i>, <i>El elegido</i> y <i>Casi ángeles</i>. En cine actuó en films como <i>Una tumba para tres</i> (2018, <strong>Mariano Cattaneo</strong>), <i>Polvareda</i> (2014, <strong>Juan Schmidt</strong>) y <i>Nacido para morir</i> (2014, <strong>Andrés Borghi</strong>). Además protagonizó, escribió y produjo la serie web <i>Martín Mosca</i>, nominada a los premios Martín Fierro 2013. Actualmente produce, escribe y protagoniza la serie web <i>Planeta Perinola</i>."
         }
@@ -1490,31 +1792,56 @@
       "terms": "<ul> <li>Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar el enlace a un screener online a traves de las plataformas <a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a>. </li> <li>Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una imagen horizontal de la película, resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li>Subtítulos o guía de diálogos si la película no es hablada en español.</li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin. </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival tiene un <strong>costo de U$S 3</strong> para todos los cortometrajes <strong>excepto los producidos en países latinoamericanos</strong>, incluyendo Argentina. Los <strong>largometrajes</strong> también están exceptuados.</li> <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li>El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li>La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Cortometraje Argentino</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> <li>Premio del Público Largometraje Competencia Bizarra</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> <p>Premios especiales a corto y largometrajes argentinos:</p> <ul class=\"checkmark\"> <li>Los cortometrajes argentinos en competencia internacional competirán por un premio especial de <a href=\"https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922?sk=likes\" target=\"_blank\">RAFMA</a>.</li> <li> <a href=\"http://www.rental-bsas.com.ar\" target=\"_blank\">Rental BSAS</a> entregará un Premio especial al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio especial consistirá en la entrega de un diploma y un voucher válido por 4 jornadas de alquiler de equipos de sonido e iluminación. </li> <li> <a href=\"http://www.piromaniafx.com.ar\" target=\"_blank\">Piromanía Fx</a> entregará un premio al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio consistirá en la entrega de un diploma y un voucher válido por una explosión de fuego de automóvil o el equivalente sobre edificación. </li> <li><a href=\"http://www.apima.com.ar\">A.P.I.M.A.</a> (asociación de productores independientes de medios audiovisuales) entregará una estatuilla a la mejor película argentina en competencia iberoamericana. </li> <li>La casa de postproducción <a href=\"http://wancamp.com.ar/\">Wancamp POST</a> entregará un premio al que considere el corto nacional mejor editado, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en la corrección de color y el pasaje de DCP de dicho cortometraje. </li> <li>La asociación de Guinosistas de Cine, TV y Nuevos Medios de Argentina <a href=\"http://www.guiarguionistas.org/\">Gui.Ar</a> entregará un premio al corto nacional que determine posee el mejor guión, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en un script doctor de guión de cortometraje.</li> </ul> <p></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> </ul>",
       "terms_en": "/resources/bars2018/terms2018_en.docx"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericana",
-        "Mejor Director Largometraje Iberoamericana",
-        "Mejor Actuación Largometraje Iberoamericana"
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericana",
+          "Mejor Director Largometraje Iberoamericana",
+          "Mejor Actuación Largometraje Iberoamericana"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
           "name": "Fran Gayo",
           "pic": {
             "url": "resources/bars2018/jury_fran_gayo.jpg",
-            "focus": { "x": 0, "y": 0, "w": 3264, "h": 2448 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 3264,
+              "h": 2448
+            }
           },
           "description": "<strong>Fran Gayo</strong> es asturiano, nacido en 1970. Entre 1997 y 2009 es programador del Festival Internacional de Cine de Gijón. En 2010 viene a Buenos Aires para incorporarse al BAFICI, formando parte del equipo de programación hasta 2017. También aquí programará el festival de animación Expotoons y la muestra Espanoramas, comisariando además retrospectivas para la Sala Lugones, Cinemateca de Montevideo, Festival Transcinema (Lima), CGAI y IVAC. Desde 2012 es programador de cine del Centro Niemeyer, en España. Fue jurado en San Sebastián, Valdivia, Curtocircuito, Punto de Vista, Sitges y Transcinema. Ha sido director artístico del Festival de Cine Internacional de Ourense / OUFF en 2016 y 2017. Recientemente se unió al equipo de programación del NIFFF/Festival Internacional de Cine Fantástico de Neuchatel (Suiza)."
         },
@@ -1522,7 +1849,12 @@
           "name": "Fernando Díaz",
           "pic": {
             "url": "resources/bars2018/jury_fernando_diaz.jpg",
-            "focus": { "x": 0, "y": 0, "w": 3248, "h": 3588 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 3248,
+              "h": 3588
+            }
           },
           "description": "<strong>Fernando Díaz</strong> es un productor y director de cine nacido en Buenos Aires. Presidente de APIMA — Asociación de Productores Independientes de Medios Audiovisuales de Argentina—. Produjo varias películas propias y de otros directores. Su última producción es <i>Aterrados</i>, del director Demián Rugna, que obtuvo el Premio al Mejor Actor, Mejor Banda Sonora y Mejor Película en la pasada edición 2017 del BARS."
         },
@@ -1530,18 +1862,27 @@
           "name": "Jorge Pinarello",
           "pic": {
             "url": "resources/bars2018/jury_jorge_pinarello.png",
-            "focus": { "x": 0, "y": 0, "w": 455, "h": 337 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 455,
+              "h": 337
+            }
           },
           "description": "<strong>Jorge Pinarello</strong> nació en La Plata en el año 1986. Es actor, docente, improvisador, guionista y editor. Actuó en la película <i>Masacre esta noche</i> (producida por Paura Flics), en la serie web <i>Policompañeros motorizados</i> (producida por Tangram Cine), entre otras producciones teatrales y audiovisuales. Desde el 2015 maneja el canal de youtube <i>Te lo resumo así nomás</i> que cuenta con más de un millón y medio de seguidores. Este año escribió y produjo la serie web <i>La obra de mi vida</i>."
         }
       ],
-
       "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Claudio Cordero",
           "pic": {
             "url": "resources/bars2018/jury_claudio_cordero.jpg",
-            "focus": { "x": 0, "y": 0, "w": 293, "h": 580 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 293,
+              "h": 580
+            }
           },
           "description": "<strong>Claudio Cordero</strong> nació en Lima en 1977. Cineasta, periodista, gestor cultural y docente. Licenciado de Ciencias de la Comunicación de la Universidad de Lima. Director fundador de <i>Godard! Revista de Cine</i>, CINI: Festival internacional de cine para niños, Insólito: Festival internacional de terror y fantasía. Director y guionista de los cortometrajes <i>Pulsera</i> (2018), <i>Camina me</i> (2018) y <i>Un filme de prestigio</i> (2015)."
         },
@@ -1549,7 +1890,12 @@
           "name": "Catalina Oliva",
           "pic": {
             "url": "resources/bars2018/jury_catalina_oliva.jpg",
-            "focus": { "x": 0, "y": 0, "w": 956, "h": 956 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 956,
+              "h": 956
+            }
           },
           "description": "<strong>Catalina Oliva</strong> comenzó su trabajo como directora de arte en el año 2000 con la película independiente <i>Habitaciones para turistas</i>, en paralelo a cursar la carrera de Artes Plásticas de la Universidad de La Plata. Integró la productora Paura Flics, en todos sus trabajos. Desde entonces, ha incursionado en el género en múltiples ocasiones en títulos emblemáticos como <i>Kryptonita</i>, <i>Nafta Súper</i>, <i>27: el club de los malditos</i>, <i>Luciferina</i>, <i>Ataúd blanco</i>, <i>Penumbra</i> o <i>Sudor frío</i>, aunque su labor como directora de arte incluye colaboraciones con realizadores de los estilos más diversos. <i>Matar al dragón</i> de Jimena Monteoliva y <i>Tampoco tan grandes</i> de Federico Sosa son dos de sus trabajos más recientes, pendientes de estreno."
         },
@@ -1557,18 +1903,27 @@
           "name": "Santiago Podestá",
           "pic": {
             "url": "resources/bars2018/jury_santiago_podesta.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1205, "h": 873 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1205,
+              "h": 873
+            }
           },
           "description": "<strong>Santiago Podestá</strong>, nacido en 1982 en la Ciudad de Buenos Aires, es productor ejecutivo de cine y TV. Ha realizado la producción ejecutiva de los largometrajes: <i>Esterps</i> de Gerardo Curotto, <i>Tóxico</i> y <i>Alas</i> de Ariel Martínez Herrera, entre otros. Ha trabajado en la producción de más de quince largometrajes de género como <i>Contrasangre</i> y <i>El túnel de los huesos</i> de Nacho Garassino, <i>Malditos sean!</i> de Fabián Forte y Demián Rugna, <i>La memoria del muerto</i> de Javier Diment, <i>El Perro Molina</i> de Jose Campusano, entre otros. Como director ha realizado el cortometraje <i>Un poco más lejos</i> (Competencia Internacional BARS 2016), y se encuentra actualmente terminando el documental <i>Su versión</i>."
         }
       ],
-
       "internationalShortFilmCompetition": [
         {
           "name": "María Florencia Romero",
           "pic": {
             "url": "resources/bars2018/jury_maria_florencia_romero.jpg",
-            "focus": { "x": 0, "y": 0, "w": 2448, "h": 2448 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 2448,
+              "h": 2448
+            }
           },
           "description": "<strong>María Florencia Romero</strong>, nacida en Resistencia (Chaco) en 1989, es técnica en Producción de Medios Audiovisuales y licenciada en Cine y TV graduada en la Universidad Nacional de Córdoba. En 2015 formó parte de la creación de Terror Córdoba Festival Internacional de Cine de Terror y Fantástico, proyecto en el cual hoy participa de la organización en su rol de productora. Radicada en la provincia de Buenos Aires con fines de formación académica y trabajando en producción artística, desde 2017 es parte de <i>La Nave de los Sueños</i> como colaboradora."
         },
@@ -1576,7 +1931,12 @@
           "name": "Simon Ratziel",
           "pic": {
             "url": "resources/bars2018/jury_simon_ratziel.jpg",
-            "focus": { "x": 0, "y": 0, "w": 328, "h": 301 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 328,
+              "h": 301
+            }
           },
           "description": "<strong>Simon Ratziel</strong>, nacido en 1970, es un artista de los efectos especiales que viene trabajando en cine desde hace veinte años. Participó de películas como <i>Plaga Zombie 3</i>, <i>El muerto cuenta su historia</i> y <i>Malditos Sean!</i> entre muchísimas otras, ademas de coproducir <i>Daemonium</i> y <i>Deus Irae</i>. Actualmente se encuentra trabajando en la preproducción de un proyecto indepediente llamado <i>Pussycake</i>."
         },
@@ -1584,18 +1944,27 @@
           "name": "José María Marcos",
           "pic": {
             "url": "resources/bars2018/jury_jose_maria_marcos.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1773, "h": 2500 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1773,
+              "h": 2500
+            }
           },
           "description": "<strong>José María Marcos</strong> (Uribelarrea, 1974). Escritor, editor y periodista. Ama las historias con monstruos y sobrenaturalezas. Publicó los libros <i>Recuerdos parásitos</i> (2007) y <i>Muerde muertos</i> (2012), con Carlos Marcos; <i>Los fantasmas siempre tienen hambre</i> (2010); <i>Haikus Bilardo</i> (2014), con Fernando Figueras; <i>El hámster dorado</i> (2014), <i>Monstruos de pueblo chico</i> (2015) y <i>Frikis mortis</i> (2016). Magíster en Periodismo y Medios de Comunicación (Universidad Nacional de La Plata), escribe sobre cine y literatura para <i>Insomnia</i> y <i>Cinefanía</i>. Dirige el sello editorial Muerde Muertos. Su sitio web es <a href=\"https://josemariamarcos.blogspot.com\">josemariamarcos.blogspot.com</a>"
         }
       ],
-
       "finDeSemanaSangriento": [
         {
           "name": "Pablo Parés",
           "pic": {
             "url": "resources/bars2018/jury_pablo_pares.jpg",
-            "focus": { "x": 0, "y": 0, "w": 2048, "h": 1282 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 2048,
+              "h": 1282
+            }
           },
           "description": "<strong>Pablo Parés</strong>, nacido en 1978 en el barrio de Haedo, es un realizador de cine especializado en cine fantástico y uno de los fundadores de Farsa producciones, donde se consagró como director, guionista y productor de la saga Plaga zombie (<i>Plaga zombie</i>, <i>Plaga zombie: Zona mutante</i>, y <i>Plaga zombie: Zona mutante - Revolución tóxica</i>), de género comedia de terror. Además, estuvo detrás de la realización de decenas de cortometrajes, 14 largometrajes y más de 100 videoclips y publicidades. A lo largo de veinticinco años de trabajo, se ocupó de invertir el 100% de su tiempo y recursos en la realización de cine fantástico poco convencional, ideal para ver acompañado de amigos y con una botella de cerveza a mano (o varias)."
         },
@@ -1603,7 +1972,12 @@
           "name": "Christian Busquier",
           "pic": {
             "url": "resources/bars2018/jury_christian_busquier.jpg",
-            "focus": { "x": 0, "y": 0, "w": 643, "h": 474 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 643,
+              "h": 474
+            }
           },
           "description": "<strong>Christian Busquier</strong> es guionista de amplia experiencia en el campo audiovisual. Licenciado en Artes Audiovisuales orientación Guion (IUNA), Guionista (ENERC), y Realizador Integralde Cine y Televisión (CIC). Profesor y jefe de cátedra en el área audiovisual de varias universidades. Realizó varios guiones para largo y cortometrajes y miniseries. Ha colaborado como guionista para productoras como Filmax, Adivina Producciones, Polka, Pampa Films, Ecuavisa, Flehner Films, Spark FMS, Claxson/Infinito, Reel in Motion. Es autor del guión original del film <i>El niño de barro</i>, dirigido por Jorge Algora que recibió el premio a mejor guión original en los VI Premios Mestre Mateo de la Academia Galega do Audiovisual, y también se hizo acreedor del Premio Mejor Largo Internacional en el Festival Internacional de Viña del Mar."
         },
@@ -1611,7 +1985,12 @@
           "name": "Rebeca Martínez",
           "pic": {
             "url": "resources/bars2018/jury_rebeca_martinez.jpg",
-            "focus": { "x": 0, "y": 0, "w": 330, "h": 540 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 330,
+              "h": 540
+            }
           },
           "description": "<strong>Rebeca Martínez</strong> nació en Arrecifes en 1982. En 2003 viajó a Buenos Aires a estudiar Maquillaje y Efectos Especiales y ya instalada comenzó su trabajo en cine de género con el equipo de Rabbid Fx en películas como <i>The Last Gateway</i>, <i>Malditos sean!</i> y <i>Plaga zombie: Revolución tóxica</i>, entre otras. A partir de 2009, con estudio propio, trabajó en el maquillaje y los efectos especiales de <i>Aballay</i>, <i>La plegaria del vidente</i>, <i>El túnel de los huesos</i>, <i>Diablo</i>, <i>Hermanos de sangre</i>, <i>Resurrección</i>, <i>Kryptonita</i>, <i>No llores por mí Inglaterra</i>, entre muchas otras. En TV trabajó en <i>Mujeres asesinas</i>, <i>Amas de casa desesperadas</i>, entre otras; y actualmente en <i>Morir de amor</i> y <i>Monzón la serie</i> (de próximo estreno)."
         }
@@ -1649,31 +2028,56 @@
       "terms": "<ul> <li>Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar el enlace a un screener online a traves de las plataformas <a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a>, <a href=\"http://www.movibeta.com/\" target=\"blank\">Movibeta</a>, <a href=\"http://www.clickforfestivals.com/\" target=\"blank\">ClickForFestivals</a>, o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a>. </li> <li>Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una foto de la película (fotograma o foto fija), resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li>Subtítulos o guía de diálogos si la película no es hablada en español.</li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin. </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival tiene un <strong>costo de U$S 3</strong> para todos los cortometrajes <strong>excepto los producidos en países latinoamericanos</strong>, incluyendo Argentina. Los <strong>largometrajes</strong> también están exceptuados.</li> <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li>El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas en cualquier formato, de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li>La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> <p>Premios especiales a cortometrajes argentinos:</p> <ul class=\"checkmark\"> <li>El mejor cortometraje argentino participará del festival <strong>La Noche Del Cortometraje</strong>, organizado por el INCAA.</li> <li>Las óperas primas competirán por un premio especial de <a href=\"https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922?sk=likes\" target=\"_blank\">RAFMA</a></li> <li> <a href=\"http://www.rental-bsas.com.ar\" target=\"_blank\">Rental BSAS</a> entregará un Premio especial al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio especial consistirá en la entrega de un diploma y un voucher válido por 4 jornadas de alquiler de equipos de sonido e iluminación. </li> <li> <a href=\"http://www.piromaniafx.com.ar\" target=\"_blank\">Piromanía Fx</a> entregará un premio al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio consistirá en la entrega de un diploma y un voucher válido por una explosión de fuego de automóvil o el equivalente sobre edificación. </li> <li><a href=\"http://www.apima.com.ar\">A.P.I.M.A.</a> (asociación de productores independientes de medios audiovisuales) entregará una estatuilla a la mejor película argentina en competencia iberoamericana. </li> <li>La casa de postproducción <a href=\"http://wancamp.com.ar/\">Wancamp POST</a> entregará un premio al que considere el mejor corto nacional, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en el pasaje a DCP de dicho cortometraje. </li> </ul> <p></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> </ul>",
       "terms_en": "/resources/bars2017/terms2017_en.doc"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericana",
-        "Mejor Director Largometraje Iberoamericana",
-        "Mejor Actuación Largometraje Iberoamericana"
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericana",
+          "Mejor Director Largometraje Iberoamericana",
+          "Mejor Actuación Largometraje Iberoamericana"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
           "name": "Nicolás Batlle",
           "pic": {
             "url": "resources/bars2017/jury_nicolas_batlle.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1002, "h": 904 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1002,
+              "h": 904
+            }
           },
           "description": "<strong>Nicolás Batlle</strong> es productor ejecutivo, egresado de la carrera de realización del ENERC (INCAA - Argentina). Desde 1997 es miembro de Magoya Films, desde donde produjo y co-dirigió premiados documentales como <i>Rerum Novarum</i> (2001 – Cóndor de Plata Mejor documental argentino). Productor de <i>Mundo Alas</i> (2009), co-dirigido y protagonizado por León Gieco, <i>Wakolda</i> (2013), <i>El Patrón</i> (2013), entre otras. Fue jurado y capacitador de numerosos concursos del INCAA de Argentina. Presidente de APIMA en el período 2014-2015. Miembro de la Academia de la Artes y Ciencias Cinematográficas de la Argentina. Autor del Libro Producción de Largometraje, Ediciones del CIC, 2016."
         },
@@ -1681,7 +2085,12 @@
           "name": "Andrés Borghi",
           "pic": {
             "url": "resources/bars2017/jury_andres_borghi.jpg",
-            "focus": { "x": 0, "y": 0, "w": 5184, "h": 3456 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 5184,
+              "h": 3456
+            }
           },
           "description": "<strong>Andrés Borghi</strong> nace en Argentina en 1982 y a los 12 años empieza a filmar películas. Estudia realización de cine y TV en la escuela Fundación Teba. Sus trabajos más conocidos son el corto <i>Otakus</i>, el cual fue un boom en los principios de YouTube en el año 2007 y <i>Working Day</i>, corto realizado en Nueva Zelanda y premiado por el mismísimo Peter Jackson. Sus últimos trabajos son el corto de terror <i>Alexia</i> y el largometraje <i>Nacido para Morir</i>, ambos actualmente recorriendo festivales."
         },
@@ -1689,18 +2098,27 @@
           "name": "Lautaro Delgado",
           "pic": {
             "url": "resources/bars2017/jury_lautaro_delgado.jpg",
-            "focus": { "x": 0, "y": 0, "w": 502, "h": 302 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 502,
+              "h": 302
+            }
           },
           "description": "<strong>Lautaro Delgado</strong>, nacido en Buenos Aires en 1978, es actor y director. Egresó en la EMAD y estudió Dirección en la Universidad del Cine y el IDAC. Participó en películas como <i>Kryptonita</i>, <i>Gilda (No me arrepiento de este amor)</i>, <i>Topos</i>, <i>El Desierto</i> y <i>Crónica de una fuga</i>. Además de participar de sendos proyectos televisivos, ganó numerosos premios entre ellos el de Mejor Actor Protagónico en nuestro festival. Actualmente dicta cursos y seminarios de actuación."
         }
       ],
-
       "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Mariano Oliveros",
           "pic": {
             "url": "resources/bars2017/jury_mariano_oliveros.jpg",
-            "focus": { "x": 0, "y": 0, "w": 480, "h": 480 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 480,
+              "h": 480
+            }
           },
           "description": "<strong>Mariano Oliveros</strong> es periodista especializado en el mercado del cine argentino. Ha escrito para distintos medios nacionales entre ellos <i>Ultracine</i>, <i>Haciendo Cine</i> y <i>Cine fantástico</i> y <i>Bizarro</i>. Tiene dos libros publicados: <i>D-culto nacional</i> (Fan ediciones) y <i>Yo veo cine argentino</i> (Editorial Autores de Argentina). Debutó como productor ejecutivo con el filme de terror <i>Los olvidados</i>, exhibida en Sitges, y Mórbido, a estrenarse en cines de Argentina en el primer semestre de 2018."
         },
@@ -1708,7 +2126,12 @@
           "name": "Nacho Garassino",
           "pic": {
             "url": "resources/bars2017/jury_nacho_garassino.jpg",
-            "focus": { "x": 0, "y": 0, "w": 640, "h": 640 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 640,
+              "h": 640
+            }
           },
           "description": "<strong>Nacho Garassino</strong> estrenó el documental <i>Pegar La Vuelta</i> (Ternaround) en agosto de 2016; <i>Contrasangre</i>, largometraje de ficción en noviembre de 2015; en 2011 el film <i>El Túnel de los Huesos</i>, este film participó de diversos Festivales y muestras internacionales. En 1994 ganó el premio Martín Fierro por el programa <i>El Otro Lado</i> junto a Fabián Polosecki en calidad de Director. Actualmente trabaja en la preproducción del largometraje <i>El Fusilamiento de Dorrego</i> y el documental <i>Música para un futuro ancestral</i>. Está desarrollando hoy en día <i>¿Te Gustan mis Medias?</i> film de terror sobre guión de Luciano Saracino."
         },
@@ -1716,18 +2139,27 @@
           "name": "Magalí Nieva",
           "pic": {
             "url": "resources/bars2017/jury_magali_nieva.jpg",
-            "focus": { "x": 0, "y": 0, "w": 480, "h": 640 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 480,
+              "h": 640
+            }
           },
           "description": "<strong>Magalí Nieva</strong> trabaja desde 1997 en el medio cinematográfico con una trayectoria de 35 películas nacionales e internacionales, publicidades, series de tv internacionales y documentales. Actualmente trabaja como productora y directora de producción de largometrajes de género terror y fantástico con su productora Ninja Films Argentina. En coproducción con Ezio Massa tienen 3 largometrajes estrenados en el 2017, <i>5 AM</i>, <i>La Valija de Benavidez</i> y pronto por estrenar <i>Hotel Infierno</i>, de Marcos Palmieri. Además se encuentra en postproducción el policial negro dirigido por Daniel de la Vega, <i>Punto Muerto</i> con apoyo del INCAA."
         }
       ],
-
       "internationalShortFilmCompetition": [
         {
           "name": "Magnus Mefisto",
           "pic": {
             "url": "resources/bars2017/jury_magnus_mefisto.jpg",
-            "focus": { "x": 0, "y": 0, "w": 3264, "h": 4928 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 3264,
+              "h": 4928
+            }
           },
           "description": "<strong>Magnus Mefisto</strong> nació en Buenos Aires en 1984 y es creador de contenido audiovisual para varias plataformas digitales. En Youtube es parte de un equipo que se dedica a la exploración urbana de lugares abandonados centrándose en perseguir mitos y leyendas urbanas. En el ámbito musical editó 3 discos promocionados con videoclips realizados por su propia productora. Actualmente maneja el contenido en redes de Purga TV, la primera página streaming de películas y cortos de terror."
         },
@@ -1735,7 +2167,12 @@
           "name": "Daniela Pereyra",
           "pic": {
             "url": "resources/bars2017/jury_daniela_pereyra.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1667, "h": 1772 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1667,
+              "h": 1772
+            }
           },
           "description": "<strong>Daniela Pereyra</strong> estudió Ciencias de la Comunicación Social en la Universidad de Buenos Aires. Es periodista cultural, especializada en cine y literatura. Condujo y produjo el programa de radio <i>Acá no es</i>, en FM La Tribu entre 2007 y 2014. Desde 2012 forma parte de <i>La Nave de los Sueños</i>, como productora y programadora. Fue asistente de programación en el Festival Audiovisual Bariloche en 2013 y 2014. Fue productora audiovisual en Tecnópolis 2015, en ese año compiló el libro <i>Latidos, El pulso del cine argentino</i>."
         },
@@ -1743,7 +2180,12 @@
           "name": "Lucila Las Heras",
           "pic": {
             "url": "resources/bars2017/jury_lucila_las_heras.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1920, "h": 1920 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1920,
+              "h": 1920
+            }
           },
           "description": "<strong>Lucila Las Heras</strong> es guionista y directora de cine independiente, egresada de la Carrera de Diseño de Imagen y Sonido de la UBA y del Laboratorio de Guion. Ha escrito numerosos episodios de series de televisión, entre ellas <i>El asombroso mundo de Zamba</i>, <i>Amigos</i>, <i>Minimalitos</i> y <i>Siesta Z</i>, que recientemente obtuvo una nominación al EMMY Kids Internacional. Como realizadora hizo sus cortometrajes <i>El retrato de la peste</i> y <i>La ventana abierta</i> que han sido exhibidos en más de 400 festivales alrededor del mundo, y recibieron varios premios. Actualmente se encuentra en pre-producción de su primer largometraje titulado <i>El Muglúr</i>, un drama fantástico que se rodará el año próximo."
         }
@@ -1777,31 +2219,56 @@
       "terms": "<ul> <li>Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li> Enviar el enlace a un screener online a traves de las plataformas <a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a>, <a href=\"http://www.movibeta.com/\" target=\"blank\">Movibeta</a>, <a href=\"http://www.clickforfestivals.com/\" target=\"blank\">ClickForFestivals</a>, o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a>. </li> <li>Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>: <ul class=\"checkmark\"> <li>La hoja de autorización, completa y escaneada.</li> <li>Una foto de la película (fotograma o foto fija), resolución 300 DPI.</li> <li>Sinopsis y ficha técnica.</li> <li>Póster (sólo largometrajes).</li> <li>Link del trailer (sólo largometrajes).</li> <li>Subtítulos o guía de diálogos si la película no es hablada en español.</li> </ul> </li> <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin. </li> <li> Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. </li> <li>La inscripción al festival tiene un <strong>costo de U$S 3</strong> para todos los cortometrajes <strong>excepto los producidos en países latinoamericanos</strong>, incluyendo Argentina. Los <strong>largometrajes</strong> también están exceptuados.</li> <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección. <br> Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital. <br> Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br> Resolución: 720p o 1080p<br> Canales de Audio: 2 (estéreo)<br> Audio Sample Rate: 48kHz<br> Audio Bit Depth: 16 ó 24 bits<br> </div> </li> <li>El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li> <li>Secciones internacional competitiva de cortometrajes para películas en cualquier formato, de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li>Se considera largometrajes a producciones de una duración superior a los 60 minutos.</li> <li>Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.</li> <li>La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Director Cortometraje</li> <li>Premio del Público Cortometraje</li> <li>Mejor Largometraje Iberoamericano</li> <li>Mejor Director Largometraje Iberoamericano</li> <li>Mejor Actuación Largometraje Iberoamericano</li> <li>Premio del Público Largometraje</li> </ul> <p>Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br></p> <p>Premios especiales a cortometrajes argentinos:</p> <ul class=\"checkmark\"> <li>El mejor cortometraje argentino participará del festival <strong>La Noche Del Cortometraje</strong>, organizado por el INCAA.</li> <li>Las óperas primas competirán por un premio especial de <a href=\"https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922?sk=likes\" target=\"_blank\">RAFMA</a></li> <li> <a href=\"http://www.rental-bsas.com.ar\" target=\"_blank\">Rental BSAS</a> entregará un Premio especial al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio especial consistirá en la entrega de un diploma y un voucher válido por 4 jornadas de alquiler de equipos de sonido e iluminación. </li> <li> <a href=\"http://www.piromaniafx.com.ar\" target=\"_blank\">Piromanía Fx</a> entregará un premio al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio. Este premio consistirá en la entrega de un diploma y un voucher válido por una explosión de fuego de automóvil o el equivalente sobre edificación. </li> <li>La <a href=\"http://www.edaeditores.org/\">EDA/Asociación Argentina de Editores Audiovisuales</a> entregará un premio al largo con mejor montaje (edición), perteneciente a la Competencia Iberoamericana de largometrajes. El premio consistirá en una subscripción de <a href=\"http://www.adobe.com/creativecloud.html\">Adobe Creative Cloud</a> por un año. </li> <li>La casa de postproducción <a href=\"http://wancamp.com.ar/\">Wancamp POST</a> entregará un premio al que considere el mejor corto nacional, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en el pasaje a DCP de dicho cortometraje. </li> </ul> <p></p> </li> <li>El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.</li> <li>El Festival se compromete a no efectuar más de tres (3) proyecciones del film.</li> <li>Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.</li> <li>La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.</li> </ul>",
       "terms_en": "/resources/bars2016/terms2016_en.doc"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericana",
-        "Mejor Director Largometraje Iberoamericana",
-        "Mejor Actuación Largometraje Iberoamericana"
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericana",
+          "Mejor Director Largometraje Iberoamericana",
+          "Mejor Actuación Largometraje Iberoamericana"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
           "name": "Fernando Álvarez",
           "pic": {
             "url": "resources/bars2016/jury_fernando_alvarez.jpg",
-            "focus": { "x": 0, "y": 0, "w": 640, "h": 960 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 640,
+              "h": 960
+            }
           },
           "description": "<strong>Fernando Álvarez</strong> es licenciado en Publicidad, analista de medios de comunicación y periodista especializado en cine y teatro. Se desempeñó como columnista de cine en el ciclo radial <i>Basta de todo</i> a lo largo de 15 años junto a Matías Martin y también formó parte de <i>Radio Blue</i> en los segmentos <i>Tipo 6</i>, <i>Monoambiente</i> y <i>Mundo paralelo</i>. Escribió en <i>El Cronista</i> y <i>Tiempo Argentinos</i> y es director del portal de cine <i>Todo love</i>. Se forma en actuación con Francisco Lumerman y en teatro produjo <i>Despojada</i>, <i>Sentidos</i> y es autor y codirector de la obra de terror <i>Frente a tus ojos</i> (2011), <i>Q.M.D ¿Quién mató al director?</i> (2013) y coautor y actor en <i>Sofocados</i> (2015-2016). Actualmente actúa en la obra <i>Ser de nadie</i>."
         },
@@ -1809,7 +2276,12 @@
           "name": "Victoria Maurette",
           "pic": {
             "url": "resources/bars2016/jury_victoria_maurette.jpg",
-            "focus": { "x": 0, "y": 0, "w": 1500, "h": 1000 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1500,
+              "h": 1000
+            }
           },
           "description": "<strong>Victoria Maurette</strong> nace en 1982 en Argentina. A los tres meses se muda a Estados Unidos, donde aprende inglés como primer idioma. Sus inicios fueron en Disney interpretando a Ariel de <i>La Sirenita</i> en el musical <i>Momentos Mágicos</i> de Disney. Luego, forma parte del suceso televisivo <i>Rebelde Way</i>, donde interpreta a Vico Paz, personaje con el cual se hizo reconocida mundialmente. Se suma al programa <i>No hay 2 sin 3</i>, donde descubre su faceta humorística y sube al escenario a recibir un Martin Fierro por Mejor Programa Humorístico. En 2007 protagoniza el espagueti western <i>Left For Dead</i>, de Albert Pyun, por el que recibe el premio a Mejor Actriz Internacionalen el festival BARS VIII. Entre otras participaciones, estuvo en <i>The Theatre Bizarre</i>, del mítico director Richard Stanley y este año protagonizará la nueva película de los hermanos Onetti."
         },
@@ -1817,18 +2289,27 @@
           "name": "Gabriel Grieco",
           "pic": {
             "url": "resources/bars2016/jury_gabriel_grieco.jpg",
-            "focus": { "x": 0, "y": 0, "w": 2592, "h": 3872 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 2592,
+              "h": 3872
+            }
           },
           "description": "<strong>Gabriel Grieco</strong>, nacido en Buenos Aires en 1979, es director de cine y TV y fundador de la productora <i>Crepusculum Films</i>. Su primera película fue <i>Naturaleza Muerta</i>, protagonizada por Luz Cipriota, Juan Palomino, Amin Yoma y Nicolas Pauls, cuya premier mundial se realizó en el festival de Cannes en el 2014. Su segunda película, <i>Hipersomnia</i>, protagonizada por Peter Lanzani, concluye su rodaje en mayo de 2016 y actualmente se encuentra preparando su tercera película, <i>Respira (transgénesis)</i>. Fue el creador del festival Crepusculum, uno de los primeros festivales de cine fantástico argentino que se celebró desde el año 2000 al 2010, una época donde era difícil encontrar espacios para ver y proyectar cine de género nacional. Grieco dirigió comerciales, programas de TV, 8 cortometrajes y más de 250 videoclips (muchos de tono fantástico) con artistas como Attaque77, Fabiana Cantilo, Cucho de los Auténticos Decadentes, Claudia Puyo, Juanse de Ratones Paranoicos, Bahiano de Los Pericos, El Otro Yo, Airbag, Daniela Herrero, El Bordo, Vilma Palma e Vampiros y Bulldog, entre otros."
         }
       ],
-
       "iberoamericanFeatureFilmCompetition": [
         {
           "name": "Miguelius Fernández",
           "pic": {
             "url": "resources/bars2016/jury_miguelius_fernandez.jpg",
-            "focus": { "x": 0, "y": 0, "w": 2048, "h": 1360 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 2048,
+              "h": 1360
+            }
           },
           "description": "<strong>Miguelius Fernández</strong>, nacido en Buenos Aires en 1977, es director de sonido cinematográfico egresado de la ENERC y creador de música electrónica, con sus cuerdas vocales como único instrumento. Fue operador técnico, coordinador de aire y realizador de ediciones artísticas para las radios <i>La Tribu</i>, <i>Supernova</i>, <i>Faro</i> y <i>Municipal</i>. Desde el año 2005 forma parte del colectivo cultural <i>La Nave de los Sueños</i> como encargado técnico y audiovisual. Realiza trabajo de sonido directo y posproducción de sonido para películas y clínicas de videoclips, música electrónica y edición digital. Como músico, formó parte del unplugged de MTV de Diego Torres y es un referente dentro de la escena de la música electrónica."
         },
@@ -1836,7 +2317,12 @@
           "name": "Brian Maya",
           "pic": {
             "url": "resources/bars2016/jury_brian_maya.png",
-            "focus": { "x": 0, "y": 0, "w": 1113, "h": 750 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 1113,
+              "h": 750
+            }
           },
           "description": "<strong>Brian Maya</strong> comenzó su carrera como actor en Nueva York luego de estudiar cine en New York University y actuación en el Lee Strasberg Institute. Al regresar a Buenos Aires, fundó la productora de TJM y desarrolló, produjo y protagonizó el film <i>Palermo Hollywood</i>. Estrenada en Argentina por Warner Bros y nominada a mejor película de competencia mundial en el festival de Sundance 2005, fue premiada por mejor música en el Milán Film Festival. Su última película, <i>Expediente Santiso</i>, un thriller sobrenatural, debutó internacionalmente en el festival de Cannes 2015 como parte de Blood Window y continuó su recorrido en el festival de cine de género más importante de Asia, BIFAN, en Corea. Compitió en el festival Buenos Aires Rojo Sangre en 2015 antes de su estreno comercial en febrero de 2016 en las salas de todo el país. Algunas de las películas en las que ha actuado son <i>Sultanes del sur</i>, junto a Jordi Molla y Ana de la Reguera y <i>Peligrosa obsesión</i>, con Pablo Echarri. En este momento se encuentra en preproducción de su segundo largometraje como director."
         },
@@ -1844,18 +2330,27 @@
           "name": "Camilo De Cabo",
           "pic": {
             "url": "resources/bars2016/jury_camilo_de_cabo.jpg",
-            "focus": { "x": 0, "y": 0, "w": 512, "h": 512 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 512,
+              "h": 512
+            }
           },
           "description": "<strong>Camilo De Cabo</strong>, nacido en Buenos Aires en 1984, es licenciado en Ciencias de la Comunicación, periodista y guionista. Trabajó en la revista de cine <i>La Cosa</i> y en su página web durante 6 años; escribió la sección de cine de la revista <i>Jedbangers</i> durante 4 y desde 2013 trabaja en <i>Diario Popular</i>. Coescribió junto a Nicanor Loreti el guión de <i>Kryptonita</i> (2015), por el que ganó el premio Cacho 2016 al Mejor Guion Adaptado y fue nominado en la misma terna en los premios Cóndor de Plata y en los premios Argentores del mismo año. Su más reciente trabajo es <i>Nafta súper</i> (2016), la serie de TV basada en <i>Kryptonita</i>, en la que coescribió 3 episodios junto al mencionado Loreti y Leonardo Oyola, que será emitida desde noviembre de 2016 por la pantalla de Space."
         }
       ],
-
       "internationalShortFilmCompetition": [
         {
           "name": "Marcelo Di Marco",
           "pic": {
             "url": "resources/bars2016/jury_marcelo_di_marco.jpg",
-            "focus": { "x": 0, "y": 0, "w": 960, "h": 720 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 960,
+              "h": 720
+            }
           },
           "description": "<strong>Marcelo Di Marco</strong>, poeta, ensayista y narrador con unos quince títulos publicados, es el autor del longseller <i>Taller de corte y corrección</i>. Como especialista en literatura y cine de horror sobrenatural, dictó talleres de narrativa fantástica en la facultad de Filosofía y Letras, fue el primer secretario de redacción de <i>La Cosa</i> y fundó el círculo de escritores <i>La Abadía de Carfax</i>. Entre sus obras más escalofriantes se destacan la novela <i>Victoria entre las sombras</i> (Sudamericana Joven, 2011) y el libro de cuentos <i>La mayor astucia del demonio</i> (Zona Borde, 2016). En 2011, integró el jurado para el Premio Municipal de Cuento, bienios 2007-2008 y 2009-2010."
         },
@@ -1863,7 +2358,12 @@
           "name": "Martín Araneda",
           "pic": {
             "url": "resources/bars2016/jury_martin_araneda.png",
-            "focus": { "x": 0, "y": 0, "w": 314, "h": 294 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 314,
+              "h": 294
+            }
           },
           "description": "<strong>Martín Araneda</strong> es productor del Festival Internacional de Cortos de Animación Cartón, realizado desde 2011 en Buenos Aires, integrante de la Red Federal de Festivales y Muestras Audiovisuales. Asimismo se desempeñó como productor del ciclo CineClub entre 2011 y 2012 en FM La Tribu. Se define como un animador frustrado o en proceso. Es operador y productor de radio desde 2007 y sonidista de Palta (@paltamusica) aunque, aclara, fue convocado por error. <strong>Martin Araneda</strong> es productor del Festival Internacional de Cortos de Animación Cartón, realizado desde 2011 en Buenos Aires, es integrante de la Red Federal de Festivales y Muestras Audiovisuales y fue productor del ciclo CineClub en 2011 y 2012 en FM La Tribu."
         },
@@ -1871,7 +2371,12 @@
           "name": "Mariano Castaño",
           "pic": {
             "url": "resources/bars2016/jury_mariano_castano.jpg",
-            "focus": { "x": 0, "y": 0, "w": 3543, "h": 2362 }
+            "focus": {
+              "x": 0,
+              "y": 0,
+              "w": 3543,
+              "h": 2362
+            }
           },
           "description": "<strong>Mariano Castaño</strong> nació en Buenos Aires en 1979 y se recibió de realizador cinematográfico en el Instituto de Arte Cinematográfico de Avellaneda (IDAC), donde hoy es docente de las materias Realización y Cámara y Fotografía. Dirigió los mediometrajes <i>Angelus</i> (2004) y <i>Ludmila</i> (2007) y los cortometrajes <i>En nuestro tiempo</i> (2005), <i>El último trabajo</i> (2010) e <i>In Misteryum</i> (2014). También se desempeñó como director de fotografía en los largometrajes <i>Clásico</i> y <i>Tierra 2</i>, este último de Fabio Vallarelli, en los cortometrajes <i>Víctimas</i> y <i>Cambios</i>, de Marcelo Gil, <i>Diarios</i> y <i>Maldita</i>, de Ignacio Suárez Rubio y <i>I Love</i>, de Néstor Fonte, y en el mediometraje <i>Yohreya</i>, entre muchos otros. Dirige la productora Del Triple 6 CINE y la revista especializada 24 cuadros."
         }
@@ -1906,24 +2411,44 @@
       },
       "terms": "<ul>  <li>  Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe:    <ul class=\"checkmark\">      <li>Completar el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>.</li>      <li>Enviar el enlace a un screener online (ver especificaciones en punto b)</li>      <li>        Enviar lo siguiente en forma electrónica a <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a>:        <ul class=\"checkmark\">          <li>La hoja de autorización, completa y escaneada.</li>          <li>Una foto de la película, resolución 300 DPI.</li>          <li>Sinopsis y ficha técnica.</li>          <li>Póster (sólo largometrajes).</li>          <li>Link del trailer (sólo largometrajes).</li>          <li>Subtítulos o guía de diálogos si la película no es hablada en español.</li>        </ul>      </li>      <li>La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li>    </ul>  </li>  <li>    Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (YouTube, Vimeo, etc). Se aceptan envíos a través de las siguientes plataformas:    <ul class=\"checkmark\">      <li><a href=\"http://filmfreeway.com/\" target=\"blank\">FilmFreeWay</a></li>      <li><a href=\"http://www.movibeta.com/\" target=\"blank\">Movibeta</a></li>      <li><a href=\"http://www.clickforfestivals.com/\" target=\"blank\">ClickForFestivals</a></li>      <li><a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a></li>    </ul>    siempre y cuando completen el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>.<br />    <strong>No serán tenidos en cuenta films que no hayan relleando dicho formulario.</strong>  </li>  <li>    Para hacer envíos por correo tradicional en formato físicos (DVD o Blu-Ray), solicitar por <a href=\"mailto:materialbars@gmail.com\">correo electrónico</a> una dirección postal para tal fin.  </li>  <li>    Los eventuales gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias.  </li>  <li>    <strong>La inscripción al festival no tiene ningún costo.</strong>  </li>  <li>    El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros <strong>fantástico</strong>, <strong>bizarro</strong>, <strong>ciencia–ficción</strong> y <strong>terror</strong>.  </li>  <li>    En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección.<br />    Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital.<br />    Los cortometrajes se proyectarán en HD 720p o 1080p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro):    <div class=\"shortfilm-format\">      Códec H.264<br />      Resolución: 720p (standard) o 1080p<br />      Canales de Audio: 2 (estéreo)<br />      Audio Sample Rate: 48kHz<br />      Audio Bit Depth: 16 ó 24 bits<br />    </div>  </li>  <li>    El festival estará dividido en diferentes secciones:    <ol>      <li>Sección competitiva de largometrajes de producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li>      <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li>      <li>Secciones internacional competitiva de cortometrajes para películas en cualquier formato, de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li>      <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li>    </ol>    <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p>  </li>  <li>    Se considera largometrajes a producciones de una duración superior a los 60 minutos.  </li>  <li>    Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de <strong>difusión en medios electrónicos</strong> o que no hayan tenido ninguna clase de exhibición pública en la Ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección.  </li>  <li>    La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios:    <ul class=\"checkmark\">      <li>Mejor Largometraje</li>      <li>Mejor Director Largometraje</li>      <li>Mejor Actor Largometraje</li>      <li>Mejor Actriz Largometraje</li>      <li>Mejor Guión Largometraje</li>      <li>Mejores Efectos Especiales Largometraje</li>      <li>Mejor Fotografía Largometraje</li>      <li>Mejor Cortometraje</li>      <li>Mejor Director Cortometraje</li>      <li>Mejor Largometraje Iberoamericano</li>      <li>Mejor Director Largometraje Iberoamericano</li>      <li>Mejor Actuación Largometraje Iberoamericano</li>      <li>Premio del Público Largometraje</li>    </ul>    <p>      Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br />    </p>    <p>      Premios especiales a cortometrajes argentinos:      <ul class=\"checkmark\">        <li>El mejor cortometraje argentino participará del festival <strong>La Noche Del Cortometraje</strong>, organizado por el INCAA.</li>        <li>Las óperas primas competirán por un premio especial de <a href=\"https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922?sk=likes\" target=\"_blank\">RAFMA</a></li>        <li><a href=\"http://www.rental-bsas.com.ar\" target=\"_blank\">Rental BSAS</a> entregará un Premio especial al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio.        Este premio especial consistirá en la entrega de un diploma y un voucher válido por 4 jornadas de alquiler de equipos de sonido e iluminación.</li>        <li><a href=\"http://www.piromaniafx.com.ar\" target=\"_blank\">Piromanía Fx</a> entregará un premio al corto argentino ganador de la Competencia Internacional de Cortometrajes, determinado por el jurado según su criterio.        Este premio consistirá en la entrega de un diploma y un voucher válido por una explosión de fuego de automóvil o el equivalente sobre edificación.</li>        <li>La <a href=\"http://www.edaeditores.org/\">EDA/Asociación Argentina de Editores Audiovisuales</a> entregará un premio al corto con mejor montaje (edición), perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en una placa trofeo y consultoría de edición a cargo de Guille Gatti (editor).</li>        <li>La casa de postproducción <a href=\"http://wancamp.com.ar/\">Wancamp POST</a> entregará un premio al que considere el mejor corto nacional, perteneciente a la Competencia Internacional de Cortometrajes. El premio consistirá en el pasaje a DCP de dicho cortometraje.</li>      </ul>    </p>  </li>  <li>    El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición.  </li>  <li>    El Festival se compromete a no efectuar más de tres (3) proyecciones del film.  </li>  <li>    Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue List o Subtitle List) en español o inglés para facilitar la traducción.  </li>  <li>    La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen.  </li></ul>"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericana",
-        "Mejor Director Largometraje Iberoamericana",
-        "Mejor Actuación Largometraje Iberoamericana"
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Argentina"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericana",
+          "Mejor Director Largometraje Iberoamericana",
+          "Mejor Actuación Largometraje Iberoamericana"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Argentina"
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {
@@ -1966,7 +2491,6 @@
           "description": "<strong>Martín Desalvo</strong> nació en Buenos Aires el 3 de febrero de 1973. Ex estudiante de Imagen y Sonido en la UBA, es director de cine y televisión, productor y docente. Trabajó como productor en Pol-Ka Producciones en las miniseries <i>Por el nombre de Dios</i>, <i>Primicias</i>, <i>Vulnerables</i>, <i>Ilusiones</i>, <i>099 central</i> y <i>Culpables</i>. En televisión, dirigió las producciones <i>Amas de casa desesperadas</i>, <i>Valientes</i>, <i>Para vestir santos</i> y los primeros capítulos de <i>El puntero</i>, entre otras. Dirigió las películas <i>Las mantenidas sin sueños</i> y <i>El día trajo la oscuridad</i>. Actualmente es vicepresidente de la asociación de directores de cine PCI."
         }
       ],
-
       "iberoamericanFeatureFilmCompetition": [
         {
           "name": "César Jones",
@@ -2008,7 +2532,6 @@
           "description": "<strong>Federico Ambrosis</strong>, nacido en La Plata en 1980, es uno de los directores del FESAALP —Festival Latinoamericano de cine de La Plata— y actualmente se desempeña como director de BAFILM — Área de cine de la Provincia de Buenos Aires—. Es el creador de <i>Opera Prima</i>, programa de cine que lleva 11 años en Radio Universidad La Plata, de <i>FESAALP TV</i>, programa de TV que se emite hace 4 años en canal Somos, y es miembro de RAFMA."
         }
       ],
-
       "internationalShortFilmCompetition": [
         {
           "name": "Andrés Valenzuela",
@@ -2079,24 +2602,44 @@
       },
       "terms": "<ul> <li> Para presentar películas a la consideración del Comité de Programación del Festival el postulante debe: <ul class=\"checkmark\"> <li>Completar el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>.</li> <li>Enviar una copia en DVD por correo, acompañado de la hoja de autorización impresa y cumplimentada o enviar un screener online acompañado de la hoja de autorización completa y escaneada.</li> <li>Enviar un CD (o adjuntar vía mail) con la siguiente información: foto de la película (300 DPI), dossier de prensa del film (sinopsis, ficha técnica, biofilmografía del director, etc.), un trailer en calidad DVD (para los  largometrajes) y guía de diálogos (si fuera necesario). Ese mismo material se puede enviar de manera electrónica.</li> <li>Opcionalmente se podrá enviar pósters impresos u otro material promocional. La fecha tope para la recepción del material es el <strong>%%DEADLINE%%</strong>.</li> </ul> </li> <li> Los screeners online podrán enviarse a través de cualquier plataforma de video con links privados o con contraseña (como youtube, vimeo, etc.). Se aceptan envíos a través de la plataformas <a href=\"http://www.movibeta.com/\" target=\"blank\">Movibeta</a>, <a href=\"http://www.clickforfestivals.com/\" target=\"blank\">ClickForFestivals</a> o <a href=\"http://www.festhome.com/\" target=\"blank\">Festhome</a> siempre y cuando completen el <a href=\"%%FORM%%\" target=\"blank\">formulario online</a>. Los envíos de material adicional deben hacerse al siguiente mail: <a href=\"mailto:materialbars@gmail.com\">materialbars@gmail.com</a><br /> </li> <li> Los envíos por correo tradicional deben hacerse a la siguiente dirección:<br /> <div class=\"mail-address\"> <strong>FESTIVAL BUENOS AIRES ROJO SANGRE</strong><br /> Casilla de Correo 19, Correo Argentino<br /> Sucursal 2- Martínez<br /> (CP 1640) Buenos Aires<br /> Argentina </div> <p>En los envíos internacionales, en el sobre debe figurar la leyenda \"sin valor comercial – solamente con propósito cultural\". Se recomienda declarar sólo el valor del material virgen (1 u$s por ejemplo), para evitar innecesarias tasas aduaneras. Esta dirección es sólo válida para correo común, si piensa enviar por Fedex, TNT u otro courier, solicítenos la dirección postal específica para tal fin. Se recomienda encarecidamente no hacer envíos por DHL por dificultades burocráticas generadas por esta empresa.</p> </li> <li> <strong>La inscripción al festival no tiene ningún costo.</strong> </li> <li> Los gastos de envío corren por cuenta de los participantes, como así también cualquier impuesto, tasa, gravamen, gastos de aduana, etc., que surja del envío. El Festival no pagará tasa alguna ocasionada por el envío de las copias. <li> El Comité de Programación tendrá en consideración largometrajes encuadrables dentro de los géneros fantástico, bizarro, ciencia–ficción y terror. </li> <li> En caso de que la película sea seleccionada para participar, la organización del festival se pondrá en contacto con los realizadores para analizar el formato en que se realizará la proyección.<br /> Los largometrajes se proyectarán en 35mm, DCP, DVD, Blu-Ray, Betacam o DVcam.<br /> Los cortometrajes se proyectarán en DVD o en HD 720p sólo con la siguiente exportación (enviar sin menú, sin barras de ajuste y con 3 segundos de negro): <div class=\"shortfilm-format\"> Códec H.264<br /> Resolución: 720p (standard)<br /> Canales de Audio: 2 (estéreo)<br /> Audio Sample Rate: 48kHz<br /> Audio Bit Depth: 16 ó 24 bits<br /> </div> </li> <li> El festival estará dividido en diferentes secciones: <ol> <li>Sección competitiva de largometrajes de producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción y en cualquier formato.</li> <li>Secciones internacional competitiva de cortometrajes para películas en cualquier formato, de cualquier país de origen, <strong>con una duración máxima de 25 minutos</strong>, con producción <strong>%%ELIGIBILE_FROM_DATE%%</strong>.</li> <li>Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas, formato o duración.</li> </ol> <p>El festival se reserva la posibilidad de organizar nuevas secciones no comprendidas en estas bases.</p> </li> <li> Se considera largometrajes a producciones de una duración superior a los 60 minutos. </li> <li> Solo podrán participar en las secciones competitivas las películas que no hayan tenido ningún tipo de difusión en medios electrónicos o que no hayan tenido ninguna clase de exhibición pública en la ciudad de Buenos Aires y alrededores dentro de los 90 días previos al inicio del festival. Para el resto de las secciones se privilegiará en la selección a los films que no hayan tenido ninguna clase de exhibición en la Ciudad de Buenos Aires y alrededores. Los filmes no podrán ser retirados del festival una vez que se haga conocer la selección. </li> <li> La Dirección del Festival nombrará los miembros de los jurados para cada sección. No podrán formar parte del Jurado aquellas personas que tengan intereses en la producción y/o explotación de las películas presentadas a competición. Se otorgarán los siguientes premios: <ul class=\"checkmark\"> <li>Mejor Largometraje</li> <li>Mejor Director Largometraje</li> <li>Mejor Actor Largometraje</li> <li>Mejor Actriz Largometraje</li> <li>Mejor Guión Largometraje</li> <li>Mejores Efectos Especiales Largometraje</li> <li>Mejor Fotografía Largometraje</li> <li>Premio del Público Largometraje</li> <li>Mejor Cortometraje</li> <li>Mejor Director Cortometraje</li> </ul> <p> Ninguna película podrá recibir más de dos premios. El Jurado podrá proponer menciones especiales y ninguna película podrá recibir más de dos menciones.<br /> El mejor cortometraje argentino participará del festival La Noche Del Cortometraje, organizado por el INCAA. </p> </li> <li> El Festival se reserva el derecho de seleccionar las obras participantes, determinar en que sección irá cada una y establecer el orden y la fecha de exhibición. </li> <li> Las películas cuya lengua no sea el castellano deberán presentarse subtituladas (al español) o, en su defecto, deberán adjuntar una guía de diálogos (Dialogue list o subtitle list) en español o inglés para facilitar la traducción. </li> <li> El Festival se compromete a no efectuar más de tres (3) proyecciones del film. </li> <li> La participación en el Festival implica la aceptación del presente Reglamento. Cualquier cuestión que surja a lo largo del Festival, no contemplada en el presente Reglamento, será decidida por la organización del certamen. </li> </ul>"
     },
-    "awards": {
-      "jury": [
-        "Mejor Largometraje",
-        "Mejor Director Largometraje",
-        "Mejor Actriz Largometraje",
-        "Mejor Actor Largometraje",
-        "Mejor Guion Largometraje",
-        "Mejor Fotografía Largometraje",
-        "Mejores Efectos Especiales Largometraje",
-        "Mejor Cortometraje Internacional",
-        "Mejor Director Cortometraje",
-        "Mejor Cortometraje Nacional",
-        "Mejor Largometraje Iberoamericana",
-        "Mejor Director Largometraje Iberoamericana",
-        "Mejor Actuación Largometraje Iberoamericana"
-      ],
-      "audience": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
-    },
+    "awards": [
+      {
+        "heading": "Premios del Jurado - Largometrajes",
+        "items": [
+          "Mejor Largometraje",
+          "Mejor Director Largometraje",
+          "Mejor Actriz Largometraje",
+          "Mejor Actor Largometraje",
+          "Mejor Guion Largometraje",
+          "Mejor Fotografía Largometraje",
+          "Mejores Efectos Especiales Largometraje"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Iberoamericano",
+        "items": [
+          "Mejor Largometraje Iberoamericana",
+          "Mejor Director Largometraje Iberoamericana",
+          "Mejor Actuación Largometraje Iberoamericana"
+        ]
+      },
+      {
+        "heading": "Premios del Jurado - Cortometrajes",
+        "items": [
+          "Mejor Cortometraje Internacional",
+          "Mejor Director Cortometraje",
+          "Mejor Cortometraje Nacional"
+        ]
+      },
+      {
+        "heading": "Premios del Público",
+        "items": [
+          "Largometraje",
+          "Cortometraje",
+          "Largometraje Competencia Bizarra"
+        ]
+      }
+    ],
     "juries": {
       "internationalFeatureFilmCompetition": [
         {

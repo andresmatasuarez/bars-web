@@ -294,6 +294,18 @@ class Editions {
     return $indexed;
   }
 
+  public static function getAwards($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (isset($edition['awards']) && !empty($edition['awards'])) {
+      return $edition['awards'];
+    }
+
+    return NULL;
+  }
+
   public static function getJuries($edition = NULL) {
     if (is_null($edition)){
       $edition = self::current();
