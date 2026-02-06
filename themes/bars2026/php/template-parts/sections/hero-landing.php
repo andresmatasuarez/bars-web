@@ -14,9 +14,9 @@ $venues = Editions::venues($edition);
 <section class="relative min-h-[600px] lg:h-[800px] overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-black">
-        <img src="<?php echo get_template_directory_uri(); ?>/resources/hero_bg.jpg"
+        <img src="<?php echo get_template_directory_uri(); ?>/resources/sala-halftone.png"
              alt=""
-             class="w-full h-full object-cover opacity-30">
+             class="w-full h-full object-cover grayscale-[0.65]">
         <div class="absolute inset-0 bg-gradient-to-b from-[#150808]/50 via-transparent to-[#150808]/50"></div>
     </div>
 

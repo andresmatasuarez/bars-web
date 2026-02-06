@@ -17791,43 +17791,7 @@
           "id": "ka3yw",
           "name": "Page Hero",
           "width": "fill_container",
-          "fill": [
-            "#0A0A0A",
-            {
-              "type": "image",
-              "opacity": 0.3,
-              "enabled": true,
-              "url": "./DSC01280.jpg",
-              "mode": "fill"
-            },
-            {
-              "type": "gradient",
-              "gradientType": "linear",
-              "enabled": true,
-              "rotation": 180,
-              "size": {
-                "height": 1
-              },
-              "colors": [
-                {
-                  "color": "#00000000",
-                  "position": 0
-                },
-                {
-                  "color": "#00000000",
-                  "position": 0.3
-                },
-                {
-                  "color": "#0A0A0A",
-                  "position": 0.85
-                },
-                {
-                  "color": "#0A0A0A",
-                  "position": 1
-                }
-              ]
-            }
-          ],
+          "fill": "#0F0F0F",
           "layout": "vertical",
           "gap": 16,
           "padding": [

@@ -3,7 +3,7 @@
  * Page Hero Section
  *
  * Shared heading section used by all inner pages (not the landing).
- * Ensures consistent height across Convocatoria, Prensa, and future pages.
+ * Dark background with photo overlay and gradient fade.
  *
  * @param array $args {
  *     @type string $title    Page title (required)
@@ -16,15 +16,26 @@ $title = isset($args['title']) ? $args['title'] : '';
 $subtitle = isset($args['subtitle']) ? $args['subtitle'] : '';
 ?>
 
-<section class="bg-bars-bg-medium py-10 lg:py-16">
-    <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
-        <h1 class="font-display text-[40px] lg:text-[64px] tracking-[2px] text-bars-text-primary">
-            <?php echo esc_html($title); ?>
-        </h1>
-        <?php if ($subtitle): ?>
-        <p class="text-[13px] lg:text-base text-bars-text-muted mt-3 lg:mt-4">
-            <?php echo esc_html($subtitle); ?>
-        </p>
-        <?php endif; ?>
+<section class="relative bg-bars-bg-dark overflow-hidden">
+    <!-- Background Image + Gradient -->
+    <div class="absolute inset-0">
+        <img src="<?php echo get_template_directory_uri(); ?>/resources/sala2-halftone.png"
+             alt=""
+             class="w-full h-full object-cover opacity-90">
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 0%, var(--color-bars-bg-dark) 95%)"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 pt-8 pb-4">
+        <div class="max-w-[1000px] mx-auto px-5 lg:px-0 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+            <h1 class="font-display text-[40px] tracking-[2px] leading-[0.95] text-bars-text-primary">
+                <?php echo esc_html($title); ?>
+            </h1>
+            <?php if ($subtitle): ?>
+            <p class="text-sm text-bars-text-muted lg:self-end">
+                <?php echo esc_html($subtitle); ?>
+            </p>
+            <?php endif; ?>
+        </div>
     </div>
 </section>
