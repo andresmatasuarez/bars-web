@@ -36,7 +36,7 @@ $venues = Editions::venues($edition);
 
                 <!-- Title -->
                 <h1 class="font-display text-[48px] lg:text-[120px] leading-[0.9] tracking-wider text-bars-text-primary mb-4 lg:mb-6">
-                    BUENOS AIRES<br>ROJO SANGRE
+                    BUENOS AIRES<br><span class="hero-title-highlight text-bars-primary">ROJO SANGRE</span>
                 </h1>
 
                 <!-- Subtitle -->

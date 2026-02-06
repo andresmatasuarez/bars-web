@@ -171,6 +171,11 @@
   }
 }
 
+/* Hero "ROJO SANGRE" red highlight glow */
+.hero-title-highlight {
+  text-shadow: 0 0 40px rgba(139, 0, 0, 0.6), 0 2px 8px rgba(139, 0, 0, 0.3);
+}
+
 /* Footer brand name - smaller on very small screens to prevent wrapping */
 @media (max-width: 374px) {
   .footer-brand-name {

@@ -62,10 +62,11 @@ $nav_items = [
                 </li>
                 <?php endforeach; ?>
             </ul>
-            <a href="<?php echo home_url('/entradas'); ?>"
+            <!-- TODO: unhide when ticket sales open -->
+            <!-- <a href="<?php echo home_url('/entradas'); ?>"
                class="inline-flex items-center justify-center px-6 py-3 bg-bars-primary text-white text-[13px] font-semibold tracking-wider uppercase rounded-bars-sm hover:bg-[#A00000] transition-colors">
                 Entradas
-            </a>
+            </a> -->
         </nav>
 
         <!-- Mobile Menu Toggle -->
@@ -112,11 +113,11 @@ $nav_items = [
             <?php endforeach; ?>
         </div>
 
-        <!-- CTA Button -->
-        <a href="<?php echo home_url('/entradas'); ?>"
+        <!-- TODO: unhide when ticket sales open -->
+        <!-- <a href="<?php echo home_url('/entradas'); ?>"
            class="btn-primary w-full text-center">
             Entradas
-        </a>
+        </a> -->
 
         <!-- Social Links -->
         <div class="flex-1 flex items-end">
