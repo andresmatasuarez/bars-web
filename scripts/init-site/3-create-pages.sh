@@ -21,6 +21,7 @@ pages["call"]="title:Convocatoria,slug:convocatoria,template:page-call.php,order
 pages["sponsors"]="title:Auspiciantes,slug:auspiciantes,template:sponsors.php,order:7"
 pages["press"]="title:Prensa,slug:prensa,template:page-press.php,order:8"
 pages["contact"]="title:Contacto,slug:contacto,template:contact.php,order:9"
+pages["about"]="title:El festival,slug:festival,template:page-about.php,order:10"
 
 # --- bars2013 ----------------------
 # pages["news"]="title:Novedades,slug:novedades,template:news.php,order:1"

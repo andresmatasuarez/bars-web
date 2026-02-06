@@ -79,15 +79,34 @@
                       "alignItems": "center",
                       "children": [
                         {
-                          "type": "text",
-                          "id": "SUkZu",
-                          "name": "navItem1",
-                          "fill": "#FFFFFF",
-                          "content": "NOTICIAS",
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": "500",
-                          "letterSpacing": 1
+                          "type": "frame",
+                          "id": "Fgk0Z",
+                          "name": "activeNavItem",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "SUkZu",
+                              "name": "navItem1",
+                              "fill": "#FFFFFF",
+                              "content": "NOTICIAS",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "600",
+                              "letterSpacing": 1
+                            },
+                            {
+                              "type": "frame",
+                              "id": "LFmu7",
+                              "name": "activeUnderline",
+                              "width": "fill_container",
+                              "height": 2,
+                              "fill": "#8B0000",
+                              "cornerRadius": 1
+                            }
+                          ]
                         },
                         {
                           "type": "text",
@@ -2593,11 +2612,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -2605,8 +2625,9 @@
               "id": "ggoF4",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -2614,8 +2635,10 @@
                   "name": "pageTitle",
                   "fill": "#FFFFFF",
                   "content": "Programación",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -2625,8 +2648,9 @@
                   "name": "pageSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -9570,11 +9594,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -9582,8 +9607,9 @@
               "id": "E5YyC",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -9591,8 +9617,10 @@
                   "name": "pageTitle",
                   "fill": "#FFFFFF",
                   "content": "Programación",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -9602,8 +9630,9 @@
                   "name": "pageSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -14681,11 +14710,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -14693,8 +14723,9 @@
               "id": "7wEaq",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -14702,8 +14733,10 @@
                   "name": "pageTitle",
                   "fill": "#FFFFFF",
                   "content": "Premios y Jurados",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -14713,8 +14746,9 @@
                   "name": "pageSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -17761,11 +17795,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -17773,8 +17808,9 @@
               "id": "ud0En",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -17782,8 +17818,10 @@
                   "name": "heroTitle",
                   "fill": "#FFFFFF",
                   "content": "Prensa",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -17793,8 +17831,9 @@
                   "name": "heroSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -17896,30 +17935,109 @@
                           "gap": 16,
                           "children": [
                             {
-                              "type": "text",
-                              "id": "gzc5V",
-                              "name": "deadline1",
-                              "fill": "#FFFFFF99",
-                              "textGrowth": "fixed-width",
+                              "type": "frame",
+                              "id": "EdYxN",
+                              "name": "deadline1Frame",
                               "width": "fill_container",
-                              "content": "• Cierre de acreditaciones: Domingo 9 de noviembre",
-                              "lineHeight": 1.6,
-                              "fontFamily": "Inter",
-                              "fontSize": 14,
-                              "fontWeight": "normal"
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "QhOFr",
+                                  "name": "label1",
+                                  "fill": "#FFFFFF99",
+                                  "content": "• Cierre de acreditaciones: ",
+                                  "lineHeight": 1.6,
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "5zB7U",
+                                  "name": "value1",
+                                  "fill": "#FFFFFF",
+                                  "content": "Domingo 9 de noviembre",
+                                  "lineHeight": 1.6,
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                }
+                              ]
                             },
                             {
-                              "type": "text",
-                              "id": "cFLO9",
-                              "name": "deadline2",
-                              "fill": "#FFFFFF99",
-                              "textGrowth": "fixed-width",
+                              "type": "frame",
+                              "id": "xvoBP",
+                              "name": "deadline2Frame",
                               "width": "fill_container",
-                              "content": "• Retiro de credenciales: 20-27 de noviembre, de 16 a 22hs, en los stands del festival en Multiplex Belgrano (Vuelta de Obligado 2199)",
-                              "lineHeight": 1.6,
-                              "fontFamily": "Inter",
-                              "fontSize": 14,
-                              "fontWeight": "normal"
+                              "layout": "vertical",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "7dHvQ",
+                                  "name": "row1",
+                                  "width": "fill_container",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "xdKaW",
+                                      "name": "label2",
+                                      "fill": "#FFFFFF99",
+                                      "content": "• Retiro de credenciales: ",
+                                      "lineHeight": 1.6,
+                                      "fontFamily": "Inter",
+                                      "fontSize": 14,
+                                      "fontWeight": "normal"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "GWBDn",
+                                      "name": "dates2",
+                                      "fill": "#FFFFFF",
+                                      "content": "20-27 de noviembre, de 16 a 22hs",
+                                      "lineHeight": 1.6,
+                                      "fontFamily": "Inter",
+                                      "fontSize": 14,
+                                      "fontWeight": "600"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "9Al6O",
+                                      "name": "comma",
+                                      "fill": "#FFFFFF99",
+                                      "content": ", en los stands del festival en ",
+                                      "lineHeight": 1.6,
+                                      "fontFamily": "Inter",
+                                      "fontSize": 14,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "aOt99",
+                                  "name": "row2",
+                                  "width": "fill_container",
+                                  "padding": [
+                                    0,
+                                    0,
+                                    0,
+                                    12
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "LCjUI",
+                                      "name": "venue2",
+                                      "fill": "#FFFFFF",
+                                      "content": "Multiplex Belgrano (Vuelta de Obligado 2199)",
+                                      "lineHeight": 1.6,
+                                      "fontFamily": "Inter",
+                                      "fontSize": 14,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         }
@@ -19639,11 +19757,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -19651,8 +19770,9 @@
               "id": "o0346",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -19660,8 +19780,10 @@
                   "name": "heroTitle",
                   "fill": "#FFFFFF",
                   "content": "Convocatoria",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -19671,8 +19793,9 @@
                   "name": "heroSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -22209,11 +22332,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -22221,8 +22345,9 @@
               "id": "cTfJV",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -22230,8 +22355,10 @@
                   "name": "heroTitle",
                   "fill": "#FFFFFF",
                   "content": "Noticias",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -22241,8 +22368,9 @@
                   "name": "heroSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Últimas novedades del festival",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -26384,32 +26512,48 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
-            220,
-            40,
-            220
+            32,
+            0,
+            16,
+            0
           ],
+          "justifyContent": "end",
+          "alignItems": "center",
           "children": [
             {
-              "type": "text",
-              "id": "NPxZs",
-              "name": "heroTitle",
-              "fill": "#FFFFFF",
-              "content": "Sobre el Festival",
-              "fontFamily": "Bebas Neue",
-              "fontSize": 64,
-              "fontWeight": "normal",
-              "letterSpacing": 2
-            },
-            {
-              "type": "text",
-              "id": "inN35",
-              "name": "heroSubtitle",
-              "fill": "#FFFFFF99",
-              "content": "Más de dos décadas de cine fantástico en Argentina",
-              "fontFamily": "Inter",
-              "fontSize": 18,
-              "fontWeight": "normal"
+              "type": "frame",
+              "id": "NtUEf",
+              "name": "pageInner",
+              "width": 1000,
+              "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "NPxZs",
+                  "name": "heroTitle",
+                  "fill": "#FFFFFF",
+                  "content": "Sobre el Festival",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Bebas Neue",
+                  "fontSize": 40,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "inN35",
+                  "name": "heroSubtitle",
+                  "fill": "#FFFFFF99",
+                  "content": "Más de dos décadas de cine fantástico en Argentina",
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
             }
           ]
         },
@@ -28170,32 +28314,48 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
-            220,
-            40,
-            220
+            32,
+            0,
+            16,
+            0
           ],
+          "justifyContent": "end",
+          "alignItems": "center",
           "children": [
             {
-              "type": "text",
-              "id": "HBRdX",
-              "name": "heroTitle",
-              "fill": "#FFFFFF",
-              "content": "Sobre el Festival",
-              "fontFamily": "Bebas Neue",
-              "fontSize": 64,
-              "fontWeight": "normal",
-              "letterSpacing": 2
-            },
-            {
-              "type": "text",
-              "id": "O2nLP",
-              "name": "heroSubtitle",
-              "fill": "#FFFFFF99",
-              "content": "Más de dos décadas de cine fantástico en Argentina",
-              "fontFamily": "Inter",
-              "fontSize": 18,
-              "fontWeight": "normal"
+              "type": "frame",
+              "id": "B6Vuc",
+              "name": "pageInner",
+              "width": 1000,
+              "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HBRdX",
+                  "name": "heroTitle",
+                  "fill": "#FFFFFF",
+                  "content": "Sobre el Festival",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Bebas Neue",
+                  "fontSize": 40,
+                  "fontWeight": "normal",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "O2nLP",
+                  "name": "heroSubtitle",
+                  "fill": "#FFFFFF99",
+                  "content": "Más de dos décadas de cine fantástico en Argentina",
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
             }
           ]
         },
@@ -41183,30 +41343,109 @@
                   "fontWeight": "600"
                 },
                 {
-                  "type": "text",
-                  "id": "TvFK1",
-                  "name": "deadline1",
-                  "fill": "#FFFFFF99",
-                  "textGrowth": "fixed-width",
+                  "type": "frame",
+                  "id": "saxww",
+                  "name": "mDeadline1Frame",
                   "width": "fill_container",
-                  "content": "• Cierre de acreditaciones: Domingo 9 de noviembre",
-                  "lineHeight": 1.6,
-                  "fontFamily": "Inter",
-                  "fontSize": 12,
-                  "fontWeight": "normal"
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3eAzW",
+                      "name": "mLabel1",
+                      "fill": "#FFFFFF99",
+                      "content": "• Cierre de acreditaciones: ",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "c5bhb",
+                      "name": "mValue1",
+                      "fill": "#FFFFFF",
+                      "content": "Domingo 9 de noviembre",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
                 },
                 {
-                  "type": "text",
-                  "id": "EElmB",
-                  "name": "deadline2",
-                  "fill": "#FFFFFF99",
-                  "textGrowth": "fixed-width",
+                  "type": "frame",
+                  "id": "eZL6t",
+                  "name": "mDeadline2Frame",
                   "width": "fill_container",
-                  "content": "• Retiro de credenciales: 20-27 de noviembre, de 16 a 22hs, en los stands del festival en Multiplex Belgrano (Vuelta de Obligado 2199)",
-                  "lineHeight": 1.6,
-                  "fontFamily": "Inter",
-                  "fontSize": 12,
-                  "fontWeight": "normal"
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "NLPBE",
+                      "name": "mRow1",
+                      "width": "fill_container",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Knm86",
+                          "name": "mLabel2",
+                          "fill": "#FFFFFF99",
+                          "content": "• Retiro de credenciales: ",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "2TPiR",
+                          "name": "mDates2",
+                          "fill": "#FFFFFF",
+                          "content": "20-27 de noviembre, de 16 a 22hs",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "c0ozd",
+                          "name": "mComma",
+                          "fill": "#FFFFFF99",
+                          "content": ", en los stands del festival en ",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TSklK",
+                      "name": "mRow2",
+                      "width": "fill_container",
+                      "padding": [
+                        0,
+                        0,
+                        0,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FR7io",
+                          "name": "mVenue2",
+                          "fill": "#FFFFFF",
+                          "content": "Multiplex Belgrano (Vuelta de Obligado 2199)",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -49598,14 +49837,15 @@
           "name": "Page Hero",
           "width": 1440,
           "fill": "#0F0F0F",
-          "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             220,
-            40,
+            16,
             220
           ],
+          "justifyContent": "end",
+          "alignItems": "end",
           "children": [
             {
               "type": "text",
@@ -49613,8 +49853,10 @@
               "name": "pageTitle",
               "fill": "#FFFFFF",
               "content": "Programación",
+              "lineHeight": 0.85,
+              "textAlignVertical": "bottom",
               "fontFamily": "Bebas Neue",
-              "fontSize": 64,
+              "fontSize": 40,
               "fontWeight": "normal",
               "letterSpacing": 2
             },
@@ -49624,8 +49866,9 @@
               "name": "pageSubtitle",
               "fill": "#FFFFFF99",
               "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+              "textAlignVertical": "bottom",
               "fontFamily": "Inter",
-              "fontSize": 16,
+              "fontSize": 14,
               "fontWeight": "normal"
             }
           ]
@@ -56680,16 +56923,35 @@
               "alignItems": "center",
               "children": [
                 {
-                  "type": "text",
-                  "id": "eGwwh",
+                  "type": "frame",
+                  "id": "NvMqr",
                   "name": "NavItem/Active",
                   "reusable": true,
-                  "fill": "$bars-text-primary",
-                  "content": "NOTICIAS",
-                  "fontFamily": "Inter",
-                  "fontSize": 13,
-                  "fontWeight": "500",
-                  "letterSpacing": 1
+                  "layout": "vertical",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3ifpB",
+                      "name": "activeText",
+                      "fill": "#FFFFFF",
+                      "content": "NOTICIAS",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GWlEX",
+                      "name": "activeIndicator",
+                      "width": "fill_container",
+                      "height": 2,
+                      "fill": "#8B0000",
+                      "cornerRadius": 1
+                    }
+                  ]
                 },
                 {
                   "type": "text",
@@ -56702,6 +56964,74 @@
                   "fontSize": 13,
                   "fontWeight": "500",
                   "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KUF1S",
+              "name": "mobileNavItemRow",
+              "gap": 40,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "2syRR",
+                  "name": "mobileLabel",
+                  "fill": "#FFFFFF66",
+                  "content": "Mobile:",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "KZZDZ",
+                  "name": "MobileNavItem/Active",
+                  "reusable": true,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AZBEy",
+                      "name": "mobileActiveIndicator",
+                      "width": 4,
+                      "height": 32,
+                      "fill": "#8B0000",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "yPwCX",
+                      "name": "mobileActiveText",
+                      "fill": "#FFFFFF",
+                      "content": "Noticias",
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 32,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "8AcRI",
+                  "name": "MobileNavItem/Inactive",
+                  "reusable": true,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "iBvr2",
+                      "name": "mobileInactiveText",
+                      "fill": "#FFFFFF66",
+                      "content": "Programación",
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 32,
+                      "fontWeight": "500"
+                    }
+                  ]
                 }
               ]
             }
@@ -57087,20 +57417,38 @@
               "gap": 24,
               "children": [
                 {
-                  "type": "text",
-                  "id": "hATyU",
-                  "name": "navItem",
-                  "fill": "#FFFFFF",
-                  "content": "Noticias",
-                  "fontFamily": "Cormorant Garamond",
-                  "fontSize": 32,
-                  "fontWeight": "500"
+                  "type": "frame",
+                  "id": "tQh6f",
+                  "name": "activeNavItem",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "J0EFd",
+                      "name": "activeBar",
+                      "width": 4,
+                      "height": 32,
+                      "fill": "#8B0000",
+                      "cornerRadius": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "hATyU",
+                      "name": "navItem",
+                      "fill": "#FFFFFF",
+                      "content": "Noticias",
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 32,
+                      "fontWeight": "500"
+                    }
+                  ]
                 },
                 {
                   "type": "text",
                   "id": "uk92M",
                   "name": "navItem",
-                  "fill": "#FFFFFF",
+                  "fill": "#FFFFFF66",
                   "content": "Programación",
                   "fontFamily": "Cormorant Garamond",
                   "fontSize": 32,
@@ -57110,7 +57458,7 @@
                   "type": "text",
                   "id": "wVWG5",
                   "name": "navItem",
-                  "fill": "#FFFFFF",
+                  "fill": "#FFFFFF66",
                   "content": "Premios y Jurados",
                   "fontFamily": "Cormorant Garamond",
                   "fontSize": 32,
@@ -57120,7 +57468,7 @@
                   "type": "text",
                   "id": "aSr9A",
                   "name": "navItem",
-                  "fill": "#FFFFFF",
+                  "fill": "#FFFFFF66",
                   "content": "Convocatoria",
                   "fontFamily": "Cormorant Garamond",
                   "fontSize": 32,
@@ -57130,7 +57478,7 @@
                   "type": "text",
                   "id": "49e9h",
                   "name": "navItem",
-                  "fill": "#FFFFFF",
+                  "fill": "#FFFFFF66",
                   "content": "Prensa",
                   "fontFamily": "Cormorant Garamond",
                   "fontSize": 32,
@@ -57140,7 +57488,7 @@
                   "type": "text",
                   "id": "XjXaz",
                   "name": "secNavItem",
-                  "fill": "#FFFFFF",
+                  "fill": "#FFFFFF66",
                   "content": "Sobre el Festival",
                   "fontFamily": "Cormorant Garamond",
                   "fontSize": 32,
@@ -59886,11 +60234,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -59898,8 +60247,9 @@
               "id": "6Pn1z",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -59907,8 +60257,10 @@
                   "name": "pageTitle",
                   "fill": "#FFFFFF",
                   "content": "Programación",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -59918,8 +60270,9 @@
                   "name": "pageSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -62237,11 +62590,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -62249,8 +62603,9 @@
               "id": "v2DTf",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -62258,8 +62613,10 @@
                   "name": "pageTitle",
                   "fill": "#FFFFFF",
                   "content": "Programación",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -62269,8 +62626,9 @@
                   "name": "pageSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]
@@ -68140,11 +68498,12 @@
           "layout": "vertical",
           "gap": 16,
           "padding": [
-            60,
+            32,
             0,
-            40,
+            16,
             0
           ],
+          "justifyContent": "end",
           "alignItems": "center",
           "children": [
             {
@@ -68152,8 +68511,9 @@
               "id": "GaIPc",
               "name": "pageInner",
               "width": 1000,
-              "layout": "vertical",
               "gap": 16,
+              "justifyContent": "space_between",
+              "alignItems": "end",
               "children": [
                 {
                   "type": "text",
@@ -68161,8 +68521,10 @@
                   "name": "pageTitle",
                   "fill": "#FFFFFF",
                   "content": "Programación",
+                  "lineHeight": 0.85,
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Bebas Neue",
-                  "fontSize": 64,
+                  "fontSize": 40,
                   "fontWeight": "normal",
                   "letterSpacing": 2
                 },
@@ -68172,8 +68534,9 @@
                   "name": "pageSubtitle",
                   "fill": "#FFFFFF99",
                   "content": "Edición XXVI • 20 - 30 Noviembre 2025",
+                  "textAlignVertical": "bottom",
                   "fontFamily": "Inter",
-                  "fontSize": 16,
+                  "fontSize": 14,
                   "fontWeight": "normal"
                 }
               ]

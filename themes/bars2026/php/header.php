@@ -5,6 +5,15 @@
  */
 
 $edition_title = Editions::getTitle();
+
+$nav_items = [
+    ['slug' => 'noticias',     'label' => 'Noticias',          'mobile_label' => 'Noticias'],
+    ['slug' => 'festival',     'label' => 'Festival',           'mobile_label' => 'Festival'],
+    ['slug' => 'programacion', 'label' => 'Programación',      'mobile_label' => 'Programación'],
+    ['slug' => 'premios',      'label' => 'Premios',            'mobile_label' => 'Premios'],
+    ['slug' => 'convocatoria', 'label' => 'Convocatoria',      'mobile_label' => 'Convocatoria'],
+    ['slug' => 'prensa',       'label' => 'Prensa',            'mobile_label' => 'Prensa'],
+];
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -34,36 +43,24 @@ $edition_title = Editions::getTitle();
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center gap-10">
             <ul class="flex items-center gap-10">
+                <?php foreach ($nav_items as $item):
+                    if ($item['label'] === null) continue;
+                    $is_active = is_page($item['slug']);
+                ?>
                 <li>
-                    <a href="<?php echo home_url('/noticias'); ?>"
-                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-primary hover:text-white transition-colors">
-                        Noticias
+                    <?php if ($is_active): ?>
+                    <a href="<?php echo home_url('/' . $item['slug']); ?>"
+                       class="text-[13px] font-semibold tracking-wider uppercase text-white border-b-2 border-bars-primary pb-1 transition-colors">
+                        <?php echo esc_html($item['label']); ?>
                     </a>
-                </li>
-                <li>
-                    <a href="<?php echo home_url('/programacion'); ?>"
-                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
-                        Programación
+                    <?php else: ?>
+                    <a href="<?php echo home_url('/' . $item['slug']); ?>"
+                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-muted hover:text-white transition-colors">
+                        <?php echo esc_html($item['label']); ?>
                     </a>
+                    <?php endif; ?>
                 </li>
-                <li>
-                    <a href="<?php echo home_url('/premios'); ?>"
-                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
-                        Premios y Jurados
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo home_url('/convocatoria'); ?>"
-                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
-                        Convocatoria
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo home_url('/prensa'); ?>"
-                       class="text-[13px] font-medium tracking-wider uppercase text-bars-text-secondary hover:text-white transition-colors">
-                        Prensa
-                    </a>
-                </li>
+                <?php endforeach; ?>
             </ul>
             <a href="<?php echo home_url('/entradas'); ?>"
                class="inline-flex items-center justify-center px-6 py-3 bg-bars-primary text-white text-[13px] font-semibold tracking-wider uppercase rounded-bars-sm hover:bg-[#A00000] transition-colors">
@@ -97,30 +94,22 @@ $edition_title = Editions::getTitle();
     <div class="flex flex-col min-h-full px-5 py-8 gap-8">
         <!-- Main Navigation -->
         <div class="flex flex-col gap-6">
-            <a href="<?php echo home_url('/noticias'); ?>"
-               class="font-heading text-[32px] font-medium text-white">
-                Noticias
+            <?php foreach ($nav_items as $item):
+                $is_active = is_page($item['slug']);
+            ?>
+            <?php if ($is_active): ?>
+            <a href="<?php echo home_url('/' . $item['slug']); ?>"
+               class="flex items-center gap-3 font-heading text-[32px] font-medium text-white">
+                <span class="block w-1 h-8 bg-bars-primary rounded-sm"></span>
+                <?php echo esc_html($item['mobile_label']); ?>
             </a>
-            <a href="<?php echo home_url('/programacion'); ?>"
-               class="font-heading text-[32px] font-medium text-white">
-                Programación
+            <?php else: ?>
+            <a href="<?php echo home_url('/' . $item['slug']); ?>"
+               class="font-heading text-[32px] font-medium text-white/40">
+                <?php echo esc_html($item['mobile_label']); ?>
             </a>
-            <a href="<?php echo home_url('/premios'); ?>"
-               class="font-heading text-[32px] font-medium text-white">
-                Premios y Jurados
-            </a>
-            <a href="<?php echo home_url('/convocatoria'); ?>"
-               class="font-heading text-[32px] font-medium text-white">
-                Convocatoria
-            </a>
-            <a href="<?php echo home_url('/prensa'); ?>"
-               class="font-heading text-[32px] font-medium text-white">
-                Prensa
-            </a>
-            <a href="<?php echo home_url('/sobre-el-festival'); ?>"
-               class="font-heading text-[32px] font-medium text-white">
-                Sobre el Festival
-            </a>
+            <?php endif; ?>
+            <?php endforeach; ?>
         </div>
 
         <!-- CTA Button -->
