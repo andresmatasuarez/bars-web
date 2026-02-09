@@ -57600,6 +57600,354 @@
               ]
             }
           ]
+        },
+        {
+          "type": "frame",
+          "id": "x4JZa",
+          "name": "Scrollbars Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "children": [
+            {
+              "type": "text",
+              "id": "K4JFA",
+              "name": "sectionTitle",
+              "fill": "$bars-text-primary",
+              "content": "Scrollbars",
+              "fontFamily": "Bebas Neue",
+              "fontSize": 32,
+              "fontWeight": "normal",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "Kydou",
+              "name": "sectionDesc",
+              "fill": "$bars-text-muted",
+              "content": "Custom scrollbar styles for dark theme. Thin, subtle tracks with rounded thumbs.",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "FoMg7",
+              "name": "scrollbarRow",
+              "gap": 48,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "GtDti",
+                  "name": "Vertical Default",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fnyZR",
+                      "name": "scrollContainer",
+                      "width": 200,
+                      "height": 260,
+                      "fill": "$bars-bg-dark",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$bars-border-subtle"
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "oUr8c",
+                          "x": 186,
+                          "y": 20,
+                          "name": "scrollTrack",
+                          "fill": "#FFFFFF08",
+                          "width": 6,
+                          "height": 220
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "HoN3a",
+                          "x": 186,
+                          "y": 20,
+                          "name": "scrollThumb/Default",
+                          "reusable": true,
+                          "fill": "#FFFFFF22",
+                          "width": 6,
+                          "height": 60
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "IYLkg",
+                      "name": "label",
+                      "fill": "$bars-text-subtle",
+                      "content": "Default",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ez63P",
+                  "name": "Vertical Hover",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "qKCuL",
+                      "name": "scrollContainer",
+                      "width": 200,
+                      "height": 260,
+                      "fill": "$bars-bg-dark",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$bars-border-subtle"
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "L8hvZ",
+                          "x": 184,
+                          "y": 20,
+                          "name": "scrollTrack",
+                          "fill": "#FFFFFF10",
+                          "width": 8,
+                          "height": 220
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "gQFlX",
+                          "x": 184,
+                          "y": 70,
+                          "name": "scrollThumb/Hover",
+                          "reusable": true,
+                          "fill": "#FFFFFF44",
+                          "width": 8,
+                          "height": 60
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "GqH7i",
+                      "name": "label",
+                      "fill": "$bars-text-subtle",
+                      "content": "Hover",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nZNS3",
+                  "name": "Vertical Active",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "wJppa",
+                      "name": "scrollContainer",
+                      "width": 200,
+                      "height": 260,
+                      "fill": "$bars-bg-dark",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$bars-border-subtle"
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "KZtPn",
+                          "x": 184,
+                          "y": 20,
+                          "name": "scrollTrack",
+                          "fill": "#FFFFFF10",
+                          "width": 8,
+                          "height": 220
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "1YLjk",
+                          "x": 184,
+                          "y": 140,
+                          "name": "scrollThumb/Active",
+                          "reusable": true,
+                          "fill": "#FFFFFF66",
+                          "width": 8,
+                          "height": 60
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "PkN7t",
+                      "name": "label",
+                      "fill": "$bars-text-subtle",
+                      "content": "Active / Dragging",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LOxOk",
+                  "name": "Horizontal",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ehr14",
+                      "name": "scrollContainer",
+                      "width": 260,
+                      "height": 120,
+                      "fill": "$bars-bg-dark",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": "$bars-border-subtle"
+                      },
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "E4z2L",
+                          "x": 20,
+                          "y": 106,
+                          "name": "scrollTrackH",
+                          "fill": "#FFFFFF08",
+                          "width": 220,
+                          "height": 6
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 3,
+                          "id": "sdYEy",
+                          "x": 20,
+                          "y": 106,
+                          "name": "scrollThumb/Horizontal",
+                          "reusable": true,
+                          "fill": "#FFFFFF22",
+                          "width": 80,
+                          "height": 6
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "xwdq4",
+                      "name": "label",
+                      "fill": "$bars-text-subtle",
+                      "content": "Horizontal",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ReOKu",
+              "name": "specsBox",
+              "width": "fill_container",
+              "fill": "$bars-bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xt4QX",
+                  "name": "specsTitle",
+                  "fill": "$bars-text-primary",
+                  "content": "CSS Specs",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "J1oIL",
+                  "name": "spec1",
+                  "fill": "$bars-text-muted",
+                  "content": "Track width: 6px (default) → 8px (hover/active)",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "aOqZP",
+                  "name": "spec2",
+                  "fill": "$bars-text-muted",
+                  "content": "Track color: rgba(255, 255, 255, 0.03) → rgba(255, 255, 255, 0.06)",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "vIzYy",
+                  "name": "spec3",
+                  "fill": "$bars-text-muted",
+                  "content": "Thumb color: rgba(255, 255, 255, 0.13) → 0.27 (hover) → 0.40 (active)",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "mm3a1",
+                  "name": "spec4",
+                  "fill": "$bars-text-muted",
+                  "content": "Border-radius: 3px (default) / 4px (hover/active)",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "dhoUl",
+                  "name": "spec5",
+                  "fill": "$bars-text-muted",
+                  "content": "Transition: width 150ms ease, background-color 150ms ease",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
