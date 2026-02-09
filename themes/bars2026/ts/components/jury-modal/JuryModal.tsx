@@ -122,7 +122,7 @@ function DesktopContent({
         <div className="w-full h-px" style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)' }} />
         <div className="w-full overflow-y-auto flex-1 min-h-0">
           <div
-            className="text-[15px] leading-[1.7] [&_p]:mb-4 [&_p:last-child]:mb-0"
+            className="text-[15px] leading-[1.7] indent-6 [&_p]:mb-4 [&_p:last-child]:mb-0"
             style={{ color: 'rgba(255, 255, 255, 0.7)' }}
             dangerouslySetInnerHTML={{ __html: member.bio }}
           />
@@ -195,7 +195,7 @@ function MobileContent({
         {/* Bio section */}
         <div className="px-5 pb-[85px]">
           <div
-            className="text-sm leading-[1.7] [&_p]:mb-4 [&_p:last-child]:mb-0"
+            className="text-sm leading-[1.7] indent-6 [&_p]:mb-4 [&_p:last-child]:mb-0"
             style={{ color: 'rgba(255, 255, 255, 0.8)' }}
             dangerouslySetInnerHTML={{ __html: member.bio }}
           />

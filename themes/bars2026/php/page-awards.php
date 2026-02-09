@@ -122,14 +122,21 @@ $juries = Editions::getJuries($edition);
                             $photoUrl = get_template_directory_uri() . '/' . $jury['pic']['url'];
                         }
                     ?>
-                    <div class="flex flex-col items-center gap-2 lg:gap-4 flex-1">
+                    <?php $has_bio = !empty($jury['description']); ?>
+                    <div class="flex flex-col items-center gap-2 lg:gap-4 flex-1<?php if ($has_bio): ?> group cursor-pointer jury-card-toggle<?php endif; ?>"
+                        <?php if ($has_bio): ?>
+                         data-jury-id="<?php echo esc_attr($jury['postId']); ?>"
+                         data-jury-name="<?php echo esc_attr($jury['name']); ?>"
+                         data-jury-section="<?php echo esc_attr(getJurySectionLabel($sectionId)); ?>"
+                         data-jury-photo="<?php echo esc_url($photoUrl); ?>"
+                        <?php endif; ?>>
                         <!-- Jury Photo (circular) -->
                         <?php if (!empty($jury['thumbnail'])): ?>
-                        <div class="w-[80px] h-[80px] lg:w-[140px] lg:h-[140px] rounded-full overflow-hidden shrink-0 [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
+                        <div class="w-[80px] h-[80px] lg:w-[140px] lg:h-[140px] rounded-full overflow-hidden shrink-0 [&_img]:w-full [&_img]:h-full [&_img]:object-cover<?php if ($has_bio): ?> brightness-75 grayscale-[0.6] group-hover:brightness-100 group-hover:grayscale-0 transition-[filter] duration-300<?php endif; ?>">
                             <?php echo $jury['thumbnail']; ?>
                         </div>
                         <?php elseif (!empty($jury['pic']) && !empty($jury['pic']['url'])): ?>
-                        <div class="w-[80px] h-[80px] lg:w-[140px] lg:h-[140px] rounded-full overflow-hidden shrink-0">
+                        <div class="w-[80px] h-[80px] lg:w-[140px] lg:h-[140px] rounded-full overflow-hidden shrink-0<?php if ($has_bio): ?> brightness-75 grayscale-[0.6] group-hover:brightness-100 group-hover:grayscale-0 transition-[filter] duration-300<?php endif; ?>">
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/' . $jury['pic']['url']); ?>"
                                  alt="<?php echo esc_attr($jury['name']); ?>"
                                  class="w-full h-full object-cover" />
@@ -145,18 +152,14 @@ $juries = Editions::getJuries($edition);
 
                         <!-- Jury Info -->
                         <div class="flex flex-col items-center gap-1 lg:gap-1">
-                            <h4 class="text-xs lg:text-2xl font-medium lg:font-semibold text-bars-text-primary text-center lg:font-heading w-full lg:max-w-[240px]">
+                            <h4 class="text-xs lg:text-2xl font-medium lg:font-semibold text-bars-text-primary text-center lg:font-heading w-full lg:max-w-[240px]<?php if ($has_bio): ?> transition-colors duration-300 group-hover:text-bars-badge-text<?php endif; ?>">
                                 <?php echo esc_html($jury['name']); ?>
                             </h4>
-                            <?php if (!empty($jury['description'])): ?>
-                            <span class="text-[10px] lg:text-xs font-medium text-bars-badge-text cursor-pointer jury-bio-toggle"
-                                  data-jury-id="<?php echo esc_attr($jury['postId']); ?>"
-                                  data-jury-name="<?php echo esc_attr($jury['name']); ?>"
-                                  data-jury-section="<?php echo esc_attr(getJurySectionLabel($sectionId)); ?>"
-                                  data-jury-photo="<?php echo esc_url($photoUrl); ?>">
+                            <?php if ($has_bio): ?>
+                            <span class="text-[10px] lg:text-xs font-medium text-bars-badge-text">
                                 Ver bio &rarr;
                             </span>
-                            <div class="hidden jury-bio-content" data-jury-id="<?php echo esc_attr($jury['postId']); ?>">
+                            <div class="hidden jury-bio-content">
                                 <?php echo wp_kses_post($jury['description']); ?>
                             </div>
                             <?php endif; ?>
@@ -183,10 +186,10 @@ $juries = Editions::getJuries($edition);
 <div id="jury-modal-root"></div>
 
 <script>
-document.querySelectorAll('.jury-bio-toggle').forEach(function(el) {
+document.querySelectorAll('.jury-card-toggle').forEach(function(el) {
     el.addEventListener('click', function() {
         var id = this.getAttribute('data-jury-id');
-        var bioEl = document.querySelector('.jury-bio-content[data-jury-id="' + id + '"]');
+        var bioEl = this.querySelector('.jury-bio-content');
         document.dispatchEvent(new CustomEvent('jury-modal:open', {
             detail: {
                 id: parseInt(id, 10),
