@@ -22,37 +22,8 @@ wp import "$BACKUP_FILE" --authors=create
 wp search-replace "$SEED_DATA_OLD_HOSTNAME" "$SEED_DATA_NEW_HOSTNAME" --skip-columns=guid --all-tables
 echo "✅ File $BACKUP_FILE successfully imported."
 
-echo "⏳ Adding uploads to media library..."
-#####################################
-# Import uploads in batches of 50
-#####################################
-BATCH_SIZE=50
-batch=""
-count=0
-
-while IFS= read -r -d '' file; do
-  batch="$batch $file"
-  (( count = count + 1 ))
-
-  if (( count >= BATCH_SIZE )); then
-    # call wp media import with the batch (files first, then options)
-    echo "Importing batch of uploads: $batch..."
-    wp media import $batch --preserve-filetime
-
-    # reset
-    batch=""
-    count=0
-  fi
-done < <(find -L "$UPLOADS_DIR" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.webp' \) -print0)
-
-# final batch (if any)
-if (( count > 0 )); then
-  echo "Importing batch of uploads: $batch..."
-  wp media import $batch --preserve-filetime
-fi
-
-echo "✅ All uploads added to the media library successfully."
-#####################################
-#####################################
+echo "⏳ Copying uploads to media library..."
+cp -r "$UPLOADS_DIR"/* /bitnami/wordpress/wp-content/uploads/
+echo "✅ All uploads copied to the media library successfully."
 
 touch "$MARKER_FILE_IMPORT_DONE"

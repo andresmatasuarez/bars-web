@@ -92,9 +92,9 @@ TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directo
 
 WordPress DB → PHP queries movies/screenings → JSON embedded in `selection.php` → React app consumes and renders with styled-components
 
-### Screenshots
+### Temporary Files (`.qa/`)
 
-All screenshots (visual QA, viewport testing, etc.) go in the `screenshots/` directory at the project root. This folder is gitignored. Never save screenshots to the project root or inside theme directories.
+All temporary artifacts — screenshots, test HTML/JS files, markdown reports, shell scripts, or any other throwaway file created during visual QA, debugging, or testing — go in the `.qa/` directory at the project root. This folder is gitignored. **Never** create temporary files in the project root, inside theme directories, or anywhere else in the source tree.
 
 ### Docker Setup
 

@@ -14784,7 +14784,7 @@
               "type": "image",
               "opacity": 0.3,
               "enabled": true,
-              "url": "./DSC01280.jpg",
+              "url": "./sala-halftone.png",
               "mode": "fill"
             },
             {
@@ -15237,7 +15237,7 @@
               "name": "pageInner",
               "width": 1000,
               "layout": "vertical",
-              "gap": 48,
+              "gap": 56,
               "children": [
                 {
                   "type": "frame",
@@ -15278,7 +15278,8 @@
                   "name": "jury1",
                   "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 40,
+                  "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
@@ -15287,8 +15288,8 @@
                       "fill": "#FFFFFF",
                       "content": "Competencia Internacional de Largometrajes",
                       "fontFamily": "Inter",
-                      "fontSize": 24,
-                      "fontWeight": "700",
+                      "fontSize": 20,
+                      "fontWeight": "500",
                       "letterSpacing": 0.5
                     },
                     {
@@ -15317,15 +15318,15 @@
                                 "author": "Lance Reis"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15382,15 +15383,15 @@
                                 "author": "omid armin"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1586425225143-0c8f59053610?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNjB8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15447,15 +15448,15 @@
                                 "author": "Bave Pictures"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1685376104038-66107ad5c582?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMzV8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15499,11 +15500,20 @@
                 },
                 {
                   "type": "frame",
+                  "id": "yHutY",
+                  "name": "divider1",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "$bars-divider"
+                },
+                {
+                  "type": "frame",
                   "id": "iZAkd",
                   "name": "jury2",
                   "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 40,
+                  "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
@@ -15512,8 +15522,8 @@
                       "fill": "#FFFFFF",
                       "content": "Competencia Iberoamericana de Largometrajes",
                       "fontFamily": "Inter",
-                      "fontSize": 24,
-                      "fontWeight": "700",
+                      "fontSize": 20,
+                      "fontWeight": "500",
                       "letterSpacing": 0.5
                     },
                     {
@@ -15542,15 +15552,15 @@
                                 "author": "Pablo Zanella Abacaxi Studio"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1764112781095-24e1bf17eec9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMjF8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15607,15 +15617,15 @@
                                 "author": "Vitaly Gariev"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1758685848095-249ad965f4f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNjF8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15672,15 +15682,15 @@
                                 "author": "Omar Ramadan"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1652808428405-2639dcc46f4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNDh8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15724,11 +15734,20 @@
                 },
                 {
                   "type": "frame",
+                  "id": "GhI6E",
+                  "name": "divider2",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "$bars-divider"
+                },
+                {
+                  "type": "frame",
                   "id": "FTYUE",
                   "name": "jury3",
                   "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 40,
+                  "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
@@ -15737,8 +15756,8 @@
                       "fill": "#FFFFFF",
                       "content": "Competencia Argentina de Largometrajes",
                       "fontFamily": "Inter",
-                      "fontSize": 24,
-                      "fontWeight": "700",
+                      "fontSize": 20,
+                      "fontWeight": "500",
                       "letterSpacing": 0.5
                     },
                     {
@@ -15767,15 +15786,15 @@
                                 "author": "Maëva Vigier"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1673437724211-7e973cd6e034?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15832,15 +15851,15 @@
                                 "author": "Maxwell Gold"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1661955556647-83b95b08f1e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMzZ8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15897,15 +15916,15 @@
                                 "author": "JJ Jordan"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1555396768-2a77b9e979c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMjF8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -15949,11 +15968,20 @@
                 },
                 {
                   "type": "frame",
+                  "id": "nPGpR",
+                  "name": "divider3",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "$bars-divider"
+                },
+                {
+                  "type": "frame",
                   "id": "UvP4T",
                   "name": "jury4",
                   "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 40,
+                  "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
@@ -15962,8 +15990,8 @@
                       "fill": "#FFFFFF",
                       "content": "Competencia Internacional de Cortometrajes",
                       "fontFamily": "Inter",
-                      "fontSize": 24,
-                      "fontWeight": "700",
+                      "fontSize": 20,
+                      "fontWeight": "500",
                       "letterSpacing": 0.5
                     },
                     {
@@ -15992,15 +16020,15 @@
                                 "author": "Charles Chen"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1602465750739-d00166b773a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNDN8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -16057,15 +16085,15 @@
                                 "author": "Job Moses"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNDl8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -16122,15 +16150,15 @@
                                 "author": "Vitaly Gariev"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1752649938524-68d3fe1fd863?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMjJ8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -16174,11 +16202,20 @@
                 },
                 {
                   "type": "frame",
+                  "id": "wbwFU",
+                  "name": "divider4",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "$bars-divider"
+                },
+                {
+                  "type": "frame",
                   "id": "w4phZ",
                   "name": "jury5",
                   "width": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 40,
+                  "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
@@ -16187,8 +16224,8 @@
                       "fill": "#FFFFFF",
                       "content": "Concurso: Fin de Semana Sangriento",
                       "fontFamily": "Inter",
-                      "fontSize": 24,
-                      "fontWeight": "700",
+                      "fontSize": 20,
+                      "fontWeight": "500",
                       "letterSpacing": 0.5
                     },
                     {
@@ -16217,15 +16254,15 @@
                                 "author": "Picnu"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1684621266141-7e91e474b8d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMjJ8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -16282,15 +16319,15 @@
                                 "author": "Shiv Narayan Das"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1663560453399-f972f1e58d03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNDl8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -16347,15 +16384,15 @@
                                 "author": "Johannes Blenke"
                               },
                               "clip": true,
-                              "width": 240,
-                              "height": 240,
+                              "width": 140,
+                              "height": 140,
                               "fill": {
                                 "type": "image",
                                 "enabled": true,
                                 "url": "https://images.unsplash.com/photo-1643322809864-73e96b22f8ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzMzZ8&ixlib=rb-4.1.0&q=80&w=1080",
                                 "mode": "fill"
                               },
-                              "cornerRadius": 120
+                              "cornerRadius": 70
                             },
                             {
                               "type": "frame",
@@ -39821,7 +39858,7 @@
           "width": "fill_container",
           "fill": "#0F0F0F",
           "layout": "vertical",
-          "gap": 40,
+          "gap": 48,
           "padding": [
             32,
             20,
@@ -39858,7 +39895,8 @@
               "name": "aJury1",
               "width": "fill_container",
               "layout": "vertical",
-              "gap": 16,
+              "gap": 24,
+              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
@@ -39875,9 +39913,10 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "Competencia Internacional de Largometrajes",
+                      "textAlign": "center",
                       "fontFamily": "Inter",
                       "fontSize": 14,
-                      "fontWeight": "600"
+                      "fontWeight": "500"
                     }
                   ]
                 },
@@ -40023,11 +40062,20 @@
             },
             {
               "type": "frame",
+              "id": "EttgA",
+              "name": "divider1",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "$bars-divider"
+            },
+            {
+              "type": "frame",
               "id": "hIN31",
               "name": "aJury2",
               "width": "fill_container",
               "layout": "vertical",
-              "gap": 16,
+              "gap": 24,
+              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
@@ -40044,9 +40092,10 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "Competencia Iberoamericana de Largometrajes",
+                      "textAlign": "center",
                       "fontFamily": "Inter",
                       "fontSize": 14,
-                      "fontWeight": "600"
+                      "fontWeight": "500"
                     }
                   ]
                 },
@@ -40192,11 +40241,20 @@
             },
             {
               "type": "frame",
+              "id": "YMjQ3",
+              "name": "divider2",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "$bars-divider"
+            },
+            {
+              "type": "frame",
               "id": "GYgg0",
               "name": "aJury3",
               "width": "fill_container",
               "layout": "vertical",
-              "gap": 16,
+              "gap": 24,
+              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
@@ -40213,9 +40271,10 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "Competencia Argentina de Largometrajes",
+                      "textAlign": "center",
                       "fontFamily": "Inter",
                       "fontSize": 14,
-                      "fontWeight": "600"
+                      "fontWeight": "500"
                     }
                   ]
                 },
@@ -40361,11 +40420,20 @@
             },
             {
               "type": "frame",
+              "id": "I2EwG",
+              "name": "divider3",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "$bars-divider"
+            },
+            {
+              "type": "frame",
               "id": "Rt3BV",
               "name": "aJury4",
               "width": "fill_container",
               "layout": "vertical",
-              "gap": 16,
+              "gap": 24,
+              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
@@ -40382,9 +40450,10 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "Competencia Internacional de Cortometrajes",
+                      "textAlign": "center",
                       "fontFamily": "Inter",
                       "fontSize": 14,
-                      "fontWeight": "600"
+                      "fontWeight": "500"
                     }
                   ]
                 },
@@ -40530,11 +40599,20 @@
             },
             {
               "type": "frame",
+              "id": "HW5ar",
+              "name": "divider4",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "$bars-divider"
+            },
+            {
+              "type": "frame",
               "id": "jfQnC",
               "name": "aJury5",
               "width": "fill_container",
               "layout": "vertical",
-              "gap": 16,
+              "gap": 24,
+              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
@@ -40551,9 +40629,10 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "Concurso: Fin de Semana Sangriento",
+                      "textAlign": "center",
                       "fontFamily": "Inter",
                       "fontSize": 14,
-                      "fontWeight": "600"
+                      "fontWeight": "500"
                     }
                   ]
                 },
@@ -49622,177 +49701,6 @@
     },
     {
       "type": "frame",
-      "id": "NyBei",
-      "x": 13860,
-      "y": 0,
-      "name": "Jury Member Modal",
-      "width": 1440,
-      "height": 900,
-      "fill": "#0A0A0A99",
-      "layout": "none",
-      "children": [
-        {
-          "type": "frame",
-          "id": "S1hF3",
-          "x": 0,
-          "y": 0,
-          "name": "overlay",
-          "width": 1440,
-          "height": 900,
-          "fill": "#00000099"
-        },
-        {
-          "type": "frame",
-          "id": "3lVN4",
-          "x": 420,
-          "y": 100,
-          "name": "modalContainer",
-          "clip": true,
-          "width": 600,
-          "height": 700,
-          "fill": "#0F0F0F",
-          "cornerRadius": 16,
-          "layout": "vertical",
-          "children": [
-            {
-              "type": "frame",
-              "id": "ZrqWZ",
-              "name": "modalHeader",
-              "width": "fill_container",
-              "height": 52,
-              "padding": [
-                10,
-                16
-              ],
-              "justifyContent": "end",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "L6Z8W",
-                  "name": "closeButton",
-                  "width": 32,
-                  "height": 32,
-                  "fill": "#FFFFFF10",
-                  "cornerRadius": 16,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon_font",
-                      "id": "ufGSO",
-                      "name": "closeIcon",
-                      "width": 16,
-                      "height": 16,
-                      "iconFontName": "x",
-                      "iconFontFamily": "lucide",
-                      "fill": "#FFFFFF"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "xJc1W",
-              "name": "contentArea",
-              "width": "fill_container",
-              "height": "fill_container",
-              "layout": "vertical",
-              "gap": 32,
-              "padding": [
-                0,
-                40,
-                40,
-                40
-              ],
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "JdLFd",
-                  "name": "juryPhoto",
-                  "metadata": {
-                    "type": "unsplash",
-                    "username": "silverkblack",
-                    "link": "https://unsplash.com/@silverkblack",
-                    "author": "Vitaly Gariev"
-                  },
-                  "clip": true,
-                  "width": 200,
-                  "height": 200,
-                  "fill": {
-                    "type": "image",
-                    "enabled": true,
-                    "url": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
-                    "mode": "fill"
-                  },
-                  "cornerRadius": 100
-                },
-                {
-                  "type": "frame",
-                  "id": "C6vvH",
-                  "name": "infoSection",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 16,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "12DOs",
-                      "name": "juryName",
-                      "fill": "#FFFFFF",
-                      "content": "Pablo Conde",
-                      "textAlign": "center",
-                      "fontFamily": "Cormorant Garamond",
-                      "fontSize": 32,
-                      "fontWeight": "600"
-                    },
-                    {
-                      "type": "text",
-                      "id": "h0sDG",
-                      "name": "juryCompetition",
-                      "fill": "#8B0000",
-                      "content": "Competencia Internacional de Largometrajes",
-                      "textAlign": "center",
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": "500"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "lTVH8",
-                  "name": "bioSection",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 12,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "jJgti",
-                      "name": "bioText",
-                      "fill": "#FFFFFFCC",
-                      "textGrowth": "fixed-width",
-                      "width": "fill_container",
-                      "content": "Es cineclubista de corazón, contagiador cultural. Trabajó en el Festival Internacional de Cine de Mar del Plata desde 2009 como Programador, cumpliendo el rol de Director Artístico de 2022 a mediados de 2024. Cofundador del sitio web Encerrados Afuera y redactor de la revista Los Inrockuptibles. Tras recibirse de Montajista en la Escuela Nacional de Experimentación y Realización Cinematográfica (ENERC) trabajó en varios proyectos televisivos como editor, guionista, productor y locutor. Forma parte del Festival Escenario y escribe en la revista española So Film. Sus últimos orgullos son el ciclo Hora Cero -replicado del festival de Mar del Plata al cine Gaumont- y el festival ¡Esto Es Historieta!.",
-                      "lineHeight": 1.7,
-                      "fontFamily": "Inter",
-                      "fontSize": 15,
-                      "fontWeight": "normal"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "NUEdH",
       "x": 4275,
       "y": 13000,
@@ -49851,19 +49759,14 @@
           "id": "Z6hMd",
           "name": "Hero Section",
           "width": "fill_container",
-          "layout": "vertical",
-          "gap": 16,
-          "padding": [
-            32,
-            20,
-            24,
-            20
-          ],
-          "alignItems": "center",
+          "height": 320,
+          "layout": "none",
           "children": [
             {
               "type": "frame",
               "id": "dlR5X",
+              "x": 0,
+              "y": 0,
               "name": "photoFrame",
               "metadata": {
                 "type": "unsplash",
@@ -49871,21 +49774,54 @@
                 "link": "https://unsplash.com/@numaninsari",
                 "author": "Muhammad Numan"
               },
-              "width": 180,
-              "height": 180,
-              "fill": {
-                "type": "image",
-                "enabled": true,
-                "url": "https://images.unsplash.com/photo-1643898804248-1239ef388ee9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzAwMDM1MDd8&ixlib=rb-4.1.0&q=80&w=1080",
-                "mode": "fill"
-              },
-              "cornerRadius": 90
+              "width": 375,
+              "height": 260,
+              "fill": [
+                {
+                  "type": "image",
+                  "opacity": 0.3,
+                  "enabled": true,
+                  "url": "./sala-halftone.png",
+                  "mode": "fill"
+                },
+                {
+                  "type": "gradient",
+                  "gradientType": "linear",
+                  "enabled": true,
+                  "rotation": 180,
+                  "size": {
+                    "height": 1
+                  },
+                  "colors": [
+                    {
+                      "color": "#0A0A0A",
+                      "position": 0
+                    },
+                    {
+                      "color": "#0A0A0A00",
+                      "position": 0.3
+                    },
+                    {
+                      "color": "#0A0A0A99",
+                      "position": 0.65
+                    },
+                    {
+                      "color": "#0A0A0A",
+                      "position": 1
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "text",
               "id": "mdjJI",
+              "x": 0,
+              "y": 250,
               "name": "nameText",
-              "fill": "#FFFFFF",
+              "fill": "$bars-text-primary",
+              "textGrowth": "fixed-width",
+              "width": 375,
               "content": "Pablo Conde",
               "textAlign": "center",
               "fontFamily": "Cormorant Garamond",
@@ -49895,8 +49831,10 @@
             {
               "type": "text",
               "id": "VjbP9",
+              "x": 37,
+              "y": 286,
               "name": "competitionText",
-              "fill": "#D4726A",
+              "fill": "$bars-badge-text",
               "textGrowth": "fixed-width",
               "width": 300,
               "content": "Competencia Internacional de Largometrajes",
@@ -49904,6 +49842,35 @@
               "fontFamily": "Inter",
               "fontSize": 12,
               "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "CFCWO",
+              "x": 87,
+              "y": 30,
+              "name": "avatarCircle",
+              "clip": true,
+              "width": 200,
+              "height": 200,
+              "cornerRadius": 999,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "B64Qr",
+                  "x": 0,
+                  "y": 0,
+                  "name": "avatarPhoto",
+                  "width": 200,
+                  "height": 200,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1643898804248-1239ef388ee9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzAwMDM1MDd8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -49914,14 +49881,22 @@
           "width": "fill_container",
           "fill": "#0A0A0A",
           "layout": "vertical",
-          "gap": 24,
+          "gap": 16,
           "padding": [
-            0,
+            16,
             20,
             85,
             20
           ],
           "children": [
+            {
+              "type": "frame",
+              "id": "bQM6Y",
+              "name": "divider",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "$bars-border-subtle"
+            },
             {
               "type": "frame",
               "id": "1Qqfm",
@@ -49934,7 +49909,7 @@
                   "type": "text",
                   "id": "9oTRS",
                   "name": "bioText",
-                  "fill": "#FFFFFFCC",
+                  "fill": "$bars-text-secondary",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
                   "content": "Es cineclubista de corazón, contagiador cultural. Trabajó en el Festival Internacional de Cine de Mar del Plata desde 2009 como Programador, cumpliendo el rol de Director Artístico de 2022 a mediados de 2024. Cofundador del sitio web Encerrados Afuera y redactor de la revista Los Inrockuptibles. Tras recibirse de Montajista en la Escuela Nacional de Experimentación y Realización Cinematográfica (ENERC) trabajó en varios proyectos televisivos como editor, guionista, productor y locutor. Forma parte del Festival Escenario y escribe en la revista española So Film. Sus últimos orgullos son el ciclo Hora Cero -replicado del festival de Mar del Plata al cine Gaumont- y el festival ¡Esto Es Historieta!.",
@@ -55757,7 +55732,7 @@
                       "type": "text",
                       "id": "kh27S",
                       "name": "label",
-                      "fill": "#D4726A",
+                      "fill": "$bars-badge-text",
                       "content": "LARGOMETRAJE",
                       "fontFamily": "Inter",
                       "fontSize": 10,
@@ -56108,7 +56083,7 @@
                   "id": "iXOVA",
                   "name": "Text/Label",
                   "reusable": true,
-                  "fill": "$bars-primary",
+                  "fill": "$bars-badge-text",
                   "content": "LARGOMETRAJE",
                   "fontFamily": "Inter",
                   "fontSize": 10,
@@ -57060,7 +57035,7 @@
                       "type": "text",
                       "id": "XUMbg",
                       "name": "link",
-                      "fill": "$bars-primary",
+                      "fill": "$bars-badge-text",
                       "content": "Ver bio →",
                       "fontFamily": "Inter",
                       "fontSize": 12,
@@ -75686,6 +75661,430 @@
       "fontFamily": "Inter",
       "fontSize": 16,
       "fontWeight": "normal"
+    },
+    {
+      "type": "frame",
+      "id": "zu6zF",
+      "x": 13860,
+      "y": 1000,
+      "name": "Jury Member Modal V2 (Desktop)",
+      "width": 1440,
+      "height": 900,
+      "fill": "$bars-bg-overlay",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Pj0Ns",
+          "x": 0,
+          "y": 0,
+          "name": "overlay",
+          "width": 1440,
+          "height": 900,
+          "fill": "#00000099"
+        },
+        {
+          "type": "frame",
+          "id": "6yOAk",
+          "x": 420,
+          "y": 100,
+          "name": "modalContainer",
+          "clip": true,
+          "width": 600,
+          "height": 700,
+          "fill": "$bars-bg-medium",
+          "cornerRadius": 16,
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "6SoR8",
+              "name": "photoBanner",
+              "clip": true,
+              "width": "fill_container",
+              "height": 300,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jAuHI",
+                  "x": 0,
+                  "y": 0,
+                  "name": "juryPhoto",
+                  "width": 600,
+                  "height": 300,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "XvpK0",
+                  "x": 0,
+                  "y": 0,
+                  "name": "fadeOverlay",
+                  "width": 600,
+                  "height": 300,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 180,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#0F0F0F00",
+                        "position": 0
+                      },
+                      {
+                        "color": "#0F0F0F00",
+                        "position": 0.55
+                      },
+                      {
+                        "color": "#0F0F0FFF",
+                        "position": 1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "Tdc6W",
+                  "x": 0,
+                  "y": 0,
+                  "name": "closeArea",
+                  "width": 600,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "justifyContent": "end",
+                  "children": [
+                    {
+                      "id": "uJ7Sa",
+                      "type": "ref",
+                      "ref": "AmkJm",
+                      "name": "closeBtn"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cPdml",
+              "name": "contentArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": [
+                0,
+                36,
+                36,
+                36
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ORZYQ",
+                  "name": "juryName",
+                  "fill": "$bars-text-primary",
+                  "content": "Pablo Conde",
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 32,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "Vdexh",
+                  "name": "juryCompetition",
+                  "fill": "$bars-badge-text",
+                  "content": "Competencia Internacional de Largometrajes",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "PtECo",
+                  "name": "divider",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "$bars-border-subtle"
+                },
+                {
+                  "type": "frame",
+                  "id": "z0xzW",
+                  "name": "bioSection",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OuX9X",
+                      "name": "bioText",
+                      "fill": "$bars-text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Es cineclubista de corazón, contagiador cultural. Trabajó en el Festival Internacional de Cine de Mar del Plata desde 2009 como Programador, cumpliendo el rol de Director Artístico de 2022 a mediados de 2024. Cofundador del sitio web Encerrados Afuera y redactor de la revista Los Inrockuptibles. Tras recibirse de Montajista en la Escuela Nacional de Experimentación y Realización Cinematográfica (ENERC) trabajó en varios proyectos televisivos como editor, guionista, productor y locutor. Forma parte del Festival Escenario y escribe en la revista española So Film. Sus últimos orgullos son el ciclo Hora Cero -replicado del festival de Mar del Plata al cine Gaumont- y el festival ¡Esto Es Historieta!.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wZw5G",
+      "x": 13860,
+      "y": 0,
+      "name": "Jury Member Modal (Desktop)",
+      "width": 1440,
+      "height": 900,
+      "fill": "$bars-bg-overlay",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "vkdIs",
+          "x": 0,
+          "y": 0,
+          "name": "overlay",
+          "width": 1440,
+          "height": 900,
+          "fill": "#00000099"
+        },
+        {
+          "type": "frame",
+          "id": "uP510",
+          "x": 420,
+          "y": 100,
+          "name": "modalContainer",
+          "clip": true,
+          "width": 600,
+          "height": 785,
+          "fill": "$bars-bg-medium",
+          "cornerRadius": 16,
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "LHfxX",
+              "name": "photoBanner",
+              "width": "fill_container",
+              "height": 300,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HxFcb",
+                  "x": 0,
+                  "y": 0,
+                  "name": "photoCrop",
+                  "clip": true,
+                  "width": 600,
+                  "height": 300,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GIGgg",
+                      "x": 0,
+                      "y": 0,
+                      "name": "juryPhoto",
+                      "width": 600,
+                      "height": 300,
+                      "fill": {
+                        "type": "image",
+                        "opacity": 0.3,
+                        "enabled": true,
+                        "url": "./sala-halftone.png",
+                        "mode": "fill"
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "51U1B",
+                      "x": 0,
+                      "y": 0,
+                      "name": "fadeOverlay",
+                      "width": 600,
+                      "height": 300,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 180,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#0F0F0F00",
+                            "position": 0
+                          },
+                          {
+                            "color": "#0F0F0F00",
+                            "position": 0.3
+                          },
+                          {
+                            "color": "#0F0F0F",
+                            "position": 0.85
+                          },
+                          {
+                            "color": "#0F0F0F",
+                            "position": 1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "5cLbD",
+                  "x": 0,
+                  "y": 0,
+                  "name": "closeArea",
+                  "width": 600,
+                  "padding": [
+                    12,
+                    16
+                  ],
+                  "justifyContent": "end",
+                  "children": [
+                    {
+                      "id": "mwHta",
+                      "type": "ref",
+                      "ref": "AmkJm",
+                      "name": "closeBtn"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mUlml",
+                  "x": 170,
+                  "y": 20,
+                  "name": "avatarCircle",
+                  "clip": true,
+                  "width": 260,
+                  "height": 260,
+                  "cornerRadius": 999,
+                  "stroke": {
+                    "thickness": 0
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OC6KD",
+                      "x": 0,
+                      "y": 0,
+                      "name": "avatarPhoto",
+                      "width": 260,
+                      "height": 260,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Njk4MDgzNTR8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fbTKt",
+              "name": "contentArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                8,
+                36,
+                36,
+                36
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oe6c5",
+                  "name": "juryName",
+                  "fill": "$bars-text-primary",
+                  "content": "Pablo Conde",
+                  "textAlign": "center",
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 32,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "hfrKe",
+                  "name": "juryCompetition",
+                  "fill": "$bars-badge-text",
+                  "content": "Competencia Internacional de Largometrajes",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "Hp3sB",
+                  "name": "divider",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "$bars-border-subtle"
+                },
+                {
+                  "type": "frame",
+                  "id": "Fn6qq",
+                  "name": "bioSection",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UZEv1",
+                      "name": "bioText",
+                      "fill": "$bars-text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Es cineclubista de corazón, contagiador cultural. Trabajó en el Festival Internacional de Cine de Mar del Plata desde 2009 como Programador, cumpliendo el rol de Director Artístico de 2022 a mediados de 2024. Cofundador del sitio web Encerrados Afuera y redactor de la revista Los Inrockuptibles. Tras recibirse de Montajista en la Escuela Nacional de Experimentación y Realización Cinematográfica (ENERC) trabajó en varios proyectos televisivos como editor, guionista, productor y locutor. Forma parte del Festival Escenario y escribe en la revista española So Film. Sus últimos orgullos son el ciclo Hora Cero -replicado del festival de Mar del Plata al cine Gaumont- y el festival ¡Esto Es Historieta!.",
+                      "lineHeight": 1.7,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "variables": {

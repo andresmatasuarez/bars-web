@@ -1,6 +1,10 @@
 @import './fonts.css';
 @import 'tailwindcss';
 
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Custom theme configuration for Tailwind v4 */
 @theme {
   /* Colors */
@@ -24,6 +28,7 @@
   --color-bars-border-subtle: rgba(255, 255, 255, 0.08);
   --color-bars-divider: rgba(255, 255, 255, 0.08);
   --color-bars-link-accent: #d4a574;
+  --color-bars-badge-text: #d4726a;
 
   /* Border radius */
   --radius-bars-sm: 4px;

@@ -9,6 +9,7 @@ $sponsors = isset($edition['sponsors']) ? $edition['sponsors'] : array();
 if (empty($sponsors)) return;
 
 // Helper function to get size classes based on sponsor group
+if (!function_exists('get_sponsor_size_classes')):
 function get_sponsor_size_classes($title) {
     $title_lower = strtolower($title);
     if (strpos($title_lower, 'organiz') !== false) {
@@ -19,8 +20,10 @@ function get_sponsor_size_classes($title) {
         return 'h-10 lg:h-[50px]';
     }
 }
+endif;
 
 // Helper function to get max-width class for the logos container
+if (!function_exists('get_sponsor_container_classes')):
 function get_sponsor_container_classes($title) {
     $title_lower = strtolower($title);
     if (strpos($title_lower, 'organiz') !== false) {
@@ -30,6 +33,7 @@ function get_sponsor_container_classes($title) {
     }
     return '';
 }
+endif;
 ?>
 
 <section class="bg-gradient-to-b from-[#121212] to-bars-bg-elevated py-16 lg:py-20">

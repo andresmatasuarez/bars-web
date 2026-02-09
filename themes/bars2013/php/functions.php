@@ -2,6 +2,9 @@
 
 require_once 'helpers.php';
 
+/* ************************ NAVIGATION ************************ */
+register_nav_menus(array('primary' => 'Primary Menu'));
+
 /* ************************ THUMBNAIL SIZES ************************ */
 if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );

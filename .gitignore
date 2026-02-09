@@ -20,8 +20,8 @@ wp-themes/bars2013/**/*
 wp-themes/bars2026/**/*
 !wp-themes/bars2026/.gitkeep
 
-# Screenshots (visual QA artifacts)
-screenshots/
+# Temporary agent artifacts (screenshots, test files, reports)
+.qa/
 
 # Init scripts data (user-specific)
 scripts/init-site/backup.xml

@@ -83,7 +83,7 @@ $venues = Editions::venues($edition);
                                 <?php if (!empty($venue['online'])): ?>
                                 <!-- Online venue - Monitor Play icon -->
                                 <svg class="w-5 h-5 text-bars-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                    <path d="M10 13V11a1 1 0 0 1 1.447-.894l4 2a1 1 0 0 1 0 1.788l-4 2A1 1 0 0 1 10 15V13z"/>
+                                    <path d="M10 10V8a1 1 0 0 1 1.447-.894l4 2a1 1 0 0 1 0 1.788l-4 2A1 1 0 0 1 10 12V10z"/>
                                     <rect x="2" y="3" width="20" height="14" rx="2"/>
                                     <path d="M12 17v4"/>
                                     <path d="M8 21h8"/>
