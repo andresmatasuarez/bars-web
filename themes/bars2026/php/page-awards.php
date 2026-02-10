@@ -156,7 +156,7 @@ $juries = Editions::getJuries($edition);
                                 <?php echo esc_html($jury['name']); ?>
                             </h4>
                             <?php if ($has_bio): ?>
-                            <span class="text-[10px] lg:text-xs font-medium text-bars-badge-text">
+                            <span class="text-[10px] font-medium text-bars-badge-text lg:hidden">
                                 Ver bio &rarr;
                             </span>
                             <div class="hidden jury-bio-content">

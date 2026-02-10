@@ -7,29 +7,38 @@ export function initAboutTabs(): void {
 
   if (!tabs.length || !panels.length) return;
 
+  function activateTab(target: string): void {
+    tabs.forEach((t) => {
+      const isActive = t.dataset.tab === target;
+      t.setAttribute('aria-selected', String(isActive));
+      if (isActive) {
+        t.classList.remove('bg-bars-bg-medium', 'text-bars-text-muted', 'font-medium', 'hover:text-white');
+        t.classList.add('bg-bars-primary', 'text-white', 'font-semibold', 'hover:bg-[#A00000]');
+      } else {
+        t.classList.remove('bg-bars-primary', 'text-white', 'font-semibold', 'hover:bg-[#A00000]');
+        t.classList.add('bg-bars-bg-medium', 'text-bars-text-muted', 'font-medium', 'hover:text-white');
+      }
+    });
+
+    panels.forEach((panel) => {
+      const panelId = panel.id.replace('tab-', '');
+      panel.classList.toggle('hidden', panelId !== target);
+    });
+  }
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       const target = tab.dataset.tab;
       if (!target) return;
-
-      // Update tab buttons
-      tabs.forEach((t) => {
-        const isActive = t.dataset.tab === target;
-        t.setAttribute('aria-selected', String(isActive));
-        if (isActive) {
-          t.classList.remove('bg-bars-bg-medium', 'text-bars-text-muted', 'font-medium', 'hover:text-white');
-          t.classList.add('bg-bars-primary', 'text-white', 'font-semibold', 'hover:bg-[#A00000]');
-        } else {
-          t.classList.remove('bg-bars-primary', 'text-white', 'font-semibold', 'hover:bg-[#A00000]');
-          t.classList.add('bg-bars-bg-medium', 'text-bars-text-muted', 'font-medium', 'hover:text-white');
-        }
-      });
-
-      // Show/hide panels
-      panels.forEach((panel) => {
-        const panelId = panel.id.replace('tab-', '');
-        panel.classList.toggle('hidden', panelId !== target);
-      });
+      activateTab(target);
+      history.replaceState(null, '', `#${target}`);
     });
   });
+
+  // Activate tab from URL hash on page load
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const matchingTab = document.querySelector<HTMLButtonElement>(`.about-tab[data-tab="${hash}"]`);
+    if (matchingTab) activateTab(hash);
+  }
 }

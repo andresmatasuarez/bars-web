@@ -139,6 +139,10 @@ function MobileContent({
   member: JuryMember;
   onClose: () => void;
 }) {
+  const halftoneUrl =
+    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') +
+    '/resources/sala-halftone.png';
+
   return (
     <>
       {/* Header bar */}
@@ -171,19 +175,38 @@ function MobileContent({
 
       {/* Scrollable body */}
       <div className="overflow-y-auto flex-1">
-        {/* Hero section */}
-        <div className="flex flex-col items-center gap-4 px-5 pt-8 pb-6">
-          {member.photoUrl ? (
-            <div className="w-[180px] h-[180px] rounded-full overflow-hidden shrink-0">
+        {/* Hero section with halftone background */}
+        <div className="relative w-full h-[220px] shrink-0">
+          {/* Halftone background */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src={halftoneUrl}
+              alt=""
+              className="w-full h-full object-cover opacity-30"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to bottom, transparent 0%, transparent 20%, #0a0a0a 85%, #0a0a0a 100%)',
+              }}
+            />
+          </div>
+          {/* Avatar */}
+          <div className="absolute left-1/2 top-[20px] -translate-x-1/2 w-[180px] h-[180px] rounded-full overflow-hidden z-10">
+            {member.photoUrl ? (
               <img
                 src={member.photoUrl}
                 alt={member.name}
                 className="w-full h-full object-cover"
               />
-            </div>
-          ) : (
-            <PhotoPlaceholder className="w-[180px] h-[180px] rounded-full shrink-0" />
-          )}
+            ) : (
+              <PhotoPlaceholder className="w-full h-full" />
+            )}
+          </div>
+        </div>
+        {/* Name and section */}
+        <div className="flex flex-col items-center gap-3 px-5 pt-2 pb-4">
           <h3 className="font-heading text-[28px] font-semibold text-white text-center">
             {member.name}
           </h3>

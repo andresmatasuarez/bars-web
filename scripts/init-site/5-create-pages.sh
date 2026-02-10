@@ -25,7 +25,7 @@ echo "✅ Existing pages deleted"
 
 bars2026_pages=(
   "Home|home||1"
-  "Noticias|noticias||2"
+  "Noticias|noticias|page-news.php|2"
   "El festival|festival|page-about.php|3"
   "Programacion|programacion||4"
   "Premios|premios|page-awards.php|5"

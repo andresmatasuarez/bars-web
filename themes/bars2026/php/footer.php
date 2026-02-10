@@ -76,10 +76,10 @@
                         Festival
                     </h4>
                     <nav class="flex flex-col gap-3">
-                        <a href="<?php echo home_url('/festival'); ?>" class="font-body text-sm font-normal text-bars-text-muted hover:text-white transition-colors">
+                        <a href="<?php echo home_url('/festival#historia'); ?>" class="font-body text-sm font-normal text-bars-text-muted hover:text-white transition-colors">
                             Historia
                         </a>
-                        <a href="https://www.youtube.com/user/rojosangrefestival" target="_blank" rel="noopener noreferrer" class="font-body text-sm font-normal text-bars-text-muted hover:text-white transition-colors">
+                        <a href="<?php echo home_url('/festival#rojosangretv'); ?>" class="font-body text-sm font-normal text-bars-text-muted hover:text-white transition-colors">
                             #RojoSangreTV
                         </a>
                         <a href="<?php echo home_url('/noticias'); ?>" class="font-body text-sm font-normal text-bars-text-muted hover:text-white transition-colors">
