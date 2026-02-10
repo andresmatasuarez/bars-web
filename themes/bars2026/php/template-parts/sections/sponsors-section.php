@@ -76,12 +76,12 @@ endif;
                                        class="opacity-70 hover:opacity-100 transition-opacity">
                                         <img src="<?php echo esc_url($logo_url); ?>"
                                              alt="<?php echo esc_attr($sponsor['alt'] ?? ''); ?>"
-                                             class="<?php echo $size_classes; ?> w-auto object-contain grayscale hover:grayscale-0 transition-all">
+                                             class="<?php echo $size_classes; ?> w-auto object-contain grayscale-[0.35] hover:grayscale-0 transition-all">
                                     </a>
                                 <?php else: ?>
                                     <img src="<?php echo esc_url($logo_url); ?>"
                                          alt="<?php echo esc_attr($sponsor['alt'] ?? ''); ?>"
-                                         class="<?php echo $size_classes; ?> w-auto object-contain opacity-70 grayscale">
+                                         class="<?php echo $size_classes; ?> w-auto object-contain opacity-70 grayscale-[0.35]">
                                 <?php endif; ?>
                             <?php endif; ?>
                         <?php endforeach; ?>
