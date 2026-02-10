@@ -41,6 +41,7 @@ Site runs at `http://localhost:8083` (default). Database at port 3307.
 Source files in `themes/bars2013/assets/`, `themes/bars2013/php/`, and `shared/` are processed by Vite and copied to `wp-themes/{theme-name}/` (e.g., `wp-themes/bars2013/`). **Never edit files in `wp-themes/` output directories directly** - they are overwritten on build.
 
 Two Vite entry points:
+
 - **Main theme** (`themes/bars2013/vite/vite.config.ts`): Compiles LESS styles and legacy JS into `bars.js` (IIFE format)
 - **Selection app** (`themes/bars2013/vite/selection.vite.config.ts`): React app for movie programming/search, outputs `selection.js`
 
@@ -67,6 +68,7 @@ Two Vite entry points:
 ### Adding a New Theme
 
 Output paths are configured in multiple places that must stay in sync:
+
 1. `themes/{name}/package.json` - `config.dest` and `clean` script
 2. `themes/{name}/vite/*.config.ts` - `build.outDir` in each Vite config
 3. `docker-compose.yml` - volume mount for the theme
@@ -99,6 +101,7 @@ All temporary artifacts — screenshots, test HTML/JS files, markdown reports, s
 ### Docker Setup
 
 Two-phase initialization required for fresh setup:
+
 1. **First run**: Comment out theme/plugin volumes in docker-compose.yml, start containers, wait for WP install, stop
 2. **Second run**: Uncomment volumes, start containers - init scripts run once to activate theme, plugins, and import seed data
 
@@ -111,5 +114,62 @@ Marker files in `bars-web_bars-wordpress-data` volume control initialization sta
 ## Deploy
 
 Upload via FTP:
+
 - `wp-plugins/` → `/2.0/wp-content/plugins`
 - `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`
+
+## Command Delegation (MANDATORY)
+
+_CRITICAL_: The following commands produce large outputs that consume excessive context window tokens. You MUST delegate these commands to a sub-agent using the Task tool. Never run these commands directly in the main conversation.
+
+### Commands That MUST Be Delegated
+
+| Command              | Description                    |
+| -------------------- | ------------------------------ |
+| npm build            | Build all packages and apps    |
+| npm typecheck        | TypeScript type checking       |
+| npm lint             | Lint entire codebase           |
+| npm lint <path>      | Lint specific file(s)          |
+| npm test             | Run full test suite            |
+| npm test <path>      | Run tests for specific file(s) |
+| npm test:workspace   | Run tests for a workspace      |
+| npm test:integration | Run integration tests          |
+| npm test:e2e         | Run end-to-end tests           |
+
+### How to Delegate
+
+Use the Task tool with subagent_type: "Bash":
+
+Task tool parameters:
+
+- subagent_type: "Bash"
+- description: "Run npm build" (brief 3-5 word description)
+- prompt: See template below
+
+### Sub-Agent Prompt Template
+
+Run the following command and report the result:
+
+Command: `npm build`
+
+Instructions:
+
+1. Execute the command
+2. Wait for completion
+3. Report back:
+   - If SUCCESS: Respond with "Command succeeded" and any relevant summary (e.g., "Built 42 packages")
+   - If FAILURE: Respond with "Command failed" followed by the relevant error messages. Focus on actionable errors, not the full output.
+
+[Optional context from calling agent, e.g.: "Pay attention to errors in packages/model or packages/react-components"]
+
+### Why This Matters
+
+Commands like `npm build` and `npm test` may generate extensive output that would consume the main agent's context window, leaving less room for actual problem-solving. By delegating to a sub-agent:
+
+1. The main agent preserves context for code analysis and implementation
+2. The sub-agent uses a fresh context window dedicated to command execution
+3. Only relevant results (success/failure + errors) return to the main conversation
+
+### When in Doubt, Delegate
+
+If you encounter a command not listed above but suspect it might produce large output (e.g., running multiple packages, full codebase operations, or commands with verbose flags), delegate it to a sub-agent. It is better to over-delegate than to flood the main context with unnecessary output.

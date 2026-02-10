@@ -23,6 +23,15 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ADMIN_PASSWORD}
 
+  # ⚠️ COMMENT THESE ⤵️ SERVICES BEFORE THE FIRST RUN ##############
+  # Serves uploads locally for fast seed data import.
+  # Can be disabled after the first successful import.
+  uploads-server:
+    image: nginx:alpine
+    volumes:
+      - ./scripts/init-site/uploads:/usr/share/nginx/html:ro
+  # ##############################################################################
+
   wordpress:
     image: bitnamilegacy/wordpress:latest
     ports:
@@ -41,6 +50,8 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+      uploads-server:
+        condition: service_started
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
       interval: 10s
