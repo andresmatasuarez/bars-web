@@ -24859,8 +24859,51 @@
           "type": "frame",
           "id": "ojQtY",
           "name": "Article Hero",
+          "metadata": {
+            "type": "unsplash",
+            "username": "akshar_dave",
+            "link": "https://unsplash.com/@akshar_dave",
+            "author": "Akshar Dave🌻"
+          },
           "width": "fill_container",
-          "fill": "#0F0F0F",
+          "fill": [
+            "#0A0A0A",
+            {
+              "type": "image",
+              "opacity": 0.6,
+              "enabled": true,
+              "url": "https://images.unsplash.com/photo-1653853301139-f57c5fdc069a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8&ixlib=rb-4.1.0&q=80&w=1080",
+              "mode": "fill"
+            },
+            "#0A0A0A40",
+            {
+              "type": "gradient",
+              "gradientType": "linear",
+              "enabled": true,
+              "rotation": 180,
+              "size": {
+                "height": 1
+              },
+              "colors": [
+                {
+                  "color": "#00000000",
+                  "position": 0
+                },
+                {
+                  "color": "#00000000",
+                  "position": 0.3
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 0.85
+                },
+                {
+                  "color": "#0A0A0A",
+                  "position": 1
+                }
+              ]
+            }
+          ],
           "layout": "vertical",
           "gap": 16,
           "padding": [
@@ -24869,6 +24912,7 @@
             40,
             0
           ],
+          "justifyContent": "center",
           "alignItems": "center",
           "children": [
             {
@@ -24879,6 +24923,50 @@
               "layout": "vertical",
               "gap": 16,
               "children": [
+                {
+                  "type": "frame",
+                  "id": "Zv8xw",
+                  "name": "backButton",
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    0
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "KO71P",
+                      "name": "backIcon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "chevron-left",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF99"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WXEm8",
+                      "name": "backLabel",
+                      "fill": "#FFFFFF99",
+                      "content": "Volver a noticias",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "feHIA",
+                  "name": "articleDate",
+                  "fill": "#FFFFFF66",
+                  "content": "3 diciembre, 2025",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
                 {
                   "type": "text",
                   "id": "o9H5V",
@@ -24931,11 +25019,22 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "Fgevu",
+                  "id": "lqp51",
                   "name": "featuredImage",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "veloradio",
+                    "link": "https://unsplash.com/@veloradio",
+                    "author": "Rapha Wilde"
+                  },
                   "width": 1000,
                   "height": 450,
-                  "fill": "#1A1A1A",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1653853301139-f57c5fdc069a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
                   "cornerRadius": 8
                 },
                 {
@@ -24946,17 +25045,6 @@
                   "layout": "vertical",
                   "gap": 24,
                   "children": [
-                    {
-                      "type": "text",
-                      "id": "feHIA",
-                      "name": "articleDate",
-                      "fill": "#8B0000",
-                      "content": "3 diciembre, 2025",
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 0.5
-                    },
                     {
                       "type": "text",
                       "id": "dxIQ0",
@@ -25208,73 +25296,174 @@
                     },
                     {
                       "type": "frame",
-                      "id": "Q02wI",
-                      "name": "articleNav",
+                      "id": "bbmnm",
+                      "name": "navSection",
                       "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 24,
                       "padding": [
-                        32,
+                        16,
                         0,
                         0,
                         0
                       ],
-                      "justifyContent": "space_between",
                       "children": [
                         {
-                          "type": "frame",
-                          "id": "LIAhd",
-                          "name": "prevArticle",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "Wbv5M",
-                              "name": "prevLabel",
-                              "fill": "#FFFFFF66",
-                              "content": "← Artículo anterior",
-                              "fontFamily": "Inter",
-                              "fontSize": 12,
-                              "fontWeight": "500"
-                            },
-                            {
-                              "type": "text",
-                              "id": "Ko1yf",
-                              "name": "prevTitle",
-                              "fill": "#FFFFFF",
-                              "content": "Finalistas FDSS 2025",
-                              "fontFamily": "Cormorant Garamond",
-                              "fontSize": 18,
-                              "fontWeight": "500"
-                            }
-                          ]
+                          "id": "yhJDx",
+                          "type": "ref",
+                          "ref": "aiB0H",
+                          "width": "fill_container",
+                          "name": "divider"
                         },
                         {
                           "type": "frame",
-                          "id": "Etb1F",
-                          "name": "nextArticle",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "alignItems": "end",
+                          "id": "Q02wI",
+                          "name": "articleNav",
+                          "width": "fill_container",
+                          "padding": [
+                            16,
+                            0,
+                            0,
+                            0
+                          ],
+                          "justifyContent": "space_between",
                           "children": [
                             {
-                              "type": "text",
-                              "id": "1Jco6",
-                              "name": "nextLabel",
-                              "fill": "#FFFFFF66",
-                              "content": "Artículo siguiente →",
-                              "fontFamily": "Inter",
-                              "fontSize": 12,
-                              "fontWeight": "500"
+                              "type": "frame",
+                              "id": "LIAhd",
+                              "name": "prevArticle",
+                              "gap": 16,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "uo9Kw",
+                                  "name": "prevThumb",
+                                  "metadata": {
+                                    "type": "unsplash",
+                                    "username": "quentin_baret",
+                                    "link": "https://unsplash.com/@quentin_baret",
+                                    "author": "Quentin Baret"
+                                  },
+                                  "width": 120,
+                                  "height": 80,
+                                  "fill": {
+                                    "type": "image",
+                                    "enabled": true,
+                                    "url": "https://images.unsplash.com/photo-1768381937064-0cff674a09ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NzE3NTl8&ixlib=rb-4.1.0&q=80&w=1080",
+                                    "mode": "fill"
+                                  },
+                                  "cornerRadius": 4
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "gRYCq",
+                                  "name": "prevTextGroup",
+                                  "layout": "vertical",
+                                  "gap": 4,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "Wbv5M",
+                                      "name": "prevLabel",
+                                      "fill": "#FFFFFF66",
+                                      "content": "← Artículo anterior",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "Ko1yf",
+                                      "name": "prevTitle",
+                                      "fill": "#FFFFFF",
+                                      "content": "Finalistas FDSS 2025",
+                                      "fontFamily": "Cormorant Garamond",
+                                      "fontSize": 18,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "Ve8WN",
+                                      "name": "prevDate",
+                                      "fill": "#FFFFFF44",
+                                      "content": "28 noviembre, 2025",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
                             {
-                              "type": "text",
-                              "id": "Y6eag",
-                              "name": "nextTitle",
-                              "fill": "#FFFFFF",
-                              "content": "Inauguración BARS XXVI",
-                              "fontFamily": "Cormorant Garamond",
-                              "fontSize": 18,
-                              "fontWeight": "500"
+                              "type": "frame",
+                              "id": "Etb1F",
+                              "name": "nextArticle",
+                              "gap": 16,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "tkTMP",
+                                  "name": "nextTextGroup",
+                                  "layout": "vertical",
+                                  "gap": 4,
+                                  "alignItems": "end",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "1Jco6",
+                                      "name": "nextLabel",
+                                      "fill": "#FFFFFF66",
+                                      "content": "Artículo siguiente →",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "Y6eag",
+                                      "name": "nextTitle",
+                                      "fill": "#FFFFFF",
+                                      "content": "Inauguración BARS XXVI",
+                                      "fontFamily": "Cormorant Garamond",
+                                      "fontSize": 18,
+                                      "fontWeight": "500"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "j9iDM",
+                                      "name": "nextDate",
+                                      "fill": "#FFFFFF44",
+                                      "content": "15 noviembre, 2025",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": "normal"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "L92dM",
+                                  "name": "nextThumb",
+                                  "metadata": {
+                                    "type": "unsplash",
+                                    "username": "manrason",
+                                    "link": "https://unsplash.com/@manrason",
+                                    "author": "Manoa Angelo"
+                                  },
+                                  "width": 120,
+                                  "height": 80,
+                                  "fill": {
+                                    "type": "image",
+                                    "enabled": true,
+                                    "url": "https://images.unsplash.com/photo-1760822399477-4f58722fbd6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzA3NzE3NjB8&ixlib=rb-4.1.0&q=80&w=1080",
+                                    "mode": "fill"
+                                  },
+                                  "cornerRadius": 4
+                                }
+                              ]
                             }
                           ]
                         }
@@ -46422,6 +46611,16 @@
                           "fontFamily": "Cormorant Garamond",
                           "fontSize": 16,
                           "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oEts9",
+                          "name": "prevDate",
+                          "fill": "#FFFFFF44",
+                          "content": "28 noviembre, 2025",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -46466,6 +46665,16 @@
                           "fontFamily": "Cormorant Garamond",
                           "fontSize": 16,
                           "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "FHVF1",
+                          "name": "nextDate",
+                          "fill": "#FFFFFF44",
+                          "content": "15 noviembre, 2025",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
                         }
                       ]
                     },

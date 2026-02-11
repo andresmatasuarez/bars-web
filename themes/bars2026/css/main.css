@@ -195,6 +195,115 @@ html {
     }
   }
 
+  /* Article content - styles for WordPress the_content() output */
+  .article-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (min-width: 1024px) {
+    .article-content {
+      font-size: 16px;
+    }
+  }
+
+  .article-content p {
+    margin-bottom: 1.5em;
+  }
+
+  .article-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .article-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .article-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .article-content h2:first-child,
+  .article-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .article-content blockquote {
+    background-color: #0f0f0f;
+    border: 1px solid #8b0000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 1.5em 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.6;
+    color: #ffffff;
+  }
+
+  @media (min-width: 1024px) {
+    .article-content blockquote {
+      padding: 24px 32px;
+    }
+  }
+
+  .article-content blockquote p {
+    margin-bottom: 0;
+    color: inherit;
+  }
+
+  .article-content img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em 0;
+  }
+
+  .article-content a {
+    color: var(--color-bars-link-accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .article-content a:hover {
+    text-decoration: underline;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+  }
+
+  .article-content ul {
+    list-style-type: disc;
+  }
+
+  .article-content ol {
+    list-style-type: decimal;
+  }
+
+  .article-content li {
+    margin-bottom: 0.5em;
+  }
+
+  .article-content strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
 }
 
 /* Utility layer - custom utilities */
