@@ -2,12 +2,21 @@
   "name": "bars-web",
   "private": true,
   "workspaces": ["themes/*"],
+  "config": {
+    "pluginsSrc": "plugins/*/*.{php,js}",
+    "pluginsDest": "./wp-plugins"
+  },
   "scripts": {
     "dev:bars2013": "npm run dev -w themes/bars2013",
     "build:bars2013": "npm run build -w themes/bars2013",
     "lint:bars2013": "npm run lint -w themes/bars2013",
     "dev:bars2026": "npm run dev -w themes/bars2026",
     "build:bars2026": "npm run build -w themes/bars2026",
-    "lint:bars2026": "npm run lint -w themes/bars2026"
+    "lint:bars2026": "npm run lint -w themes/bars2026",
+    "clean:plugins": "rimraf \"wp-plugins/bars-commons/*\" \"wp-plugins/jury-post-type/*\" \"wp-plugins/movie-post-type/*\" --glob",
+    "copy:plugins": "cpx \"$npm_package_config_pluginsSrc\" $npm_package_config_pluginsDest",
+    "watch:plugins": "npm run copy:plugins -- --watch --verbose",
+    "build:plugins": "npm-run-all clean:plugins copy:plugins",
+    "dev:plugins": "npm-run-all clean:plugins watch:plugins"
   }
 }

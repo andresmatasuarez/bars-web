@@ -30,6 +30,12 @@ cd themes/bars2013 && npm run typecheck
 
 # Install PHP dependencies
 cd themes/bars2013 && composer install
+
+# Plugin development (copy .php/.js to wp-plugins/)
+npm run dev:plugins
+
+# Plugin production build
+npm run build:plugins
 ```
 
 Site runs at `http://localhost:8083` (default). Database at port 3307.
@@ -38,7 +44,7 @@ Site runs at `http://localhost:8083` (default). Database at port 3307.
 
 ### Build System
 
-Source files in `themes/bars2013/assets/`, `themes/bars2013/php/`, and `shared/` are processed by Vite and copied to `wp-themes/{theme-name}/` (e.g., `wp-themes/bars2013/`). **Never edit files in `wp-themes/` output directories directly** - they are overwritten on build.
+Source files in `themes/bars2013/assets/`, `themes/bars2013/php/`, and `shared/` are processed by Vite and copied to `wp-themes/{theme-name}/` (e.g., `wp-themes/bars2013/`). Plugin source files in `plugins/` are copied (`.php` and `.js` only) to `wp-plugins/` via `cpx`. **Never edit files in `wp-themes/` or `wp-plugins/` output directories directly** - they are overwritten on build.
 
 Two Vite entry points:
 
@@ -57,10 +63,11 @@ Two Vite entry points:
   - `editions.json` - **Single source of truth** for festival data (dates, venues, etc.)
   - `resources/` - Edition-specific assets (poster, programme, sponsors)
   - `php/` - Shared PHP utilities (editions.php, helpers.php)
-- `wp-plugins/` - Custom WordPress plugins:
+- `plugins/` - Custom WordPress plugins (source):
   - `movie-post-type/` - Movie custom post type with sections, screenings
   - `jury-post-type/` - Jury member custom post type
   - `bars-commons/` - Shared functionality
+- `wp-plugins/` - Plugin build output (`.php` + `.js` only) — DO NOT EDIT
 - `scripts/` - Project scripts
   - `init-site/` - Docker initialization scripts and seed data
   - `switch-theme.sh` - CLI tool to switch WordPress themes
@@ -73,6 +80,14 @@ Output paths are configured in multiple places that must stay in sync:
 2. `themes/{name}/vite/*.config.ts` - `build.outDir` in each Vite config
 3. `docker-compose.yml` - volume mount for the theme
 4. `.gitignore` - ignore pattern for `wp-themes/{name}/**/*`
+
+### Adding a New Plugin
+
+1. Create the plugin directory under `plugins/{name}/`
+2. Add `wp-plugins/{name}/**/*` and `!wp-plugins/{name}/.gitkeep` to `.gitignore`
+3. Add `"wp-plugins/{name}/*"` to the `clean:plugins` script in root `package.json`
+4. Create `wp-plugins/{name}/.gitkeep`
+5. Add a volume mount in `docker-compose.yml` for `./wp-plugins/{name}`
 
 ### Path Aliases
 
@@ -113,7 +128,7 @@ Marker files in `bars-web_bars-wordpress-data` volume control initialization sta
 
 ## Deploy
 
-Upload via FTP:
+Run `npm run build:plugins` first, then upload via FTP:
 
 - `wp-plugins/` → `/2.0/wp-content/plugins`
 - `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`

@@ -286,6 +286,25 @@ class Editions {
     return NULL;
   }
 
+  public static function lastCompleted($now = null) {
+    if ($now === null) {
+      $now = new DateTime();
+    }
+    $current = self::current();
+    $from = self::from($current);
+
+    if (!is_null($from)) {
+      $threshold = clone $from;
+      $threshold->modify('-7 days');
+      if ($now < $threshold) {
+        // Current edition hasn't started yet (not within 7 days), use previous
+        return self::getByNumber($current['number'] - 1);
+      }
+    }
+
+    return $current;
+  }
+
   public static function getMapOfTitleByNumber() {
     $indexed = array();
     foreach (self::all() as $edition) {

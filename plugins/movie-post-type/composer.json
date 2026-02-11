@@ -1,0 +1,7 @@
+{
+    "name": "bars/movie-post-type",
+    "description": "Movie post type plugin for BARS — tests only",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}

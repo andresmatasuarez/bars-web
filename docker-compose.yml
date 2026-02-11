@@ -76,6 +76,10 @@ services:
       WORDPRESS_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
       WORDPRESS_EMAIL: ${WORDPRESS_ADMIN_EMAIL}
 
+      # WP_DEBUG = true disables plugin transient caches (e.g. festival metrics).
+      # Note: Bitnami only applies these env vars on first setup. If WP_DEBUG is
+      # still false in wp-config.php, run:
+      #   docker compose exec wordpress wp config set WP_DEBUG true --raw --allow-root
       WORDPRESS_DEBUG: 1
       WORDPRESS_DEBUG_LOG: 1
       WORDPRESS_DEBUG_DISPLAY: 0

@@ -27,6 +27,9 @@
 	add_action('add_meta_boxes', 'add_movieblock_meta_box');
 	add_action('save_post', 'save_movieblock');
 
+	add_action('save_post_movie', 'invalidateFestivalMetricsCache');
+	add_action('save_post_movieblock', 'invalidateFestivalMetricsCache');
+
 	add_action('init', 'initialize');
 
 	$MOVIE_SECTIONS = array (
@@ -466,6 +469,199 @@
 	function getMovieSectionLabel($value){
 		global $MOVIE_SECTIONS;
 		return $MOVIE_SECTIONS[$value]['label'];
+	}
+
+	function getFestivalMetrics() {
+		$use_cache = !defined('WP_DEBUG') || !WP_DEBUG;
+
+		if ($use_cache) {
+			$cached = get_transient('bars_festival_metrics');
+			if ($cached !== false) {
+				return $cached;
+			}
+		}
+
+		$edition = Editions::lastCompleted();
+		$editionKey = 'bars' . $edition['number'];
+
+		$metrics = array(
+			'editions'    => $edition['number'],
+			'movies'      => getMovieCount($editionKey),
+			'short_films' => getShortFilmCount($editionKey),
+			'countries'   => getCountryCount($editionKey),
+		);
+
+		if ($use_cache) {
+			set_transient('bars_festival_metrics', $metrics, 7 * DAY_IN_SECONDS);
+		}
+		return $metrics;
+	}
+
+	/**
+	 * Count feature-length movies (excluding shorts and online activities) that are
+	 * NOT inside a movieblock, for a single edition.
+	 */
+	function getMovieCount($editionKey) {
+		global $wpdb;
+
+		$excludedSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'onlineActivities');
+		$excludedPlaceholders = implode(',', array_fill(0, count($excludedSections), '%s'));
+
+		$sql = "
+			SELECT COUNT(DISTINCT post.ID)
+			FROM {$wpdb->prefix}posts post
+			INNER JOIN {$wpdb->prefix}postmeta m_edition
+				ON post.ID = m_edition.post_id AND m_edition.meta_key = '_movie_edition'
+			INNER JOIN {$wpdb->prefix}postmeta m_section
+				ON post.ID = m_section.post_id AND m_section.meta_key = '_movie_section'
+			LEFT JOIN {$wpdb->prefix}postmeta m_mb
+				ON post.ID = m_mb.post_id AND m_mb.meta_key = '_movie_movieblock'
+			WHERE post.post_status = 'publish'
+			  AND post.post_type = 'movie'
+			  AND m_edition.meta_value = %s
+			  AND m_section.meta_value NOT IN ($excludedPlaceholders)
+			  AND (m_mb.meta_value IS NULL OR m_mb.meta_value = '' OR m_mb.meta_value = '-1')
+		";
+
+		$params = array_merge(array($editionKey), $excludedSections);
+		$result = $wpdb->get_var($wpdb->prepare($sql, $params));
+
+		return (int) $result;
+	}
+
+	/**
+	 * Count distinct countries across ALL movies in the edition (features + shorts in blocks).
+	 * Includes feature films (not in excluded sections, not in a movieblock) AND
+	 * short films that belong to a movieblock (valid _movie_movieblock).
+	 */
+	function getCountryCount($editionKey) {
+		global $wpdb;
+
+		$excludedSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'onlineActivities');
+		$excludedPlaceholders = implode(',', array_fill(0, count($excludedSections), '%s'));
+
+		$sql = "
+			SELECT DISTINCT m_country.meta_value AS country
+			FROM {$wpdb->prefix}posts post
+			INNER JOIN {$wpdb->prefix}postmeta m_edition
+				ON post.ID = m_edition.post_id AND m_edition.meta_key = '_movie_edition'
+			INNER JOIN {$wpdb->prefix}postmeta m_section
+				ON post.ID = m_section.post_id AND m_section.meta_key = '_movie_section'
+			INNER JOIN {$wpdb->prefix}postmeta m_country
+				ON post.ID = m_country.post_id AND m_country.meta_key = '_movie_country'
+			LEFT JOIN {$wpdb->prefix}postmeta m_mb
+				ON post.ID = m_mb.post_id AND m_mb.meta_key = '_movie_movieblock'
+			WHERE post.post_status = 'publish'
+			  AND post.post_type = 'movie'
+			  AND m_edition.meta_value = %s
+			  AND m_country.meta_value != ''
+			  AND (
+			    m_section.meta_value NOT IN ($excludedPlaceholders)
+			    OR (m_mb.meta_value IS NOT NULL AND m_mb.meta_value != '' AND m_mb.meta_value != '-1')
+			  )
+		";
+
+		$params = array_merge(array($editionKey), $excludedSections);
+		$results = $wpdb->get_results($wpdb->prepare($sql, $params));
+
+		if (empty($results)) {
+			return 0;
+		}
+
+		$countries = array();
+		foreach ($results as $row) {
+			$parsed = parseCountryField($row->country);
+			foreach ($parsed as $country) {
+				$countries[$country] = true;
+			}
+		}
+
+		$total = count($countries);
+		return (int) (floor($total / 5) * 5);
+	}
+
+	/**
+	 * Estimate short film count using the A + B × avg formula.
+	 *
+	 * A = individual short films that belong to a movieblock (fully entered in DB)
+	 * B = standalone short-section entries NOT in a movieblock (each represents ~1 block's worth)
+	 * avg = A / number of distinct movieblocks containing shorts
+	 * Result = ceil(A + B × avg)
+	 */
+	function getShortFilmCount($editionKey) {
+		global $wpdb;
+
+		$shortSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años');
+		$shortPlaceholders = implode(',', array_fill(0, count($shortSections), '%s'));
+
+		// Step 1: Count individual shorts inside movieblocks (A) and how many distinct blocks they span.
+		// By convention, any movie assigned to a movieblock is a short film, regardless of its section.
+		$sql_a = "
+			SELECT COUNT(DISTINCT post.ID) AS total,
+			       COUNT(DISTINCT m_mb.meta_value) AS block_count
+			FROM {$wpdb->prefix}posts post
+			INNER JOIN {$wpdb->prefix}postmeta m_edition
+				ON post.ID = m_edition.post_id AND m_edition.meta_key = '_movie_edition'
+			INNER JOIN {$wpdb->prefix}postmeta m_mb
+				ON post.ID = m_mb.post_id AND m_mb.meta_key = '_movie_movieblock'
+			WHERE post.post_status = 'publish'
+			  AND post.post_type = 'movie'
+			  AND m_edition.meta_value = %s
+			  AND m_mb.meta_value IS NOT NULL AND m_mb.meta_value != '' AND m_mb.meta_value != '-1'
+		";
+
+		$row_a = $wpdb->get_row($wpdb->prepare($sql_a, $editionKey));
+
+		$a = (int) $row_a->total;
+		$blockCount = (int) $row_a->block_count;
+		// When no movieblocks exist, each standalone entry counts as 1 short
+		$avg = $blockCount > 0 ? $a / $blockCount : 1;
+
+		// Step 2: Count standalone short-section entries NOT in a movieblock (B)
+		$sql_b = "
+			SELECT COUNT(DISTINCT post.ID)
+			FROM {$wpdb->prefix}posts post
+			INNER JOIN {$wpdb->prefix}postmeta m_edition
+				ON post.ID = m_edition.post_id AND m_edition.meta_key = '_movie_edition'
+			INNER JOIN {$wpdb->prefix}postmeta m_section
+				ON post.ID = m_section.post_id AND m_section.meta_key = '_movie_section'
+			LEFT JOIN {$wpdb->prefix}postmeta m_mb
+				ON post.ID = m_mb.post_id AND m_mb.meta_key = '_movie_movieblock'
+			WHERE post.post_status = 'publish'
+			  AND post.post_type = 'movie'
+			  AND m_edition.meta_value = %s
+			  AND m_section.meta_value IN ($shortPlaceholders)
+			  AND (m_mb.meta_value IS NULL OR m_mb.meta_value = '' OR m_mb.meta_value = '-1')
+		";
+
+		$params_b = array_merge(array($editionKey), $shortSections);
+		$b = (int) $wpdb->get_var($wpdb->prepare($sql_b, $params_b));
+
+		// Step 3: Estimate total = ceil(A + B × avg)
+		$total = (int) ceil($a + $b * $avg);
+		return (int) (floor($total / 10) * 10);
+	}
+
+	function parseCountryField($countryValue) {
+		$countryValue = trim($countryValue);
+		if ($countryValue === '') {
+			return array();
+		}
+
+		$parts = preg_split('/\s*[\/,\-]\s*/u', $countryValue);
+		$countries = array();
+		foreach ($parts as $part) {
+			$part = trim($part);
+			if ($part !== '') {
+				$countries[] = mb_strtolower($part, 'UTF-8');
+			}
+		}
+
+		return $countries;
+	}
+
+	function invalidateFestivalMetricsCache() {
+		delete_transient('bars_festival_metrics');
 	}
 
 ?>

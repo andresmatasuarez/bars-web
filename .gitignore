@@ -23,6 +23,20 @@ wp-themes/bars2026/**/*
 # Temporary agent artifacts (screenshots, test files, reports)
 .qa/
 
+# Build outputs (plugins output to wp-plugins/{plugin-name}/)
+wp-plugins/bars-commons/**/*
+!wp-plugins/bars-commons/.gitkeep
+wp-plugins/jury-post-type/**/*
+!wp-plugins/jury-post-type/.gitkeep
+wp-plugins/movie-post-type/**/*
+!wp-plugins/movie-post-type/.gitkeep
+
+# PHP Composer (plugin test dependencies)
+plugins/movie-post-type/vendor/
+
+# PHPUnit
+.phpunit.result.cache
+
 # Init scripts data (user-specific)
 scripts/init-site/backup.xml
 scripts/init-site/uploads/

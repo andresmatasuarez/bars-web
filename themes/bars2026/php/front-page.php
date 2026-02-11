@@ -117,21 +117,22 @@ get_header();
         </p>
 
         <!-- Stats -->
-        <div class="flex flex-wrap justify-center gap-8 lg:gap-20 mb-10 lg:mb-16">
+        <?php $metrics = getFestivalMetrics(); ?>
+        <div class="flex flex-wrap justify-center gap-8 lg:gap-16 mb-10 lg:mb-16">
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary">25+</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['editions']); ?></p>
                 <p class="text-sm text-bars-text-muted mt-1">Ediciones</p>
             </div>
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary">500+</p>
-                <p class="text-sm text-bars-text-muted mt-1">Películas por año</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['movies']); ?></p>
+                <p class="text-sm text-bars-text-muted mt-1">Películas</p>
             </div>
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary">10K+</p>
-                <p class="text-sm text-bars-text-muted mt-1">Asistentes</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['short_films']); ?>+</p>
+                <p class="text-sm text-bars-text-muted mt-1">Cortos</p>
             </div>
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary">40+</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['countries']); ?>+</p>
                 <p class="text-sm text-bars-text-muted mt-1">Países</p>
             </div>
         </div>

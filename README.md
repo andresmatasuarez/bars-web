@@ -125,7 +125,11 @@ bars-web/
 ├─ wp-themes/
 │  ├─ bars2013/              # Build output — DO NOT EDIT
 │  └─ bars2026/              # Build output — DO NOT EDIT
-├─ wp-plugins/
+├─ plugins/                       # Plugin source
+│  ├─ bars-commons/
+│  ├─ jury-post-type/
+│  └─ movie-post-type/
+├─ wp-plugins/                    # Build output — DO NOT EDIT
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
@@ -154,7 +158,13 @@ Running a local version of the site involves two different processes:
    cd themes/bars2026 && npm run dev
    ```
 
-2. Start the wordpress/mysql services:
+2. Watch for plugin changes and copy to output:
+
+   ```
+   npm run dev:plugins
+   ```
+
+3. Start the wordpress/mysql services:
 
    ```
    docker compose up -d
@@ -168,13 +178,23 @@ Running a local version of the site involves two different processes:
    mysql -h127.0.0.1 -u root -P3307 -p barsweb_docker
    ```
 
+### Caching gotchas
+
+- Some plugins cache data in WordPress transients (e.g. festival metrics are cached for 7 days). When `WP_DEBUG` is `true` (default in Docker), these caches are bypassed and changes take effect immediately on refresh.
+- If you're seeing stale data, verify that `WP_DEBUG` is `true` in `wp-config.php` — Bitnami only sets it during the initial container setup. To fix it manually:
+  ```sh
+  docker compose exec wordpress wp config set WP_DEBUG true --raw --allow-root
+  ```
+
 ### Available Scripts
 
 From the root:
 
-- `npm run dev:bars2013` / `npm run dev:bars2026` - Start development mode
-- `npm run build:bars2013` / `npm run build:bars2026` - Build for production
+- `npm run dev:bars2013` / `npm run dev:bars2026` - Start theme development mode
+- `npm run build:bars2013` / `npm run build:bars2026` - Build theme for production
 - `npm run lint:bars2013` / `npm run lint:bars2026` - Run ESLint
+- `npm run dev:plugins` - Watch and copy plugin files to `wp-plugins/`
+- `npm run build:plugins` - Build plugins for production
 
 From each theme directory (`themes/bars2013` or `themes/bars2026`):
 
@@ -186,6 +206,7 @@ From each theme directory (`themes/bars2013` or `themes/bars2026`):
 
 ## Deploy
 
+1. Build all outputs: `npm run build:plugins` (and theme builds as needed).
 1. Using a FTP client, log into the BARS server using the appropriate credentials.
 1. Upload the following files:
 
