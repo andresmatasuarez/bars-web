@@ -7,6 +7,8 @@
     "pluginsDest": "./wp-plugins"
   },
   "scripts": {
+    "dev": "npm-run-all --parallel dev:bars2013 dev:bars2026 dev:plugins",
+    "build": "npm-run-all build:bars2013 build:bars2026 build:plugins",
     "dev:bars2013": "npm run dev -w themes/bars2013",
     "build:bars2013": "npm run build -w themes/bars2013",
     "lint:bars2013": "npm run lint -w themes/bars2013",
