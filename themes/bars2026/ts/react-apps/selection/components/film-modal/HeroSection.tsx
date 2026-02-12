@@ -23,6 +23,8 @@ export default function HeroSection({
   badgeSize,
   padX,
   padY,
+  bgHeight,
+  textPosition = 'bottom',
 }: {
   movie: Movie;
   sectionLabel: string;
@@ -34,11 +36,16 @@ export default function HeroSection({
   badgeSize: string;
   padX: number;
   padY: number;
+  bgHeight?: number;
+  textPosition?: 'top' | 'bottom';
 }) {
   return (
-    <div className={`relative w-full ${height} shrink-0`}>
+    <div className={`relative w-full ${textPosition === 'bottom' ? height : ''} shrink-0`}>
       {/* Background thumbnail */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div
+        className={`absolute left-0 right-0 top-0 overflow-hidden ${bgHeight ? '' : 'bottom-0'}`}
+        style={bgHeight ? { height: bgHeight } : undefined}
+      >
         {movie.thumbnail ? (
           <HeroBackground html={movie.thumbnail} />
         ) : (
@@ -47,16 +54,20 @@ export default function HeroSection({
       </div>
       {/* Gradient overlay */}
       <div
-        className="absolute inset-0"
+        className={`absolute left-0 right-0 top-0 ${bgHeight ? '' : 'bottom-0'}`}
         style={{
+          ...(bgHeight ? { height: bgHeight } : {}),
           background:
             'linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0) 50%, rgba(10,10,10,0.6) 75%, #0A0A0A 100%)',
         }}
       />
       {/* Content */}
       <div
-        className="absolute flex flex-col gap-2 lg:gap-3 z-10"
-        style={{ left: padX, bottom: padY, right: padX }}
+        className={`${textPosition === 'top' ? 'relative' : 'absolute'} flex flex-col gap-2 lg:gap-3 z-10`}
+        style={textPosition === 'top'
+          ? { paddingLeft: padX, paddingRight: padX, paddingTop: padY }
+          : { left: padX, right: padX, bottom: padY }
+        }
       >
         {/* Category badge */}
         <span
@@ -66,8 +77,8 @@ export default function HeroSection({
           {sectionLabel}
         </span>
         {/* Title + bookmark */}
-        <div className="flex items-center gap-4">
-          <h2 id="film-modal-title" className={`font-heading ${titleSize} font-semibold text-white leading-[1.1]`}>
+        <div>
+          <h2 id="film-modal-title" className={`inline font-heading ${titleSize} font-semibold text-white leading-[1.1]`}>
             {movie.title}
           </h2>
           {onToggleBookmark && (
@@ -75,6 +86,7 @@ export default function HeroSection({
               active={bookmarked}
               onClick={onToggleBookmark}
               size="md"
+              className="inline-flex ml-3"
             />
           )}
         </div>

@@ -21,8 +21,8 @@ export default function FilmModal() {
   const isBlock = movie?.isBlock ?? false;
 
   const containerClassName = isBlock
-    ? 'relative w-full h-full lg:max-w-[1100px] lg:max-h-[900px] lg:rounded-bars-lg bg-bars-bg-dark flex flex-col overflow-hidden'
-    : 'relative w-full h-full lg:max-w-[1058px] lg:max-h-[877px] lg:rounded-bars-lg bg-bars-bg-dark flex flex-col overflow-hidden';
+    ? 'relative w-full h-full lg:h-auto lg:min-h-[650px] lg:max-w-[1100px] lg:max-h-[775px] lg:rounded-bars-lg bg-bars-bg-dark flex flex-col overflow-hidden'
+    : 'relative w-full h-full lg:h-auto lg:min-h-[650px] lg:max-w-[1058px] lg:max-h-[775px] lg:rounded-bars-lg bg-bars-bg-dark flex flex-col overflow-hidden';
 
   // Derive bookmark state at the orchestrator level so sub-components stay pure
   const firstScreening = movie?.screenings[0] ?? null;
@@ -31,13 +31,9 @@ export default function FilmModal() {
     [firstScreening, movie],
   );
   const bookmarked = screeningWithMovie ? isAddedToWatchlist(screeningWithMovie) : false;
-  const onToggleBookmark = screeningWithMovie
-    ? () => toggleWatchlist(screeningWithMovie)
-    : null;
+  const onToggleBookmark = screeningWithMovie ? () => toggleWatchlist(screeningWithMovie) : null;
 
-  const sharedProps = movie
-    ? { currentEdition, sections, bookmarked, onToggleBookmark }
-    : null;
+  const sharedProps = movie ? { currentEdition, sections, bookmarked, onToggleBookmark } : null;
 
   return (
     <Modal
@@ -49,7 +45,7 @@ export default function FilmModal() {
       {movie && sharedProps && (
         <>
           {/* Desktop layout */}
-          <div className="hidden lg:flex lg:flex-col lg:h-full lg:min-h-0">
+          <div className="hidden lg:flex lg:flex-col lg:flex-1 lg:min-h-0">
             {isBlock ? (
               <BlockDesktop movie={movie} onClose={closeFilmModal} {...sharedProps} />
             ) : (

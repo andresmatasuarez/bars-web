@@ -32,12 +32,14 @@ export default function BlockDesktop({
         sectionLabel={sectionLabel}
         bookmarked={bookmarked}
         onToggleBookmark={onToggleBookmark}
-        height="h-[340px]"
+        height="h-[260px]"
         titleSize="text-5xl"
         metaSize="text-sm"
         badgeSize="text-[10px]"
         padX={48}
-        padY={48}
+        padY={120}
+        bgHeight={480}
+        textPosition="top"
       />
 
       {/* Close button */}
@@ -46,9 +48,9 @@ export default function BlockDesktop({
       </div>
 
       {/* Two-column content */}
-      <div className="flex flex-1 min-h-0">
+      <div className="relative z-10 flex flex-1 min-h-0">
         {/* Left column: screenings */}
-        <div className="w-[460px] shrink-0 overflow-y-auto px-12 py-2 pb-10 flex flex-col gap-3">
+        <div className="w-[460px] shrink-0 overflow-y-auto px-12 pt-6 pb-10 flex flex-col gap-3">
           <h3 className="font-heading text-2xl font-medium text-white">
             Funciones
           </h3>
@@ -58,7 +60,7 @@ export default function BlockDesktop({
         </div>
 
         {/* Right column: shorts list */}
-        <div className="flex-1 overflow-y-auto py-2 pr-12 pb-10 flex flex-col gap-3">
+        <div className="flex-1 overflow-y-auto pt-6 pr-12 pb-10 flex flex-col gap-3">
           <h3 className="font-heading text-2xl font-medium text-white">
             Cortometrajes en este bloque
           </h3>

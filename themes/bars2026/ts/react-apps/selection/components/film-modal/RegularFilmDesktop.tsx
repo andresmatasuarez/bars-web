@@ -31,12 +31,14 @@ export default function RegularFilmDesktop({
         sectionLabel={sectionLabel}
         bookmarked={bookmarked}
         onToggleBookmark={onToggleBookmark}
-        height="h-[340px]"
+        height="h-[260px]"
         titleSize="text-5xl"
         metaSize="text-sm"
         badgeSize="text-[10px]"
         padX={48}
-        padY={48}
+        padY={120}
+        bgHeight={480}
+        textPosition="top"
       />
 
       {/* Close button */}
@@ -45,9 +47,9 @@ export default function RegularFilmDesktop({
       </div>
 
       {/* Two-column content */}
-      <div className="flex flex-1 min-h-0">
+      <div className="relative z-10 flex flex-1 min-h-0">
         {/* Left column: crew + synopsis */}
-        <div className="flex-1 py-2 px-12 flex flex-col gap-6 min-h-0">
+        <div className="flex-1 pt-6 pb-2 px-12 flex flex-col gap-6 min-h-0">
           {/* Crew */}
           {(movie.directors || movie.cast) && (
             <div className="flex flex-col gap-3 shrink-0">
@@ -84,7 +86,7 @@ export default function RegularFilmDesktop({
         </div>
 
         {/* Right column: trailer + screenings */}
-        <div className="w-[454px] shrink-0 overflow-y-auto pr-12 py-2 pb-10 flex flex-col gap-6">
+        <div className="w-[454px] shrink-0 overflow-y-auto pr-12 pt-6 pb-10 flex flex-col gap-6">
           {/* Trailer */}
           {movie.trailerUrl && movie.thumbnail && (
             <TrailerEmbed
