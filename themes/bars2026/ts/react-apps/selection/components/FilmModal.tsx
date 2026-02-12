@@ -5,11 +5,21 @@ import {
   Screening,
   ShortFilm,
 } from '@shared/ts/selection/types';
+import { memo } from 'react';
 
 import { Modal } from '../../../components/modal/Modal';
 import { useData } from '../data/DataProvider';
 import BookmarkButton from './BookmarkButton';
 import { MapPinIcon } from './icons';
+
+const HeroBackground = memo(function HeroBackground({ html }: { html: string }) {
+  return (
+    <div
+      className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-top [&_img]:grayscale-50 [&_img]:brightness-[0.4]"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+});
 
 // --- Shared sub-components ---
 
@@ -169,7 +179,7 @@ function ScreeningCard({
   );
 }
 
-function TrailerEmbed({
+const TrailerEmbed = memo(function TrailerEmbed({
   trailerUrl,
   thumbnail,
   compact,
@@ -212,7 +222,7 @@ function TrailerEmbed({
       </div>
     </a>
   );
-}
+});
 
 function ShortFilmCard({ short: s }: { short: ShortFilm }) {
   return (
@@ -317,10 +327,7 @@ function HeroSection({
       {/* Background thumbnail */}
       <div className="absolute inset-0 overflow-hidden">
         {movie.thumbnail ? (
-          <div
-            className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-top [&_img]:grayscale-50 [&_img]:brightness-[0.4]"
-            dangerouslySetInnerHTML={{ __html: movie.thumbnail }}
-          />
+          <HeroBackground html={movie.thumbnail} />
         ) : (
           <div className="w-full h-full bg-bars-bg-medium" />
         )}

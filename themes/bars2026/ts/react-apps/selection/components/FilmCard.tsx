@@ -1,47 +1,77 @@
-import Editions from '@shared/ts/selection/Editions';
+import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
 import {
   isTraditionalScreening,
-  RegularStreamingScreening,
+  MovieSections,
+  Screening,
   ScreeningWithMovie,
-  TraditionalScreening,
 } from '@shared/ts/selection/types';
+import { memo } from 'react';
 
-import { useData } from '../data/DataProvider';
 import BookmarkButton from './BookmarkButton';
 import { MapPinIcon } from './icons';
 
-type Props = {
-  screening: ScreeningWithMovie<TraditionalScreening | RegularStreamingScreening>;
-};
+const Thumbnail = memo(function Thumbnail({ html }: { html: string }) {
+  return (
+    <div
+      className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+});
 
-export default function FilmCard({ screening }: Props) {
-  const { currentEdition, sections, isAddedToWatchlist, toggleWatchlist } =
-    useData();
-
-  const movie = screening.movie;
-  const sectionLabel = sections[movie.section] ?? movie.section;
-  const bookmarked = isAddedToWatchlist(screening);
-
+export function getVenueDisplay(
+  screening: ScreeningWithMovie<Screening>,
+  currentEdition: SingleEdition,
+): string {
   let venueName = '';
-  let roomName = '';
   try {
     venueName = Editions.getVenueName(screening.venue, currentEdition);
   } catch {
     venueName = screening.venue;
   }
-  if (isTraditionalScreening(screening) && screening.room) {
-    roomName = screening.room;
-  }
+  const roomName =
+    isTraditionalScreening(screening) && screening.room ? screening.room : '';
+  return roomName ? `${venueName} · ${roomName}` : venueName;
+}
 
-  const venueDisplay = roomName
-    ? `${venueName} · ${roomName}`
-    : venueName;
+export function getSectionLabel(
+  screening: ScreeningWithMovie,
+  sections: MovieSections,
+): string {
+  return sections[screening.movie.section] ?? screening.movie.section;
+}
 
-  const { openFilmModal } = useData();
+type Props = {
+  screening: ScreeningWithMovie<Screening>;
+  sectionLabel: string;
+  venueDisplay: string;
+  bookmarked: boolean;
+  onToggleWatchlist: () => void;
+  onOpenModal: () => void;
+};
+
+function arePropsEqual(prev: Props, next: Props): boolean {
+  return (
+    prev.screening.raw === next.screening.raw &&
+    prev.sectionLabel === next.sectionLabel &&
+    prev.venueDisplay === next.venueDisplay &&
+    prev.bookmarked === next.bookmarked
+  );
+}
+
+export default memo(function FilmCard({
+  screening,
+  sectionLabel,
+  venueDisplay,
+  bookmarked,
+  onToggleWatchlist,
+  onOpenModal,
+}: Props) {
+  const movie = screening.movie;
 
   return (
     <div
-      onClick={() => openFilmModal(movie)}
+      onClick={onOpenModal}
       className="block group cursor-pointer"
     >
       {/* Desktop: vertical card */}
@@ -49,17 +79,14 @@ export default function FilmCard({ screening }: Props) {
         {/* Thumbnail */}
         <div className="relative h-[140px] flex-shrink-0 overflow-hidden bg-bars-bg-medium">
           {movie.thumbnail ? (
-            <div
-              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
-              dangerouslySetInnerHTML={{ __html: movie.thumbnail }}
-            />
+            <Thumbnail html={movie.thumbnail} />
           ) : (
             <div className="w-full h-full bg-bars-bg-medium" />
           )}
           <div className="absolute top-2 right-2">
             <BookmarkButton
               active={bookmarked}
-              onClick={() => toggleWatchlist(screening)}
+              onClick={onToggleWatchlist}
             />
           </div>
         </div>
@@ -91,17 +118,14 @@ export default function FilmCard({ screening }: Props) {
         {/* Thumbnail */}
         <div className="relative w-[130px] flex-shrink-0 overflow-hidden bg-bars-bg-medium">
           {movie.thumbnail ? (
-            <div
-              className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
-              dangerouslySetInnerHTML={{ __html: movie.thumbnail }}
-            />
+            <Thumbnail html={movie.thumbnail} />
           ) : (
             <div className="w-full h-full bg-bars-bg-medium" />
           )}
           <div className="absolute top-1.5 right-1.5">
             <BookmarkButton
               active={bookmarked}
-              onClick={() => toggleWatchlist(screening)}
+              onClick={onToggleWatchlist}
             />
           </div>
         </div>
@@ -129,4 +153,4 @@ export default function FilmCard({ screening }: Props) {
       </div>
     </div>
   );
-}
+}, arePropsEqual);

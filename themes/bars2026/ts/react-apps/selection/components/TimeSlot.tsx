@@ -4,7 +4,8 @@ import {
   TraditionalScreening,
 } from '@shared/ts/selection/types';
 
-import FilmCard from './FilmCard';
+import { useData } from '../data/DataProvider';
+import FilmCard, { getSectionLabel, getVenueDisplay } from './FilmCard';
 import { ClockIcon } from './icons';
 
 type Props = {
@@ -14,6 +15,14 @@ type Props = {
 };
 
 export default function TimeSlot({ time, screenings, hideDivider }: Props) {
+  const {
+    currentEdition,
+    sections,
+    isAddedToWatchlist,
+    toggleWatchlist,
+    openFilmModal,
+  } = useData();
+
   return (
     <div>
       {/* Time header */}
@@ -28,7 +37,15 @@ export default function TimeSlot({ time, screenings, hideDivider }: Props) {
       {/* Film grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
         {screenings.map((screening) => (
-          <FilmCard key={screening.raw} screening={screening} />
+          <FilmCard
+            key={screening.raw}
+            screening={screening}
+            sectionLabel={getSectionLabel(screening, sections)}
+            venueDisplay={getVenueDisplay(screening, currentEdition)}
+            bookmarked={isAddedToWatchlist(screening)}
+            onToggleWatchlist={() => toggleWatchlist(screening)}
+            onOpenModal={() => openFilmModal(screening.movie)}
+          />
         ))}
       </div>
     </div>

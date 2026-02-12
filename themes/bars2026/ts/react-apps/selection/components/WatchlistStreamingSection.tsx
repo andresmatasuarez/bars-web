@@ -1,10 +1,20 @@
+
+
+
 import { useData } from '../data/DataProvider';
-import FilmCard from './FilmCard';
+import FilmCard, { getSectionLabel, getVenueDisplay } from './FilmCard';
 
 export default function WatchlistStreamingSection({
   filterByWatchlist = true,
 }: { filterByWatchlist?: boolean }) {
-  const { alwaysAvailableScreenings, isAddedToWatchlist } = useData();
+  const {
+    alwaysAvailableScreenings,
+    isAddedToWatchlist,
+    toggleWatchlist,
+    currentEdition,
+    sections,
+    openFilmModal,
+  } = useData();
 
   const screenings = filterByWatchlist
     ? alwaysAvailableScreenings.filter((s) => isAddedToWatchlist(s))
@@ -22,7 +32,15 @@ export default function WatchlistStreamingSection({
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
         {screenings.map((screening) => (
-          <FilmCard key={screening.raw} screening={screening} />
+          <FilmCard
+            key={screening.raw}
+            screening={screening}
+            sectionLabel={getSectionLabel(screening, sections)}
+            venueDisplay={getVenueDisplay(screening, currentEdition)}
+            bookmarked={isAddedToWatchlist(screening)}
+            onToggleWatchlist={() => toggleWatchlist(screening)}
+            onOpenModal={() => openFilmModal(screening.movie)}
+          />
         ))}
       </div>
     </div>
