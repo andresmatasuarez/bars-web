@@ -4,7 +4,7 @@ import { useData } from '../data/DataProvider';
 import DayHeader from './DayHeader';
 import DayTabs from './DayTabs';
 import EmptyState from './EmptyState';
-import FilmModal from './FilmModal';
+import FilmModal from './film-modal';
 import FilterPills from './FilterPills';
 import TimeSlot from './TimeSlot';
 import WatchlistStreamingSection from './WatchlistStreamingSection';

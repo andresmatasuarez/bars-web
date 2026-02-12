@@ -18,7 +18,7 @@ import {
   TraditionalScreening,
   Venues,
 } from '@shared/ts/selection/types';
-import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import useFilmModal from './useFilmModal';
 
@@ -128,8 +128,8 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 
   const { watchlist, isAddedToWatchlist, addToWatchlist, removeFromWatchlist } = useWatchlist();
 
-  const toggleWatchlist = useMemo(
-    () => (screening: ScreeningWithMovie) => {
+  const toggleWatchlist = useCallback(
+    (screening: ScreeningWithMovie) => {
       if (isAddedToWatchlist(screening)) {
         removeFromWatchlist(screening);
       } else {

@@ -1,5 +1,5 @@
 import { dateHasPassed, serializeDate } from '@shared/ts/selection/helpers';
-import { useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 import { ActiveTab, useData } from '../data/DataProvider';
 import { getDayAbbrev } from './dayUtils';
@@ -14,6 +14,40 @@ function isTabActive(activeTab: ActiveTab, tab: ActiveTab): boolean {
     );
   }
   return true;
+}
+
+function IconTab({
+  tab,
+  activeTab,
+  activeRef,
+  setActiveTab,
+  icon,
+  label,
+}: {
+  tab: ActiveTab;
+  activeTab: ActiveTab;
+  activeRef: React.RefObject<HTMLButtonElement | null>;
+  setActiveTab: (tab: ActiveTab) => void;
+  icon: ReactNode;
+  label: string;
+}) {
+  const active = isTabActive(activeTab, tab);
+  return (
+    <button
+      ref={active ? activeRef : undefined}
+      type="button"
+      onClick={() => setActiveTab(tab)}
+      className={`flex flex-col items-center justify-center flex-shrink-0
+        w-[49px] lg:w-[57px] h-[54px] lg:h-[60px] rounded-bars-sm transition-colors cursor-pointer
+        ${active ? 'bg-bars-primary text-white' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
+      `}
+    >
+      {icon}
+      <span className="font-body text-[7px] lg:text-[8px] font-semibold tracking-[0.5px] uppercase leading-none mt-1">
+        {label}
+      </span>
+    </button>
+  );
 }
 
 export default function DayTabs() {
@@ -46,27 +80,15 @@ export default function DayTabs() {
       className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mx-5 px-5 lg:mx-0 lg:px-0 lg:overflow-visible lg:flex-wrap"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
-      {/* TODO tab */}
-      {(() => {
-        const allTab: ActiveTab = { type: 'all' };
-        const active = isTabActive(activeTab, allTab);
-        return (
-          <button
-            ref={active ? activeRef : undefined}
-            type="button"
-            onClick={() => setActiveTab(allTab)}
-            className={`flex flex-col items-center justify-center flex-shrink-0
-              w-[49px] lg:w-[57px] h-[54px] lg:h-[60px] rounded-bars-sm transition-colors cursor-pointer
-              ${active ? 'bg-bars-primary text-white' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
-            `}
-          >
-            <LayoutGridIcon size={18} />
-            <span className="font-body text-[7px] lg:text-[8px] font-semibold tracking-[0.5px] uppercase leading-none mt-1">
-              TODO
-            </span>
-          </button>
-        );
-      })()}
+      {/* All tab */}
+      <IconTab
+        tab={{ type: 'all' }}
+        activeTab={activeTab}
+        activeRef={activeRef}
+        setActiveTab={setActiveTab}
+        icon={<LayoutGridIcon size={18} />}
+        label="TODO"
+      />
 
       {/* Divider */}
       <div className="w-px bg-bars-divider self-stretch flex-shrink-0 mx-1" />
@@ -96,51 +118,29 @@ export default function DayTabs() {
       })}
 
       {/* Online tab */}
-      {hasOnlineMovies && (() => {
-        const onlineTab: ActiveTab = { type: 'online' };
-        const active = isTabActive(activeTab, onlineTab);
-        return (
-          <button
-            ref={active ? activeRef : undefined}
-            type="button"
-            onClick={() => setActiveTab(onlineTab)}
-            className={`flex flex-col items-center justify-center flex-shrink-0
-              w-[49px] lg:w-[57px] h-[54px] lg:h-[60px] rounded-bars-sm transition-colors cursor-pointer
-              ${active ? 'bg-bars-primary text-white' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
-            `}
-          >
-            <MonitorPlayIcon size={18} />
-            <span className="font-body text-[7px] lg:text-[8px] font-semibold tracking-[0.5px] uppercase leading-none mt-1">
-              ONLINE
-            </span>
-          </button>
-        );
-      })()}
+      {hasOnlineMovies && (
+        <IconTab
+          tab={{ type: 'online' }}
+          activeTab={activeTab}
+          activeRef={activeRef}
+          setActiveTab={setActiveTab}
+          icon={<MonitorPlayIcon size={18} />}
+          label="ONLINE"
+        />
+      )}
 
       {/* Divider */}
       <div className="w-px bg-bars-divider self-stretch flex-shrink-0 mx-1" />
 
       {/* Watchlist tab */}
-      {(() => {
-        const watchlistTab: ActiveTab = { type: 'watchlist' };
-        const active = isTabActive(activeTab, watchlistTab);
-        return (
-          <button
-            ref={active ? activeRef : undefined}
-            type="button"
-            onClick={() => setActiveTab(watchlistTab)}
-            className={`flex flex-col items-center justify-center flex-shrink-0
-              w-[49px] lg:w-[57px] h-[54px] lg:h-[60px] rounded-bars-sm transition-colors cursor-pointer
-              ${active ? 'bg-bars-primary text-white' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
-            `}
-          >
-            <BookmarkIcon size={18} />
-            <span className="font-body text-[7px] lg:text-[8px] font-semibold tracking-[0.5px] uppercase leading-none mt-1">
-              MI LISTA
-            </span>
-          </button>
-        );
-      })()}
+      <IconTab
+        tab={{ type: 'watchlist' }}
+        activeTab={activeTab}
+        activeRef={activeRef}
+        setActiveTab={setActiveTab}
+        icon={<BookmarkIcon size={18} />}
+        label="MI LISTA"
+      />
     </div>
   );
 }

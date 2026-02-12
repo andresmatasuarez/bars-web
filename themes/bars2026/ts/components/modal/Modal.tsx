@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const TRANSITION_DURATION_MS = 200;
 
@@ -7,10 +8,13 @@ interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   containerClassName?: string;
+  ariaLabelledBy?: string;
 }
 
-export function Modal({ isOpen, onClose, children, containerClassName }: ModalProps) {
+export function Modal({ isOpen, onClose, children, containerClassName, ariaLabelledBy }: ModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -18,6 +22,7 @@ export function Modal({ isOpen, onClose, children, containerClassName }: ModalPr
   useEffect(() => {
     let raf1: number, raf2: number, timeout: ReturnType<typeof setTimeout>;
     if (isOpen) {
+      previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
       setMounted(true);
       // Double rAF ensures browser paints opacity-0 before transitioning to opacity-1
       raf1 = requestAnimationFrame(() => {
@@ -36,6 +41,21 @@ export function Modal({ isOpen, onClose, children, containerClassName }: ModalPr
       clearTimeout(timeout);
     };
   }, [isOpen]);
+
+  // Restore focus when modal unmounts
+  useEffect(() => {
+    if (!mounted && previouslyFocusedRef.current) {
+      previouslyFocusedRef.current.focus();
+      previouslyFocusedRef.current = null;
+    }
+  }, [mounted]);
+
+  // Focus the container when it becomes visible
+  useEffect(() => {
+    if (visible && containerRef.current) {
+      containerRef.current.focus();
+    }
+  }, [visible]);
 
   // Scroll lock + escape key — gated on mounted so it stays active during close transition
   const handleEscape = useCallback(
@@ -56,6 +76,36 @@ export function Modal({ isOpen, onClose, children, containerClassName }: ModalPr
     };
   }, [mounted, handleEscape]);
 
+  // Focus trap: constrain Tab/Shift+Tab within the modal
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key !== 'Tab') return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    const focusable = container.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+    );
+    if (focusable.length === 0) {
+      e.preventDefault();
+      return;
+    }
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first || document.activeElement === container) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }, []);
+
   // Unmount after close animation completes
   const handleTransitionEnd = useCallback(
     (e: React.TransitionEvent) => {
@@ -72,7 +122,7 @@ export function Modal({ isOpen, onClose, children, containerClassName }: ModalPr
     if (e.target === overlayRef.current) onClose();
   };
 
-  return (
+  return createPortal(
     <div
       ref={overlayRef}
       onClick={handleOverlayClick}
@@ -85,6 +135,12 @@ export function Modal({ isOpen, onClose, children, containerClassName }: ModalPr
       }}
     >
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={ariaLabelledBy}
+        tabIndex={-1}
+        onKeyDown={handleKeyDown}
         className={
           containerClassName ??
           'relative w-full h-full lg:max-w-[600px] lg:max-h-[700px] lg:rounded-2xl bg-[#0F0F0F] flex flex-col overflow-hidden'
@@ -93,10 +149,12 @@ export function Modal({ isOpen, onClose, children, containerClassName }: ModalPr
           opacity: visible ? 1 : 0,
           transform: visible ? 'scale(1)' : 'scale(0.97)',
           transition: `opacity ${TRANSITION_DURATION_MS}ms ${visible ? 'ease-out' : 'ease-in'}, transform ${TRANSITION_DURATION_MS}ms ${visible ? 'ease-out' : 'ease-in'}`,
+          outline: 'none',
         }}
       >
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

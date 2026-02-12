@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { ScreeningWithMovie } from '../types';
 
@@ -21,8 +21,15 @@ export function serializeScreeningForWatchlist(screening: ScreeningWithMovie): W
   return `${screening.movie.id}_[${screening.raw}]`;
 }
 
-function removeDuplicateEntries(watchlist: WatchlistEntry[]): WatchlistEntry[] {
-  return watchlist.filter((watchlistEntry, index) => watchlist.indexOf(watchlistEntry) === index);
+function loadWatchlist(): WatchlistEntry[] {
+  try {
+    const persisted = localStorage.getItem(LOCALSTORAGE_KEY);
+    if (!persisted) return [];
+    // TODO Validate watchlist object with zod or something
+    return JSON.parse(persisted);
+  } catch {
+    return [];
+  }
 }
 
 export type UseWatchlistValues = {
@@ -33,49 +40,36 @@ export type UseWatchlistValues = {
 };
 
 export default function useWatchlist(): UseWatchlistValues {
-  const [watchlist, setWatchlist] = useState<WatchlistEntry[]>([]);
+  const [watchlist, setWatchlist] = useState<WatchlistEntry[]>(loadWatchlist);
 
+  // Skip persisting on the initial render (the state already came from localStorage)
+  const isInitialMount = useRef(true);
   useEffect(() => {
-    const persistedWatchlist = localStorage.getItem(LOCALSTORAGE_KEY);
-
-    if (!persistedWatchlist) {
-      console.info('useWatchlist :: no existing watchlist data found.');
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
       return;
     }
-
-    const watchlist: WatchlistEntry[] = JSON.parse(persistedWatchlist);
-
-    // TODO Validate watchlist object with zod or something
-
-    setWatchlist(watchlist);
-  }, []);
-
-  useEffect(() => {
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(watchlist));
   }, [watchlist]);
 
+  const watchlistSet = useMemo(() => new Set(watchlist), [watchlist]);
+
   const addToWatchlist = useCallback<UseWatchlistValues['addToWatchlist']>((screening) => {
-    setWatchlist((previousWatchlist) =>
-      removeDuplicateEntries([...previousWatchlist, serializeScreeningForWatchlist(screening)]),
-    );
+    const entry = serializeScreeningForWatchlist(screening);
+    setWatchlist((prev) => (prev.includes(entry) ? prev : [...prev, entry]));
   }, []);
 
   const removeFromWatchlist = useCallback<UseWatchlistValues['removeFromWatchlist']>(
     (screening) => {
       const entryToRemove = serializeScreeningForWatchlist(screening);
-
-      setWatchlist((previousWatchlist) =>
-        previousWatchlist.filter((watchlistEntry) => watchlistEntry !== entryToRemove),
-      );
+      setWatchlist((prev) => prev.filter((entry) => entry !== entryToRemove));
     },
     [],
   );
 
   const isAddedToWatchlist = useCallback<UseWatchlistValues['isAddedToWatchlist']>(
-    (screening) => {
-      return watchlist.includes(serializeScreeningForWatchlist(screening));
-    },
-    [watchlist],
+    (screening) => watchlistSet.has(serializeScreeningForWatchlist(screening)),
+    [watchlistSet],
   );
 
   return { watchlist, addToWatchlist, removeFromWatchlist, isAddedToWatchlist };

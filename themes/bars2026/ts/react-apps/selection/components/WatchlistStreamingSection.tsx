@@ -1,8 +1,8 @@
-
-
+import { useMemo } from 'react';
 
 import { useData } from '../data/DataProvider';
-import FilmCard, { getSectionLabel, getVenueDisplay } from './FilmCard';
+import FilmCard from './FilmCard';
+import { getSectionLabel, getVenueDisplay } from './utils';
 
 export default function WatchlistStreamingSection({
   filterByWatchlist = true,
@@ -16,9 +16,13 @@ export default function WatchlistStreamingSection({
     openFilmModal,
   } = useData();
 
-  const screenings = filterByWatchlist
-    ? alwaysAvailableScreenings.filter((s) => isAddedToWatchlist(s))
-    : alwaysAvailableScreenings;
+  const screenings = useMemo(
+    () =>
+      filterByWatchlist
+        ? alwaysAvailableScreenings.filter((s) => isAddedToWatchlist(s))
+        : alwaysAvailableScreenings,
+    [filterByWatchlist, alwaysAvailableScreenings, isAddedToWatchlist],
+  );
 
   if (screenings.length === 0) return null;
 

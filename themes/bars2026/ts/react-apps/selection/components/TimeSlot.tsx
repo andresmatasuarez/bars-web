@@ -5,8 +5,9 @@ import {
 } from '@shared/ts/selection/types';
 
 import { useData } from '../data/DataProvider';
-import FilmCard, { getSectionLabel, getVenueDisplay } from './FilmCard';
+import FilmCard from './FilmCard';
 import { ClockIcon } from './icons';
+import { getSectionLabel, getVenueDisplay } from './utils';
 
 type Props = {
   time: string;
