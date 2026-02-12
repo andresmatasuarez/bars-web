@@ -27,7 +27,7 @@ bars2026_pages=(
   "Home|home||1"
   "Noticias|noticias|page-news.php|2"
   "El festival|festival|page-about.php|3"
-  "Programacion|programacion||4"
+  "Programacion|programacion|page-selection.php|4"
   "Premios|premios|page-awards.php|5"
   "Convocatoria|convocatoria|page-call.php|6"
   "Prensa|prensa|page-press.php|7"

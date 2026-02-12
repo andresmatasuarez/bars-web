@@ -504,7 +504,7 @@
 	function getMovieCount($editionKey) {
 		global $wpdb;
 
-		$excludedSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'onlineActivities');
+		$excludedSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'bloodyWeekend', 'onlineActivities');
 		$excludedPlaceholders = implode(',', array_fill(0, count($excludedSections), '%s'));
 
 		$sql = "
@@ -537,7 +537,7 @@
 	function getCountryCount($editionKey) {
 		global $wpdb;
 
-		$excludedSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'onlineActivities');
+		$excludedSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'bloodyWeekend', 'onlineActivities');
 		$excludedPlaceholders = implode(',', array_fill(0, count($excludedSections), '%s'));
 
 		$sql = "
@@ -591,7 +591,7 @@
 	function getShortFilmCount($editionKey) {
 		global $wpdb;
 
-		$shortSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años');
+		$shortSections = array('shortFilm', 'shortFilmCompetition', 'cortos25años', 'bloodyWeekend');
 		$shortPlaceholders = implode(',', array_fill(0, count($shortSections), '%s'));
 
 		// Step 1: Count individual shorts inside movieblocks (A) and how many distinct blocks they span.
@@ -639,7 +639,7 @@
 
 		// Step 3: Estimate total = ceil(A + B × avg)
 		$total = (int) ceil($a + $b * $avg);
-		return (int) (floor($total / 10) * 10);
+		return (int) (floor($total / 5) * 5);
 	}
 
 	function parseCountryField($countryValue) {
