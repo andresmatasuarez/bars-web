@@ -47,10 +47,10 @@ export default function RegularFilmDesktop({
       {/* Two-column content */}
       <div className="flex flex-1 min-h-0">
         {/* Left column: crew + synopsis */}
-        <div className="flex-1 overflow-y-auto py-2 px-12 pb-10 flex flex-col gap-6">
+        <div className="flex-1 py-2 px-12 flex flex-col gap-6 min-h-0">
           {/* Crew */}
           {(movie.directors || movie.cast) && (
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 shrink-0">
               {movie.directors && (
                 <div className="flex gap-2">
                   <span className="text-sm text-white/40 shrink-0">Director:</span>
@@ -69,15 +69,17 @@ export default function RegularFilmDesktop({
           )}
           {/* Synopsis */}
           {movie.synopsis && (
-            <div className="flex flex-col gap-3">
-              <h3 className="font-heading text-2xl font-medium text-white">
+            <>
+              <h3 className="font-heading text-2xl font-medium text-white shrink-0">
                 Sinopsis
               </h3>
-              <div
-                className="text-sm leading-[1.7] text-white/80 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
-                dangerouslySetInnerHTML={{ __html: movie.synopsis }}
-              />
-            </div>
+              <div className="flex-1 min-h-0 overflow-y-auto pb-10">
+                <div
+                  className="text-sm leading-[1.7] text-white/80 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
+                  dangerouslySetInnerHTML={{ __html: movie.synopsis }}
+                />
+              </div>
+            </>
           )}
         </div>
 

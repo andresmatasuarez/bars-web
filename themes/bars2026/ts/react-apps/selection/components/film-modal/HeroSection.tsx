@@ -60,7 +60,8 @@ export default function HeroSection({
       >
         {/* Category badge */}
         <span
-          className={`inline-flex self-start rounded-bars-sm px-2.5 py-1 ${badgeSize} font-semibold tracking-[1px] uppercase text-[#D4726A] bg-[rgba(139,0,0,0.27)]`}
+          className={`inline-flex self-start rounded-bars-sm px-2.5 py-1 ${badgeSize} font-semibold tracking-[1px] uppercase text-[#D4726A]`}
+          style={{ backgroundColor: 'rgba(139, 0, 0, 0.27)' }}
         >
           {sectionLabel}
         </span>
