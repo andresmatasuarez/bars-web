@@ -75,6 +75,15 @@ export function isRegularStreamingScreening(
   return isStreamingScreening(screening) && !screening.alwaysAvailable;
 }
 
+export type ShortFilm = {
+  id: number;
+  title: string;
+  info: string;
+  thumbnail: string;
+  directors?: string;
+  synopsis?: string;
+};
+
 export type Movie = {
   /** Wordpress post ID */
   id: number;
@@ -94,6 +103,17 @@ export type Movie = {
   title: string;
 
   screenings: Screening[];
+
+  isBlock: boolean;
+
+  /** Only present for regular films (isBlock === false) */
+  directors?: string;
+  cast?: string;
+  synopsis?: string;
+  trailerUrl?: string;
+
+  /** Only present for blocks (isBlock === true) */
+  shorts?: ShortFilm[];
 };
 
 export type Movies = Movie[];

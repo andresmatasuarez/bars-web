@@ -109,6 +109,43 @@
     return dateWithTZ($date);
   }
 
+  function getShortsForBlock($blockId) {
+    $shorts = get_posts(array(
+      'post_type' => 'movie',
+      'meta_query' => array(
+        array(
+          'key' => '_movie_movieblock',
+          'value' => $blockId,
+        ),
+      ),
+      'posts_per_page' => -1,
+      'orderby' => 'menu_order',
+      'order' => 'ASC',
+    ));
+
+    return array_map(function($short) {
+      $year = get_post_meta($short->ID, '_movie_year', true);
+      $country = get_post_meta($short->ID, '_movie_country', true);
+      $runtime = get_post_meta($short->ID, '_movie_runtime', true);
+      $shortInfo = ($year !== '') ? $year : '';
+      if ($country !== '') {
+        $shortInfo = ($shortInfo !== '' ? $shortInfo . ' · ' : '') . $country;
+      }
+      if ($runtime) {
+        $shortInfo = ($shortInfo !== '' ? $shortInfo . ' · ' : '') . $runtime . ' min.';
+      }
+
+      return array(
+        'id' => $short->ID,
+        'title' => get_the_title($short->ID),
+        'info' => $shortInfo,
+        'thumbnail' => get_the_post_thumbnail($short->ID, 'movie-post-thumbnail'),
+        'directors' => get_post_meta($short->ID, '_movie_directors', true) ?: null,
+        'synopsis' => get_post_meta($short->ID, '_movie_synopsis', true) ?: null,
+      );
+    }, $shorts);
+  }
+
   function prepareMovieForDisplaying($post) {
     $isMovie = get_post_type($post->ID) === 'movie';
 
@@ -119,11 +156,11 @@
       $info = ($year !== '') ? $year : '';
 
       if ($country !== '') {
-        $info = ($info !== '' ? $info . ' - ' : '') . $country;
+        $info = ($info !== '' ? $info . ' · ' : '') . $country;
       }
 
       if ($runtime) {
-        $info = ($info !== '' ? $info . ' - ' : '') . $runtime . ' min.';
+        $info = ($info !== '' ? $info . ' · ' : '') . $runtime . ' min.';
       }
 
       $section = get_post_meta($post->ID, '_movie_section', true);
@@ -136,15 +173,32 @@
 
     $screenings = parseScreenings($screeningsValue);
 
-    return array(
+    $result = array(
       "id" => $post->ID,
       "title" => get_the_title($post->ID),
       "section" => $section,
       "permalink" => get_post_permalink($post->ID),
       "thumbnail" => get_the_post_thumbnail($post->ID, 'movie-post-thumbnail'),
       "screenings" => $screenings,
-      "info" => $info
+      "info" => $info,
+      "isBlock" => !$isMovie,
     );
+
+    if ($isMovie) {
+      $directors = get_post_meta($post->ID, '_movie_directors', true);
+      $cast = get_post_meta($post->ID, '_movie_cast', true);
+      $synopsis = get_post_meta($post->ID, '_movie_synopsis', true);
+      $trailerUrl = get_post_meta($post->ID, '_movie_trailer', true);
+
+      if ($directors) $result['directors'] = $directors;
+      if ($cast) $result['cast'] = $cast;
+      if ($synopsis) $result['synopsis'] = $synopsis;
+      if ($trailerUrl) $result['trailerUrl'] = $trailerUrl;
+    } else {
+      $result['shorts'] = getShortsForBlock($post->ID);
+    }
+
+    return $result;
   }
 
   // @src http://stackoverflow.com/questions/2762061/how-to-add-http-if-its-not-exists-in-the-url

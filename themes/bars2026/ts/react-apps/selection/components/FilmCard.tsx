@@ -37,10 +37,12 @@ export default function FilmCard({ screening }: Props) {
     ? `${venueName} · ${roomName}`
     : venueName;
 
+  const { openFilmModal } = useData();
+
   return (
-    <a
-      href={movie.permalink}
-      className="block group"
+    <div
+      onClick={() => openFilmModal(movie)}
+      className="block group cursor-pointer"
     >
       {/* Desktop: vertical card */}
       <div className="hidden lg:flex flex-col bg-bars-bg-card rounded-bars-md overflow-hidden h-[280px]">
@@ -125,6 +127,6 @@ export default function FilmCard({ screening }: Props) {
           )}
         </div>
       </div>
-    </a>
+    </div>
   );
 }

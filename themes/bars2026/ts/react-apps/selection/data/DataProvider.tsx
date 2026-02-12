@@ -10,6 +10,7 @@ import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
 import { isDateBetween, serializeDate } from '@shared/ts/selection/helpers';
 import {
   AlwaysAvailableStreamingScreening,
+  Movie,
   Movies,
   MovieSections,
   RegularStreamingScreening,
@@ -18,6 +19,8 @@ import {
   Venues,
 } from '@shared/ts/selection/types';
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+
+import useFilmModal from './useFilmModal';
 
 export type ActiveTab =
   | { type: 'day'; date: Date }
@@ -57,6 +60,10 @@ type DataContextType = {
   addToWatchlist: UseWatchlistValues['addToWatchlist'];
   removeFromWatchlist: UseWatchlistValues['removeFromWatchlist'];
   toggleWatchlist: (screening: ScreeningWithMovie) => void;
+
+  selectedMovie: Movie | null;
+  openFilmModal: (movie: Movie) => void;
+  closeFilmModal: () => void;
 };
 
 const DataContext = createContext<DataContextType | null>(null);
@@ -131,6 +138,8 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     },
     [isAddedToWatchlist, addToWatchlist, removeFromWatchlist],
   );
+
+  const { selectedMovie, openFilmModal, closeFilmModal } = useFilmModal();
 
   // Screenings for the current tab before watchlist-only filter
   const rawTabScreenings = useMemo(() => {
@@ -260,6 +269,9 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       addToWatchlist,
       removeFromWatchlist,
       toggleWatchlist,
+      selectedMovie,
+      openFilmModal,
+      closeFilmModal,
     }),
     [
       currentEdition,
@@ -279,6 +291,9 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       addToWatchlist,
       removeFromWatchlist,
       toggleWatchlist,
+      selectedMovie,
+      openFilmModal,
+      closeFilmModal,
     ],
   );
 
