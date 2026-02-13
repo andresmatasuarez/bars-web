@@ -9,10 +9,10 @@ interface BarResult {
 
 const cache = new Map<string, BarResult | null>();
 
-const BRIGHTNESS_THRESHOLD = 10; // out of 255
+const BRIGHTNESS_THRESHOLD = 18; // out of 255 — catches dark-gray bars, not just pure black
 const VARIANCE_THRESHOLD = 25;
-const MIN_BAR_PERCENT = 5;
-const MAX_ASYMMETRY = 3;
+const MIN_BAR_PERCENT = 3; // catch thinner bars visible on small mobile thumbnails
+const MAX_ASYMMETRY = 6; // allow more asymmetric bars (subtitles/watermarks)
 const MAX_SCALE = 1.35;
 const SAMPLE_WIDTH = 100;
 

@@ -11,7 +11,7 @@ const HeroBackground = memo(function HeroBackground({ html }: { html: string }) 
   return (
     <div
       ref={ref}
-      className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-top [&_img]:grayscale-50 [&_img]:brightness-[0.4]"
+      className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:grayscale-50 [&_img]:brightness-[0.4]"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
@@ -65,7 +65,7 @@ export default function HeroSection({
         style={{
           ...(bgHeight ? { height: bgHeight } : {}),
           background:
-            'linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0) 50%, rgba(10,10,10,0.6) 75%, #0A0A0A 100%)',
+            'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)',
         }}
       />
       {/* Content */}

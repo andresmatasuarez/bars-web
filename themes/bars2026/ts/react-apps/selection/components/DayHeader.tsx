@@ -20,7 +20,7 @@ export default function DayHeader({ date, collapsible, collapsed, onToggle }: Pr
       {collapsible && (
         <ChevronDownIcon
           size={16}
-          className={`absolute -left-5 lg:-left-7 top-1/2 -translate-y-1/2 text-white/50 transition-transform duration-200${collapsed ? ' -rotate-90' : ''}`}
+          className={`lg:absolute lg:-left-7 lg:top-1/2 lg:-translate-y-1/2 text-white/50 transition-transform duration-200 shrink-0${collapsed ? ' -rotate-90' : ''}`}
         />
       )}
       <span className="bg-bars-primary/25 text-white text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full">

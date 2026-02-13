@@ -41,7 +41,7 @@ export default function ScreeningCard({
   const dayFontSize = compact ? 'text-[9px]' : 'text-[10px]';
   const numFontSize = compact ? 'text-xl' : 'text-2xl';
   const timeFontSize = compact ? 'text-lg' : 'text-lg';
-  const venueFontSize = compact ? 'text-[11px]' : 'text-xs';
+  const venueFontSize = compact ? 'text-[8px]' : 'text-xs';
   const btnPadding = compact ? 'py-2 px-3.5' : 'py-2 px-4';
   const btnFontSize = compact ? 'text-[11px]' : 'text-xs';
 

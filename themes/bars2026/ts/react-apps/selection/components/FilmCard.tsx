@@ -109,7 +109,7 @@ export default memo(function FilmCard({
 
         {/* Content */}
         <div className="flex flex-col flex-1 p-2.5 gap-1 min-w-0">
-          <span className="inline-flex self-start rounded-bars-sm bg-bars-primary-light px-1.5 py-0.5 text-[8px] font-semibold tracking-[0.5px] uppercase text-[#D4726A]">
+          <span className="self-start max-w-full truncate rounded-bars-sm bg-bars-primary-light px-1.5 py-0.5 text-[8px] font-semibold tracking-[0.5px] uppercase text-[#D4726A]">
             {sectionLabel}
           </span>
           {venueDisplay && (

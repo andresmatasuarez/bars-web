@@ -77,6 +77,7 @@ function bars2026_setup() {
     // Add image sizes
     add_image_size('news-featured', 800, 450, true);
     add_image_size('news-card', 400, 225, true);
+    add_image_size('movie-post-thumbnail', 400, 225, true);
     add_image_size('sponsor-logo', 120, 60, false);
 }
 add_action('after_setup_theme', 'bars2026_setup');

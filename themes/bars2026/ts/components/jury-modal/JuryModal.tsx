@@ -188,7 +188,7 @@ function MobileContent({
               className="absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(to bottom, transparent 0%, transparent 20%, #0a0a0a 85%, #0a0a0a 100%)',
+                  'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)',
               }}
             />
           </div>
