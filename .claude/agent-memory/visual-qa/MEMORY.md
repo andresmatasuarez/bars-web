@@ -24,6 +24,20 @@ Verified working on:
 - 1440x900 (Laptop): Perfect
 - 1920x1080 (Desktop): Perfect
 
+## Workflow Notes
+
+### MCP Playwright Tool Limitations
+
+The MCP Playwright browser tools have limited functionality:
+- Available: navigate, resize, screenshot, snapshot, close
+- **Not available: click, type, keyboard, mouse events**
+
+For testing that requires interaction (clicking buttons, opening modals, filling forms):
+1. Create standalone Playwright test script in `.qa/` directory
+2. Use existing `.qa/package.json` with Playwright dependency
+3. Provide bash script to run tests
+4. Alternative: Verify behavior through code review + provide manual test plan
+
 ## Patterns
 
 ### Button Styles

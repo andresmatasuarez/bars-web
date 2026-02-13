@@ -80,6 +80,7 @@ export type ShortFilm = {
   title: string;
   info: string;
   thumbnail: string;
+  heroThumbnail?: string;
   directors?: string;
   synopsis?: string;
 };
@@ -89,6 +90,7 @@ export type Movie = {
   id: number;
 
   thumbnail: string;
+  heroThumbnail?: string;
 
   /** @example "96 min." */
   info: string;

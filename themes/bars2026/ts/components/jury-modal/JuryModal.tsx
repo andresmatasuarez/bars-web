@@ -144,37 +144,8 @@ function MobileContent({
     '/resources/sala-halftone.png';
 
   return (
-    <>
-      {/* Header bar */}
-      <div
-        className="flex items-center h-16 px-5 shrink-0"
-        style={{ backgroundColor: 'rgba(10, 10, 10, 0.8)' }}
-      >
-        <button
-          onClick={onClose}
-          className="flex items-center gap-2 cursor-pointer"
-          aria-label="Volver"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          <span className="text-sm font-medium text-white">
-            Premios y Jurados
-          </span>
-        </button>
-      </div>
-
-      {/* Scrollable body */}
-      <div className="overflow-y-auto flex-1">
+    <div className="relative flex-1 min-h-0">
+      <div className="absolute inset-0 overflow-y-auto pt-16">
         {/* Hero section with halftone background */}
         <div className="relative w-full h-[220px] shrink-0">
           {/* Halftone background */}
@@ -224,7 +195,31 @@ function MobileContent({
           />
         </div>
       </div>
-    </>
+      {/* Header bar */}
+      <div className="absolute top-0 left-0 right-0 z-10 flex items-center h-16 px-5 bg-bars-header backdrop-blur-sm">
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 cursor-pointer"
+          aria-label="Volver"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span className="text-sm font-medium text-white">
+            Premios y Jurados
+          </span>
+        </button>
+      </div>
+    </div>
   );
 }
 

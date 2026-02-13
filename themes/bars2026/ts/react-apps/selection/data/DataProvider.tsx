@@ -7,7 +7,7 @@ import {
 } from '@shared/ts/selection/data/helpers';
 import useWatchlist, { UseWatchlistValues } from '@shared/ts/selection/data/useWatchlist';
 import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
-import { isDateBetween, serializeDate } from '@shared/ts/selection/helpers';
+import { dateHasPassed, isDateBetween, serializeDate } from '@shared/ts/selection/helpers';
 import {
   AlwaysAvailableStreamingScreening,
   Movie,
@@ -77,11 +77,15 @@ export function useData(): DataContextType {
 function getInitialTab(days: Date[]): ActiveTab {
   if (days.length === 0) return { type: 'online' };
 
+  const lastDay = days[days.length - 1];
+
+  // Festival has passed: show all
+  if (dateHasPassed(lastDay)) return { type: 'all' };
+
   const now = new Date();
   const from = days[0];
-  const to = days[days.length - 1];
 
-  if (isDateBetween(now, from, to)) {
+  if (isDateBetween(now, from, lastDay)) {
     // Find today
     const today = days.find((d) => {
       const dStr = serializeDate(d).split('T')[0];
@@ -91,8 +95,7 @@ function getInitialTab(days: Date[]): ActiveTab {
     if (today) return { type: 'day', date: today };
   }
 
-  // Before festival: first day. After: also first day (archive mode).
-  if (now < from) return { type: 'day', date: days[0] };
+  // Before festival: first day
   return { type: 'day', date: days[0] };
 }
 

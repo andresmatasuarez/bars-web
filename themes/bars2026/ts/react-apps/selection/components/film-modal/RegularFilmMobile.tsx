@@ -24,9 +24,8 @@ export default function RegularFilmMobile({
   const sectionLabel = sections[movie.section] ?? movie.section;
 
   return (
-    <>
-      <BackHeader onClose={onClose} />
-      <div className="overflow-y-auto flex-1">
+    <div className="relative flex-1 min-h-0">
+      <div className="absolute inset-0 overflow-y-auto pt-16">
         {/* Hero */}
         <HeroSection
           movie={movie}
@@ -100,6 +99,7 @@ export default function RegularFilmMobile({
           )}
         </div>
       </div>
-    </>
+      <BackHeader onClose={onClose} />
+    </div>
   );
 }

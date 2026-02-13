@@ -1,6 +1,6 @@
 export default function BackHeader({ onClose }: { onClose: () => void }) {
   return (
-    <div className="flex items-center h-16 px-5 shrink-0 bg-[rgba(10,10,10,0.8)]">
+    <div className="absolute top-0 left-0 right-0 z-10 flex items-center h-16 px-5 bg-bars-header backdrop-blur-sm">
       <button
         onClick={onClose}
         className="flex items-center gap-2 cursor-pointer"

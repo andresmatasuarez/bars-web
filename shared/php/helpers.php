@@ -140,6 +140,7 @@
         'title' => get_the_title($short->ID),
         'info' => $shortInfo,
         'thumbnail' => get_the_post_thumbnail($short->ID, 'movie-post-thumbnail'),
+        'heroThumbnail' => get_the_post_thumbnail($short->ID, 'large'),
         'directors' => get_post_meta($short->ID, '_movie_directors', true) ?: null,
         'synopsis' => get_post_meta($short->ID, '_movie_synopsis', true) ?: null,
       );
@@ -179,6 +180,7 @@
       "section" => $section,
       "permalink" => get_post_permalink($post->ID),
       "thumbnail" => get_the_post_thumbnail($post->ID, 'movie-post-thumbnail'),
+      "heroThumbnail" => get_the_post_thumbnail($post->ID, 'large'),
       "screenings" => $screenings,
       "info" => $info,
       "isBlock" => !$isMovie,

@@ -54,7 +54,7 @@ export default function HeroSection({
         style={bgHeight ? { height: bgHeight } : undefined}
       >
         {movie.thumbnail ? (
-          <HeroBackground html={movie.thumbnail} />
+          <HeroBackground html={movie.heroThumbnail || movie.thumbnail} />
         ) : (
           <div className="w-full h-full bg-bars-bg-medium" />
         )}

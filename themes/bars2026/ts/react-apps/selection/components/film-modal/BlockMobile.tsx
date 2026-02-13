@@ -26,9 +26,8 @@ export default function BlockMobile({
   const blockMeta = `${shorts.length} cortometraje${shorts.length !== 1 ? 's' : ''} • ${movie.info}`;
 
   return (
-    <>
-      <BackHeader onClose={onClose} />
-      <div className="overflow-y-auto flex-1">
+    <div className="relative flex-1 min-h-0">
+      <div className="absolute inset-0 overflow-y-auto pt-16">
         {/* Hero */}
         <HeroSection
           movie={movie}
@@ -70,6 +69,7 @@ export default function BlockMobile({
           )}
         </div>
       </div>
-    </>
+      <BackHeader onClose={onClose} />
+    </div>
   );
 }
