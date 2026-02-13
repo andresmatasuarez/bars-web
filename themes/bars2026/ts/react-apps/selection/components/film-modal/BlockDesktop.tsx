@@ -23,6 +23,7 @@ export default function BlockDesktop({
 }) {
   const sectionLabel = sections[movie.section] ?? movie.section;
   const shorts = movie.shorts ?? [];
+  const blockMeta = `${shorts.length} cortometraje${shorts.length !== 1 ? 's' : ''} • ${movie.info}`;
 
   return (
     <>
@@ -40,6 +41,7 @@ export default function BlockDesktop({
         padY={120}
         bgHeight={480}
         textPosition="top"
+        metaOverride={blockMeta}
       />
 
       {/* Close button */}
@@ -48,7 +50,7 @@ export default function BlockDesktop({
       </div>
 
       {/* Two-column content */}
-      <div className="relative z-10 flex flex-1 min-h-0">
+      <div className="relative z-10 flex flex-1 min-h-0 pb-6">
         {/* Left column: screenings */}
         <div className="w-[460px] shrink-0 overflow-y-auto px-12 pt-6 pb-10 flex flex-col gap-3">
           <h3 className="font-heading text-2xl font-medium text-white">
@@ -60,14 +62,16 @@ export default function BlockDesktop({
         </div>
 
         {/* Right column: shorts list */}
-        <div className="flex-1 overflow-y-auto pt-6 pr-12 pb-10 flex flex-col gap-3">
-          <h3 className="font-heading text-2xl font-medium text-white">
+        <div className="flex-1 flex flex-col min-h-0">
+          <h3 className="font-heading text-2xl font-medium text-white pt-6 pr-[60px]">
             Cortometrajes en este bloque
           </h3>
-          <div className="grid grid-cols-2 gap-3">
-            {shorts.map((s) => (
-              <DesktopShortCard key={s.id} short={s} />
-            ))}
+          <div className="overflow-y-auto flex-1 min-h-0 pr-3 mr-12 pb-10 mt-3">
+            <div className="grid grid-cols-2 gap-3">
+              {shorts.map((s) => (
+                <DesktopShortCard key={s.id} short={s} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

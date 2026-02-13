@@ -23,6 +23,7 @@ export default function BlockMobile({
 }) {
   const sectionLabel = sections[movie.section] ?? movie.section;
   const shorts = movie.shorts ?? [];
+  const blockMeta = `${shorts.length} cortometraje${shorts.length !== 1 ? 's' : ''} • ${movie.info}`;
 
   return (
     <>
@@ -40,6 +41,7 @@ export default function BlockMobile({
           badgeSize="text-[9px]"
           padX={20}
           padY={20}
+          metaOverride={blockMeta}
         />
 
         {/* Content */}

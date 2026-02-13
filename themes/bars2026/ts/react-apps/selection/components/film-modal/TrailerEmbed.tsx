@@ -16,7 +16,7 @@ export default memo(function TrailerEmbed({
       target="_blank"
       rel="noopener noreferrer"
       onClick={(e) => e.stopPropagation()}
-      className={`block relative ${height} rounded-bars-md overflow-hidden group/trailer`}
+      className={`block relative ${height} shrink-0 rounded-bars-md overflow-hidden group/trailer`}
     >
       {thumbnail ? (
         <div

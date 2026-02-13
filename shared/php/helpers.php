@@ -129,10 +129,10 @@
       $runtime = get_post_meta($short->ID, '_movie_runtime', true);
       $shortInfo = ($year !== '') ? $year : '';
       if ($country !== '') {
-        $shortInfo = ($shortInfo !== '' ? $shortInfo . ' · ' : '') . $country;
+        $shortInfo = ($shortInfo !== '' ? $shortInfo . ' • ' : '') . $country;
       }
       if ($runtime) {
-        $shortInfo = ($shortInfo !== '' ? $shortInfo . ' · ' : '') . $runtime . ' min.';
+        $shortInfo = ($shortInfo !== '' ? $shortInfo . ' • ' : '') . $runtime . ' min.';
       }
 
       return array(
@@ -156,11 +156,11 @@
       $info = ($year !== '') ? $year : '';
 
       if ($country !== '') {
-        $info = ($info !== '' ? $info . ' · ' : '') . $country;
+        $info = ($info !== '' ? $info . ' • ' : '') . $country;
       }
 
       if ($runtime) {
-        $info = ($info !== '' ? $info . ' · ' : '') . $runtime . ' min.';
+        $info = ($info !== '' ? $info . ' • ' : '') . $runtime . ' min.';
       }
 
       $section = get_post_meta($post->ID, '_movie_section', true);

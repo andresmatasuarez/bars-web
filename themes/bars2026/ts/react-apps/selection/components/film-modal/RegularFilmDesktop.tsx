@@ -49,7 +49,7 @@ export default function RegularFilmDesktop({
       {/* Two-column content */}
       <div className="relative z-10 flex flex-1 min-h-0">
         {/* Left column: crew + synopsis */}
-        <div className="flex-1 pt-6 pb-2 px-12 flex flex-col gap-6 min-h-0">
+        <div className="flex-1 pt-6 pb-10 pl-12 pr-6 flex flex-col gap-6 min-h-0">
           {/* Crew */}
           {(movie.directors || movie.cast) && (
             <div className="flex flex-col gap-3 shrink-0">
@@ -75,7 +75,7 @@ export default function RegularFilmDesktop({
               <h3 className="font-heading text-2xl font-medium text-white shrink-0">
                 Sinopsis
               </h3>
-              <div className="flex-1 min-h-0 overflow-y-auto pb-10">
+              <div className="flex-1 min-h-0 overflow-y-auto pb-10 pr-4">
                 <div
                   className="text-sm leading-[1.7] text-white/80 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
                   dangerouslySetInnerHTML={{ __html: movie.synopsis }}

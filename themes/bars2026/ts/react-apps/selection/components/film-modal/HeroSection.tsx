@@ -25,6 +25,7 @@ export default function HeroSection({
   padY,
   bgHeight,
   textPosition = 'bottom',
+  metaOverride,
 }: {
   movie: Movie;
   sectionLabel: string;
@@ -38,6 +39,7 @@ export default function HeroSection({
   padY: number;
   bgHeight?: number;
   textPosition?: 'top' | 'bottom';
+  metaOverride?: string;
 }) {
   return (
     <div className={`relative w-full ${textPosition === 'bottom' ? height : ''} shrink-0`}>
@@ -91,8 +93,8 @@ export default function HeroSection({
           )}
         </div>
         {/* Meta line */}
-        {movie.info && (
-          <span className={`${metaSize} text-white/60`}>{movie.info}</span>
+        {(metaOverride || movie.info) && (
+          <span className={`${metaSize} text-white/60`}>{metaOverride ?? movie.info}</span>
         )}
       </div>
     </div>
