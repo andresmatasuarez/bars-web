@@ -1,11 +1,16 @@
 import { Movie } from '@shared/ts/selection/types';
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 
 import BookmarkButton from '../BookmarkButton';
+import useLetterboxCrop from './useLetterboxCrop';
 
 const HeroBackground = memo(function HeroBackground({ html }: { html: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useLetterboxCrop(ref);
+
   return (
     <div
+      ref={ref}
       className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&_img]:object-top [&_img]:grayscale-50 [&_img]:brightness-[0.4]"
       dangerouslySetInnerHTML={{ __html: html }}
     />

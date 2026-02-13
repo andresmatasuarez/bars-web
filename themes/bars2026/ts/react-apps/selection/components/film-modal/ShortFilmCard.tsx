@@ -1,12 +1,19 @@
 import { ShortFilm } from '@shared/ts/selection/types';
+import { useRef } from 'react';
+
+import useLetterboxCrop from './useLetterboxCrop';
 
 export function ShortFilmCard({ short: s }: { short: ShortFilm }) {
+  const thumbRef = useRef<HTMLDivElement>(null);
+  useLetterboxCrop(thumbRef);
+
   return (
     <div className="rounded-[6px] bg-bars-bg-card overflow-hidden flex flex-col gap-3">
       {/* Thumbnail */}
       {s.thumbnail && (
         <div className="w-full h-[160px] overflow-hidden">
           <div
+            ref={thumbRef}
             className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
             dangerouslySetInnerHTML={{ __html: s.thumbnail }}
           />
@@ -37,12 +44,16 @@ export function ShortFilmCard({ short: s }: { short: ShortFilm }) {
 }
 
 export function DesktopShortCard({ short: s }: { short: ShortFilm }) {
+  const thumbRef = useRef<HTMLDivElement>(null);
+  useLetterboxCrop(thumbRef);
+
   return (
     <div className="rounded-bars-md bg-bars-bg-card overflow-hidden flex flex-col gap-3">
       {/* Thumbnail */}
       {s.thumbnail && (
         <div className="w-full h-[150px] flex-shrink-0 overflow-hidden rounded-t-bars-md">
           <div
+            ref={thumbRef}
             className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
             dangerouslySetInnerHTML={{ __html: s.thumbnail }}
           />

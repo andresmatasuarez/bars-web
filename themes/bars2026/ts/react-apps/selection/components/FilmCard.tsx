@@ -1,12 +1,17 @@
 import { Screening, ScreeningWithMovie } from '@shared/ts/selection/types';
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 
 import BookmarkButton from './BookmarkButton';
+import useLetterboxCrop from './film-modal/useLetterboxCrop';
 import { MapPinIcon } from './icons';
 
 const Thumbnail = memo(function Thumbnail({ html }: { html: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useLetterboxCrop(ref);
+
   return (
     <div
+      ref={ref}
       className="w-full h-full [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
       dangerouslySetInnerHTML={{ __html: html }}
     />
