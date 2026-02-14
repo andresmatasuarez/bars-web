@@ -64,8 +64,9 @@ export default function HeroSection({
         className={`absolute left-0 right-0 top-0 ${bgHeight ? '' : 'bottom-0'}`}
         style={{
           ...(bgHeight ? { height: bgHeight } : {}),
-          background:
-            'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)',
+          background: textPosition === 'top'
+            ? 'linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)'
+            : 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)',
         }}
       />
       {/* Content */}

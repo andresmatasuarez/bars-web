@@ -32,6 +32,7 @@ $subtitle = isset($args['subtitle']) ? $args['subtitle'] : '';
                 <?php echo esc_html($title); ?>
             </h1>
             <?php if ($subtitle): ?>
+            <span class="hidden lg:block flex-1 border-b border-bars-text-muted/20 mb-1.5" aria-hidden="true"></span>
             <p class="text-sm text-bars-text-muted lg:self-end">
                 <?php echo esc_html($subtitle); ?>
             </p>
