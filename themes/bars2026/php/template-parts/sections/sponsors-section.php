@@ -63,11 +63,7 @@ endif;
                         <?php foreach ($group['items'] as $sponsor): ?>
                             <?php if (!empty($sponsor['logo'])): ?>
                                 <?php
-                                $logo_url = $sponsor['logo'];
-                                // Handle relative paths
-                                if (strpos($logo_url, '/') === 0 || strpos($logo_url, 'resources/') === 0) {
-                                    $logo_url = get_template_directory_uri() . '/' . ltrim($logo_url, '/');
-                                }
+                                $logo_url = get_template_directory_uri() . '/' . $sponsor['logo'];
                                 ?>
                                 <?php if (!empty($sponsor['href'])): ?>
                                     <a href="<?php echo esc_url($sponsor['href']); ?>"

@@ -128,8 +128,8 @@ class Editions {
       $edition = self::current();
     }
 
-    if (isset($edition['days']['only_months'])) {
-      return $edition['days']['only_months'];
+    if (isset($edition['days']['onlyMonths'])) {
+      return $edition['days']['onlyMonths'];
     }
     return false;
   }
@@ -163,7 +163,7 @@ class Editions {
       $edition = self::current();
     }
 
-    return parseDate($edition['call']['extended_to']);
+    return parseDate($edition['call']['extendedTo']);
   }
 
   public static function isCallClosed($edition = NULL) {
@@ -172,13 +172,8 @@ class Editions {
     }
 
     $to = $edition['call']['to'];
-    $from = isset($edition['call']['from']) && $edition['call']['from'] !== '' ? $edition['call']['from'] : null;
 
-    return is_null($from) ? (
-      strtotime($to) < strtotime('now')
-    ) : (
-      strtotime('now') < strtotime($from) || strtotime($to) < strtotime('now')
-    );
+    return strtotime($to) < strtotime('now');
   }
 
   public static function getPressPassesDeadline($edition = NULL) {
@@ -190,8 +185,8 @@ class Editions {
     $currentYear = is_null($editionFromDate) ? new DateTime() : $editionFromDate;
     $currentYear = $currentYear->format('Y');
 
-    if (isset($edition['press_passes']) && isset($edition['press_passes']['deadline'])) {
-      return parseDate($edition['press_passes']['deadline']);
+    if (isset($edition['pressPasses']) && isset($edition['pressPasses']['deadline'])) {
+      return parseDate($edition['pressPasses']['deadline']);
     }
 
     // Defaults to 17/november of the given edition's year.
@@ -205,16 +200,16 @@ class Editions {
       $edition = self::current();
     }
 
-    if (!isset($edition['press_passes'])) {
+    if (!isset($edition['pressPasses'])) {
       return array('from' => NULL, 'to' => NULL);
     }
 
-    if (isset($edition['press_passes']['pickupFrom'])) {
-      $from = parseDate($edition['press_passes']['pickupFrom']);
+    if (isset($edition['pressPasses']['pickupFrom'])) {
+      $from = parseDate($edition['pressPasses']['pickupFrom']);
     }
 
-    if (isset($edition['press_passes']['pickupTo'])) {
-      $to = parseDate($edition['press_passes']['pickupTo']);
+    if (isset($edition['pressPasses']['pickupTo'])) {
+      $to = parseDate($edition['pressPasses']['pickupTo']);
     }
 
     return array('from' => $from, 'to' => $to);
@@ -226,11 +221,11 @@ class Editions {
     }
 
     if (
-      isset($edition['press_passes']) &&
-      isset($edition['press_passes']['pickupLocations']) &&
-      !empty($edition['press_passes']['pickupLocations'])
+      isset($edition['pressPasses']) &&
+      isset($edition['pressPasses']['pickupLocations']) &&
+      !empty($edition['pressPasses']['pickupLocations'])
     ) {
-      return $edition['press_passes']['pickupLocations'];
+      return $edition['pressPasses']['pickupLocations'];
     }
 
     $venues = self::venues($edition);
@@ -260,11 +255,11 @@ class Editions {
     }
 
     if (
-      isset($edition['press_passes']) &&
-      isset($edition['press_passes']['pickupAdditionalInfo']) &&
-      !empty($edition['press_passes']['pickupAdditionalInfo'])
+      isset($edition['pressPasses']) &&
+      isset($edition['pressPasses']['pickupAdditionalInfo']) &&
+      !empty($edition['pressPasses']['pickupAdditionalInfo'])
     ) {
-      return $edition['press_passes']['pickupAdditionalInfo'];
+      return $edition['pressPasses']['pickupAdditionalInfo'];
     }
 
     return NULL;
@@ -276,11 +271,11 @@ class Editions {
     }
 
     if (
-      isset($edition['press_passes']) &&
-      isset($edition['press_passes']['credentialsFormURL']) &&
-      !empty($edition['press_passes']['credentialsFormURL'])
+      isset($edition['pressPasses']) &&
+      isset($edition['pressPasses']['credentialsFormURL']) &&
+      !empty($edition['pressPasses']['credentialsFormURL'])
     ) {
-      return $edition['press_passes']['credentialsFormURL'];
+      return $edition['pressPasses']['credentialsFormURL'];
     }
 
     return NULL;

@@ -43,20 +43,20 @@
 			?>
 
 			<?php
-				if (!empty($edition['programme_gs'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Programación ByN', get_bloginfo('template_directory') . '/' . $edition['programme_gs']);
+				if ($edition['number'] == 16){
+					echo add_image_sidebar_widget('sidebar relative image', 'Programación ByN', get_bloginfo('template_directory') . '/resources/bars2015/bars2015_programme_gs.jpg');
 				}
 			?>
 
 			<?php
-				if (!empty($edition['programme_yt'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Actividades vía YouTube', get_bloginfo('template_directory') . '/' . $edition['programme_yt']);
+				if ($edition['number'] == 21){
+					echo add_image_sidebar_widget('sidebar relative image', 'Actividades vía YouTube', get_bloginfo('template_directory') . '/resources/bars2020/bars2020_programme_yt.jpg');
 				}
 			?>
 
 			<?php
-				if (!empty($edition['catalogue'])){
-					$barsCatalogueUrl = get_bloginfo('template_directory') . '/' . $edition['catalogue'];
+				if ($edition['number'] == 21){
+					$barsCatalogueUrl = get_bloginfo('template_directory') . '/resources/bars2020/bars2020_catalogo.pdf';
 					$barsStoreImgPath = get_bloginfo('template_directory') . '/resources/bars2020/bars2020_catalogue_thumbnail.jpeg';
 					echo widgetify('sidebar relative image bars-store', null, '
 						<a class="sidebar" target="_blank" rel="noopener noreferrer" href="' . $barsCatalogueUrl . '">
@@ -81,8 +81,9 @@
 			?>
 
 			<?php
-				if (!empty($edition['closing_party'])){
-					echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura', get_bloginfo('template_directory') . '/' . $edition['closing_party']);
+				if ($edition['number'] >= 14 && $edition['number'] <= 20){
+					$closingPartyPath = 'resources/bars' . ($edition['number'] + 1999) . '/bars' . ($edition['number'] + 1999) . '_fiesta_clausura.jpg';
+					echo add_image_sidebar_widget('sidebar relative image', 'Fiesta de clausura', get_bloginfo('template_directory') . '/' . $closingPartyPath);
 				}
 			?>
 

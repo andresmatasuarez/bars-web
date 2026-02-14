@@ -43,11 +43,11 @@ $awards = Editions::getAwards($edition);
         <?php endif; ?>
 
         <!-- English Note -->
-        <?php if (isset($call['terms_en'])): ?>
+        <?php if (isset($call['termsEN'])): ?>
         <div class="flex items-center gap-2 bg-white/5 rounded-bars-md px-4 py-3 mb-8">
             <?php echo bars_icon('globe', 'w-5 h-5 shrink-0'); ?>
             <span class="text-sm text-bars-text-muted italic">For the English version of these terms,
-            <a href="<?php echo esc_url(get_template_directory_uri() . $call['terms_en']); ?>"
+            <a href="<?php echo esc_url(get_template_directory_uri() . '/' . $call['termsEN']); ?>"
                target="_blank"
                class="text-sm text-bars-link-accent font-semibold italic hover:underline">
                 download them here</a>.</span>
@@ -251,28 +251,28 @@ $awards = Editions::getAwards($edition);
             </p>
             <div class="flex flex-wrap gap-4">
                 <?php if (!empty($authorization['es'])): ?>
-                <a href="<?php echo esc_url(get_template_directory_uri() . $authorization['es']); ?>"
+                <a href="<?php echo esc_url(get_template_directory_uri() . '/' . $authorization['es']); ?>"
                    target="_blank"
                    class="inline-flex items-center justify-center px-4 py-2 bg-bars-primary text-white text-sm font-semibold rounded-bars-sm hover:bg-[#A00000] transition-colors">
                     PDF Español
                 </a>
                 <?php endif; ?>
-                <?php if (!empty($authorization['es_docx'])): ?>
-                <a href="<?php echo esc_url(get_template_directory_uri() . $authorization['es_docx']); ?>"
+                <?php if (!empty($authorization['docxES'])): ?>
+                <a href="<?php echo esc_url(get_template_directory_uri() . '/' . $authorization['docxES']); ?>"
                    target="_blank"
                    class="inline-flex items-center justify-center px-4 py-2 bg-bars-primary text-white text-sm font-semibold rounded-bars-sm hover:bg-[#A00000] transition-colors">
                     DOCX Español
                 </a>
                 <?php endif; ?>
                 <?php if (!empty($authorization['en'])): ?>
-                <a href="<?php echo esc_url(get_template_directory_uri() . $authorization['en']); ?>"
+                <a href="<?php echo esc_url(get_template_directory_uri() . '/' . $authorization['en']); ?>"
                    target="_blank"
                    class="inline-flex items-center justify-center px-4 py-2 bg-bars-primary text-white text-sm font-semibold rounded-bars-sm hover:bg-[#A00000] transition-colors">
                     PDF English
                 </a>
                 <?php endif; ?>
-                <?php if (!empty($authorization['en_docx'])): ?>
-                <a href="<?php echo esc_url(get_template_directory_uri() . $authorization['en_docx']); ?>"
+                <?php if (!empty($authorization['docxEN'])): ?>
+                <a href="<?php echo esc_url(get_template_directory_uri() . '/' . $authorization['docxEN']); ?>"
                    target="_blank"
                    class="inline-flex items-center justify-center px-4 py-2 bg-bars-primary text-white text-sm font-semibold rounded-bars-sm hover:bg-[#A00000] transition-colors">
                     DOCX English

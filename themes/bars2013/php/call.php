@@ -34,9 +34,6 @@
 	$moviesEligibleFromDate = isset($call['moviesEligibleFrom']) ? $call['moviesEligibleFrom'] : "{$eligibilityYear}-01-01T03:00:00.000Z";
 	$terms = str_replace('%%ELIGIBILE_FROM_DATE%%', getDateInSpanish(parseDate($moviesEligibleFromDate)), $terms);
 
-	if (isset($call['form'])) {
-		$terms = str_replace('%%FORM%%', $call['form'], $terms);
-	}
 ?>
 
 					<div id="page-call" class="page <?php echo ($call_is_closed ? 'call-is-closed' : '') ?>" >
@@ -117,11 +114,11 @@
 								?>
 							</span>
 							<br />
-							<?php if (isset($call['terms_en'])) { ?>
-								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . $call['terms_en']; ?>" target="_blank">Terms in English</a>
+							<?php if (isset($call['termsEN'])) { ?>
+								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . '/' . $call['termsEN']; ?>" target="_blank">Terms in English</a>
 							<?php } ?>
-							<?php if (isset($call['terms_es'])) { ?>
-								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . $call['terms_es']; ?>" target="_blank">Términos en Español</a>
+							<?php if (isset($call['termsES'])) { ?>
+								<a class="subheader" href="<?php echo get_bloginfo('template_directory') . '/' . $call['termsES']; ?>" target="_blank">Términos en Español</a>
 							<?php } ?>
 						</div>
 
@@ -134,25 +131,22 @@
 						<div class="scratch"></div>
 
 						<div class="basis-footer text-oswald">
-							<?php if (isset($call['form'])) { ?>
-								<a href="<?php echo $call['form'] ?>" target="blank" >Ir al formulario online</a> |
-							<?php } ?>
 							Ver la hoja de autorización
 
 							<?php
 								$authSheets = $call['authorization'];
 								echo ' - ';
 								if (isset($authSheets['es'])) {
-									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['es']. '" target="blank">ES</a> - ';
+									echo '<a href="' . get_bloginfo('template_directory') . '/' . $authSheets['es']. '" target="blank">ES</a> - ';
 								}
 								if (isset($authSheets['en'])) {
-									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['en']. '" target="blank">EN</a> - ';
+									echo '<a href="' . get_bloginfo('template_directory') . '/' . $authSheets['en']. '" target="blank">EN</a> - ';
 								}
-								if (isset($authSheets['es_docx'])) {
-									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['es_docx']. '" target="blank">ES (.docx)</a> - ';
+								if (isset($authSheets['docxES'])) {
+									echo '<a href="' . get_bloginfo('template_directory') . '/' . $authSheets['docxES']. '" target="blank">ES (.docx)</a> - ';
 								}
-								if (isset($authSheets['en_docx'])) {
-									echo '<a href="' . get_bloginfo('template_directory') . $authSheets['en_docx']. '" target="blank">EN (.docx)</a> -';
+								if (isset($authSheets['docxEN'])) {
+									echo '<a href="' . get_bloginfo('template_directory') . '/' . $authSheets['docxEN']. '" target="blank">EN (.docx)</a> -';
 								}
 							?>
 						</div>
