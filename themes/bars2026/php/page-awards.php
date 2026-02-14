@@ -48,12 +48,15 @@ $juries = Editions::getJuries($edition);
         <div class="flex flex-col lg:flex-row gap-4 lg:gap-16">
             <?php foreach ($awards as $category): ?>
             <div class="flex-1 flex flex-col gap-3 lg:gap-6">
-                <h3 class="font-heading text-lg lg:text-2xl font-semibold text-bars-text-primary">
-                    <?php echo esc_html('🏆 ' . $category['heading']); ?>
+                <h3 class="font-heading text-lg lg:text-2xl font-semibold text-bars-text-primary flex items-center gap-2">
+                    <?php echo esc_html($category['heading']); ?>
                 </h3>
                 <ul class="flex flex-col gap-2 lg:gap-3">
                     <?php foreach ($category['items'] as $item): ?>
-                    <li class="text-[13px] lg:text-sm text-white/60 leading-[1.6]"><?php echo esc_html('• ' . $item); ?></li>
+                    <li class="text-[13px] lg:text-sm text-white/60 leading-[1.6] flex items-start gap-2">
+                        <?php echo bars_icon('trophy', 'w-3.5 h-3.5 shrink-0 mt-[3px] opacity-60'); ?>
+                        <?php echo esc_html($item); ?>
+                    </li>
                     <?php endforeach; ?>
                     <?php if (!empty($category['note'])): ?>
                     <li class="text-[11px] lg:text-xs text-white/40 italic leading-[1.6]"><?php echo esc_html($category['note']); ?></li>
@@ -144,9 +147,7 @@ $juries = Editions::getJuries($edition);
                         <?php else: ?>
                         <!-- Placeholder when no photo -->
                         <div class="w-[80px] h-[80px] lg:w-[140px] lg:h-[140px] rounded-full bg-bars-bg-card flex items-center justify-center shrink-0">
-                            <svg class="w-8 h-8 lg:w-14 lg:h-14 text-bars-text-subtle" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                            <?php echo bars_icon('user', 'w-8 h-8 lg:w-14 lg:h-14 text-bars-text-subtle'); ?>
                         </div>
                         <?php endif; ?>
 

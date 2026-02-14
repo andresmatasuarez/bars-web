@@ -46,11 +46,6 @@ if ($venues) {
 <section class="relative py-8 pb-20 lg:py-16 lg:pb-36">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
-        <!-- Section Heading -->
-        <h2 class="font-heading text-2xl lg:text-[36px] font-medium text-bars-text-primary mb-6 lg:mb-8">
-            Acreditaciones de prensa
-        </h2>
-
         <!-- Intro Text -->
         <p class="text-[13px] lg:text-base text-bars-text-muted leading-[1.7] max-w-[335px] lg:max-w-[800px] mb-8 lg:mb-10">
             El festival Buenos Aires Rojo Sangre <?php echo esc_html($edition_number); ?> se llevará a cabo del <?php echo esc_html($from ? $from->format('j') : ''); ?> al <?php echo esc_html($to ? $to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y') : ''); ?><?php if ($venue_name): ?> en <?php echo esc_html($venue_name); ?><?php endif; ?>. Los medios interesados en cubrir el evento pueden solicitar su acreditación a través del formulario online.

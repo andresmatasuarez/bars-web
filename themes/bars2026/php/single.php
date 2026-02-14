@@ -32,9 +32,7 @@ $excerpt = $post->post_excerpt;
         <a href="<?php echo esc_url(home_url('/noticias')); ?>"
            onclick="if(document.referrer&&document.referrer.indexOf('/noticias')!==-1){history.back();return false;}"
            class="inline-flex items-center gap-2 py-2 text-sm font-medium text-white/60 hover:text-white transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-            </svg>
+            <?php echo bars_icon('chevron-left', 'w-4 h-4'); ?>
             Volver a noticias
         </a>
 
@@ -74,9 +72,7 @@ $excerpt = $post->post_excerpt;
     <a href="<?php echo esc_url(home_url('/noticias')); ?>"
        onclick="if(document.referrer&&document.referrer.indexOf('/noticias')!==-1){history.back();return false;}"
        class="absolute top-5 left-5 inline-flex items-center gap-1.5 text-sm font-medium text-white hover:text-white/80 transition-colors z-10">
-        <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <?php echo bars_icon('chevron-left', 'w-[18px] h-[18px]'); ?>
         Noticias
     </a>
 </section>

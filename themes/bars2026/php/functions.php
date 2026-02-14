@@ -8,6 +8,7 @@
 // Include shared helpers
 require_once get_template_directory() . '/helpers.php';
 require_once get_template_directory() . '/editions.php';
+require_once get_template_directory() . '/icons.php';
 
 /**
  * Enqueue theme styles and scripts

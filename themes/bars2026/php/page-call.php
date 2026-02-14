@@ -36,17 +36,16 @@ $awards = Editions::getAwards($edition);
 
         <?php if ($call_is_closed): ?>
         <!-- Closed Notice -->
-        <div class="bg-bars-primary/20 border border-bars-primary/30 rounded-bars-md p-4 mb-8">
-            <p class="text-sm text-bars-text-primary">
-                ⚠️ La convocatoria está actualmente cerrada. Las bases se mantienen visibles para referencia.
-            </p>
+        <div class="flex items-center gap-2 bg-bars-primary/20 border border-bars-primary/30 rounded-bars-md p-4 mb-8">
+            <?php echo bars_icon('alert-triangle', 'w-5 h-5 shrink-0'); ?>
+            <span class="text-sm text-bars-text-primary">La convocatoria está actualmente cerrada. Las bases se mantienen visibles para referencia.</span>
         </div>
         <?php endif; ?>
 
         <!-- English Note -->
         <?php if (isset($call['terms_en'])): ?>
         <div class="flex items-center gap-2 bg-white/5 rounded-bars-md px-4 py-3 mb-8">
-            <span>🌐</span>
+            <?php echo bars_icon('globe', 'w-5 h-5 shrink-0'); ?>
             <span class="text-sm text-bars-text-muted italic">For the English version of these terms,
             <a href="<?php echo esc_url(get_template_directory_uri() . $call['terms_en']); ?>"
                target="_blank"
@@ -83,7 +82,7 @@ $awards = Editions::getAwards($edition);
             <!-- Deadline -->
             <?php if ($call_deadline): ?>
             <div class="flex items-center gap-2 bg-bars-primary/10 rounded-bars-md px-4 py-3">
-                <span>📅</span>
+                <?php echo bars_icon('calendar', 'w-5 h-5 shrink-0'); ?>
                 <span class="text-sm lg:text-base font-medium text-bars-text-primary">
                     La fecha tope para la recepción del material es el <?php echo esc_html(getDateInSpanish($call_deadline)); ?>.
                 </span>
