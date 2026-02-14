@@ -16,7 +16,7 @@ $month = ucfirst(getSpanishMonthName($from->format('F')));
 $year = $from->format('Y');
 
 $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
-    . ' · ' . $fromDay . ' - ' . $toDay . ' ' . $month . ' ' . $year;
+    . ' • ' . $fromDay . ' - ' . $toDay . ' ' . $month . ' ' . $year;
 ?>
 
 <?php get_template_part('template-parts/sections/page', 'hero', array(
@@ -24,7 +24,7 @@ $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
     'subtitle' => $subtitle,
 )); ?>
 
-<section class="bg-bars-bg-dark min-h-[60vh] pb-16">
+<section class="relative min-h-[60vh] pb-16">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
         <?php
         if (countMovieEntriesForEdition($currentEdition) === "0") {

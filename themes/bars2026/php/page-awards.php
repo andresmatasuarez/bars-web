@@ -27,7 +27,7 @@ $juries = Editions::getJuries($edition);
 )); ?>
 
 <!-- Awards Intro Section -->
-<section class="bg-bars-bg-dark py-8 lg:py-12">
+<section class="relative py-8 lg:py-12">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <?php if (empty($awards)): ?>

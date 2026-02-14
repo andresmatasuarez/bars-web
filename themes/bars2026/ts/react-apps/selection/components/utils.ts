@@ -16,14 +16,10 @@ export function getVenueDisplay(
   } catch {
     venueName = screening.venue;
   }
-  const roomName =
-    isTraditionalScreening(screening) && screening.room ? screening.room : '';
-  return roomName ? `${venueName} · ${roomName}` : venueName;
+  const roomName = isTraditionalScreening(screening) && screening.room ? screening.room : '';
+  return roomName ? `${venueName} - ${roomName}` : venueName;
 }
 
-export function getSectionLabel(
-  screening: ScreeningWithMovie,
-  sections: MovieSections,
-): string {
+export function getSectionLabel(screening: ScreeningWithMovie, sections: MovieSections): string {
   return sections[screening.movie.section] ?? screening.movie.section;
 }

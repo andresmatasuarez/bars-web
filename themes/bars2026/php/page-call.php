@@ -31,7 +31,7 @@ $awards = Editions::getAwards($edition);
 )); ?>
 
 <!-- Content Section -->
-<section class="bg-bars-bg-dark py-12 lg:py-16 <?php echo $call_is_closed ? 'call-closed' : ''; ?>">
+<section class="relative py-12 lg:py-16 <?php echo $call_is_closed ? 'call-closed' : ''; ?>">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <?php if ($call_is_closed): ?>

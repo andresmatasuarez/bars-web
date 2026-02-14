@@ -3,11 +3,12 @@
  * Page Hero Section
  *
  * Shared heading section used by all inner pages (not the landing).
- * Dark background with photo overlay and gradient fade.
+ * Dark background with photo overlay and gradient fade that extends
+ * below the hero into the content area.
  *
  * @param array $args {
- *     @type string $title    Page title (required)
- *     @type string $subtitle Subtitle line (optional)
+ *     @type string $title     Page title (required)
+ *     @type string $subtitle  Subtitle line (optional)
  * }
  * @package BARS2026
  */
@@ -16,13 +17,13 @@ $title = isset($args['title']) ? $args['title'] : '';
 $subtitle = isset($args['subtitle']) ? $args['subtitle'] : '';
 ?>
 
-<section class="relative bg-bars-bg-dark overflow-hidden">
+<section class="relative bg-bars-bg-dark">
     <!-- Background Image + Gradient -->
-    <div class="absolute inset-0">
+    <div class="absolute inset-x-0 top-0 -bottom-96">
         <img src="<?php echo get_template_directory_uri(); ?>/resources/sala2-halftone.png"
              alt=""
-             class="w-full h-full object-cover opacity-90">
-        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 0%, var(--color-bars-bg-dark) 95%)"></div>
+             class="w-full h-full object-cover opacity-90 grayscale-[0.3]">
+        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 0%, var(--color-bars-bg-dark) 90%)"></div>
     </div>
 
     <!-- Content -->
@@ -32,7 +33,6 @@ $subtitle = isset($args['subtitle']) ? $args['subtitle'] : '';
                 <?php echo esc_html($title); ?>
             </h1>
             <?php if ($subtitle): ?>
-            <span class="hidden lg:block flex-1 border-b border-bars-text-muted/20 mb-1.5" aria-hidden="true"></span>
             <p class="text-sm text-bars-text-muted lg:self-end">
                 <?php echo esc_html($subtitle); ?>
             </p>

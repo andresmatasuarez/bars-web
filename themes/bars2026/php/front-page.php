@@ -120,8 +120,8 @@ get_header();
         <?php $metrics = getFestivalMetrics(); ?>
         <div class="flex flex-wrap justify-center gap-8 lg:gap-16 mb-10 lg:mb-16">
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['editions']); ?></p>
-                <p class="text-sm text-bars-text-muted mt-1">Ediciones</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['editions']); ?><span class="text-xl lg:text-3xl align-super">ª</span></p>
+                <p class="text-sm text-bars-text-muted mt-1">Edición</p>
             </div>
             <div class="text-center">
                 <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['movies']); ?></p>
