@@ -38,12 +38,12 @@
  									foreach($section['items'] as $sponsorItem) {
  										$logoPath = get_bloginfo('template_directory') . $sponsorItem['logo'];
  									?>
- 										<div class="sponsor" style="background-image: url('<?php echo $logoPath ?>');">
+ 										<div class="sponsor" style="background-image: url('<?php echo $logoPath ?>');" title="<?php echo $sponsorItem['alt'] ?? '' ?>">
 	 									<?php
 	 										$isClickableSponsor = isset($sponsorItem['href']) && !empty($sponsorItem['href']);
 	 										if ($isClickableSponsor) {
 	 									?>
-	 											<a target="_blank" rel="noopener noreferrer" href="<?php echo $sponsorItem['href'] ?>" alt="<?php echo $sponsorItem['alt'] ?>" ></a>
+	 											<a target="_blank" rel="noopener noreferrer" href="<?php echo $sponsorItem['href'] ?>" title="<?php echo $sponsorItem['alt'] ?? '' ?>" ></a>
 										<?php
 											}
 										?>
