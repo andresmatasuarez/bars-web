@@ -138,6 +138,8 @@ bars-web/
 └─ tsconfig.base.json
 ```
 
+The screening data model (traditional, streaming always-available, streaming day-specific) is defined in `shared/ts/selection/types.ts`. See the [movie-post-type plugin README](plugins/movie-post-type/README.md#screening-format) for the raw format specification.
+
 ## Development
 
 ### Run local version

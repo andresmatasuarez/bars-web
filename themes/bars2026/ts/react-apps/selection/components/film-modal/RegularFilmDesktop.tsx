@@ -92,7 +92,7 @@ export default function RegularFilmDesktop({
             <div className="flex flex-col gap-3">
               <h3 className="font-heading text-2xl font-medium text-white">Funciones</h3>
               {movie.screenings.map((s) => (
-                <ScreeningCard key={s.raw} screening={s} currentEdition={currentEdition} />
+                <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} />
               ))}
             </div>
           )}

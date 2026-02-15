@@ -33,6 +33,18 @@ export function dateHasPassed(date: Date): boolean {
   return dateWithoutTime < now;
 }
 
+const fmtBuenosAires = (d: Date) =>
+  d.toLocaleDateString('en-CA', { timeZone: 'America/Argentina/Buenos_Aires' });
+
+export function isTodayInBuenosAires(date: Date): boolean {
+  return fmtBuenosAires(date) === fmtBuenosAires(new Date());
+}
+
+export function isTodayInBuenosAiresBetween(from: Date, to: Date): boolean {
+  const today = fmtBuenosAires(new Date());
+  return fmtBuenosAires(from) <= today && today <= fmtBuenosAires(to);
+}
+
 export function isDateBetween(date: Date, from: Date, to: Date): boolean {
   const fromWithoutTime = new Date(from);
   fromWithoutTime.setHours(0, 0, 0, 0);

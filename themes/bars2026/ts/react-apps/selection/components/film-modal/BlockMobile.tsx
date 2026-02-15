@@ -63,7 +63,7 @@ export default function BlockMobile({
                 Funciones
               </h3>
               {movie.screenings.map((s) => (
-                <ScreeningCard key={s.raw} screening={s} currentEdition={currentEdition} compact />
+                <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} compact />
               ))}
             </div>
           )}

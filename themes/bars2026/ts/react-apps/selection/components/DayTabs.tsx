@@ -128,6 +128,18 @@ export default function DayTabs() {
           className="flex gap-1 lg:gap-2 overflow-x-auto scrollbar-hide lg:overflow-visible lg:flex-wrap lg:contents"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
+          {/* Online tab */}
+          {hasOnlineMovies && (
+            <IconTab
+              tab={{ type: 'online' }}
+              activeTab={activeTab}
+              activeRef={activeRef}
+              setActiveTab={setActiveTab}
+              icon={<MonitorPlayIcon size={18} />}
+              label="ONLINE"
+            />
+          )}
+
           {dayTabs.map(({ tab, label, sublabel, past }) => {
             const active = isTabActive(activeTab, tab);
             return (
@@ -151,18 +163,6 @@ export default function DayTabs() {
               </button>
             );
           })}
-
-          {/* Online tab */}
-          {hasOnlineMovies && (
-            <IconTab
-              tab={{ type: 'online' }}
-              activeTab={activeTab}
-              activeRef={activeRef}
-              setActiveTab={setActiveTab}
-              icon={<MonitorPlayIcon size={18} />}
-              label="ONLINE"
-            />
-          )}
         </div>
 
         {/* Right gradient */}

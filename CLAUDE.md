@@ -109,6 +109,18 @@ TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directo
 
 WordPress DB → PHP queries movies/screenings → JSON embedded in `selection.php` → React app consumes and renders with styled-components
 
+### Screening Types
+
+Raw screening strings are stored in `_movie_screenings` post meta (comma-separated), parsed by `shared/php/helpers.php:parseScreening()`, and typed in `shared/ts/selection/types.ts`.
+
+| Type | `streaming` | `alwaysAvailable` | `isoDate` | `time` | Raw format |
+|---|---|---|---|---|---|
+| Traditional | `false`/absent | N/A | present | present | `venue.room:mm-dd-yyyy hh:mm` |
+| Streaming (always available) | `true` | `true` | `null` | absent | `streaming!venue:full` |
+| Streaming (day-specific) | `true` | `false`/absent | present | absent | `streaming!venue:mm-dd-yyyy` |
+
+Key rules: streaming screenings never have `time`, commas separate multiple screenings, date format is `m-d-Y` (month-day-year), timezone is `America/Argentina/Buenos_Aires`.
+
 ### Temporary Files (`.qa/`)
 
 All temporary artifacts — screenshots, test HTML/JS files, markdown reports, shell scripts, or any other throwaway file created during visual QA, debugging, or testing — go in the `.qa/` directory at the project root. This folder is gitignored. **Never** create temporary files in the project root, inside theme directories, or anywhere else in the source tree.

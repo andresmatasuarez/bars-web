@@ -1,12 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useData } from '../data/DataProvider';
 import FilmCard from './FilmCard';
+import { ChevronDownIcon } from './icons';
 import { getSectionLabel, getVenueDisplay } from './utils';
 
 export default function WatchlistStreamingSection({
   filterByWatchlist = true,
-}: { filterByWatchlist?: boolean }) {
+}: {
+  filterByWatchlist?: boolean;
+}) {
   const {
     alwaysAvailableScreenings,
     isAddedToWatchlist,
@@ -15,6 +18,8 @@ export default function WatchlistStreamingSection({
     sections,
     openFilmModal,
   } = useData();
+
+  const [collapsed, setCollapsed] = useState(false);
 
   const screenings = useMemo(
     () =>
@@ -28,25 +33,40 @@ export default function WatchlistStreamingSection({
 
   return (
     <div>
-      <h3 className="font-heading text-[24px] text-bars-text-primary mb-1">
-        Streaming — Disponible Todo el Festival
-      </h3>
-      <p className="text-sm text-bars-text-subtle mb-5">
-        Podés verlas en cualquier momento durante el festival.
-      </p>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
-        {screenings.map((screening) => (
-          <FilmCard
-            key={screening.raw}
-            screening={screening}
-            sectionLabel={getSectionLabel(screening, sections)}
-            venueDisplay={getVenueDisplay(screening, currentEdition)}
-            bookmarked={isAddedToWatchlist(screening)}
-            onToggleWatchlist={() => toggleWatchlist(screening)}
-            onOpenModal={() => openFilmModal(screening.movie)}
-          />
-        ))}
+      <div
+        className="relative flex items-center gap-3 cursor-pointer"
+        onClick={() => setCollapsed((c) => !c)}
+      >
+        <ChevronDownIcon
+          size={16}
+          className={`lg:absolute lg:-left-7 lg:top-1/2 lg:-translate-y-1/2 text-white/50 transition-transform duration-200 shrink-0${collapsed ? ' -rotate-90' : ''}`}
+        />
+        <span className="bg-bars-primary/25 text-white text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full">
+          streaming
+        </span>
+        <div className="flex-1 h-px bg-white/[0.08]" />
       </div>
+      {!collapsed && (
+        <>
+          <p className="text-sm text-bars-link-accent/70 italic mt-2 mb-5 border-l-2 border-bars-link-accent/25 pl-3">
+            Podés ver las siguientes películas por streaming en cualquier momento durante el
+            transcurso del festival.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
+            {screenings.map((screening) => (
+              <FilmCard
+                key={screening.raw}
+                screening={screening}
+                sectionLabel={getSectionLabel(screening, sections)}
+                venueDisplay={getVenueDisplay(screening, currentEdition)}
+                bookmarked={isAddedToWatchlist(screening)}
+                onToggleWatchlist={() => toggleWatchlist(screening)}
+                onOpenModal={() => openFilmModal(screening.movie)}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

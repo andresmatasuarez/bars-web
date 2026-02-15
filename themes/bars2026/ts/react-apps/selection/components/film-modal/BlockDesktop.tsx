@@ -57,7 +57,7 @@ export default function BlockDesktop({
             Funciones
           </h3>
           {movie.screenings.map((s) => (
-            <ScreeningCard key={s.raw} screening={s} currentEdition={currentEdition} />
+            <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} />
           ))}
         </div>
 

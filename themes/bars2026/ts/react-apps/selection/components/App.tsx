@@ -5,10 +5,12 @@ import DayHeader from './DayHeader';
 import DayTabs from './DayTabs';
 import EmptyState from './EmptyState';
 import FilmModal from './film-modal';
+import FilmCard from './FilmCard';
 import FilterPills from './FilterPills';
 import MobileFilterButton from './MobileFilterButton';
 import MobileFilterModal from './MobileFilterModal';
 import TimeSlot from './TimeSlot';
+import { getSectionLabel, getVenueDisplay } from './utils';
 import WatchlistStreamingSection from './WatchlistStreamingSection';
 
 export default function App() {
@@ -17,7 +19,11 @@ export default function App() {
     dayGroups,
     alwaysAvailableScreenings,
     isAddedToWatchlist,
+    toggleWatchlist,
     activeTab,
+    currentEdition,
+    sections,
+    openFilmModal,
   } = useData();
 
   const [collapsedDays, setCollapsedDays] = useState<Set<string>>(new Set());
@@ -34,13 +40,14 @@ export default function App() {
 
   const isWatchlist = activeTab.type === 'watchlist';
   const isAll = activeTab.type === 'all';
+  const isOnline = activeTab.type === 'online';
   const needsDayGroups = isWatchlist || isAll;
 
   const timeSlots = Array.from(screeningsForActiveTab.entries());
   const hasTimeSlotResults = timeSlots.some(([, screenings]) => screenings.length > 0);
 
-  const hasWatchlistStreaming = isWatchlist &&
-    alwaysAvailableScreenings.some((s) => isAddedToWatchlist(s));
+  const hasWatchlistStreaming =
+    isWatchlist && alwaysAvailableScreenings.some((s) => isAddedToWatchlist(s));
 
   const hasResults = isWatchlist
     ? dayGroups.length > 0 || hasWatchlistStreaming
@@ -62,17 +69,34 @@ export default function App() {
       <div className="lg:hidden mt-5">
         <MobileFilterButton onOpen={() => setFilterModalOpen(true)} />
       </div>
-      <MobileFilterModal
-        isOpen={filterModalOpen}
-        onClose={() => setFilterModalOpen(false)}
-      />
+      <MobileFilterModal isOpen={filterModalOpen} onClose={() => setFilterModalOpen(false)} />
 
       {/* Content */}
       <div className="mt-6 lg:mt-8 space-y-8 lg:space-y-10">
         {!hasResults ? (
-          <EmptyState
-            type={isWatchlist ? 'empty-watchlist' : 'no-results'}
-          />
+          <EmptyState type={isWatchlist ? 'empty-watchlist' : 'no-results'} />
+        ) : isOnline ? (
+          <div>
+            <p className="text-sm text-bars-link-accent/70 italic mb-5 border-l-2 border-bars-link-accent/25 pl-3">
+              Podés ver las siguientes películas por streaming en cualquier momento durante el
+              transcurso del festival.
+            </p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
+              {timeSlots.flatMap(([, screenings]) =>
+                screenings.map((screening) => (
+                  <FilmCard
+                    key={screening.raw}
+                    screening={screening}
+                    sectionLabel={getSectionLabel(screening, sections)}
+                    venueDisplay={getVenueDisplay(screening, currentEdition)}
+                    bookmarked={isAddedToWatchlist(screening)}
+                    onToggleWatchlist={() => toggleWatchlist(screening)}
+                    onOpenModal={() => openFilmModal(screening.movie)}
+                  />
+                )),
+              )}
+            </div>
+          </div>
         ) : needsDayGroups ? (
           <>
             {dayGroups.map((group) => {

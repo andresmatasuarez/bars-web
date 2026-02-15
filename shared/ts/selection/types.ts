@@ -16,6 +16,10 @@ export type BaseStreamingScreening = BaseScreening & {
   streaming: true;
 };
 
+/**
+ * Streaming movie available throughout the entire festival duration.
+ * Raw format: `streaming!venue:full`
+ */
 export type AlwaysAvailableStreamingScreening = BaseStreamingScreening & {
   alwaysAvailable: true;
 
@@ -25,18 +29,26 @@ export type AlwaysAvailableStreamingScreening = BaseStreamingScreening & {
   isoDate?: null;
 };
 
+/**
+ * Streaming movie available on a specific day only.
+ * Raw format: `streaming!venue:mm-dd-yyyy`
+ */
 export type RegularStreamingScreening = BaseStreamingScreening & {
   alwaysAvailable?: false;
 
   /**
-   * The date of the day in ISO format
-   * @example '2023-10-31T21:17:29.889Z'
+   * Date in ISO 8601 / ATOM format, always in America/Argentina/Buenos_Aires (GMT-3).
+   * @example '2023-10-31T00:00:00-03:00'
    */
   isoDate: string;
 };
 
 export type StreamingScreening = AlwaysAvailableStreamingScreening | RegularStreamingScreening;
 
+/**
+ * In-person screening at a physical venue with a specific date and time.
+ * Raw format: `venue.room:mm-dd-yyyy hh:mm`
+ */
 export type TraditionalScreening = BaseScreening & {
   streaming?: false;
 
@@ -44,12 +56,12 @@ export type TraditionalScreening = BaseScreening & {
   room?: string;
 
   /**
-   * The date of the day in ISO format
-   * @example '2023-10-31T21:17:29.889Z'
+   * Date in ISO 8601 / ATOM format, always in America/Argentina/Buenos_Aires (GMT-3).
+   * @example '2023-10-31T00:00:00-03:00'
    */
   isoDate: string;
 
-  /** @example "20:00" */
+  /** Time in Buenos Aires (GMT-3), 24h format. @example "20:00" */
   time: string;
 };
 
@@ -105,6 +117,9 @@ export type Movie = {
   title: string;
 
   screenings: Screening[];
+
+  /** URL to stream the movie/block online (from `_movie_streamingLink` meta). */
+  streamingLink?: string;
 
   isBlock: boolean;
 
