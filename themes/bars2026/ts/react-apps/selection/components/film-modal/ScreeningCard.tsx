@@ -1,5 +1,9 @@
 import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
-import { isTodayInBuenosAires, isTodayInBuenosAiresBetween } from '@shared/ts/selection/helpers';
+import {
+  dateHasPassed,
+  isTodayInBuenosAires,
+  isTodayInBuenosAiresBetween,
+} from '@shared/ts/selection/helpers';
 import {
   isRegularStreamingScreening,
   isScreeningAlwaysAvailable,
@@ -49,6 +53,7 @@ export default function ScreeningCard({
   let buttonLabel = 'Tickets';
   let buttonLink: string | undefined = venueLink;
   let buttonEnabled = true;
+  let disabledCaption: string | undefined;
 
   if (isScreeningAlwaysAvailable(screening)) {
     buttonLabel = 'Ver';
@@ -57,11 +62,28 @@ export default function ScreeningCard({
     const to = Editions.to(currentEdition);
     if (from && to) {
       buttonEnabled = isTodayInBuenosAiresBetween(from, to);
+      if (!buttonEnabled) {
+        disabledCaption = dateHasPassed(to) ? 'Ya no disponible' : 'Disponible durante el festival';
+      }
     }
   } else if (isRegularStreamingScreening(screening)) {
     buttonLabel = 'Ver';
     buttonLink = streamingLink;
-    buttonEnabled = isTodayInBuenosAires(new Date(screening.isoDate));
+    const screeningDate = new Date(screening.isoDate);
+    buttonEnabled = isTodayInBuenosAires(screeningDate);
+    if (!buttonEnabled) {
+      disabledCaption = dateHasPassed(screeningDate)
+        ? 'Ya no disponible'
+        : 'Disponible el día de su proyección';
+    }
+  } else if (isTraditionalScreening(screening)) {
+    const screeningDateTime = new Date(screening.isoDate);
+    const [hours, minutes] = screening.time.split(':').map(Number);
+    screeningDateTime.setTime(screeningDateTime.getTime() + hours * 3600000 + minutes * 60000);
+    if (new Date() > screeningDateTime) {
+      buttonEnabled = false;
+      disabledCaption = 'Ya no disponible';
+    }
   }
 
   const dateBoxSize = compact ? 'h-11 w-10' : 'h-[52px] w-12';
@@ -127,11 +149,18 @@ export default function ScreeningCard({
             {buttonLabel}
           </a>
         ) : (
-          <span
-            className={`rounded-[6px] bg-bars-primary opacity-40 cursor-not-allowed ${btnPadding} ${btnFontSize} font-semibold text-white`}
-          >
-            {buttonLabel}
-          </span>
+          <div className="flex flex-col items-center gap-1">
+            <span
+              className={`rounded-[6px] bg-bars-primary opacity-40 cursor-not-allowed ${btnPadding} ${btnFontSize} font-semibold text-white`}
+            >
+              {buttonLabel}
+            </span>
+            {disabledCaption && (
+              <span className="text-[9px] text-white/40 text-center max-w-[100px] leading-tight">
+                {disabledCaption}
+              </span>
+            )}
+          </div>
         ))}
     </div>
   );
