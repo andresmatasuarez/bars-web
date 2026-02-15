@@ -186,6 +186,10 @@
       "isBlock" => !$isMovie,
     );
 
+    $streamingLinkKey = $isMovie ? '_movie_streamingLink' : '_movieblock_streamingLink';
+    $streamingLink = get_post_meta($post->ID, $streamingLinkKey, true);
+    if ($streamingLink) $result['streamingLink'] = $streamingLink;
+
     if ($isMovie) {
       $directors = get_post_meta($post->ID, '_movie_directors', true);
       $cast = get_post_meta($post->ID, '_movie_cast', true);

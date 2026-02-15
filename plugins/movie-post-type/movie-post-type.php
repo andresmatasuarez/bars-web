@@ -234,7 +234,7 @@
 				'type'  => 'text'
 			),
 			array(
-				'id'    => $movie_prefix . 'streamingLink',
+				'id'    => $movieblock_prefix . 'streamingLink',
 				'label' => 'Streaming link (for online editions only)',
 				'type'  => 'text'
 			),

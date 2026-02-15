@@ -118,7 +118,7 @@ export type Movie = {
 
   screenings: Screening[];
 
-  /** URL to stream the movie/block online (from `_movie_streamingLink` meta). */
+  /** URL to stream the movie/block online (from `_movie_streamingLink` / `_movieblock_streamingLink` meta). */
   streamingLink?: string;
 
   isBlock: boolean;

@@ -20,7 +20,7 @@
 		"section" => get_post_meta($post->ID, '_movieblock_section', true),
 		"image" => get_the_post_thumbnail($post->ID, 'movie-post-image' /* 'movieblock-post-image' */),
 		"runtime" => get_post_meta($post->ID, '_movieblock_runtime', true),
-		"streamingLink" => get_post_meta($post->ID, '_movie_streamingLink', true),
+		"streamingLink" => get_post_meta($post->ID, '_movieblock_streamingLink', true),
 		"movies" => array()
 	);
 

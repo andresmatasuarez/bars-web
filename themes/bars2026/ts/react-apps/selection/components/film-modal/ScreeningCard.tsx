@@ -17,7 +17,7 @@ export default function ScreeningCard({
   compact,
 }: {
   screening: Screening;
-  /** Per-movie streaming URL from `_movie_streamingLink` post meta. */
+  /** Per-movie streaming URL from `_movie_streamingLink` / `_movieblock_streamingLink` post meta. */
   streamingLink?: string;
   currentEdition: SingleEdition;
   compact?: boolean;
