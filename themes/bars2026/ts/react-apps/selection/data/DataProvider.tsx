@@ -40,8 +40,9 @@ type DataContextType = {
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
 
-  activeCategory: string | null;
-  setActiveCategory: (category: string | null) => void;
+  activeCategories: string[];
+  setActiveCategories: (categories: string[]) => void;
+  toggleCategory: (category: string) => void;
 
   watchlistOnly: boolean;
   setWatchlistOnly: (value: boolean) => void;
@@ -126,7 +127,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   const venues = useMemo(() => Editions.venues(currentEdition), [currentEdition]);
 
   const [activeTab, setActiveTab] = useState<ActiveTab>(() => getInitialTab(daysWithMovies));
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [watchlistOnly, setWatchlistOnly] = useState(false);
 
   const { watchlist, isAddedToWatchlist, addToWatchlist, removeFromWatchlist } = useWatchlist();
@@ -140,6 +141,17 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       }
     },
     [isAddedToWatchlist, addToWatchlist, removeFromWatchlist],
+  );
+
+  const toggleCategory = useCallback(
+    (category: string) => {
+      setActiveCategories((prev) =>
+        prev.includes(category)
+          ? prev.filter((c) => c !== category)
+          : [...prev, category],
+      );
+    },
+    [],
   );
 
   const { selectedMovie, openFilmModal, closeFilmModal } = useFilmModal();
@@ -217,36 +229,41 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     [baseScreenings, activeTab.type, isAddedToWatchlist],
   );
 
-  // Auto-reset category when it's not available in the current tab
+  // Auto-reset categories when they're not available in the current tab
   useEffect(() => {
-    if (activeCategory && !(activeCategory in availableSections)) {
-      setActiveCategory(null);
+    if (activeCategories.length > 0) {
+      const valid = activeCategories.filter((c) => c in availableSections);
+      if (valid.length !== activeCategories.length) {
+        setActiveCategories(valid);
+      }
     }
-  }, [activeCategory, availableSections]);
+  }, [activeCategories, availableSections]);
 
   const screeningsForActiveTab = useMemo(() => {
     let screenings = baseScreenings;
-    if (activeCategory) {
-      screenings = screenings.filter((s) => s.movie.section === activeCategory);
+    if (activeCategories.length > 0) {
+      screenings = screenings.filter((s) => activeCategories.includes(s.movie.section));
     }
     return groupByTimeSlot(screenings);
-  }, [baseScreenings, activeCategory]);
+  }, [baseScreenings, activeCategories]);
 
   // Watchlist/all tabs: group day-based screenings by day then time slot
   const dayGroups = useMemo((): DayGroup[] => {
     if (activeTab.type !== 'watchlist' && activeTab.type !== 'all') return [];
     let screenings = baseScreenings;
-    if (activeCategory) {
-      screenings = screenings.filter((s) => s.movie.section === activeCategory);
+    if (activeCategories.length > 0) {
+      screenings = screenings.filter((s) => activeCategories.includes(s.movie.section));
     }
     return groupByDayAndTimeSlot(screenings);
-  }, [activeTab.type, baseScreenings, activeCategory]);
+  }, [activeTab.type, baseScreenings, activeCategories]);
 
   const alwaysAvailableScreenings = useMemo(() => {
-    return getAlwaysAvailableScreenings(window.MOVIES, {
-      section: activeCategory ?? undefined,
-    });
-  }, [activeCategory]);
+    const all = getAlwaysAvailableScreenings(window.MOVIES);
+    if (activeCategories.length > 0) {
+      return all.filter((s) => activeCategories.includes(s.movie.section));
+    }
+    return all;
+  }, [activeCategories]);
 
   const contextValue = useMemo(
     (): DataContextType => ({
@@ -259,8 +276,9 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       hasOnlineMovies,
       activeTab,
       setActiveTab,
-      activeCategory,
-      setActiveCategory,
+      activeCategories,
+      setActiveCategories,
+      toggleCategory,
       watchlistOnly,
       setWatchlistOnly,
       watchlistCountForTab,
@@ -283,7 +301,8 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       daysWithMovies,
       hasOnlineMovies,
       activeTab,
-      activeCategory,
+      activeCategories,
+      toggleCategory,
       watchlistOnly,
       watchlistCountForTab,
       availableSections,

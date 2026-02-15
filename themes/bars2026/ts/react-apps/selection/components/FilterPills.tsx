@@ -4,8 +4,9 @@ import { BookmarkIcon } from './icons';
 export default function FilterPills() {
   const {
     availableSections,
-    activeCategory,
-    setActiveCategory,
+    activeCategories,
+    setActiveCategories,
+    toggleCategory,
     activeTab,
     watchlistOnly,
     setWatchlistOnly,
@@ -14,7 +15,8 @@ export default function FilterPills() {
 
   const isWatchlistTab = activeTab.type === 'watchlist';
 
-  const categories = Object.entries(availableSections);
+  const categories = Object.entries(availableSections)
+    .sort(([, a], [, b]) => a.localeCompare(b, 'es'));
 
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -50,9 +52,9 @@ export default function FilterPills() {
       {/* "Todos" pill */}
       <button
         type="button"
-        onClick={() => setActiveCategory(null)}
+        onClick={() => setActiveCategories([])}
         className={`rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-          ${activeCategory === null
+          ${activeCategories.length === 0
             ? 'bg-bars-primary border border-bars-primary text-white'
             : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
           }
@@ -66,9 +68,9 @@ export default function FilterPills() {
         <button
           key={id}
           type="button"
-          onClick={() => setActiveCategory(activeCategory === id ? null : id)}
+          onClick={() => toggleCategory(id)}
           className={`rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-            ${activeCategory === id
+            ${activeCategories.includes(id)
               ? 'bg-bars-primary border border-bars-primary text-white'
               : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
             }
