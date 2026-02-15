@@ -22,6 +22,7 @@ wp-themes/bars2026/**/*
 
 # Temporary agent artifacts (screenshots, test files, reports)
 .qa/
+.playwright-mcp/
 
 # Build outputs (plugins output to wp-plugins/{plugin-name}/)
 wp-plugins/bars-commons/**/*
