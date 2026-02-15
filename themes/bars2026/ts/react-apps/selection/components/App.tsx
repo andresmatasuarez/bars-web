@@ -6,6 +6,8 @@ import DayTabs from './DayTabs';
 import EmptyState from './EmptyState';
 import FilmModal from './film-modal';
 import FilterPills from './FilterPills';
+import MobileFilterButton from './MobileFilterButton';
+import MobileFilterModal from './MobileFilterModal';
 import TimeSlot from './TimeSlot';
 import WatchlistStreamingSection from './WatchlistStreamingSection';
 
@@ -19,6 +21,7 @@ export default function App() {
   } = useData();
 
   const [collapsedDays, setCollapsedDays] = useState<Set<string>>(new Set());
+  const [filterModalOpen, setFilterModalOpen] = useState(false);
 
   const toggleDay = (date: Date) => {
     const key = date.toISOString();
@@ -50,10 +53,19 @@ export default function App() {
       {/* Day tabs */}
       <DayTabs />
 
-      {/* Filter pills */}
-      <div className="mt-5 lg:mt-6">
+      {/* Filter pills – desktop only */}
+      <div className="hidden lg:block mt-6">
         <FilterPills />
       </div>
+
+      {/* Filter button + modal – mobile only */}
+      <div className="lg:hidden mt-5">
+        <MobileFilterButton onOpen={() => setFilterModalOpen(true)} />
+      </div>
+      <MobileFilterModal
+        isOpen={filterModalOpen}
+        onClose={() => setFilterModalOpen(false)}
+      />
 
       {/* Content */}
       <div className="mt-6 lg:mt-8 space-y-8 lg:space-y-10">
