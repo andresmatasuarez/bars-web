@@ -6,7 +6,9 @@
 
 get_header();
 
-$currentEdition = Editions::current();
+$currentEdition = isset($_GET['edition'])
+    ? Editions::getByNumber(intval($_GET['edition']))
+    : Editions::current();
 $days = Editions::days($currentEdition);
 $from = $days[0];
 $to = $days[count($days) - 1];

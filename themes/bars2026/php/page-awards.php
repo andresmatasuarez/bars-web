@@ -6,7 +6,9 @@
 
 get_header();
 
-$edition = Editions::current();
+$edition = isset($_GET['edition'])
+    ? Editions::getByNumber(intval($_GET['edition']))
+    : Editions::current();
 $edition_number = Editions::romanNumerals($edition);
 $from = Editions::from($edition);
 $to = Editions::to($edition);
