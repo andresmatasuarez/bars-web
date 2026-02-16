@@ -49,8 +49,8 @@ export default function WatchlistStreamingSection({
       {!collapsed && (
         <>
           <p className="text-sm text-bars-link-accent/70 italic mt-2 mb-5 border-l-2 border-bars-link-accent/25 pl-3">
-            Podés ver las siguientes películas por streaming en cualquier momento durante el
-            transcurso del festival.
+            Podés ver las siguientes películas por streaming cualquier día, en cualquier momento,
+            durante el transcurso del festival.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
             {screenings.map((screening) => (
