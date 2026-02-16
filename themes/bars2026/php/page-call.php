@@ -18,6 +18,7 @@ if ($from && $to) {
 }
 $call = Editions::call($edition);
 $call_deadline = Editions::callDeadline($edition);
+$call_deadline_extended = Editions::callDeadlineExtended($edition);
 $call_is_closed = Editions::isCallClosed($edition);
 
 // Get authorization links if available
@@ -84,7 +85,13 @@ $awards = Editions::getAwards($edition);
             <div class="flex items-center gap-2 bg-bars-primary/10 rounded-bars-md px-4 py-3">
                 <?php echo bars_icon('calendar', 'w-5 h-5 shrink-0'); ?>
                 <span class="text-sm lg:text-base font-medium text-bars-text-primary">
-                    La fecha tope para la recepción del material es el <?php echo esc_html(getDateInSpanish($call_deadline)); ?>.
+                    La fecha tope para la recepción del material es el
+                    <?php if (isset($call_deadline_extended)): ?>
+                        <del class="opacity-50"><?php echo esc_html(getDateInSpanish($call_deadline)); ?></del>
+                        — extendida hasta el <?php echo esc_html(getDateInSpanish($call_deadline_extended)); ?>.
+                    <?php else: ?>
+                        <?php echo esc_html(getDateInSpanish($call_deadline)); ?>.
+                    <?php endif; ?>
                 </span>
             </div>
             <?php endif; ?>
