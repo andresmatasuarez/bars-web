@@ -167,7 +167,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     if (activeTab.type === 'day') {
       screenings = getScreeningsForDay(movies, activeTab.date);
     } else if (activeTab.type === 'online') {
-      screenings = getAlwaysAvailableScreenings(movies) as ScreeningWithMovie<
+      screenings = getAlwaysAvailableScreenings(movies) as unknown as ScreeningWithMovie<
         TraditionalScreening | RegularStreamingScreening
       >[];
     } else if (activeTab.type === 'all') {
@@ -206,7 +206,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       ).size;
       return dayCount + streamingCount;
     }
-    const ids = new Set<string>();
+    const ids = new Set<number>();
     for (const s of rawTabScreenings) {
       if (isAddedToWatchlist(s)) ids.add(s.movie.id);
     }

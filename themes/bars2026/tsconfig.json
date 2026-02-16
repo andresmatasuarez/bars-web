@@ -6,6 +6,6 @@
       "@shared/*": ["../../shared/*"]
     }
   },
-  "include": ["ts/**/*", "vite/**/*"],
+  "include": ["ts/**/*", "vite/**/*", "../../shared/ts/selection/window.d.ts"],
   "exclude": ["node_modules", "vendor"]
 }
