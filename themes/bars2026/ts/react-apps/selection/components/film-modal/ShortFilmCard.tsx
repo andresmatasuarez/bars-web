@@ -1,9 +1,52 @@
-import { ShortFilm } from '@shared/ts/selection/types';
+import { SingleEdition } from '@shared/ts/selection/Editions';
+import { Screening, ShortFilm } from '@shared/ts/selection/types';
 import { useRef } from 'react';
 
+import { resolveShortVerState } from './helpers';
 import useLetterboxCrop from './useLetterboxCrop';
 
-export function ShortFilmCard({ short: s }: { short: ShortFilm }) {
+type ShortFilmCardProps = {
+  short: ShortFilm;
+  screenings: Screening[];
+  currentEdition: SingleEdition;
+};
+
+function VerButton({ short, screenings, currentEdition }: ShortFilmCardProps) {
+  if (!short.streamingLink) return null;
+
+  const { enabled, disabledCaption } = resolveShortVerState(screenings, currentEdition);
+
+  if (enabled) {
+    return (
+      <div className="mt-2">
+        <a
+          href={short.streamingLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="inline-block rounded-[6px] bg-bars-primary py-1.5 px-3 text-[11px] font-semibold text-white hover:brightness-110 transition-all"
+        >
+          Ver
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-2 flex flex-col items-start gap-1">
+      <span className="inline-block rounded-[6px] bg-bars-primary opacity-40 cursor-not-allowed py-1.5 px-3 text-[11px] font-semibold text-white">
+        Ver
+      </span>
+      {disabledCaption && (
+        <span className="text-[9px] text-white/40 leading-tight">
+          {disabledCaption}
+        </span>
+      )}
+    </div>
+  );
+}
+
+export function ShortFilmCard({ short: s, screenings, currentEdition }: ShortFilmCardProps) {
   const thumbRef = useRef<HTMLDivElement>(null);
   useLetterboxCrop(thumbRef);
 
@@ -38,12 +81,13 @@ export function ShortFilmCard({ short: s }: { short: ShortFilm }) {
             dangerouslySetInnerHTML={{ __html: s.synopsis }}
           />
         )}
+        <VerButton short={s} screenings={screenings} currentEdition={currentEdition} />
       </div>
     </div>
   );
 }
 
-export function DesktopShortCard({ short: s }: { short: ShortFilm }) {
+export function DesktopShortCard({ short: s, screenings, currentEdition }: ShortFilmCardProps) {
   const thumbRef = useRef<HTMLDivElement>(null);
   useLetterboxCrop(thumbRef);
 
@@ -60,7 +104,7 @@ export function DesktopShortCard({ short: s }: { short: ShortFilm }) {
         </div>
       )}
       {/* Info */}
-      <div className="px-3 pb-3 pt-0 flex flex-col gap-2 flex-1">
+      <div className="px-3 pb-3 pt-0 first:pt-3 flex flex-col gap-2 flex-1">
         <h5 className="text-sm font-semibold text-white">{s.title}</h5>
         {s.info && (
           <span className="text-xs text-white/40">{s.info}</span>
@@ -74,6 +118,7 @@ export function DesktopShortCard({ short: s }: { short: ShortFilm }) {
             dangerouslySetInnerHTML={{ __html: s.synopsis }}
           />
         )}
+        <VerButton short={s} screenings={screenings} currentEdition={currentEdition} />
       </div>
     </div>
   );

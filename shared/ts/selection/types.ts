@@ -95,6 +95,7 @@ export type ShortFilm = {
   heroThumbnail?: string;
   directors?: string;
   synopsis?: string;
+  streamingLink?: string;
 };
 
 export type Movie = {

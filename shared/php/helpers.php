@@ -143,6 +143,7 @@
         'heroThumbnail' => get_the_post_thumbnail($short->ID, 'large'),
         'directors' => get_post_meta($short->ID, '_movie_directors', true) ?: null,
         'synopsis' => get_post_meta($short->ID, '_movie_synopsis', true) ?: null,
+        'streamingLink' => get_post_meta($short->ID, '_movie_streamingLink', true) ?: null,
       );
     }, $shorts);
   }
@@ -168,7 +169,23 @@
       $screeningsValue = get_post_meta($post->ID, '_movie_screenings', true);
     } else {
       $section = get_post_meta($post->ID, '_movieblock_section', true);
-      $info = get_post_meta($post->ID, '_movieblock_runtime', true) . ' min.';
+      $runtime = get_post_meta($post->ID, '_movieblock_runtime', true);
+      if (!$runtime) {
+        $shorts = get_posts(array(
+          'post_type' => 'movie',
+          'meta_query' => array(array('key' => '_movie_movieblock', 'value' => $post->ID)),
+          'posts_per_page' => -1,
+          'fields' => 'ids',
+        ));
+        $total = 0;
+        foreach ($shorts as $shortId) {
+          $total += (int) get_post_meta($shortId, '_movie_runtime', true);
+        }
+        if ($total > 0) {
+          $runtime = $total;
+        }
+      }
+      $info = $runtime ? $runtime . ' min.' : '';
       $screeningsValue = get_post_meta($post->ID, '_movieblock_screenings', true);
     }
 

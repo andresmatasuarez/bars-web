@@ -69,7 +69,7 @@ export default function BlockDesktop({
           <div className="overflow-y-auto flex-1 min-h-0 pr-3 mr-12 pb-10 mt-3">
             <div className="grid grid-cols-2 gap-3">
               {shorts.map((s) => (
-                <DesktopShortCard key={s.id} short={s} />
+                <DesktopShortCard key={s.id} short={s} screenings={movie.screenings} currentEdition={currentEdition} />
               ))}
             </div>
           </div>

@@ -52,7 +52,7 @@ export default function BlockMobile({
                 Cortometrajes incluidos
               </h3>
               {shorts.map((s) => (
-                <ShortFilmCard key={s.id} short={s} />
+                <ShortFilmCard key={s.id} short={s} screenings={movie.screenings} currentEdition={currentEdition} />
               ))}
             </div>
           )}
