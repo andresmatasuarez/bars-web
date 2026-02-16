@@ -1,4 +1,4 @@
-import { type RefObject, useEffect } from 'react';
+import { type RefObject, useLayoutEffect } from 'react';
 
 interface BarResult {
   topPercent: number;
@@ -117,7 +117,7 @@ function detectLetterbox(img: HTMLImageElement): BarResult | null {
 }
 
 export default function useLetterboxCrop(containerRef: RefObject<HTMLElement | null>) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 

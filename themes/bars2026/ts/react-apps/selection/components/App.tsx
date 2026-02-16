@@ -78,14 +78,14 @@ export default function App() {
         ) : isOnline ? (
           <div>
             <p className="text-sm text-bars-link-accent/70 italic mb-5 border-l-2 border-bars-link-accent/25 pl-3">
-              Podés ver las siguientes películas por streaming cualquier día, en cualquier momento,
+              Podés ver las siguientes películas por streaming cualquier día, a cualquier hora,
               durante el transcurso del festival.
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
               {timeSlots.flatMap(([, screenings]) =>
                 screenings.map((screening) => (
                   <FilmCard
-                    key={screening.raw}
+                    key={`${screening.movie.id}-${screening.raw}`}
                     screening={screening}
                     sectionLabel={getSectionLabel(screening, sections)}
                     venueDisplay={getVenueDisplay(screening, currentEdition)}

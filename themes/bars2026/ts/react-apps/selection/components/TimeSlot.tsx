@@ -21,7 +21,7 @@ export default function TimeSlot({ time, screenings, hideDivider }: Props) {
 
   const isStreaming = time === 'Online';
   const Icon = isStreaming ? MonitorPlayIcon : ClockIcon;
-  const label = isStreaming ? 'En streaming sólo por este día' : time;
+  const label = isStreaming ? 'Streaming - Todo el día' : time;
 
   return (
     <div>
@@ -38,7 +38,7 @@ export default function TimeSlot({ time, screenings, hideDivider }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
         {screenings.map((screening) => (
           <FilmCard
-            key={screening.raw}
+            key={`${screening.movie.id}-${screening.raw}`}
             screening={screening}
             sectionLabel={getSectionLabel(screening, sections)}
             venueDisplay={getVenueDisplay(screening, currentEdition)}
