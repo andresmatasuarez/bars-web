@@ -46,24 +46,30 @@ $juries = Editions::getJuries($edition);
             El festival otorga los siguientes premios a las realizaciones en competencia:
         </p>
 
-        <!-- Awards Grid -->
-        <div class="flex flex-col lg:flex-row gap-4 lg:gap-16">
+        <!-- Awards List -->
+        <div class="flex flex-col divide-y divide-bars-divider">
             <?php foreach ($awards as $category): ?>
-            <div class="flex-1 flex flex-col gap-3 lg:gap-6">
-                <h3 class="font-heading text-lg lg:text-2xl font-semibold text-bars-text-primary flex items-center gap-2">
+            <div class="flex flex-col lg:flex-row gap-3 lg:gap-12 py-5 lg:py-6 first:pt-0 last:pb-0">
+                <!-- Category Heading (left column on desktop) -->
+                <h3 class="font-heading text-lg lg:text-xl font-semibold text-bars-text-primary lg:w-[220px] lg:shrink-0">
                     <?php echo esc_html($category['heading']); ?>
                 </h3>
-                <ul class="flex flex-col gap-2 lg:gap-3">
-                    <?php foreach ($category['items'] as $item): ?>
-                    <li class="text-[13px] lg:text-sm text-white/60 leading-[1.6] flex items-start gap-2">
-                        <?php echo bars_icon('trophy', 'w-3.5 h-3.5 shrink-0 mt-[3px] opacity-60'); ?>
-                        <?php echo esc_html($item); ?>
-                    </li>
-                    <?php endforeach; ?>
+                <!-- Award Items (right column, 2-col grid on desktop) -->
+                <div class="flex-1 flex flex-col gap-1">
+                    <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-2">
+                        <?php foreach ($category['items'] as $item): ?>
+                        <li class="text-[13px] lg:text-sm text-white/60 leading-[1.6] flex items-start gap-2">
+                            <?php echo bars_icon('trophy', 'w-3.5 h-3.5 shrink-0 mt-[3px] opacity-60'); ?>
+                            <?php echo esc_html($item); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
                     <?php if (!empty($category['note'])): ?>
-                    <li class="text-[11px] lg:text-xs text-white/40 italic leading-[1.6]"><?php echo esc_html($category['note']); ?></li>
+                    <p class="text-[11px] lg:text-xs text-white/40 italic leading-[1.6] mt-1">
+                        <?php echo esc_html($category['note']); ?>
+                    </p>
                     <?php endif; ?>
-                </ul>
+                </div>
             </div>
             <?php endforeach; ?>
         </div>
