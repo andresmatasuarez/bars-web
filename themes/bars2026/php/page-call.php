@@ -79,13 +79,13 @@ $awards = Editions::getAwards($edition);
             <?php if ($call_deadline): ?>
             <div class="flex items-center gap-2 bg-bars-primary/10 rounded-bars-md px-4 py-3">
                 <?php echo bars_icon('calendar', 'w-5 h-5 shrink-0'); ?>
-                <span class="text-sm lg:text-base font-medium text-bars-text-primary">
+                <span class="text-sm lg:text-base text-bars-text-primary">
                     La fecha tope para la recepción del material es el
                     <?php if (isset($call_deadline_extended)): ?>
-                        <del class="opacity-50"><?php echo esc_html(getDateInSpanish($call_deadline)); ?></del>
-                        — extendida hasta el <?php echo esc_html(getDateInSpanish($call_deadline_extended)); ?>.
+                        <del class="opacity-50 font-medium"><?php echo esc_html(getDateInSpanish($call_deadline)); ?></del>
+                        — extendida hasta el <strong class="font-medium underline"><?php echo esc_html(getDateInSpanish($call_deadline_extended)); ?></strong>.
                     <?php else: ?>
-                        <?php echo esc_html(getDateInSpanish($call_deadline)); ?>.
+                        <strong class="font-medium underline"><?php echo esc_html(getDateInSpanish($call_deadline)); ?></strong>.
                     <?php endif; ?>
                 </span>
             </div>

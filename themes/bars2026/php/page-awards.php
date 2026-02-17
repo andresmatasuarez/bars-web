@@ -21,10 +21,25 @@ if ($from && $to) {
 
 $awards = Editions::getAwards($edition);
 $juries = Editions::getJuries($edition);
+
+$isPastEdition = $edition['number'] !== Editions::current()['number'];
+
+// Find previous edition with awards data for empty-state links
+$prevEditionWithAwards = null;
+if (empty($awards)) {
+    $prevEdition = Editions::getByNumber($edition['number'] - 1);
+    if ($prevEdition && Editions::getAwards($prevEdition)) {
+        $prevEditionWithAwards = $prevEdition;
+    }
+}
+
+$title = $isPastEdition
+    ? 'Premios y jurados ' . $edition_number . ' (' . ($to ? $to->format('Y') : '') . ')'
+    : 'Premios y jurados';
 ?>
 
 <?php get_template_part('template-parts/sections/page', 'hero', array(
-    'title' => 'Premios y jurados',
+    'title' => $title,
     'subtitle' => 'Edición ' . $edition_number . ' • ' . $festival_dates,
 )); ?>
 
@@ -32,10 +47,24 @@ $juries = Editions::getJuries($edition);
 <section class="relative min-h-96 py-8 lg:py-12">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
+        <?php if ($isPastEdition): ?>
+        <div class="pb-6">
+            <a href="<?php echo esc_url(home_url('/premios')); ?>"
+               class="text-sm text-bars-link-accent hover:underline">&larr; Ver premios de la edición actual</a>
+        </div>
+        <?php endif; ?>
+
         <?php if (empty($awards)): ?>
-        <p class="text-sm text-bars-text-muted text-center py-8">
+        <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto text-center py-8">
             Los premios y categorías de competencia de esta edición todavía se están definiendo.
         </p>
+        <?php if ($prevEditionWithAwards): ?>
+        <p class="text-sm text-bars-text-muted text-center max-w-xs mx-auto">
+            Mientras tanto, podés ver los
+            <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
+               class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
+        </p>
+        <?php endif; ?>
         <?php else: ?>
 
         <!-- Intro Text -->
@@ -91,9 +120,16 @@ $juries = Editions::getJuries($edition);
         </div>
 
         <?php if (empty($juries)): ?>
-        <p class="text-sm text-bars-text-muted text-center py-8">
+        <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto text-center py-8">
             Los jurados de esta edición todavía no han sido seleccionados.
         </p>
+        <?php if ($prevEditionWithAwards): ?>
+        <p class="text-sm text-bars-text-muted text-center max-w-xs mx-auto">
+            Mientras tanto, podés ver los
+            <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
+               class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
+        </p>
+        <?php endif; ?>
         <?php else: ?>
 
         <div class="flex flex-col gap-12 lg:gap-14">

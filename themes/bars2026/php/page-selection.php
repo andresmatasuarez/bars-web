@@ -60,7 +60,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                     <p class="text-sm text-bars-text-muted mt-6 max-w-xs mx-auto">
                         Mientras tanto, podés ver la
                         <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
-                           class="text-bars-primary hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
+                           class="text-bars-badge-text hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
                     </p>
                     <?php endif; ?>
                 </div>
@@ -74,7 +74,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                     </h2>
                     <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto">
                         No pierdas la oportunidad de proyectar tu película o corto en el festival.
-                        Revisá los <a href="<?php echo esc_url($linkToCall); ?>" class="text-bars-primary hover:underline">términos de la convocatoria</a>.
+                        Revisá los <a href="<?php echo esc_url($linkToCall); ?>" class="text-bars-badge-text hover:underline">términos de la convocatoria</a>.
                     </p>
                     <?php
                     $prevEdition = Editions::getByNumber($currentEdition['number'] - 1);
@@ -85,7 +85,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                     <p class="text-sm text-bars-text-muted mt-10 max-w-xs mx-auto">
                         Mientras tanto, podés ver la
                         <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
-                           class="text-bars-primary hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
+                           class="text-bars-badge-text hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
                     </p>
                     <?php endif; ?>
                 </div>
