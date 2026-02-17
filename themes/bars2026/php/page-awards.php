@@ -29,16 +29,13 @@ $juries = Editions::getJuries($edition);
 )); ?>
 
 <!-- Awards Intro Section -->
-<section class="relative py-8 lg:py-12">
+<section class="relative min-h-96 py-8 lg:py-12">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <?php if (empty($awards)): ?>
-        <!-- Awards Not Defined Notice -->
-        <div class="bg-bars-primary/20 border border-bars-primary/30 rounded-bars-md p-4 mb-8">
-            <p class="text-sm text-bars-text-primary">
-                Los premios y categorías de esta edición todavía se están definiendo
-            </p>
-        </div>
+        <p class="text-sm text-bars-text-muted text-center py-8">
+            Los premios y categorías de competencia de esta edición todavía se están definiendo.
+        </p>
         <?php else: ?>
 
         <!-- Intro Text -->
@@ -80,7 +77,7 @@ $juries = Editions::getJuries($edition);
 </section>
 
 <!-- Jury Section -->
-<section class="bg-bars-bg-medium pt-8 lg:pt-12 pb-[85px] lg:pb-[140px]">
+<section class="relative bg-bars-bg-medium pt-8 lg:pt-12 pb-[85px] lg:pb-[140px]">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <!-- Jury Title Group -->
@@ -94,12 +91,9 @@ $juries = Editions::getJuries($edition);
         </div>
 
         <?php if (empty($juries)): ?>
-        <!-- Juries Not Defined Notice -->
-        <div class="bg-bars-primary/20 border border-bars-primary/30 rounded-bars-md p-4 mb-8">
-            <p class="text-sm text-bars-text-primary">
-                Los jurados de esta edición todavía no han sido seleccionados
-            </p>
-        </div>
+        <p class="text-sm text-bars-text-muted text-center py-8">
+            Los jurados de esta edición todavía no han sido seleccionados.
+        </p>
         <?php else: ?>
 
         <div class="flex flex-col gap-12 lg:gap-14">

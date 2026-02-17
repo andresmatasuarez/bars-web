@@ -9,6 +9,7 @@ get_header();
 $currentEdition = isset($_GET['edition'])
     ? Editions::getByNumber(intval($_GET['edition']))
     : Editions::current();
+$isPastEdition = $currentEdition['number'] !== Editions::current()['number'];
 $days = Editions::days($currentEdition);
 $from = $days[0];
 $to = $days[count($days) - 1];
@@ -21,13 +22,23 @@ $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
     . ' • ' . $fromDay . ' - ' . $toDay . ' ' . $month . ' ' . $year;
 ?>
 
-<?php get_template_part('template-parts/sections/page', 'hero', array(
-    'title' => 'Programación',
+<?php
+$title = $isPastEdition
+    ? 'Programación ' . Editions::romanNumerals($currentEdition) . ' (' . $year . ')'
+    : 'Programación';
+get_template_part('template-parts/sections/page', 'hero', array(
+    'title' => $title,
     'subtitle' => $subtitle,
 )); ?>
 
 <section class="relative min-h-[60vh] pb-16">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
+        <?php if ($isPastEdition): ?>
+        <div class="pt-6">
+            <a href="<?php echo esc_url(home_url('/programacion')); ?>"
+               class="text-sm text-bars-link-accent hover:underline">&larr; Ver programación actual</a>
+        </div>
+        <?php endif; ?>
         <?php
         if (countMovieEntriesForEdition($currentEdition) === "0") {
             if (Editions::isCallClosed($currentEdition)) {
@@ -40,6 +51,18 @@ $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
                         La grilla para este año ya se encuentra en proceso de selección.
                         Estará disponible en los próximos días.
                     </p>
+                    <?php
+                    $prevEdition = Editions::getByNumber($currentEdition['number'] - 1);
+                    if ($prevEdition && countMovieEntriesForEdition($prevEdition) !== "0"):
+                        $prevRoman = Editions::romanNumerals($prevEdition);
+                        $prevYear = Editions::from($prevEdition)->format('Y');
+                    ?>
+                    <p class="text-sm text-bars-text-muted mt-6 max-w-xs mx-auto">
+                        Mientras tanto, podés ver la
+                        <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
+                           class="text-bars-primary hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
+                    </p>
+                    <?php endif; ?>
                 </div>
                 <?php
             } else {
@@ -51,8 +74,20 @@ $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
                     </h2>
                     <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto">
                         No pierdas la oportunidad de proyectar tu película o corto en el festival.
-                        Revisá los <a href="<?php echo esc_url($linkToCall); ?>" class="text-bars-primary hover:underline">términos y condiciones</a>.
+                        Revisá los <a href="<?php echo esc_url($linkToCall); ?>" class="text-bars-primary hover:underline">términos de la convocatoria</a>.
                     </p>
+                    <?php
+                    $prevEdition = Editions::getByNumber($currentEdition['number'] - 1);
+                    if ($prevEdition && countMovieEntriesForEdition($prevEdition) !== "0"):
+                        $prevRoman = Editions::romanNumerals($prevEdition);
+                        $prevYear = Editions::from($prevEdition)->format('Y');
+                    ?>
+                    <p class="text-sm text-bars-text-muted mt-10 max-w-xs mx-auto">
+                        Mientras tanto, podés ver la
+                        <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
+                           class="text-bars-primary hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
+                    </p>
+                    <?php endif; ?>
                 </div>
                 <?php
             }

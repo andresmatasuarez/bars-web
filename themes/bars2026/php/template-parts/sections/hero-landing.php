@@ -9,6 +9,10 @@ $edition_number = Editions::romanNumerals($edition);
 $from = Editions::from($edition);
 $to = Editions::to($edition);
 $venues = Editions::venues($edition);
+
+// State detection for CTAs
+$movieCount = countMovieEntriesForEdition($edition);
+$callClosed = Editions::isCallClosed($edition);
 ?>
 
 <section class="relative min-h-[600px] lg:h-[800px] overflow-hidden">
@@ -87,14 +91,34 @@ $venues = Editions::venues($edition);
 
                 <!-- CTAs -->
                 <div class="flex flex-col sm:flex-row gap-3 lg:gap-4">
-                    <a href="<?php echo home_url('/programacion'); ?>"
-                       class="btn-primary text-center">
-                        Ver programación
-                    </a>
-                    <a href="<?php echo home_url('/convocatoria'); ?>"
-                       class="btn-ghost text-center">
-                        Convocatoria abierta
-                    </a>
+                    <?php if ($movieCount === "0" && !$callClosed): ?>
+                        <!-- Call open: submission is the primary action -->
+                        <a href="<?php echo home_url('/convocatoria'); ?>"
+                           class="btn-primary text-center">
+                            Convocatoria abierta
+                        </a>
+                    <?php elseif ($movieCount === "0" && $callClosed): ?>
+                        <!-- Transitional: selection in progress -->
+                        <a href="<?php echo home_url('/programacion'); ?>"
+                           class="btn-primary text-center">
+                            Programación próximamente
+                        </a>
+                        <span class="btn-ghost text-center pointer-events-none opacity-50">
+                            Convocatoria cerrada
+                        </span>
+                    <?php else: ?>
+                        <!-- Programming live -->
+                        <a href="<?php echo home_url('/programacion'); ?>"
+                           class="btn-primary text-center">
+                            Ver programación
+                        </a>
+                        <?php if (!$callClosed): ?>
+                        <a href="<?php echo home_url('/convocatoria'); ?>"
+                           class="btn-ghost text-center">
+                            Convocatoria abierta
+                        </a>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

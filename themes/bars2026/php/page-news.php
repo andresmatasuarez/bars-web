@@ -24,7 +24,7 @@ $news_query = new WP_Query(array(
 )); ?>
 
 <!-- News Section -->
-<section class="relative py-16 px-5 lg:px-0">
+<section class="relative min-h-96 py-16 px-5 lg:px-0">
     <div class="max-w-[1000px] mx-auto">
         <?php if ($news_query->have_posts()):
             $posts_array = $news_query->posts;

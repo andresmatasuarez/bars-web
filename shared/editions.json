@@ -65,10 +65,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Premio del Público Largometraje",
-          "Premio del Público Cortometraje"
-        ]
+        "items": ["Premio del Público Largometraje", "Premio del Público Cortometraje"]
       }
     ],
     "sponsors": [
@@ -317,11 +314,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Mejor Largometraje",
-          "Mejor Cortometraje",
-          "Mejor Largometraje Reaparecidos"
-        ]
+        "items": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
       }
     ],
     "sponsors": [
@@ -569,11 +562,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Mejor Largometraje",
-          "Mejor Cortometraje",
-          "Mejor Largometraje Reaparecidos"
-        ]
+        "items": ["Mejor Largometraje", "Mejor Cortometraje", "Mejor Largometraje Reaparecidos"]
       }
     ],
     "sponsors": [
@@ -1061,17 +1050,11 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       },
       {
         "heading": "Premios Especiales",
-        "items": [
-          "Competencia \"Reapariciones\""
-        ]
+        "items": ["Competencia \"Reapariciones\""]
       }
     ],
     "pressPasses": {
@@ -1150,17 +1133,11 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       },
       {
         "heading": "Premios Especiales",
-        "items": [
-          "Premio \"BARS-Contar\""
-        ]
+        "items": ["Premio \"BARS-Contar\""]
       }
     ],
     "pressPasses": {
@@ -1228,17 +1205,11 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       },
       {
         "heading": "Premios Especiales",
-        "items": [
-          "Concurso \"Fin de Semana Sangriento\""
-        ]
+        "items": ["Concurso \"Fin de Semana Sangriento\""]
       }
     ],
     "pressPasses": {
@@ -1307,11 +1278,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       }
     ]
   },
@@ -1374,11 +1341,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       }
     ]
   },
@@ -1437,11 +1400,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       }
     ]
   },
@@ -1499,11 +1458,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Argentina"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Argentina"]
       }
     ]
   },
@@ -1561,11 +1516,7 @@
       },
       {
         "heading": "Premios del Público",
-        "items": [
-          "Largometraje",
-          "Cortometraje",
-          "Largometraje Competencia Bizarra"
-        ]
+        "items": ["Largometraje", "Cortometraje", "Largometraje Competencia Bizarra"]
       }
     ]
   },

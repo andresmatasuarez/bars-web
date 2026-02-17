@@ -13,7 +13,7 @@ get_header();
 )); ?>
 
 <!-- Content Section -->
-<section class="relative py-12 lg:py-16">
+<section class="relative min-h-96 py-12 lg:py-16">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <!-- Tab Navigation -->

@@ -32,7 +32,7 @@ $awards = Editions::getAwards($edition);
 )); ?>
 
 <!-- Content Section -->
-<section class="relative py-12 lg:py-16 <?php echo $call_is_closed ? 'call-closed' : ''; ?>">
+<section class="relative min-h-96 py-12 lg:py-16 <?php echo $call_is_closed ? 'call-closed' : ''; ?>">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <?php if ($call_is_closed): ?>
@@ -54,11 +54,6 @@ $awards = Editions::getAwards($edition);
                 download them here</a>.</span>
         </div>
         <?php endif; ?>
-
-        <!-- Main Title -->
-        <h2 class="font-heading text-2xl lg:text-4xl font-medium text-bars-text-primary mb-8">
-            Términos y Condiciones
-        </h2>
 
         <!-- Intro Section -->
         <div class="space-y-6 mb-10">

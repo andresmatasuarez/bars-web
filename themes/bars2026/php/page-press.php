@@ -43,7 +43,7 @@ if ($venues) {
 )); ?>
 
 <!-- Accreditation Section -->
-<section class="relative py-8 pb-20 lg:py-16 lg:pb-36">
+<section class="relative min-h-96 py-8 pb-20 lg:py-16 lg:pb-36">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <!-- Intro Text -->
