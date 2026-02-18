@@ -124,15 +124,15 @@ get_header();
                 <p class="text-sm text-bars-text-muted mt-1">Edición</p>
             </div>
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['movies']); ?></p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['movies']); ?><span class="text-xl lg:text-3xl relative -top-2.5 lg:-top-4">+</span></p>
                 <p class="text-sm text-bars-text-muted mt-1">Películas<?php if ($metrics['fallback']): ?><a href="#metrics-footnote" class="text-bars-text-muted">*</a><?php endif; ?></p>
             </div>
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['short_films']); ?>+</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['short_films']); ?><span class="text-xl lg:text-3xl relative -top-2.5 lg:-top-4">+</span></p>
                 <p class="text-sm text-bars-text-muted mt-1">Cortos<?php if ($metrics['fallback']): ?><a href="#metrics-footnote" class="text-bars-text-muted">*</a><?php endif; ?></p>
             </div>
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['countries']); ?>+</p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['countries']); ?><span class="text-xl lg:text-3xl relative -top-2.5 lg:-top-4">+</span></p>
                 <p class="text-sm text-bars-text-muted mt-1">Países<?php if ($metrics['fallback']): ?><a href="#metrics-footnote" class="text-bars-text-muted">*</a><?php endif; ?></p>
             </div>
         </div>

@@ -539,9 +539,9 @@
 		";
 
 		$params = array_merge(array($editionKey), $excludedSections);
-		$result = $wpdb->get_var($wpdb->prepare($sql, $params));
+		$total = (int) $wpdb->get_var($wpdb->prepare($sql, $params));
 
-		return (int) $result;
+		return (int) (floor($total / 5) * 5);
 	}
 
 	/**
