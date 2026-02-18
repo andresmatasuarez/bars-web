@@ -8,7 +8,7 @@ export default function EmptyState({ type }: Props) {
   if (type === 'empty-watchlist') {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
-        <BookmarkIcon size={48} className="text-bars-text-disabled mb-4" />
+        <BookmarkIcon size={48} className="text-bars-icon-empty mb-4" />
         <h3 className="font-heading text-2xl text-bars-text-primary mb-2">
           Tu lista está vacía
         </h3>
@@ -22,7 +22,7 @@ export default function EmptyState({ type }: Props) {
 
   return (
     <div className="flex flex-col items-center justify-center py-20 text-center">
-      <SearchXIcon size={48} className="text-bars-text-disabled mb-4" />
+      <SearchXIcon size={48} className="text-bars-icon-empty mb-4" />
       <h3 className="font-heading text-2xl text-bars-text-primary mb-2">
         Sin resultados
       </h3>

@@ -48,16 +48,22 @@ $title = $isPastEdition
         <?php endif; ?>
 
         <?php if (empty($awards)): ?>
-        <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto text-center py-8">
-            Los premios y categorías de competencia de esta edición todavía se están definiendo.
-        </p>
-        <?php if ($prevEditionWithAwards): ?>
-        <p class="text-sm text-bars-text-muted text-center max-w-xs mx-auto">
-            Mientras tanto, podés ver los
-            <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
-               class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
-        </p>
-        <?php endif; ?>
+        <div class="flex flex-col items-center justify-center py-20 text-center">
+            <?php echo bars_icon('trophy', 'w-12 h-12 text-bars-icon-empty mb-4'); ?>
+            <h3 class="font-heading text-2xl text-bars-text-primary mb-2">
+                Premios en definición
+            </h3>
+            <p class="text-sm text-bars-text-subtle max-w-xs">
+                Los premios y categorías de competencia de esta edición todavía se están definiendo.
+            </p>
+            <?php if ($prevEditionWithAwards): ?>
+            <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
+                Mientras tanto, podés ver los
+                <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
+                   class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
+            </p>
+            <?php endif; ?>
+        </div>
         <?php else: ?>
 
         <!-- Intro Text -->
@@ -113,16 +119,22 @@ $title = $isPastEdition
         </div>
 
         <?php if (empty($juries)): ?>
-        <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto text-center py-8">
-            Los jurados de esta edición todavía no han sido seleccionados.
-        </p>
-        <?php if ($prevEditionWithAwards): ?>
-        <p class="text-sm text-bars-text-muted text-center max-w-xs mx-auto">
-            Mientras tanto, podés ver los
-            <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
-               class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
-        </p>
-        <?php endif; ?>
+        <div class="flex flex-col items-center justify-center py-20 text-center">
+            <?php echo bars_icon('scale', 'w-12 h-12 text-bars-icon-empty mb-4'); ?>
+            <h3 class="font-heading text-2xl text-bars-text-primary mb-2">
+                Jurados en definición
+            </h3>
+            <p class="text-sm text-bars-text-subtle max-w-xs">
+                Los jurados de esta edición todavía no han sido seleccionados.
+            </p>
+            <?php if ($prevEditionWithAwards): ?>
+            <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
+                Mientras tanto, podés ver los
+                <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
+                   class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
+            </p>
+            <?php endif; ?>
+        </div>
         <?php else: ?>
 
         <div class="flex flex-col gap-12 lg:gap-14">

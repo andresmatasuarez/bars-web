@@ -52,7 +52,7 @@ $callClosed = Editions::isCallClosed($edition);
                 <div class="flex flex-col lg:flex-row lg:flex-nowrap gap-4 lg:gap-8 mb-8 lg:mb-10">
                     <!-- Edition - Clapperboard icon -->
                     <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
-                        <?php echo bars_icon('clapperboard', 'w-5 h-5 text-bars-primary'); ?>
+                        <?php echo bars_icon('ticket', 'w-5 h-5 text-bars-primary'); ?>
                         <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
                             EDICIÓN <?php echo esc_html($edition_number); ?>
                         </span>
@@ -101,6 +101,7 @@ $callClosed = Editions::isCallClosed($edition);
                         <!-- Call open: submission is the primary action -->
                         <a href="<?php echo home_url('/convocatoria'); ?>"
                            class="btn-primary text-center">
+                            <?php echo bars_icon('megaphone', 'w-5 h-5'); ?>
                             Convocatoria abierta
                         </a>
                     <?php elseif ($movieCount === "0" && $callClosed): ?>
@@ -110,20 +111,16 @@ $callClosed = Editions::isCallClosed($edition);
                             Programación próximamente
                         </a>
                         <span class="btn-ghost text-center pointer-events-none opacity-50">
+                            <?php echo bars_icon('party-popper', 'w-5 h-5'); ?>
                             Convocatoria cerrada
                         </span>
                     <?php else: ?>
                         <!-- Programming live -->
                         <a href="<?php echo home_url('/programacion'); ?>"
                            class="btn-primary text-center">
+                            <?php echo bars_icon('clapperboard', 'w-5 h-5'); ?>
                             Ver programación
                         </a>
-                        <?php if (!$callClosed): ?>
-                        <a href="<?php echo home_url('/convocatoria'); ?>"
-                           class="btn-ghost text-center">
-                            Convocatoria abierta
-                        </a>
-                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
             </div>

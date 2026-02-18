@@ -20,6 +20,7 @@ module.exports = {
         'bars-text-subtle': 'rgba(255, 255, 255, 0.4)',
         'bars-text-faint': 'rgba(255, 255, 255, 0.27)',
         'bars-text-disabled': 'rgba(255, 255, 255, 0.2)',
+        'bars-icon-empty': 'var(--color-bars-icon-empty)',
         'bars-border-light': 'rgba(255, 255, 255, 0.2)',
         'bars-border-subtle': 'rgba(255, 255, 255, 0.08)',
         'bars-divider': 'rgba(255, 255, 255, 0.08)',

@@ -36,6 +36,14 @@ function bars_icon(string $name, string $class = 'w-5 h-5'): string {
                 'type' => 'stroke',
                 'body' => '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
             ],
+            'party-popper' => [
+                'type' => 'stroke',
+                'body' => '<path d="M4 5h2"/><path d="M5 4v2"/><path d="M11.5 4l-.5 2"/><path d="M18 5h2"/><path d="M19 4v2"/><path d="M15 9l-1 1"/><path d="M18 13l2 -.5"/><path d="M18 19h2"/><path d="M19 18v2"/><path d="M14 16.518l-6.518 -6.518l-4.39 9.58a1 1 0 0 0 1.329 1.329l9.579 -4.39z"/>',
+            ],
+            'ticket' => [
+                'type' => 'stroke',
+                'body' => '<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>',
+            ],
             'clapperboard' => [
                 'type' => 'stroke',
                 'body' => '<path d="M4 11v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8H4Z"/><path d="m4 11-.88-2.87a2 2 0 0 1 1.33-2.5l11.48-3.5a2 2 0 0 1 2.5 1.32l.87 2.87L4 11.01Z"/><path d="m6.6 4.99 3.38 4.2"/><path d="m11.86 3.38 3.38 4.2"/>',
@@ -55,6 +63,14 @@ function bars_icon(string $name, string $class = 'w-5 h-5'): string {
             'mail' => [
                 'type' => 'stroke',
                 'body' => '<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>',
+            ],
+            'megaphone' => [
+                'type' => 'stroke',
+                'body' => '<path d="M17 6 8 9H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h3l9 3z"/><path d="M8 15v2a3 3 0 0 0 3 3h1"/><path d="M20 10a4 4 0 0 1 0 4"/>',
+            ],
+            'scale' => [
+                'type' => 'stroke',
+                'body' => '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
             ],
 
             // ── Fill-based (brand logos) ────────────────────────────

@@ -38,11 +38,12 @@ get_template_part('template-parts/sections/page', 'hero', array(
         if (countMovieEntriesForEdition($currentEdition) === "0") {
             if (Editions::isCallClosed($currentEdition)) {
                 ?>
-                <div class="text-center py-20">
-                    <h2 class="font-heading text-2xl lg:text-3xl text-bars-text-primary mb-4">
+                <div class="flex flex-col items-center justify-center py-20 text-center">
+                    <?php echo bars_icon('clapperboard', 'w-12 h-12 text-bars-icon-empty mb-4'); ?>
+                    <h3 class="font-heading text-2xl text-bars-text-primary mb-2">
                         La programación se está definiendo
-                    </h2>
-                    <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto">
+                    </h3>
+                    <p class="text-sm text-bars-text-subtle max-w-xs">
                         La grilla para este año ya se encuentra en proceso de selección.
                         Estará disponible en los próximos días.
                     </p>
@@ -52,7 +53,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                         $prevRoman = Editions::romanNumerals($prevEdition);
                         $prevYear = Editions::from($prevEdition)->format('Y');
                     ?>
-                    <p class="text-sm text-bars-text-muted mt-6 max-w-xs mx-auto">
+                    <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
                         Mientras tanto, podés ver la
                         <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
                            class="text-bars-badge-text hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
@@ -63,11 +64,12 @@ get_template_part('template-parts/sections/page', 'hero', array(
             } else {
                 $linkToCall = get_permalink(get_page_by_path('convocatoria'));
                 ?>
-                <div class="text-center py-20">
-                    <h2 class="font-heading text-2xl lg:text-3xl text-bars-text-primary mb-4">
+                <div class="flex flex-col items-center justify-center py-20 text-center">
+                    <?php echo bars_icon('megaphone', 'w-12 h-12 text-bars-icon-empty mb-4'); ?>
+                    <h3 class="font-heading text-2xl text-bars-text-primary mb-2">
                         La convocatoria aún está abierta
-                    </h2>
-                    <p class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto">
+                    </h3>
+                    <p class="text-sm text-bars-text-subtle max-w-xs">
                         No pierdas la oportunidad de proyectar tu película o corto en el festival.
                         Revisá los <a href="<?php echo esc_url($linkToCall); ?>" class="text-bars-badge-text hover:underline">términos de la convocatoria</a>.
                     </p>
@@ -77,7 +79,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                         $prevRoman = Editions::romanNumerals($prevEdition);
                         $prevYear = Editions::from($prevEdition)->format('Y');
                     ?>
-                    <p class="text-sm text-bars-text-muted mt-10 max-w-xs mx-auto">
+                    <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
                         Mientras tanto, podés ver la
                         <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
                            class="text-bars-badge-text hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
