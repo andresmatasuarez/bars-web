@@ -10,14 +10,7 @@ $edition = isset($_GET['edition'])
     ? Editions::getByNumber(intval($_GET['edition']))
     : Editions::current();
 $edition_number = Editions::romanNumerals($edition);
-$from = Editions::from($edition);
-$to = Editions::to($edition);
-if ($from && $to) {
-    $festival_dates = $from->format('j') . ' - ' . $to->format('j') . ' ' .
-        ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
-} else {
-    $festival_dates = 'Fechas por confirmar';
-}
+$festival_dates = Editions::datesLabel($edition);
 
 $awards = Editions::getAwards($edition);
 $juries = Editions::getJuries($edition);

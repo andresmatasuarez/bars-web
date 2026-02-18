@@ -10,15 +10,11 @@ $edition = Editions::current();
 $edition_number = Editions::romanNumerals($edition);
 $from = Editions::from($edition);
 $to = Editions::to($edition);
-if ($from && $to) {
-    $festival_dates = $from->format('j') . ' - ' . $to->format('j') . ' ' .
-        ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
-} else {
-    $festival_dates = 'Fechas por confirmar';
-}
+$festival_dates = Editions::datesLabel($edition);
 
 // Press passes data
-$press_deadline = Editions::getPressPassesDeadline($edition);
+$press_passes = isset($edition['pressPasses']) ? $edition['pressPasses'] : array();
+$press_deadline = !empty($press_passes['deadline']) ? Editions::getPressPassesDeadline($edition) : null;
 $press_pickup = Editions::getPressPassesPickupDates($edition);
 $press_additional_info = Editions::getPressPassesAdditionalInfo($edition);
 $press_pickup_locations = Editions::getPressPassesPickupLocations($edition);
@@ -48,7 +44,7 @@ if ($venues) {
 
         <!-- Intro Text -->
         <p class="text-[13px] lg:text-base text-bars-text-muted leading-[1.7] max-w-[335px] lg:max-w-[800px] mb-8 lg:mb-10">
-            El festival Buenos Aires Rojo Sangre <?php echo esc_html($edition_number); ?> se llevará a cabo del <?php echo esc_html($from ? $from->format('j') : ''); ?> al <?php echo esc_html($to ? $to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y') : ''); ?><?php if ($venue_name): ?> en <?php echo esc_html($venue_name); ?><?php endif; ?>. Los medios interesados en cubrir el evento pueden solicitar su acreditación a través del formulario online.
+            El festival Buenos Aires Rojo Sangre <?php echo esc_html($edition_number); ?> se llevará a cabo <?php if ($from && $to): ?>del <?php echo esc_html($from->format('j')); ?> al <?php echo esc_html($to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y')); ?><?php if ($venue_name): ?> en <?php echo esc_html($venue_name); ?><?php endif; ?>.<?php else: ?>durante <?php echo esc_html(strtolower(Editions::datesLabel($edition))); ?>.<?php endif; ?> Los medios interesados en cubrir el evento pueden solicitar su acreditación a través del formulario online.
         </p>
 
         <!-- Cards Row: Deadlines + Benefits -->
@@ -60,12 +56,21 @@ if ($venues) {
                     📅 Fechas Importantes
                 </h3>
                 <ul class="space-y-3 lg:space-y-4 text-xs lg:text-sm text-bars-text-muted leading-[1.6]">
-                    <?php if ($press_deadline): ?>
-                    <li>• Cierre de acreditaciones: <span class="text-bars-text-primary font-medium"><?php echo esc_html(ucfirst(displayDateInSpanish($press_deadline))); ?></span></li>
-                    <?php endif; ?>
-                    <?php if ($press_pickup && $press_pickup['from'] && $press_pickup['to']): ?>
-                    <li>• Retiro de credenciales: <span class="text-bars-text-primary font-medium"><?php echo esc_html($press_pickup['from']->format('j') . '-' . $press_pickup['to']->format('j') . ' de ' . getSpanishMonthName($press_pickup['to']->format('F'))); ?><?php if ($press_additional_info): ?>, <?php echo esc_html($press_additional_info); ?><?php endif; ?></span><?php if ($press_pickup_locations): ?>, en los stands del festival en <span class="text-bars-text-primary font-medium"><?php echo esc_html(implode(', ', $press_pickup_locations)); ?></span><?php endif; ?></li>
-                    <?php endif; ?>
+                    <li>• Cierre de acreditaciones: <span class="text-bars-text-primary font-medium"><?php echo $press_deadline ? esc_html(ucfirst(displayDateInSpanish($press_deadline))) : 'TBD'; ?></span></li>
+                    <?php
+                    $pickup_from = $press_pickup ? $press_pickup['from'] : null;
+                    $pickup_to = $press_pickup ? $press_pickup['to'] : null;
+                    if ($pickup_from && $pickup_to):
+                        $pickup_dates = 'del ' . $pickup_from->format('j') . ' al ' . $pickup_to->format('j') . ' de ' . getSpanishMonthName($pickup_to->format('F'));
+                    elseif ($pickup_from):
+                        $pickup_dates = 'desde el ' . $pickup_from->format('j') . ' de ' . getSpanishMonthName($pickup_from->format('F'));
+                    elseif ($pickup_to):
+                        $pickup_dates = 'hasta el ' . $pickup_to->format('j') . ' de ' . getSpanishMonthName($pickup_to->format('F'));
+                    else:
+                        $pickup_dates = null;
+                    endif;
+                    ?>
+                    <li>• Retiro de credenciales: <?php if ($pickup_dates): ?><span class="text-bars-text-primary font-medium"><?php echo esc_html($pickup_dates); ?><?php if ($press_additional_info): ?>, <?php echo esc_html($press_additional_info); ?><?php endif; ?></span><?php if ($press_pickup_locations): ?>, en los stands del festival en <span class="text-bars-text-primary font-medium"><?php echo esc_html(implode(', ', $press_pickup_locations)); ?></span><?php endif; ?><?php else: ?><span class="text-bars-text-primary font-medium">TBD</span><?php endif; ?></li>
                 </ul>
             </div>
 

@@ -79,6 +79,27 @@ class Editions {
     return 'BARS ' . integerToRoman($edition['number']);
   }
 
+  public static function year($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return $edition['year'];
+  }
+
+  public static function datesLabel($edition = NULL) {
+    if (is_null($edition)) {
+      $edition = self::current();
+    }
+    $from = self::from($edition);
+    $to = self::to($edition);
+    if ($from && $to) {
+      return $from->format('j') . ' - ' . $to->format('j') . ' ' .
+        ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+    }
+    return self::year($edition) . ' (Fechas a confirmar)';
+  }
+
   public static function areDatesDefined($edition = NULL) {
     if (is_null($edition)){
       $edition = self::current();
@@ -204,13 +225,13 @@ class Editions {
       return array('from' => NULL, 'to' => NULL);
     }
 
-    if (isset($edition['pressPasses']['pickupFrom'])) {
-      $from = parseDate($edition['pressPasses']['pickupFrom']);
-    }
+    $from = isset($edition['pressPasses']['pickupFrom'])
+      ? parseDate($edition['pressPasses']['pickupFrom'])
+      : NULL;
 
-    if (isset($edition['pressPasses']['pickupTo'])) {
-      $to = parseDate($edition['pressPasses']['pickupTo']);
-    }
+    $to = isset($edition['pressPasses']['pickupTo'])
+      ? parseDate($edition['pressPasses']['pickupTo'])
+      : NULL;
 
     return array('from' => $from, 'to' => $to);
   }

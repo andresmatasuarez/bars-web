@@ -8,14 +8,7 @@ get_header();
 
 $edition = Editions::current();
 $edition_number = Editions::romanNumerals($edition);
-$from = Editions::from($edition);
-$to = Editions::to($edition);
-if ($from && $to) {
-    $festival_dates = $from->format('j') . ' - ' . $to->format('j') . ' ' .
-        ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
-} else {
-    $festival_dates = 'Fechas por confirmar';
-}
+$festival_dates = Editions::datesLabel($edition);
 $call = Editions::call($edition);
 $call_deadline = Editions::callDeadline($edition);
 $call_deadline_extended = Editions::callDeadlineExtended($edition);

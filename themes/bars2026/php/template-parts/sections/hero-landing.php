@@ -34,7 +34,7 @@ $callClosed = Editions::isCallClosed($edition);
                 <!-- Edition Badge -->
                 <div class="inline-flex items-center gap-2 px-4 py-2 border border-bars-primary rounded-bars-sm mb-6 lg:mb-8">
                     <span class="text-[10px] lg:text-xs font-semibold tracking-[2px] text-bars-primary">
-                        EDICIÓN <?php echo esc_html($edition_number); ?> • <?php echo $to ? $to->format('Y') : date('Y'); ?>
+                        EDICIÓN <?php echo esc_html($edition_number); ?> • <?php echo esc_html(Editions::year($edition)); ?>
                     </span>
                 </div>
 
@@ -59,19 +59,19 @@ $callClosed = Editions::isCallClosed($edition);
                     </div>
 
                     <!-- Dates - Calendar icon -->
-                    <?php if ($from && $to): ?>
                     <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
                         <?php echo bars_icon('calendar', 'w-5 h-5 text-bars-primary'); ?>
                         <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
-                            <?php echo $from->format('j'); ?> - <?php echo $to->format('j'); ?> <?php echo strtoupper(getSpanishMonthName($to->format('F'))); ?> <?php echo $to->format('Y'); ?>
+                            <?php echo esc_html(strtoupper(Editions::datesLabel($edition))); ?>
                         </span>
                     </div>
-                    <?php endif; ?>
 
                     <!-- Venues -->
-                    <?php if (!empty($venues)): ?>
-                        <?php foreach ($venues as $venueKey => $venue): ?>
-                            <?php if (isset($venue['name'])): ?>
+                    <?php
+                    $named_venues = array_filter($venues ?? [], function($v) { return isset($v['name']); });
+                    ?>
+                    <?php if (!empty($named_venues)): ?>
+                        <?php foreach ($named_venues as $venueKey => $venue): ?>
                             <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
                                 <?php if (!empty($venue['online'])): ?>
                                 <!-- Online venue - Monitor Play icon -->
@@ -84,8 +84,14 @@ $callClosed = Editions::isCallClosed($edition);
                                     <?php echo esc_html(strtoupper($venue['name'])); ?>
                                 </span>
                             </div>
-                            <?php endif; ?>
                         <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
+                            <?php echo bars_icon('map-pin', 'w-5 h-5 text-bars-primary'); ?>
+                            <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
+                                LUGAR A CONFIRMAR
+                            </span>
+                        </div>
                     <?php endif; ?>
                 </div>
 
