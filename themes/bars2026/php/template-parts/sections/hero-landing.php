@@ -108,7 +108,8 @@ $callClosed = Editions::isCallClosed($edition);
                         <!-- Transitional: selection in progress -->
                         <a href="<?php echo home_url('/programacion'); ?>"
                            class="btn-primary text-center">
-                            Programación próximamente
+                            <?php echo bars_icon('hourglass', 'w-5 h-5'); ?>
+                            Programación en proceso
                         </a>
                         <span class="btn-ghost text-center pointer-events-none opacity-50">
                             <?php echo bars_icon('party-popper', 'w-5 h-5'); ?>

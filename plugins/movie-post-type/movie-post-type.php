@@ -481,15 +481,30 @@
 			}
 		}
 
-		$edition = Editions::lastCompleted();
-		$editionKey = 'bars' . $edition['number'];
+		$current = Editions::current();
+		$currentKey = 'bars' . $current['number'];
+		$currentMovies = getMovieCount($currentKey);
 
-		$metrics = array(
-			'editions'    => $edition['number'],
-			'movies'      => getMovieCount($editionKey),
-			'short_films' => getShortFilmCount($editionKey),
-			'countries'   => getCountryCount($editionKey),
-		);
+		if ($currentMovies > 0) {
+			$metrics = array(
+				'editions'    => $current['number'],
+				'movies'      => $currentMovies,
+				'short_films' => getShortFilmCount($currentKey),
+				'countries'   => getCountryCount($currentKey),
+				'fallback'    => false,
+			);
+		} else {
+			$prev = Editions::getByNumber($current['number'] - 1);
+			$prevKey = 'bars' . $prev['number'];
+			$metrics = array(
+				'editions'        => $current['number'],
+				'movies'          => getMovieCount($prevKey),
+				'short_films'     => getShortFilmCount($prevKey),
+				'countries'       => getCountryCount($prevKey),
+				'fallback'        => true,
+				'fallback_number' => $prev['number'],
+			);
+		}
 
 		if ($use_cache) {
 			set_transient('bars_festival_metrics', $metrics, 7 * DAY_IN_SECONDS);

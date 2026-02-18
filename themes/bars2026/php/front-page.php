@@ -103,8 +103,9 @@ get_header();
     </div>
 </section>
 
+<?php $metrics = getFestivalMetrics(); ?>
 <!-- About Section -->
-<section class="bg-bars-bg-medium py-16 lg:py-24 px-5 lg:px-20">
+<section class="bg-bars-bg-medium pt-16 lg:pt-24 <?php echo $metrics['fallback'] ? 'pb-6 lg:pb-8' : 'pb-16 lg:pb-24'; ?> px-5 lg:px-20">
     <div class="max-w-[1280px] mx-auto text-center">
         <p class="text-xs font-semibold tracking-widest uppercase text-bars-primary mb-4">
             Sobre el Festival
@@ -117,30 +118,35 @@ get_header();
         </p>
 
         <!-- Stats -->
-        <?php $metrics = getFestivalMetrics(); ?>
-        <div class="flex flex-wrap justify-center gap-8 lg:gap-16 mb-10 lg:mb-16">
+        <div class="grid grid-cols-2 min-[360px]:flex min-[360px]:flex-wrap min-[360px]:justify-center gap-8 lg:gap-16 mb-10 lg:mb-16">
             <div class="text-center">
-                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['editions']); ?><span class="text-xl lg:text-3xl align-super">ª</span></p>
+                <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['editions']); ?><span class="text-xl lg:text-3xl relative -top-2.5 lg:-top-4">ª</span></p>
                 <p class="text-sm text-bars-text-muted mt-1">Edición</p>
             </div>
             <div class="text-center">
                 <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['movies']); ?></p>
-                <p class="text-sm text-bars-text-muted mt-1">Películas</p>
+                <p class="text-sm text-bars-text-muted mt-1">Películas<?php if ($metrics['fallback']): ?><a href="#metrics-footnote" class="text-bars-text-muted">*</a><?php endif; ?></p>
             </div>
             <div class="text-center">
                 <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['short_films']); ?>+</p>
-                <p class="text-sm text-bars-text-muted mt-1">Cortos</p>
+                <p class="text-sm text-bars-text-muted mt-1">Cortos<?php if ($metrics['fallback']): ?><a href="#metrics-footnote" class="text-bars-text-muted">*</a><?php endif; ?></p>
             </div>
             <div class="text-center">
                 <p class="font-display text-4xl lg:text-6xl text-bars-primary"><?php echo esc_html($metrics['countries']); ?>+</p>
-                <p class="text-sm text-bars-text-muted mt-1">Países</p>
+                <p class="text-sm text-bars-text-muted mt-1">Países<?php if ($metrics['fallback']): ?><a href="#metrics-footnote" class="text-bars-text-muted">*</a><?php endif; ?></p>
             </div>
         </div>
 
         <a href="<?php echo home_url('/festival'); ?>"
-           class="text-base text-bars-text-secondary hover:text-white transition-colors">
+           class="text-base text-bars-link-accent hover:text-white transition-colors">
             Ver más →
         </a>
+        <?php if ($metrics['fallback']): ?>
+            <p id="metrics-footnote" class="text-xs text-bars-text-muted mt-20 lg:mt-24 italic opacity-50">
+                <?php $fallback_edition = Editions::getByNumber($metrics['fallback_number']); ?>
+                * Datos de la <?php echo esc_html($metrics['fallback_number']); ?>ª edición (<?php echo esc_html(Editions::getTitle($fallback_edition)); ?> - <?php echo esc_html(Editions::year($fallback_edition)); ?>) · Programación <?php echo esc_html(Editions::current()['year']); ?> próximamente disponible
+            </p>
+        <?php endif; ?>
     </div>
 </section>
 

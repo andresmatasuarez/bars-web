@@ -38,6 +38,32 @@ For testing that requires interaction (clicking buttons, opening modals, filling
 3. Provide bash script to run tests
 4. Alternative: Verify behavior through code review + provide manual test plan
 
+## Resolved Issues
+
+### Metrics Section Label Alignment (front-page.php)
+
+Previously reported issue: "Edición" label under "27ª" was being pushed down by the superscript "ª", causing misalignment with other labels.
+
+Status: **FIXED** as of 2026-02-18.
+
+Current code in `/home/amatasuarez/workspace/bars-web/themes/bars2026/php/front-page.php` (line 123):
+- The "ª" superscript uses `relative -top-2.5 lg:-top-4` positioning (negative top = pulls up)
+- Labels use `mt-1` margin which gives consistent spacing
+
+Verified working at:
+- 320x568: 2x2 grid, "Edición" and "Películas*" labels correctly vertically aligned
+- 375x812: 1-row flex layout, all 4 labels correctly aligned
+- 1024x768: 1-row flex layout, all 4 labels correctly aligned
+- 1440x900: 1-row flex layout, all 4 labels perfectly aligned
+
+### Metrics Grid Layout Breakpoints (front-page.php)
+
+The metrics container uses: `grid grid-cols-2 min-[360px]:flex min-[360px]:flex-wrap min-[360px]:justify-center`
+
+- Below 360px: `grid-cols-2` (2x2 grid)
+- At 360px+: `flex flex-wrap justify-center` (all 4 in one row if space allows)
+- At 375px: all 4 fit in a single row (no 3+1 orphan issue)
+
 ## Patterns
 
 ### Button Styles
