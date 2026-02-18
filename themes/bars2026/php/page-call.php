@@ -29,11 +29,12 @@ $awards = Editions::getAwards($edition);
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">
 
         <?php if ($call_is_closed): ?>
-        <!-- Closed Notice -->
-        <div class="flex items-center gap-2 bg-bars-primary/20 border border-bars-primary/30 rounded-bars-md p-4 mb-8">
-            <?php echo bars_icon('alert-triangle', 'w-5 h-5 shrink-0'); ?>
-            <span class="text-sm text-bars-text-primary">La convocatoria está actualmente cerrada. Las bases se mantienen visibles para referencia.</span>
+        <div class="text-sm lg:text-base text-bars-text-muted leading-relaxed max-w-md mx-auto text-center py-8">
+            <?php echo bars_icon('alert-triangle', 'w-5 h-5 mx-auto mb-2'); ?>
+            La convocatoria está actualmente cerrada.<br>
+            Las bases se mantienen visibles para referencia.
         </div>
+        <div class="h-px bg-bars-divider mb-8"></div>
         <?php endif; ?>
 
         <!-- English Note -->

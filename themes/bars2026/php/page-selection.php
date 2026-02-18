@@ -10,16 +10,11 @@ $currentEdition = isset($_GET['edition'])
     ? Editions::getByNumber(intval($_GET['edition']))
     : Editions::current();
 $isPastEdition = $currentEdition['number'] !== Editions::current()['number'];
-$days = Editions::days($currentEdition);
-$from = $days[0];
-$to = $days[count($days) - 1];
-$fromDay = $from->format('d');
-$toDay = $to->format('d');
-$month = ucfirst(getSpanishMonthName($from->format('F')));
-$year = $from->format('Y');
+$festival_dates = Editions::datesLabel($currentEdition);
+$year = Editions::year($currentEdition);
 
 $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
-    . ' • ' . $fromDay . ' - ' . $toDay . ' ' . $month . ' ' . $year;
+    . ' • ' . $festival_dates;
 ?>
 
 <?php

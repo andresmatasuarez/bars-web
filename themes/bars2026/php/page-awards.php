@@ -27,7 +27,7 @@ if (empty($awards)) {
 }
 
 $title = $isPastEdition
-    ? 'Premios y jurados ' . $edition_number . ' (' . ($to ? $to->format('Y') : '') . ')'
+    ? 'Premios y jurados ' . $edition_number . ' (' . Editions::year($edition) . ')'
     : 'Premios y jurados';
 ?>
 
