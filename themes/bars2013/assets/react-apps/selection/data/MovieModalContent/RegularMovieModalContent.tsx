@@ -4,7 +4,6 @@ import { DangerousHTML, Divider } from '../../App/commons';
 import { Movie, Stylable } from '../../types';
 import { InlineHeading, MovieHeader, MovieImageWrapper, Paragraph } from './commons';
 import Info from './Info';
-import MovieLinks from './MovieLinks';
 import ScreeningsByVenue from './ScreeningsByVenue';
 import TrailerEmbed from './TrailerEmbed';
 import { MovieAdditionalData } from './types';
@@ -19,8 +18,6 @@ export default styled(function RegularMovieModalContent({
       <MovieHeader>
         <MovieImageWrapper>
           <DangerousHTML html={movieData.image} />
-
-          <MovieLinks movieData={movieData} />
         </MovieImageWrapper>
         <Info movieData={movieData} />
       </MovieHeader>

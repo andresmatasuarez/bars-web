@@ -64,18 +64,6 @@
 							
 							?></div>
 							<div class="title"><?php the_title(); ?></div>
-							<div class="links">
-								<?php
-									$website = get_post_meta($post->ID, '_movie_website', true);
-									$imdb = get_post_meta($post->ID, '_movie_imdb', true);
-									
-									if ($website != '')
-										echo '<a target="_blank" href="' . $website . '">Sitio oficial</a> | ';
-									
-									if ($imdb != '')
-										echo '<a target="_blank" href="' . $imdb . '">IMDB</a>';
-								?>
-							</div>
 							
 							<?php
 								if ($runtime != '')

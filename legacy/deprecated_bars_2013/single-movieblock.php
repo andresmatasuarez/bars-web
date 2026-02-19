@@ -116,16 +116,6 @@
 										
 										echo '</div>';
 										echo '<div class="title">' . get_the_title($query->post->ID) . '</div>';
-										echo '<div class="links">';
-											$website = get_post_meta($query->post->ID, '_movie_website', true);
-											$imdb = get_post_meta($query->post->ID, '_movie_imdb', true);
-											
-											if ($website != '')
-												echo '<a target="_blank" href="' . $website . '">Sitio oficial</a> | ';
-											
-											if ($imdb != '')
-												echo '<a target="_blank" href="' . $imdb . '">IMDB</a>';
-										echo '</div>';
 										
 										if ($runtime != '')
 											echo '<div class="runtime">' . $runtime . ' minutos.</div>';

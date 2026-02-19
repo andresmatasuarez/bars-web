@@ -182,17 +182,7 @@
 				'desc' => 'YouTube/Vimeo video URL',
 				'type'  => 'text'
 			),
-			array(
-				'id'    => $movie_prefix . 'website',
-				'label' => 'Web',
-				'type'  => 'text'
-			),
-			array(
-				'id'    => $movie_prefix . 'imdb',
-				'label' => 'IMDB',
-				'type'  => 'text'
-			),
-			array(
+				array(
 				'id'    => $movie_prefix . 'screenings',
 				'label' => 'Film screenings',
 				'type'  => 'custom',

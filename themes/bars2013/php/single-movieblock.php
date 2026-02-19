@@ -46,8 +46,6 @@
 			"synopsis" => get_post_meta($query->post->ID, '_movie_synopsis', true),
 			"comments" => get_post_meta($query->post->ID, '_movie_comments', true),
 			"trailerUrl" => get_post_meta($query->post->ID, '_movie_trailer', true),
-			"website" => get_post_meta($query->post->ID, '_movie_website', true),
-			"imdb" => get_post_meta($query->post->ID, '_movie_imdb', true),
 			"image" => get_the_post_thumbnail($query->post->ID, 'movie-post-image'),
 			"thumbnail" => get_the_post_thumbnail($query->post->ID, 'movie-post-thumbnail'),
 		);

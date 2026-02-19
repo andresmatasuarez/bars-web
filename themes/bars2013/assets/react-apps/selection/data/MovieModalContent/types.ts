@@ -62,15 +62,6 @@ export type MovieAdditionalData = {
    */
   section: string;
 
-  /**
-   * Movie's official website
-   */
-  website?: string;
-
-  /**
-   * Movie's IMDB link
-   */
-  imdb?: string;
 };
 
 export type MovieBlockAdditionalData = Pick<

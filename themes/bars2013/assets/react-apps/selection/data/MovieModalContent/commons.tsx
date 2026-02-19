@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { applyCssStyleProp,Stylable } from '../../types';
-import MovieLinks from './MovieLinks';
 
 export const Paragraph = styled.div<Stylable>`
   line-height: 20pt;
@@ -21,9 +20,6 @@ export const MovieImageWrapper = styled.div`
   flex-flow: column;
   align-items: center;
 
-  > ${MovieLinks}:not(:empty) {
-    margin-top: 20px;
-  }
 `;
 
 export const INLINE_HEADING_COLOR = '#eb9797';

@@ -4,7 +4,6 @@ import { DangerousHTML } from '../../../App/commons';
 import { Stylable } from '../../../types';
 import { InlineHeading, MovieHeader, MovieImageWrapper, Paragraph } from '../commons';
 import Info from '../Info';
-import MovieLinks from '../MovieLinks';
 import { MovieBlockAdditionalData } from '../types';
 
 export default styled(function MovieEntry({
@@ -18,8 +17,6 @@ export default styled(function MovieEntry({
       <MovieHeader>
         <MovieImageWrapper>
           <DangerousHTML html={movie.image} />
-
-          <MovieLinks movieData={movie} />
         </MovieImageWrapper>
         <Info movieData={movie} />
       </MovieHeader>
