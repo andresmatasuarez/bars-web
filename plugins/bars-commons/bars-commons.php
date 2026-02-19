@@ -82,6 +82,11 @@
 							echo '<br /><span class="description">' . $field['desc'] . '</span>';
 						}
 						break;
+					case 'custom':
+						if (isset($field['render'])) {
+							call_user_func($field['render'], $post, $field, $meta);
+						}
+						break;
 				}
 		echo '</td></tr>';
 	}

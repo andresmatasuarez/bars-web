@@ -14,6 +14,21 @@
 
 		wp_enqueue_script('admin-movie', $admin_movie_file, array('jquery'));
 		wp_enqueue_script('admin-movie-block', $admin_movie_block_file, array('jquery'));
+
+		if (!class_exists('Editions')) {
+			$path = get_template_directory() . '/editions.php';
+			if (file_exists($path)) require_once $path;
+		}
+
+		if (class_exists('Editions')) {
+			$venuesByEdition = array();
+			foreach (Editions::all() as $ed) {
+				$venuesByEdition['bars' . $ed['number']] = isset($ed['venues']) ? $ed['venues'] : array();
+			}
+			wp_localize_script('admin-movie', 'BARS_SCREENINGS', array(
+				'venuesByEdition' => $venuesByEdition
+			));
+		}
 	}
 
 	/************************************************************************************************/
@@ -104,8 +119,6 @@
 
 		$movieSections = $MOVIE_SECTIONS;
 
-		$screeningsFormatDescription = 'Format: (venue.room:)mm-dd-yyyy hh:mm.<br />Comma-separated.<br />Venue and room are optional.<br /><br />Example:<br />  - <strong>lavalle:11-30-2017 16:00,belgrano.Sala 5:11-30-2017 18:00</strong><br /><br />Example for streaming movies:<br />  - <strong>streaming!contar:full</strong> (available for the whole duration of the festival)<br />  - <strong>streaming!flixxo:11-28-2020,streaming!flixxo:11-29-2020</strong> (available only on specific days)';
-
 		$currentEditionKey = reset($barscommons_editionOptions)['value']; // https://stackoverflow.com/a/1028677
 		$movieBlocks = movieBlocks($currentEditionKey);
 
@@ -182,8 +195,8 @@
 			array(
 				'id'    => $movie_prefix . 'screenings',
 				'label' => 'Film screenings',
-				'desc' => $screeningsFormatDescription,
-				'type'  => 'text'
+				'type'  => 'custom',
+				'render' => 'render_screenings_field'
 			),
 			array(
 				'id'    => $movie_prefix . 'streamingLink',
@@ -230,8 +243,8 @@
 			array(
 				'id'    => $movieblock_prefix . 'screenings',
 				'label' => 'Film screenings',
-				'desc' => $screeningsFormatDescription,
-				'type'  => 'text'
+				'type'  => 'custom',
+				'render' => 'render_screenings_field'
 			),
 			array(
 				'id'    => $movieblock_prefix . 'streamingLink',
@@ -242,6 +255,12 @@
 	}
 
 	/* ***** FUNCTIONS ***** */
+	function render_screenings_field($post, $field, $meta) {
+		echo '<input type="hidden" name="' . $field['id'] . '" id="' . $field['id']
+			. '" value="' . esc_attr($meta) . '" />';
+		echo '<div class="bars-screenings-repeater" data-field-id="' . $field['id'] . '"></div>';
+	}
+
 	function register_movie_post_type() {
 		register_post_type( 'movie',
 			array(
