@@ -10,6 +10,10 @@ node_modules/
 .vscode/
 *.swp
 
+# Claude Code (personal/machine-specific)
+.claude/settings.local.json
+.claude/agent-memory/
+
 # OS
 .DS_Store
 Thumbs.db
