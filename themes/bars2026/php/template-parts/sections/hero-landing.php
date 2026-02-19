@@ -9,6 +9,7 @@ $edition_number = Editions::romanNumerals($edition);
 $from = Editions::from($edition);
 $to = Editions::to($edition);
 $venues = Editions::venues($edition);
+$poster = !empty($edition['poster']) ? $edition['poster'] : '';
 
 // State detection for CTAs
 $movieCount = countMovieEntriesForEdition($edition);
@@ -29,8 +30,22 @@ $callClosed = Editions::isCallClosed($edition);
 
     <!-- Content -->
     <div class="relative z-10 h-full flex flex-col justify-center px-5 lg:px-20 py-16 lg:py-20">
-        <div class="max-w-[1280px] w-full mx-auto">
-            <div class="max-w-[700px]">
+        <div class="max-w-[1280px] w-full mx-auto <?php if ($poster): ?>lg:flex lg:items-center lg:gap-12<?php endif; ?>">
+            <?php if ($poster): ?>
+            <!-- Poster (desktop only) -->
+            <div class="hidden lg:block lg:flex-shrink-0">
+                <div class="relative">
+                    <div class="absolute -inset-12 bg-bars-primary/15 rounded-full blur-3xl"></div>
+                    <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>" target="_blank" rel="noopener">
+                        <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>"
+                             alt="Afiche BARS <?php echo esc_attr($edition_number); ?>"
+                             class="relative w-[300px] rounded-bars-md border border-white/10 shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                    </a>
+                </div>
+            </div>
+            <?php endif; ?>
+
+            <div class="<?php echo $poster ? 'lg:flex-1 lg:min-w-0' : 'max-w-[700px]'; ?>">
                 <!-- Edition Badge -->
                 <div class="inline-flex items-center gap-2 px-4 py-2 border border-bars-primary rounded-bars-sm mb-6 lg:mb-8">
                     <span class="text-[10px] lg:text-xs font-semibold tracking-[2px] text-bars-primary">
@@ -109,7 +124,7 @@ $callClosed = Editions::isCallClosed($edition);
                         <a href="<?php echo home_url('/programacion'); ?>"
                            class="btn-primary text-center">
                             <?php echo bars_icon('hourglass', 'w-5 h-5'); ?>
-                            Programación en proceso
+                            Selección en proceso
                         </a>
                         <span class="btn-ghost text-center pointer-events-none opacity-50">
                             <?php echo bars_icon('party-popper', 'w-5 h-5'); ?>
@@ -124,7 +139,22 @@ $callClosed = Editions::isCallClosed($edition);
                         </a>
                     <?php endif; ?>
                 </div>
+
+                <?php if ($poster): ?>
+                <!-- Poster (mobile only) -->
+                <div class="lg:hidden mt-8 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-8 bg-bars-primary/15 rounded-full blur-2xl"></div>
+                        <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>" target="_blank" rel="noopener">
+                            <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>"
+                                 alt="Afiche BARS <?php echo esc_attr($edition_number); ?>"
+                                 class="relative w-[220px] rounded-bars-md border border-white/10 shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                        </a>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
+
         </div>
     </div>
 </section>

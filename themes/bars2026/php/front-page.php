@@ -5,13 +5,18 @@
  */
 
 get_header();
+$GLOBALS['bars_section_index'] = 0;
 ?>
 
 <!-- Hero Section -->
 <?php get_template_part('template-parts/sections/hero', 'landing'); ?>
 
+<!-- Spot Section -->
+<?php get_template_part('template-parts/sections/spot', 'section'); ?>
+
 <!-- News Section -->
-<section class="bg-bars-bg-dark py-16 lg:py-24 px-5 lg:px-20">
+<?php $bg_class = ($GLOBALS['bars_section_index'] % 2 === 0) ? 'bg-bars-bg-dark' : 'bg-bars-bg-medium'; $GLOBALS['bars_section_index']++; ?>
+<section class="<?php echo $bg_class; ?> py-16 lg:py-24 px-5 lg:px-20">
     <div class="max-w-[1280px] mx-auto">
         <!-- Section Header -->
         <div class="flex items-end justify-between mb-8 lg:mb-12">
@@ -105,7 +110,8 @@ get_header();
 
 <?php $metrics = getFestivalMetrics(); ?>
 <!-- About Section -->
-<section class="bg-bars-bg-medium pt-16 lg:pt-24 <?php echo $metrics['fallback'] ? 'pb-6 lg:pb-8' : 'pb-16 lg:pb-24'; ?> px-5 lg:px-20">
+<?php $bg_class = ($GLOBALS['bars_section_index'] % 2 === 0) ? 'bg-bars-bg-dark' : 'bg-bars-bg-medium'; $GLOBALS['bars_section_index']++; ?>
+<section class="<?php echo $bg_class; ?> pt-16 lg:pt-24 <?php echo $metrics['fallback'] ? 'pb-6 lg:pb-8' : 'pb-16 lg:pb-24'; ?> px-5 lg:px-20">
     <div class="max-w-[1280px] mx-auto text-center">
         <p class="text-xs font-semibold tracking-widest uppercase text-bars-primary mb-4">
             Sobre el Festival
@@ -144,10 +150,13 @@ get_header();
         <?php if ($metrics['fallback']): ?>
             <p id="metrics-footnote" class="text-xs text-bars-text-muted mt-20 lg:mt-24 italic opacity-50">
                 <?php $fallback_edition = Editions::getByNumber($metrics['fallback_number']); ?>
-                * Datos de la <?php echo esc_html($metrics['fallback_number']); ?>ª edición (<?php echo esc_html(Editions::getTitle($fallback_edition)); ?> - <?php echo esc_html(Editions::year($fallback_edition)); ?>) · Programación <?php echo esc_html(Editions::current()['year']); ?> próximamente disponible
+                * Datos correspondientes a la <?php echo esc_html($metrics['fallback_number']); ?>ª edición (<?php echo esc_html(Editions::getTitle($fallback_edition)); ?> · <?php echo esc_html(Editions::year($fallback_edition)); ?>) - La programación <?php echo esc_html(Editions::current()['year']); ?> estará disponible próximamente
             </p>
         <?php endif; ?>
     </div>
 </section>
+
+<!-- Previous Edition Showcase -->
+<?php get_template_part('template-parts/sections/previous-edition', 'showcase'); ?>
 
 <?php get_footer(); ?>
