@@ -28,7 +28,7 @@ services:
   uploads-server:
     image: nginx:alpine
     volumes:
-      - ./scripts/init-site/uploads:/usr/share/nginx/html:ro
+      - ./docker/wordpress/init-site/uploads:/usr/share/nginx/html:ro
 
   wordpress:
     build:
@@ -43,7 +43,7 @@ services:
       - ./wp-plugins/bars-commons:/var/www/html/wp-content/plugins/bars-commons
       - ./wp-plugins/jury-post-type:/var/www/html/wp-content/plugins/jury-post-type
       - ./wp-plugins/movie-post-type:/var/www/html/wp-content/plugins/movie-post-type
-      - ./scripts/init-site:/docker-entrypoint-init.d
+      - ./docker/wordpress/init-site:/docker-entrypoint-init.d
     depends_on:
       mysql:
         condition: service_healthy
@@ -76,6 +76,6 @@ services:
       WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_EMAIL}
       WORDPRESS_PORT: ${WORDPRESS_PORT}
 
-      # Seed data vars (consumed by 4-seed-data.sh)
+      # Seed data vars (consumed by seed-data.sh)
       SEED_DATA_OLD_HOSTNAME: http://rojosangre.quintadimension.com/2.0
       SEED_DATA_NEW_HOSTNAME: http://localhost:${WORDPRESS_PORT}

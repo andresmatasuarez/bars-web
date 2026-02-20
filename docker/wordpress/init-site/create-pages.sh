@@ -10,7 +10,7 @@ set -e
 # active theme's pages get the clean slug; everyone else's get
 # `{slug}-off-{theme}` (e.g. programacion-off-bars2013).
 #
-# This script runs AFTER 4-seed-data.sh (backup.xml import) and deletes
+# This script runs AFTER seed-data.sh (backup.xml import) and deletes
 # all pre-existing pages first, so there are no duplicates.
 # ---------------------------------------------------------------------------
 

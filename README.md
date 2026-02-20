@@ -29,18 +29,18 @@ Initial setup consists of getting hold of existing data from the live site and s
 1. Head over to https://rojosangre.quintadimension.com/2.0/wordpress/wp-admin/ and login with admin credentials.
 1. In the left-side menu, go to Tools > Export.
 1. Perform an export selecting **"All content"**.
-1. Rename the downloaded XML file to "backup.xml" and place it inside `<project-root>/scripts/init-site`.
+1. Rename the downloaded XML file to "backup.xml" and place it inside `<project-root>/docker/wordpress/init-site`.
 
 #### 2. Downloading assets
 
-We still need to download the images and files associated with the data we just exported to XML. These assets can be found in the BARS FTP server, in the remote directory `/2.0/wp-content/uploads` and must be downloaded into local folder `<project-root>/scripts/init-site/uploads`.
+We still need to download the images and files associated with the data we just exported to XML. These assets can be found in the BARS FTP server, in the remote directory `/2.0/wp-content/uploads` and must be downloaded into local folder `<project-root>/docker/wordpress/init-site/uploads`.
 
 As of October 2025, there's over 10k assets so downloading will probably be a long process ¯\\\_(ツ)\_/¯.
 
 To achieve this, you can use any FTP client such as [Filezilla](https://filezilla-project.org/) or `lftp` from the command line:
 
 ```sh
-lftp -u <FTP_USER> -e "set ssl:verify-certificate no; mirror /2.0/wp-content/uploads scripts/init-site/uploads; quit" ftp://<FTP_HOST>
+lftp -u <FTP_USER> -e "set ssl:verify-certificate no; mirror /2.0/wp-content/uploads docker/wordpress/init-site/uploads; quit" ftp://<FTP_HOST>
 ```
 
 `lftp` handles the server's TLS requirement automatically and prompts for the password interactively. Install with `sudo apt install lftp` or `brew install lftp`.
@@ -54,7 +54,7 @@ docker compose build
 docker compose up -d
 ```
 
-On the first run, the container automatically installs WordPress, activates the theme and plugins, and imports seed data (from `scripts/init-site/`). Subsequent runs skip all of this (guarded by marker files in the volume).
+On the first run, the container automatically installs WordPress, activates the theme and plugins, and imports seed data (from `docker/wordpress/init-site/`). Subsequent runs skip all of this (guarded by marker files in the volume).
 
 The `uploads-server` service (an nginx container) serves the local uploads over Docker's internal network, so `wp import` downloads attachments locally instead of from the remote server. This brings import time down from ~3.5 hours to ~15-30 minutes. After a successful import, you can comment out or remove the `uploads-server` service — it's only needed during the initial seed.
 
@@ -114,7 +114,7 @@ bars-web/
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
-├─ scripts/                  # init-site/, switch-theme.sh
+├─ scripts/                  # switch-theme.sh
 ├─ package.json              # Workspace root
 └─ tsconfig.base.json
 ```

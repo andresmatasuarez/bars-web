@@ -50,6 +50,13 @@ add_filter('http_request_host_is_external', function($external, $host) {
 MUEOF
 fi
 
+# Install wordpress-importer plugin (needed for wp import)
+if ! wp plugin is-installed wordpress-importer 2>/dev/null; then
+  wp plugin install wordpress-importer --activate
+else
+  wp plugin activate wordpress-importer 2>/dev/null || true
+fi
+
 echo "⏳ Importing $IMPORT_FILE..."
 wp import "$IMPORT_FILE" --authors=create
 rm -f /tmp/backup-local.xml

@@ -43,5 +43,5 @@ plugins/movie-post-type/vendor/
 .phpunit.result.cache
 
 # Init scripts data (user-specific)
-scripts/init-site/backup.xml
-scripts/init-site/uploads/
+docker/wordpress/init-site/backup.xml
+docker/wordpress/init-site/uploads/

@@ -68,8 +68,8 @@ Two Vite entry points:
   - `jury-post-type/` - Jury member custom post type
   - `bars-commons/` - Shared functionality
 - `wp-plugins/` - Plugin build output (`.php` + `.js` only) — DO NOT EDIT
+- `docker/wordpress/init-site/` - Docker initialization scripts and seed data
 - `scripts/` - Project scripts
-  - `init-site/` - Docker initialization scripts and seed data
   - `switch-theme.sh` - CLI tool to switch WordPress themes
 
 ### Adding a New Theme
