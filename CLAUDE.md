@@ -127,12 +127,11 @@ All temporary artifacts — screenshots, test HTML/JS files, markdown reports, s
 
 ### Docker Setup
 
-Two-phase initialization required for fresh setup:
+Uses a custom image built from `docker/wordpress/Dockerfile` (extends `wordpress:apache` with WP-CLI and a custom entrypoint). Single-phase init: `docker compose build && docker compose up -d` handles everything automatically.
 
-1. **First run**: Comment out theme/plugin volumes in docker-compose.yml, start containers, wait for WP install, stop
-2. **Second run**: Uncomment volumes, start containers - init scripts run once to activate theme, plugins, and import seed data
+The entrypoint (`docker/wordpress/init-entrypoint.sh`) runs the official WP entrypoint first, then installs WP core, the wordpress-importer plugin, and executes init scripts from `/docker-entrypoint-init.d/`.
 
-Marker files in `bars-web_bars-wordpress-data` volume control initialization state (`.user_scripts_initialized`, `.import_done`).
+Marker files in the `bars-web_bars-wordpress-data` volume (mounted at `/var/www/html/`) control initialization state (`.user_scripts_initialized`, `.import_done`). Rebuild the image with `docker compose build` after Dockerfile changes.
 
 ## Design-to-Code Conversion Rules
 

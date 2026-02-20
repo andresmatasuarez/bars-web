@@ -23,70 +23,59 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ADMIN_PASSWORD}
 
-  # ⚠️ COMMENT THESE ⤵️ SERVICES BEFORE THE FIRST RUN ##############
   # Serves uploads locally for fast seed data import.
   # Can be disabled after the first successful import.
   uploads-server:
     image: nginx:alpine
     volumes:
       - ./scripts/init-site/uploads:/usr/share/nginx/html:ro
-  # ##############################################################################
 
   wordpress:
-    image: bitnamilegacy/wordpress:latest
+    build:
+      context: ./docker/wordpress
+      dockerfile: Dockerfile
     ports:
-      - ${WORDPRESS_PORT}:8080 # Map host port to container port 8080 (WordPress default)
-      - ${WORDPRESS_SSL_PORT}:8443 # Map host port to container port 8443 (WordPress default for HTTPS)
+      - ${WORDPRESS_PORT}:80
     volumes:
-      - bars-wordpress-data:/bitnami/wordpress
-      # ⚠️ COMMENT THESE ⤵️ VOLUMES BEFORE THE FIRST RUN ########################
-      - ./wp-themes/bars2013:/bitnami/wordpress/wp-content/themes/bars2013
-      - ./wp-themes/bars2026:/bitnami/wordpress/wp-content/themes/bars2026
-      - ./wp-plugins/bars-commons:/bitnami/wordpress/wp-content/plugins/bars-commons
-      - ./wp-plugins/jury-post-type:/bitnami/wordpress/wp-content/plugins/jury-post-type
-      - ./wp-plugins/movie-post-type:/bitnami/wordpress/wp-content/plugins/movie-post-type
+      - bars-wordpress-data:/var/www/html
+      - ./wp-themes/bars2013:/var/www/html/wp-content/themes/bars2013
+      - ./wp-themes/bars2026:/var/www/html/wp-content/themes/bars2026
+      - ./wp-plugins/bars-commons:/var/www/html/wp-content/plugins/bars-commons
+      - ./wp-plugins/jury-post-type:/var/www/html/wp-content/plugins/jury-post-type
+      - ./wp-plugins/movie-post-type:/var/www/html/wp-content/plugins/movie-post-type
       - ./scripts/init-site:/docker-entrypoint-init.d
-      # ##########################################################################
     depends_on:
       mysql:
         condition: service_healthy
       uploads-server:
         condition: service_started
     healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
       interval: 10s
       timeout: 5s
       retries: 3
       start_period: 90s
     environment:
+      # Official WordPress image vars
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_DB_TABLE_PREFIX}
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        define('WP_HOME', 'http://' . $$_SERVER['HTTP_HOST']);
+        define('WP_SITEURL', 'http://' . $$_SERVER['HTTP_HOST']);
+
+      # Custom vars consumed by init-entrypoint.sh
+      WORDPRESS_BLOG_NAME: Festival Buenos Aires Rojo Sangre
+      WORDPRESS_ADMIN_USERNAME: ${WORDPRESS_ADMIN_USERNAME}
+      WORDPRESS_ADMIN_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
+      WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_EMAIL}
+      WORDPRESS_PORT: ${WORDPRESS_PORT}
+
+      # Seed data vars (consumed by 4-seed-data.sh)
       SEED_DATA_OLD_HOSTNAME: http://rojosangre.quintadimension.com/2.0
       SEED_DATA_NEW_HOSTNAME: http://localhost:${WORDPRESS_PORT}
-
-      WORDPRESS_PLUGINS: wordpress-importer
-      WORDPRESS_BLOG_NAME: Festival Buenos Aires Rojo Sangre
-      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_DB_TABLE_PREFIX}
-      WORDPRESS_DATABASE_HOST: mysql
-      WORDPRESS_DATABASE_PORT: ${DB_PORT}
-      WORDPRESS_DATABASE_NAME: ${DB_NAME}
-      WORDPRESS_DATABASE_USER: ${DB_USER}
-      WORDPRESS_DATABASE_PASSWORD: ${DB_PASSWORD}
-      WORDPRESS_FIRST_NAME: ${WORDPRESS_ADMIN_NAME}
-      WORDPRESS_LAST_NAME: ${WORDPRESS_ADMIN_LASTNAME}
-      WORDPRESS_USERNAME: ${WORDPRESS_ADMIN_USERNAME}
-      WORDPRESS_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD}
-      WORDPRESS_EMAIL: ${WORDPRESS_ADMIN_EMAIL}
-
-      # WP_DEBUG = true disables plugin transient caches (e.g. festival metrics).
-      # Note: Bitnami only applies these env vars on first setup. If WP_DEBUG is
-      # still false in wp-config.php, run:
-      #   docker compose exec wordpress wp config set WP_DEBUG true --raw --allow-root
-      WORDPRESS_DEBUG: 1
-      WORDPRESS_DEBUG_LOG: 1
-      WORDPRESS_DEBUG_DISPLAY: 0
-
-      # ⚠️ NOT INTENDED FOR PRODUCTION ⚠️
-      # PHP-FPM (used by Bitnami) caches compiled scripts for performance.
-      # For instance, making a change to selection.php takes a couple of refreshes to take
-      # effect, or not even that at times.
-      # This changes PHP OpCache's config to pickup file changes instantly.
-      PHP_OPCACHE_ENABLED: '0'

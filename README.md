@@ -45,45 +45,26 @@ lftp -u <FTP_USER> -e "set ssl:verify-certificate no; mirror /2.0/wp-content/upl
 
 `lftp` handles the server's TLS requirement automatically and prompts for the password interactively. Install with `sudo apt install lftp` or `brew install lftp`.
 
-### First and second runs
+### Docker setup
 
-An initial run is needed to prepare and setup the containers and volumes accordingly, with test data. This process involves two separate runs:
+Build the custom WordPress image and start all services:
 
-1.  Wordpress installation
-1.  Site initialization
-
-#### 1. Wordpress installation (first run)
-
-Base Wordpress files need to be installed in the containers before anything else. So first, you should:
-
-1. Open to `docker-compose.yml`.
-1. Comment out the volumes and services marked with comments for such purpose (the `uploads-server` service **and** the volumes inside `services.wordpress.volumes`) and save. Do not commit these changes.
-1. Run:
-
-   ```sh
-   docker compose down -v
-   docker compose up -d
-   ```
-
-1. Wait until after Wordpress has successfully been installed and then run:
-   ```sh
-   docker compose down
-   ```
-1. You can now uncomment back everything hidden in **step 2** and save.
-
-#### 2. Site initialization (second run)
-
-Once Wordpress basic installation is ready, we now need to initialize our site accordingly with our theme and plugins, seed test data and configure overall settings like permalink structure.
-
-For that, we rely on the scripts found in `<project-root>/scripts/init-site`, expected to be run once and never again. You just need to run:
-
-```
+```sh
+docker compose build
 docker compose up -d
 ```
 
-The `uploads-server` service (an nginx container) serves the local uploads over Docker's internal network, so `wp import` downloads attachments locally instead of from the remote server. This brings import time down from ~3.5 hours to ~15-30 minutes.
+On the first run, the container automatically installs WordPress, activates the theme and plugins, and imports seed data (from `scripts/init-site/`). Subsequent runs skip all of this (guarded by marker files in the volume).
 
-Subsequent runs won't take as long since the setup process is only performed the first time. After a successful import, you can comment out or remove the `uploads-server` service — it's only needed during the initial seed.
+The `uploads-server` service (an nginx container) serves the local uploads over Docker's internal network, so `wp import` downloads attachments locally instead of from the remote server. This brings import time down from ~3.5 hours to ~15-30 minutes. After a successful import, you can comment out or remove the `uploads-server` service — it's only needed during the initial seed.
+
+For a completely fresh start (wipes all data):
+
+```sh
+docker compose down -v
+docker compose build
+docker compose up -d
+```
 
 ##### Switching themes
 
@@ -91,7 +72,7 @@ Use `./scripts/switch-theme.sh` to switch the active WordPress theme in the Dock
 
 ##### Marker files
 
-Both the `bitnami/wordpress` image and our custom init scripts rely on marker files to detect whether stuff has been done or not.
+Our custom entrypoint and init scripts rely on marker files to detect whether initialization has already been done.
 
 These marker files are stored in the `bars-web_bars-wordpress-data` volume and you can play around with their existence to perform again or completely skip steps in this initialization process.
 
@@ -125,11 +106,11 @@ bars-web/
 ├─ wp-themes/
 │  ├─ bars2013/              # Build output — DO NOT EDIT
 │  └─ bars2026/              # Build output — DO NOT EDIT
-├─ plugins/                       # Plugin source
+├─ plugins/                  # Plugin source
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
-├─ wp-plugins/                    # Build output — DO NOT EDIT
+├─ wp-plugins/               # Build output — DO NOT EDIT
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
@@ -182,11 +163,7 @@ Running a local version of the site involves two different processes:
 
 ### Caching gotchas
 
-- Some plugins cache data in WordPress transients (e.g. festival metrics are cached for 7 days). When `WP_DEBUG` is `true` (default in Docker), these caches are bypassed and changes take effect immediately on refresh.
-- If you're seeing stale data, verify that `WP_DEBUG` is `true` in `wp-config.php` — Bitnami only sets it during the initial container setup. To fix it manually:
-  ```sh
-  docker compose exec wordpress wp config set WP_DEBUG true --raw --allow-root
-  ```
+- Some plugins cache data in WordPress transients (e.g. festival metrics are cached for 7 days). When `WP_DEBUG` is `true` (default in Docker), these caches are bypassed and changes take effect immediately on refresh. The `WORDPRESS_DEBUG` env var in `docker-compose.yml` is read at runtime, so changes take effect on restart.
 
 ### Available Scripts
 

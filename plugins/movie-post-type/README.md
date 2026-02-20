@@ -28,7 +28,7 @@ docker run --rm \
   -v "$PWD":/app \
   -w /app/plugins/movie-post-type \
   -e BARS_PROJECT_ROOT=/app \
-  bitnamilegacy/wordpress:latest \
+  wordpress:apache \
   php vendor/bin/phpunit
 ```
 
