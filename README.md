@@ -56,7 +56,7 @@ docker compose up -d
 
 On the first run, the container automatically installs WordPress, activates the theme and plugins, and imports seed data (from `docker/wordpress/init-site/`). Subsequent runs skip all of this (guarded by marker files in the volume).
 
-The `uploads-server` service (an nginx container) serves the local uploads over Docker's internal network, so `wp import` downloads attachments locally instead of from the remote server. This brings import time down from ~3.5 hours to ~15-30 minutes. After a successful import, you can comment out or remove the `uploads-server` service — it's only needed during the initial seed.
+The `uploads-server` service (an nginx container) serves the local uploads over Docker's internal network, so `wp import` downloads attachments locally instead of from the remote server. This brings import time down from ~3.5 hours to ~1.5 hours. After a successful import, you can comment out the `uploads-server` service — it's only needed during the initial seed.
 
 For a completely fresh start (wipes all data):
 
@@ -114,6 +114,8 @@ bars-web/
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
+├─ docker/
+│  └─ wordpress/             # Dockerfile, entrypoint, init-site/
 ├─ scripts/                  # switch-theme.sh
 ├─ package.json              # Workspace root
 └─ tsconfig.base.json

@@ -44,21 +44,25 @@ Site runs at `http://localhost:8083` (default). Database at port 3307.
 
 ### Build System
 
-Source files in `themes/bars2013/assets/`, `themes/bars2013/php/`, and `shared/` are processed by Vite and copied to `wp-themes/{theme-name}/` (e.g., `wp-themes/bars2013/`). Plugin source files in `plugins/` are copied (`.php` and `.js` only) to `wp-plugins/` via `cpx`. **Never edit files in `wp-themes/` or `wp-plugins/` output directories directly** - they are overwritten on build.
+Source files in `themes/{name}/assets/`, `themes/{name}/php/`, and `shared/` are processed by Vite and copied to `wp-themes/{name}/`. Plugin source files in `plugins/` are copied (`.php` and `.js` only) to `wp-plugins/` via `cpx`. **Never edit files in `wp-themes/` or `wp-plugins/` output directories directly** - they are overwritten on build.
 
-Two Vite entry points:
+Each theme has two Vite entry points (`themes/{name}/vite/vite.config.ts` and `themes/{name}/vite/selection.vite.config.ts`):
 
-- **Main theme** (`themes/bars2013/vite/vite.config.ts`): Compiles LESS styles and legacy JS into `bars.js` (IIFE format)
-- **Selection app** (`themes/bars2013/vite/selection.vite.config.ts`): React app for movie programming/search, outputs `selection.js`
+- **bars2013**: Main config compiles LESS styles and legacy JS into `bars.js` (IIFE format). Selection config builds the React selection app into `selection.js`.
+- **bars2026**: Main config compiles Tailwind CSS and TypeScript. Selection config builds the React selection app into `selection.js`.
 
 ### Key Directories
 
-- `themes/bars2013/` - Main WordPress theme (npm workspace)
+- `themes/bars2013/` - Legacy WordPress theme (npm workspace)
   - `assets/` - Source files (LESS, TypeScript, React apps, fonts)
   - `assets/react-apps/selection/` - React app for movie selection/filtering
   - `php/` - Theme-specific WordPress PHP templates and functions
   - `vite/` - Vite configuration
   - `vendor/` - PHP Composer dependencies
+- `themes/bars2026/` - Current WordPress theme (npm workspace)
+  - `assets/` - Source files (Tailwind CSS, TypeScript, React apps, fonts)
+  - `php/` - Theme-specific WordPress PHP templates and functions
+  - `vite/` - Vite configuration
 - `shared/` - Shared resources across themes
   - `editions.json` - **Single source of truth** for festival data (dates, venues, etc.)
   - `resources/` - Edition-specific assets (poster, programme, sponsors)
@@ -143,6 +147,7 @@ Run `npm run build:plugins` first, then upload via FTP:
 
 - `wp-plugins/` → `/2.0/wp-content/plugins`
 - `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`
+- `wp-themes/bars2026/` → `/2.0/wp-content/themes/bars2026`
 
 ## Command Delegation (MANDATORY)
 
