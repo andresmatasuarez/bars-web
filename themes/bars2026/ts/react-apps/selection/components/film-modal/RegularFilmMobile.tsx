@@ -38,6 +38,7 @@ export default function RegularFilmMobile({
           badgeSize="text-[9px]"
           padX={20}
           padY={20}
+          movieSlug={movie.slug}
         />
 
         {/* Content */}

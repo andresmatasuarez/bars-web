@@ -39,6 +39,7 @@ export default function RegularFilmDesktop({
         padY={120}
         bgHeight={480}
         textPosition="top"
+        movieSlug={movie.slug}
       />
 
       {/* Close button */}

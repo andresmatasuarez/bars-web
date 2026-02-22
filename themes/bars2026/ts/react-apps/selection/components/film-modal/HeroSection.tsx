@@ -2,6 +2,7 @@ import { Movie } from '@shared/ts/selection/types';
 import { memo, useRef } from 'react';
 
 import BookmarkButton from '../BookmarkButton';
+import ShareButton from '../ShareButton';
 import useLetterboxCrop from './useLetterboxCrop';
 
 const HeroBackground = memo(function HeroBackground({ html }: { html: string }) {
@@ -31,6 +32,7 @@ export default function HeroSection({
   bgHeight,
   textPosition = 'bottom',
   metaOverride,
+  movieSlug,
 }: {
   movie: Movie;
   sectionLabel: string;
@@ -45,7 +47,10 @@ export default function HeroSection({
   bgHeight?: number;
   textPosition?: 'top' | 'bottom';
   metaOverride?: string;
+  movieSlug: string;
 }) {
+  const shareUrl = `${window.location.origin}${window.location.pathname}?f=${movieSlug}`;
+
   return (
     <div className={`relative w-full ${textPosition === 'bottom' ? height : ''} shrink-0`}>
       {/* Background thumbnail */}
@@ -84,7 +89,7 @@ export default function HeroSection({
         >
           {sectionLabel}
         </span>
-        {/* Title + bookmark */}
+        {/* Title + buttons (desktop: inline, mobile: separate row) */}
         <div>
           <h2 id="film-modal-title" className={`inline font-heading ${titleSize} font-semibold text-white leading-[1.1]`}>
             {movie.title}
@@ -94,14 +99,37 @@ export default function HeroSection({
               active={bookmarked}
               onClick={onToggleBookmark}
               size="md"
-              className="inline-flex ml-3"
+              className="hidden lg:inline-flex ml-3"
             />
           )}
+          <ShareButton
+            url={shareUrl}
+            title={movie.title}
+            size="md"
+            tooltipPosition="below"
+            className="hidden lg:inline-flex ml-1.5"
+          />
         </div>
         {/* Meta line */}
         {(metaOverride || movie.info) && (
           <span className={`${metaSize} text-white/60`}>{metaOverride ?? movie.info}</span>
         )}
+        {/* Mobile buttons row */}
+        <div className="flex lg:hidden items-center gap-2">
+          {onToggleBookmark && (
+            <BookmarkButton
+              active={bookmarked}
+              onClick={onToggleBookmark}
+              size="md"
+            />
+          )}
+          <ShareButton
+            url={shareUrl}
+            title={movie.title}
+            size="md"
+            tooltipPosition="below"
+          />
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { memo, useRef } from 'react';
 import BookmarkButton from './BookmarkButton';
 import useLetterboxCrop from './film-modal/useLetterboxCrop';
 import { MapPinIcon } from './icons';
+import ShareButton from './ShareButton';
 
 const Thumbnail = memo(function Thumbnail({ html }: { html: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,6 +46,7 @@ export default memo(function FilmCard({
   onOpenModal,
 }: Props) {
   const movie = screening.movie;
+  const shareUrl = `${window.location.origin}${window.location.pathname}?f=${movie.slug}`;
 
   return (
     <div
@@ -60,11 +62,12 @@ export default memo(function FilmCard({
           ) : (
             <div className="w-full h-full bg-bars-bg-medium" />
           )}
-          <div className="absolute top-2 right-2">
+          <div className="absolute top-2 right-2 flex flex-col gap-1.5">
             <BookmarkButton
               active={bookmarked}
               onClick={onToggleWatchlist}
             />
+            <ShareButton url={shareUrl} title={movie.title} tooltipPosition="below" tooltipAlign="right" />
           </div>
         </div>
 
@@ -99,11 +102,12 @@ export default memo(function FilmCard({
           ) : (
             <div className="w-full h-full bg-bars-bg-medium" />
           )}
-          <div className="absolute top-1.5 right-1.5">
+          <div className="absolute top-1.5 right-1.5 flex flex-col gap-1">
             <BookmarkButton
               active={bookmarked}
               onClick={onToggleWatchlist}
             />
+            <ShareButton url={shareUrl} title={movie.title} tooltipPosition="below" tooltipAlign="right" />
           </div>
         </div>
 

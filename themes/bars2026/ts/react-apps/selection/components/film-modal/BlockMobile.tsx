@@ -41,6 +41,7 @@ export default function BlockMobile({
           padX={20}
           padY={20}
           metaOverride={blockMeta}
+          movieSlug={movie.slug}
         />
 
         {/* Content */}

@@ -42,6 +42,7 @@ export default function BlockDesktop({
         bgHeight={480}
         textPosition="top"
         metaOverride={blockMeta}
+        movieSlug={movie.slug}
       />
 
       {/* Close button */}
