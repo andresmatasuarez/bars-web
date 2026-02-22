@@ -1,0 +1,534 @@
+<?php
+/**
+ * SEO: meta descriptions, Open Graph, Twitter Cards, canonical URLs, JSON-LD, robots.txt
+ *
+ * @package BARS2026
+ */
+
+/**
+ * Truncate text to a word boundary, stripping tags and collapsing whitespace.
+ */
+function bars_seo_truncate($text, $limit = 155) {
+    $text = wp_strip_all_tags($text);
+    $text = preg_replace('/\s+/', ' ', trim($text));
+    if (mb_strlen($text) <= $limit) {
+        return $text;
+    }
+    $truncated = mb_substr($text, 0, $limit);
+    $last_space = mb_strrpos($truncated, ' ');
+    if ($last_space !== false) {
+        $truncated = mb_substr($truncated, 0, $last_space);
+    }
+    return $truncated . '...';
+}
+
+/**
+ * Look up a movie or movieblock post from the ?f=<slug> query param.
+ * Returns the WP_Post or null if not found / not on the programacion page.
+ */
+function bars_seo_get_movie_from_param() {
+    if (!is_page('programacion')) {
+        return null;
+    }
+    $slug = isset($_GET['f']) ? sanitize_title($_GET['f']) : '';
+    if (!$slug) {
+        return null;
+    }
+    $post = get_page_by_path($slug, OBJECT, array('movie', 'movieblock'));
+    return $post ?: null;
+}
+
+/**
+ * Look up a jury post from the ?j=<slug> query param.
+ * Returns the WP_Post or null if not found / not on the premios page.
+ */
+function bars_seo_get_jury_from_param() {
+    if (!is_page('premios')) {
+        return null;
+    }
+    $slug = isset($_GET['j']) ? sanitize_title($_GET['j']) : '';
+    if (!$slug) {
+        return null;
+    }
+    $post = get_page_by_path($slug, OBJECT, 'jury');
+    return $post ?: null;
+}
+
+/**
+ * Get the current page's SEO title.
+ */
+function bars_seo_get_title() {
+    $movie_post = bars_seo_get_movie_from_param();
+    if ($movie_post) {
+        $type = get_post_type($movie_post);
+        if ($type === 'movie') {
+            $directors = get_post_meta($movie_post->ID, '_movie_directors', true);
+            $title = get_the_title($movie_post->ID);
+            return $directors ? $title . ' - ' . $directors : $title;
+        }
+        return get_post_meta($movie_post->ID, '_movieblock_name', true) ?: get_the_title($movie_post->ID);
+    }
+
+    $jury_post = bars_seo_get_jury_from_param();
+    if ($jury_post) {
+        return get_post_meta($jury_post->ID, '_jury_name', true) ?: get_the_title($jury_post->ID);
+    }
+
+    if (is_front_page()) {
+        return 'Buenos Aires Rojo Sangre - Festival Internacional de Cine de Terror, Fantasía y Bizarro';
+    }
+
+    if (is_singular('movie')) {
+        $directors = get_post_meta(get_the_ID(), '_movie_directors', true);
+        $title = get_the_title();
+        return $directors ? $title . ' - ' . $directors : $title;
+    }
+
+    if (is_singular('movieblock')) {
+        return get_post_meta(get_the_ID(), '_movieblock_name', true) ?: get_the_title();
+    }
+
+    if (is_singular()) {
+        return get_the_title();
+    }
+
+    return get_bloginfo('name');
+}
+
+/**
+ * Get the current page's meta description.
+ */
+function bars_seo_get_description() {
+    $movie_post = bars_seo_get_movie_from_param();
+    if ($movie_post) {
+        $type = get_post_type($movie_post);
+        if ($type === 'movie') {
+            $synopsis = get_post_meta($movie_post->ID, '_movie_synopsis', true);
+            if ($synopsis) {
+                return bars_seo_truncate($synopsis);
+            }
+            return bars_seo_truncate(get_the_title($movie_post->ID) . ' - Buenos Aires Rojo Sangre');
+        }
+        // movieblock
+        $shorts = getShortsForBlock($movie_post->ID);
+        if (!empty($shorts)) {
+            $titles = array_map(function($s) { return $s['title']; }, $shorts);
+            return bars_seo_truncate('Bloque de cortometrajes: ' . implode(', ', $titles));
+        }
+        $name = get_post_meta($movie_post->ID, '_movieblock_name', true);
+        return $name ? bars_seo_truncate($name) : '';
+    }
+
+    $jury_post = bars_seo_get_jury_from_param();
+    if ($jury_post) {
+        $desc = get_post_meta($jury_post->ID, '_jury_description', true);
+        if ($desc) {
+            return bars_seo_truncate($desc);
+        }
+        $name = get_post_meta($jury_post->ID, '_jury_name', true) ?: get_the_title($jury_post->ID);
+        return bars_seo_truncate($name . ' - Jurado del Festival Buenos Aires Rojo Sangre');
+    }
+
+    // Front page
+    if (is_front_page()) {
+        return 'Festival Internacional de Cine de Terror, Fantasía y Bizarro';
+    }
+
+    // Single movie
+    if (is_singular('movie')) {
+        $synopsis = get_post_meta(get_the_ID(), '_movie_synopsis', true);
+        if ($synopsis) {
+            return bars_seo_truncate($synopsis);
+        }
+        return bars_seo_truncate(get_the_title() . ' - Buenos Aires Rojo Sangre');
+    }
+
+    // Single movieblock
+    if (is_singular('movieblock')) {
+        $shorts = getShortsForBlock(get_the_ID());
+        if (!empty($shorts)) {
+            $titles = array_map(function($s) { return $s['title']; }, $shorts);
+            return bars_seo_truncate('Bloque de cortometrajes: ' . implode(', ', $titles));
+        }
+        $name = get_post_meta(get_the_ID(), '_movieblock_name', true);
+        return $name ? bars_seo_truncate($name) : '';
+    }
+
+    // Single post (news article)
+    if (is_singular('post')) {
+        $excerpt = get_the_excerpt();
+        if ($excerpt) {
+            return bars_seo_truncate($excerpt);
+        }
+        return bars_seo_truncate(get_the_content());
+    }
+
+    // Static pages — per-slug descriptions
+    if (is_page()) {
+        $slug = get_post_field('post_name', get_the_ID());
+        $descriptions = array(
+            'noticias'     => 'Noticias y novedades del Festival Buenos Aires Rojo Sangre.',
+            'programacion' => 'Programación completa del Festival Buenos Aires Rojo Sangre: películas, horarios y sedes.',
+            'premios'      => 'Premios y jurados del Festival Buenos Aires Rojo Sangre.',
+            'convocatoria' => 'Convocatoria para películas del Festival Buenos Aires Rojo Sangre. Bases, plazos e inscripción.',
+            'prensa'       => 'Acreditación de prensa para el Festival Buenos Aires Rojo Sangre.',
+            'festival'     => 'Historia y trayectoria del Festival Buenos Aires Rojo Sangre, el festival de cine de género más importante de Argentina.',
+        );
+        if (isset($descriptions[$slug])) {
+            return $descriptions[$slug];
+        }
+    }
+
+    // Fallback
+    $tagline = get_bloginfo('description');
+    return $tagline ?: '';
+}
+
+/**
+ * Get the OG image URL for the current page.
+ */
+function bars_seo_get_image() {
+    $movie_post = bars_seo_get_movie_from_param();
+    if ($movie_post) {
+        $thumb = get_the_post_thumbnail_url($movie_post->ID, 'large');
+        if ($thumb) {
+            return $thumb;
+        }
+        if (get_post_type($movie_post) === 'movie') {
+            $poster = get_post_meta($movie_post->ID, '_movie_poster', true);
+            if ($poster) {
+                return $poster;
+            }
+        }
+    }
+
+    $jury_post = bars_seo_get_jury_from_param();
+    if ($jury_post) {
+        $thumb = get_the_post_thumbnail_url($jury_post->ID, 'large');
+        if ($thumb) {
+            return $thumb;
+        }
+    }
+
+    // Single post/movie — use post thumbnail
+    if (is_singular()) {
+        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'large');
+        if ($thumb) {
+            return $thumb;
+        }
+
+        // Movies: try _movie_poster meta
+        if (get_post_type() === 'movie') {
+            $poster = get_post_meta(get_the_ID(), '_movie_poster', true);
+            if ($poster) {
+                return $poster;
+            }
+        }
+    }
+
+    // Fallback: current edition poster
+    $edition = Editions::current();
+    if (!empty($edition['poster'])) {
+        return get_template_directory_uri() . '/' . $edition['poster'];
+    }
+
+    return '';
+}
+
+/**
+ * Get the canonical URL for the current page.
+ */
+function bars_seo_get_canonical() {
+    // Movie modal URLs: canonical stays at /programacion (not indexed individually)
+    if (bars_seo_get_movie_from_param()) {
+        return home_url('/programacion');
+    }
+
+    // Jury modal URLs: canonical stays at /premios
+    if (bars_seo_get_jury_from_param()) {
+        return home_url('/premios');
+    }
+
+    if (is_front_page()) {
+        return home_url('/');
+    }
+
+    if (is_singular()) {
+        return get_permalink();
+    }
+
+    // News archive page
+    if (is_home()) {
+        return home_url('/noticias');
+    }
+
+    return home_url($_SERVER['REQUEST_URI']);
+}
+
+/**
+ * Get the OG type for the current page.
+ */
+function bars_seo_get_og_type() {
+    if (bars_seo_get_movie_from_param()) {
+        return 'video.movie';
+    }
+    if (bars_seo_get_jury_from_param()) {
+        return 'profile';
+    }
+    if (is_front_page()) {
+        return 'website';
+    }
+    if (is_singular('movie') || is_singular('movieblock')) {
+        return 'video.movie';
+    }
+    if (is_singular('post')) {
+        return 'article';
+    }
+    return 'website';
+}
+
+// ---------------------------------------------------------------------------
+// wp_head hooks
+// ---------------------------------------------------------------------------
+
+/**
+ * Output meta description.
+ */
+function bars_seo_meta_description() {
+    $description = bars_seo_get_description();
+    if ($description) {
+        echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'bars_seo_meta_description', 1);
+
+/**
+ * Output Open Graph tags.
+ */
+function bars_seo_open_graph() {
+    $title       = bars_seo_get_title();
+    $description = bars_seo_get_description();
+    $url         = bars_seo_get_canonical();
+    $type        = bars_seo_get_og_type();
+    $image       = bars_seo_get_image();
+
+    echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
+    echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
+    echo '<meta property="og:type" content="' . esc_attr($type) . '">' . "\n";
+    echo '<meta property="og:site_name" content="Buenos Aires Rojo Sangre">' . "\n";
+    echo '<meta property="og:locale" content="es_AR">' . "\n";
+    if ($image) {
+        echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'bars_seo_open_graph', 2);
+
+/**
+ * Output Twitter Card tags.
+ */
+function bars_seo_twitter_card() {
+    $title       = bars_seo_get_title();
+    $description = bars_seo_get_description();
+    $image       = bars_seo_get_image();
+
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
+    echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
+    if ($image) {
+        echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'bars_seo_twitter_card', 3);
+
+/**
+ * Output canonical URL.
+ */
+function bars_seo_canonical() {
+    $url = bars_seo_get_canonical();
+    if ($url) {
+        echo '<link rel="canonical" href="' . esc_url($url) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'bars_seo_canonical', 4);
+
+/**
+ * Output JSON-LD structured data.
+ */
+function bars_seo_jsonld() {
+    $schemas = array();
+
+    // Organization — present on every page
+    $schemas[] = array(
+        '@type' => 'Organization',
+        'name' => 'Buenos Aires Rojo Sangre',
+        'url' => home_url('/'),
+        'logo' => get_template_directory_uri() . '/resources/bars_logo.png',
+        'sameAs' => array(
+            'https://www.facebook.com/buenosairesrojosangre',
+            'https://www.instagram.com/festivalrojosangre/',
+            'https://www.youtube.com/user/rojosangrefestival',
+            'https://x.com/rojosangre',
+        ),
+    );
+
+    // Front page: WebSite + Event
+    if (is_front_page()) {
+        $schemas[] = array(
+            '@type' => 'WebSite',
+            'name' => 'Buenos Aires Rojo Sangre',
+            'url' => home_url('/'),
+        );
+
+        $edition = Editions::current();
+        $from = Editions::from($edition);
+        $to = Editions::to($edition);
+
+        $event = array(
+            '@type' => 'Event',
+            'name' => Editions::getTitle($edition) . ' - Buenos Aires Rojo Sangre',
+            'url' => home_url('/'),
+        );
+
+        if ($from) {
+            $event['startDate'] = $from->format('Y-m-d');
+        }
+        if ($to) {
+            $event['endDate'] = $to->format('Y-m-d');
+        }
+
+        if (!empty($edition['poster'])) {
+            $event['image'] = get_template_directory_uri() . '/' . $edition['poster'];
+        }
+
+        $venues = Editions::venues($edition);
+        if ($venues) {
+            $event_locations = array();
+            foreach ($venues as $venue) {
+                if (!empty($venue['online'])) {
+                    continue;
+                }
+                $event_locations[] = array(
+                    '@type' => 'Place',
+                    'name' => $venue['name'],
+                    'address' => $venue['address'],
+                );
+            }
+            if (count($event_locations) === 1) {
+                $event['location'] = $event_locations[0];
+            } elseif (count($event_locations) > 1) {
+                $event['location'] = $event_locations;
+            }
+        }
+
+        $schemas[] = $event;
+    }
+
+    // Single post: NewsArticle
+    if (is_singular('post')) {
+        $article = array(
+            '@type' => 'NewsArticle',
+            'headline' => get_the_title(),
+            'datePublished' => get_the_date('c'),
+            'dateModified' => get_the_modified_date('c'),
+            'author' => array(
+                '@type' => 'Organization',
+                'name' => 'Buenos Aires Rojo Sangre',
+            ),
+        );
+        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'large');
+        if ($thumb) {
+            $article['image'] = $thumb;
+        }
+        $schemas[] = $article;
+    }
+
+    // Single movie: Movie
+    if (is_singular('movie')) {
+        $movie = array(
+            '@type' => 'Movie',
+            'name' => get_the_title(),
+        );
+        $directors = get_post_meta(get_the_ID(), '_movie_directors', true);
+        if ($directors) {
+            $movie['director'] = array(
+                '@type' => 'Person',
+                'name' => $directors,
+            );
+        }
+        $country = get_post_meta(get_the_ID(), '_movie_country', true);
+        if ($country) {
+            $movie['countryOfOrigin'] = $country;
+        }
+        $runtime = get_post_meta(get_the_ID(), '_movie_runtime', true);
+        if ($runtime) {
+            $movie['duration'] = 'PT' . intval($runtime) . 'M';
+        }
+        $synopsis = get_post_meta(get_the_ID(), '_movie_synopsis', true);
+        if ($synopsis) {
+            $movie['description'] = bars_seo_truncate($synopsis, 300);
+        }
+        $year = get_post_meta(get_the_ID(), '_movie_year', true);
+        if ($year) {
+            $movie['dateCreated'] = $year;
+        }
+        $schemas[] = $movie;
+    }
+
+    // Single movieblock: Movie (compilation)
+    if (is_singular('movieblock')) {
+        $block = array(
+            '@type' => 'Movie',
+            'name' => get_post_meta(get_the_ID(), '_movieblock_name', true) ?: get_the_title(),
+        );
+        $runtime = get_post_meta(get_the_ID(), '_movieblock_runtime', true);
+        if ($runtime) {
+            $block['duration'] = 'PT' . intval($runtime) . 'M';
+        }
+        $schemas[] = $block;
+    }
+
+    // Output
+    $jsonld = array(
+        '@context' => 'https://schema.org',
+        '@graph' => $schemas,
+    );
+
+    echo '<script type="application/ld+json">' . "\n";
+    echo wp_json_encode($jsonld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    echo "\n" . '</script>' . "\n";
+}
+add_action('wp_head', 'bars_seo_jsonld', 5);
+
+// ---------------------------------------------------------------------------
+// Redirect standalone movie/movieblock/jury URLs to their modal pages
+// ---------------------------------------------------------------------------
+
+add_action('template_redirect', function() {
+    if (is_singular('movie') || is_singular('movieblock')) {
+        $slug = get_post_field('post_name', get_the_ID());
+        wp_redirect(home_url('/programacion?f=' . $slug), 301);
+        exit;
+    }
+    if (is_singular('jury')) {
+        $slug = get_post_field('post_name', get_the_ID());
+        wp_redirect(home_url('/premios?j=' . $slug), 301);
+        exit;
+    }
+});
+
+// ---------------------------------------------------------------------------
+// robots.txt
+// ---------------------------------------------------------------------------
+
+/**
+ * Add Sitemap directive to robots.txt (only if not already present).
+ */
+function bars_seo_robots_txt($output) {
+    $sitemap_url = home_url('/wp-sitemap.xml');
+    if (strpos($output, $sitemap_url) === false) {
+        $output .= "\nSitemap: " . $sitemap_url . "\n";
+    }
+    return $output;
+}
+add_filter('robots_txt', 'bars_seo_robots_txt');

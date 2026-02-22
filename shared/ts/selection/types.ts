@@ -102,6 +102,9 @@ export type Movie = {
   /** Wordpress post ID */
   id: number;
 
+  /** Wordpress post_name (URL slug) */
+  slug: string;
+
   thumbnail: string;
   heroThumbnail?: string;
 

@@ -109,6 +109,10 @@ TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directo
 
 - **Page Hero**: All inner pages (everything except the landing) must use `get_template_part('template-parts/sections/page', 'hero', array('title' => '...', 'subtitle' => '...'))` for their heading section. Never inline a custom hero — this ensures consistent height and styling across all pages.
 
+### SEO (bars2026)
+
+Custom SEO implementation in `themes/bars2026/php/seo.php` — no plugin. Outputs meta descriptions, Open Graph/Twitter Card tags, canonical URLs, and JSON-LD structured data (Organization, Event, NewsArticle, Movie schemas) via `wp_head` hooks. Also customizes `robots.txt` to include WordPress's native sitemap URL.
+
 ### Data Flow for Selection App
 
 WordPress DB → PHP queries movies/screenings → JSON embedded in `selection.php` → React app consumes and renders with styled-components

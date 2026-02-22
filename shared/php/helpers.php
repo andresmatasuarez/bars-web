@@ -193,6 +193,7 @@
 
     $result = array(
       "id" => $post->ID,
+      "slug" => get_post_field('post_name', $post->ID),
       "title" => get_the_title($post->ID),
       "section" => $section,
       "permalink" => get_post_permalink($post->ID),

@@ -175,6 +175,7 @@ $title = $isPastEdition
                          data-jury-name="<?php echo esc_attr($jury['name']); ?>"
                          data-jury-section="<?php echo esc_attr(getJurySectionLabel($sectionId)); ?>"
                          data-jury-photo="<?php echo esc_url($photoUrl); ?>"
+                         data-jury-slug="<?php echo esc_attr(!empty($jury['postId']) ? get_post_field('post_name', $jury['postId']) : sanitize_title($jury['name'])); ?>"
                         <?php endif; ?>>
                         <!-- Jury Photo (circular) -->
                         <?php if (!empty($jury['thumbnail'])): ?>
@@ -240,6 +241,7 @@ document.querySelectorAll('.jury-card-toggle').forEach(function(el) {
                 name: this.getAttribute('data-jury-name'),
                 section: this.getAttribute('data-jury-section'),
                 photoUrl: this.getAttribute('data-jury-photo') || '',
+                slug: this.getAttribute('data-jury-slug') || '',
                 bio: bioEl ? bioEl.innerHTML : ''
             }
         }));

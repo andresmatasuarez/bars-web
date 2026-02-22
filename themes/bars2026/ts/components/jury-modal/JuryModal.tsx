@@ -10,6 +10,7 @@ interface JuryMember {
   name: string;
   section: string;
   photoUrl: string;
+  slug: string;
   bio: string;
 }
 
@@ -223,20 +224,69 @@ function MobileContent({
   );
 }
 
+const JURY_PARAM = 'j';
+
+function getJurySlugFromUrl(): string | null {
+  return new URLSearchParams(window.location.search).get(JURY_PARAM);
+}
+
+function buildUrl(slug: string | null): string {
+  const params = new URLSearchParams(window.location.search);
+  if (slug) {
+    params.set(JURY_PARAM, slug);
+  } else {
+    params.delete(JURY_PARAM);
+  }
+  const qs = params.toString();
+  return window.location.pathname + (qs ? '?' + qs : '');
+}
+
+function extractJuryFromCard(slug: string): JuryMember | null {
+  const card = document.querySelector<HTMLElement>(
+    `.jury-card-toggle[data-jury-slug="${slug}"]`,
+  );
+  if (!card) return null;
+  const bioEl = card.querySelector<HTMLElement>('.jury-bio-content');
+  return {
+    id: parseInt(card.getAttribute('data-jury-id') || '0', 10),
+    name: card.getAttribute('data-jury-name') || '',
+    section: card.getAttribute('data-jury-section') || '',
+    photoUrl: card.getAttribute('data-jury-photo') || '',
+    slug: card.getAttribute('data-jury-slug') || '',
+    bio: bioEl ? bioEl.innerHTML : '',
+  };
+}
+
 function JuryModalApp() {
-  const [member, setMember] = useState<JuryMember | null>(null);
+  const [member, setMember] = useState<JuryMember | null>(() => {
+    const slug = getJurySlugFromUrl();
+    return slug ? extractJuryFromCard(slug) : null;
+  });
 
   const handleOpen = useCallback((e: Event) => {
     const detail = (e as CustomEvent<JuryMember>).detail;
     setMember(detail);
+    history.pushState(null, '', buildUrl(detail.slug));
   }, []);
 
-  const handleClose = useCallback(() => setMember(null), []);
+  const handleClose = useCallback(() => {
+    setMember(null);
+    history.pushState(null, '', buildUrl(null));
+  }, []);
 
   useEffect(() => {
     document.addEventListener('jury-modal:open', handleOpen);
     return () => document.removeEventListener('jury-modal:open', handleOpen);
   }, [handleOpen]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const slug = getJurySlugFromUrl();
+      setMember(slug ? extractJuryFromCard(slug) : null);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   return (
     <Modal
