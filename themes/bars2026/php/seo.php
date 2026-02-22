@@ -262,6 +262,12 @@ function bars_seo_get_canonical() {
         return home_url('/noticias');
     }
 
+    // Edition URLs: canonical is the base page without the edition param
+    if ((is_page('programacion') || is_page('premios')) && isset($_GET['e'])) {
+        $slug = get_post_field('post_name', get_the_ID());
+        return home_url('/' . $slug);
+    }
+
     return home_url($_SERVER['REQUEST_URI']);
 }
 
@@ -301,6 +307,21 @@ function bars_seo_meta_description() {
     }
 }
 add_action('wp_head', 'bars_seo_meta_description', 1);
+
+/**
+ * Output noindex for edition-parameterized URLs (?e=N).
+ * The canonical URL for the current edition is the one without any query param.
+ */
+function bars_seo_noindex_past_editions() {
+    if (!is_page('programacion') && !is_page('premios')) {
+        return;
+    }
+    if (!isset($_GET['e'])) {
+        return;
+    }
+    echo '<meta name="robots" content="noindex, follow">' . "\n";
+}
+add_action('wp_head', 'bars_seo_noindex_past_editions', 1);
 
 /**
  * Output Open Graph tags.

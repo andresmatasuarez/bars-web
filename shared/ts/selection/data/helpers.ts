@@ -17,7 +17,7 @@ const ALL_SECTIONS_VALUE = 'all';
 
 export function getCurrentEdition(): SingleEdition {
   const qs = new URLSearchParams(window.location.search);
-  const rawEditionNumber = qs.get('edition');
+  const rawEditionNumber = qs.get('e');
 
   if (rawEditionNumber) {
     const currentEditionNumber = Number.parseInt(rawEditionNumber, 10);

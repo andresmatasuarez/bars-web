@@ -13,8 +13,8 @@ add_action('wp_head', function() {
 
 get_header();
 
-$edition = isset($_GET['edition'])
-    ? Editions::getByNumber(intval($_GET['edition']))
+$edition = isset($_GET['e'])
+    ? Editions::getByNumber(intval($_GET['e']))
     : Editions::current();
 $edition_number = Editions::romanNumerals($edition);
 $festival_dates = Editions::datesLabel($edition);
@@ -66,7 +66,7 @@ $title = $isPastEdition
             <?php if ($prevEditionWithAwards): ?>
             <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
                 Mientras tanto, podés ver los
-                <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
+                <a href="<?php echo esc_url(home_url('/premios?e=' . $prevEditionWithAwards['number'])); ?>"
                    class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
             </p>
             <?php endif; ?>
@@ -137,7 +137,7 @@ $title = $isPastEdition
             <?php if ($prevEditionWithAwards): ?>
             <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
                 Mientras tanto, podés ver los
-                <a href="<?php echo esc_url(home_url('/premios?edition=' . $prevEditionWithAwards['number'])); ?>"
+                <a href="<?php echo esc_url(home_url('/premios?e=' . $prevEditionWithAwards['number'])); ?>"
                    class="text-bars-badge-text hover:underline">premios y jurados de la edición anterior (BARS <?php echo esc_html(Editions::romanNumerals($prevEditionWithAwards)); ?> - <?php echo esc_html(Editions::to($prevEditionWithAwards)->format('Y')); ?>)</a>.
             </p>
             <?php endif; ?>

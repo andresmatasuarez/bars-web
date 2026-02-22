@@ -6,8 +6,8 @@
 
 get_header();
 
-$currentEdition = isset($_GET['edition'])
-    ? Editions::getByNumber(intval($_GET['edition']))
+$currentEdition = isset($_GET['e'])
+    ? Editions::getByNumber(intval($_GET['e']))
     : Editions::current();
 $isPastEdition = $currentEdition['number'] !== Editions::current()['number'];
 $festival_dates = Editions::datesLabel($currentEdition);
@@ -55,7 +55,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                     ?>
                     <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
                         Mientras tanto, podés ver la
-                        <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
+                        <a href="<?php echo esc_url(home_url('/programacion?e=' . $prevEdition['number'])); ?>"
                            class="text-bars-badge-text hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
                     </p>
                     <?php endif; ?>
@@ -81,7 +81,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
                     ?>
                     <p class="text-sm text-bars-text-subtle text-center max-w-xs mx-auto mt-4">
                         Mientras tanto, podés ver la
-                        <a href="<?php echo esc_url(home_url('/programacion?edition=' . $prevEdition['number'])); ?>"
+                        <a href="<?php echo esc_url(home_url('/programacion?e=' . $prevEdition['number'])); ?>"
                            class="text-bars-badge-text hover:underline">programación de la edición anterior (BARS <?php echo esc_html($prevRoman); ?> - <?php echo esc_html($prevYear); ?>)</a>.
                     </p>
                     <?php endif; ?>
