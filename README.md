@@ -118,7 +118,7 @@ bars-web/
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
 ├─ scripts/                  # switch-theme.sh, deploy.mjs
-├─ .deploy/                  # Deploy manifests (content hashes) — committed to VC
+├─ deploy/                  # Deploy manifests (content hashes) — committed to VC
 ├─ package.json              # Workspace root
 └─ tsconfig.base.json
 ```
@@ -239,7 +239,7 @@ The manifest is saved **only after all uploads succeed**. If a deploy is interru
 
 ### Manifests
 
-Stored in `.deploy/` (committed to VC). One JSON file per target, with the filename derived from the local path (`/` → `--`), e.g. `wp-themes--bars2026.manifest.json`.
+Stored in `deploy/` (committed to VC). One JSON file per target, with the filename derived from the local path (`/` → `--`), e.g. `wp-themes--bars2026.manifest.json`.
 
 ### Edge cases
 

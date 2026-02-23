@@ -22,7 +22,7 @@ const DEPLOY_TARGETS = {
 };
 
 const MAX_RETRIES = 3;
-const MANIFEST_DIR = ".deploy";
+const MANIFEST_DIR = "deploy";
 
 const PROGRESS_THRESHOLD = 50 * 1024; // 50 KB — skip progress for smaller files
 
@@ -132,7 +132,7 @@ function diffManifests(previous, current) {
   return { toUpload, toDelete };
 }
 
-/** Derive manifest file path from localDir (e.g. "wp-themes/bars2026" → ".deploy/wp-themes--bars2026.manifest.json"). */
+/** Derive manifest file path from localDir (e.g. "wp-themes/bars2026" → "deploy/wp-themes--bars2026.manifest.json"). */
 function manifestPath(localDir) {
   const name = localDir.replace(/\//g, "--");
   return path.join(MANIFEST_DIR, `${name}.manifest.json`);

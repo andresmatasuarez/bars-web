@@ -169,7 +169,7 @@ npm run deploy:bars2026   # Deploy bars2026 theme
 node --env-file=.env scripts/deploy.mjs --force bars2026
 ```
 
-Manifests are stored in `.deploy/` (committed to VC). Sourcemap files (`.map`) are excluded from manifests and always re-uploaded.
+Manifests are stored in `deploy/` (committed to VC). Sourcemap files (`.map`) are excluded from manifests and always re-uploaded.
 
 Remote path mapping (handled automatically):
 - `wp-plugins/{name}/` → `/2.0/wp-content/plugins/{name}`
