@@ -83,7 +83,7 @@ $callClosed = Editions::isCallClosed($edition);
 
                     <!-- Venues -->
                     <?php
-                    $named_venues = array_filter($venues ?? [], function($v) { return isset($v['name']); });
+                    $named_venues = array_filter(isset($venues) ? $venues : array(), function($v) { return isset($v['name']); });
                     ?>
                     <?php if (!empty($named_venues)): ?>
                         <?php foreach ($named_venues as $venueKey => $venue): ?>

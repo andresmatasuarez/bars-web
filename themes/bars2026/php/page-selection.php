@@ -21,10 +21,13 @@ $subtitle = 'Edición ' . Editions::romanNumerals($currentEdition)
 $title = $isPastEdition
     ? 'Programación ' . Editions::romanNumerals($currentEdition) . ' (' . $year . ')'
     : 'Programación';
-get_template_part('template-parts/sections/page', 'hero', array(
+// WP 3.9 compat: get_template_part() $args (3rd param) requires WP 5.5+
+$GLOBALS['page_hero_args'] = array(
     'title' => $title,
     'subtitle' => $subtitle,
-)); ?>
+);
+get_template_part('template-parts/sections/page', 'hero');
+?>
 
 <section class="relative min-h-[60vh] pb-16">
     <div class="max-w-[1000px] mx-auto px-5 lg:px-0">

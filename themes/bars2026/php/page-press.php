@@ -33,10 +33,14 @@ if ($venues) {
 }
 ?>
 
-<?php get_template_part('template-parts/sections/page', 'hero', array(
+<?php
+// WP 3.9 compat: get_template_part() $args (3rd param) requires WP 5.5+
+$GLOBALS['page_hero_args'] = array(
     'title' => 'Prensa',
     'subtitle' => 'Edición ' . $edition_number . ' • ' . $festival_dates,
-)); ?>
+);
+get_template_part('template-parts/sections/page', 'hero');
+?>
 
 <!-- Accreditation Section -->
 <section class="relative min-h-96 py-8 pb-20 lg:py-16 lg:pb-36">

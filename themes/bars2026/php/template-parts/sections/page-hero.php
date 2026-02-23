@@ -13,8 +13,11 @@
  * @package BARS2026
  */
 
-$title = isset($args['title']) ? $args['title'] : '';
-$subtitle = isset($args['subtitle']) ? $args['subtitle'] : '';
+// WP 3.9 compat: $args is only set by get_template_part() in WP 5.5+.
+// Fall back to $GLOBALS['page_hero_args'] set by the calling template.
+$_args = !empty($args) ? $args : (isset($GLOBALS['page_hero_args']) ? $GLOBALS['page_hero_args'] : array());
+$title = isset($_args['title']) ? $_args['title'] : '';
+$subtitle = isset($_args['subtitle']) ? $_args['subtitle'] : '';
 ?>
 
 <section class="relative bg-bars-bg-dark">

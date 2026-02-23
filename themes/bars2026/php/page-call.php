@@ -19,10 +19,14 @@ $authorization = isset($call['authorization']) ? $call['authorization'] : array(
 $awards = Editions::getAwards($edition);
 ?>
 
-<?php get_template_part('template-parts/sections/page', 'hero', array(
+<?php
+// WP 3.9 compat: get_template_part() $args (3rd param) requires WP 5.5+
+$GLOBALS['page_hero_args'] = array(
     'title' => 'Convocatoria',
     'subtitle' => 'Edición ' . $edition_number . ' • ' . $festival_dates,
-)); ?>
+);
+get_template_part('template-parts/sections/page', 'hero');
+?>
 
 <!-- Content Section -->
 <section class="relative min-h-96 py-12 lg:py-16 <?php echo $call_is_closed ? 'call-closed' : ''; ?>">

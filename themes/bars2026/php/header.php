@@ -21,11 +21,15 @@ $nav_items = [
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <?php if (!current_theme_supports('title-tag')) : ?>
+    <title><?php echo esc_html(bars_seo_get_title()); ?></title>
+    <?php endif; ?>
+
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class('bg-bars-bg-dark text-bars-text-primary font-body antialiased'); ?>>
-<?php wp_body_open(); ?>
+<?php if (function_exists('wp_body_open')) { wp_body_open(); } ?>
 
 <!-- Header -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-bars-header backdrop-blur-sm h-16 lg:h-20 px-5 lg:px-20">

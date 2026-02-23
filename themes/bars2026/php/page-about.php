@@ -7,10 +7,14 @@
 get_header();
 ?>
 
-<?php get_template_part('template-parts/sections/page', 'hero', array(
+<?php
+// WP 3.9 compat: get_template_part() $args (3rd param) requires WP 5.5+
+$GLOBALS['page_hero_args'] = array(
     'title' => 'Acerca del BARS',
     'subtitle' => 'Más de dos décadas de cine fantástico en Argentina',
-)); ?>
+);
+get_template_part('template-parts/sections/page', 'hero');
+?>
 
 <!-- Content Section -->
 <section class="relative min-h-96 py-12 lg:py-16">

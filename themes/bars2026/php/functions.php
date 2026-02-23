@@ -5,6 +5,18 @@
  * @package BARS2026
  */
 
+// Polyfill for get_the_post_thumbnail_url() — added in WP 4.4, but live site runs WP 3.9 (as of Feb 2026)
+if (!function_exists('get_the_post_thumbnail_url')) {
+    function get_the_post_thumbnail_url($post = null, $size = 'post-thumbnail') {
+        $thumb_id = get_post_thumbnail_id($post);
+        if (!$thumb_id) {
+            return false;
+        }
+        $src = wp_get_attachment_image_src($thumb_id, $size);
+        return $src ? $src[0] : false;
+    }
+}
+
 // Include shared helpers
 require_once get_template_directory() . '/helpers.php';
 require_once get_template_directory() . '/editions.php';

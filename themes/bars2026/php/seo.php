@@ -516,7 +516,7 @@ function bars_seo_jsonld() {
     );
 
     echo '<script type="application/ld+json">' . "\n";
-    echo wp_json_encode($jsonld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    echo json_encode($jsonld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     echo "\n" . '</script>' . "\n";
 }
 add_action('wp_head', 'bars_seo_jsonld', 5);

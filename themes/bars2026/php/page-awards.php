@@ -38,10 +38,14 @@ $title = $isPastEdition
     : 'Premios y jurados';
 ?>
 
-<?php get_template_part('template-parts/sections/page', 'hero', array(
+<?php
+// WP 3.9 compat: get_template_part() $args (3rd param) requires WP 5.5+
+$GLOBALS['page_hero_args'] = array(
     'title' => $title,
     'subtitle' => 'Edición ' . $edition_number . ' • ' . $festival_dates,
-)); ?>
+);
+get_template_part('template-parts/sections/page', 'hero');
+?>
 
 <!-- Awards Intro Section -->
 <section class="relative min-h-96 py-8 lg:py-12">

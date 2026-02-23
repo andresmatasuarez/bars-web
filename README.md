@@ -124,6 +124,15 @@ bars-web/
 
 The screening data model (traditional, streaming always-available, streaming day-specific) is defined in `shared/ts/selection/types.ts`. See the [movie-post-type plugin README](plugins/movie-post-type/README.md#screening-format) for the raw format specification.
 
+## Production Environment
+
+As of February 2026, the live site runs:
+
+- **PHP**: 5.6.40-1~dotdeb+7.1
+- **WordPress**: 3.9
+
+All theme and plugin PHP code must be compatible with these versions. See `CLAUDE.md` for specific syntax and function constraints.
+
 ## Development
 
 ### Run local version

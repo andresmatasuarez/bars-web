@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Buenos Aires Rojo Sangre Film Festival website - a monorepo with npm workspaces containing a WordPress theme built using Vite, TypeScript, React, and LESS.
 
+## Production Environment
+
+As of February 2026, the live site runs **PHP 5.6.40** and **WordPress 3.9**. All PHP code must be compatible with both:
+
+- **No PHP 7.0+ syntax**: no `??` (null coalescing), no scalar type hints (`string $param`), no return type declarations (`: string`), no `<=>`, no anonymous classes, no `??=`.
+- **No WP 4.0+ functions** without a polyfill or `function_exists()` guard. Notable unavailable functions: `get_the_post_thumbnail_url()` (4.4), `wp_json_encode()` (4.1), `wp_body_open()` (5.2), `wp_get_attachment_image_url()` (4.4).
+- `add_theme_support('title-tag')` (4.1) and `add_theme_support('custom-logo')` (4.5) are called but silently ignored on WP 3.9 — the theme includes manual fallbacks.
+
 ## Commands
 
 ```bash

@@ -18,10 +18,14 @@ $news_query = new WP_Query(array(
 ));
 ?>
 
-<?php get_template_part('template-parts/sections/page', 'hero', array(
+<?php
+// WP 3.9 compat: get_template_part() $args (3rd param) requires WP 5.5+
+$GLOBALS['page_hero_args'] = array(
     'title' => 'Noticias',
     'subtitle' => 'Últimas novedades del festival',
-)); ?>
+);
+get_template_part('template-parts/sections/page', 'hero');
+?>
 
 <!-- News Section -->
 <section class="relative min-h-96 py-16 px-5 lg:px-0">

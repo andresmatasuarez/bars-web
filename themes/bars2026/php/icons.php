@@ -14,7 +14,7 @@
  * @param string $class CSS classes for the <svg> element
  * @return string       Full <svg> markup, or empty string if icon not found
  */
-function bars_icon(string $name, string $class = 'w-5 h-5'): string {
+function bars_icon($name, $class = 'w-5 h-5') {
     static $icons = null;
 
     if ($icons === null) {
