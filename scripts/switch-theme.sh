@@ -60,3 +60,29 @@ for ID in $TARGET_IDS; do
 done
 
 echo "✅ Pages toggled: $TARGET pages published, other themes' pages drafted."
+
+# ---------------------------------------------------------------------------
+# 4. Set Reading settings (front page display)
+# ---------------------------------------------------------------------------
+if [ "$TARGET" = "bars2026" ]; then
+  # bars2026 uses a static front page (front-page.php)
+  HOME_ID=$($WP post list --post_type=page --post_status=publish --name=home --field=ID 2>/dev/null || true)
+  if [ -n "$HOME_ID" ]; then
+    $WP option update show_on_front page
+    $WP option update page_on_front "$HOME_ID"
+    echo "✅ Reading settings: static front page (Home, ID=$HOME_ID)"
+  else
+    echo "⚠️  Could not find published 'home' page — Reading settings not changed."
+  fi
+else
+  # All other themes use latest posts
+  $WP option update show_on_front posts
+  $WP option update page_on_front 0
+  echo "✅ Reading settings: latest posts"
+fi
+
+# ---------------------------------------------------------------------------
+# 5. Flush rewrite rules
+# ---------------------------------------------------------------------------
+$WP rewrite flush
+echo "✅ Rewrite rules flushed."

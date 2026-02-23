@@ -68,7 +68,7 @@ docker compose up -d
 
 ##### Switching themes
 
-Use `./scripts/switch-theme.sh` to switch the active WordPress theme in the Docker container (e.g. between `bars2013` and `bars2026`).
+Use `./scripts/switch-theme.sh` to switch the active WordPress theme in the Docker container (e.g. between `bars2013` and `bars2026`). For production switching (via wp-admin, no WP-CLI), see [docs/theme-switching.md](docs/theme-switching.md).
 
 ##### Marker files
 
@@ -114,6 +114,7 @@ bars-web/
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
+├─ docs/                     # Documentation (theme-switching.md)
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
 ├─ scripts/                  # switch-theme.sh, deploy.mjs
