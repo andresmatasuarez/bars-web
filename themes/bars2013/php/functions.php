@@ -10,13 +10,8 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 }
 
-if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'movie-post-thumbnail', 160, 81, true);
-	add_image_size( 'movie-post-image', 220, 129, true);
-	add_image_size( 'movieblock-post-image', 110, 65, true);
-
-	add_image_size('jury-post-thumbnail', 180, 180, true);
-}
+// Image sizes are registered centrally in bars-commons plugin
+// (see barscommons_register_image_sizes) so all crops exist regardless of active theme.
 
 /* ************ SIDEBAR WIDGETS ************ */
 function add_youtube_sidebar_widget($class, $title, $video_id, $width, $height){

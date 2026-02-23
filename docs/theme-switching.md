@@ -76,69 +76,21 @@ Both themes hardcode their navigation, so no menu assignment is needed during sw
 
 ### Registered Image Sizes (reference)
 
-| Theme    | Size Name               | Dimensions | Hard Crop |
-| -------- | ----------------------- | ---------- | --------- |
-| bars2026 | `news-featured`         | 800x450    | Yes       |
-| bars2026 | `news-card`             | 400x225    | Yes       |
-| bars2026 | `movie-post-thumbnail`  | 400x225    | Yes       |
-| bars2026 | `sponsor-logo`          | 120x60     | No        |
-| bars2013 | `movie-post-thumbnail`  | 160x81     | Yes       |
-| bars2013 | `movie-post-image`      | 220x129    | Yes       |
-| bars2013 | `movieblock-post-image` | 110x65     | Yes       |
-| bars2013 | `jury-post-thumbnail`   | 180x180    | Yes       |
+All image sizes are registered centrally in `plugins/bars-commons/bars-commons.php` (`barscommons_register_image_sizes`), not in each theme's `functions.php`. This ensures WordPress generates all crops on every upload regardless of which theme is active, eliminating the need to regenerate thumbnails after switching themes.
 
-> **TODO — Fix image size conflicts across themes**
->
-> **Problem**: Image sizes are registered per-theme via `add_image_size` in each theme's `functions.php`. WordPress only generates crops for sizes registered by the **active** theme at upload time, so images uploaded under one theme won't have the other theme's crops. This means switching themes requires regenerating all thumbnails.
->
-> On top of that, there are two naming issues:
->
-> 1. `movie-post-thumbnail` is registered by both themes with different dimensions (160x81 in bars2013 vs 400x225 in bars2026). Because they share the same name, WordPress only keeps one crop file per image. After switching themes, the existing crop may have the wrong dimensions for the new theme — and since shared code in `shared/php/helpers.php` references this name, whichever crop exists is what gets served.
-> 2. `jury-post-thumbnail` is only registered by bars2013 (180x180). The jury plugin (`plugins/jury-post-type/jury-post-type.php`) uses it regardless of active theme, so bars2026 silently falls back to full-size images.
->
-> **Step 1 — Prefix all size names with the theme name and add the missing jury size to bars2026**
->
-> `themes/bars2026/php/functions.php` — rename existing registrations and add jury size:
->
-> | Current                | New                             | Dims    |
-> | ---------------------- | ------------------------------- | ------- |
-> | `news-featured`        | `bars2026-news-featured`        | 800x450 |
-> | `news-card`            | `bars2026-news-card`            | 400x225 |
-> | `movie-post-thumbnail` | `bars2026-movie-post-thumbnail` | 400x225 |
-> | `sponsor-logo`         | `bars2026-sponsor-logo`         | 120x60  |
-> | _(new)_                | `bars2026-jury-post-thumbnail`  | 300x300 |
->
-> `themes/bars2013/php/functions.php` — rename existing registrations:
->
-> | Current                 | New                              | Dims    |
-> | ----------------------- | -------------------------------- | ------- |
-> | `movie-post-thumbnail`  | `bars2013-movie-post-thumbnail`  | 160x81  |
-> | `movie-post-image`      | `bars2013-movie-post-image`      | 220x129 |
-> | `movieblock-post-image` | `bars2013-movieblock-post-image` | 110x65  |
-> | `jury-post-thumbnail`   | `bars2013-jury-post-thumbnail`   | 180x180 |
->
-> **Step 2 — Move all `add_image_size` calls to `plugins/bars-commons/bars-commons.php`**
->
-> Register every size from both themes in the shared plugin so WordPress generates all crops on every upload, regardless of active theme. This way, switching themes requires no regeneration — both sets of crops already exist.
->
-> Remove the `add_image_size` calls from both themes' `functions.php` files.
->
-> **Step 3 — Update consumers to use prefixed names**
->
-> _Theme-specific consumers_ (hardcode the prefix):
->
-> - `themes/bars2026/php/index.php` — `'news-featured'` → `'bars2026-news-featured'`
-> - `themes/bars2013/php/single-movie.php` — `'movie-post-image'` → `'bars2013-movie-post-image'`
-> - `themes/bars2013/php/single-movieblock.php` — `'movie-post-image'` → `'bars2013-movie-post-image'` and `'movie-post-thumbnail'` → `'bars2013-movie-post-thumbnail'`
->
-> _Shared/plugin consumers_ (resolve dynamically via `get_template()`):
->
-> - `shared/php/helpers.php` (two occurrences) — `'movie-post-thumbnail'` → `get_template() . '-movie-post-thumbnail'`
-> - `plugins/jury-post-type/jury-post-type.php` — `'jury-post-thumbnail'` → `get_template() . '-jury-post-thumbnail'`
->
-> **Step 4 — Regenerate thumbnails and backup**
->
-> After deploying all the above, regenerate all thumbnails on the production server (e.g. `wp media regenerate` via WP-CLI, or "Regenerate Thumbnails" plugin). Then perform a full backup (XML export + uploads folder) to have the latest dataset available before the next edition.
+Shared/plugin code that needs the active theme's size uses `get_template() . '-size-name'` to resolve dynamically.
+
+| Theme    | Size Name                        | Dimensions | Hard Crop |
+| -------- | -------------------------------- | ---------- | --------- |
+| bars2026 | `bars2026-news-featured`         | 800x450    | Yes       |
+| bars2026 | `bars2026-news-card`             | 400x225    | Yes       |
+| bars2026 | `bars2026-movie-post-thumbnail`  | 400x225    | Yes       |
+| bars2026 | `bars2026-sponsor-logo`          | 120x60     | No        |
+| bars2026 | `bars2026-jury-post-thumbnail`   | 300x300    | Yes       |
+| bars2013 | `bars2013-movie-post-thumbnail`  | 160x81     | Yes       |
+| bars2013 | `bars2013-movie-post-image`      | 220x129    | Yes       |
+| bars2013 | `bars2013-movieblock-post-image` | 110x65     | Yes       |
+| bars2013 | `bars2013-jury-post-thumbnail`   | 180x180    | Yes       |
 
 ### Required Plugins (same for both)
 

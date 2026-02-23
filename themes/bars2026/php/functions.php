@@ -88,11 +88,8 @@ function bars2026_setup() {
         'footer-legal' => __('Footer - Legal', 'bars2026'),
     ));
 
-    // Add image sizes
-    add_image_size('news-featured', 800, 450, true);
-    add_image_size('news-card', 400, 225, true);
-    add_image_size('movie-post-thumbnail', 400, 225, true);
-    add_image_size('sponsor-logo', 120, 60, false);
+    // Image sizes are registered centrally in bars-commons plugin
+    // (see barscommons_register_image_sizes) so all crops exist regardless of active theme.
 }
 add_action('after_setup_theme', 'bars2026_setup');
 

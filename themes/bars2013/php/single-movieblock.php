@@ -18,7 +18,7 @@
 	$movieBlock = array(
 		"title" => get_the_title($post->ID),
 		"section" => get_post_meta($post->ID, '_movieblock_section', true),
-		"image" => get_the_post_thumbnail($post->ID, 'movie-post-image' /* 'movieblock-post-image' */),
+		"image" => get_the_post_thumbnail($post->ID, 'bars2013-movie-post-image' /* 'bars2013-movieblock-post-image' */),
 		"runtime" => get_post_meta($post->ID, '_movieblock_runtime', true),
 		"streamingLink" => get_post_meta($post->ID, '_movieblock_streamingLink', true),
 		"movies" => array()
@@ -46,8 +46,8 @@
 			"synopsis" => get_post_meta($query->post->ID, '_movie_synopsis', true),
 			"comments" => get_post_meta($query->post->ID, '_movie_comments', true),
 			"trailerUrl" => get_post_meta($query->post->ID, '_movie_trailer', true),
-			"image" => get_the_post_thumbnail($query->post->ID, 'movie-post-image'),
-			"thumbnail" => get_the_post_thumbnail($query->post->ID, 'movie-post-thumbnail'),
+			"image" => get_the_post_thumbnail($query->post->ID, 'bars2013-movie-post-image'),
+			"thumbnail" => get_the_post_thumbnail($query->post->ID, 'bars2013-movie-post-thumbnail'),
 		);
 
 		$movieBlock['movies'][] = $movie;

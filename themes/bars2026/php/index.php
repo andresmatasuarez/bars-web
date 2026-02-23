@@ -42,7 +42,7 @@ get_header();
                             <a href="<?php the_permalink(); ?>" class="block">
                                 <?php if (has_post_thumbnail()): ?>
                                     <div class="aspect-video overflow-hidden rounded-bars-md mb-4 bg-bars-bg-card">
-                                        <?php the_post_thumbnail('news-featured', array(
+                                        <?php the_post_thumbnail('bars2026-news-featured', array(
                                             'class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
                                         )); ?>
                                     </div>

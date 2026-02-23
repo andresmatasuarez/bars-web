@@ -7,6 +7,25 @@
 	License: GPLv2
 */
 
+	// Register image sizes from BOTH themes in this plugin so WordPress generates
+	// all crops on every upload, regardless of which theme is active. This eliminates
+	// the need to regenerate thumbnails after switching themes.
+	add_action('after_setup_theme', 'barscommons_register_image_sizes');
+	function barscommons_register_image_sizes() {
+		// bars2026 sizes
+		add_image_size('bars2026-news-featured', 800, 450, true);
+		add_image_size('bars2026-news-card', 400, 225, true);
+		add_image_size('bars2026-movie-post-thumbnail', 400, 225, true);
+		add_image_size('bars2026-sponsor-logo', 120, 60, false);
+		add_image_size('bars2026-jury-post-thumbnail', 300, 300, true);
+
+		// bars2013 sizes
+		add_image_size('bars2013-movie-post-thumbnail', 160, 81, true);
+		add_image_size('bars2013-movie-post-image', 220, 129, true);
+		add_image_size('bars2013-movieblock-post-image', 110, 65, true);
+		add_image_size('bars2013-jury-post-thumbnail', 180, 180, true);
+	}
+
 	add_action('admin_init', 'admin_load_bars_commons_scripts');
 	function admin_load_bars_commons_scripts() {
 		$admin_bars_commons_file = plugins_url( 'admin-bars-commons.js', __FILE__ );

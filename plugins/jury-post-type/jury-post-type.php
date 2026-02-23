@@ -156,7 +156,7 @@
 
 	  $juryObj = array(
 	  	'postId' => $juryPost->ID,
-	  	'thumbnail' => get_the_post_thumbnail($juryPost->ID, 'jury-post-thumbnail') // thumbnail size defined in functions.php
+	  	'thumbnail' => get_the_post_thumbnail($juryPost->ID, get_template() . '-jury-post-thumbnail')
 	  );
 
 	  foreach($juryFields as $field) {
