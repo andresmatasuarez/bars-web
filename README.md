@@ -116,7 +116,8 @@ bars-web/
 │  └─ movie-post-type/
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
-├─ scripts/                  # switch-theme.sh
+├─ scripts/                  # switch-theme.sh, deploy.mjs
+├─ .deploy/                  # Deploy manifests (content hashes) — committed to VC
 ├─ package.json              # Workspace root
 └─ tsconfig.base.json
 ```
@@ -187,10 +188,56 @@ From each theme directory (`themes/bars2013` or `themes/bars2026`):
 
 ## Deploy
 
-1. Build all outputs: `npm run build:plugins` (and theme builds as needed).
-1. Using a FTP client, log into the BARS server using the appropriate credentials.
-1. Upload the following files:
+Requires FTP credentials in `.env` (see `.env-example` for the variables).
 
-- `wp-plugins/` to `/2.0/wp-content/plugins`
-- `wp-themes/bars2013/` to `/2.0/wp-content/themes/bars2013`
-- `wp-themes/bars2026/` to `/2.0/wp-content/themes/bars2026`
+### How it works
+
+Deploys are **incremental**. The script computes a SHA-256 content hash for every file in the build output, compares it against the previous deploy's manifest, and only uploads new or changed files. Files removed from the build are surgically deleted from the remote — no more wiping the entire directory.
+
+### Commands
+
+Build first, then deploy:
+
+```sh
+npm run build         # Build everything
+npm run deploy        # Deploy everything (plugins + both themes)
+```
+
+Or deploy individually:
+
+```sh
+npm run deploy:plugins    # All plugins
+npm run deploy:bars2013   # bars2013 theme
+npm run deploy:bars2026   # bars2026 theme
+```
+
+### Force deploy
+
+Skips manifest comparison and uploads everything. Use when the remote was manually modified or manifests are out of sync:
+
+```sh
+node --env-file=.env scripts/deploy.mjs --force bars2026
+```
+
+### Sourcemaps
+
+`.map` files are excluded from manifests and always re-uploaded. They contain absolute paths that differ across machines, so hash comparison would be misleading.
+
+### Crash safety
+
+The manifest is saved **only after all uploads succeed**. If a deploy is interrupted, the next run sees the old manifest and retries all the changes.
+
+### Manifests
+
+Stored in `.deploy/` (committed to VC). One JSON file per target, with the filename derived from the local path (`/` → `--`), e.g. `wp-themes--bars2026.manifest.json`.
+
+### Edge cases
+
+| Scenario | What happens |
+|---|---|
+| First deploy (no manifest) | All files uploaded, manifest created |
+| Interrupted deploy | Old manifest retained; next run re-uploads everything that changed |
+| File deleted from build | Deleted from remote, removed from manifest |
+| Remote manually modified | Run with `--force` to re-sync everything |
+| Rebuild with no source changes | Hashes match — "No changes detected, skipping" |
+| Deploy from a different machine | Hashed content is the same, so only truly different files upload (except `.map` files, which always re-upload) |

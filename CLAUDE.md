@@ -147,9 +147,24 @@ Marker files in the `bars-web_bars-wordpress-data` volume (mounted at `/var/www/
 
 ## Deploy
 
-Run `npm run build:plugins` first, then upload via FTP:
+Requires FTP credentials in `.env` (see `.env-example`). Uses `basic-ftp` package with **incremental deploys** — only new/changed files are uploaded based on SHA-256 content hashes.
 
-- `wp-plugins/` → `/2.0/wp-content/plugins`
+```bash
+npm run deploy            # Deploy everything (plugins + both themes)
+npm run deploy:plugins    # Deploy all plugins
+npm run deploy:bars2013   # Deploy bars2013 theme
+npm run deploy:bars2026   # Deploy bars2026 theme
+```
+
+**Force full deploy** (skips manifest comparison, uploads everything):
+```bash
+node --env-file=.env scripts/deploy.mjs --force bars2026
+```
+
+Manifests are stored in `.deploy/` (committed to VC). Sourcemap files (`.map`) are excluded from manifests and always re-uploaded.
+
+Remote path mapping (handled automatically):
+- `wp-plugins/{name}/` → `/2.0/wp-content/plugins/{name}`
 - `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`
 - `wp-themes/bars2026/` → `/2.0/wp-content/themes/bars2026`
 

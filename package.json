@@ -1,7 +1,9 @@
 {
   "name": "bars-web",
   "private": true,
-  "workspaces": ["themes/*"],
+  "workspaces": [
+    "themes/*"
+  ],
   "config": {
     "pluginsSrc": "plugins/*/*.{php,js}",
     "pluginsDest": "./wp-plugins"
@@ -19,6 +21,13 @@
     "copy:plugins": "cpx \"$npm_package_config_pluginsSrc\" $npm_package_config_pluginsDest",
     "watch:plugins": "npm run copy:plugins -- --watch --verbose",
     "build:plugins": "npm-run-all clean:plugins copy:plugins",
-    "dev:plugins": "npm-run-all clean:plugins watch:plugins"
+    "dev:plugins": "npm-run-all clean:plugins watch:plugins",
+    "deploy:plugins": "node --env-file=.env scripts/deploy.mjs plugins",
+    "deploy:bars2013": "node --env-file=.env scripts/deploy.mjs bars2013",
+    "deploy:bars2026": "node --env-file=.env scripts/deploy.mjs bars2026",
+    "deploy": "node --env-file=.env scripts/deploy.mjs all"
+  },
+  "devDependencies": {
+    "basic-ftp": "^5.1.0"
   }
 }
