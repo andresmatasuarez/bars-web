@@ -50,7 +50,7 @@ $title = $isPastEdition
         <?php if ($isPastEdition): ?>
         <div class="pb-6">
             <a href="<?php echo esc_url(home_url('/premios')); ?>"
-               class="text-sm text-bars-link-accent hover:underline">&larr; Ver premios de la edición actual</a>
+               class="text-sm text-bars-link-accent hover:underline">&larr; Volver a la última edición</a>
         </div>
         <?php endif; ?>
 

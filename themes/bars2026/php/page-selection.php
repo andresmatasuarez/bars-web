@@ -31,7 +31,7 @@ get_template_part('template-parts/sections/page', 'hero', array(
         <?php if ($isPastEdition): ?>
         <div class="pt-6">
             <a href="<?php echo esc_url(home_url('/programacion')); ?>"
-               class="text-sm text-bars-link-accent hover:underline">&larr; Ver programación actual</a>
+               class="text-sm text-bars-link-accent hover:underline">&larr; Volver a la última programación</a>
         </div>
         <?php endif; ?>
         <?php
