@@ -27,15 +27,22 @@ function bars_seo_truncate($text, $limit = 155) {
  * Returns the WP_Post or null if not found / not on the programacion page.
  */
 function bars_seo_get_movie_from_param() {
+    static $cache = 'NOT_QUERIED';
+    if ($cache !== 'NOT_QUERIED') {
+        return $cache;
+    }
     if (!is_page('programacion')) {
+        $cache = null;
         return null;
     }
     $slug = isset($_GET['f']) ? sanitize_title($_GET['f']) : '';
     if (!$slug) {
+        $cache = null;
         return null;
     }
     $post = get_page_by_path($slug, OBJECT, array('movie', 'movieblock'));
-    return $post ?: null;
+    $cache = $post ? $post : null;
+    return $cache;
 }
 
 /**
@@ -43,15 +50,22 @@ function bars_seo_get_movie_from_param() {
  * Returns the WP_Post or null if not found / not on the premios page.
  */
 function bars_seo_get_jury_from_param() {
+    static $cache = 'NOT_QUERIED';
+    if ($cache !== 'NOT_QUERIED') {
+        return $cache;
+    }
     if (!is_page('premios')) {
+        $cache = null;
         return null;
     }
     $slug = isset($_GET['j']) ? sanitize_title($_GET['j']) : '';
     if (!$slug) {
+        $cache = null;
         return null;
     }
     $post = get_page_by_path($slug, OBJECT, 'jury');
-    return $post ?: null;
+    $cache = $post ? $post : null;
+    return $cache;
 }
 
 /**
@@ -185,43 +199,60 @@ function bars_seo_get_description() {
 }
 
 /**
- * Get the OG image URL for the current page.
+ * Get the OG image URL + dimensions for the current page.
+ *
+ * Returns array('url' => string, 'width' => int|0, 'height' => int|0).
  */
-function bars_seo_get_image() {
+function bars_seo_get_image_meta() {
+    $empty = array('url' => '', 'width' => 0, 'height' => 0);
+
+    // Helper: build meta from a post thumbnail attachment
+    $from_thumbnail = function($post_id) {
+        $thumb_id = get_post_thumbnail_id($post_id);
+        if (!$thumb_id) {
+            return null;
+        }
+        $src = wp_get_attachment_image_src($thumb_id, 'large');
+        if ($src) {
+            return array('url' => $src[0], 'width' => (int) $src[1], 'height' => (int) $src[2]);
+        }
+        return null;
+    };
+
     $movie_post = bars_seo_get_movie_from_param();
     if ($movie_post) {
-        $thumb = get_the_post_thumbnail_url($movie_post->ID, 'large');
-        if ($thumb) {
-            return $thumb;
+        $meta = $from_thumbnail($movie_post->ID);
+        if ($meta) {
+            return $meta;
         }
         if (get_post_type($movie_post) === 'movie') {
             $poster = get_post_meta($movie_post->ID, '_movie_poster', true);
             if ($poster) {
-                return $poster;
+                return array('url' => $poster, 'width' => 0, 'height' => 0);
             }
         }
     }
 
     $jury_post = bars_seo_get_jury_from_param();
     if ($jury_post) {
-        $thumb = get_the_post_thumbnail_url($jury_post->ID, 'large');
-        if ($thumb) {
-            return $thumb;
+        $meta = $from_thumbnail($jury_post->ID);
+        if ($meta) {
+            return $meta;
         }
     }
 
     // Single post/movie — use post thumbnail
     if (is_singular()) {
-        $thumb = get_the_post_thumbnail_url(get_the_ID(), 'large');
-        if ($thumb) {
-            return $thumb;
+        $meta = $from_thumbnail(get_the_ID());
+        if ($meta) {
+            return $meta;
         }
 
         // Movies: try _movie_poster meta
         if (get_post_type() === 'movie') {
             $poster = get_post_meta(get_the_ID(), '_movie_poster', true);
             if ($poster) {
-                return $poster;
+                return array('url' => $poster, 'width' => 0, 'height' => 0);
             }
         }
     }
@@ -229,10 +260,18 @@ function bars_seo_get_image() {
     // Fallback: current edition poster
     $edition = Editions::current();
     if (!empty($edition['poster'])) {
-        return get_template_directory_uri() . '/' . $edition['poster'];
+        return array('url' => get_template_directory_uri() . '/' . $edition['poster'], 'width' => 0, 'height' => 0);
     }
 
-    return '';
+    return $empty;
+}
+
+/**
+ * Get the OG image URL for the current page (convenience wrapper).
+ */
+function bars_seo_get_image() {
+    $meta = bars_seo_get_image_meta();
+    return $meta['url'];
 }
 
 /**
@@ -272,6 +311,57 @@ function bars_seo_get_canonical() {
 }
 
 /**
+ * Get the og:url for the current page.
+ *
+ * Unlike the canonical URL (which always points to the parent page for SEO),
+ * og:url includes ?f= / ?j= params so social media crawlers cache each
+ * movie/jury share independently. Also includes ?e=<number> when the post
+ * belongs to a past edition.
+ */
+function bars_seo_get_og_url() {
+    $movie_post = bars_seo_get_movie_from_param();
+    if ($movie_post) {
+        $slug = get_post_field('post_name', $movie_post->ID);
+        $params = 'f=' . urlencode($slug);
+
+        // Auto-detect past editions
+        $edition_meta = get_post_meta($movie_post->ID, '_movie_edition', true);
+        if (!$edition_meta) {
+            $edition_meta = get_post_meta($movie_post->ID, '_movieblock_edition', true);
+        }
+        if ($edition_meta) {
+            $edition_number = intval(str_replace('bars', '', $edition_meta));
+            $current = Editions::current();
+            if ($edition_number && $edition_number !== $current['number']) {
+                $params .= '&e=' . $edition_number;
+            }
+        }
+
+        return home_url('/programacion?' . $params);
+    }
+
+    $jury_post = bars_seo_get_jury_from_param();
+    if ($jury_post) {
+        $slug = get_post_field('post_name', $jury_post->ID);
+        $params = 'j=' . urlencode($slug);
+
+        // Auto-detect past editions
+        $edition_meta = get_post_meta($jury_post->ID, '_jury_edition', true);
+        if ($edition_meta) {
+            $edition_number = intval(str_replace('bars', '', $edition_meta));
+            $current = Editions::current();
+            if ($edition_number && $edition_number !== $current['number']) {
+                $params .= '&e=' . $edition_number;
+            }
+        }
+
+        return home_url('/premios?' . $params);
+    }
+
+    return bars_seo_get_canonical();
+}
+
+/**
  * Get the OG type for the current page.
  */
 function bars_seo_get_og_type() {
@@ -296,6 +386,18 @@ function bars_seo_get_og_type() {
 // ---------------------------------------------------------------------------
 // wp_head hooks
 // ---------------------------------------------------------------------------
+
+/**
+ * Override the <title> tag on WP 4.4+ so it reflects movie/jury context.
+ * On WP 3.9, the header.php fallback handles this instead.
+ */
+add_filter('pre_get_document_title', function($title) {
+    $seo_title = bars_seo_get_title();
+    if ($seo_title) {
+        return $seo_title . ' – ' . get_bloginfo('name');
+    }
+    return $title;
+});
 
 /**
  * Output meta description.
@@ -329,9 +431,9 @@ add_action('wp_head', 'bars_seo_noindex_past_editions', 1);
 function bars_seo_open_graph() {
     $title       = bars_seo_get_title();
     $description = bars_seo_get_description();
-    $url         = bars_seo_get_canonical();
+    $url         = bars_seo_get_og_url();
     $type        = bars_seo_get_og_type();
-    $image       = bars_seo_get_image();
+    $image_meta  = bars_seo_get_image_meta();
 
     echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
     echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
@@ -339,8 +441,14 @@ function bars_seo_open_graph() {
     echo '<meta property="og:type" content="' . esc_attr($type) . '">' . "\n";
     echo '<meta property="og:site_name" content="Buenos Aires Rojo Sangre">' . "\n";
     echo '<meta property="og:locale" content="es_AR">' . "\n";
-    if ($image) {
-        echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
+    if ($image_meta['url']) {
+        // Ensures og:image scheme matches the page (http vs https). Can remove if WP config uses correct scheme for uploads.
+        $image_url = set_url_scheme($image_meta['url']);
+        echo '<meta property="og:image" content="' . esc_url($image_url) . '">' . "\n";
+        if ($image_meta['width']) {
+            echo '<meta property="og:image:width" content="' . intval($image_meta['width']) . '">' . "\n";
+            echo '<meta property="og:image:height" content="' . intval($image_meta['height']) . '">' . "\n";
+        }
     }
 }
 add_action('wp_head', 'bars_seo_open_graph', 2);
@@ -357,6 +465,8 @@ function bars_seo_twitter_card() {
     echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
     echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
     if ($image) {
+        // Ensures twitter:image scheme matches the page (http vs https). Can remove if WP config uses correct scheme for uploads.
+        $image = set_url_scheme($image);
         echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
     }
 }
@@ -372,6 +482,9 @@ function bars_seo_canonical() {
     }
 }
 add_action('wp_head', 'bars_seo_canonical', 4);
+
+// Prevents WP core from adding a duplicate canonical. Review after WP upgrade — may still be needed.
+remove_action('wp_head', 'rel_canonical');
 
 /**
  * Output JSON-LD structured data.
@@ -507,6 +620,70 @@ function bars_seo_jsonld() {
             $block['duration'] = 'PT' . intval($runtime) . 'M';
         }
         $schemas[] = $block;
+    }
+
+    // Movie/movieblock from ?f= param (programacion page)
+    $movie_param = bars_seo_get_movie_from_param();
+    if ($movie_param) {
+        $param_type = get_post_type($movie_param);
+        if ($param_type === 'movie') {
+            $movie = array(
+                '@type' => 'Movie',
+                'name' => get_the_title($movie_param->ID),
+            );
+            $directors = get_post_meta($movie_param->ID, '_movie_directors', true);
+            if ($directors) {
+                $movie['director'] = array(
+                    '@type' => 'Person',
+                    'name' => $directors,
+                );
+            }
+            $country = get_post_meta($movie_param->ID, '_movie_country', true);
+            if ($country) {
+                $movie['countryOfOrigin'] = $country;
+            }
+            $runtime = get_post_meta($movie_param->ID, '_movie_runtime', true);
+            if ($runtime) {
+                $movie['duration'] = 'PT' . intval($runtime) . 'M';
+            }
+            $synopsis = get_post_meta($movie_param->ID, '_movie_synopsis', true);
+            if ($synopsis) {
+                $movie['description'] = bars_seo_truncate($synopsis, 300);
+            }
+            $year = get_post_meta($movie_param->ID, '_movie_year', true);
+            if ($year) {
+                $movie['dateCreated'] = $year;
+            }
+            $schemas[] = $movie;
+        } elseif ($param_type === 'movieblock') {
+            $block = array(
+                '@type' => 'Movie',
+                'name' => get_post_meta($movie_param->ID, '_movieblock_name', true) ?: get_the_title($movie_param->ID),
+            );
+            $runtime = get_post_meta($movie_param->ID, '_movieblock_runtime', true);
+            if ($runtime) {
+                $block['duration'] = 'PT' . intval($runtime) . 'M';
+            }
+            $schemas[] = $block;
+        }
+    }
+
+    // Jury from ?j= param (premios page)
+    $jury_param = bars_seo_get_jury_from_param();
+    if ($jury_param) {
+        $person = array(
+            '@type' => 'Person',
+            'name' => get_post_meta($jury_param->ID, '_jury_name', true) ?: get_the_title($jury_param->ID),
+        );
+        $desc = get_post_meta($jury_param->ID, '_jury_description', true);
+        if ($desc) {
+            $person['description'] = bars_seo_truncate($desc, 300);
+        }
+        $thumb = get_the_post_thumbnail_url($jury_param->ID, 'large');
+        if ($thumb) {
+            $person['image'] = $thumb;
+        }
+        $schemas[] = $person;
     }
 
     // Output

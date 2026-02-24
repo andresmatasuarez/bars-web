@@ -21,7 +21,8 @@ $nav_items = [
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php if (!current_theme_supports('title-tag')) : ?>
+    <?php // WP 3.9 compat: _wp_render_title_tag() exists only in WP 4.1+. Remove this block after upgrading to WP 4.1+. ?>
+    <?php if (!function_exists('_wp_render_title_tag')) : ?>
     <title><?php echo esc_html(bars_seo_get_title()); ?></title>
     <?php endif; ?>
 
