@@ -512,7 +512,7 @@ function bars_seo_jsonld() {
         '@type' => 'Organization',
         'name' => 'Buenos Aires Rojo Sangre',
         'url' => home_url('/'),
-        'logo' => get_template_directory_uri() . '/resources/bars_logo.png',
+        'logo' => get_template_directory_uri() . '/resources/bars_logo_dark.png',
         'sameAs' => array(
             'https://www.facebook.com/buenosairesrojosangre',
             'https://www.instagram.com/festivalrojosangre/',

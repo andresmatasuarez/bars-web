@@ -12,7 +12,7 @@
             <div class="flex flex-col gap-6 lg:w-[350px]">
                 <!-- Logo -->
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo.png"
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo_dark.png"
                          alt="BARS Logo"
                          class="w-10 h-10 object-contain">
                     <span class="footer-brand-name font-display text-2xl tracking-[2px] text-bars-text-primary">

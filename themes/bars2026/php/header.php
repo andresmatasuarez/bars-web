@@ -37,7 +37,7 @@ $nav_items = [
     <div class="flex items-center justify-between h-full max-w-[1280px] mx-auto">
         <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo.png"
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo_dark.png"
                  alt="BARS Logo"
                  class="w-8 h-8 lg:w-11 lg:h-11 object-contain">
             <span class="font-display text-xl lg:text-[28px] tracking-wider text-bars-text-primary">

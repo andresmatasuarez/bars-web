@@ -75,6 +75,7 @@ Each theme has two Vite entry points (`themes/{name}/vite/vite.config.ts` and `t
 - `shared/` - Shared resources across themes
   - `editions.json` - **Single source of truth** for festival data (dates, venues, etc.)
   - `resources/` - Edition-specific assets (poster, programme, sponsors)
+  - `raw/` - Original source files (high-res logos, etc.) for reference only — not part of the build
   - `php/` - Shared PHP utilities (editions.php, helpers.php)
 - `plugins/` - Custom WordPress plugins (source):
   - `movie-post-type/` - Movie custom post type with sections, screenings

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'helpers.php';
+require_once 'favicon.php';
 
 /* ************************ NAVIGATION ************************ */
 register_nav_menus(array('primary' => 'Primary Menu'));
