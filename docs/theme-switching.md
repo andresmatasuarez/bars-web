@@ -7,7 +7,6 @@ This document covers everything needed to switch between `bars2013` and `bars202
 - [Theme Comparison](#theme-comparison)
 - [How It Works](#how-it-works)
 - [Local (Docker)](#local-docker)
-- [One-Time Production Setup](#one-time-production-setup)
 - [Production: Switch TO bars2026](#production-switch-to-bars2026)
 - [Production: Switch BACK TO bars2013](#production-switch-back-to-bars2013)
 

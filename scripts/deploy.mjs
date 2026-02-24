@@ -35,6 +35,22 @@ function formatSize(bytes) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
+/** Format current time as HH:MM:SS. */
+function formatTimestamp() {
+  const d = new Date();
+  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(d.getSeconds()).padStart(2, "0")}`;
+}
+
+/** Format milliseconds as human-readable duration (e.g. "2m 15s"). */
+function formatDuration(ms) {
+  const s = Math.round(ms / 1000);
+  if (s < 1) return "<1s";
+  if (s < 60) return `${s}s`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ${s % 60}s`;
+  return `${Math.floor(m / 60)}h ${m % 60}m`;
+}
+
 function resolveTargets(args) {
   const targets = [];
   for (const arg of args) {
@@ -173,7 +189,21 @@ async function connectClient(client) {
   }
 }
 
-async function uploadWithRetry(client, localPath, remotePath, { index, total, fileSize, displayName }) {
+async function connectWithRetry(client, { maxRetries = 5, label = "Reconnecting" } = {}) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      await connectClient(client);
+      return;
+    } catch (err) {
+      if (attempt === maxRetries) throw err;
+      const delay = Math.min(5000 * 2 ** (attempt - 1), 60000);
+      console.log(`${label}... attempt ${attempt}/${maxRetries} failed (${err.message}), retrying in ${delay / 1000}s`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
+}
+
+async function uploadWithRetry(client, localPath, remotePath, { index, total, fileSize, displayName, suffix = "" }) {
   const pad = String(total).length;
   const prefix = `    [${String(index).padStart(pad)}/${total}]`;
   const sizeStr = formatSize(fileSize);
@@ -196,7 +226,7 @@ async function uploadWithRetry(client, localPath, remotePath, { index, total, fi
       await client.uploadFrom(localPath, remotePath);
       client.trackProgress();
       if (showProgress) process.stdout.write("\r");
-      console.log(`${prefix}  ${displayName} (${sizeStr}) \u2713`);
+      console.log(`${formatTimestamp()}  ${prefix}  ${displayName} (${sizeStr}) \u2713${suffix}`);
       return;
     } catch (err) {
       client.trackProgress();
@@ -204,7 +234,7 @@ async function uploadWithRetry(client, localPath, remotePath, { index, total, fi
       if (attempt === MAX_RETRIES) throw err;
       console.log(`${prefix}  ${displayName} (${sizeStr}) ... retry ${attempt}/${MAX_RETRIES - 1} (${err.message})`);
       client.close();
-      await connectClient(client);
+      await connectWithRetry(client);
     }
   }
 }
@@ -280,6 +310,12 @@ async function deployDir(client, localDir, remoteDir, force) {
   // Upload new/changed files
   const dirs = new Set();
   const total = filesToUpload.length;
+  const totalBytes = filesToUpload.reduce(
+    (sum, rel) => sum + fs.statSync(path.join(localPath, rel)).size, 0
+  );
+  let bytesTransferredSoFar = 0;
+  const transferStartTime = Date.now();
+
   for (let i = 0; i < total; i++) {
     const relFile = filesToUpload[i];
     // Ensure remote subdirectories exist
@@ -292,14 +328,29 @@ async function deployDir(client, localDir, remoteDir, force) {
     const localFile = path.join(localPath, relFile);
     const remoteFile = path.posix.join(remoteDir, relFile);
     const fileSize = fs.statSync(localFile).size;
+
+    // Compute ETA suffix (suppress until 3 files done AND 3s elapsed; omit for last file)
+    let suffix = "";
+    const elapsed = Date.now() - transferStartTime;
+    if (i >= 3 && elapsed >= 3000 && i < total - 1 && bytesTransferredSoFar > 0) {
+      const bytesPerMs = bytesTransferredSoFar / elapsed;
+      const remainingBytes = totalBytes - bytesTransferredSoFar;
+      const etaMs = remainingBytes / bytesPerMs;
+      suffix = `  ETA ${formatDuration(etaMs)}`;
+    }
+
     await uploadWithRetry(client, localFile, remoteFile, {
       index: i + 1,
       total,
       fileSize,
       displayName: relFile,
+      suffix,
     });
+    bytesTransferredSoFar += fileSize;
   }
-  console.log(`    ${total}/${total} files uploaded`);
+
+  const totalElapsed = Date.now() - transferStartTime;
+  console.log(`    ${total}/${total} files uploaded in ${formatDuration(totalElapsed)}`);
 
   // Save manifest only after all uploads succeed (crash-safe)
   saveManifest(mPath, currentManifest);
@@ -330,7 +381,7 @@ const client = new Client();
 
 try {
   console.log(`Connecting to ${host}:${port}...`);
-  await connectClient(client);
+  await connectWithRetry(client, { label: "Connecting" });
   console.log("Connected.");
 
   if (force) console.log("\n--force: uploading all files regardless of manifest.");

@@ -35,15 +35,19 @@ Initial setup consists of getting hold of existing data from the live site and s
 
 We still need to download the images and files associated with the data we just exported to XML. These assets can be found in the BARS FTP server, in the remote directory `/2.0/wp-content/uploads` and must be downloaded into local folder `<project-root>/docker/wordpress/init-site/uploads`.
 
-As of October 2025, there's over 10k assets so downloading will probably be a long process ¯\\\_(ツ)\_/¯.
-
-To achieve this, you can use any FTP client such as [Filezilla](https://filezilla-project.org/) or `lftp` from the command line:
+As of February 2026, there're over 20k assets (~2.9 GB) so downloading will probably be a very long process ¯\\\_(ツ)\_/¯.
 
 ```sh
-lftp -u <FTP_USER> -e "set ssl:verify-certificate no; mirror /2.0/wp-content/uploads docker/wordpress/init-site/uploads; quit" ftp://<FTP_HOST>
+npm run download:assets
 ```
 
-`lftp` handles the server's TLS requirement automatically and prompts for the password interactively. Install with `sudo apt install lftp` or `brew install lftp`.
+This uses the same FTP credentials from `.env` as the deploy script. It's **incremental** — files that already exist locally are skipped. Re-run to resume after an interruption. Use `--force` to re-download everything:
+
+```sh
+node --env-file=.env scripts/download-assets.mjs --force
+```
+
+Alternatively, you can use any FTP client such as [Filezilla](https://filezilla-project.org/) to download `/2.0/wp-content/uploads` into `docker/wordpress/init-site/uploads`.
 
 ### Docker setup
 
@@ -243,11 +247,11 @@ Stored in `deploy/` (committed to VC). One JSON file per target, with the filena
 
 ### Edge cases
 
-| Scenario | What happens |
-|---|---|
-| First deploy (no manifest) | All files uploaded, manifest created |
-| Interrupted deploy | Old manifest retained; next run re-uploads everything that changed |
-| File deleted from build | Deleted from remote, removed from manifest |
-| Remote manually modified | Run with `--force` to re-sync everything |
-| Rebuild with no source changes | Hashes match — "No changes detected, skipping" |
+| Scenario                        | What happens                                                                                                   |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| First deploy (no manifest)      | All files uploaded, manifest created                                                                           |
+| Interrupted deploy              | Old manifest retained; next run re-uploads everything that changed                                             |
+| File deleted from build         | Deleted from remote, removed from manifest                                                                     |
+| Remote manually modified        | Run with `--force` to re-sync everything                                                                       |
+| Rebuild with no source changes  | Hashes match — "No changes detected, skipping"                                                                 |
 | Deploy from a different machine | Hashed content is the same, so only truly different files upload (except `.map` files, which always re-upload) |
