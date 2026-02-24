@@ -6,6 +6,16 @@
  */
 
 /**
+ * Percent-encode non-ASCII bytes in a URL so crawlers (WhatsApp, etc.)
+ * can resolve filenames with Unicode characters (e.g. Korean, Chinese).
+ */
+function bars_seo_encode_url($url) {
+    return preg_replace_callback('/[\x80-\xff]/', function($m) {
+        return rawurlencode($m[0]);
+    }, $url);
+}
+
+/**
  * Truncate text to a word boundary, stripping tags and collapsing whitespace.
  */
 function bars_seo_truncate($text, $limit = 155) {
@@ -443,11 +453,16 @@ function bars_seo_open_graph() {
     echo '<meta property="og:locale" content="es_AR">' . "\n";
     if ($image_meta['url']) {
         // Ensures og:image scheme matches the page (http vs https). Can remove if WP config uses correct scheme for uploads.
-        $image_url = set_url_scheme($image_meta['url']);
+        $image_url = bars_seo_encode_url(set_url_scheme($image_meta['url']));
         echo '<meta property="og:image" content="' . esc_url($image_url) . '">' . "\n";
         if ($image_meta['width']) {
             echo '<meta property="og:image:width" content="' . intval($image_meta['width']) . '">' . "\n";
             echo '<meta property="og:image:height" content="' . intval($image_meta['height']) . '">' . "\n";
+        }
+        $ext = strtolower(pathinfo(parse_url($image_url, PHP_URL_PATH), PATHINFO_EXTENSION));
+        $type_map = array('jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'gif' => 'image/gif', 'webp' => 'image/webp');
+        if (isset($type_map[$ext])) {
+            echo '<meta property="og:image:type" content="' . $type_map[$ext] . '">' . "\n";
         }
     }
 }
@@ -466,7 +481,7 @@ function bars_seo_twitter_card() {
     echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
     if ($image) {
         // Ensures twitter:image scheme matches the page (http vs https). Can remove if WP config uses correct scheme for uploads.
-        $image = set_url_scheme($image);
+        $image = bars_seo_encode_url(set_url_scheme($image));
         echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
     }
 }
