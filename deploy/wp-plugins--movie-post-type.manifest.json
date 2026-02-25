@@ -1,5 +1,7 @@
 {
   "admin-movie-block.js": "e16355e8227ed0b9a11065116c43b6ee9b9ec0fa9431086d77fb122510f0531b",
-  "admin-movie.js": "227ec7a73624a2e4325ded8bc5ed6ae8f439d85a39e3fe9ea75f544eb8e1c27f",
-  "movie-post-type.php": "5b847dd646de638e23aedd779a07236c50129a3f54ac24377448be1482095ae8"
+  "admin-movie.js": "39c94274010e96c687251818acd68082506ca1e8eeb2e037b3ddc34d5d24e530",
+  "movie-post-type.php": "4599a40a85eed7d5bda060fc60c209a4f3044130d5ccc02ce41270397180e979",
+  "translations-en.php": "13ee4ff8757739132e0a9e12b959620d866d74d89fa0056a913a94f0e4f858cb",
+  "translations-es.php": "9cdad152c9232782d65902cb5bfc1ff6cb7d935e5f5ee104d682a8f57cd17de3"
 }
