@@ -1,4 +1,5 @@
 import EDITIONS from '@shared/editions.json';
+import integerToRoman from '@shared/ts/integerToRoman';
 
 import { parseDate } from './helpers';
 import { Venues } from './types';
@@ -81,5 +82,13 @@ export default class Editions {
     }
 
     return venue.name;
+  }
+
+  static romanNumerals(edition: SingleEdition): string {
+    return integerToRoman(edition.number);
+  }
+
+  static getTitle(edition: SingleEdition): string {
+    return 'BARS ' + integerToRoman(edition.number);
   }
 }

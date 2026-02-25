@@ -86,16 +86,21 @@ function bars_seo_get_title() {
     if ($movie_post) {
         $type = get_post_type($movie_post);
         if ($type === 'movie') {
-            $directors = get_post_meta($movie_post->ID, '_movie_directors', true);
             $title = get_the_title($movie_post->ID);
-            return $directors ? $title . ' - ' . $directors : $title;
+            $suffix = bars_seo_title_suffix($movie_post->ID, '_movie_edition', '_movie_section');
+            return $suffix ? $title . ' (' . $suffix . ')' : $title;
         }
-        return get_post_meta($movie_post->ID, '_movieblock_name', true) ?: get_the_title($movie_post->ID);
+        // movieblock
+        $title = get_post_meta($movie_post->ID, '_movieblock_name', true) ?: get_the_title($movie_post->ID);
+        $suffix = bars_seo_title_suffix($movie_post->ID, '_movieblock_edition', '_movieblock_section');
+        return $suffix ? $title . ' (' . $suffix . ')' : $title;
     }
 
     $jury_post = bars_seo_get_jury_from_param();
     if ($jury_post) {
-        return get_post_meta($jury_post->ID, '_jury_name', true) ?: get_the_title($jury_post->ID);
+        $name = get_post_meta($jury_post->ID, '_jury_name', true) ?: get_the_title($jury_post->ID);
+        $suffix = bars_seo_jury_title_suffix($jury_post->ID);
+        return $suffix ? $name . ' (' . $suffix . ')' : $name;
     }
 
     if (is_front_page()) {
@@ -103,13 +108,23 @@ function bars_seo_get_title() {
     }
 
     if (is_singular('movie')) {
-        $directors = get_post_meta(get_the_ID(), '_movie_directors', true);
         $title = get_the_title();
-        return $directors ? $title . ' - ' . $directors : $title;
+        $suffix = bars_seo_title_suffix(get_the_ID(), '_movie_edition', '_movie_section');
+        return $suffix ? $title . ' (' . $suffix . ')' : $title;
     }
 
     if (is_singular('movieblock')) {
-        return get_post_meta(get_the_ID(), '_movieblock_name', true) ?: get_the_title();
+        $title = get_post_meta(get_the_ID(), '_movieblock_name', true) ?: get_the_title();
+        $suffix = bars_seo_title_suffix(get_the_ID(), '_movieblock_edition', '_movieblock_section');
+        return $suffix ? $title . ' (' . $suffix . ')' : $title;
+    }
+
+    // Edition-parameterized pages: /programacion?e=25, /premios?e=25
+    if ((is_page('programacion') || is_page('premios')) && isset($_GET['e'])) {
+        $e_edition = Editions::getByNumber(intval($_GET['e']));
+        if ($e_edition) {
+            return get_the_title() . ' (' . Editions::getTitle($e_edition) . ')';
+        }
     }
 
     if (is_singular()) {
@@ -413,6 +428,34 @@ function bars_seo_section_label($post_id, $meta_key) {
     $section = get_post_meta($post_id, $meta_key, true);
     if (!$section) { return ''; }
     return getMovieSectionLabel($section);
+}
+
+/**
+ * Build a page-title suffix like "BARS XXVI - Competencia Internacional".
+ */
+function bars_seo_title_suffix($post_id, $edition_key, $section_key) {
+    $prefix = bars_seo_edition_prefix($post_id, $edition_key);
+    $section = bars_seo_section_label($post_id, $section_key);
+    if ($prefix && $section) { return $prefix . ' - ' . $section; }
+    if ($prefix) { return $prefix; }
+    if ($section) { return $section; }
+    return '';
+}
+
+/**
+ * Build a jury page-title suffix like "BARS XXIII - Jurado Competencia Internacional de Largometrajes".
+ */
+function bars_seo_jury_title_suffix($post_id) {
+    $prefix = bars_seo_edition_prefix($post_id, '_jury_edition');
+    $section = '';
+    $section_id = get_post_meta($post_id, '_jury_section', true);
+    if ($section_id) {
+        $section = 'Jurado ' . getJurySectionLabel($section_id);
+    }
+    if ($prefix && $section) { return $prefix . ' - ' . $section; }
+    if ($prefix) { return $prefix; }
+    if ($section) { return $section; }
+    return '';
 }
 
 /**

@@ -242,6 +242,17 @@ get_template_part('template-parts/sections/page', 'hero');
 <div id="jury-modal-root"></div>
 
 <script>
+window.CURRENT_EDITION = <?php echo $edition['number']; ?>;
+<?php
+$seo_base = get_the_title();
+if ($isPastEdition) {
+    $seo_base .= ' (' . Editions::getTitle($edition) . ')';
+}
+echo 'window.BASE_PAGE_TITLE = ' . json_encode($seo_base . " \xE2\x80\x93 " . get_bloginfo('name')) . ';';
+?>
+</script>
+
+<script>
 document.querySelectorAll('.jury-card-toggle').forEach(function(el) {
     el.addEventListener('click', function() {
         var id = this.getAttribute('data-jury-id');

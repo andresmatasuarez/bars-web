@@ -1,3 +1,4 @@
+import Editions from '@shared/ts/selection/Editions';
 import { useCallback, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -12,6 +13,27 @@ interface JuryMember {
   photoUrl: string;
   slug: string;
   bio: string;
+}
+
+function buildJuryDocumentTitle(member: JuryMember): string {
+  const prefix =
+    typeof window.CURRENT_EDITION === 'number'
+      ? Editions.getTitle(Editions.getByNumber(window.CURRENT_EDITION))
+      : '';
+  const section = member.section ? `Jurado ${member.section}` : '';
+  let suffix = '';
+  if (prefix && section) {
+    suffix = `${prefix} - ${section}`;
+  } else if (prefix) {
+    suffix = prefix;
+  } else if (section) {
+    suffix = section;
+  }
+  const siteSuffix =
+    window.BASE_PAGE_TITLE?.split(' \u2013 ').slice(1).join(' \u2013 ') || '';
+  return suffix
+    ? `${member.name} (${suffix}) \u2013 ${siteSuffix}`
+    : `${member.name} \u2013 ${siteSuffix}`;
 }
 
 function CloseButton({ onClick }: { onClick: () => void }) {
@@ -267,11 +289,13 @@ function JuryModalApp() {
     const detail = (e as CustomEvent<JuryMember>).detail;
     setMember(detail);
     history.pushState(null, '', buildUrl(detail.slug));
+    document.title = buildJuryDocumentTitle(detail);
   }, []);
 
   const handleClose = useCallback(() => {
     setMember(null);
     history.pushState(null, '', buildUrl(null));
+    document.title = window.BASE_PAGE_TITLE || document.title;
   }, []);
 
   useEffect(() => {
@@ -282,7 +306,11 @@ function JuryModalApp() {
   useEffect(() => {
     const onPopState = () => {
       const slug = getJurySlugFromUrl();
-      setMember(slug ? extractJuryFromCard(slug) : null);
+      const juryMember = slug ? extractJuryFromCard(slug) : null;
+      setMember(juryMember);
+      document.title = juryMember
+        ? buildJuryDocumentTitle(juryMember)
+        : window.BASE_PAGE_TITLE || document.title;
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);

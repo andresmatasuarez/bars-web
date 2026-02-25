@@ -6,5 +6,6 @@ declare global {
     MOVIE_SECTIONS: MovieSections;
     CURRENT_EDITION: number;
     LATEST_EDITION: number;
+    BASE_PAGE_TITLE: string;
   }
 }

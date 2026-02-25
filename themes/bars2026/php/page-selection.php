@@ -112,6 +112,12 @@ get_template_part('template-parts/sections/page', 'hero');
                     echo 'window.MOVIE_SECTIONS = ' . json_encode($movieSections) . ';';
                     echo 'window.CURRENT_EDITION = ' . $currentEdition['number'] . ';';
                     echo 'window.LATEST_EDITION = ' . Editions::current()['number'] . ';';
+
+                    $seo_base = get_the_title();
+                    if ($isPastEdition) {
+                        $seo_base .= ' (' . Editions::getTitle($currentEdition) . ')';
+                    }
+                    echo 'window.BASE_PAGE_TITLE = ' . json_encode($seo_base . " \xE2\x80\x93 " . get_bloginfo('name')) . ';';
                 ?>
             </script>
             <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/selection.iife.js"></script>
