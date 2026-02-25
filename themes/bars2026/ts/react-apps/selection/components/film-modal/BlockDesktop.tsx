@@ -1,3 +1,4 @@
+import { compareScreenings } from '@shared/ts/selection/data/helpers';
 import { SingleEdition } from '@shared/ts/selection/Editions';
 import { Movie, MovieSections } from '@shared/ts/selection/types';
 
@@ -57,7 +58,7 @@ export default function BlockDesktop({
           <h3 className="font-heading text-2xl font-medium text-white">
             Funciones
           </h3>
-          {movie.screenings.map((s) => (
+          {[...movie.screenings].sort(compareScreenings).map((s) => (
             <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} />
           ))}
         </div>
