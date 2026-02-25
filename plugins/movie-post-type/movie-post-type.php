@@ -7,6 +7,15 @@
 	License: GPLv2
 */
 
+	function movie_load_translations() {
+		$lang = 'es';
+		$file = plugin_dir_path(__FILE__) . 'translations-' . $lang . '.php';
+		if (file_exists($file)) {
+			return require $file;
+		}
+		return require plugin_dir_path(__FILE__) . 'translations-en.php';
+	}
+
 	add_action('admin_init', 'admin_load_scripts');
 	function admin_load_scripts() {
 		$admin_movie_file = plugins_url( 'admin-movie.js', __FILE__ );
@@ -25,8 +34,25 @@
 			foreach (Editions::all() as $ed) {
 				$venuesByEdition['bars' . $ed['number']] = isset($ed['venues']) ? $ed['venues'] : array();
 			}
+			$t = movie_load_translations();
 			wp_localize_script('admin-movie', 'BARS_SCREENINGS', array(
-				'venuesByEdition' => $venuesByEdition
+				'venuesByEdition' => $venuesByEdition,
+				'i18n' => array(
+					'cinema'            => $t['screeningCinema'],
+					'streaming'         => $t['screeningStreaming'],
+					'selectVenue'       => $t['screeningSelectVenue'],
+					'room'              => $t['screeningRoom'],
+					'alwaysAvailable'   => $t['screeningAlwaysAvailable'],
+					'addScreening'      => $t['screeningAddScreening'],
+					'headerType'        => $t['screeningHeaderType'],
+					'headerVenue'       => $t['screeningHeaderVenue'],
+					'headerDateTime'    => $t['screeningHeaderDateTime'],
+					'headerTicketUrl'   => $t['screeningHeaderTicketUrl'],
+					'ticketUrl'         => $t['screeningTicketUrl'],
+					'remove'            => $t['screeningRemove'],
+					'rawWarning'        => $t['screeningRawWarning'],
+					'venueNotInEdition' => $t['screeningVenueNotInEdition'],
+				)
 			));
 		}
 	}
@@ -122,85 +148,88 @@
 		$currentEditionKey = reset($barscommons_editionOptions)['value']; // https://stackoverflow.com/a/1028677
 		$movieBlocks = movieBlocks($currentEditionKey);
 
+		$t = movie_load_translations();
+
 		/* ***** MOVIE FIELD DEFINITIONS ***** */
 		$movie_prefix = '_movie_';
 		$movie_fields = array(
 			array(
 				'id'    => $movie_prefix . 'edition',
-				'label' => 'Edition',
+				'label' => $t['edition'],
 				'type'  => 'select',
 				'options' => $barscommons_editionOptions
 			),
 			array(
 				'id'    => $movie_prefix . 'movieblock',
-				'label' => 'Movie block',
+				'label' => $t['movieBlock'],
 				'type'  => 'select',
 				'options' => $movieBlocks
 			),
 			array(
 				'id'    => $movie_prefix . 'section',
-				'label' => 'Section',
+				'label' => $t['section'],
 				'type'  => 'select',
 				'options' => $movieSections
 			),
 			array(
 				'id'    => $movie_prefix . 'name',
-				'label' => 'Name',
+				'label' => $t['name'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movie_prefix . 'country',
-				'label' => 'Country',
+				'label' => $t['country'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movie_prefix . 'year',
-				'label' => 'Year',
+				'label' => $t['year'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movie_prefix . 'directors',
-				'label' => 'Directors',
-				'desc' => 'Comma-separated',
+				'label' => $t['directors'],
+				'desc' => $t['descCommaSeparated'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movie_prefix . 'cast',
-				'label' => 'Cast',
-				'desc' => 'Comma-separated',
+				'label' => $t['cast'],
+				'desc' => $t['descCommaSeparated'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movie_prefix . 'runtime',
-				'label' => 'Runtime',
-				'desc' => 'Duration in minutes',
+				'label' => $t['runtime'],
+				'desc' => $t['descDuration'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movie_prefix . 'trailer',
-				'label' => 'Trailer',
-				'desc' => 'YouTube/Vimeo video URL',
+				'label' => $t['trailer'],
+				'desc' => $t['descVideoUrl'],
 				'type'  => 'text'
 			),
 				array(
 				'id'    => $movie_prefix . 'screenings',
-				'label' => 'Film screenings',
+				'label' => $t['screenings'],
 				'type'  => 'custom',
 				'render' => 'render_screenings_field'
 			),
 			array(
 				'id'    => $movie_prefix . 'streamingLink',
-				'label' => 'Streaming link',
-				'type'  => 'text'
+				'label' => $t['streamingLink'],
+				'type'  => 'text',
+				'desc'  => $t['descStreamingLink']
 			),
 			array(
 				'id'    => $movie_prefix . 'synopsis',
-				'label' => 'Synopsis',
+				'label' => $t['synopsis'],
 				'type'  => 'textarea'
 			),
 			array(
 				'id'    => $movie_prefix . 'comments',
-				'label' => 'Comments',
+				'label' => $t['comments'],
 				'type'  => 'textarea'
 			)
 		);
@@ -209,37 +238,38 @@
 		$movieblock_fields = array(
 			array(
 				'id'    => $movieblock_prefix . 'edition',
-				'label' => 'Edition',
+				'label' => $t['edition'],
 				'type'  => 'select',
 				'options' => $barscommons_editionOptions
 			),
 			array(
 				'id'    => $movieblock_prefix . 'section',
-				'label' => 'Section',
+				'label' => $t['section'],
 				'type'  => 'select',
 				'options' => $movieSections
 			),
 			array(
 				'id'    => $movieblock_prefix . 'name',
-				'label' => 'Name',
+				'label' => $t['name'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movieblock_prefix . 'runtime',
-				'label' => 'Runtime',
-				'desc' => 'Duration in minutes',
+				'label' => $t['runtime'],
+				'desc' => $t['descDuration'],
 				'type'  => 'text'
 			),
 			array(
 				'id'    => $movieblock_prefix . 'screenings',
-				'label' => 'Film screenings',
+				'label' => $t['screenings'],
 				'type'  => 'custom',
 				'render' => 'render_screenings_field'
 			),
 			array(
 				'id'    => $movieblock_prefix . 'streamingLink',
-				'label' => 'Streaming link',
-				'type'  => 'text'
+				'label' => $t['streamingLink'],
+				'type'  => 'text',
+				'desc'  => $t['descStreamingLink']
 			),
 		);
 	}
@@ -312,9 +342,10 @@
 
 	// Add movie meta box.
 	function add_movie_meta_box() {
+		$t = movie_load_translations();
 		add_meta_box(
 			'movie_meta_box', // $id
-			'Movie Info', // $title
+			$t['movieInfoTitle'], // $title
 			'show_movie_meta_box', // $callback
 			'movie', // $page
 			'normal', // $context
@@ -323,9 +354,10 @@
 
 	// Add short film series meta box.
 	function add_movieblock_meta_box() {
+		$t = movie_load_translations();
 		add_meta_box(
 			'movieblock_meta_box', // $id
-			'Movie Block Info', // $title
+			$t['movieBlockInfoTitle'], // $title
 			'show_movieblock_meta_box', // $callback
 			'movieblock', // $page
 			'normal', // $context

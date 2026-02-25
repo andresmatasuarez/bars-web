@@ -15,6 +15,10 @@ jQuery(document).ready(function($) {
 		? BARS_SCREENINGS.venuesByEdition
 		: {};
 
+	var i18n = (typeof BARS_SCREENINGS !== 'undefined' && BARS_SCREENINGS.i18n)
+		? BARS_SCREENINGS.i18n
+		: {};
+
 	// Inject CSS once
 	if (!$('#bars-screenings-styles').length) {
 		$('head').append(
@@ -216,7 +220,7 @@ jQuery(document).ready(function($) {
 	function buildVenueSelect(venues, selectedKey, cssClass, disabled) {
 		var keys = objectKeys(venues);
 		var html = '<select class="' + cssClass + ' screening-venue"' + (disabled ? ' disabled' : '') + '>';
-		if (!disabled) html += '<option value="">— Select venue —</option>';
+		if (!disabled) html += '<option value="">' + i18n.selectVenue + '</option>';
 		for (var i = 0; i < keys.length; i++) {
 			var k = keys[i];
 			var selected = (k === selectedKey) ? ' selected' : '';
@@ -234,11 +238,13 @@ jQuery(document).ready(function($) {
 
 		// Raw fallback row
 		if (screening.type === 'raw') {
+			var rawWarning = i18n.rawWarning;
+			var removeTitle = i18n.remove;
 			return $(
 				'<div class="screening-row screening-raw">' +
-					'<span class="screening-raw-text" title="Unrecognized format — will be saved as-is">&#9888; ' +
+					'<span class="screening-raw-text" title="' + rawWarning + '">&#9888; ' +
 					$('<span>').text(screening.raw).html() + '</span>' +
-					'<a href="#" class="screening-remove" title="Remove">&times;</a>' +
+					'<a href="#" class="screening-remove" title="' + removeTitle + '">&times;</a>' +
 				'</div>'
 			).data('raw', screening.raw);
 		}
@@ -249,12 +255,19 @@ jQuery(document).ready(function($) {
 		var radioName = 'screening_type_' + (screeningRowCounter++);
 		var ticketUrlValue = (!isStreaming && screening.ticketUrl) ? screening.ticketUrl : '';
 
+		var cinemaLabel = i18n.cinema;
+		var streamingLabel = i18n.streaming;
+		var roomPlaceholder = i18n.room;
+		var alwaysAvailableLabel = i18n.alwaysAvailable;
+		var ticketUrlPlaceholder = i18n.ticketUrl;
+		var removeTitle = i18n.remove;
+
 		var html = '<div class="screening-row">';
 
 		// Type toggle
 		html += '<span class="screening-type-toggle">' +
-			'<label><input type="radio" class="screening-type-radio" name="' + radioName + '" value="inperson"' + inpersonChecked + '> Cinema</label>' +
-			'<label><input type="radio" class="screening-type-radio" name="' + radioName + '" value="streaming"' + streamingChecked + '> Streaming</label>' +
+			'<label><input type="radio" class="screening-type-radio" name="' + radioName + '" value="inperson"' + inpersonChecked + '> ' + cinemaLabel + '</label>' +
+			'<label><input type="radio" class="screening-type-radio" name="' + radioName + '" value="streaming"' + streamingChecked + '> ' + streamingLabel + '</label>' +
 			'</span>';
 
 		// Cinema controls
@@ -278,7 +291,7 @@ jQuery(document).ready(function($) {
 		} else {
 			html += buildVenueSelect(physical, ipVenue, 'screening-ip-venue');
 		}
-		html += '<input type="text" class="screening-room" placeholder="Room" value="' + $('<span>').text(ipRoom).html() + '">';
+		html += '<input type="text" class="screening-room" placeholder="' + roomPlaceholder + '" value="' + $('<span>').text(ipRoom).html() + '">';
 		html += '</span>';
 
 		// DateTime column
@@ -315,7 +328,7 @@ jQuery(document).ready(function($) {
 		var availRadioName = 'screening_avail_' + (screeningRowCounter - 1);
 		html += '<span class="screening-col-datetime">';
 		html += '<span class="screening-avail-options">' +
-			'<label><input type="radio" class="screening-avail-radio" name="' + availRadioName + '" value="always"' + (stAlways ? ' checked' : '') + '> Always available</label>' +
+			'<label><input type="radio" class="screening-avail-radio" name="' + availRadioName + '" value="always"' + (stAlways ? ' checked' : '') + '> ' + alwaysAvailableLabel + '</label>' +
 			'<label><input type="radio" class="screening-avail-radio" name="' + availRadioName + '" value="date"' + (!stAlways ? ' checked' : '') + '> ' +
 			'<input type="date" class="screening-date" value="' + stDate + '"></label>' +
 			'</span>';
@@ -325,11 +338,11 @@ jQuery(document).ready(function($) {
 
 		// Ticket URL column (hidden for streaming rows)
 		html += '<span class="screening-col-ticket">';
-		html += '<input type="text" class="screening-ticket-url" placeholder="Ticket URL" value="' + $('<span>').text(ticketUrlValue).html() + '"' + (isStreaming ? ' disabled style="display:none"' : '') + '>';
+		html += '<input type="text" class="screening-ticket-url" placeholder="' + ticketUrlPlaceholder + '" value="' + $('<span>').text(ticketUrlValue).html() + '"' + (isStreaming ? ' disabled style="display:none"' : '') + '>';
 		html += '</span>';
 
 		// Remove button
-		html += '<a href="#" class="screening-remove" title="Remove">&times;</a>';
+		html += '<a href="#" class="screening-remove" title="' + removeTitle + '">&times;</a>';
 		html += '</div>';
 
 		return $(html);
@@ -349,6 +362,7 @@ jQuery(document).ready(function($) {
 		// Remove old venue control (select, hidden, label)
 		$ipVenueCol.find('.screening-venue, .screening-venue-label, .screening-venue-warning').remove();
 
+		var venueWarningTemplate = i18n.venueNotInEdition;
 		var $ipRoom = $ipVenueCol.find('.screening-room');
 		if (physicalKeys.length === 0) {
 			$ipRoom.before('<input type="hidden" class="screening-venue" value="">');
@@ -361,7 +375,7 @@ jQuery(document).ready(function($) {
 			if (currentIpVenue && physical[currentIpVenue]) {
 				$newSelect.val(currentIpVenue);
 			} else if (currentIpVenue) {
-				$ipRoom.before('<span class="screening-venue-warning">Venue "' + currentIpVenue + '" not in this edition</span>');
+				$ipRoom.before('<span class="screening-venue-warning">' + venueWarningTemplate.replace('%s', currentIpVenue) + '</span>');
 			}
 			$ipRoom.before($newSelect);
 		}
@@ -384,7 +398,7 @@ jQuery(document).ready(function($) {
 			if (currentStVenue && online[currentStVenue]) {
 				$onSelect.val(currentStVenue);
 			} else if (currentStVenue) {
-				$stVenueCol.append('<span class="screening-venue-warning">Venue "' + currentStVenue + '" not in this edition</span>');
+				$stVenueCol.append('<span class="screening-venue-warning">' + venueWarningTemplate.replace('%s', currentStVenue) + '</span>');
 			}
 			$stVenueCol.append($onSelect);
 		}
@@ -410,7 +424,11 @@ jQuery(document).ready(function($) {
 		var $rowsContainer = $('<div class="screening-rows"></div>');
 		$rowsContainer.append(
 			'<div class="screening-header">' +
-				'<span>Type</span><span>Venue</span><span>Date / Time</span><span>Ticket URL</span><span></span>' +
+				'<span>' + i18n.headerType + '</span>' +
+				'<span>' + i18n.headerVenue + '</span>' +
+				'<span>' + i18n.headerDateTime + '</span>' +
+				'<span>' + i18n.headerTicketUrl + '</span>' +
+				'<span></span>' +
 			'</div>'
 		);
 		for (var i = 0; i < screenings.length; i++) {
@@ -419,7 +437,7 @@ jQuery(document).ready(function($) {
 		$container.append($rowsContainer);
 
 		// Add button
-		var $addBtn = $('<button type="button" class="button screening-add">+ Add screening</button>');
+		var $addBtn = $('<button type="button" class="button screening-add">' + i18n.addScreening + '</button>');
 		$container.append($addBtn);
 
 		// ─── Events ─────────────────────────────────────────────────────
