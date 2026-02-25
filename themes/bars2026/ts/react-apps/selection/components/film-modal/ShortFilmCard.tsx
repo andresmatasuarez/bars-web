@@ -81,6 +81,11 @@ export function ShortFilmCard({ short: s, screenings, currentEdition }: ShortFil
             dangerouslySetInnerHTML={{ __html: s.synopsis }}
           />
         )}
+        {s.comments && (
+          <div className="border-l border-white/15 pl-2 text-[11px] leading-[1.5] text-white/35 italic mt-1">
+            {s.comments}
+          </div>
+        )}
         <VerButton short={s} screenings={screenings} currentEdition={currentEdition} />
       </div>
     </div>
@@ -117,6 +122,11 @@ export function DesktopShortCard({ short: s, screenings, currentEdition }: Short
             className="text-[11px] leading-[1.4] text-white/27 mt-1 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
             dangerouslySetInnerHTML={{ __html: s.synopsis }}
           />
+        )}
+        {s.comments && (
+          <div className="border-l border-white/15 pl-2 text-[11px] leading-[1.4] text-white/20 italic mt-1">
+            {s.comments}
+          </div>
         )}
         <VerButton short={s} screenings={screenings} currentEdition={currentEdition} />
       </div>

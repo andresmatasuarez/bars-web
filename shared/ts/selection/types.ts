@@ -98,6 +98,7 @@ export type ShortFilm = {
   heroThumbnail?: string;
   directors?: string;
   synopsis?: string;
+  comments?: string;
   streamingLink?: string;
 };
 
@@ -134,6 +135,7 @@ export type Movie = {
   directors?: string;
   cast?: string;
   synopsis?: string;
+  comments?: string;
   trailerUrl?: string;
 
   /** Only present for blocks (isBlock === true) */

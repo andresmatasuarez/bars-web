@@ -70,15 +70,18 @@ export default function RegularFilmDesktop({
           )}
           {/* Synopsis */}
           {movie.synopsis && (
-            <>
-              <h3 className="font-heading text-2xl font-medium text-white shrink-0">Sinopsis</h3>
-              <div className="flex-1 min-h-0 overflow-y-auto pb-10 pr-4">
-                <div
-                  className="text-sm leading-[1.7] text-white/80 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
-                  dangerouslySetInnerHTML={{ __html: movie.synopsis }}
-                />
-              </div>
-            </>
+            <div className="flex-1 min-h-0 overflow-y-auto pb-10 pr-4">
+              <h3 className="font-heading text-2xl font-medium text-white mb-6">Sinopsis</h3>
+              <div
+                className="text-sm leading-[1.7] text-white/80 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
+                dangerouslySetInnerHTML={{ __html: movie.synopsis }}
+              />
+              {movie.comments && (
+                <div className="border-l-2 border-white/20 pl-3 text-sm leading-[1.7] text-white/60 italic mt-8">
+                  {movie.comments}
+                </div>
+              )}
+            </div>
           )}
         </div>
 
@@ -93,7 +96,12 @@ export default function RegularFilmDesktop({
             <div className="flex flex-col gap-3">
               <h3 className="font-heading text-2xl font-medium text-white">Funciones</h3>
               {movie.screenings.map((s) => (
-                <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} />
+                <ScreeningCard
+                  key={s.raw}
+                  screening={s}
+                  streamingLink={movie.streamingLink}
+                  currentEdition={currentEdition}
+                />
               ))}
             </div>
           )}

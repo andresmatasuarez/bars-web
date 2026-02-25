@@ -157,6 +157,7 @@
         'heroThumbnail' => get_the_post_thumbnail($short->ID, 'large'),
         'directors' => get_post_meta($short->ID, '_movie_directors', true) ?: null,
         'synopsis' => get_post_meta($short->ID, '_movie_synopsis', true) ?: null,
+        'comments' => get_post_meta($short->ID, '_movie_comments', true) ?: null,
         'streamingLink' => get_post_meta($short->ID, '_movie_streamingLink', true) ?: null,
       );
     }, $shorts);
@@ -228,9 +229,12 @@
       $synopsis = get_post_meta($post->ID, '_movie_synopsis', true);
       $trailerUrl = get_post_meta($post->ID, '_movie_trailer', true);
 
+      $comments = get_post_meta($post->ID, '_movie_comments', true);
+
       if ($directors) $result['directors'] = $directors;
       if ($cast) $result['cast'] = $cast;
       if ($synopsis) $result['synopsis'] = $synopsis;
+      if ($comments) $result['comments'] = $comments;
       if ($trailerUrl) $result['trailerUrl'] = $trailerUrl;
     } else {
       $result['shorts'] = getShortsForBlock($post->ID);
