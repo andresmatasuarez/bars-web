@@ -190,7 +190,7 @@
 			),
 			array(
 				'id'    => $movie_prefix . 'streamingLink',
-				'label' => 'Streaming link (for online editions only)',
+				'label' => 'Streaming link',
 				'type'  => 'text'
 			),
 			array(
@@ -238,7 +238,7 @@
 			),
 			array(
 				'id'    => $movieblock_prefix . 'streamingLink',
-				'label' => 'Streaming link (for online editions only)',
+				'label' => 'Streaming link',
 				'type'  => 'text'
 			),
 		);

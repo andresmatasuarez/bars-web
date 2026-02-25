@@ -47,10 +47,11 @@ jQuery(document).ready(function($) {
 			'.screening-row input[type="text"].screening-ticket-url{width:200px}' +
 			'.screening-row .screening-venue-label{font-style:italic;color:#555}' +
 			'.screening-row .screening-venue-warning{color:#dc3232;font-size:12px;font-style:italic}' +
-			'.screening-row .screening-always-available{display:flex;align-items:center;gap:4px}' +
+			'.screening-row .screening-avail-options{display:flex;flex-direction:column;gap:4px}' +
 			'.screening-header{display:contents}' +
 			'.screening-header span{padding:4px 10px;font-weight:600;font-size:12px;color:#555;border-bottom:1px solid #bbb}' +
 			'.bars-screenings-repeater .screening-add{margin-top:8px}' +
+			'.screening-rows .screening-type-toggle,.screening-rows .screening-col-datetime,.screening-rows .screening-remove,.screening-header span:nth-child(odd){background:#f9f9f9}' +
 			'</style>'
 		);
 	}
@@ -168,7 +169,7 @@ jQuery(document).ready(function($) {
 
 		if (type === 'streaming') {
 			var venue = $row.find('.screening-venue').val() || '';
-			var always = $row.find('.screening-always-check').is(':checked');
+			var always = $row.find('.screening-avail-radio:checked').val() === 'always';
 			if (always) {
 				return 'streaming!' + venue + ':full';
 			}
@@ -311,18 +312,20 @@ jQuery(document).ready(function($) {
 		html += '</span>';
 
 		// DateTime column
+		var availRadioName = 'screening_avail_' + (screeningRowCounter - 1);
 		html += '<span class="screening-col-datetime">';
-		html += '<span class="screening-always-available">' +
-			'<input type="checkbox" class="screening-always-check"' + (stAlways ? ' checked' : '') + '>' +
-			'<label>Always available</label></span>';
-		html += '<input type="date" class="screening-date" value="' + stDate + '"' + (stAlways ? ' style="display:none"' : '') + '>';
+		html += '<span class="screening-avail-options">' +
+			'<label><input type="radio" class="screening-avail-radio" name="' + availRadioName + '" value="always"' + (stAlways ? ' checked' : '') + '> Always available</label>' +
+			'<label><input type="radio" class="screening-avail-radio" name="' + availRadioName + '" value="date"' + (!stAlways ? ' checked' : '') + '> ' +
+			'<input type="date" class="screening-date" value="' + stDate + '"></label>' +
+			'</span>';
 		html += '</span>';
 
 		html += '</span>';
 
 		// Ticket URL column (hidden for streaming rows)
-		html += '<span class="screening-col-ticket"' + (isStreaming ? ' style="visibility:hidden"' : '') + '>';
-		html += '<input type="text" class="screening-ticket-url" placeholder="Ticket URL" value="' + $('<span>').text(ticketUrlValue).html() + '"' + (isStreaming ? ' disabled' : '') + '>';
+		html += '<span class="screening-col-ticket">';
+		html += '<input type="text" class="screening-ticket-url" placeholder="Ticket URL" value="' + $('<span>').text(ticketUrlValue).html() + '"' + (isStreaming ? ' disabled style="display:none"' : '') + '>';
 		html += '</span>';
 
 		// Remove button
@@ -435,23 +438,19 @@ jQuery(document).ready(function($) {
 				if (val === 'streaming') {
 					$row.find('.screening-inperson-controls').css('display', 'none');
 					$row.find('.screening-streaming-controls').css('display', 'contents');
-					$row.find('.screening-col-ticket').css('visibility', 'hidden');
-					$row.find('.screening-ticket-url').val('').prop('disabled', true);
+					$row.find('.screening-ticket-url').val('').prop('disabled', true).hide();
 				} else {
 					$row.find('.screening-inperson-controls').css('display', 'contents');
 					$row.find('.screening-streaming-controls').css('display', 'none');
-					$row.find('.screening-col-ticket').css('visibility', 'visible');
-					$row.find('.screening-ticket-url').prop('disabled', false);
+					$row.find('.screening-ticket-url').prop('disabled', false).show();
 				}
 			}
 
 			// Always available toggle
-			if ($(this).hasClass('screening-always-check')) {
+			if ($(this).hasClass('screening-avail-radio')) {
 				var dateInput = $row.find('.screening-streaming-controls .screening-date');
-				if ($(this).is(':checked')) {
-					dateInput.hide().val('');
-				} else {
-					dateInput.show();
+				if ($(this).val() === 'always') {
+					dateInput.val('');
 				}
 			}
 
