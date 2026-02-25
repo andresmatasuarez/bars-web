@@ -59,10 +59,5 @@ $GLOBALS['bars_section_index']++;
                 </div>
             </div>
         </div>
-
-        <!-- Caption -->
-        <p class="text-center text-sm text-bars-text-muted opacity-50 mt-4">
-            Spot oficial BARS <?php echo esc_html($edition_number); ?>
-        </p>
     </div>
 </section>
