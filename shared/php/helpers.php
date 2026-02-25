@@ -61,17 +61,31 @@
       );
     }
 
+    // Extract optional ticket URL after the last '|'
+    $originalRaw = $screening;
+    $ticketUrl = '';
+    $pipePos = strrpos($screening, '|');
+    if ($pipePos !== false) {
+      $ticketUrl = trim(substr($screening, $pipePos + 1));
+      $ticketUrl = str_replace(array('%2C', '%7C'), array(',', '|'), $ticketUrl);
+      $screening = substr($screening, 0, $pipePos);
+    }
+
     preg_match('/(\s*(?<venue>([A-Za-z]+))\s*[^\.]*(\s*\.\s*(?<room>.+))?:\s*)?(?P<date>[^\s]+)\s+(?P<time>.+)/', $screening, $matches);
     $date = strtolower(trim($matches['date']));
     $time = strtolower(trim($matches['time']));
     $date = parseDate($date . ' ' . $time . ' ' . $tz->getName(), 'm-d-Y H:i e');
-    return array(
-      'raw' => $screening,
+    $result = array(
+      'raw' => $originalRaw,
       'venue' => strtolower(trim($matches['venue'])),
       'room' => strtolower(trim($matches['room'])),
       'time' => $time,
       'isoDate' => $date->format(DateTime::ATOM)
     );
+    if ($ticketUrl !== '') {
+      $result['ticketUrl'] = $ticketUrl;
+    }
+    return $result;
   }
 
   function parseScreenings($screeningsValue) {

@@ -19,16 +19,18 @@ jQuery(document).ready(function($) {
 	if (!$('#bars-screenings-styles').length) {
 		$('head').append(
 			'<style id="bars-screenings-styles">' +
-			'.screening-rows{display:grid;grid-template-columns:max-content max-content max-content max-content;gap:0;align-items:stretch}' +
+			'.screening-rows{display:grid;grid-template-columns:max-content max-content max-content max-content max-content;gap:0;align-items:stretch}' +
 			'.screening-row{display:contents}' +
 			'.screening-rows .screening-type-toggle,' +
 			'.screening-rows .screening-col-venue,' +
 			'.screening-rows .screening-col-datetime,' +
+			'.screening-rows .screening-col-ticket,' +
 			'.screening-rows .screening-remove,' +
 			'.screening-rows .screening-raw-text{padding:8px 10px;border-bottom:1px solid #ddd}' +
 			'.screening-row:last-child .screening-type-toggle,' +
 			'.screening-row:last-child .screening-col-venue,' +
 			'.screening-row:last-child .screening-col-datetime,' +
+			'.screening-row:last-child .screening-col-ticket,' +
 			'.screening-row:last-child .screening-remove,' +
 			'.screening-row:last-child .screening-raw-text{border-bottom:none}' +
 			'.screening-row label{font-weight:normal;margin:0}' +
@@ -40,7 +42,9 @@ jQuery(document).ready(function($) {
 			'.screening-row select.screening-venue{max-width:200px}' +
 			'.screening-row .screening-remove{display:flex;align-items:center;color:#a00;cursor:pointer;font-size:24px;line-height:1;text-decoration:none}' +
 			'.screening-row .screening-remove:hover{color:#dc3232}' +
-			'.screening-row.screening-raw .screening-raw-text{grid-column:1/4;font-family:monospace;font-size:12px;color:#826200;background:#fff8e5;padding:8px;border-left:3px solid #ffb900}' +
+			'.screening-row.screening-raw .screening-raw-text{grid-column:1/5;font-family:monospace;font-size:12px;color:#826200;background:#fff8e5;padding:8px;border-left:3px solid #ffb900}' +
+			'.screening-row .screening-col-ticket{display:flex;align-items:center}' +
+			'.screening-row input[type="text"].screening-ticket-url{width:200px}' +
 			'.screening-row .screening-venue-label{font-style:italic;color:#555}' +
 			'.screening-row .screening-venue-warning{color:#dc3232;font-size:12px;font-style:italic}' +
 			'.screening-row .screening-always-available{display:flex;align-items:center;gap:4px}' +
@@ -117,7 +121,15 @@ jQuery(document).ready(function($) {
 			return { type: 'streaming', venue: venue, alwaysAvailable: false, date: dbDateToHtml(dateStr) };
 		}
 
-		// Traditional in-person
+		// Traditional in-person — extract optional |ticketUrl suffix first
+		var ticketUrl = '';
+		var pipeIdx = str.lastIndexOf('|');
+		if (pipeIdx !== -1) {
+			ticketUrl = $.trim(str.substring(pipeIdx + 1));
+			ticketUrl = ticketUrl.replace(/%2C/g, ',').replace(/%7C/g, '|');
+			str = str.substring(0, pipeIdx);
+		}
+
 		var tradMatch = str.match(/^(?:([A-Za-z]+)(?:\.(.+))?:)?(\d{1,2}-\d{1,2}-\d{4})\s+(\d{1,2}:\d{2})$/);
 		if (tradMatch) {
 			return {
@@ -125,7 +137,8 @@ jQuery(document).ready(function($) {
 				venue: tradMatch[1] || '',
 				room: tradMatch[2] || '',
 				date: dbDateToHtml(tradMatch[3]),
-				time: tradMatch[4]
+				time: tradMatch[4],
+				ticketUrl: ticketUrl
 			};
 		}
 
@@ -166,7 +179,7 @@ jQuery(document).ready(function($) {
 
 		// Cinema
 		var venue = $row.find('.screening-venue').val() || '';
-		var room = $.trim($row.find('.screening-room').val() || '');
+		var room = $.trim($row.find('.screening-room').val() || '').replace(/\|/g, '');
 		var date = $row.find('.screening-date').val();
 		var time = $row.find('.screening-time').val();
 
@@ -178,7 +191,14 @@ jQuery(document).ready(function($) {
 			if (room) prefix += '.' + room;
 			prefix += ':';
 		}
-		return prefix + htmlDateToDb(date) + ' ' + time;
+		var result = prefix + htmlDateToDb(date) + ' ' + time;
+
+		var ticketUrl = $.trim($row.find('.screening-ticket-url').val() || '');
+		if (ticketUrl) {
+			ticketUrl = ticketUrl.replace(/,/g, '%2C').replace(/\|/g, '%7C');
+			result += '|' + ticketUrl;
+		}
+		return result;
 	}
 
 	function serializeAll($container, $hiddenInput) {
@@ -226,6 +246,7 @@ jQuery(document).ready(function($) {
 		var inpersonChecked = isStreaming ? '' : ' checked';
 		var streamingChecked = isStreaming ? ' checked' : '';
 		var radioName = 'screening_type_' + (screeningRowCounter++);
+		var ticketUrlValue = (!isStreaming && screening.ticketUrl) ? screening.ticketUrl : '';
 
 		var html = '<div class="screening-row">';
 
@@ -297,6 +318,11 @@ jQuery(document).ready(function($) {
 		html += '<input type="date" class="screening-date" value="' + stDate + '"' + (stAlways ? ' style="display:none"' : '') + '>';
 		html += '</span>';
 
+		html += '</span>';
+
+		// Ticket URL column (hidden for streaming rows)
+		html += '<span class="screening-col-ticket"' + (isStreaming ? ' style="visibility:hidden"' : '') + '>';
+		html += '<input type="text" class="screening-ticket-url" placeholder="Ticket URL" value="' + $('<span>').text(ticketUrlValue).html() + '"' + (isStreaming ? ' disabled' : '') + '>';
 		html += '</span>';
 
 		// Remove button
@@ -381,7 +407,7 @@ jQuery(document).ready(function($) {
 		var $rowsContainer = $('<div class="screening-rows"></div>');
 		$rowsContainer.append(
 			'<div class="screening-header">' +
-				'<span>Type</span><span>Venue</span><span>Date / Time</span><span></span>' +
+				'<span>Type</span><span>Venue</span><span>Date / Time</span><span>Ticket URL</span><span></span>' +
 			'</div>'
 		);
 		for (var i = 0; i < screenings.length; i++) {
@@ -409,9 +435,13 @@ jQuery(document).ready(function($) {
 				if (val === 'streaming') {
 					$row.find('.screening-inperson-controls').css('display', 'none');
 					$row.find('.screening-streaming-controls').css('display', 'contents');
+					$row.find('.screening-col-ticket').css('visibility', 'hidden');
+					$row.find('.screening-ticket-url').val('').prop('disabled', true);
 				} else {
 					$row.find('.screening-inperson-controls').css('display', 'contents');
 					$row.find('.screening-streaming-controls').css('display', 'none');
+					$row.find('.screening-col-ticket').css('visibility', 'visible');
+					$row.find('.screening-ticket-url').prop('disabled', false);
 				}
 			}
 
@@ -428,8 +458,8 @@ jQuery(document).ready(function($) {
 			onFieldChange();
 		});
 
-		// Also listen on text input for room
-		$rowsContainer.on('input', '.screening-room', function() {
+		// Also listen on text input for room and ticket URL
+		$rowsContainer.on('input', '.screening-room, .screening-ticket-url', function() {
 			onFieldChange();
 		});
 

@@ -51,7 +51,7 @@ export default function ScreeningCard({
   const time = isTraditionalScreening(screening) ? screening.time : null;
 
   let buttonLabel = 'Tickets';
-  let buttonLink: string | undefined = venueLink;
+  let buttonLink: string | undefined;
   let buttonEnabled = true;
   let disabledCaption: string | undefined;
 
@@ -77,12 +77,15 @@ export default function ScreeningCard({
         : 'Disponible el día de su proyección';
     }
   } else if (isTraditionalScreening(screening)) {
-    const screeningDateTime = new Date(screening.isoDate);
-    const [hours, minutes] = screening.time.split(':').map(Number);
-    screeningDateTime.setTime(screeningDateTime.getTime() + hours * 3600000 + minutes * 60000);
-    if (new Date() > screeningDateTime) {
-      buttonEnabled = false;
-      disabledCaption = 'Ya no disponible';
+    buttonLink = screening.ticketUrl;
+    if (buttonLink) {
+      const screeningDateTime = new Date(screening.isoDate);
+      const [hours, minutes] = screening.time.split(':').map(Number);
+      screeningDateTime.setTime(screeningDateTime.getTime() + hours * 3600000 + minutes * 60000);
+      if (new Date() > screeningDateTime) {
+        buttonEnabled = false;
+        disabledCaption = 'Ya no disponible';
+      }
     }
   }
 

@@ -63,6 +63,9 @@ export type TraditionalScreening = BaseScreening & {
 
   /** Time in Buenos Aires (GMT-3), 24h format. @example "20:00" */
   time: string;
+
+  /** URL to purchase tickets for this specific screening. @example "https://passline.com/eventos/pelicula-123" */
+  ticketUrl?: string;
 };
 
 export type Screening = StreamingScreening | TraditionalScreening;
