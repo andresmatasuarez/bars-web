@@ -393,6 +393,80 @@ function bars_seo_get_og_type() {
     return 'website';
 }
 
+/**
+ * Get the edition prefix for OG titles (e.g. "BARS XXVI").
+ */
+function bars_seo_edition_prefix($post_id, $meta_key) {
+    $edition_meta = get_post_meta($post_id, $meta_key, true);
+    if (!$edition_meta) { return ''; }
+    $number = intval(str_replace('bars', '', $edition_meta));
+    if (!$number) { return ''; }
+    $edition = Editions::getByNumber($number);
+    if (!$edition) { return ''; }
+    return Editions::getTitle($edition);
+}
+
+/**
+ * Get the human-readable section label for a movie/movieblock.
+ */
+function bars_seo_section_label($post_id, $meta_key) {
+    $section = get_post_meta($post_id, $meta_key, true);
+    if (!$section) { return ''; }
+    return getMovieSectionLabel($section);
+}
+
+/**
+ * Build an OG title for a movie: "BARS XXVI - Title (Section)".
+ */
+function bars_seo_build_movie_og_title($post) {
+    $title = get_the_title($post->ID);
+    $prefix = bars_seo_edition_prefix($post->ID, '_movie_edition');
+    $section = bars_seo_section_label($post->ID, '_movie_section');
+    $result = $prefix ? $prefix . ' - ' . $title : $title;
+    return $section ? $result . ' (' . $section . ')' : $result;
+}
+
+/**
+ * Build an OG title for a movieblock: "BARS XXVI - Block Name (Section)".
+ */
+function bars_seo_build_movieblock_og_title($post) {
+    $title = get_post_meta($post->ID, '_movieblock_name', true);
+    if (!$title) { $title = get_the_title($post->ID); }
+    $prefix = bars_seo_edition_prefix($post->ID, '_movieblock_edition');
+    $section = bars_seo_section_label($post->ID, '_movieblock_section');
+    $result = $prefix ? $prefix . ' - ' . $title : $title;
+    return $section ? $result . ' (' . $section . ')' : $result;
+}
+
+/**
+ * Get the OG-specific title for the current page.
+ *
+ * Movies/movieblocks use a branded format: "BARS XXVI - Title (Section)".
+ * Everything else falls back to the standard SEO title.
+ */
+function bars_seo_get_og_title() {
+    $movie_post = bars_seo_get_movie_from_param();
+    if ($movie_post) {
+        $type = get_post_type($movie_post);
+        if ($type === 'movie') {
+            return bars_seo_build_movie_og_title($movie_post);
+        }
+        return bars_seo_build_movieblock_og_title($movie_post);
+    }
+
+    if (is_singular('movie')) {
+        $post = get_post(get_the_ID());
+        return bars_seo_build_movie_og_title($post);
+    }
+
+    if (is_singular('movieblock')) {
+        $post = get_post(get_the_ID());
+        return bars_seo_build_movieblock_og_title($post);
+    }
+
+    return bars_seo_get_title();
+}
+
 // ---------------------------------------------------------------------------
 // wp_head hooks
 // ---------------------------------------------------------------------------
@@ -439,7 +513,7 @@ add_action('wp_head', 'bars_seo_noindex_past_editions', 1);
  * Output Open Graph tags.
  */
 function bars_seo_open_graph() {
-    $title       = bars_seo_get_title();
+    $title       = bars_seo_get_og_title();
     $description = bars_seo_get_description();
     $url         = bars_seo_get_og_url();
     $type        = bars_seo_get_og_type();
@@ -472,7 +546,7 @@ add_action('wp_head', 'bars_seo_open_graph', 2);
  * Output Twitter Card tags.
  */
 function bars_seo_twitter_card() {
-    $title       = bars_seo_get_title();
+    $title       = bars_seo_get_og_title();
     $description = bars_seo_get_description();
     $image       = bars_seo_get_image();
 
