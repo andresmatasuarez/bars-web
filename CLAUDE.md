@@ -77,6 +77,8 @@ Each theme has two Vite entry points (`themes/{name}/vite/vite.config.ts` and `t
   - `resources/` - Edition-specific assets (poster, programme, sponsors)
   - `raw/` - Original source files (high-res logos, etc.) for reference only — not part of the build
   - `php/` - Shared PHP utilities (editions.php, helpers.php)
+- `server-config/` - Server configuration files deployed to the web root (`/2.0/`)
+  - `.htaccess` - Apache config (HTTPS redirect, W3TC cache rules, WordPress rewrites)
 - `plugins/` - Custom WordPress plugins (source):
   - `movie-post-type/` - Movie custom post type with sections, screenings
   - `jury-post-type/` - Jury member custom post type
@@ -160,10 +162,11 @@ Marker files in the `bars-web_bars-wordpress-data` volume (mounted at `/var/www/
 Requires FTP credentials in `.env` (see `.env-example`). Uses `basic-ftp` package with **incremental deploys** — only new/changed files are uploaded based on SHA-256 content hashes.
 
 ```bash
-npm run deploy            # Deploy everything (plugins + both themes)
+npm run deploy            # Deploy everything (plugins + themes + server config)
 npm run deploy:plugins    # Deploy all plugins
 npm run deploy:bars2013   # Deploy bars2013 theme
 npm run deploy:bars2026   # Deploy bars2026 theme
+npm run deploy:config     # Deploy server config (.htaccess)
 ```
 
 **Force full deploy** (skips manifest comparison, uploads everything):
@@ -177,6 +180,7 @@ Remote path mapping (handled automatically):
 - `wp-plugins/{name}/` → `/2.0/wp-content/plugins/{name}`
 - `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`
 - `wp-themes/bars2026/` → `/2.0/wp-content/themes/bars2026`
+- `server-config/` → `/2.0/` (root-level files like `.htaccess`)
 
 ## Command Delegation (MANDATORY)
 

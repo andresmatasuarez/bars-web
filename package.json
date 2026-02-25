@@ -25,6 +25,7 @@
     "deploy:plugins": "node --env-file=.env scripts/deploy.mjs plugins",
     "deploy:bars2013": "node --env-file=.env scripts/deploy.mjs bars2013",
     "deploy:bars2026": "node --env-file=.env scripts/deploy.mjs bars2026",
+    "deploy:config": "node --env-file=.env scripts/deploy.mjs config",
     "deploy": "node --env-file=.env scripts/deploy.mjs all",
     "download:assets": "node --env-file=.env scripts/download-assets.mjs"
   },

@@ -19,6 +19,9 @@ const DEPLOY_TARGETS = {
   bars2026: [
     { local: "wp-themes/bars2026", remote: "themes/bars2026" },
   ],
+  config: [
+    { local: "server-config", remoteBase: "/2.0/" },
+  ],
 };
 
 const MAX_RETRIES = 3;
@@ -364,7 +367,7 @@ const targetArgs = args.filter((a) => a !== "--force");
 
 if (targetArgs.length === 0) {
   console.error("Usage: node --env-file=.env scripts/deploy.mjs [--force] <target> [target...]");
-  console.error("  targets: plugins, bars2013, bars2026, all");
+  console.error("  targets: plugins, bars2013, bars2026, config, all");
   console.error("  --force: Skip manifest comparison, upload everything");
   process.exit(1);
 }
@@ -387,8 +390,9 @@ try {
   if (force) console.log("\n--force: uploading all files regardless of manifest.");
   console.log("\nDeploying:");
 
-  for (const { local, remote } of targets) {
-    const fullRemote = path.posix.join(remoteBase, remote);
+  for (const { local, remote, remoteBase: customBase } of targets) {
+    const base = customBase || remoteBase;
+    const fullRemote = remote ? path.posix.join(base, remote) : base;
     await deployDir(client, local, fullRemote, force);
   }
 

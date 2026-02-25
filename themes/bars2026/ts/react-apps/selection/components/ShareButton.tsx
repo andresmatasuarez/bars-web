@@ -11,6 +11,25 @@ type Props = {
   className?: string;
 };
 
+/** Fallback for non-secure contexts where navigator.clipboard is unavailable. */
+function legacyCopy(text: string): boolean {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try {
+    ok = document.execCommand('copy');
+  } catch {
+    // execCommand not supported
+  }
+  document.body.removeChild(ta);
+  return ok;
+}
+
 export default function ShareButton({ url, title, size = 'sm', tooltipPosition = 'above', tooltipAlign = 'center', className }: Props) {
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -18,6 +37,7 @@ export default function ShareButton({ url, title, size = 'sm', tooltipPosition =
   const iconSize = size === 'md' ? 20 : 16;
 
   const handleClick = useCallback(async () => {
+    // 1. Native share sheet (mobile)
     if (navigator.share) {
       try {
         await navigator.share({ url, title });
@@ -27,12 +47,23 @@ export default function ShareButton({ url, title, size = 'sm', tooltipPosition =
       }
     }
 
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      // Clipboard API unavailable — ignore silently
-      return;
+    // 2. Clipboard API (secure contexts only)
+    let copied = false;
+    if (window.isSecureContext && navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(url);
+        copied = true;
+      } catch {
+        // Clipboard API failed — fall through to legacy
+      }
     }
+
+    // 3. Legacy execCommand fallback (works on HTTP)
+    if (!copied) {
+      copied = legacyCopy(url);
+    }
+
+    if (!copied) return;
 
     setShowTooltip(true);
     setTimeout(() => setShowTooltip(false), 2000);
