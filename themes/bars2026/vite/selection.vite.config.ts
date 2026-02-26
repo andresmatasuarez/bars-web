@@ -19,6 +19,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1024,
     emptyOutDir: false,
     sourcemap: true,
+    minify: 'terser',
     outDir: '../../wp-themes/bars2026',
 
     lib: {

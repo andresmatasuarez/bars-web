@@ -51,7 +51,7 @@ function IconTab({
 }
 
 export default function DayTabs() {
-  const { daysWithMovies, hasOnlineMovies, activeTab, setActiveTab } = useData();
+  const { daysWithMovies, hasOnlineMovies, activeTab, setActiveTab, sharedLists } = useData();
   const scrollRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef<HTMLButtonElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -96,7 +96,7 @@ export default function DayTabs() {
           activeRef={activeRef}
           setActiveTab={setActiveTab}
           icon={<BookmarkIcon size={18} />}
-          label="MI LISTA"
+          label={sharedLists.length > 0 ? 'MIS LISTAS' : 'MI LISTA'}
         />
         <IconTab
           tab={{ type: 'all' }}

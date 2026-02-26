@@ -19,6 +19,8 @@ const Thumbnail = memo(function Thumbnail({ html }: { html: string }) {
   );
 });
 
+type SharedListColor = { name: string; color: string };
+
 type Props = {
   screening: ScreeningWithMovie<Screening>;
   sectionLabel: string;
@@ -26,14 +28,41 @@ type Props = {
   bookmarked: boolean;
   onToggleWatchlist: () => void;
   onOpenModal: () => void;
+  sharedListColors?: SharedListColor[];
 };
 
 function arePropsEqual(prev: Props, next: Props): boolean {
+  if (
+    prev.screening.raw !== next.screening.raw ||
+    prev.sectionLabel !== next.sectionLabel ||
+    prev.venueDisplay !== next.venueDisplay ||
+    prev.bookmarked !== next.bookmarked
+  ) {
+    return false;
+  }
+  const prevColors = prev.sharedListColors;
+  const nextColors = next.sharedListColors;
+  if (!prevColors && !nextColors) return true;
+  if (!prevColors || !nextColors) return false;
+  if (prevColors.length !== nextColors.length) return false;
+  for (let i = 0; i < prevColors.length; i++) {
+    if (prevColors[i].color !== nextColors[i].color || prevColors[i].name !== nextColors[i].name) return false;
+  }
+  return true;
+}
+
+function SharedListDots({ colors }: { colors: SharedListColor[] }) {
+  if (colors.length === 0) return null;
   return (
-    prev.screening.raw === next.screening.raw &&
-    prev.sectionLabel === next.sectionLabel &&
-    prev.venueDisplay === next.venueDisplay &&
-    prev.bookmarked === next.bookmarked
+    <span className="inline-flex items-center gap-1 ml-1.5" title={colors.map((c) => c.name).join(', ')}>
+      {colors.map((c) => (
+        <span
+          key={c.color}
+          className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+          style={{ backgroundColor: c.color }}
+        />
+      ))}
+    </span>
   );
 }
 
@@ -44,9 +73,11 @@ export default memo(function FilmCard({
   bookmarked,
   onToggleWatchlist,
   onOpenModal,
+  sharedListColors,
 }: Props) {
   const movie = screening.movie;
   const shareUrl = `${window.location.origin}${window.location.pathname}?f=${movie.slug}`;
+  const colors = sharedListColors && sharedListColors.length > 0 ? sharedListColors : null;
 
   return (
     <div
@@ -73,9 +104,12 @@ export default memo(function FilmCard({
 
         {/* Content */}
         <div className="flex flex-col flex-1 p-3 gap-1.5 min-h-0">
-          <span className="inline-flex self-start rounded-bars-sm bg-bars-primary-light px-1.5 py-0.5 text-[10px] font-semibold tracking-[1px] uppercase text-[#D4726A]">
-            {sectionLabel}
-          </span>
+          <div className="flex items-center gap-1">
+            <span className="inline-flex self-start rounded-bars-sm bg-bars-primary-light px-1.5 py-0.5 text-[10px] font-semibold tracking-[1px] uppercase text-[#D4726A]">
+              {sectionLabel}
+            </span>
+            {colors && <SharedListDots colors={colors} />}
+          </div>
           {venueDisplay && (
             <span className="flex items-center gap-1 text-[11px] text-bars-text-subtle truncate">
               <MapPinIcon size={12} className="flex-shrink-0" />
@@ -113,9 +147,12 @@ export default memo(function FilmCard({
 
         {/* Content */}
         <div className="flex flex-col flex-1 p-2.5 gap-1 min-w-0">
-          <span className="self-start max-w-full truncate rounded-bars-sm bg-bars-primary-light px-1.5 py-0.5 text-[8px] font-semibold tracking-[0.5px] uppercase text-[#D4726A]">
-            {sectionLabel}
-          </span>
+          <div className="flex items-center gap-1">
+            <span className="self-start max-w-full truncate rounded-bars-sm bg-bars-primary-light px-1.5 py-0.5 text-[8px] font-semibold tracking-[0.5px] uppercase text-[#D4726A]">
+              {sectionLabel}
+            </span>
+            {colors && <SharedListDots colors={colors} />}
+          </div>
           {venueDisplay && (
             <span className="flex items-center gap-1 text-[9px] text-bars-text-subtle truncate">
               <MapPinIcon size={10} className="flex-shrink-0" />

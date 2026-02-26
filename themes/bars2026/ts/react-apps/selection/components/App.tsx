@@ -1,17 +1,27 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useData } from '../data/DataProvider';
 import DayHeader from './DayHeader';
 import DayTabs from './DayTabs';
+import DeleteListDialog from './DeleteListDialog';
 import EmptyState from './EmptyState';
 import FilmModal from './film-modal';
 import FilmCard from './FilmCard';
 import FilterPills from './FilterPills';
+import ListSubTabs from './ListSubTabs';
 import MobileFilterButton from './MobileFilterButton';
 import MobileFilterModal from './MobileFilterModal';
+import OverwriteListDialog from './OverwriteListDialog';
+import ReplaceListDialog from './ReplaceListDialog';
+import SaveListDialog from './SaveListDialog';
+import { getColorForList } from './sharedListColors';
+import ShareListDialog from './ShareListDialog';
 import TimeSlot from './TimeSlot';
 import { getSectionLabel, getVenueDisplay } from './utils';
 import WatchlistStreamingSection from './WatchlistStreamingSection';
+import WebViewBanner from './WebViewBanner';
+
+type SharedListColor = { name: string; color: string };
 
 export default function App() {
   const {
@@ -24,10 +34,34 @@ export default function App() {
     currentEdition,
     sections,
     openFilmModal,
+    watchlist,
+    resolvedWatchlist,
+    sharedLists,
+    editionSharedLists,
+    emptySharedListIds,
+    getSharedListIdsForScreening,
+    deleteConfirmation,
+    confirmDeleteSharedList,
+    cancelDeleteSharedList,
+    pendingSharedList,
+    replaceDialogOpen,
+    handleReplace,
+    cancelReplace,
+    overwriteDialogOpen,
+    overwriteTargetName,
+    confirmOverwrite,
+    cancelOverwrite,
+    saveDialogOpen,
+    closeSaveDialog,
+    openSaveDialog,
+    savePersonalAsShared,
+    listSubTab,
+    isInActiveSubTabList,
   } = useData();
 
   const [collapsedDays, setCollapsedDays] = useState<Set<string>>(new Set());
   const [filterModalOpen, setFilterModalOpen] = useState(false);
+  const [shareDialogOpen, setShareDialogOpen] = useState(false);
 
   const toggleDay = (date: Date) => {
     const key = date.toISOString();
@@ -38,16 +72,41 @@ export default function App() {
     });
   };
 
+  // Build a map from list ID to color for active shared lists
+  const sharedListColorMap = useMemo(() => {
+    const map = new Map<string, { name: string; color: string }>();
+    sharedLists.forEach((list, index) => {
+      map.set(list.id, { name: list.name, color: getColorForList(index) });
+    });
+    return map;
+  }, [sharedLists]);
+
+  // Helper to compute shared list colors for a screening
+  const getSharedColorsForScreening = useMemo(() => {
+    if (sharedLists.length === 0) return () => [] as SharedListColor[];
+    return (screening: Parameters<typeof getSharedListIdsForScreening>[0]): SharedListColor[] => {
+      const ids = getSharedListIdsForScreening(screening);
+      if (ids.length === 0) return [];
+      const colors: SharedListColor[] = [];
+      for (const id of ids) {
+        const info = sharedListColorMap.get(id);
+        if (info) colors.push(info);
+      }
+      return colors;
+    };
+  }, [sharedLists.length, getSharedListIdsForScreening, sharedListColorMap]);
+
   const isWatchlist = activeTab.type === 'watchlist';
   const isAll = activeTab.type === 'all';
   const isOnline = activeTab.type === 'online';
   const needsDayGroups = isWatchlist || isAll;
+  const isPersonalSubTab = listSubTab === 'personal';
 
   const timeSlots = Array.from(screeningsForActiveTab.entries());
   const hasTimeSlotResults = timeSlots.some(([, screenings]) => screenings.length > 0);
 
   const hasWatchlistStreaming =
-    isWatchlist && alwaysAvailableScreenings.some((s) => isAddedToWatchlist(s));
+    isWatchlist && alwaysAvailableScreenings.some((s) => isInActiveSubTabList(s));
 
   const hasResults = isWatchlist
     ? dayGroups.length > 0 || hasWatchlistStreaming
@@ -57,8 +116,14 @@ export default function App() {
 
   return (
     <div className="pt-6 lg:pt-8 font-body">
+      {/* WebView warning banner */}
+      <WebViewBanner />
+
       {/* Day tabs */}
       <DayTabs />
+
+      {/* Sub-tabs for personal/shared lists (only on watchlist tab) */}
+      {isWatchlist && <ListSubTabs onSharePersonalList={() => setShareDialogOpen(true)} onSavePersonalList={openSaveDialog} />}
 
       {/* Filter pills – desktop only */}
       <div className="hidden lg:block mt-6">
@@ -71,10 +136,46 @@ export default function App() {
       </div>
       <MobileFilterModal isOpen={filterModalOpen} onClose={() => setFilterModalOpen(false)} />
 
+      <ShareListDialog
+        isOpen={shareDialogOpen}
+        onClose={() => setShareDialogOpen(false)}
+        watchlist={resolvedWatchlist}
+      />
+
+      <SaveListDialog
+        isOpen={saveDialogOpen}
+        onClose={closeSaveDialog}
+        onSave={savePersonalAsShared}
+        disabled={watchlist.length === 0}
+      />
+
+      <ReplaceListDialog
+        isOpen={replaceDialogOpen}
+        onClose={cancelReplace}
+        pendingList={pendingSharedList}
+        existingLists={editionSharedLists}
+        emptyListIds={emptySharedListIds}
+        onReplace={handleReplace}
+      />
+
+      <DeleteListDialog
+        isOpen={deleteConfirmation !== null}
+        onClose={cancelDeleteSharedList}
+        listName={deleteConfirmation?.name ?? ''}
+        onConfirm={confirmDeleteSharedList}
+      />
+
+      <OverwriteListDialog
+        isOpen={overwriteDialogOpen}
+        onClose={cancelOverwrite}
+        listName={overwriteTargetName}
+        onConfirm={confirmOverwrite}
+      />
+
       {/* Content */}
       <div className="mt-6 lg:mt-8 space-y-8 lg:space-y-10">
         {!hasResults ? (
-          <EmptyState type={isWatchlist ? 'empty-watchlist' : 'no-results'} />
+          <EmptyState type={isWatchlist && isPersonalSubTab && watchlist.length === 0 ? 'empty-watchlist' : 'no-results'} />
         ) : isOnline ? (
           <div>
             <p className="text-sm text-bars-link-accent/70 italic mb-5 border-l-2 border-bars-link-accent/25 pl-3">
@@ -92,6 +193,7 @@ export default function App() {
                     bookmarked={isAddedToWatchlist(screening)}
                     onToggleWatchlist={() => toggleWatchlist(screening)}
                     onOpenModal={() => openFilmModal(screening.movie)}
+                    sharedListColors={getSharedColorsForScreening(screening)}
                   />
                 )),
               )}

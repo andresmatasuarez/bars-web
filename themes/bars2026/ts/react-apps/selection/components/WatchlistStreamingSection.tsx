@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { useData } from '../data/DataProvider';
 import FilmCard from './FilmCard';
 import { ChevronDownIcon } from './icons';
+import { getColorForList } from './sharedListColors';
 import { getSectionLabel, getVenueDisplay } from './utils';
 
 export default function WatchlistStreamingSection({
@@ -13,10 +14,13 @@ export default function WatchlistStreamingSection({
   const {
     alwaysAvailableScreenings,
     isAddedToWatchlist,
+    isInActiveSubTabList,
     toggleWatchlist,
     currentEdition,
     sections,
     openFilmModal,
+    sharedLists,
+    getSharedListIdsForScreening,
   } = useData();
 
   const [collapsed, setCollapsed] = useState(false);
@@ -24,10 +28,18 @@ export default function WatchlistStreamingSection({
   const screenings = useMemo(
     () =>
       filterByWatchlist
-        ? alwaysAvailableScreenings.filter((s) => isAddedToWatchlist(s))
+        ? alwaysAvailableScreenings.filter((s) => isInActiveSubTabList(s))
         : alwaysAvailableScreenings,
-    [filterByWatchlist, alwaysAvailableScreenings, isAddedToWatchlist],
+    [filterByWatchlist, alwaysAvailableScreenings, isInActiveSubTabList],
   );
+
+  const sharedListColorMap = useMemo(() => {
+    const map = new Map<string, { name: string; color: string }>();
+    sharedLists.forEach((list, index) => {
+      map.set(list.id, { name: list.name, color: getColorForList(index) });
+    });
+    return map;
+  }, [sharedLists]);
 
   if (screenings.length === 0) return null;
 
@@ -53,17 +65,24 @@ export default function WatchlistStreamingSection({
             durante el transcurso del festival.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
-            {screenings.map((screening) => (
-              <FilmCard
-                key={`${screening.movie.id}-${screening.raw}`}
-                screening={screening}
-                sectionLabel={getSectionLabel(screening, sections)}
-                venueDisplay={getVenueDisplay(screening, currentEdition)}
-                bookmarked={isAddedToWatchlist(screening)}
-                onToggleWatchlist={() => toggleWatchlist(screening)}
-                onOpenModal={() => openFilmModal(screening.movie)}
-              />
-            ))}
+            {screenings.map((screening) => {
+              const listIds = getSharedListIdsForScreening(screening);
+              const colors = listIds.length > 0
+                ? listIds.map((id) => sharedListColorMap.get(id)!).filter(Boolean)
+                : undefined;
+              return (
+                <FilmCard
+                  key={`${screening.movie.id}-${screening.raw}`}
+                  screening={screening}
+                  sectionLabel={getSectionLabel(screening, sections)}
+                  venueDisplay={getVenueDisplay(screening, currentEdition)}
+                  bookmarked={isAddedToWatchlist(screening)}
+                  onToggleWatchlist={() => toggleWatchlist(screening)}
+                  onOpenModal={() => openFilmModal(screening.movie)}
+                  sharedListColors={colors}
+                />
+              );
+            })}
           </div>
         </>
       )}

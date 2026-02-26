@@ -1,6 +1,7 @@
 import { Modal } from '../../../components/modal/Modal';
 import { useData } from '../data/DataProvider';
 import { BookmarkIcon, FilterIcon, XIcon } from './icons';
+import { getColorForList } from './sharedListColors';
 
 interface MobileFilterModalProps {
   isOpen: boolean;
@@ -17,11 +18,31 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
     watchlistOnly,
     setWatchlistOnly,
     watchlistCountForTab,
+    sectionMovieCounts,
+    sharedLists,
+    activeSharedListIds,
+    toggleSharedList,
+    requestDeleteSharedList,
+    sharedListMovieCountsForTab,
+    listSubTab,
+    watchlistListFilters,
+    toggleWatchlistListFilter,
+    watchlistOverlapCounts,
   } = useData();
 
   const isWatchlistTab = activeTab.type === 'watchlist';
-  const filterCount = activeCategories.length + (watchlistOnly && !isWatchlistTab ? 1 : 0);
+  const filterCount =
+    activeCategories.length +
+    (watchlistOnly && !isWatchlistTab ? 1 : 0) +
+    (isWatchlistTab ? 0 : activeSharedListIds.length) +
+    (isWatchlistTab ? watchlistListFilters.length : 0);
   const hasActiveFilters = filterCount > 0;
+
+  // Other lists for overlap pills (watchlist tab only)
+  const otherSharedLists = sharedLists.filter(l => l.id !== listSubTab);
+  const hasOtherLists = isWatchlistTab && (
+    (listSubTab !== 'personal' ? 1 : 0) + otherSharedLists.length > 0
+  );
 
   const categories = Object.entries(availableSections)
     .sort(([, a], [, b]) => a.localeCompare(b, 'es'));
@@ -29,6 +50,18 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
   const clearAll = () => {
     setActiveCategories([]);
     if (!isWatchlistTab) setWatchlistOnly(false);
+    // Deactivate all shared list filters (only when not on watchlist tab — sub-tabs replace them)
+    if (!isWatchlistTab) {
+      for (const list of sharedLists) {
+        if (activeSharedListIds.includes(list.id)) toggleSharedList(list.id);
+      }
+    }
+    // Clear list overlap filters (watchlist tab only)
+    if (isWatchlistTab) {
+      for (const id of watchlistListFilters) {
+        toggleWatchlistListFilter(id);
+      }
+    }
   };
 
   return (
@@ -55,42 +88,133 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
 
       {/* Scrollable body */}
       <div className="flex-1 overflow-y-auto px-5 py-5 space-y-6">
-        {/* Watchlist group (hidden on watchlist tab) */}
+        {/* List pills: watchlist + shared lists (hidden on watchlist tab) */}
         {!isWatchlistTab && (
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-bars-text-muted mb-3">
-              Mi lista
+              Filtrar por lista
             </h3>
-            <button
-              type="button"
-              onClick={() => setWatchlistOnly(!watchlistOnly)}
-              className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
-                ${watchlistOnly
-                  ? 'bg-bars-primary border border-bars-primary text-white'
-                  : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
-                }
-              `}
-            >
-              <BookmarkIcon size={14} filled={watchlistOnly} />
-              Solo en mi lista
-              <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
-                {watchlistCountForTab}
-              </span>
-            </button>
+            <div className="flex flex-wrap gap-2.5">
+              <button
+                type="button"
+                onClick={() => setWatchlistOnly(!watchlistOnly)}
+                className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
+                  ${watchlistOnly
+                    ? 'border text-white'
+                    : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                  }
+                `}
+                style={watchlistOnly ? { borderColor: '#8b0000', backgroundColor: '#8b000020' } : undefined}
+              >
+                <BookmarkIcon size={14} filled className="text-bars-primary" />
+                Mi lista
+                <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
+                  {watchlistCountForTab}
+                </span>
+              </button>
+
+              {sharedLists.map((list, index) => {
+                const color = getColorForList(index);
+                const isActive = activeSharedListIds.includes(list.id);
+                return (
+                  <button
+                    key={list.id}
+                    type="button"
+                    onClick={() => toggleSharedList(list.id)}
+                    className={`inline-flex items-center gap-2 rounded-bars-pill pl-4 pr-4 py-3 text-sm font-medium transition-colors cursor-pointer
+                      ${isActive
+                        ? 'border text-white'
+                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                      }
+                    `}
+                    style={isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined}
+                  >
+                    <span
+                      className="inline-block w-3 h-3 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: color }}
+                    />
+                    {list.name}
+                    <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
+                      {sharedListMovieCountsForTab.get(list.id) ?? 0}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* List overlap pills (watchlist tab only) */}
+        {hasOtherLists && (
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-bars-text-muted mb-3">
+              Filtrar por lista
+            </h3>
+            <div className="flex flex-wrap gap-2.5">
+              {/* "Mi lista" pill (when viewing a shared sub-tab) */}
+              {listSubTab !== 'personal' && (
+                <button
+                  type="button"
+                  onClick={() => toggleWatchlistListFilter('personal')}
+                  className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
+                    ${watchlistListFilters.includes('personal')
+                      ? 'border text-white'
+                      : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                    }
+                  `}
+                  style={watchlistListFilters.includes('personal') ? { borderColor: '#8b0000', backgroundColor: '#8b000020' } : undefined}
+                >
+                  <BookmarkIcon size={14} filled className="text-bars-primary" />
+                  Mi lista
+                  <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
+                    {watchlistOverlapCounts.get('personal') ?? 0}
+                  </span>
+                </button>
+              )}
+              {/* Shared list overlap pills (skip active sub-tab) */}
+              {otherSharedLists.map((list) => {
+                const globalIndex = sharedLists.indexOf(list);
+                const color = getColorForList(globalIndex);
+                const isActive = watchlistListFilters.includes(list.id);
+                return (
+                  <button
+                    key={list.id}
+                    type="button"
+                    onClick={() => toggleWatchlistListFilter(list.id)}
+                    className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
+                      ${isActive
+                        ? 'border text-white'
+                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                      }
+                    `}
+                    style={isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined}
+                  >
+                    <span
+                      className="inline-block w-3 h-3 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: color }}
+                    />
+                    {list.name}
+                    <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
+                      {watchlistOverlapCounts.get(list.id) ?? 0}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
 
         {/* Sections group */}
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-wider text-bars-text-muted mb-3">
-            Secciones
+            Filtrar por categoría
           </h3>
           <div className="flex flex-wrap gap-2.5">
             {/* "Todos" pill */}
             <button
               type="button"
               onClick={() => setActiveCategories([])}
-              className={`rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
+              className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
                 ${activeCategories.length === 0
                   ? 'bg-bars-primary border border-bars-primary text-white'
                   : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
@@ -98,6 +222,9 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
               `}
             >
               Todos
+              <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
+                {Array.from(sectionMovieCounts.values()).reduce((a, b) => a + b, 0)}
+              </span>
             </button>
 
             {/* Category pills */}
@@ -106,7 +233,7 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                 key={id}
                 type="button"
                 onClick={() => toggleCategory(id)}
-                className={`rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
+                className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
                   ${activeCategories.includes(id)
                     ? 'bg-bars-primary border border-bars-primary text-white'
                     : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
@@ -114,6 +241,9 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                 `}
               >
                 {label}
+                <span className="rounded-full bg-white/20 py-0.5 px-2 text-xs leading-none font-semibold text-white tabular-nums">
+                  {sectionMovieCounts.get(id) ?? 0}
+                </span>
               </button>
             ))}
           </div>

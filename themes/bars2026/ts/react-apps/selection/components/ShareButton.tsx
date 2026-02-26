@@ -1,15 +1,6 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import { ShareIcon } from './icons';
-
-type Props = {
-  url: string;
-  title?: string;
-  size?: 'sm' | 'md';
-  tooltipPosition?: 'above' | 'below';
-  tooltipAlign?: 'center' | 'right';
-  className?: string;
-};
 
 /** Fallback for non-secure contexts where navigator.clipboard is unavailable. */
 function legacyCopy(text: string): boolean {
@@ -30,14 +21,25 @@ function legacyCopy(text: string): boolean {
   return ok;
 }
 
-export default function ShareButton({ url, title, size = 'sm', tooltipPosition = 'above', tooltipAlign = 'center', className }: Props) {
+/** Copy text to clipboard, trying Clipboard API first with legacy fallback. */
+export async function copyToClipboard(text: string): Promise<boolean> {
+  if (window.isSecureContext && navigator.clipboard) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Clipboard API failed — fall through to legacy
+    }
+  }
+  return legacyCopy(text);
+}
+
+/** Hook encapsulating share/copy flow with tooltip state. */
+export function useShareCopy() {
   const [showTooltip, setShowTooltip] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const sizeClasses = size === 'md' ? 'w-10 h-10' : 'w-8 h-8';
-  const iconSize = size === 'md' ? 20 : 16;
-
-  const handleClick = useCallback(async () => {
-    // 1. Native share sheet (mobile)
+  const share = useCallback(async (url: string, title?: string) => {
     if (navigator.share) {
       try {
         await navigator.share({ url, title });
@@ -47,27 +49,50 @@ export default function ShareButton({ url, title, size = 'sm', tooltipPosition =
       }
     }
 
-    // 2. Clipboard API (secure contexts only)
-    let copied = false;
-    if (window.isSecureContext && navigator.clipboard) {
-      try {
-        await navigator.clipboard.writeText(url);
-        copied = true;
-      } catch {
-        // Clipboard API failed — fall through to legacy
-      }
-    }
-
-    // 3. Legacy execCommand fallback (works on HTTP)
-    if (!copied) {
-      copied = legacyCopy(url);
-    }
-
+    const copied = await copyToClipboard(url);
     if (!copied) return;
 
+    clearTimeout(timeoutRef.current);
     setShowTooltip(true);
-    setTimeout(() => setShowTooltip(false), 2000);
-  }, [url, title]);
+    timeoutRef.current = setTimeout(() => setShowTooltip(false), 2000);
+  }, []);
+
+  return { share, showTooltip };
+}
+
+type CopiedTooltipProps = {
+  show: boolean;
+  position?: 'above' | 'below';
+  align?: 'center' | 'right';
+};
+
+export function CopiedTooltip({ show, position = 'above', align = 'center' }: CopiedTooltipProps) {
+  if (!show) return null;
+  return (
+    <span
+      className={`absolute whitespace-nowrap rounded bg-black/80 px-2 py-1 text-[11px] text-white pointer-events-none animate-fade-in ${
+        align === 'right' ? 'right-0' : 'left-1/2 -translate-x-1/2'
+      } ${position === 'above' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'}`}
+    >
+      Enlace copiado
+    </span>
+  );
+}
+
+type Props = {
+  url: string;
+  title?: string;
+  size?: 'sm' | 'md';
+  tooltipPosition?: 'above' | 'below';
+  tooltipAlign?: 'center' | 'right';
+  className?: string;
+};
+
+export default function ShareButton({ url, title, size = 'sm', tooltipPosition = 'above', tooltipAlign = 'center', className }: Props) {
+  const { share, showTooltip } = useShareCopy();
+
+  const sizeClasses = size === 'md' ? 'w-10 h-10' : 'w-8 h-8';
+  const iconSize = size === 'md' ? 20 : 16;
 
   return (
     <button
@@ -75,22 +100,14 @@ export default function ShareButton({ url, title, size = 'sm', tooltipPosition =
       onClick={(e) => {
         e.stopPropagation();
         e.preventDefault();
-        handleClick();
+        share(url, title);
       }}
       className={`relative ${sizeClasses} shrink-0 rounded-full flex items-center justify-center transition-all cursor-pointer active:scale-90 bg-black/40 text-white/70 hover:bg-black/60${className ? ` ${className}` : ''}`}
       aria-label="Compartir"
       title="Compartir"
     >
       <ShareIcon size={iconSize} />
-      {showTooltip && (
-        <span
-          className={`absolute whitespace-nowrap rounded bg-black/80 px-2 py-1 text-[11px] text-white pointer-events-none animate-fade-in ${
-            tooltipAlign === 'right' ? 'right-0' : 'left-1/2 -translate-x-1/2'
-          } ${tooltipPosition === 'above' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'}`}
-        >
-          Enlace copiado
-        </span>
-      )}
+      <CopiedTooltip show={showTooltip} position={tooltipPosition} align={tooltipAlign} />
     </button>
   );
 }
