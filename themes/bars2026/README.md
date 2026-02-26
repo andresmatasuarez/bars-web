@@ -32,6 +32,18 @@ Single Vite entry point:
 
 Build output goes to `wp-themes/bars2026/`.
 
+## Testing
+
+See the root [README § Testing](../../README.md#testing) for full details. Quick start:
+
+```bash
+npm run test              # Single run
+npm run test:watch        # Watch mode
+npm run test:coverage     # Coverage report
+```
+
+The vitest config also collects tests from `shared/ts/`, so running tests here covers both shared utilities and theme-specific code.
+
 ## SEO
 
 Custom PHP SEO implementation (no plugin). Hooks into `wp_head` to output:

@@ -189,6 +189,7 @@ From the root:
 - `npm run dev:bars2013` / `npm run dev:bars2026` - Start theme development mode
 - `npm run build:bars2013` / `npm run build:bars2026` - Build theme for production
 - `npm run lint:bars2013` / `npm run lint:bars2026` - Run ESLint
+- `npm run test:bars2026` - Run test suite (shared + bars2026)
 - `npm run dev:plugins` - Watch and copy plugin files to `wp-plugins/`
 - `npm run build:plugins` - Build plugins for production
 
@@ -199,6 +200,46 @@ From each theme directory (`themes/bars2013` or `themes/bars2026`):
 - `npm run lint` - Run ESLint
 - `npm run lint:autofix` - Run ESLint with auto-fix
 - `npm run typecheck` - Run TypeScript type checking
+
+From `themes/bars2026` only:
+
+- `npm run test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage
+
+## Testing
+
+[Vitest](https://vitest.dev/) with jsdom environment. Only the `bars2026` workspace has test infrastructure — `bars2013` has none.
+
+### Running tests
+
+```bash
+# From project root
+npm run test:bars2026
+
+# From theme directory
+cd themes/bars2026
+npm run test              # Single run
+npm run test:watch        # Watch mode
+npm run test:coverage     # With coverage report
+```
+
+### Configuration
+
+| File | Purpose |
+|---|---|
+| `themes/bars2026/vitest.config.ts` | Vitest config — collects tests from `shared/ts/**/*.test.ts` and `themes/bars2026/ts/**/*.test.ts` |
+| `themes/bars2026/test-setup.ts` | Global setup — loads `@testing-library/jest-dom` matchers, clears `localStorage` after each test |
+
+Vitest globals (`describe`, `it`, `expect`, `vi`) are available without imports — configured via `globals: true` in vitest config and `vitest/globals` in tsconfig types. The `@shared/*` path alias works in tests the same as in source.
+
+### Conventions
+
+- **Co-location**: Test files live next to their source as `{module}.test.ts`
+- **Fixtures**: `shared/ts/__fixtures__/movies.ts` provides factory functions (`createMovie()`, `createTraditionalScreening()`, `createAlwaysAvailableStreaming()`, `createRegularStreaming()`, `createScreeningWithMovie()`, `createMoviesForDay()`)
+- **Window globals**: Mock with `vi.stubGlobal('MOVIES', [...])`, clean up with `vi.unstubAllGlobals()` in `afterEach`
+- **Time-dependent tests**: `vi.useFakeTimers()` + `vi.setSystemTime(...)` in `beforeEach`, `vi.useRealTimers()` in `afterEach`
+- **React hooks**: Test via `@testing-library/react` (`renderHook`, `act`)
 
 ## Deploy
 

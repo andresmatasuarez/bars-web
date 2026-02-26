@@ -53,6 +53,22 @@ Site runs at `http://localhost:8083` (default). Database at port 3307.
 
 **After editing or creating any file matched by `.prettierrc`** (TS, TSX, JS, JSON, CSS, etc.), run `npx prettier --write <file>` to ensure it matches the project's formatting config. Never leave files unformatted.
 
+## Testing
+
+Vitest with jsdom. Only `bars2026` has tests — `bars2013` has none. Config at `themes/bars2026/vitest.config.ts` collects from both `shared/ts/**/*.test.ts` and `themes/bars2026/ts/**/*.test.ts`.
+
+```bash
+npm run test:bars2026              # From root
+cd themes/bars2026 && npm run test # From theme dir
+```
+
+Key conventions:
+- Co-located test files: `{module}.test.ts` next to source
+- Fixtures: `shared/ts/__fixtures__/movies.ts` (factory functions for Movie, Screening types)
+- Mock window globals: `vi.stubGlobal()` / `vi.unstubAllGlobals()`
+- Mock time: `vi.useFakeTimers()` / `vi.setSystemTime()` / `vi.useRealTimers()`
+- React hooks: `@testing-library/react` (`renderHook`, `act`)
+
 ## Architecture
 
 ### Build System
