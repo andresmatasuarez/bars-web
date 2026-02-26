@@ -150,7 +150,7 @@
       }
 
       return array(
-        'id' => $short->ID,
+        'id' => (int) $short->ID,
         'title' => get_the_title($short->ID),
         'info' => $shortInfo,
         'thumbnail' => get_the_post_thumbnail($short->ID, get_template() . '-movie-post-thumbnail'),
@@ -207,7 +207,7 @@
     $screenings = parseScreenings($screeningsValue);
 
     $result = array(
-      "id" => $post->ID,
+      "id" => (int) $post->ID,
       "slug" => get_post_field('post_name', $post->ID),
       "title" => get_the_title($post->ID),
       "section" => $section,

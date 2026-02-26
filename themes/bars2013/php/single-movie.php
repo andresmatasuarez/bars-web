@@ -15,7 +15,7 @@
 	$venues = Editions::venues($currentEdition);
 
 	echo json_encode(array(
-		"id" => $post->ID,
+		"id" => (int) $post->ID,
 		"title" => get_the_title($post->ID),
 		"section" => get_post_meta($post->ID, '_movie_section', true),
 		"year" => get_post_meta($post->ID, '_movie_year', true),

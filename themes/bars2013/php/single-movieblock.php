@@ -36,7 +36,7 @@
 		$query->next_post();
 
 		$movie = array(
-			"id" => $post->ID,
+			"id" => (int) $post->ID,
 			"title" => get_the_title($query->post->ID),
 			"year" => get_post_meta($query->post->ID, '_movie_year', true),
 			"country" => get_post_meta($query->post->ID, '_movie_country', true),
