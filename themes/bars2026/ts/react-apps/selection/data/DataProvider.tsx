@@ -118,7 +118,7 @@ export function useData(): DataContextType {
   return ctx;
 }
 
-function getInitialTab(days: Date[]): ActiveTab {
+export function getInitialTab(days: Date[]): ActiveTab {
   if (days.length === 0) return { type: 'online' };
 
   const lastDay = days[days.length - 1];
@@ -144,7 +144,7 @@ function getInitialTab(days: Date[]): ActiveTab {
 }
 
 /** Resolve shared list entries against current-edition screenings only, dropping stale entries. */
-function resolveEntries(entries: WatchlistEntry[], festivalDays: Date[]): WatchlistEntry[] {
+export function resolveEntries(entries: WatchlistEntry[], festivalDays: Date[]): WatchlistEntry[] {
   const validEntries = new Set<string>();
   for (const day of festivalDays) {
     for (const s of getScreeningsForDay(window.MOVIES, day)) {

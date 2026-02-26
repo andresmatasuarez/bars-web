@@ -29,7 +29,7 @@ function buildUrl(slug: string | null): string {
   return window.location.pathname + (qs ? '?' + qs : '');
 }
 
-function buildDocumentTitle(movie: Movie): string {
+export function buildDocumentTitle(movie: Movie): string {
   const sectionLabel = window.MOVIE_SECTIONS[movie.section] || '';
   const editionTitle = Editions.getTitle(Editions.getByNumber(window.CURRENT_EDITION));
   const suffix = sectionLabel ? `${editionTitle} - ${sectionLabel}` : editionTitle;

@@ -6,7 +6,7 @@ import { Modal } from '../modal/Modal';
 
 declare const BARS_DATA: { themeUrl: string; ajaxUrl: string };
 
-interface JuryMember {
+export interface JuryMember {
   id: number;
   name: string;
   section: string;
@@ -15,7 +15,7 @@ interface JuryMember {
   bio: string;
 }
 
-function buildJuryDocumentTitle(member: JuryMember): string {
+export function buildJuryDocumentTitle(member: JuryMember): string {
   const prefix =
     typeof window.CURRENT_EDITION === 'number'
       ? Editions.getTitle(Editions.getByNumber(window.CURRENT_EDITION))
