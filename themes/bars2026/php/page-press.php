@@ -48,7 +48,17 @@ get_template_part('template-parts/sections/page', 'hero');
 
         <!-- Intro Text -->
         <p class="text-[13px] lg:text-base text-bars-text-muted leading-[1.7] max-w-[335px] lg:max-w-[800px] mb-8 lg:mb-10">
-            El festival Buenos Aires Rojo Sangre <?php echo esc_html($edition_number); ?> se llevará a cabo <?php if ($from && $to): ?>del <?php echo esc_html($from->format('j')); ?> al <?php echo esc_html($to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y')); ?><?php if ($venue_name): ?> en <?php echo esc_html($venue_name); ?><?php endif; ?>.<?php else: ?>durante <?php echo esc_html(strtolower(Editions::datesLabel($edition))); ?>.<?php endif; ?> Los medios interesados en cubrir el evento pueden solicitar su acreditación a través del formulario online.
+            El festival Buenos Aires Rojo Sangre <?php echo esc_html($edition_number); ?> se llevará a cabo <?php if ($from && $to): ?><?php
+                $press_same_month = $from->format('F') === $to->format('F');
+                $press_same_year = $from->format('Y') === $to->format('Y');
+                if ($press_same_month):
+                    ?>del <?php echo esc_html($from->format('j')); ?> al <?php echo esc_html($to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y')); ?><?php
+                elseif ($press_same_year):
+                    ?>del <?php echo esc_html($from->format('j') . ' de ' . getSpanishMonthName($from->format('F'))); ?> al <?php echo esc_html($to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y')); ?><?php
+                else:
+                    ?>del <?php echo esc_html($from->format('j') . ' de ' . getSpanishMonthName($from->format('F')) . ' de ' . $from->format('Y')); ?> al <?php echo esc_html($to->format('j') . ' de ' . getSpanishMonthName($to->format('F')) . ' de ' . $to->format('Y')); ?><?php
+                endif;
+            ?><?php if ($venue_name): ?> en <?php echo esc_html($venue_name); ?><?php endif; ?>.<?php else: ?>durante <?php echo esc_html(strtolower(Editions::datesLabel($edition))); ?>.<?php endif; ?> Los medios interesados en cubrir el evento pueden solicitar su acreditación a través del formulario online.
         </p>
 
         <!-- Cards Row: Deadlines + Benefits -->
@@ -65,7 +75,12 @@ get_template_part('template-parts/sections/page', 'hero');
                     $pickup_from = $press_pickup ? $press_pickup['from'] : null;
                     $pickup_to = $press_pickup ? $press_pickup['to'] : null;
                     if ($pickup_from && $pickup_to):
-                        $pickup_dates = 'del ' . $pickup_from->format('j') . ' al ' . $pickup_to->format('j') . ' de ' . getSpanishMonthName($pickup_to->format('F'));
+                        $pickup_same_month = $pickup_from->format('F') === $pickup_to->format('F');
+                        if ($pickup_same_month):
+                            $pickup_dates = 'del ' . $pickup_from->format('j') . ' al ' . $pickup_to->format('j') . ' de ' . getSpanishMonthName($pickup_to->format('F'));
+                        else:
+                            $pickup_dates = 'del ' . $pickup_from->format('j') . ' de ' . getSpanishMonthName($pickup_from->format('F')) . ' al ' . $pickup_to->format('j') . ' de ' . getSpanishMonthName($pickup_to->format('F'));
+                        endif;
                     elseif ($pickup_from):
                         $pickup_dates = 'desde el ' . $pickup_from->format('j') . ' de ' . getSpanishMonthName($pickup_from->format('F'));
                     elseif ($pickup_to):

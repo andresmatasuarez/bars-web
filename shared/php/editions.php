@@ -94,8 +94,31 @@ class Editions {
     $from = self::from($edition);
     $to = self::to($edition);
     if ($from && $to) {
-      return $from->format('j') . ' - ' . $to->format('j') . ' ' .
-        ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+      $sameMonth = $from->format('F') === $to->format('F');
+      $sameYear = $from->format('Y') === $to->format('Y');
+
+      if (self::shouldDisplayOnlyMonths($edition)) {
+        if ($sameMonth) {
+          return ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+        }
+        if ($sameYear) {
+          return ucfirst(getSpanishMonthName($from->format('F'))) . ' - ' .
+            ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+        }
+        return ucfirst(getSpanishMonthName($from->format('F'))) . ' ' . $from->format('Y') . ' - ' .
+          ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+      }
+
+      if ($sameMonth) {
+        return $from->format('j') . ' - ' . $to->format('j') . ' ' .
+          ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+      }
+      if ($sameYear) {
+        return $from->format('j') . ' ' . ucfirst(getSpanishMonthName($from->format('F'))) . ' - ' .
+          $to->format('j') . ' ' . ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
+      }
+      return $from->format('j') . ' ' . ucfirst(getSpanishMonthName($from->format('F'))) . ' ' . $from->format('Y') . ' - ' .
+        $to->format('j') . ' ' . ucfirst(getSpanishMonthName($to->format('F'))) . ' ' . $to->format('Y');
     }
     return self::year($edition) . ' (Fechas a confirmar)';
   }
