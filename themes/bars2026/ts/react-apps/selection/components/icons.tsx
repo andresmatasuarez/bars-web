@@ -41,11 +41,7 @@ export function MapPinIcon({ size = 24, className }: IconProps) {
   );
 }
 
-export function BookmarkIcon({
-  size = 24,
-  className,
-  filled,
-}: IconProps & { filled?: boolean }) {
+export function BookmarkIcon({ size = 24, className, filled }: IconProps & { filled?: boolean }) {
   return (
     <svg
       width={size}

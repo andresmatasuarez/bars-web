@@ -10,10 +10,7 @@ function parseVideoUrl(url: string): VideoEmbed {
     const trimmed = url.trim();
     const u = new URL(trimmed);
 
-    if (
-      u.hostname.includes('youtube.com') ||
-      u.hostname.includes('youtube-nocookie.com')
-    ) {
+    if (u.hostname.includes('youtube.com') || u.hostname.includes('youtube-nocookie.com')) {
       const id =
         u.searchParams.get('v') ||
         u.pathname.split('/embed/')[1] ||
@@ -70,9 +67,7 @@ export default memo(function TrailerEmbed({
 
   if (playing && video) {
     return (
-      <div
-        className={`relative ${height} shrink-0 rounded-bars-md overflow-hidden bg-black`}
-      >
+      <div className={`relative ${height} shrink-0 rounded-bars-md overflow-hidden bg-black`}>
         <iframe
           src={getEmbedUrl(video)}
           className="absolute inset-0 w-full h-full"
@@ -111,13 +106,7 @@ export default memo(function TrailerEmbed({
       {/* Play button */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-16 h-16 rounded-full bg-bars-primary flex items-center justify-center">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="white"
-            className="ml-1"
-          >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white" className="ml-1">
             <polygon points="5 3 19 12 5 21 5 3" />
           </svg>
         </div>

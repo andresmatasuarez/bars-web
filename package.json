@@ -28,7 +28,8 @@
     "deploy:bars2026": "node --env-file=.env scripts/deploy.mjs bars2026",
     "deploy:config": "node --env-file=.env scripts/deploy.mjs config",
     "deploy": "node --env-file=.env scripts/deploy.mjs all",
-    "download:assets": "node --env-file=.env scripts/download-assets.mjs"
+    "download:assets": "node --env-file=.env scripts/download-assets.mjs",
+    "format": "npx prettier --write \"shared/**/*.{ts,tsx,js,json,css}\" \"themes/**/*.{ts,tsx,js,json,css}\""
   },
   "devDependencies": {
     "basic-ftp": "^5.1.0"

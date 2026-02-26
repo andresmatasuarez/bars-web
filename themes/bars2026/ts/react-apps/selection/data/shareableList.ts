@@ -27,10 +27,7 @@ function toBase64Url(str: string): string {
   for (let i = 0; i < bytes.length; i++) {
     binary += String.fromCharCode(bytes[i]);
   }
-  return btoa(binary)
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '');
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
 function fromBase64Url(b64url: string): string {
@@ -64,12 +61,7 @@ export function decodeShareableList(encoded: string): DecodedShareableList | nul
     const json = fromBase64Url(encoded);
     const parsed: unknown = JSON.parse(json);
 
-    if (
-      typeof parsed !== 'object' ||
-      parsed === null ||
-      !('n' in parsed) ||
-      !('e' in parsed)
-    ) {
+    if (typeof parsed !== 'object' || parsed === null || !('n' in parsed) || !('e' in parsed)) {
       return null;
     }
 
@@ -82,9 +74,7 @@ export function decodeShareableList(encoded: string): DecodedShareableList | nul
     const name = sanitizeListName(obj.n);
     if (name.length === 0) return null;
 
-    const entries = (obj.e as unknown[])
-      .filter(validateEntry)
-      .slice(0, MAX_ENTRIES);
+    const entries = (obj.e as unknown[]).filter(validateEntry).slice(0, MAX_ENTRIES);
 
     if (entries.length === 0) return null;
 

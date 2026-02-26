@@ -72,10 +72,7 @@ type ScreeningFilters = {
   section?: string;
 };
 
-export function compareScreenings(
-  screening1: Screening,
-  screening2: Screening,
-): number {
+export function compareScreenings(screening1: Screening, screening2: Screening): number {
   /**
    * Always-available streaming screenings have no date/time info, so they
    * appear first in the sorted array.
@@ -138,7 +135,10 @@ export function groupByDayAndTimeSlot(
 ): DayGroup[] {
   const dayMap = new Map<
     string,
-    { date: Date; screenings: ScreeningWithMovie<TraditionalScreening | RegularStreamingScreening>[] }
+    {
+      date: Date;
+      screenings: ScreeningWithMovie<TraditionalScreening | RegularStreamingScreening>[];
+    }
   >();
 
   for (const screening of screenings) {

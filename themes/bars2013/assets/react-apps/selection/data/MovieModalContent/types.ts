@@ -61,7 +61,6 @@ export type MovieAdditionalData = {
    * Movie's section
    */
   section: string;
-
 };
 
 export type MovieBlockAdditionalData = Pick<

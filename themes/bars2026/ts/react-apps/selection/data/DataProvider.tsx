@@ -17,8 +17,20 @@ import {
   TraditionalScreening,
   Venues,
 } from '@shared/ts/types';
-import useWatchlist, { serializeScreeningForWatchlist, UseWatchlistValues, WatchlistEntry } from '@shared/ts/useWatchlist';
-import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import useWatchlist, {
+  serializeScreeningForWatchlist,
+  UseWatchlistValues,
+  WatchlistEntry,
+} from '@shared/ts/useWatchlist';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { decodeShareableList, SHARE_PARAM } from './shareableList';
 import useFilmModal from './useFilmModal';
@@ -158,10 +170,7 @@ export function resolveEntries(entries: WatchlistEntry[], festivalDays: Date[]):
 }
 
 export default function DataProvider({ children }: { children: ReactNode }) {
-  const currentEdition = useMemo(
-    () => Editions.getByNumber(window.CURRENT_EDITION),
-    [],
-  );
+  const currentEdition = useMemo(() => Editions.getByNumber(window.CURRENT_EDITION), []);
 
   const festivalDays = useMemo(() => {
     try {
@@ -172,14 +181,11 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   }, [currentEdition]);
 
   const daysWithMovies = useMemo(
-    () => festivalDays.filter(date => getScreeningsForDay(window.MOVIES, date).length > 0),
+    () => festivalDays.filter((date) => getScreeningsForDay(window.MOVIES, date).length > 0),
     [festivalDays],
   );
 
-  const hasOnlineMovies = useMemo(
-    () => getAlwaysAvailableScreenings(window.MOVIES).length > 0,
-    [],
-  );
+  const hasOnlineMovies = useMemo(() => getAlwaysAvailableScreenings(window.MOVIES).length > 0, []);
 
   const venues = useMemo(() => Editions.venues(currentEdition), [currentEdition]);
 
@@ -206,24 +212,19 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     [isAddedToWatchlist, addToWatchlist, removeFromWatchlist],
   );
 
-  const toggleCategory = useCallback(
-    (category: string) => {
-      setActiveCategories((prev) =>
-        prev.includes(category)
-          ? prev.filter((c) => c !== category)
-          : [...prev, category],
-      );
-    },
-    [],
-  );
+  const toggleCategory = useCallback((category: string) => {
+    setActiveCategories((prev) =>
+      prev.includes(category) ? prev.filter((c) => c !== category) : [...prev, category],
+    );
+  }, []);
 
   const [listSubTab, setListSubTab] = useState<'personal' | string>('personal');
 
   const [watchlistListFilters, setWatchlistListFilters] = useState<string[]>([]);
 
   const toggleWatchlistListFilter = useCallback((id: string) => {
-    setWatchlistListFilters(prev =>
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id],
+    setWatchlistListFilters((prev) =>
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id],
     );
   }, []);
 
@@ -240,9 +241,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 
   // Filter shared lists to the current edition (old untagged lists show everywhere for backward compat)
   const editionSharedLists = useMemo(
-    () => allSharedLists.filter(
-      (l) => l.edition === window.CURRENT_EDITION || !l.edition,
-    ),
+    () => allSharedLists.filter((l) => l.edition === window.CURRENT_EDITION || !l.edition),
     [allSharedLists],
   );
 
@@ -257,7 +256,12 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 
   // IDs of shared lists with zero movies for the current edition (for UI hints in replace dialog)
   const emptySharedListIds = useMemo(
-    () => new Set(editionSharedLists.filter((l) => resolveEntries(l.entries, festivalDays).length === 0).map((l) => l.id)),
+    () =>
+      new Set(
+        editionSharedLists
+          .filter((l) => resolveEntries(l.entries, festivalDays).length === 0)
+          .map((l) => l.id),
+      ),
     [editionSharedLists, festivalDays],
   );
 
@@ -278,7 +282,9 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   );
 
   // --- Delete confirmation ---
-  const [deleteConfirmation, setDeleteConfirmation] = useState<{ id: string; name: string } | null>(null);
+  const [deleteConfirmation, setDeleteConfirmation] = useState<{ id: string; name: string } | null>(
+    null,
+  );
 
   const requestDeleteSharedList = useCallback(
     (id: string) => {
@@ -300,13 +306,21 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // --- Replace dialog (when at capacity) ---
-  const [pendingSharedList, setPendingSharedList] = useState<{ name: string; entries: WatchlistEntry[] } | null>(null);
+  const [pendingSharedList, setPendingSharedList] = useState<{
+    name: string;
+    entries: WatchlistEntry[];
+  } | null>(null);
   const [replaceDialogOpen, setReplaceDialogOpen] = useState(false);
 
   const handleReplace = useCallback(
     (removeId: string) => {
       if (!pendingSharedList) return;
-      const newId = replaceSharedListInStorage(removeId, pendingSharedList.name, pendingSharedList.entries, window.CURRENT_EDITION);
+      const newId = replaceSharedListInStorage(
+        removeId,
+        pendingSharedList.name,
+        pendingSharedList.entries,
+        window.CURRENT_EDITION,
+      );
       // Deactivate the removed list, activate the new one
       setActiveSharedListIds((prev) => [...prev.filter((i) => i !== removeId), newId]);
       // If we were viewing the removed list's sub-tab, switch to the new one
@@ -330,8 +344,13 @@ export default function DataProvider({ children }: { children: ReactNode }) {
 
   const confirmOverwrite = useCallback(() => {
     if (!pendingSharedList || !overwriteTargetId) return;
-    const newId = replaceSharedListInStorage(overwriteTargetId, pendingSharedList.name, pendingSharedList.entries, window.CURRENT_EDITION);
-    setActiveSharedListIds(prev => [...prev.filter(i => i !== overwriteTargetId), newId]);
+    const newId = replaceSharedListInStorage(
+      overwriteTargetId,
+      pendingSharedList.name,
+      pendingSharedList.entries,
+      window.CURRENT_EDITION,
+    );
+    setActiveSharedListIds((prev) => [...prev.filter((i) => i !== overwriteTargetId), newId]);
     if (listSubTab === overwriteTargetId) setListSubTab(newId);
     setActiveTab({ type: 'watchlist' });
     setListSubTab(newId);
@@ -359,7 +378,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       if (resolved.length === 0) return;
 
       // Check if a list with the same name already exists in this edition → overwrite flow
-      const existing = editionSharedLists.find(l => l.name === name);
+      const existing = editionSharedLists.find((l) => l.name === name);
       if (existing) {
         setPendingSharedList({ name, entries: resolved });
         setOverwriteTargetId(existing.id);
@@ -371,7 +390,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       const id = addSharedList(name, resolved, window.CURRENT_EDITION);
       if (id) {
         // Success — activate and navigate
-        setActiveSharedListIds(prev => prev.includes(id) ? prev : [...prev, id]);
+        setActiveSharedListIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
         setActiveTab({ type: 'watchlist' });
         setListSubTab(id);
       } else {
@@ -430,7 +449,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
 
     // Check if a list with the same name already exists in this edition → ask before overwriting
-    const existing = editionSharedLists.find(l => l.name === decoded.name);
+    const existing = editionSharedLists.find((l) => l.name === decoded.name);
     if (existing) {
       setPendingSharedList({ name: decoded.name, entries: resolved });
       setOverwriteTargetId(existing.id);
@@ -439,7 +458,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       const id = addSharedList(decoded.name, resolved, window.CURRENT_EDITION);
       if (id) {
         // Success — activate the new list and navigate to its sub-tab
-        setActiveSharedListIds((prev) => prev.includes(id) ? prev : [...prev, id]);
+        setActiveSharedListIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
         setActiveTab({ type: 'watchlist' });
         setListSubTab(id);
       } else {
@@ -483,9 +502,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   const rawTabScreenings = useMemo(() => {
     const movies = window.MOVIES;
 
-    let screenings: ScreeningWithMovie<
-      TraditionalScreening | RegularStreamingScreening
-    >[] = [];
+    let screenings: ScreeningWithMovie<TraditionalScreening | RegularStreamingScreening>[] = [];
 
     if (activeTab.type === 'day') {
       screenings = getScreeningsForDay(movies, activeTab.date);
@@ -515,7 +532,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     }
     if (activeSharedEntrySets && activeTab.type !== 'watchlist') {
       for (const entrySet of activeSharedEntrySets) {
-        screenings = screenings.filter(s => entrySet.has(serializeScreeningForWatchlist(s)));
+        screenings = screenings.filter((s) => entrySet.has(serializeScreeningForWatchlist(s)));
       }
     }
     // List overlap filters (watchlist tab only): keep only movies present in ALL selected lists
@@ -524,19 +541,28 @@ export default function DataProvider({ children }: { children: ReactNode }) {
         const entrySet = new Set(
           filterId === 'personal'
             ? watchlist
-            : sharedLists.find(l => l.id === filterId)?.entries ?? [],
+            : (sharedLists.find((l) => l.id === filterId)?.entries ?? []),
         );
-        screenings = screenings.filter(s => entrySet.has(serializeScreeningForWatchlist(s)));
+        screenings = screenings.filter((s) => entrySet.has(serializeScreeningForWatchlist(s)));
       }
     }
     return screenings;
-  }, [rawTabScreenings, watchlistOnly, activeTab.type, isAddedToWatchlist, activeSharedEntrySets, watchlistListFilters, watchlist, sharedLists]);
+  }, [
+    rawTabScreenings,
+    watchlistOnly,
+    activeTab.type,
+    isAddedToWatchlist,
+    activeSharedEntrySets,
+    watchlistListFilters,
+    watchlist,
+    sharedLists,
+  ]);
 
   // Count of unique watchlisted movies for the current tab (stable across watchlistOnly toggles)
   const watchlistCountForTab = useMemo(() => {
     if (activeTab.type === 'watchlist' || activeTab.type === 'all') {
-      const watchlistedDay = rawTabScreenings.filter((s) =>
-        activeTab.type === 'watchlist' || isAddedToWatchlist(s),
+      const watchlistedDay = rawTabScreenings.filter(
+        (s) => activeTab.type === 'watchlist' || isAddedToWatchlist(s),
       );
       const dayCount = new Set(watchlistedDay.map((s) => s.movie.id)).size;
       const streamingCount = new Set(
@@ -583,7 +609,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   // Overlap counts: how many movies in the active sub-tab also appear in each OTHER list
   const watchlistOverlapCounts = useMemo(() => {
     if (activeTab.type !== 'watchlist') return new Map<string, number>();
-    const activeMovieIds = new Set(rawTabScreenings.map(s => s.movie.id));
+    const activeMovieIds = new Set(rawTabScreenings.map((s) => s.movie.id));
     const counts = new Map<string, number>();
 
     // Personal watchlist overlap (shown when viewing a shared sub-tab)
@@ -629,34 +655,37 @@ export default function DataProvider({ children }: { children: ReactNode }) {
     return counts;
   }, [rawTabScreenings, activeTab.type, isAddedToWatchlist, sharedLists]);
 
-  const availableSections = useMemo(
-    (): MovieSections => {
-      const sectionIds = new Set(baseScreenings.map((s) => s.movie.section));
-      // For watchlist/all tabs, also include sections from always-available screenings
-      if (activeTab.type === 'watchlist' || activeTab.type === 'all') {
-        for (const s of getAlwaysAvailableScreenings(window.MOVIES)) {
-          if (activeTab.type === 'all' || isInActiveSubTabList(s)) sectionIds.add(s.movie.section);
-        }
+  const availableSections = useMemo((): MovieSections => {
+    const sectionIds = new Set(baseScreenings.map((s) => s.movie.section));
+    // For watchlist/all tabs, also include sections from always-available screenings
+    if (activeTab.type === 'watchlist' || activeTab.type === 'all') {
+      for (const s of getAlwaysAvailableScreenings(window.MOVIES)) {
+        if (activeTab.type === 'all' || isInActiveSubTabList(s)) sectionIds.add(s.movie.section);
       }
-      return Object.fromEntries(
-        Object.entries(window.MOVIE_SECTIONS).filter(([id]) => sectionIds.has(id)),
-      ) as MovieSections;
-    },
-    [baseScreenings, activeTab.type, isInActiveSubTabList],
-  );
+    }
+    return Object.fromEntries(
+      Object.entries(window.MOVIE_SECTIONS).filter(([id]) => sectionIds.has(id)),
+    ) as MovieSections;
+  }, [baseScreenings, activeTab.type, isInActiveSubTabList]);
 
   const sectionMovieCounts = useMemo(() => {
     const sectionSets = new Map<string, Set<number>>();
     for (const s of baseScreenings) {
       let ids = sectionSets.get(s.movie.section);
-      if (!ids) { ids = new Set(); sectionSets.set(s.movie.section, ids); }
+      if (!ids) {
+        ids = new Set();
+        sectionSets.set(s.movie.section, ids);
+      }
       ids.add(s.movie.id);
     }
     if (activeTab.type === 'watchlist' || activeTab.type === 'all') {
       for (const s of getAlwaysAvailableScreenings(window.MOVIES)) {
         if (activeTab.type === 'all' || isInActiveSubTabList(s)) {
           let ids = sectionSets.get(s.movie.section);
-          if (!ids) { ids = new Set(); sectionSets.set(s.movie.section, ids); }
+          if (!ids) {
+            ids = new Set();
+            sectionSets.set(s.movie.section, ids);
+          }
           ids.add(s.movie.id);
         }
       }

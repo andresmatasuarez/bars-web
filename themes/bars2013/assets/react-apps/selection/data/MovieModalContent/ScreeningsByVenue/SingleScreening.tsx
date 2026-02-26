@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { dateHasPassed, getDayName, getDayNumber } from '../../../../helpers';
 import AddToWatchlistToggle from '../../../App/MovieScreening/AddToWatchlistToggle';
-import { isStreamingScreening,ScreeningWithMovie, Stylable } from '../../../types';
+import { isStreamingScreening, ScreeningWithMovie, Stylable } from '../../../types';
 import { DataContext } from '../../DataProvider';
 
 const DayName = styled.div`

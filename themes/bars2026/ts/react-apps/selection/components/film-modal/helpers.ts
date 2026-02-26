@@ -1,6 +1,14 @@
 import Editions, { SingleEdition } from '@shared/ts/Editions';
-import { dateHasPassed, isTodayInBuenosAires, isTodayInBuenosAiresBetween } from '@shared/ts/helpers';
-import { isRegularStreamingScreening, isScreeningAlwaysAvailable, Screening } from '@shared/ts/types';
+import {
+  dateHasPassed,
+  isTodayInBuenosAires,
+  isTodayInBuenosAiresBetween,
+} from '@shared/ts/helpers';
+import {
+  isRegularStreamingScreening,
+  isScreeningAlwaysAvailable,
+  Screening,
+} from '@shared/ts/types';
 
 export function getSpanishDayAbbr(date: Date): string {
   const day = date.toLocaleDateString('es-AR', { weekday: 'short' });
@@ -28,18 +36,20 @@ export function resolveShortVerState(
         enabled,
         disabledCaption: enabled
           ? undefined
-          : dateHasPassed(to) ? 'Ya no disponible' : 'Disponible durante el festival',
+          : dateHasPassed(to)
+            ? 'Ya no disponible'
+            : 'Disponible durante el festival',
       };
     }
     return { enabled: true };
   }
 
   // Day-specific streaming → enabled if today matches any screening day
-  const enabled = daySpecific.some(s => isTodayInBuenosAires(new Date(s.isoDate)));
+  const enabled = daySpecific.some((s) => isTodayInBuenosAires(new Date(s.isoDate)));
   if (enabled) return { enabled: true };
 
   // All day-specific dates missed — pick latest to decide caption
-  const latest = daySpecific.reduce((a, b) => new Date(a.isoDate) > new Date(b.isoDate) ? a : b);
+  const latest = daySpecific.reduce((a, b) => (new Date(a.isoDate) > new Date(b.isoDate) ? a : b));
   return {
     enabled: false,
     disabledCaption: dateHasPassed(new Date(latest.isoDate))

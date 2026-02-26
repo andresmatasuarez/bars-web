@@ -8,10 +8,7 @@ import { BookmarkIcon, LayoutGridIcon, MonitorPlayIcon } from './icons';
 function isTabActive(activeTab: ActiveTab, tab: ActiveTab): boolean {
   if (activeTab.type !== tab.type) return false;
   if (activeTab.type === 'day' && tab.type === 'day') {
-    return (
-      serializeDate(activeTab.date).split('T')[0] ===
-      serializeDate(tab.date).split('T')[0]
-    );
+    return serializeDate(activeTab.date).split('T')[0] === serializeDate(tab.date).split('T')[0];
   }
   return true;
 }
@@ -69,7 +66,8 @@ export default function DayTabs() {
     if (activeRef.current && scrollRef.current) {
       const container = scrollRef.current;
       const el = activeRef.current;
-      const left = el.offsetLeft - container.offsetLeft - container.clientWidth / 2 + el.clientWidth / 2;
+      const left =
+        el.offsetLeft - container.offsetLeft - container.clientWidth / 2 + el.clientWidth / 2;
       container.scrollTo({ left, behavior: 'smooth' });
       setTimeout(() => updateScrollIndicators(), 350);
     }
@@ -157,9 +155,7 @@ export default function DayTabs() {
                 <span className="font-body text-[9px] font-semibold tracking-[1px] uppercase leading-none">
                   {label}
                 </span>
-                <span className="font-display text-[24px] leading-none mt-0.5">
-                  {sublabel}
-                </span>
+                <span className="font-display text-[24px] leading-none mt-0.5">{sublabel}</span>
               </button>
             );
           })}

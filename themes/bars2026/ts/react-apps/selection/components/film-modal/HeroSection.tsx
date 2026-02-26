@@ -69,17 +69,19 @@ export default function HeroSection({
         className={`absolute left-0 right-0 top-0 ${bgHeight ? '' : 'bottom-0'}`}
         style={{
           ...(bgHeight ? { height: bgHeight } : {}),
-          background: textPosition === 'top'
-            ? 'linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)'
-            : 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)',
+          background:
+            textPosition === 'top'
+              ? 'linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)'
+              : 'linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 40%, rgba(10,10,10,0.6) 70%, #0A0A0A 100%)',
         }}
       />
       {/* Content */}
       <div
         className={`${textPosition === 'top' ? 'relative' : 'absolute'} flex flex-col gap-2 lg:gap-3 z-10`}
-        style={textPosition === 'top'
-          ? { paddingLeft: padX, paddingRight: padX, paddingTop: padY }
-          : { left: padX, right: padX, bottom: padY }
+        style={
+          textPosition === 'top'
+            ? { paddingLeft: padX, paddingRight: padX, paddingTop: padY }
+            : { left: padX, right: padX, bottom: padY }
         }
       >
         {/* Category badge */}
@@ -91,7 +93,10 @@ export default function HeroSection({
         </span>
         {/* Title + buttons (desktop: inline, mobile: separate row) */}
         <div>
-          <h2 id="film-modal-title" className={`inline font-heading ${titleSize} font-semibold text-white leading-[1.1]`}>
+          <h2
+            id="film-modal-title"
+            className={`inline font-heading ${titleSize} font-semibold text-white leading-[1.1]`}
+          >
             {movie.title}
           </h2>
           {onToggleBookmark && (
@@ -117,18 +122,9 @@ export default function HeroSection({
         {/* Mobile buttons row */}
         <div className="flex lg:hidden items-center gap-2">
           {onToggleBookmark && (
-            <BookmarkButton
-              active={bookmarked}
-              onClick={onToggleBookmark}
-              size="md"
-            />
+            <BookmarkButton active={bookmarked} onClick={onToggleBookmark} size="md" />
           )}
-          <ShareButton
-            url={shareUrl}
-            title={movie.title}
-            size="md"
-            tooltipPosition="below"
-          />
+          <ShareButton url={shareUrl} title={movie.title} size="md" tooltipPosition="below" />
         </div>
       </div>
     </div>

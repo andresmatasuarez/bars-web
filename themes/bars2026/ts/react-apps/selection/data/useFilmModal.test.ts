@@ -32,9 +32,7 @@ describe('buildDocumentTitle', () => {
       section: 'unknownSection',
     });
 
-    expect(buildDocumentTitle(movie)).toBe(
-      'Película indie (BARS XXVI) – Buenos Aires Rojo Sangre',
-    );
+    expect(buildDocumentTitle(movie)).toBe('Película indie (BARS XXVI) – Buenos Aires Rojo Sangre');
   });
 
   it('handles empty BASE_PAGE_TITLE gracefully', () => {

@@ -49,6 +49,10 @@ npm run build:plugins
 
 Site runs at `http://localhost:8083` (default). Database at port 3307.
 
+## Code Formatting
+
+**After editing or creating any file matched by `.prettierrc`** (TS, TSX, JS, JSON, CSS, etc.), run `npx prettier --write <file>` to ensure it matches the project's formatting config. Never leave files unformatted.
+
 ## Architecture
 
 ### Build System
@@ -188,17 +192,15 @@ _CRITICAL_: The following commands produce large outputs that consume excessive 
 
 ### Commands That MUST Be Delegated
 
-| Command              | Description                    |
-| -------------------- | ------------------------------ |
-| npm build            | Build all packages and apps    |
-| npm typecheck        | TypeScript type checking       |
-| npm lint             | Lint entire codebase           |
-| npm lint <path>      | Lint specific file(s)          |
-| npm test             | Run full test suite            |
-| npm test <path>      | Run tests for specific file(s) |
-| npm test:workspace   | Run tests for a workspace      |
-| npm test:integration | Run integration tests          |
-| npm test:e2e         | Run end-to-end tests           |
+| Command                | Description                    |
+| ---------------------- | ------------------------------ |
+| `npm run build`        | Build all themes and plugins   |
+| `npm run build:bars2013` | Build bars2013 theme         |
+| `npm run build:bars2026` | Build bars2026 theme         |
+| `npm run lint:bars2013`  | Lint bars2013 theme          |
+| `npm run lint:bars2026`  | Lint bars2026 theme          |
+| `npm run test:bars2026`  | Run bars2026 test suite      |
+| `npm run format`       | Run Prettier on all source files |
 
 ### How to Delegate
 
@@ -214,7 +216,7 @@ Task tool parameters:
 
 Run the following command and report the result:
 
-Command: `npm build`
+Command: `npm run build`
 
 Instructions:
 
@@ -228,7 +230,7 @@ Instructions:
 
 ### Why This Matters
 
-Commands like `npm build` and `npm test` may generate extensive output that would consume the main agent's context window, leaving less room for actual problem-solving. By delegating to a sub-agent:
+Commands like `npm run build` and `npm run test:bars2026` may generate extensive output that would consume the main agent's context window, leaving less room for actual problem-solving. By delegating to a sub-agent:
 
 1. The main agent preserves context for code analysis and implementation
 2. The sub-agent uses a fresh context window dedicated to command execution

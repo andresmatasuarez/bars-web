@@ -42,7 +42,12 @@ export type UseSharedListsValues = {
   sharedLists: SharedList[];
   addSharedList: (name: string, entries: WatchlistEntry[], edition: number) => string | null;
   removeSharedList: (id: string) => void;
-  replaceSharedList: (removeId: string, name: string, entries: WatchlistEntry[], edition: number) => string;
+  replaceSharedList: (
+    removeId: string,
+    name: string,
+    entries: WatchlistEntry[],
+    edition: number,
+  ) => string;
   getSharedListIdsForScreening: (screening: ScreeningWithMovie) => string[];
 };
 
@@ -61,10 +66,7 @@ export default function useSharedLists(): UseSharedListsValues {
 
   // Build Set-based lookup per list for O(1) screening checks
   const listEntrySets = useMemo(
-    () =>
-      new Map(
-        sharedLists.map((list) => [list.id, new Set(list.entries)] as const),
-      ),
+    () => new Map(sharedLists.map((list) => [list.id, new Set(list.entries)] as const)),
     [sharedLists],
   );
 
@@ -115,5 +117,11 @@ export default function useSharedLists(): UseSharedListsValues {
     [listEntrySets],
   );
 
-  return { sharedLists, addSharedList, removeSharedList, replaceSharedList, getSharedListIdsForScreening };
+  return {
+    sharedLists,
+    addSharedList,
+    removeSharedList,
+    replaceSharedList,
+    getSharedListIdsForScreening,
+  };
 }

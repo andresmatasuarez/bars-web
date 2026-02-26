@@ -29,9 +29,7 @@ describe('getVenueDisplay', () => {
 
   it('returns venue name for streaming screening', () => {
     const edition = Editions.getByNumber(26); // has "flixxo" → "Flixxo"
-    const screening = createScreeningWithMovie(
-      createAlwaysAvailableStreaming({ venue: 'flixxo' }),
-    );
+    const screening = createScreeningWithMovie(createAlwaysAvailableStreaming({ venue: 'flixxo' }));
 
     expect(getVenueDisplay(screening, edition)).toBe('Flixxo');
   });
@@ -53,19 +51,17 @@ describe('getSectionLabel', () => {
   };
 
   it('returns label when section exists in map', () => {
-    const screening = createScreeningWithMovie(
-      createTraditionalScreening(),
-      { section: 'internationalFeatureFilmCompetition' },
-    );
+    const screening = createScreeningWithMovie(createTraditionalScreening(), {
+      section: 'internationalFeatureFilmCompetition',
+    });
 
     expect(getSectionLabel(screening, sections)).toBe('Competencia Internacional');
   });
 
   it('falls back to raw section key when section not in map', () => {
-    const screening = createScreeningWithMovie(
-      createTraditionalScreening(),
-      { section: 'unknownSection' },
-    );
+    const screening = createScreeningWithMovie(createTraditionalScreening(), {
+      section: 'unknownSection',
+    });
 
     expect(getSectionLabel(screening, sections)).toBe('unknownSection');
   });

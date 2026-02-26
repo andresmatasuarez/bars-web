@@ -88,7 +88,14 @@ type Props = {
   className?: string;
 };
 
-export default function ShareButton({ url, title, size = 'sm', tooltipPosition = 'above', tooltipAlign = 'center', className }: Props) {
+export default function ShareButton({
+  url,
+  title,
+  size = 'sm',
+  tooltipPosition = 'above',
+  tooltipAlign = 'center',
+  className,
+}: Props) {
   const { share, showTooltip } = useShareCopy();
 
   const sizeClasses = size === 'md' ? 'w-10 h-10' : 'w-8 h-8';

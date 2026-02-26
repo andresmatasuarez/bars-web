@@ -38,9 +38,7 @@ function VerButton({ short, screenings, currentEdition }: ShortFilmCardProps) {
         Ver
       </span>
       {disabledCaption && (
-        <span className="text-[9px] text-white/40 leading-tight">
-          {disabledCaption}
-        </span>
+        <span className="text-[9px] text-white/40 leading-tight">{disabledCaption}</span>
       )}
     </div>
   );
@@ -64,17 +62,9 @@ export function ShortFilmCard({ short: s, screenings, currentEdition }: ShortFil
       )}
       {/* Info */}
       <div className="p-3 flex flex-col gap-1">
-        <h5 className="font-heading text-base font-semibold text-white">
-          {s.title}
-        </h5>
-        {s.info && (
-          <span className="text-[10px] text-white/40">{s.info}</span>
-        )}
-        {s.directors && (
-          <span className="text-[10px] text-white/40">
-            Dir: {s.directors}
-          </span>
-        )}
+        <h5 className="font-heading text-base font-semibold text-white">{s.title}</h5>
+        {s.info && <span className="text-[10px] text-white/40">{s.info}</span>}
+        {s.directors && <span className="text-[10px] text-white/40">Dir: {s.directors}</span>}
         {s.synopsis && (
           <div
             className="text-[11px] leading-[1.5] text-white/47 mt-1 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
@@ -111,12 +101,8 @@ export function DesktopShortCard({ short: s, screenings, currentEdition }: Short
       {/* Info */}
       <div className="px-3 pb-3 pt-0 first:pt-3 flex flex-col gap-2 flex-1">
         <h5 className="text-sm font-semibold text-white">{s.title}</h5>
-        {s.info && (
-          <span className="text-xs text-white/40">{s.info}</span>
-        )}
-        {s.directors && (
-          <span className="text-xs text-white/40">Dir: {s.directors}</span>
-        )}
+        {s.info && <span className="text-xs text-white/40">{s.info}</span>}
+        {s.directors && <span className="text-xs text-white/40">Dir: {s.directors}</span>}
         {s.synopsis && (
           <div
             className="text-[11px] leading-[1.4] text-white/27 mt-1 [&_p]:m-0 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"

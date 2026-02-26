@@ -5,7 +5,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@shared': path.resolve(__dirname, '../../shared'),
-      'react': path.resolve(__dirname, '../../node_modules/react'),
+      react: path.resolve(__dirname, '../../node_modules/react'),
       'react-dom': path.resolve(__dirname, '../../node_modules/react-dom'),
     },
   },
@@ -14,9 +14,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./test-setup.ts'],
-    include: [
-      '../../shared/ts/**/*.test.ts',
-      './ts/**/*.test.ts',
-    ],
+    include: ['../../shared/ts/**/*.test.ts', './ts/**/*.test.ts'],
   },
 });

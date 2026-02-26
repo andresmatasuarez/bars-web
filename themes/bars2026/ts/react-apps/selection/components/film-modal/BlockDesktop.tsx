@@ -55,11 +55,14 @@ export default function BlockDesktop({
       <div className="relative z-10 flex flex-1 min-h-0 pb-6">
         {/* Left column: screenings */}
         <div className="w-[460px] shrink-0 overflow-y-auto px-12 pt-6 pb-10 flex flex-col gap-3">
-          <h3 className="font-heading text-2xl font-medium text-white">
-            Funciones
-          </h3>
+          <h3 className="font-heading text-2xl font-medium text-white">Funciones</h3>
           {[...movie.screenings].sort(compareScreenings).map((s) => (
-            <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} />
+            <ScreeningCard
+              key={s.raw}
+              screening={s}
+              streamingLink={movie.streamingLink}
+              currentEdition={currentEdition}
+            />
           ))}
         </div>
 
@@ -71,7 +74,12 @@ export default function BlockDesktop({
           <div className="overflow-y-auto flex-1 min-h-0 pr-3 mr-12 pb-10 mt-3">
             <div className="grid grid-cols-2 gap-3">
               {shorts.map((s) => (
-                <DesktopShortCard key={s.id} short={s} screenings={movie.screenings} currentEdition={currentEdition} />
+                <DesktopShortCard
+                  key={s.id}
+                  short={s}
+                  screenings={movie.screenings}
+                  currentEdition={currentEdition}
+                />
               ))}
             </div>
           </div>

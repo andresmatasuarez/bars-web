@@ -67,9 +67,10 @@ export default function WatchlistStreamingSection({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
             {screenings.map((screening) => {
               const listIds = getSharedListIdsForScreening(screening);
-              const colors = listIds.length > 0
-                ? listIds.map((id) => sharedListColorMap.get(id)!).filter(Boolean)
-                : undefined;
+              const colors =
+                listIds.length > 0
+                  ? listIds.map((id) => sharedListColorMap.get(id)!).filter(Boolean)
+                  : undefined;
               return (
                 <FilmCard
                   key={`${screening.movie.id}-${screening.raw}`}

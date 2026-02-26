@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Stylable } from '../../types';
 import { explodeCommaSeparated } from '../../utils';
 import { DataContext } from '../DataProvider';
-import { InlineHeading, MovieTitle,SectionLabel, Specs } from './commons';
+import { InlineHeading, MovieTitle, SectionLabel, Specs } from './commons';
 import { MovieAdditionalData, MovieBlockAdditionalData } from './types';
 
 export function getMoviesSpecs(

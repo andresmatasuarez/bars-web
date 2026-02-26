@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Movie, Stylable } from '../../types';
-import { modalContentStyles,ModalHeader, ModalLoading } from '../MovieModal';
+import { modalContentStyles, ModalHeader, ModalLoading } from '../MovieModal';
 import MovieBlockModalContent from './MovieBlockModalContent';
 import RegularMovieModalContent from './RegularMovieModalContent';
-import { isMovieBlockAdditionalData,MovieAdditionalData, MovieBlockAdditionalData } from './types';
+import { isMovieBlockAdditionalData, MovieAdditionalData, MovieBlockAdditionalData } from './types';
 
 export default styled(function MovieModalContent({
   className,

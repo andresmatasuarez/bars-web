@@ -39,13 +39,13 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
   const hasActiveFilters = filterCount > 0;
 
   // Other lists for overlap pills (watchlist tab only)
-  const otherSharedLists = sharedLists.filter(l => l.id !== listSubTab);
-  const hasOtherLists = isWatchlistTab && (
-    (listSubTab !== 'personal' ? 1 : 0) + otherSharedLists.length > 0
-  );
+  const otherSharedLists = sharedLists.filter((l) => l.id !== listSubTab);
+  const hasOtherLists =
+    isWatchlistTab && (listSubTab !== 'personal' ? 1 : 0) + otherSharedLists.length > 0;
 
-  const categories = Object.entries(availableSections)
-    .sort(([, a], [, b]) => a.localeCompare(b, 'es'));
+  const categories = Object.entries(availableSections).sort(([, a], [, b]) =>
+    a.localeCompare(b, 'es'),
+  );
 
   const clearAll = () => {
     setActiveCategories([]);
@@ -73,7 +73,10 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-bars-divider">
-        <h2 id="mobile-filter-title" className="flex items-center gap-2.5 font-display text-xl tracking-[1px] text-white">
+        <h2
+          id="mobile-filter-title"
+          className="flex items-center gap-2.5 font-display text-xl tracking-[1px] text-white"
+        >
           <FilterIcon size={20} />
           Filtrar
         </h2>
@@ -99,12 +102,17 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                 type="button"
                 onClick={() => setWatchlistOnly(!watchlistOnly)}
                 className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
-                  ${watchlistOnly
-                    ? 'border text-white'
-                    : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                  ${
+                    watchlistOnly
+                      ? 'border text-white'
+                      : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                   }
                 `}
-                style={watchlistOnly ? { borderColor: '#8b0000', backgroundColor: '#8b000020' } : undefined}
+                style={
+                  watchlistOnly
+                    ? { borderColor: '#8b0000', backgroundColor: '#8b000020' }
+                    : undefined
+                }
               >
                 <BookmarkIcon size={14} filled className="text-bars-primary" />
                 Mi lista
@@ -122,12 +130,15 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                     type="button"
                     onClick={() => toggleSharedList(list.id)}
                     className={`inline-flex items-center gap-2 rounded-bars-pill pl-4 pr-4 py-3 text-sm font-medium transition-colors cursor-pointer
-                      ${isActive
-                        ? 'border text-white'
-                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                      ${
+                        isActive
+                          ? 'border text-white'
+                          : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                       }
                     `}
-                    style={isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined}
+                    style={
+                      isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined
+                    }
                   >
                     <span
                       className="inline-block w-3 h-3 rounded-full flex-shrink-0"
@@ -157,12 +168,17 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                   type="button"
                   onClick={() => toggleWatchlistListFilter('personal')}
                   className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
-                    ${watchlistListFilters.includes('personal')
-                      ? 'border text-white'
-                      : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                    ${
+                      watchlistListFilters.includes('personal')
+                        ? 'border text-white'
+                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                     }
                   `}
-                  style={watchlistListFilters.includes('personal') ? { borderColor: '#8b0000', backgroundColor: '#8b000020' } : undefined}
+                  style={
+                    watchlistListFilters.includes('personal')
+                      ? { borderColor: '#8b0000', backgroundColor: '#8b000020' }
+                      : undefined
+                  }
                 >
                   <BookmarkIcon size={14} filled className="text-bars-primary" />
                   Mi lista
@@ -182,12 +198,15 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                     type="button"
                     onClick={() => toggleWatchlistListFilter(list.id)}
                     className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
-                      ${isActive
-                        ? 'border text-white'
-                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                      ${
+                        isActive
+                          ? 'border text-white'
+                          : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                       }
                     `}
-                    style={isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined}
+                    style={
+                      isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined
+                    }
                   >
                     <span
                       className="inline-block w-3 h-3 rounded-full flex-shrink-0"
@@ -215,9 +234,10 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
               type="button"
               onClick={() => setActiveCategories([])}
               className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
-                ${activeCategories.length === 0
-                  ? 'bg-bars-primary border border-bars-primary text-white'
-                  : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                ${
+                  activeCategories.length === 0
+                    ? 'bg-bars-primary border border-bars-primary text-white'
+                    : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                 }
               `}
             >
@@ -234,9 +254,10 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
                 type="button"
                 onClick={() => toggleCategory(id)}
                 className={`inline-flex items-center gap-2 rounded-bars-pill px-5 py-3 text-sm font-medium transition-colors cursor-pointer
-                  ${activeCategories.includes(id)
-                    ? 'bg-bars-primary border border-bars-primary text-white'
-                    : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                  ${
+                    activeCategories.includes(id)
+                      ? 'bg-bars-primary border border-bars-primary text-white'
+                      : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                   }
                 `}
               >

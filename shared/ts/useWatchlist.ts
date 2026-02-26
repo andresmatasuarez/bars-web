@@ -15,7 +15,8 @@ const LOCALSTORAGE_KEY = 'bars-watchlist';
  * as well have used the edition number but the movie post ID was closer at hand and it's
  * unique across editions.
  */
-export type WatchlistEntry = `${/* Movie post ID */ number}_[${/* Screening `raw` value */ string}]`;
+export type WatchlistEntry =
+  `${/* Movie post ID */ number}_[${/* Screening `raw` value */ string}]`;
 
 export function serializeScreeningForWatchlist(screening: ScreeningWithMovie): WatchlistEntry {
   return `${screening.movie.id}_[${screening.raw}]`;

@@ -15,9 +15,7 @@ describe('serializeScreeningForWatchlist', () => {
       raw: 'belgrano.Sala 6:11-20-2025 20:00',
     });
     const swm = createScreeningWithMovie(screening, { id: 42 });
-    expect(serializeScreeningForWatchlist(swm)).toBe(
-      '42_[belgrano.Sala 6:11-20-2025 20:00]',
-    );
+    expect(serializeScreeningForWatchlist(swm)).toBe('42_[belgrano.Sala 6:11-20-2025 20:00]');
   });
 
   it('serializes a streaming screening', () => {

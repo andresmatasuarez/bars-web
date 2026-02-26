@@ -61,7 +61,10 @@ export default function ShareListDialog({ isOpen, onClose, watchlist }: ShareLis
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 pt-5 pb-2">
-        <h2 id="share-list-title" className="flex items-center gap-2 font-display text-lg tracking-[0.5px] text-white">
+        <h2
+          id="share-list-title"
+          className="flex items-center gap-2 font-display text-lg tracking-[0.5px] text-white"
+        >
           <ShareIcon size={18} />
           Compartir mi lista
         </h2>

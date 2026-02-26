@@ -123,7 +123,12 @@ export default function App() {
       <DayTabs />
 
       {/* Sub-tabs for personal/shared lists (only on watchlist tab) */}
-      {isWatchlist && <ListSubTabs onSharePersonalList={() => setShareDialogOpen(true)} onSavePersonalList={openSaveDialog} />}
+      {isWatchlist && (
+        <ListSubTabs
+          onSharePersonalList={() => setShareDialogOpen(true)}
+          onSavePersonalList={openSaveDialog}
+        />
+      )}
 
       {/* Filter pills – desktop only */}
       <div className="hidden lg:block mt-6">
@@ -175,7 +180,13 @@ export default function App() {
       {/* Content */}
       <div className="mt-6 lg:mt-8 space-y-8 lg:space-y-10">
         {!hasResults ? (
-          <EmptyState type={isWatchlist && isPersonalSubTab && watchlist.length === 0 ? 'empty-watchlist' : 'no-results'} />
+          <EmptyState
+            type={
+              isWatchlist && isPersonalSubTab && watchlist.length === 0
+                ? 'empty-watchlist'
+                : 'no-results'
+            }
+          />
         ) : isOnline ? (
           <div>
             <p className="text-sm text-bars-link-accent/70 italic mb-5 border-l-2 border-bars-link-accent/25 pl-3">

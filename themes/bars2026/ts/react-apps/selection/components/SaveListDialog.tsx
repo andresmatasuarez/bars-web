@@ -37,7 +37,10 @@ export default function SaveListDialog({ isOpen, onClose, onSave, disabled }: Sa
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 pt-5 pb-2">
-        <h2 id="save-list-title" className="flex items-center gap-2 font-display text-lg tracking-[0.5px] text-white">
+        <h2
+          id="save-list-title"
+          className="flex items-center gap-2 font-display text-lg tracking-[0.5px] text-white"
+        >
           <SaveIcon size={18} />
           Guardar mi lista
         </h2>
@@ -53,7 +56,8 @@ export default function SaveListDialog({ isOpen, onClose, onSave, disabled }: Sa
       {/* Body */}
       <div className="px-5 py-4 space-y-4">
         <p className="text-sm text-bars-text-subtle">
-          Guardá una copia de tu lista personal como lista independiente. Ponele un nombre para identificarla.
+          Guardá una copia de tu lista personal como lista independiente. Ponele un nombre para
+          identificarla.
         </p>
         <input
           type="text"

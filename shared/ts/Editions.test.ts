@@ -48,8 +48,7 @@ describe('Editions', () => {
       const days = Editions.days(edition);
       const from = Editions.from(edition)!;
       const to = Editions.to(edition)!;
-      const expectedCount =
-        Math.round((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+      const expectedCount = Math.round((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24)) + 1;
       expect(days).toHaveLength(expectedCount);
     });
 
@@ -62,14 +61,22 @@ describe('Editions', () => {
     });
 
     it('throws when from date is null', () => {
-      const fakeEdition = { ...Editions.getByNumber(14), number: 99, days: { from: null, to: '2025-11-30T03:00:00.000Z' } };
+      const fakeEdition = {
+        ...Editions.getByNumber(14),
+        number: 99,
+        days: { from: null, to: '2025-11-30T03:00:00.000Z' },
+      };
       expect(() => Editions.days(fakeEdition as any)).toThrow(
         'The start date of edition 99 must not be null',
       );
     });
 
     it('throws when to date is null', () => {
-      const fakeEdition = { ...Editions.getByNumber(14), number: 99, days: { from: '2025-11-20T03:00:00.000Z', to: null } };
+      const fakeEdition = {
+        ...Editions.getByNumber(14),
+        number: 99,
+        days: { from: '2025-11-20T03:00:00.000Z', to: null },
+      };
       expect(() => Editions.days(fakeEdition as any)).toThrow(
         'The end date of edition 99 must not be null',
       );

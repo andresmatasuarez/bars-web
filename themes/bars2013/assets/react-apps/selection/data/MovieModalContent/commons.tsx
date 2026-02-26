@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { applyCssStyleProp,Stylable } from '../../types';
+import { applyCssStyleProp, Stylable } from '../../types';
 
 export const Paragraph = styled.div<Stylable>`
   line-height: 20pt;
@@ -19,7 +19,6 @@ export const MovieImageWrapper = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-
 `;
 
 export const INLINE_HEADING_COLOR = '#eb9797';

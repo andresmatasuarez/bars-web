@@ -158,9 +158,7 @@ describe('getScreeningsForDay', () => {
         ],
       }),
       createMovie({
-        screenings: [
-          createRegularStreaming({ isoDate: '2025-11-20T03:00:00-03:00' }),
-        ],
+        screenings: [createRegularStreaming({ isoDate: '2025-11-20T03:00:00-03:00' })],
       }),
       createMovie({
         screenings: [

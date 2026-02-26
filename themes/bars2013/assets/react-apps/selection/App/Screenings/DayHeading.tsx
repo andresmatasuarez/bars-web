@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { getDayName, getDayNumber } from '../../../helpers';
-import { applyCssStyleProp,Stylable } from '../../types';
+import { applyCssStyleProp, Stylable } from '../../types';
 
 const DayName = styled.div`
   font-size: 12pt;

@@ -11,7 +11,13 @@ interface ModalProps {
   ariaLabelledBy?: string;
 }
 
-export function Modal({ isOpen, onClose, children, containerClassName, ariaLabelledBy }: ModalProps) {
+export function Modal({
+  isOpen,
+  onClose,
+  children,
+  containerClassName,
+  ariaLabelledBy,
+}: ModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);

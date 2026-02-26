@@ -106,7 +106,7 @@ export default styled(function MovieScreening({
         addToWatchlist(screening);
       }
     },
-    [screening, addToWatchlist, removeFromWatchlist, isAdded]
+    [screening, addToWatchlist, removeFromWatchlist, isAdded],
   );
 
   const currentEdition = getCurrentEdition();

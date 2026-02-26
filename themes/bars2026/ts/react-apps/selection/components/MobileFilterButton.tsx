@@ -6,7 +6,8 @@ interface MobileFilterButtonProps {
 }
 
 export default function MobileFilterButton({ onOpen }: MobileFilterButtonProps) {
-  const { activeCategories, watchlistOnly, activeTab, activeSharedListIds, watchlistListFilters } = useData();
+  const { activeCategories, watchlistOnly, activeTab, activeSharedListIds, watchlistListFilters } =
+    useData();
 
   const isWatchlistTab = activeTab.type === 'watchlist';
   const filterCount =

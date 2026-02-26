@@ -46,7 +46,8 @@ function arePropsEqual(prev: Props, next: Props): boolean {
   if (!prevColors || !nextColors) return false;
   if (prevColors.length !== nextColors.length) return false;
   for (let i = 0; i < prevColors.length; i++) {
-    if (prevColors[i].color !== nextColors[i].color || prevColors[i].name !== nextColors[i].name) return false;
+    if (prevColors[i].color !== nextColors[i].color || prevColors[i].name !== nextColors[i].name)
+      return false;
   }
   return true;
 }
@@ -54,7 +55,10 @@ function arePropsEqual(prev: Props, next: Props): boolean {
 function SharedListDots({ colors }: { colors: SharedListColor[] }) {
   if (colors.length === 0) return null;
   return (
-    <span className="inline-flex items-center gap-1 ml-1.5" title={colors.map((c) => c.name).join(', ')}>
+    <span
+      className="inline-flex items-center gap-1 ml-1.5"
+      title={colors.map((c) => c.name).join(', ')}
+    >
       {colors.map((c) => (
         <span
           key={c.color}
@@ -80,10 +84,7 @@ export default memo(function FilmCard({
   const colors = sharedListColors && sharedListColors.length > 0 ? sharedListColors : null;
 
   return (
-    <div
-      onClick={onOpenModal}
-      className="block group cursor-pointer"
-    >
+    <div onClick={onOpenModal} className="block group cursor-pointer">
       {/* Desktop: vertical card */}
       <div className="hidden lg:flex flex-col bg-bars-bg-card rounded-bars-md overflow-hidden h-[280px]">
         {/* Thumbnail */}
@@ -94,11 +95,13 @@ export default memo(function FilmCard({
             <div className="w-full h-full bg-bars-bg-medium" />
           )}
           <div className="absolute top-2 right-2 flex flex-col gap-1.5">
-            <BookmarkButton
-              active={bookmarked}
-              onClick={onToggleWatchlist}
+            <BookmarkButton active={bookmarked} onClick={onToggleWatchlist} />
+            <ShareButton
+              url={shareUrl}
+              title={movie.title}
+              tooltipPosition="below"
+              tooltipAlign="right"
             />
-            <ShareButton url={shareUrl} title={movie.title} tooltipPosition="below" tooltipAlign="right" />
           </div>
         </div>
 
@@ -120,9 +123,7 @@ export default memo(function FilmCard({
             {movie.title}
           </h4>
           {movie.info && (
-            <span className="text-xs text-bars-text-subtle mt-auto truncate">
-              {movie.info}
-            </span>
+            <span className="text-xs text-bars-text-subtle mt-auto truncate">{movie.info}</span>
           )}
         </div>
       </div>
@@ -137,11 +138,13 @@ export default memo(function FilmCard({
             <div className="w-full h-full bg-bars-bg-medium" />
           )}
           <div className="absolute top-1.5 right-1.5 flex flex-col gap-1">
-            <BookmarkButton
-              active={bookmarked}
-              onClick={onToggleWatchlist}
+            <BookmarkButton active={bookmarked} onClick={onToggleWatchlist} />
+            <ShareButton
+              url={shareUrl}
+              title={movie.title}
+              tooltipPosition="below"
+              tooltipAlign="right"
             />
-            <ShareButton url={shareUrl} title={movie.title} tooltipPosition="below" tooltipAlign="right" />
           </div>
         </div>
 
@@ -163,9 +166,7 @@ export default memo(function FilmCard({
             {movie.title}
           </h4>
           {movie.info && (
-            <span className="text-[10px] text-bars-text-subtle mt-auto truncate">
-              {movie.info}
-            </span>
+            <span className="text-[10px] text-bars-text-subtle mt-auto truncate">{movie.info}</span>
           )}
         </div>
       </div>

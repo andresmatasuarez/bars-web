@@ -4,7 +4,7 @@
     "baseUrl": "..",
     "paths": {
       "@shared/*": ["shared/*"]
-    },
+    }
   },
   "include": ["ts/**/*"]
 }

@@ -26,13 +26,13 @@ export default function FilterPills() {
   const isWatchlistTab = activeTab.type === 'watchlist';
 
   // Other lists = lists not currently being viewed in the sub-tab (for overlap pills)
-  const otherSharedLists = sharedLists.filter(l => l.id !== listSubTab);
-  const hasOtherLists = isWatchlistTab && (
-    (listSubTab !== 'personal' ? 1 : 0) + otherSharedLists.length > 0
-  );
+  const otherSharedLists = sharedLists.filter((l) => l.id !== listSubTab);
+  const hasOtherLists =
+    isWatchlistTab && (listSubTab !== 'personal' ? 1 : 0) + otherSharedLists.length > 0;
 
-  const categories = Object.entries(availableSections)
-    .sort(([, a], [, b]) => a.localeCompare(b, 'es'));
+  const categories = Object.entries(availableSections).sort(([, a], [, b]) =>
+    a.localeCompare(b, 'es'),
+  );
 
   const showListRow = isWatchlistTab ? hasOtherLists : true;
 
@@ -54,12 +54,17 @@ export default function FilterPills() {
                     type="button"
                     onClick={() => toggleWatchlistListFilter('personal')}
                     className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-                      ${watchlistListFilters.includes('personal')
-                        ? 'border text-white'
-                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                      ${
+                        watchlistListFilters.includes('personal')
+                          ? 'border text-white'
+                          : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                       }
                     `}
-                    style={watchlistListFilters.includes('personal') ? { borderColor: '#8b0000', backgroundColor: '#8b000020' } : undefined}
+                    style={
+                      watchlistListFilters.includes('personal')
+                        ? { borderColor: '#8b0000', backgroundColor: '#8b000020' }
+                        : undefined
+                    }
                   >
                     <BookmarkIcon size={12} filled className="text-bars-primary" />
                     Mi lista
@@ -79,12 +84,15 @@ export default function FilterPills() {
                       type="button"
                       onClick={() => toggleWatchlistListFilter(list.id)}
                       className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-                        ${isActive
-                          ? 'border text-white'
-                          : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                        ${
+                          isActive
+                            ? 'border text-white'
+                            : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                         }
                       `}
-                      style={isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined}
+                      style={
+                        isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined
+                      }
                     >
                       <span
                         className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
@@ -107,12 +115,17 @@ export default function FilterPills() {
                   type="button"
                   onClick={() => setWatchlistOnly(!watchlistOnly)}
                   className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-                    ${watchlistOnly
-                      ? 'border text-white'
-                      : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                    ${
+                      watchlistOnly
+                        ? 'border text-white'
+                        : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                     }
                   `}
-                  style={watchlistOnly ? { borderColor: '#8b0000', backgroundColor: '#8b000020' } : undefined}
+                  style={
+                    watchlistOnly
+                      ? { borderColor: '#8b0000', backgroundColor: '#8b000020' }
+                      : undefined
+                  }
                 >
                   <BookmarkIcon size={12} filled className="text-bars-primary" />
                   Mi lista
@@ -130,12 +143,15 @@ export default function FilterPills() {
                       type="button"
                       onClick={() => toggleSharedList(list.id)}
                       className={`inline-flex items-center gap-1.5 rounded-bars-pill pl-3.5 pr-3.5 py-2 text-xs font-medium transition-colors cursor-pointer
-                        ${isActive
-                          ? 'border text-white'
-                          : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+                        ${
+                          isActive
+                            ? 'border text-white'
+                            : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
                         }
                       `}
-                      style={isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined}
+                      style={
+                        isActive ? { borderColor: color, backgroundColor: `${color}20` } : undefined
+                      }
                     >
                       <span
                         className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
@@ -164,9 +180,10 @@ export default function FilterPills() {
           type="button"
           onClick={() => setActiveCategories([])}
           className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-            ${activeCategories.length === 0
-              ? 'bg-bars-primary border border-bars-primary text-white'
-              : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+            ${
+              activeCategories.length === 0
+                ? 'bg-bars-primary border border-bars-primary text-white'
+                : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
             }
           `}
         >
@@ -183,9 +200,10 @@ export default function FilterPills() {
             type="button"
             onClick={() => toggleCategory(id)}
             className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
-              ${activeCategories.includes(id)
-                ? 'bg-bars-primary border border-bars-primary text-white'
-                : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
+              ${
+                activeCategories.includes(id)
+                  ? 'bg-bars-primary border border-bars-primary text-white'
+                  : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
               }
             `}
           >

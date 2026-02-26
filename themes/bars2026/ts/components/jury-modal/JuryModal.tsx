@@ -29,8 +29,7 @@ export function buildJuryDocumentTitle(member: JuryMember): string {
   } else if (section) {
     suffix = section;
   }
-  const siteSuffix =
-    window.BASE_PAGE_TITLE?.split(' \u2013 ').slice(1).join(' \u2013 ') || '';
+  const siteSuffix = window.BASE_PAGE_TITLE?.split(' \u2013 ').slice(1).join(' \u2013 ') || '';
   return suffix
     ? `${member.name} (${suffix}) \u2013 ${siteSuffix}`
     : `${member.name} \u2013 ${siteSuffix}`;
@@ -42,12 +41,8 @@ function CloseButton({ onClick }: { onClick: () => void }) {
       onClick={onClick}
       className="w-8 h-8 rounded-[16px] flex items-center justify-center cursor-pointer transition-colors"
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)')
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)')
-      }
+      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)')}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.4)')}
       aria-label="Cerrar"
     >
       <svg
@@ -69,30 +64,17 @@ function CloseButton({ onClick }: { onClick: () => void }) {
 
 function PhotoPlaceholder({ className }: { className: string }) {
   return (
-    <div
-      className={`${className} bg-bars-bg-medium flex items-center justify-center`}
-    >
-      <svg
-        className="w-16 h-16 text-bars-text-subtle"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
+    <div className={`${className} bg-bars-bg-medium flex items-center justify-center`}>
+      <svg className="w-16 h-16 text-bars-text-subtle" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
       </svg>
     </div>
   );
 }
 
-function DesktopContent({
-  member,
-  onClose,
-}: {
-  member: JuryMember;
-  onClose: () => void;
-}) {
+function DesktopContent({ member, onClose }: { member: JuryMember; onClose: () => void }) {
   const halftoneUrl =
-    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') +
-    '/resources/sala-halftone.png';
+    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') + '/resources/sala-halftone.png';
 
   return (
     <>
@@ -100,11 +82,7 @@ function DesktopContent({
       <div className="relative w-full h-[300px] shrink-0">
         {/* Halftone background image */}
         <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={halftoneUrl}
-            alt=""
-            className="w-full h-full object-cover opacity-30"
-          />
+          <img src={halftoneUrl} alt="" className="w-full h-full object-cover opacity-30" />
           {/* Gradient fade to modal background */}
           <div
             className="absolute inset-0"
@@ -123,11 +101,7 @@ function DesktopContent({
         {/* Circular avatar photo */}
         <div className="absolute left-1/2 top-[20px] -translate-x-1/2 w-[260px] h-[260px] rounded-full overflow-hidden z-10">
           {member.photoUrl ? (
-            <img
-              src={member.photoUrl}
-              alt={member.name}
-              className="w-full h-full object-cover"
-            />
+            <img src={member.photoUrl} alt={member.name} className="w-full h-full object-cover" />
           ) : (
             <PhotoPlaceholder className="w-full h-full" />
           )}
@@ -139,9 +113,7 @@ function DesktopContent({
         <h3 className="font-heading text-[32px] font-semibold text-white text-center">
           {member.name}
         </h3>
-        <p className="text-sm font-medium text-bars-badge-text text-center">
-          {member.section}
-        </p>
+        <p className="text-sm font-medium text-bars-badge-text text-center">{member.section}</p>
         <div className="w-full h-px" style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)' }} />
         <div className="w-full overflow-y-auto flex-1 min-h-0">
           <div
@@ -155,16 +127,9 @@ function DesktopContent({
   );
 }
 
-function MobileContent({
-  member,
-  onClose,
-}: {
-  member: JuryMember;
-  onClose: () => void;
-}) {
+function MobileContent({ member, onClose }: { member: JuryMember; onClose: () => void }) {
   const halftoneUrl =
-    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') +
-    '/resources/sala-halftone.png';
+    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') + '/resources/sala-halftone.png';
 
   return (
     <div className="relative flex-1 min-h-0">
@@ -173,11 +138,7 @@ function MobileContent({
         <div className="relative w-full h-[220px] shrink-0">
           {/* Halftone background */}
           <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={halftoneUrl}
-              alt=""
-              className="w-full h-full object-cover opacity-30"
-            />
+            <img src={halftoneUrl} alt="" className="w-full h-full object-cover opacity-30" />
             <div
               className="absolute inset-0"
               style={{
@@ -189,11 +150,7 @@ function MobileContent({
           {/* Avatar */}
           <div className="absolute left-1/2 top-[20px] -translate-x-1/2 w-[180px] h-[180px] rounded-full overflow-hidden z-10">
             {member.photoUrl ? (
-              <img
-                src={member.photoUrl}
-                alt={member.name}
-                className="w-full h-full object-cover"
-              />
+              <img src={member.photoUrl} alt={member.name} className="w-full h-full object-cover" />
             ) : (
               <PhotoPlaceholder className="w-full h-full" />
             )}
@@ -204,9 +161,7 @@ function MobileContent({
           <h3 className="font-heading text-[28px] font-semibold text-white text-center">
             {member.name}
           </h3>
-          <p className="text-xs font-medium text-bars-badge-text text-center">
-            {member.section}
-          </p>
+          <p className="text-xs font-medium text-bars-badge-text text-center">{member.section}</p>
         </div>
 
         {/* Bio section */}
@@ -237,9 +192,7 @@ function MobileContent({
           >
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          <span className="text-sm font-medium text-white">
-            Premios y Jurados
-          </span>
+          <span className="text-sm font-medium text-white">Premios y Jurados</span>
         </button>
       </div>
     </div>
@@ -264,9 +217,7 @@ function buildUrl(slug: string | null): string {
 }
 
 function extractJuryFromCard(slug: string): JuryMember | null {
-  const card = document.querySelector<HTMLElement>(
-    `.jury-card-toggle[data-jury-slug="${slug}"]`,
-  );
+  const card = document.querySelector<HTMLElement>(`.jury-card-toggle[data-jury-slug="${slug}"]`);
   if (!card) return null;
   const bioEl = card.querySelector<HTMLElement>('.jury-bio-content');
   return {

@@ -33,8 +33,7 @@ export function buildDocumentTitle(movie: Movie): string {
   const sectionLabel = window.MOVIE_SECTIONS[movie.section] || '';
   const editionTitle = Editions.getTitle(Editions.getByNumber(window.CURRENT_EDITION));
   const suffix = sectionLabel ? `${editionTitle} - ${sectionLabel}` : editionTitle;
-  const siteSuffix =
-    window.BASE_PAGE_TITLE?.split(' \u2013 ').slice(1).join(' \u2013 ') || '';
+  const siteSuffix = window.BASE_PAGE_TITLE?.split(' \u2013 ').slice(1).join(' \u2013 ') || '';
   return `${movie.title} (${suffix}) \u2013 ${siteSuffix}`;
 }
 
@@ -61,9 +60,7 @@ export default function useFilmModal(): UseFilmModalValues {
       const slug = getSlugFromUrl();
       const movie = slug ? findMovieBySlug(slug) : null;
       setSelectedMovie(movie);
-      document.title = movie
-        ? buildDocumentTitle(movie)
-        : window.BASE_PAGE_TITLE || document.title;
+      document.title = movie ? buildDocumentTitle(movie) : window.BASE_PAGE_TITLE || document.title;
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);

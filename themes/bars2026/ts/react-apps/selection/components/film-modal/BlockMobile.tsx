@@ -54,18 +54,27 @@ export default function BlockMobile({
                 Cortometrajes incluidos
               </h3>
               {shorts.map((s) => (
-                <ShortFilmCard key={s.id} short={s} screenings={movie.screenings} currentEdition={currentEdition} />
+                <ShortFilmCard
+                  key={s.id}
+                  short={s}
+                  screenings={movie.screenings}
+                  currentEdition={currentEdition}
+                />
               ))}
             </div>
           )}
           {/* Screenings */}
           {movie.screenings.length > 0 && (
             <div className="flex flex-col gap-3">
-              <h3 className="font-heading text-lg font-medium text-white">
-                Funciones
-              </h3>
+              <h3 className="font-heading text-lg font-medium text-white">Funciones</h3>
               {[...movie.screenings].sort(compareScreenings).map((s) => (
-                <ScreeningCard key={s.raw} screening={s} streamingLink={movie.streamingLink} currentEdition={currentEdition} compact />
+                <ScreeningCard
+                  key={s.raw}
+                  screening={s}
+                  streamingLink={movie.streamingLink}
+                  currentEdition={currentEdition}
+                  compact
+                />
               ))}
             </div>
           )}

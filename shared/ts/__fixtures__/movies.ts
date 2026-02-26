@@ -61,10 +61,9 @@ export function createMovie(overrides: Partial<Movie> = {}): Movie {
   };
 }
 
-export function createScreeningWithMovie<T extends TraditionalScreening | RegularStreamingScreening | AlwaysAvailableStreamingScreening>(
-  screening: T,
-  movieOverrides: Partial<Movie> = {},
-): ScreeningWithMovie<T> {
+export function createScreeningWithMovie<
+  T extends TraditionalScreening | RegularStreamingScreening | AlwaysAvailableStreamingScreening,
+>(screening: T, movieOverrides: Partial<Movie> = {}): ScreeningWithMovie<T> {
   const movie = createMovie({ ...movieOverrides, screenings: [screening] });
   return { ...screening, movie };
 }
