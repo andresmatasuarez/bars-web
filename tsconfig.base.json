@@ -10,7 +10,7 @@
     "target": "es5",
     "module": "es2022",
     "lib": ["es2017", "dom"],
-    "types": ["vite/client", "node"],
+    "types": ["vite/client", "node", "vitest/globals"],
     "jsx": "react-jsx",
     "resolveJsonModule": true
   },
