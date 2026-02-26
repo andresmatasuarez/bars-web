@@ -1,7 +1,7 @@
-import { SharedList } from '@shared/ts/selection/data/useSharedLists';
-import { WatchlistEntry } from '@shared/ts/selection/data/useWatchlist';
+import { WatchlistEntry } from '@shared/ts/useWatchlist';
 
 import { Modal } from '../../../components/modal/Modal';
+import { SharedList } from '../data/useSharedLists';
 import { XIcon } from './icons';
 import { getColorForList } from './sharedListColors';
 

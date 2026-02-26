@@ -1,11 +1,11 @@
-import Editions from '../Editions';
+import Editions from './Editions';
 import {
   createAlwaysAvailableStreaming,
   createMovie,
   createRegularStreaming,
   createScreeningWithMovie,
   createTraditionalScreening,
-} from '../data/__fixtures__/movies';
+} from './__fixtures__/movies';
 import {
   compareScreenings,
   getAlwaysAvailableScreenings,
@@ -14,7 +14,7 @@ import {
   groupByDayAndTimeSlot,
   groupByTimeSlot,
   isLatestEdition,
-} from './helpers';
+} from './screeningHelpers';
 
 describe('getCurrentEdition', () => {
   afterEach(() => {

@@ -1,4 +1,4 @@
-import { Screening, ScreeningWithMovie } from '@shared/ts/selection/types';
+import { Screening, ScreeningWithMovie } from '@shared/ts/types';
 import { memo, useRef } from 'react';
 
 import BookmarkButton from './BookmarkButton';

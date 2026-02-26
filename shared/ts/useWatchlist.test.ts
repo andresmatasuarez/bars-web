@@ -4,7 +4,7 @@ import {
   createAlwaysAvailableStreaming,
   createScreeningWithMovie,
   createTraditionalScreening,
-} from '../data/__fixtures__/movies';
+} from './__fixtures__/movies';
 import useWatchlist, { serializeScreeningForWatchlist } from './useWatchlist';
 
 const LOCALSTORAGE_KEY = 'bars-watchlist';

@@ -1,2 +1,2 @@
-export type { SingleEdition } from '@shared/ts/selection/Editions';
-export { default } from '@shared/ts/selection/Editions';
+export type { SingleEdition } from '@shared/ts/Editions';
+export { default } from '@shared/ts/Editions';

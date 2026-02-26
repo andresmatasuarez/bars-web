@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { ScreeningWithMovie } from '../types';
+import { ScreeningWithMovie } from './types';
 
 const LOCALSTORAGE_KEY = 'bars-watchlist';
 

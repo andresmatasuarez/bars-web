@@ -1,4 +1,4 @@
-import Editions from '@shared/ts/selection/Editions';
+import Editions from '@shared/ts/Editions';
 import { useCallback, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 

@@ -4,7 +4,7 @@ import type {
   RegularStreamingScreening,
   ScreeningWithMovie,
   TraditionalScreening,
-} from '../../types';
+} from '../types';
 
 export function createTraditionalScreening(
   overrides: Partial<TraditionalScreening> = {},

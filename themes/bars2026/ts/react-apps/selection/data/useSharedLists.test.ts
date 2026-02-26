@@ -1,10 +1,10 @@
-import { act, renderHook } from '@testing-library/react';
-
 import {
   createScreeningWithMovie,
   createTraditionalScreening,
-} from '../data/__fixtures__/movies';
-import type { WatchlistEntry } from './useWatchlist';
+} from '@shared/ts/__fixtures__/movies';
+import type { WatchlistEntry } from '@shared/ts/useWatchlist';
+import { act, renderHook } from '@testing-library/react';
+
 import useSharedLists from './useSharedLists';
 
 const LOCALSTORAGE_KEY = 'bars-shared-lists';

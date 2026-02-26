@@ -1,4 +1,4 @@
-import type { WatchlistEntry } from './useWatchlist';
+import type { WatchlistEntry } from '@shared/ts/useWatchlist';
 
 export const SHARE_PARAM = 'list';
 export const MAX_LIST_NAME = 30;

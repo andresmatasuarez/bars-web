@@ -1,4 +1,4 @@
-import { Movie } from '@shared/ts/selection/types';
+import { Movie } from '@shared/ts/types';
 import { memo, useRef } from 'react';
 
 import BookmarkButton from '../BookmarkButton';

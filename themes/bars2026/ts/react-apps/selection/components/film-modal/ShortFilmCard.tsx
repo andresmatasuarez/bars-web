@@ -1,5 +1,5 @@
-import { SingleEdition } from '@shared/ts/selection/Editions';
-import { Screening, ShortFilm } from '@shared/ts/selection/types';
+import { SingleEdition } from '@shared/ts/Editions';
+import { Screening, ShortFilm } from '@shared/ts/types';
 import { useRef } from 'react';
 
 import { resolveShortVerState } from './helpers';

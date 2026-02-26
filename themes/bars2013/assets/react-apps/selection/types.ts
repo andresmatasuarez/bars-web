@@ -15,13 +15,13 @@ export type {
   StreamingScreening,
   TraditionalScreening,
   Venues,
-} from '@shared/ts/selection/types';
+} from '@shared/ts/types';
 export {
   isRegularStreamingScreening,
   isScreeningAlwaysAvailable,
   isStreamingScreening,
   isTraditionalScreening,
-} from '@shared/ts/selection/types';
+} from '@shared/ts/types';
 
 // bars2013-specific styled-components utilities
 export type Stylable = {

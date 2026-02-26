@@ -1,8 +1,8 @@
-import { buildShareUrl , MAX_LIST_NAME } from '@shared/ts/selection/data/shareableList';
-import { WatchlistEntry } from '@shared/ts/selection/data/useWatchlist';
+import { WatchlistEntry } from '@shared/ts/useWatchlist';
 import { useCallback, useState } from 'react';
 
 import { Modal } from '../../../components/modal/Modal';
+import { buildShareUrl, MAX_LIST_NAME } from '../data/shareableList';
 import { ShareIcon, XIcon } from './icons';
 import { copyToClipboard } from './ShareButton';
 

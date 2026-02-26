@@ -1,8 +1,8 @@
+import { ScreeningWithMovie } from '@shared/ts/types';
+import { serializeScreeningForWatchlist, WatchlistEntry } from '@shared/ts/useWatchlist';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { ScreeningWithMovie } from '../types';
 import { MAX_SHARED_LISTS } from './shareableList';
-import { serializeScreeningForWatchlist, WatchlistEntry } from './useWatchlist';
 
 const LOCALSTORAGE_KEY = 'bars-shared-lists';
 

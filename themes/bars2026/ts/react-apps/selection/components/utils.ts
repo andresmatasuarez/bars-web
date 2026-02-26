@@ -1,10 +1,10 @@
-import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
+import Editions, { SingleEdition } from '@shared/ts/Editions';
 import {
   isTraditionalScreening,
   MovieSections,
   Screening,
   ScreeningWithMovie,
-} from '@shared/ts/selection/types';
+} from '@shared/ts/types';
 
 export function getVenueDisplay(
   screening: ScreeningWithMovie<Screening>,

@@ -2,7 +2,7 @@ import {
   RegularStreamingScreening,
   ScreeningWithMovie,
   TraditionalScreening,
-} from '@shared/ts/selection/types';
+} from '@shared/ts/types';
 import { useMemo } from 'react';
 
 import { useData } from '../data/DataProvider';

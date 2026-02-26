@@ -1,15 +1,12 @@
+import Editions, { SingleEdition } from '@shared/ts/Editions';
+import { dateHasPassed, isDateBetween, serializeDate } from '@shared/ts/helpers';
 import {
   DayGroup,
   getAlwaysAvailableScreenings,
   getScreeningsForDay,
   groupByDayAndTimeSlot,
   groupByTimeSlot,
-} from '@shared/ts/selection/data/helpers';
-import { decodeShareableList, SHARE_PARAM } from '@shared/ts/selection/data/shareableList';
-import useSharedLists, { SharedList } from '@shared/ts/selection/data/useSharedLists';
-import useWatchlist, { serializeScreeningForWatchlist, UseWatchlistValues, WatchlistEntry } from '@shared/ts/selection/data/useWatchlist';
-import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
-import { dateHasPassed, isDateBetween, serializeDate } from '@shared/ts/selection/helpers';
+} from '@shared/ts/screeningHelpers';
 import {
   AlwaysAvailableStreamingScreening,
   Movie,
@@ -19,10 +16,13 @@ import {
   ScreeningWithMovie,
   TraditionalScreening,
   Venues,
-} from '@shared/ts/selection/types';
+} from '@shared/ts/types';
+import useWatchlist, { serializeScreeningForWatchlist, UseWatchlistValues, WatchlistEntry } from '@shared/ts/useWatchlist';
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
+import { decodeShareableList, SHARE_PARAM } from './shareableList';
 import useFilmModal from './useFilmModal';
+import useSharedLists, { SharedList } from './useSharedLists';
 
 export type ActiveTab =
   | { type: 'day'; date: Date }
@@ -662,7 +662,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
       }
     }
     const counts = new Map<string, number>();
-    for (const [section, ids] of sectionSets) counts.set(section, ids.size);
+    sectionSets.forEach((ids, section) => counts.set(section, ids.size));
     return counts;
   }, [baseScreenings, activeTab.type, isInActiveSubTabList]);
 

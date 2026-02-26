@@ -1,4 +1,5 @@
-import type { WatchlistEntry } from './useWatchlist';
+import type { WatchlistEntry } from '@shared/ts/useWatchlist';
+
 import {
   buildShareUrl,
   decodeShareableList,

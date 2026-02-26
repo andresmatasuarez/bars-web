@@ -1,6 +1,6 @@
-import { SHARE_PARAM } from '@shared/ts/selection/data/shareableList';
 import { useCallback, useMemo, useState } from 'react';
 
+import { SHARE_PARAM } from '../data/shareableList';
 import { XIcon } from './icons';
 
 function isInAppWebView(): boolean {

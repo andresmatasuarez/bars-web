@@ -1,5 +1,5 @@
-import Editions, { SingleEdition } from '../Editions';
-import { serializeDate } from '../helpers';
+import Editions, { SingleEdition } from './Editions';
+import { serializeDate } from './helpers';
 import {
   AlwaysAvailableStreamingScreening,
   isRegularStreamingScreening,
@@ -10,7 +10,7 @@ import {
   Screening,
   ScreeningWithMovie,
   TraditionalScreening,
-} from '../types';
+} from './types';
 
 /** The value used to represent "all sections" (no filter). */
 const ALL_SECTIONS_VALUE = 'all';
@@ -73,20 +73,22 @@ type ScreeningFilters = {
 };
 
 export function compareScreenings(
-  screening1: TraditionalScreening | RegularStreamingScreening,
-  screening2: TraditionalScreening | RegularStreamingScreening,
+  screening1: Screening,
+  screening2: Screening,
 ): number {
   /**
-   * Regular streaming screenings do not have time information, so we want them
-   * to appear first in the sorted array.
+   * Always-available streaming screenings have no date/time info, so they
+   * appear first in the sorted array.
    */
-  if (isRegularStreamingScreening(screening1)) {
-    return -1;
-  }
+  if (isScreeningAlwaysAvailable(screening1)) return -1;
+  if (isScreeningAlwaysAvailable(screening2)) return 1;
 
-  if (isRegularStreamingScreening(screening2)) {
-    return 1;
-  }
+  /**
+   * Regular streaming screenings do not have time information, so we want them
+   * to appear next in the sorted array.
+   */
+  if (isRegularStreamingScreening(screening1)) return -1;
+  if (isRegularStreamingScreening(screening2)) return 1;
 
   /**
    * Sort lexicographically by day/hour/minutes/seconds

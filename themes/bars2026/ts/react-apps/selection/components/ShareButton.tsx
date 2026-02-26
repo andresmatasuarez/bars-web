@@ -37,7 +37,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 /** Hook encapsulating share/copy flow with tooltip state. */
 export function useShareCopy() {
   const [showTooltip, setShowTooltip] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const share = useCallback(async (url: string, title?: string) => {
     if (navigator.share) {

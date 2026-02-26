@@ -1,7 +1,7 @@
-import { MAX_LIST_NAME } from '@shared/ts/selection/data/shareableList';
 import { useCallback, useState } from 'react';
 
 import { Modal } from '../../../components/modal/Modal';
+import { MAX_LIST_NAME } from '../data/shareableList';
 import { SaveIcon, XIcon } from './icons';
 
 interface SaveListDialogProps {

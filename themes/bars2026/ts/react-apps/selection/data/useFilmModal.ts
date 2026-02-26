@@ -1,5 +1,5 @@
-import Editions from '@shared/ts/selection/Editions';
-import { Movie } from '@shared/ts/selection/types';
+import Editions from '@shared/ts/Editions';
+import { Movie } from '@shared/ts/types';
 import { useCallback, useEffect, useState } from 'react';
 
 export type UseFilmModalValues = {

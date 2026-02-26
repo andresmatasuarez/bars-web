@@ -2,7 +2,7 @@ import {
   createAlwaysAvailableStreaming,
   createRegularStreaming,
   createTraditionalScreening,
-} from './data/__fixtures__/movies';
+} from './__fixtures__/movies';
 import {
   isRegularStreamingScreening,
   isScreeningAlwaysAvailable,

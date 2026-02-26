@@ -1,6 +1,6 @@
-import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
-import { dateHasPassed, isTodayInBuenosAires, isTodayInBuenosAiresBetween } from '@shared/ts/selection/helpers';
-import { isRegularStreamingScreening, isScreeningAlwaysAvailable, Screening } from '@shared/ts/selection/types';
+import Editions, { SingleEdition } from '@shared/ts/Editions';
+import { dateHasPassed, isTodayInBuenosAires, isTodayInBuenosAiresBetween } from '@shared/ts/helpers';
+import { isRegularStreamingScreening, isScreeningAlwaysAvailable, Screening } from '@shared/ts/types';
 
 export function getSpanishDayAbbr(date: Date): string {
   const day = date.toLocaleDateString('es-AR', { weekday: 'short' });

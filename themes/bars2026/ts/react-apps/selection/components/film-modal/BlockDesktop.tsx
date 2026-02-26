@@ -1,6 +1,6 @@
-import { compareScreenings } from '@shared/ts/selection/data/helpers';
-import { SingleEdition } from '@shared/ts/selection/Editions';
-import { Movie, MovieSections } from '@shared/ts/selection/types';
+import { SingleEdition } from '@shared/ts/Editions';
+import { compareScreenings } from '@shared/ts/screeningHelpers';
+import { Movie, MovieSections } from '@shared/ts/types';
 
 import CloseButton from './CloseButton';
 import HeroSection from './HeroSection';

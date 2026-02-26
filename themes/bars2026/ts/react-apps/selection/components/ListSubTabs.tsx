@@ -1,7 +1,8 @@
-import { buildShareUrl } from '@shared/ts/selection/data/shareableList';
+import { WatchlistEntry } from '@shared/ts/useWatchlist';
 import { useCallback, useMemo, useRef, useState } from 'react';
 
 import { useData } from '../data/DataProvider';
+import { buildShareUrl } from '../data/shareableList';
 import { BookmarkIcon, SaveIcon, ShareIcon, XIcon } from './icons';
 import { useShareCopy } from './ShareButton';
 import { getColorForList } from './sharedListColors';
@@ -34,7 +35,7 @@ export default function ListSubTabs({ onSharePersonalList, onSavePersonalList }:
   const [, forceRender] = useState(0);
 
   const captureAndShare = useCallback(
-    (el: Element, name: string, entries: string[]) => {
+    (el: Element, name: string, entries: WatchlistEntry[]) => {
       const rect = el.getBoundingClientRect();
       tooltipPosRef.current = { x: rect.left + rect.width / 2, y: rect.top };
       forceRender(n => n + 1);

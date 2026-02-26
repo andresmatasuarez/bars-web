@@ -1,15 +1,15 @@
-import Editions, { SingleEdition } from '@shared/ts/selection/Editions';
+import Editions, { SingleEdition } from '@shared/ts/Editions';
 import {
   dateHasPassed,
   isTodayInBuenosAires,
   isTodayInBuenosAiresBetween,
-} from '@shared/ts/selection/helpers';
+} from '@shared/ts/helpers';
 import {
   isRegularStreamingScreening,
   isScreeningAlwaysAvailable,
   isTraditionalScreening,
   Screening,
-} from '@shared/ts/selection/types';
+} from '@shared/ts/types';
 
 import { MapPinIcon, MonitorPlayIcon } from '../icons';
 import { getSpanishDayAbbr } from './helpers';

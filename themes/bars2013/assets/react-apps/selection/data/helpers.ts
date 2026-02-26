@@ -5,4 +5,4 @@ export {
   getScreeningsForDay,
   groupByTimeSlot,
   isLatestEdition,
-} from '@shared/ts/selection/data/helpers';
+} from '@shared/ts/screeningHelpers';
