@@ -143,7 +143,10 @@ get_template_part('template-parts/sections/page', 'hero');
         <?php if ($news_query->max_num_pages > 1): ?>
         <nav class="flex items-center justify-center gap-2 mt-12">
             <?php
+            $big = 999999999;
             $pagination = paginate_links(array(
+                'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                'format'    => '/page/%#%/',
                 'total'     => $news_query->max_num_pages,
                 'current'   => $paged,
                 'type'      => 'array',
