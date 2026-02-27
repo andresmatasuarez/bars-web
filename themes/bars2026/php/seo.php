@@ -79,6 +79,103 @@ function bars_seo_get_jury_from_param() {
 }
 
 /**
+ * Sanitize a shared-list name (PHP port of the TypeScript sanitizeListName).
+ * Strips HTML, allows word chars + accented Latin + common punctuation, trims, max 30 chars.
+ */
+function bars_seo_sanitize_list_name($raw) {
+    // Strip HTML tags
+    $name = preg_replace('/<[^>]*>/', '', $raw);
+    // Allow word chars, spaces, and common punctuation + accented Latin chars
+    $name = preg_replace('/[^\w\s.,!?\x27"\-()áéíóúñüÁÉÍÓÚÑÜ]/u', '', $name);
+    $name = trim($name);
+    return mb_substr($name, 0, 30);
+}
+
+/**
+ * Decode a base64url-encoded shared list payload.
+ *
+ * Expected JSON structure: { "n": string, "e": array }
+ * Returns array('name' => string, 'movie_count' => int) or null on failure.
+ */
+function bars_seo_decode_list_param($encoded) {
+    // Size check (50KB max)
+    if (strlen($encoded) > 50000) {
+        return null;
+    }
+
+    // base64url → base64
+    $b64 = str_replace(array('-', '_'), array('+', '/'), $encoded);
+    $pad = strlen($b64) % 4;
+    if ($pad) {
+        $b64 .= str_repeat('=', 4 - $pad);
+    }
+
+    $json = base64_decode($b64, true);
+    if ($json === false) {
+        return null;
+    }
+
+    $parsed = json_decode($json, true);
+    if (!is_array($parsed)) {
+        return null;
+    }
+
+    // Validate structure: must have "n" (string) and "e" (array)
+    if (!isset($parsed['n']) || !is_string($parsed['n'])) {
+        return null;
+    }
+    if (!isset($parsed['e']) || !is_array($parsed['e'])) {
+        return null;
+    }
+
+    $name = bars_seo_sanitize_list_name($parsed['n']);
+    if ($name === '') {
+        return null;
+    }
+
+    // Count unique movie IDs from valid entries (pattern: /^\d+_\[.+\]$/)
+    $seen = array();
+    foreach ($parsed['e'] as $entry) {
+        if (!is_string($entry)) {
+            continue;
+        }
+        if (!preg_match('/^\d+_\[.+\]$/', $entry)) {
+            continue;
+        }
+        $parts = explode('_', $entry, 2);
+        $seen[$parts[0]] = true;
+    }
+
+    if (empty($seen)) {
+        return null;
+    }
+
+    return array('name' => $name, 'movie_count' => count($seen));
+}
+
+/**
+ * Look up decoded list data from the ?list= query param.
+ * Returns array('name' => ..., 'movie_count' => ...) or null.
+ */
+function bars_seo_get_list_from_param() {
+    static $cache = 'NOT_QUERIED';
+    if ($cache !== 'NOT_QUERIED') {
+        return $cache;
+    }
+    if (!is_page('programacion')) {
+        $cache = null;
+        return null;
+    }
+    $encoded = isset($_GET['list']) ? $_GET['list'] : '';
+    if (!$encoded || !is_string($encoded)) {
+        $cache = null;
+        return null;
+    }
+    $cache = bars_seo_decode_list_param($encoded);
+    return $cache;
+}
+
+/**
  * Get the current page's SEO title.
  */
 function bars_seo_get_title() {
@@ -101,6 +198,11 @@ function bars_seo_get_title() {
         $name = get_post_meta($jury_post->ID, '_jury_name', true) ?: get_the_title($jury_post->ID);
         $suffix = bars_seo_jury_title_suffix($jury_post->ID);
         return $suffix ? $name . ' (' . $suffix . ')' : $name;
+    }
+
+    $list = bars_seo_get_list_from_param();
+    if ($list) {
+        return bars_seo_build_list_og_title($list);
     }
 
     if (is_front_page()) {
@@ -166,6 +268,13 @@ function bars_seo_get_description() {
         }
         $name = get_post_meta($jury_post->ID, '_jury_name', true) ?: get_the_title($jury_post->ID);
         return bars_seo_truncate($name . ' - Jurado del Festival Buenos Aires Rojo Sangre');
+    }
+
+    $list = bars_seo_get_list_from_param();
+    if ($list) {
+        $current = Editions::current();
+        $prefix = Editions::getTitle($current);
+        return $prefix . ': lista compartida con ' . $list['movie_count'] . ' películas.';
     }
 
     // Front page
@@ -313,6 +422,11 @@ function bars_seo_get_canonical() {
         return home_url('/premios');
     }
 
+    // List URLs: canonical stays at /programacion (don't index list URLs)
+    if (bars_seo_get_list_from_param()) {
+        return home_url('/programacion');
+    }
+
     if (is_front_page()) {
         return home_url('/');
     }
@@ -381,6 +495,11 @@ function bars_seo_get_og_url() {
         }
 
         return home_url('/premios?' . $params);
+    }
+
+    // List URLs: each list gets its own cached card
+    if (bars_seo_get_list_from_param()) {
+        return home_url('/programacion?list=' . rawurlencode($_GET['list']));
     }
 
     return bars_seo_get_canonical();
@@ -482,6 +601,15 @@ function bars_seo_build_movieblock_og_title($post) {
 }
 
 /**
+ * Build an OG title for a shared list: "BARS XXVI - Lista "Name"".
+ */
+function bars_seo_build_list_og_title($list) {
+    $current = Editions::current();
+    $prefix = Editions::getTitle($current);
+    return $prefix . ' - Lista "' . $list['name'] . '"';
+}
+
+/**
  * Get the OG-specific title for the current page.
  *
  * Movies/movieblocks use a branded format: "BARS XXVI - Title (Section)".
@@ -495,6 +623,11 @@ function bars_seo_get_og_title() {
             return bars_seo_build_movie_og_title($movie_post);
         }
         return bars_seo_build_movieblock_og_title($movie_post);
+    }
+
+    $list = bars_seo_get_list_from_param();
+    if ($list) {
+        return bars_seo_build_list_og_title($list);
     }
 
     if (is_singular('movie')) {
@@ -551,6 +684,21 @@ function bars_seo_noindex_past_editions() {
     echo '<meta name="robots" content="noindex, follow">' . "\n";
 }
 add_action('wp_head', 'bars_seo_noindex_past_editions', 1);
+
+/**
+ * Output noindex for shared list URLs (?list=...).
+ * These are user-generated and should not be indexed by search engines.
+ */
+function bars_seo_noindex_lists() {
+    if (!is_page('programacion')) {
+        return;
+    }
+    if (!isset($_GET['list'])) {
+        return;
+    }
+    echo '<meta name="robots" content="noindex, follow">' . "\n";
+}
+add_action('wp_head', 'bars_seo_noindex_lists', 1);
 
 /**
  * Output Open Graph tags.
