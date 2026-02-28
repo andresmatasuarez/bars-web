@@ -1,0 +1,18 @@
+# robots.txt — Web root
+#
+# The BARS website lives entirely under /2.0/ (WordPress).
+# Everything outside /2.0/ is legacy content that should not be crawled.
+#
+# How it works:
+#   Disallow: /        — blocks crawling of ALL paths by default
+#   Allow: /2.0/       — re-allows crawling inside the WordPress installation
+#
+# Net effect: only /2.0/* is crawled; old paths like /2009/ are ignored.
+
+User-agent: *
+Disallow: /
+Allow: /2.0/
+
+# WordPress generates a sitemap at this URL (via wp-sitemap.xml).
+# The Sitemap directive tells search engines where to find it.
+Sitemap: https://rojosangre.quintadimension.com/2.0/wp-sitemap.xml

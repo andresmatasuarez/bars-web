@@ -1,0 +1,22 @@
+# .htaccess — Web root (parent of /2.0/)
+#
+# Redirects all requests outside /2.0/ to the WordPress site.
+# This catches legacy URLs (e.g. /2009/fruit.shtml) that are still
+# reachable on the server and getting indexed by search engines.
+#
+# Replaces the old root .htaccess which only redirected /index.php.
+# The WordPress-specific .htaccess lives separately inside /2.0/ and
+# handles WP rewrites, caching, HTTPS, etc.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Skip requests that are already targeting /2.0/ (WordPress handles those)
+    RewriteCond %{REQUEST_URI} !^/2\.0(/|$) [NC]
+
+    # Skip robots.txt — must be served from the web root for search engines
+    RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
+
+    # Everything else: permanent redirect (301) to the WordPress homepage
+    RewriteRule ^ https://%{HTTP_HOST}/2.0/ [R=301,L]
+</IfModule>

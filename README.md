@@ -123,6 +123,9 @@ bars-web/
 ├─ docs/                     # Documentation (theme-switching.md)
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
+├─ server-config/
+│  ├─ wp/                    # Deployed to /2.0/ (WordPress .htaccess)
+│  └─ root/                  # Deployed to / (web root: robots.txt, redirect .htaccess)
 ├─ scripts/                  # switch-theme.sh, deploy.mjs
 ├─ deploy/                  # Deploy manifests (content hashes) — committed to VC
 ├─ package.json              # Workspace root
@@ -282,6 +285,7 @@ Or deploy individually:
 npm run deploy:plugins    # All plugins
 npm run deploy:bars2013   # bars2013 theme
 npm run deploy:bars2026   # bars2026 theme
+npm run deploy:config     # Server config (web root + WordPress .htaccess)
 ```
 
 ### Force deploy

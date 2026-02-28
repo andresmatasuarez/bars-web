@@ -1,3 +1,12 @@
+# .htaccess — WordPress installation (/2.0/)
+#
+# Handles HTTPS redirect, W3TC browser/page cache rules, and WordPress
+# pretty permalinks. This file lives inside the WP directory because
+# WordPress and plugins (W3TC) expect to find/update it here.
+#
+# The web root has a separate .htaccess that redirects legacy URLs
+# outside /2.0/ to the WordPress site.
+
 # BEGIN HTTPS Redirect
 <IfModule mod_rewrite.c>
     RewriteEngine On
