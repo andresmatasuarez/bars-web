@@ -187,13 +187,16 @@ Running a local version of the site involves two different processes:
 
 - Some plugins cache data in WordPress transients (e.g. festival metrics are cached for 7 days). When `WP_DEBUG` is `true` (default in Docker), these caches are bypassed and changes take effect immediately on refresh. The `WORDPRESS_DEBUG` env var in `docker-compose.yml` is read at runtime, so changes take effect on restart.
 
-- **OG images** (sharing cards for movies/movieblocks) are cached to `wp-content/uploads/og-cache/`. They regenerate automatically when a post is saved or the festival edition changes. To force regeneration of all OG images:
+- **OG images** (sharing cards for movies/movieblocks) are cached to `wp-content/uploads/og-cache/`. They regenerate automatically when a post is saved or the festival edition changes. To force regeneration:
 
    ```sh
-   docker compose exec wordpress rm -rf /var/www/html/wp-content/uploads/og-cache/
+   npm run og:clear:local    # Clear local Docker og-cache
+   npm run og:clear:remote   # Clear remote (live) og-cache via FTP
    ```
 
    After clearing, visit any movie page — the OG image is generated on the first request. To view the generated image directly, open `http://localhost:8083/wp-content/uploads/og-cache/movie-{ID}.jpg` in your browser, or inspect the `og:image` meta tag on the movie page for the full URL.
+
+   When changing the OG image generation logic (`themes/bars2026/php/og-image.php`), bump `BARS_OG_VERSION` in that file, clear both caches, and deploy. The version is appended as `?v=N` to the `og:image` URL, forcing social platforms to re-fetch.
 
 ### Available Scripts
 
@@ -207,6 +210,8 @@ From the root:
 - `npm run test:integration` - Run integration tests (requires Docker)
 - `npm run dev:plugins` - Watch and copy plugin files to `wp-plugins/`
 - `npm run build:plugins` - Build plugins for production
+- `npm run og:clear:local` - Clear local Docker OG image cache
+- `npm run og:clear:remote` - Clear remote (live) OG image cache via FTP
 
 From each theme directory (`themes/bars2013` or `themes/bars2026`):
 

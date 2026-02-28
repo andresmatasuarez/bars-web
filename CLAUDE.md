@@ -51,7 +51,8 @@ Site runs at `http://localhost:8083` (default). Database at port 3307.
 
 ```bash
 # Clear OG image cache (forces regeneration on next page visit)
-docker compose exec wordpress rm -rf /var/www/html/wp-content/uploads/og-cache/
+npm run og:clear:local    # Local Docker
+npm run og:clear:remote   # Remote (live) via FTP
 ```
 
 ## Code Formatting

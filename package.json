@@ -28,6 +28,8 @@
     "deploy:bars2026": "node --env-file=.env scripts/deploy.mjs bars2026",
     "deploy:config": "node --env-file=.env scripts/deploy.mjs config",
     "deploy": "node --env-file=.env scripts/deploy.mjs all",
+    "og:clear:local": "docker compose exec wordpress rm -rf /var/www/html/wp-content/uploads/og-cache/",
+    "og:clear:remote": "node --env-file=.env scripts/clear-og-cache.mjs",
     "download:assets": "node --env-file=.env scripts/download-assets.mjs",
     "test:integration": "node tests/integration/test-redirects.mjs",
     "test": "npm-run-all test:bars2026 test:integration",

@@ -20,6 +20,18 @@ define('BARS_OG_WIDTH', 1200);
 define('BARS_OG_HEIGHT', 630);
 define('BARS_OG_JPEG_QUALITY', 90);
 
+/**
+ * Cache-busting version for OG images. After changing the image generation
+ * logic, do TWO things:
+ *   1. Increment this number — it is appended as ?v=N to the og:image URL,
+ *      forcing social platforms (Facebook, Twitter, WhatsApp, etc.) to
+ *      re-fetch instead of serving their cached copy.
+ *   2. Clear both local and remote caches so images are regenerated:
+ *      npm run og:clear:local   (local Docker)
+ *      npm run og:clear:remote  (live site via FTP)
+ */
+define('BARS_OG_VERSION', 2);
+
 // --------------------------------------------------------------------------
 // Cache helpers
 // --------------------------------------------------------------------------
@@ -63,7 +75,7 @@ function bars_og_get_cache_path($post) {
  */
 function bars_og_get_cache_url($post) {
     $upload_dir = wp_upload_dir();
-    return $upload_dir['baseurl'] . '/og-cache/' . get_post_type($post) . '-' . $post->ID . '.jpg';
+    return $upload_dir['baseurl'] . '/og-cache/' . get_post_type($post) . '-' . $post->ID . '.jpg?v=' . BARS_OG_VERSION;
 }
 
 // --------------------------------------------------------------------------
@@ -407,43 +419,14 @@ function bars_og_generate($post) {
     $edition_y = (int) (($top_bar_h + $edition_text_h) / 2);
     imagettftext($canvas, $edition_size, 0, $edition_x, $edition_y, $white, $font_bebas, $edition_title);
 
-    // Category badge (pill shape, right-aligned in the top bar)
+    // Resolve section label (rendered in the bottom bar, above the title)
+    $section_label = '';
     $section_key = ($type === 'movieblock') ? '_movieblock_section' : '_movie_section';
     $section_id = get_post_meta($post->ID, $section_key, true);
     if ($section_id && function_exists('getMovieSectionLabel')) {
-        $section_label = getMovieSectionLabel($section_id);
-        if ($section_label) {
-            $section_label = mb_strtoupper($section_label);
-            $badge_font_size = 16;
-            $badge_pad_x = 12;
-            $badge_pad_y = 6;
-            $badge_radius = 6;
-
-            // Measure text
-            $bbox_badge = imagettfbbox($badge_font_size, 0, $font_inter, $section_label);
-            $badge_text_w = abs($bbox_badge[2] - $bbox_badge[0]);
-            $badge_text_h = abs($bbox_badge[7] - $bbox_badge[1]);
-            $badge_text_ascent = abs($bbox_badge[7]);
-
-            // Badge rect dimensions
-            $badge_w = $badge_text_w + (2 * $badge_pad_x);
-            $badge_h = $badge_text_h + (2 * $badge_pad_y);
-
-            // Position: right-aligned at pad_x from right edge, vertically centred in top bar
-            $badge_x2 = BARS_OG_WIDTH - $pad_x;
-            $badge_x1 = $badge_x2 - $badge_w;
-            $badge_y1 = (int) (($top_bar_h - $badge_h) / 2);
-            $badge_y2 = $badge_y1 + $badge_h;
-
-            // Badge background: rgba(139,0,0,0.27) → GD alpha = 127 * (1 - 0.27) ≈ 93
-            $badge_bg = imagecolorallocatealpha($canvas, 139, 0, 0, 93);
-            bars_og_draw_rounded_rect($canvas, $badge_x1, $badge_y1, $badge_x2, $badge_y2, $badge_radius, $badge_bg);
-
-            // Badge text: #D4726A
-            $badge_text_color = imagecolorallocate($canvas, 212, 114, 106);
-            $badge_text_x = $badge_x1 + $badge_pad_x;
-            $badge_text_y = $badge_y1 + $badge_pad_y + $badge_text_ascent;
-            imagettftext($canvas, $badge_font_size, 0, $badge_text_x, $badge_text_y, $badge_text_color, $font_inter, $section_label);
+        $label = getMovieSectionLabel($section_id);
+        if ($label) {
+            $section_label = mb_strtoupper($label);
         }
     }
 
@@ -460,11 +443,12 @@ function bars_og_generate($post) {
     }
 
     // Word-wrap movie title with auto-shrinking font
-    $title_size = 38;
+    $title_size = 46;
     $title_min_size = 22;
     $title_max_lines = 2;
     $title_line_spacing = 1.25; // line-height multiplier
-    $title_pad_y = 20;         // vertical padding inside the bar
+    $title_pad_y = 20;         // top padding inside the bar
+    $title_pad_bottom = 84;    // bottom padding inside the bar
 
     $title_lines = array();
     $current_title_size = $title_size;
@@ -487,18 +471,103 @@ function bars_og_generate($post) {
     $title_line_h = (int) round(abs($bbox_sample[7] - $bbox_sample[1]) * $title_line_spacing);
     $title_ascent = abs($bbox_sample[7]);
 
-    // Calculate title bar height
+    // --- Build details line ---
+    $details_text = '';
+    if ($type === 'movie') {
+        $parts = array();
+        $year = get_post_meta($post->ID, '_movie_year', true);
+        if ($year !== '' && $year !== false) {
+            $parts[] = $year;
+        }
+        $directors = get_post_meta($post->ID, '_movie_directors', true);
+        if ($directors !== '' && $directors !== false) {
+            $parts[] = $directors;
+        }
+        $country = get_post_meta($post->ID, '_movie_country', true);
+        if ($country !== '' && $country !== false) {
+            $parts[] = $country;
+        }
+        $runtime = get_post_meta($post->ID, '_movie_runtime', true);
+        if ($runtime) {
+            $parts[] = $runtime . ' min.';
+        }
+        if (!empty($parts)) {
+            $details_text = implode(' • ', $parts);
+        }
+    } elseif ($type === 'movieblock') {
+        $parts = array();
+        $shorts = get_posts(array(
+            'post_type' => 'movie',
+            'meta_query' => array(array('key' => '_movie_movieblock', 'value' => $post->ID)),
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+        ));
+        $short_count = count($shorts);
+        if ($short_count > 0) {
+            $parts[] = $short_count . ' cortometraje' . ($short_count !== 1 ? 's' : '');
+        }
+        $block_runtime = get_post_meta($post->ID, '_movieblock_runtime', true);
+        if (!$block_runtime && !empty($shorts)) {
+            $total = 0;
+            foreach ($shorts as $shortId) {
+                $total += (int) get_post_meta($shortId, '_movie_runtime', true);
+            }
+            if ($total > 0) {
+                $block_runtime = $total;
+            }
+        }
+        if ($block_runtime) {
+            $parts[] = $block_runtime . ' min.';
+        }
+        if (!empty($parts)) {
+            $details_text = implode(' • ', $parts);
+        }
+    }
+
+    // Measure details line height
+    $details_size = 18;
+    $bbox_details = imagettfbbox($details_size, 0, $font_inter, 'Áy');
+    $details_line_h = (int) round(abs($bbox_details[7] - $bbox_details[1]) * $title_line_spacing);
+
+    // Measure section label line height (same font/size as details)
+    $section_size = 16;
+    $section_line_h = 0;
+    if ($section_label !== '') {
+        $bbox_section = imagettfbbox($section_size, 0, $font_inter, 'Áy');
+        $section_line_h = (int) round(abs($bbox_section[7] - $bbox_section[1]) * 1.6);
+    }
+
+    // Calculate title bar height: section label + title lines + details line + padding
     $line_count = count($title_lines);
-    $title_bar_h = (($line_count + 1) * $title_line_h) + (2 * $title_pad_y);
+    $title_bar_h = $section_line_h + ($line_count * $title_line_h) + $details_line_h + $title_pad_y + $title_pad_bottom;
     $title_bar_top = BARS_OG_HEIGHT - $title_bar_h;
 
     // Draw title bar (semi-transparent black, full width)
     imagefilledrectangle($canvas, 0, $title_bar_top, BARS_OG_WIDTH - 1, BARS_OG_HEIGHT - 1, $overlay);
 
+    // Track vertical cursor from the top of the bar
+    $cursor_y = $title_bar_top + $title_pad_y;
+
+    // Render section label above title
+    if ($section_label !== '') {
+        $section_color = imagecolorallocate($canvas, 212, 114, 106); // #D4726A
+        $section_text_y = $cursor_y + abs($bbox_section[7]);
+        bars_og_draw_text($canvas, $font_inter, $section_size, 12, $pad_x, $section_text_y, $section_label, $section_color, $bottom_max_w);
+        $cursor_y += $section_line_h;
+    }
+
     // Render each title line
     for ($i = 0; $i < $line_count; $i++) {
-        $line_y = $title_bar_top + $title_pad_y + $title_ascent + ($i * $title_line_h);
+        $line_y = $cursor_y + $title_ascent + ($i * $title_line_h);
         imagettftext($canvas, $current_title_size, 0, $pad_x, $line_y, $white, $font_cormorant, $title_lines[$i]);
+    }
+    $cursor_y += $line_count * $title_line_h;
+
+    // Render details line below title
+    if ($details_text !== '') {
+        $muted_white = imagecolorallocatealpha($canvas, 255, 255, 255, 38);
+        $details_y = $cursor_y + abs($bbox_details[7]);
+        bars_og_draw_text($canvas, $font_inter, $details_size, 14, $pad_x, $details_y, $details_text, $muted_white, $bottom_max_w);
     }
 
     // Save
