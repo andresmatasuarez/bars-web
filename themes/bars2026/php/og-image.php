@@ -489,7 +489,7 @@ function bars_og_generate($post) {
 
     // Calculate title bar height
     $line_count = count($title_lines);
-    $title_bar_h = ($line_count * $title_line_h) + (2 * $title_pad_y);
+    $title_bar_h = (($line_count + 1) * $title_line_h) + (2 * $title_pad_y);
     $title_bar_top = BARS_OG_HEIGHT - $title_bar_h;
 
     // Draw title bar (semi-transparent black, full width)
