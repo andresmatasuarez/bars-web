@@ -66,8 +66,14 @@ services:
       WORDPRESS_CONFIG_EXTRA: |
         define('WP_DEBUG_LOG', true);
         define('WP_DEBUG_DISPLAY', false);
-        define('WP_HOME', 'http://' . $$_SERVER['HTTP_HOST']);
-        define('WP_SITEURL', 'http://' . $$_SERVER['HTTP_HOST']);
+        /* HTTP_HOST is set by Apache for web requests, but absent in WP-CLI
+           (no web server involved). Fall back to localhost:<port> so that
+           URL-generating functions (home_url, get_permalink, …) produce
+           valid URLs from the CLI — used by integration tests and manual
+           debugging. */
+        $$host = isset($$_SERVER['HTTP_HOST']) ? $$_SERVER['HTTP_HOST'] : 'localhost:' . getenv('WORDPRESS_PORT');
+        define('WP_HOME', 'http://' . $$host);
+        define('WP_SITEURL', 'http://' . $$host);
 
       # Custom vars consumed by init-entrypoint.sh
       WORDPRESS_BLOG_NAME: Festival Buenos Aires Rojo Sangre
