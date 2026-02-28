@@ -29,6 +29,8 @@
     "deploy:config": "node --env-file=.env scripts/deploy.mjs config",
     "deploy": "node --env-file=.env scripts/deploy.mjs all",
     "download:assets": "node --env-file=.env scripts/download-assets.mjs",
+    "test:integration": "node tests/integration/test-redirects.mjs",
+    "test": "npm-run-all test:bars2026 test:integration",
     "format": "npx prettier --write \"shared/**/*.{ts,tsx,js,json,css}\" \"themes/**/*.{ts,tsx,js,json,css}\""
   },
   "devDependencies": {

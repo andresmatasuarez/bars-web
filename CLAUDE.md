@@ -67,6 +67,20 @@ npm run test:bars2026              # From root
 cd themes/bars2026 && npm run test # From theme dir
 ```
 
+### Integration tests (Docker)
+
+HTTP-level tests for redirects and OG tags against Docker WordPress:
+
+```bash
+npm run test:integration  # From root (requires Docker running)
+```
+
+### All tests
+
+```bash
+npm test  # Runs unit tests (bars2026) + integration tests
+```
+
 Key conventions:
 - Co-located test files: `{module}.test.ts` next to source
 - Fixtures: `shared/ts/__fixtures__/movies.ts` (factory functions for Movie, Screening types)
@@ -221,6 +235,8 @@ _CRITICAL_: The following commands produce large outputs that consume excessive 
 | `npm run lint:bars2013`  | Lint bars2013 theme          |
 | `npm run lint:bars2026`  | Lint bars2026 theme          |
 | `npm run test:bars2026`  | Run bars2026 test suite      |
+| `npm run test:integration` | Run integration tests (Docker) |
+| `npm test`             | Run all tests (unit + integration) |
 | `npm run format`       | Run Prettier on all source files |
 
 ### How to Delegate

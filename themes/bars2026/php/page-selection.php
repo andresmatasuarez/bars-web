@@ -4,11 +4,33 @@
  * @package BARS2026
  */
 
-get_header();
-
 $currentEdition = isset($_GET['e'])
     ? Editions::getByNumber(intval($_GET['e']))
     : Editions::current();
+
+// If a movie slug is specified but no edition, check if the movie belongs to a past edition
+if (!isset($_GET['e']) && isset($_GET['f'])) {
+    $f_slug = sanitize_title($_GET['f']);
+    if ($f_slug) {
+        $f_post = get_page_by_path($f_slug, OBJECT, array('movie', 'movieblock'));
+        if ($f_post) {
+            $f_edition_meta = get_post_meta($f_post->ID, '_movie_edition', true);
+            if (!$f_edition_meta) {
+                $f_edition_meta = get_post_meta($f_post->ID, '_movieblock_edition', true);
+            }
+            if ($f_edition_meta) {
+                $f_edition_number = intval(str_replace('bars', '', $f_edition_meta));
+                if ($f_edition_number && $f_edition_number !== $currentEdition['number']) {
+                    wp_redirect(home_url('/programacion?f=' . $f_slug . '&e=' . $f_edition_number), 302);
+                    exit;
+                }
+            }
+        }
+    }
+}
+
+get_header();
+
 $isPastEdition = $currentEdition['number'] !== Editions::current()['number'];
 $festival_dates = Editions::datesLabel($currentEdition);
 $year = Editions::year($currentEdition);

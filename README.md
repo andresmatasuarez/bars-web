@@ -118,6 +118,8 @@ bars-web/
 │  ├─ bars-commons/
 │  ├─ jury-post-type/
 │  └─ movie-post-type/
+├─ tests/
+│  └─ integration/            # HTTP-level tests against Docker WordPress
 ├─ docs/                     # Documentation (theme-switching.md)
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
@@ -198,6 +200,8 @@ From the root:
 - `npm run build:bars2013` / `npm run build:bars2026` - Build theme for production
 - `npm run lint:bars2013` / `npm run lint:bars2026` - Run ESLint
 - `npm run test:bars2026` - Run test suite (shared + bars2026)
+- `npm test` - Run all tests (unit + integration)
+- `npm run test:integration` - Run integration tests (requires Docker)
 - `npm run dev:plugins` - Watch and copy plugin files to `wp-plugins/`
 - `npm run build:plugins` - Build plugins for production
 
@@ -216,6 +220,8 @@ From `themes/bars2026` only:
 - `npm run test:coverage` - Run tests with coverage
 
 ## Testing
+
+### Unit tests
 
 [Vitest](https://vitest.dev/) with jsdom environment. Only the `bars2026` workspace has test infrastructure — `bars2013` has none.
 
@@ -248,6 +254,10 @@ Vitest globals (`describe`, `it`, `expect`, `vi`) are available without imports 
 - **Window globals**: Mock with `vi.stubGlobal('MOVIES', [...])`, clean up with `vi.unstubAllGlobals()` in `afterEach`
 - **Time-dependent tests**: `vi.useFakeTimers()` + `vi.setSystemTime(...)` in `beforeEach`, `vi.useRealTimers()` in `afterEach`
 - **React hooks**: Test via `@testing-library/react` (`renderHook`, `act`)
+
+### Integration tests
+
+HTTP-level tests that run against the Docker WordPress instance. See [tests/integration/README.md](tests/integration/README.md).
 
 ## Deploy
 

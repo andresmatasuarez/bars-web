@@ -992,12 +992,39 @@ add_action('wp_head', 'bars_seo_jsonld', 5);
 add_action('template_redirect', function() {
     if (is_singular('movie') || is_singular('movieblock')) {
         $slug = get_post_field('post_name', get_the_ID());
-        wp_redirect(home_url('/programacion?f=' . $slug), 301);
+        $params = 'f=' . $slug;
+
+        // Detect past edition
+        $edition_meta = get_post_meta(get_the_ID(), '_movie_edition', true);
+        if (!$edition_meta) {
+            $edition_meta = get_post_meta(get_the_ID(), '_movieblock_edition', true);
+        }
+        if ($edition_meta) {
+            $edition_number = intval(str_replace('bars', '', $edition_meta));
+            $current = Editions::current();
+            if ($edition_number && $edition_number !== $current['number']) {
+                $params .= '&e=' . $edition_number;
+            }
+        }
+
+        wp_redirect(home_url('/programacion?' . $params), 301);
         exit;
     }
     if (is_singular('jury')) {
         $slug = get_post_field('post_name', get_the_ID());
-        wp_redirect(home_url('/premios?j=' . $slug), 301);
+        $params = 'j=' . $slug;
+
+        // Detect past edition
+        $edition_meta = get_post_meta(get_the_ID(), '_jury_edition', true);
+        if ($edition_meta) {
+            $edition_number = intval(str_replace('bars', '', $edition_meta));
+            $current = Editions::current();
+            if ($edition_number && $edition_number !== $current['number']) {
+                $params .= '&e=' . $edition_number;
+            }
+        }
+
+        wp_redirect(home_url('/premios?' . $params), 301);
         exit;
     }
 });

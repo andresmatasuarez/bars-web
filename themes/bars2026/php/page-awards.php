@@ -4,6 +4,28 @@
  * @package BARS2026
  */
 
+$edition = isset($_GET['e'])
+    ? Editions::getByNumber(intval($_GET['e']))
+    : Editions::current();
+
+// If a jury slug is specified but no edition, check if the jury belongs to a past edition
+if (!isset($_GET['e']) && isset($_GET['j'])) {
+    $j_slug = sanitize_title($_GET['j']);
+    if ($j_slug) {
+        $j_post = get_page_by_path($j_slug, OBJECT, 'jury');
+        if ($j_post) {
+            $j_edition_meta = get_post_meta($j_post->ID, '_jury_edition', true);
+            if ($j_edition_meta) {
+                $j_edition_number = intval(str_replace('bars', '', $j_edition_meta));
+                if ($j_edition_number && $j_edition_number !== $edition['number']) {
+                    wp_redirect(home_url('/premios?j=' . $j_slug . '&e=' . $j_edition_number), 302);
+                    exit;
+                }
+            }
+        }
+    }
+}
+
 // Preload the halftone banner image used by the jury modal so it's already
 // in the browser cache when the modal opens — prevents decode jank during
 // the opening CSS transition.
@@ -12,10 +34,6 @@ add_action('wp_head', function() {
 }, 1);
 
 get_header();
-
-$edition = isset($_GET['e'])
-    ? Editions::getByNumber(intval($_GET['e']))
-    : Editions::current();
 $edition_number = Editions::romanNumerals($edition);
 $festival_dates = Editions::datesLabel($edition);
 
