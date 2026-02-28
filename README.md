@@ -182,6 +182,14 @@ Running a local version of the site involves two different processes:
 
 - Some plugins cache data in WordPress transients (e.g. festival metrics are cached for 7 days). When `WP_DEBUG` is `true` (default in Docker), these caches are bypassed and changes take effect immediately on refresh. The `WORDPRESS_DEBUG` env var in `docker-compose.yml` is read at runtime, so changes take effect on restart.
 
+- **OG images** (sharing cards for movies/movieblocks) are cached to `wp-content/uploads/og-cache/`. They regenerate automatically when a post is saved or the festival edition changes. To force regeneration of all OG images:
+
+   ```sh
+   docker compose exec wordpress rm -rf /var/www/html/wp-content/uploads/og-cache/
+   ```
+
+   After clearing, visit any movie page — the OG image is generated on the first request. To view the generated image directly, open `http://localhost:8083/wp-content/uploads/og-cache/movie-{ID}.jpg` in your browser, or inspect the `og:image` meta tag on the movie page for the full URL.
+
 ### Available Scripts
 
 From the root:

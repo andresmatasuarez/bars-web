@@ -355,6 +355,13 @@ function bars_seo_get_image_meta() {
 
     $movie_post = bars_seo_get_movie_from_param();
     if ($movie_post) {
+        // Try branded OG image first (composite with logo, section, title)
+        $og_meta = bars_og_get_or_generate($movie_post);
+        if ($og_meta) {
+            return $og_meta;
+        }
+
+        // Fallback to raw poster
         $meta = $from_thumbnail($movie_post->ID);
         if ($meta) {
             return $meta;

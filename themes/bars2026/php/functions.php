@@ -22,6 +22,7 @@ require_once get_template_directory() . '/helpers.php';
 require_once get_template_directory() . '/editions.php';
 require_once get_template_directory() . '/icons.php';
 require_once get_template_directory() . '/seo.php';
+require_once get_template_directory() . '/og-image.php';
 require_once get_template_directory() . '/favicon.php';
 
 /**

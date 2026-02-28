@@ -49,6 +49,11 @@ npm run build:plugins
 
 Site runs at `http://localhost:8083` (default). Database at port 3307.
 
+```bash
+# Clear OG image cache (forces regeneration on next page visit)
+docker compose exec wordpress rm -rf /var/www/html/wp-content/uploads/og-cache/
+```
+
 ## Code Formatting
 
 **After editing or creating any file matched by `.prettierrc`** (TS, TSX, JS, JSON, CSS, etc.), run `npx prettier --write <file>` to ensure it matches the project's formatting config. Never leave files unformatted.
