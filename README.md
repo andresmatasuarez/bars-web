@@ -120,7 +120,7 @@ bars-web/
 │  └─ movie-post-type/
 ├─ tests/
 │  └─ integration/            # HTTP-level tests against Docker WordPress
-├─ docs/                     # Documentation (theme-switching.md)
+├─ docs/                     # Documentation (theme-switching.md, server-access.md)
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
 ├─ server-config/
@@ -323,3 +323,7 @@ Stored in `deploy/` (committed to VC). One JSON file per target, with the filena
 | Remote manually modified        | Run with `--force` to re-sync everything                                                                       |
 | Rebuild with no source changes  | Hashes match — "No changes detected, skipping"                                                                 |
 | Deploy from a different machine | Hashed content is the same, so only truly different files upload (except `.map` files, which always re-upload) |
+
+## Server Access
+
+For SSH key setup and direct server access, see [docs/server-access.md](docs/server-access.md).

@@ -227,6 +227,12 @@ Remote path mapping (handled automatically):
 - `server-config/wp/` → `/2.0/` (WordPress `.htaccess`)
 - `server-config/root/` → `/` (web root: `robots.txt`, redirect `.htaccess`)
 
+## Server Access (SSH)
+
+The production server is accessible via `ssh bars` (configured in the developer's `~/.ssh/config`). See `docs/server-access.md` for setup instructions.
+
+**CRITICAL — READ-ONLY BY DEFAULT**: You (Claude), any sub-agent, and any MCP tool MUST NOT modify, create, delete, or overwrite any file or configuration on the remote server without explicit user approval first. Always ask before running any command that changes server state (e.g., `rm`, `mv`, `cp`, `sed -i`, `apt`, `systemctl`, writing to files, restarting services). Read-only commands (`ls`, `cat`, `grep`, `tail`, `df`, `du`, `ps`, etc.) are fine without asking.
+
 ## Command Delegation (MANDATORY)
 
 _CRITICAL_: The following commands produce large outputs that consume excessive context window tokens. You MUST delegate these commands to a sub-agent using the Task tool. Never run these commands directly in the main conversation.
