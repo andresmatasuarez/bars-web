@@ -83,5 +83,5 @@ services:
       WORDPRESS_PORT: ${WORDPRESS_PORT}
 
       # Seed data vars (consumed by seed-data.sh)
-      SEED_DATA_OLD_HOSTNAME: http://rojosangre.quintadimension.com/2.0
+      SEED_DATA_OLD_HOSTNAME: https://www.festivalrojosangre.com.ar
       SEED_DATA_NEW_HOSTNAME: http://localhost:${WORDPRESS_PORT}

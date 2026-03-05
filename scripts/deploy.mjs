@@ -16,8 +16,7 @@ const DEPLOY_TARGETS = {
   bars2013: [{ local: 'wp-themes/bars2013', remote: 'themes/bars2013' }],
   bars2026: [{ local: 'wp-themes/bars2026', remote: 'themes/bars2026' }],
   config: [
-    { local: 'server-config/wp', remoteBase: '/2.0/' },
-    { local: 'server-config/root', remoteBase: '/' },
+    { local: 'server-config', remoteBase: '/2.0/' },
   ],
 };
 

@@ -39,7 +39,7 @@ export default function contactForm() {
     submitHandler(form) {
       const formObject = $(form);
       formObject.ajaxSubmit({
-        url: '/2.0/wp-content/themes/bars2013/email.php',
+        url: '/wp-content/themes/bars2013/email.php',
         type: 'POST',
         dataType: 'json',
         data: formObject.formSerialize(),

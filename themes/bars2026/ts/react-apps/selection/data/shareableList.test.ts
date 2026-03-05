@@ -169,7 +169,7 @@ describe('buildShareUrl', () => {
   beforeEach(() => {
     vi.stubGlobal('location', {
       origin: 'https://rojosangre.com.ar',
-      pathname: '/2.0/seleccion/',
+      pathname: '/seleccion/',
       search: '?e=26&f=some-film',
     });
   });
@@ -181,7 +181,7 @@ describe('buildShareUrl', () => {
   it('sets list param with encoded value', () => {
     const url = buildShareUrl('Mi lista', entries);
     expect(url).toContain('list=');
-    expect(url).toContain('https://rojosangre.com.ar/2.0/seleccion/');
+    expect(url).toContain('https://rojosangre.com.ar/seleccion/');
   });
 
   it('strips f param', () => {

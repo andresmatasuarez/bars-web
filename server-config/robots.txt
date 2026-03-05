@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.festivalrojosangre.com.ar/wp-sitemap.xml

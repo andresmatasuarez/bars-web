@@ -117,12 +117,9 @@ Each theme has two Vite entry points (`themes/{name}/vite/vite.config.ts` and `t
   - `resources/` - Edition-specific assets (poster, programme, sponsors)
   - `raw/` - Original source files (high-res logos, etc.) for reference only — not part of the build
   - `php/` - Shared PHP utilities (editions.php, helpers.php)
-- `server-config/` - Server configuration files
-  - `wp/` - Files deployed to `/2.0/` (WordPress directory)
-    - `.htaccess` - Apache config (HTTPS redirect, W3TC cache rules, WordPress rewrites)
-  - `root/` - Files deployed to `/` (web root)
-    - `.htaccess` - Redirects legacy URLs outside `/2.0/` to WordPress
-    - `robots.txt` - Blocks crawling outside `/2.0/`
+- `server-config/` - Server configuration files (deployed to DocumentRoot)
+  - `.htaccess` - Apache config (HTTPS redirect, backward-compat /2.0/ redirect, W3TC cache rules, WordPress rewrites)
+  - `robots.txt` - Search engine crawling rules and sitemap reference
 - `plugins/` - Custom WordPress plugins (source):
   - `movie-post-type/` - Movie custom post type with sections, screenings
   - `jury-post-type/` - Jury member custom post type
@@ -220,12 +217,11 @@ node --env-file=.env scripts/deploy.mjs --force bars2026
 
 Manifests are stored in `deploy/` (committed to VC). Sourcemap files (`.map`) are excluded from manifests and always re-uploaded.
 
-Remote path mapping (handled automatically):
+Remote path mapping (handled automatically via FTP, where `/` = FTP homedir = `/rojosangre/` on disk):
 - `wp-plugins/{name}/` → `/2.0/wp-content/plugins/{name}`
 - `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`
 - `wp-themes/bars2026/` → `/2.0/wp-content/themes/bars2026`
-- `server-config/wp/` → `/2.0/` (WordPress `.htaccess`)
-- `server-config/root/` → `/` (web root: `robots.txt`, redirect `.htaccess`)
+- `server-config/` → `/2.0/` (DocumentRoot: `.htaccess`, `robots.txt`)
 
 ## Server Access (SSH)
 

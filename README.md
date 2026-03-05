@@ -26,14 +26,14 @@ Initial setup consists of getting hold of existing data from the live site and s
 
 #### 1. Exporting data
 
-1. Head over to https://rojosangre.quintadimension.com/2.0/wordpress/wp-admin/ and login with admin credentials.
+1. Head over to https://www.festivalrojosangre.com.ar/wordpress/wp-admin/ and login with admin credentials.
 1. In the left-side menu, go to Tools > Export.
 1. Perform an export selecting **"All content"**.
 1. Rename the downloaded XML file to "backup.xml" and place it inside `<project-root>/docker/wordpress/init-site`.
 
 #### 2. Downloading assets
 
-We still need to download the images and files associated with the data we just exported to XML. These assets can be found in the BARS FTP server, in the remote directory `/2.0/wp-content/uploads` and must be downloaded into local folder `<project-root>/docker/wordpress/init-site/uploads`.
+We still need to download the images and files associated with the data we just exported to XML. These assets can be found in the BARS FTP server, in the remote directory `wp-content/uploads` (under the FTP base) and must be downloaded into local folder `<project-root>/docker/wordpress/init-site/uploads`.
 
 As of February 2026, there're over 20k assets (~2.9 GB) so downloading will probably be a very long process ¯\\\_(ツ)\_/¯.
 
@@ -47,7 +47,7 @@ This uses the same FTP credentials from `.env` as the deploy script. It's **incr
 node --env-file=.env scripts/download-assets.mjs --force
 ```
 
-Alternatively, you can use any FTP client such as [Filezilla](https://filezilla-project.org/) to download `/2.0/wp-content/uploads` into `docker/wordpress/init-site/uploads`.
+Alternatively, you can use any FTP client such as [Filezilla](https://filezilla-project.org/) to download `wp-content/uploads` (under the FTP base) into `docker/wordpress/init-site/uploads`.
 
 ### Docker setup
 
@@ -123,9 +123,7 @@ bars-web/
 ├─ docs/                     # Documentation (theme-switching.md, server-access.md)
 ├─ docker/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
-├─ server-config/
-│  ├─ wp/                    # Deployed to /2.0/ (WordPress .htaccess)
-│  └─ root/                  # Deployed to / (web root: robots.txt, redirect .htaccess)
+├─ server-config/              # Deployed to DocumentRoot (.htaccess, robots.txt)
 ├─ scripts/                  # switch-theme.sh, deploy.mjs
 ├─ deploy/                  # Deploy manifests (content hashes) — committed to VC
 ├─ package.json              # Workspace root
@@ -290,7 +288,7 @@ Or deploy individually:
 npm run deploy:plugins    # All plugins
 npm run deploy:bars2013   # bars2013 theme
 npm run deploy:bars2026   # bars2026 theme
-npm run deploy:config     # Server config (web root + WordPress .htaccess)
+npm run deploy:config     # Server config (.htaccess + robots.txt)
 ```
 
 ### Force deploy

@@ -1,11 +1,12 @@
-# .htaccess — WordPress installation (/2.0/)
+# .htaccess — WordPress installation (DocumentRoot)
 #
-# Handles HTTPS redirect, W3TC browser/page cache rules, and WordPress
-# pretty permalinks. This file lives inside the WP directory because
-# WordPress and plugins (W3TC) expect to find/update it here.
+# Handles HTTPS redirect, backward-compat /2.0/ redirect, W3TC browser/page
+# cache rules, and WordPress pretty permalinks.
 #
-# The web root has a separate .htaccess that redirects legacy URLs
-# outside /2.0/ to the WordPress site.
+# History: Before the DocumentRoot change (March 2026), there were two
+# .htaccess files — one in the web root (redirecting legacy URLs to /2.0/)
+# and one in /2.0/ (WP rewrites + caching). Now that /2.0/ is the
+# DocumentRoot, they are merged into this single file.
 
 # BEGIN HTTPS Redirect
 <IfModule mod_rewrite.c>
@@ -14,6 +15,15 @@
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 # END HTTPS Redirect
+
+# BEGIN Backward-compat /2.0/ redirect
+# Old URLs like /2.0/peliculas/ should 301 to /peliculas/
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^2\.0/(.*)$ /$1 [R=301,L]
+</IfModule>
+# END Backward-compat /2.0/ redirect
+
 # BEGIN W3TC Browser Cache
 <IfModule mod_deflate.c>
     <IfModule mod_headers.c>
@@ -29,7 +39,7 @@
 # BEGIN W3TC Page Cache core
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /2.0/
+    RewriteBase /
     RewriteCond %{HTTP:Accept-Encoding} gzip
     RewriteRule .* - [E=W3TC_ENC:_gzip]
     RewriteCond %{HTTP_COOKIE} w3tc_preview [NC]
@@ -37,18 +47,18 @@
     RewriteCond %{REQUEST_METHOD} !=POST
     RewriteCond %{QUERY_STRING} =""
     RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|w3tc_logged_out|wordpress_logged_in|wptouch_switch_toggle) [NC]
-    RewriteCond "%{DOCUMENT_ROOT}/2.0/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" -f
-    RewriteRule .* "/2.0/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" [L]
+    RewriteCond "%{DOCUMENT_ROOT}/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" -f
+    RewriteRule .* "/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" [L]
 </IfModule>
 # END W3TC Page Cache core
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /2.0/
+RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /2.0/index.php [L]
+RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
