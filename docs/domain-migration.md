@@ -56,6 +56,8 @@ The parent directory (`rojosangre/`) still contains the old legacy files, but Ap
 
 ### wp-config.php
 
+> **Note:** `wp-config.php` is now version-controlled at `server-config/wp-config.php`. The snippet below reflects the state at migration time — see the version-controlled file for current values.
+
 ```php
 define('WP_SITEURL', 'https://' . $_SERVER['SERVER_NAME'] . '/wordpress');
 define('WP_HOME', 'https://' . $_SERVER['SERVER_NAME']);

@@ -9,7 +9,7 @@ All remote operations use **SSH/rsync** via the `bars` host alias. See [server-a
 
 ## Deploy
 
-Deploys use `rsync` over SSH with content-checksum comparison (`--checksum`). Only changed files are transferred. Removed files are deleted from the remote (`--delete`). File ownership is set to `www-data:www-data` (`--chown`).
+Deploys use `rsync` over SSH with content-checksum comparison (`--checksum`). Only changed files are transferred. Removed files are deleted from the remote (`--delete`).
 
 ### Commands
 
@@ -26,7 +26,7 @@ Or deploy individually:
 npm run deploy:plugins    # All plugins
 npm run deploy:bars2013   # bars2013 theme
 npm run deploy:bars2026   # bars2026 theme
-npm run deploy:config     # Server config (.htaccess + robots.txt)
+npm run deploy:config     # Server config (.htaccess, robots.txt, wp-config.php)
 ```
 
 ### Force deploy

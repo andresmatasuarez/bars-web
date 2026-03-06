@@ -34,7 +34,14 @@ const DEPLOY_TARGETS = {
       remote: `${SITE_ROOT}/wp-content/themes/bars2026`,
     },
   ],
-  config: [{ local: 'server-config', remote: `${SITE_ROOT}`, noDelete: true }],
+  config: [
+    {
+      local: 'server-config',
+      remote: `${SITE_ROOT}`,
+      noDelete: true,
+      excludes: ['wp-config-secrets.example.php'],
+    },
+  ],
 };
 
 const MAX_RETRIES = 2;
@@ -76,7 +83,7 @@ function validateLocalDir(localDir) {
   }
 }
 
-function rsync(localDir, remoteDir, { sshHost, force, dryRun, noDelete }) {
+function rsync(localDir, remoteDir, { sshHost, force, dryRun, noDelete, excludes = [] }) {
   const rsyncArgs = [
     'rsync',
     '-rlptD',
@@ -84,6 +91,7 @@ function rsync(localDir, remoteDir, { sshHost, force, dryRun, noDelete }) {
     ...(noDelete ? [] : ['--delete']),
     '--info=progress2',
     "--exclude='.gitkeep'",
+    ...excludes.map((e) => `--exclude='${e}'`),
     '-e',
     'ssh',
     ...(force ? ['--ignore-times'] : []),
@@ -95,14 +103,14 @@ function rsync(localDir, remoteDir, { sshHost, force, dryRun, noDelete }) {
   execSync(rsyncArgs.join(' '), { stdio: 'inherit' });
 }
 
-function deployTarget(localDir, remoteDir, { noDelete, ...options }) {
+function deployTarget(localDir, remoteDir, { noDelete, excludes, ...options }) {
   validateLocalDir(localDir);
 
   console.log(`\n  ${localDir} → ${remoteDir}`);
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      rsync(localDir, remoteDir, { ...options, noDelete });
+      rsync(localDir, remoteDir, { ...options, noDelete, excludes });
       return;
     } catch (err) {
       if (attempt === MAX_RETRIES) throw err;
@@ -137,8 +145,8 @@ try {
   if (dryRun) console.log('--dry-run: previewing changes only.');
   console.log('\nDeploying:');
 
-  for (const { local, remote, noDelete } of targets) {
-    deployTarget(local, remote, { sshHost, force, dryRun, noDelete });
+  for (const { local, remote, noDelete, excludes } of targets) {
+    deployTarget(local, remote, { sshHost, force, dryRun, noDelete, excludes });
   }
 
   console.log('\nDeploy complete.');

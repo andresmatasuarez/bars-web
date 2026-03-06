@@ -120,6 +120,9 @@ Each theme has two Vite entry points (`themes/{name}/vite/vite.config.ts` and `t
 - `server-config/` - Server configuration files (deployed to DocumentRoot)
   - `.htaccess` - Apache config (HTTPS redirect, backward-compat /2.0/ redirect, W3TC cache rules, WordPress rewrites)
   - `robots.txt` - Search engine crawling rules and sitemap reference
+  - `wp-config.php` - WordPress configuration (version-controlled; loads secrets via `require`)
+  - `wp-config-secrets.example.php` - Template for the server-only secrets file (not deployed)
+  - Note: `wp-config-secrets.php` lives only on the production server (DB credentials + salts). See `docs/server-access.md`.
 - `plugins/` - Custom WordPress plugins (source):
   - `movie-post-type/` - Movie custom post type with sections, screenings
   - `jury-post-type/` - Jury member custom post type

@@ -73,6 +73,31 @@ Or, to remove a specific key non-interactively:
 ssh bars "grep -v 'their-email@example.com' ~/.ssh/authorized_keys > ~/.ssh/authorized_keys.tmp && mv ~/.ssh/authorized_keys.tmp ~/.ssh/authorized_keys"
 ```
 
+## Server Prerequisites
+
+### wp-config-secrets.php (one-time setup)
+
+`wp-config.php` is version-controlled and deployed via rsync. It loads database credentials and salts from a separate `wp-config-secrets.php` file that lives only on the server.
+
+To set it up:
+
+1. SSH into the server and navigate to the site root:
+
+```sh
+ssh bars
+cd /var/www/sitios/admin/quintadimension@quintadimension.com/quintadimension.com/subdominios/rojosangre/2.0
+```
+
+2. Create `wp-config-secrets.php` with the actual DB credentials and salts. Use `server-config/wp-config-secrets.example.php` as a template for the required constants.
+
+3. Set ownership so Apache can read it:
+
+```sh
+chown www-data:www-data wp-config-secrets.php
+```
+
+This file is never deployed or overwritten — it exists only on the production server.
+
 ## Used by deploy scripts
 
 The deploy, download, and OG cache scripts use this SSH configuration for all remote operations.
