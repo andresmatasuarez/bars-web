@@ -102,3 +102,4 @@ This file is never deployed or overwritten — it exists only on the production 
 
 The deploy, download, and OG cache scripts use this SSH configuration for all remote operations.
 See [deploy.md](deploy.md) for full documentation on deploy commands and workflows.
+See [server-migration.md](server-migration.md) for the full analysis of upgrading PHP/WP and migrating to a new server.
