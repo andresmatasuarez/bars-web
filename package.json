@@ -31,6 +31,7 @@
     "og:clear:local": "docker compose exec wordpress rm -rf /var/www/html/wp-content/uploads/og-cache/",
     "og:clear:remote": "node --env-file=.env scripts/clear-og-cache.mjs",
     "download:assets": "node --env-file=.env scripts/download-assets.mjs",
+    "export:backup": "node --env-file=.env scripts/export-backup.mjs",
     "test:integration": "node tests/integration/test-redirects.mjs",
     "test": "npm-run-all test:bars2026 test:integration",
     "format": "npx prettier --write \"shared/**/*.{ts,tsx,js,json,css}\" \"themes/**/*.{ts,tsx,js,json,css}\""

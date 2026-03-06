@@ -26,10 +26,11 @@ Initial setup consists of getting hold of existing data from the live site and s
 
 #### 1. Exporting data
 
-1. Head over to https://www.festivalrojosangre.com.ar/wordpress/wp-admin/ and login with admin credentials.
-1. In the left-side menu, go to Tools > Export.
-1. Perform an export selecting **"All content"**.
-1. Rename the downloaded XML file to "backup.xml" and place it inside `<project-root>/docker/wordpress/init-site`.
+```sh
+npm run export:backup
+```
+
+This downloads a full WordPress export from the live site via SSH (requires `ssh bars` to be configured — see [docs/server-access.md](docs/server-access.md)). The backup is saved to `docker/wordpress/init-site/backup.xml` by default. Use `--output <path>` to save elsewhere.
 
 #### 2. Downloading assets
 
