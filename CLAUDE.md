@@ -52,7 +52,7 @@ Site runs at `http://localhost:8083` (default). Database at port 3307.
 ```bash
 # Clear OG image cache (forces regeneration on next page visit)
 npm run og:clear:local    # Local Docker
-npm run og:clear:remote   # Remote (live) via FTP
+npm run og:clear:remote   # Remote (live) via SSH
 ```
 
 ## Code Formatting
@@ -200,7 +200,7 @@ Marker files in the `bars-web_bars-wordpress-data` volume (mounted at `/var/www/
 
 ## Deploy
 
-Requires FTP credentials in `.env` (see `.env-example`). Uses `basic-ftp` package with **incremental deploys** — only new/changed files are uploaded based on SHA-256 content hashes.
+Uses `rsync` over SSH for incremental deploys. Requires SSH access configured (`ssh bars`) — see `docs/server-access.md`.
 
 ```bash
 npm run deploy            # Deploy everything (plugins + themes + server config)
@@ -210,18 +210,21 @@ npm run deploy:bars2026   # Deploy bars2026 theme
 npm run deploy:config     # Deploy server config (.htaccess)
 ```
 
-**Force full deploy** (skips manifest comparison, uploads everything):
+**Force full deploy** (re-transfers all files regardless of checksum):
 ```bash
-node --env-file=.env scripts/deploy.mjs --force bars2026
+npm run deploy:bars2026 -- --force
 ```
 
-Manifests are stored in `deploy/` (committed to VC). Sourcemap files (`.map`) are excluded from manifests and always re-uploaded.
+**Dry-run** (preview what would be transferred):
+```bash
+npm run deploy:bars2026 -- --dry-run
+```
 
-Remote path mapping (handled automatically via FTP, where `/` = FTP homedir = `/rojosangre/` on disk):
-- `wp-plugins/{name}/` → `/2.0/wp-content/plugins/{name}`
-- `wp-themes/bars2013/` → `/2.0/wp-content/themes/bars2013`
-- `wp-themes/bars2026/` → `/2.0/wp-content/themes/bars2026`
-- `server-config/` → `/2.0/` (DocumentRoot: `.htaccess`, `robots.txt`)
+Remote path mapping (rsync over SSH, absolute paths on server):
+- `wp-plugins/{name}/` → `<SITE_ROOT>/wp-content/plugins/{name}`
+- `wp-themes/bars2013/` → `<SITE_ROOT>/wp-content/themes/bars2013`
+- `wp-themes/bars2026/` → `<SITE_ROOT>/wp-content/themes/bars2026`
+- `server-config/` → `<SITE_ROOT>/`
 
 ## Server Access (SSH)
 

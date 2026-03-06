@@ -128,7 +128,7 @@ Social platforms cache OG metadata aggressively. After migration, shared links m
 Alternatively, use the OG cache clear scripts to regenerate OG images if needed:
 ```sh
 npm run og:clear:local    # Local Docker
-npm run og:clear:remote   # Remote (live) via FTP
+npm run og:clear:remote   # Remote (live) via SSH
 ```
 
 ### What's already handled automatically

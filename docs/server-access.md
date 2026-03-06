@@ -2,10 +2,6 @@
 
 The production server (`quintadimension.com`) runs **OpenSSH 6.0 on Debian 7**. This guide covers SSH key setup for direct server access.
 
-## Prerequisites
-
-- [1Password](https://1password.com/) (or similar) for storing the private key passphrase
-
 ## SSH Key Setup
 
 ### 1. Generate an RSA key
@@ -16,7 +12,7 @@ The server does **not** support Ed25519 keys. Use RSA 4096:
 ssh-keygen -t rsa -b 4096 -C "your-email@example.com" -f ~/.ssh/bars_rsa
 ```
 
-When prompted, set a passphrase (4-5 random words is ideal). Store the passphrase in 1Password.
+When prompted, set a passphrase (4-5 random words is ideal).
 
 ### 2. Copy the public key to the server
 
@@ -59,7 +55,7 @@ The server runs **OpenSSH 6.0**, which predates support for:
 
 Modern SSH clients (OpenSSH 8.8+) disabled the legacy `ssh-rsa` (SHA-1) algorithm by default. Without `PubkeyAcceptedAlgorithms +ssh-rsa` in your config, the client and server can't agree on a signature algorithm, and pubkey auth silently falls back to password auth.
 
-**Symptoms if misconfigured**: SSH asks for your *server password* instead of your *key passphrase*, even though the key is in `authorized_keys`.
+**Symptoms if misconfigured**: SSH asks for your _server password_ instead of your _key passphrase_, even though the key is in `authorized_keys`.
 
 ## Revoking Access
 
@@ -76,3 +72,8 @@ Or, to remove a specific key non-interactively:
 ```sh
 ssh bars "grep -v 'their-email@example.com' ~/.ssh/authorized_keys > ~/.ssh/authorized_keys.tmp && mv ~/.ssh/authorized_keys.tmp ~/.ssh/authorized_keys"
 ```
+
+## Used by deploy scripts
+
+The deploy, download, and OG cache scripts use this SSH configuration for all remote operations.
+See [deploy.md](deploy.md) for full documentation on deploy commands and workflows.

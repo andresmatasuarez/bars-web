@@ -33,21 +33,13 @@ Initial setup consists of getting hold of existing data from the live site and s
 
 #### 2. Downloading assets
 
-We still need to download the images and files associated with the data we just exported to XML. These assets can be found in the BARS FTP server, in the remote directory `wp-content/uploads` (under the FTP base) and must be downloaded into local folder `<project-root>/docker/wordpress/init-site/uploads`.
-
-As of February 2026, there're over 20k assets (~2.9 GB) so downloading will probably be a very long process ¯\\\_(ツ)\_/¯.
+We still need to download the images and files associated with the data we just exported to XML. As of February 2026, there are over 20k assets (~2.9 GB).
 
 ```sh
 npm run download:assets
 ```
 
-This uses the same FTP credentials from `.env` as the deploy script. It's **incremental** — files that already exist locally are skipped. Re-run to resume after an interruption. Use `--force` to re-download everything:
-
-```sh
-node --env-file=.env scripts/download-assets.mjs --force
-```
-
-Alternatively, you can use any FTP client such as [Filezilla](https://filezilla-project.org/) to download `wp-content/uploads` (under the FTP base) into `docker/wordpress/init-site/uploads`.
+Rsync skips unchanged files automatically. Use `npm run download:assets -- --force` to re-evaluate all files. See [docs/deploy.md](docs/deploy.md) for details.
 
 ### Docker setup
 
@@ -125,7 +117,6 @@ bars-web/
 │  └─ wordpress/             # Dockerfile, entrypoint, init-site/
 ├─ server-config/              # Deployed to DocumentRoot (.htaccess, robots.txt)
 ├─ scripts/                  # switch-theme.sh, deploy.mjs
-├─ deploy/                  # Deploy manifests (content hashes) — committed to VC
 ├─ package.json              # Workspace root
 └─ tsconfig.base.json
 ```
@@ -189,7 +180,7 @@ Running a local version of the site involves two different processes:
 
    ```sh
    npm run og:clear:local    # Clear local Docker og-cache
-   npm run og:clear:remote   # Clear remote (live) og-cache via FTP
+   npm run og:clear:remote   # Clear remote (live) og-cache via SSH
    ```
 
    After clearing, visit any movie page — the OG image is generated on the first request. To view the generated image directly, open `http://localhost:8083/wp-content/uploads/og-cache/movie-{ID}.jpg` in your browser, or inspect the `og:image` meta tag on the movie page for the full URL.
@@ -209,7 +200,7 @@ From the root:
 - `npm run dev:plugins` - Watch and copy plugin files to `wp-plugins/`
 - `npm run build:plugins` - Build plugins for production
 - `npm run og:clear:local` - Clear local Docker OG image cache
-- `npm run og:clear:remote` - Clear remote (live) OG image cache via FTP
+- `npm run og:clear:remote` - Clear remote (live) OG image cache via SSH
 
 From each theme directory (`themes/bars2013` or `themes/bars2026`):
 
@@ -267,60 +258,12 @@ HTTP-level tests that run against the Docker WordPress instance. See [tests/inte
 
 ## Deploy
 
-Requires FTP credentials in `.env` (see `.env-example` for the variables).
-
-### How it works
-
-Deploys are **incremental**. The script computes a SHA-256 content hash for every file in the build output, compares it against the previous deploy's manifest, and only uploads new or changed files. Files removed from the build are surgically deleted from the remote — no more wiping the entire directory.
-
-### Commands
-
-Build first, then deploy:
+Uses `rsync` over SSH for incremental deploys. See [docs/deploy.md](docs/deploy.md) for full documentation.
 
 ```sh
 npm run build         # Build everything
-npm run deploy        # Deploy everything (plugins + both themes)
+npm run deploy        # Deploy everything (plugins + both themes + server config)
 ```
-
-Or deploy individually:
-
-```sh
-npm run deploy:plugins    # All plugins
-npm run deploy:bars2013   # bars2013 theme
-npm run deploy:bars2026   # bars2026 theme
-npm run deploy:config     # Server config (.htaccess + robots.txt)
-```
-
-### Force deploy
-
-Skips manifest comparison and uploads everything. Use when the remote was manually modified or manifests are out of sync:
-
-```sh
-node --env-file=.env scripts/deploy.mjs --force bars2026
-```
-
-### Sourcemaps
-
-`.map` files are excluded from manifests and always re-uploaded. They contain absolute paths that differ across machines, so hash comparison would be misleading.
-
-### Crash safety
-
-The manifest is saved **only after all uploads succeed**. If a deploy is interrupted, the next run sees the old manifest and retries all the changes.
-
-### Manifests
-
-Stored in `deploy/` (committed to VC). One JSON file per target, with the filename derived from the local path (`/` → `--`), e.g. `wp-themes--bars2026.manifest.json`.
-
-### Edge cases
-
-| Scenario                        | What happens                                                                                                   |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| First deploy (no manifest)      | All files uploaded, manifest created                                                                           |
-| Interrupted deploy              | Old manifest retained; next run re-uploads everything that changed                                             |
-| File deleted from build         | Deleted from remote, removed from manifest                                                                     |
-| Remote manually modified        | Run with `--force` to re-sync everything                                                                       |
-| Rebuild with no source changes  | Hashes match — "No changes detected, skipping"                                                                 |
-| Deploy from a different machine | Hashed content is the same, so only truly different files upload (except `.map` files, which always re-upload) |
 
 ## Server Access
 

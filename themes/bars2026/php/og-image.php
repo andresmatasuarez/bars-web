@@ -28,7 +28,7 @@ define('BARS_OG_JPEG_QUALITY', 90);
  *      re-fetch instead of serving their cached copy.
  *   2. Clear both local and remote caches so images are regenerated:
  *      npm run og:clear:local   (local Docker)
- *      npm run og:clear:remote  (live site via FTP)
+ *      npm run og:clear:remote  (live site via SSH)
  */
 define('BARS_OG_VERSION', 2);
 
