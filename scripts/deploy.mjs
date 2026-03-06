@@ -34,7 +34,7 @@ const DEPLOY_TARGETS = {
       remote: `${SITE_ROOT}/wp-content/themes/bars2026`,
     },
   ],
-  config: [{ local: 'server-config', remote: `${SITE_ROOT}` }],
+  config: [{ local: 'server-config', remote: `${SITE_ROOT}`, noDelete: true }],
 };
 
 const MAX_RETRIES = 2;
@@ -76,14 +76,13 @@ function validateLocalDir(localDir) {
   }
 }
 
-function rsync(localDir, remoteDir, { sshHost, force, dryRun }) {
+function rsync(localDir, remoteDir, { sshHost, force, dryRun, noDelete }) {
   const rsyncArgs = [
     'rsync',
     '-rlptD',
     '--checksum',
-    '--delete',
+    ...(noDelete ? [] : ['--delete']),
     '--info=progress2',
-    '--chown=www-data:www-data',
     "--exclude='.gitkeep'",
     '-e',
     'ssh',
@@ -96,14 +95,14 @@ function rsync(localDir, remoteDir, { sshHost, force, dryRun }) {
   execSync(rsyncArgs.join(' '), { stdio: 'inherit' });
 }
 
-function deployTarget(localDir, remoteDir, options) {
+function deployTarget(localDir, remoteDir, { noDelete, ...options }) {
   validateLocalDir(localDir);
 
   console.log(`\n  ${localDir} → ${remoteDir}`);
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      rsync(localDir, remoteDir, options);
+      rsync(localDir, remoteDir, { ...options, noDelete });
       return;
     } catch (err) {
       if (attempt === MAX_RETRIES) throw err;
@@ -138,8 +137,8 @@ try {
   if (dryRun) console.log('--dry-run: previewing changes only.');
   console.log('\nDeploying:');
 
-  for (const { local, remote } of targets) {
-    deployTarget(local, remote, { sshHost, force, dryRun });
+  for (const { local, remote, noDelete } of targets) {
+    deployTarget(local, remote, { sshHost, force, dryRun, noDelete });
   }
 
   console.log('\nDeploy complete.');
