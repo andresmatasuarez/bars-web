@@ -8,7 +8,8 @@
     "php": "./php/**/*",
     "sharedPhp": "../../shared/php/**/*",
     "editions": "../../shared/editions.json",
-    "resources": "../../shared/resources/**/*"
+    "resources": "../../shared/resources/**/*",
+    "localResources": "./resources/**/*"
   },
   "scripts": {
     "lint": "eslint .",
@@ -25,10 +26,12 @@
     "copy:shared-php": "cpx \"$npm_package_config_sharedPhp\" $npm_package_config_dest",
     "copy:editions": "cpx \"$npm_package_config_editions\" $npm_package_config_dest",
     "copy:resources": "cpx \"$npm_package_config_resources\" $npm_package_config_dest/resources",
+    "copy:local-resources": "cpx \"$npm_package_config_localResources\" $npm_package_config_dest/resources",
     "watch:php": "npm run copy:php -- --watch --verbose",
     "watch:shared-php": "npm run copy:shared-php -- --watch --verbose",
     "watch:editions": "npm run copy:editions -- --watch --verbose",
     "watch:resources": "npm run copy:resources -- --watch --verbose",
+    "watch:local-resources": "npm run copy:local-resources -- --watch --verbose",
     "test": "vitest run --config vitest.config.ts",
     "test:watch": "vitest --config vitest.config.ts",
     "test:coverage": "vitest run --config vitest.config.ts --coverage"
