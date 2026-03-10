@@ -75,6 +75,8 @@ function PhotoPlaceholder({ className }: { className: string }) {
 function DesktopContent({ member, onClose }: { member: JuryMember; onClose: () => void }) {
   const halftoneUrl =
     (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') + '/resources/sala-halftone.png';
+  const halftoneWebpUrl =
+    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') + '/resources/sala-halftone.webp';
 
   return (
     <>
@@ -82,7 +84,10 @@ function DesktopContent({ member, onClose }: { member: JuryMember; onClose: () =
       <div className="relative w-full h-[300px] shrink-0">
         {/* Halftone background image */}
         <div className="absolute inset-0 overflow-hidden">
-          <img src={halftoneUrl} alt="" className="w-full h-full object-cover opacity-30" />
+          <picture>
+            <source srcSet={halftoneWebpUrl} type="image/webp" />
+            <img src={halftoneUrl} alt="" className="w-full h-full object-cover opacity-30" />
+          </picture>
           {/* Gradient fade to modal background */}
           <div
             className="absolute inset-0"
@@ -130,6 +135,8 @@ function DesktopContent({ member, onClose }: { member: JuryMember; onClose: () =
 function MobileContent({ member, onClose }: { member: JuryMember; onClose: () => void }) {
   const halftoneUrl =
     (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') + '/resources/sala-halftone.png';
+  const halftoneWebpUrl =
+    (typeof BARS_DATA !== 'undefined' ? BARS_DATA.themeUrl : '') + '/resources/sala-halftone.webp';
 
   return (
     <div className="relative flex-1 min-h-0">
@@ -138,7 +145,10 @@ function MobileContent({ member, onClose }: { member: JuryMember; onClose: () =>
         <div className="relative w-full h-[220px] shrink-0">
           {/* Halftone background */}
           <div className="absolute inset-0 overflow-hidden">
-            <img src={halftoneUrl} alt="" className="w-full h-full object-cover opacity-30" />
+            <picture>
+              <source srcSet={halftoneWebpUrl} type="image/webp" />
+              <img src={halftoneUrl} alt="" className="w-full h-full object-cover opacity-30" />
+            </picture>
             <div
               className="absolute inset-0"
               style={{

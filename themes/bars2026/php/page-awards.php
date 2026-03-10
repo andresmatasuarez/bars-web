@@ -30,7 +30,7 @@ if (!isset($_GET['e']) && isset($_GET['j'])) {
 // in the browser cache when the modal opens — prevents decode jank during
 // the opening CSS transition.
 add_action('wp_head', function() {
-    echo '<link rel="preload" as="image" href="' . esc_url(get_template_directory_uri() . '/resources/sala-halftone.png') . '">' . "\n";
+    echo '<link rel="preload" as="image" type="image/webp" href="' . esc_url(get_template_directory_uri() . '/resources/sala-halftone.webp') . '">' . "\n";
 }, 1);
 
 get_header();

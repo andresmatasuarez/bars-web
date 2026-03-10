@@ -19,9 +19,12 @@ $callClosed = Editions::isCallClosed($edition);
 <section class="relative min-h-[600px] lg:h-[800px] overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-black">
-        <img src="<?php echo get_template_directory_uri(); ?>/resources/sala-halftone.png"
-             alt=""
-             class="w-full h-full object-cover grayscale-[0.65]">
+        <picture>
+            <source srcset="<?php echo get_template_directory_uri(); ?>/resources/sala-halftone-big.webp" type="image/webp">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/sala-halftone-big.png"
+                 alt=""
+                 class="w-full h-full object-cover grayscale-[0.25]">
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-b from-[#150808]/50 via-transparent to-[#150808]/50"></div>
     </div>
 
