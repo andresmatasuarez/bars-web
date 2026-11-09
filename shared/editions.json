@@ -163,11 +163,6 @@
             "alt": "APIMA"
           },
           {
-            "logo": "resources/bars2025/sponsors/auspiciante_guiar.png",
-            "href": "https://www.facebook.com/asociaciondeguionistasarg",
-            "alt": "Asociación de Guionistas Argentinos"
-          },
-          {
             "logo": "resources/bars2025/sponsors/auspiciante_adf.png",
             "href": "https://adfcine.org/",
             "alt": "ADF Autores de Fotografía Cinematográfica Argentina"
@@ -188,24 +183,9 @@
             "alt": "FantLatam Alianza Latinoamericana de Festivales de Cine Fantástico"
           },
           {
-            "logo": "resources/bars2025/sponsors/auspiciante_piromaniafx.png",
-            "href": "http://www.piromaniafx.com.ar",
-            "alt": "Piromania FX"
-          },
-          {
             "logo": "resources/bars2025/sponsors/auspiciante_flaviogrecopaglia.png",
             "href": "https://www.behance.net/flaviogreco",
             "alt": "Flavio Greco Paglia Dibujante - Ilustrador"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_enchulame_la_camara.png",
-            "href": "https://www.enchulamerental.com/",
-            "alt": "Enchulame la cámara"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_silver.png",
-            "href": "https://www.estudiosilver.com/",
-            "alt": "Estudio Silver"
           },
           {
             "logo": "resources/bars2025/sponsors/auspiciante_lacripta.png",
@@ -221,26 +201,6 @@
             "logo": "resources/bars2025/sponsors/auspiciante_culturageekandpop.png",
             "href": "https://elian.neftis.tv/",
             "alt": "Cultura Geek & Pop"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_lumiton.png",
-            "href": "https://lumiton.ar/",
-            "alt": "Lumiton"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_siniestro.png",
-            "href": "https://www.instagram.com/siniestroprodu/",
-            "alt": "Siniestro"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_macritas.png",
-            "href": "https://www.instagram.com/nachosmacritas/",
-            "alt": "Macritas"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_gio.png",
-            "href": "https://giochocolates.com/",
-            "alt": "Gio"
           }
         ]
       }
