@@ -22,7 +22,7 @@
 
                 <!-- Tagline -->
                 <p class="text-sm text-bars-text-subtle leading-relaxed">
-                    Festival Internacional de Cine de Terror, Fantasía y Bizarro. Desde 1999 celebrando el cine de género en Argentina.
+                    Festival Internacional de Cine de terror, fantástico y bizarro. Desde 1999 celebrando el cine de género en Argentina.
                 </p>
 
                 <!-- Social Links -->

@@ -120,7 +120,7 @@ $GLOBALS['bars_section_index'] = 0;
             La cita anual con el cine de género
         </h2>
         <p class="text-base lg:text-lg text-bars-text-secondary leading-relaxed max-w-[800px] mx-auto mb-10 lg:mb-16">
-            Buenos Aires Rojo Sangre es el festival más importante de cine de terror, fantasía y bizarro de Argentina y Latinoamérica. Desde 1999, celebramos el cine de género con la mejor selección de películas nacionales e internacionales.
+            Buenos Aires Rojo Sangre es el festival más importante de cine de terror, fantástico y bizarro de Argentina y Latinoamérica. Desde 1999, celebramos el cine de género con la mejor selección de películas nacionales e internacionales.
         </p>
 
         <!-- Stats -->

@@ -63,7 +63,7 @@ $callClosed = Editions::isCallClosed($edition);
 
                 <!-- Subtitle -->
                 <p class="font-heading text-lg lg:text-[28px] leading-relaxed text-bars-text-secondary mb-6 lg:mb-8 lg:max-w-[520px]">
-                    Festival Internacional de Cine de Terror, Fantasía y Bizarro
+                    Festival Internacional de Cine de terror, fantástico y bizarro
                 </p>
 
                 <!-- Info Rows -->

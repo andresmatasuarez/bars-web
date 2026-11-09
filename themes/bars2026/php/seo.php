@@ -206,7 +206,7 @@ function bars_seo_get_title() {
     }
 
     if (is_front_page()) {
-        return 'Buenos Aires Rojo Sangre - Festival Internacional de Cine de Terror, Fantasía y Bizarro';
+        return 'Buenos Aires Rojo Sangre - Festival Internacional de Cine de terror, fantástico y bizarro';
     }
 
     if (is_singular('movie')) {
@@ -279,7 +279,7 @@ function bars_seo_get_description() {
 
     // Front page
     if (is_front_page()) {
-        return 'Festival Internacional de Cine de Terror, Fantasía y Bizarro';
+        return 'Festival Internacional de Cine de terror, fantástico y bizarro';
     }
 
     // Single movie
