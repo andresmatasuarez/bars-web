@@ -79,6 +79,11 @@
             "alt": "Buenos Aires Rojo Sangre"
           },
           {
+            "logo": "resources/bars2026/sponsors/auspiciante_pan@2x.png",
+            "href": "https://www.pancontenidos.com/",
+            "alt": "PAN Contenidos"
+          },
+          {
             "logo": "resources/bars2025/sponsors/auspiciante_quintadimension.png",
             "href": "http://www.quintadimension.com/",
             "alt": "Quinta Dimensión"
@@ -121,11 +126,6 @@
             "logo": "resources/bars2025/sponsors/auspiciante_subiela.png",
             "href": "https://www.escuelasubiela.com",
             "alt": "Escuela Subiela - Escuela Profesional de Cine de Eliseo Subiela"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_pan.png",
-            "href": "https://www.pancontenidos.com/",
-            "alt": "PAN Contenidos"
           }
         ]
       },
