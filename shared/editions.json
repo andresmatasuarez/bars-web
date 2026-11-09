@@ -99,6 +99,12 @@
         "title": "Auspician",
         "items": [
           {
+            "logo": "resources/bars2026/sponsors/auspiciante_dbd@2x.png",
+            "href": "https://deadbydaylight.com/",
+            "alt": "Dead by Daylight",
+            "ownLine": true
+          },
+          {
             "logo": "resources/bars2025/sponsors/auspiciante_mubi.png",
             "href": "https://mubi.com/",
             "alt": "MUBI"
