@@ -1,12 +1,29 @@
 # .htaccess — WordPress installation (DocumentRoot)
 #
 # Handles HTTPS redirect, backward-compat /2.0/ redirect, W3TC browser/page
-# cache rules, and WordPress pretty permalinks.
+# cache rules, WordPress pretty permalinks, and blocks public access to
+# debug.log.
 #
 # History: Before the DocumentRoot change (March 2026), there were two
 # .htaccess files — one in the web root (redirecting legacy URLs to /2.0/)
 # and one in /2.0/ (WP rewrites + caching). Now that /2.0/ is the
 # DocumentRoot, they are merged into this single file.
+
+# BEGIN Block debug.log
+# wp-config.php turns on WP_DEBUG_LOG, so WordPress writes PHP errors to
+# wp-content/debug.log. The log shows server paths and error details, so
+# nobody should be able to download it. The first block is for Apache 2.4+,
+# the second for Apache 2.2 (the live server runs 2.2).
+<Files "debug.log">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+# END Block debug.log
 
 # BEGIN HTTPS Redirect
 <IfModule mod_rewrite.c>
