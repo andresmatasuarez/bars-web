@@ -75,6 +75,10 @@
         "title": "Organizan",
         "items": [
           {
+            "logo": "resources/bars2026/sponsors/auspiciante_bars@2x.png",
+            "alt": "Buenos Aires Rojo Sangre"
+          },
+          {
             "logo": "resources/bars2025/sponsors/auspiciante_quintadimension.png",
             "href": "http://www.quintadimension.com/",
             "alt": "Quinta Dimensión"

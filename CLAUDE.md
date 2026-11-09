@@ -161,6 +161,15 @@ TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directo
 - **PHP files**: Use `shared/php/editions.php` which loads and parses `editions.json` behind the scenes, exposing helper functions like `Editions::venues()`, `Editions::from()`, `Editions::to()`, etc.
 - **When you need festival data in PHP**, always check the `Editions` class first for an existing helper. If none exists, add a new static method to `shared/php/editions.php` following the existing patterns in that file. Do not create theme-local wrapper functions around `Editions`.
 
+### Sponsor Logos
+
+Sponsor logos live in `shared/resources/{edition}/sponsors/` and `editions.json` points to them (`sponsors[].items[].logo`). They are PNGs with a transparent background in two formats:
+
+- Up to 2025: 140×80.
+- From 2026 on: 280×160 (double size, sharper on high-resolution screens). These file names end in `@2x`, for example `auspiciante_bars@2x.png`, so scripts can find them with `*@2x.png`.
+
+The sponsor section shows both formats at the same height, so they can be mixed in one edition.
+
 ### Shared Template Parts (bars2026)
 
 - **Page Hero**: All inner pages (everything except the landing) must use `get_template_part('template-parts/sections/page', 'hero', array('title' => '...', 'subtitle' => '...'))` for their heading section. Never inline a custom hero — this ensures consistent height and styling across all pages.
