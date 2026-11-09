@@ -154,8 +154,8 @@ get_template_part('template-parts/sections/page', 'hero');
                 El festival estará dividido en diferentes secciones:
             </p>
             <ul class="space-y-3 pl-4 text-sm lg:text-base text-bars-text-secondary leading-relaxed lg:leading-loose">
-                <li>• Sección competitiva de largometrajes de producción posterior al 1 de enero de 2024.</li>
-                <li>• Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, con una duración máxima de 25 minutos, con producción posterior al 1 de enero de 2024.</li>
+                <li>• Sección competitiva de largometrajes de producción posterior al 1 de enero de 2025.</li>
+                <li>• Secciones internacional competitiva de cortometrajes para películas de cualquier país de origen, con una duración máxima de 25 minutos, con producción posterior al 1 de enero de 2025.</li>
                 <li>• Secciones informativas de largometrajes, no competitivas, para películas de cualquier año de producción.</li>
                 <li>• Secciones informativas de cortometrajes y mediometrajes, no competitivas, sin limitación de fechas o duración.</li>
             </ul>
@@ -227,7 +227,7 @@ get_template_part('template-parts/sections/page', 'hero');
                 <div>
                     <h4 class="font-heading text-lg font-semibold text-bars-text-primary mb-3">Largometrajes</h4>
                     <p class="text-sm lg:text-base text-bars-text-secondary leading-relaxed">
-                        Los largometrajes se proyectarán en DCP, Blu-Ray o archivo digital.
+                        Los largometrajes se proyectarán en DCP o archivo digital.
                     </p>
                 </div>
                 <div>
