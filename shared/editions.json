@@ -110,6 +110,11 @@
             "alt": "Banco Ciudad"
           },
           {
+            "logo": "resources/bars2026/sponsors/auspiciante_gobiernociudad@2x.png",
+            "href": "https://buenosaires.gob.ar/",
+            "alt": "Buenos Aires Ciudad"
+          },
+          {
             "logo": "resources/bars2025/sponsors/auspiciante_mubi.png",
             "href": "https://mubi.com/",
             "alt": "MUBI"
