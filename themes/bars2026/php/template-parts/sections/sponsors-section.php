@@ -51,6 +51,21 @@ endif;
                 <?php if (!empty($group['items'])):
                     $size_classes = get_sponsor_size_classes($group['title']);
                     $container_classes = get_sponsor_container_classes($group['title']);
+
+                    // Logos marked "ownLine": true in editions.json get a line of their
+                    // own, before the rest of the group.
+                    $logo_lines = array();
+                    $other_logos = array();
+                    foreach ($group['items'] as $sponsor) {
+                        if (!empty($sponsor['ownLine'])) {
+                            $logo_lines[] = array($sponsor);
+                        } else {
+                            $other_logos[] = $sponsor;
+                        }
+                    }
+                    if (!empty($other_logos)) {
+                        $logo_lines[] = $other_logos;
+                    }
                 ?>
                 <div class="flex flex-col items-center gap-6">
                     <!-- Group Title -->
@@ -59,8 +74,9 @@ endif;
                     </h3>
 
                     <!-- Logos -->
+                    <?php foreach ($logo_lines as $line_logos): ?>
                     <div class="flex flex-wrap justify-center items-center gap-6 lg:gap-12 <?php echo $container_classes; ?>">
-                        <?php foreach ($group['items'] as $sponsor): ?>
+                        <?php foreach ($line_logos as $sponsor): ?>
                             <?php if (!empty($sponsor['logo'])): ?>
                                 <?php
                                 $logo_url = get_template_directory_uri() . '/' . $sponsor['logo'];
@@ -84,6 +100,7 @@ endif;
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
+                    <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
             <?php endforeach; ?>
