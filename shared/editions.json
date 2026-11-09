@@ -131,30 +131,6 @@
           {
             "logo": "resources/bars2026/sponsors/auspiciante_latamclassics@2x.png",
             "alt": "Latam Classics"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_flixxo.png",
-            "href": "https://www.flixxo.com/",
-            "alt": "Flixxo"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_multiplex.png",
-            "href": "http://www.cinesmultiplex.com.ar/",
-            "alt": "Cines Multiplex"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_mecenazgo.png",
-            "alt": "Mecenazgo Cultural Buenos Aires"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_santander.png",
-            "href": "https://www.santander.com.ar/",
-            "alt": "Santander"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_subiela.png",
-            "href": "https://www.escuelasubiela.com",
-            "alt": "Escuela Subiela - Escuela Profesional de Cine de Eliseo Subiela"
           }
         ]
       },
