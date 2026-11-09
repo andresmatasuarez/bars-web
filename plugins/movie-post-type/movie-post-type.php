@@ -131,6 +131,9 @@
 
     // Bars 2025 new sections
 		'barsAnimado' => array ( 'label' => 'BARS Animado', 'value' => 'barsAnimado' ),
+
+		// Bars 2026 new sections
+		'sarliEnFilmico' => array ( 'label' => 'Sarli en fílmico', 'value' => 'sarliEnFilmico' ),
 	);
 
 	function initialize(){
