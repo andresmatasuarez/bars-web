@@ -26,6 +26,16 @@ require_once get_template_directory() . '/og-image.php';
 require_once get_template_directory() . '/favicon.php';
 
 /**
+ * Version for a theme file, used as its ?ver= value: the file's modification
+ * time. The server sends no cache headers, so browsers guess how long to keep
+ * files. A new ?ver= after every deploy makes them fetch the new build.
+ */
+function bars2026_asset_version($file) {
+    $path = get_template_directory() . '/' . $file;
+    return file_exists($path) ? (string) filemtime($path) : '1.0.0';
+}
+
+/**
  * Enqueue theme styles and scripts
  */
 function bars2026_enqueue_assets() {
@@ -34,7 +44,7 @@ function bars2026_enqueue_assets() {
         'bars2026-main',
         get_template_directory_uri() . '/bars2026.css',
         array(),
-        '1.0.0'
+        bars2026_asset_version('bars2026.css')
     );
 
     // WordPress theme metadata stylesheet
@@ -42,7 +52,7 @@ function bars2026_enqueue_assets() {
         'bars2026-style',
         get_template_directory_uri() . '/style.css',
         array('bars2026-main'),
-        '1.0.0'
+        bars2026_asset_version('style.css')
     );
 
     // Main theme script (compiled by Vite)
@@ -50,7 +60,7 @@ function bars2026_enqueue_assets() {
         'bars2026-script',
         get_template_directory_uri() . '/bars2026.iife.js',
         array(),
-        '1.0.0',
+        bars2026_asset_version('bars2026.iife.js'),
         true
     );
 

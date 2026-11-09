@@ -142,7 +142,7 @@ get_template_part('template-parts/sections/page', 'hero');
                     echo 'window.BASE_PAGE_TITLE = ' . json_encode($seo_base . " \xE2\x80\x93 " . get_bloginfo('name')) . ';';
                 ?>
             </script>
-            <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/selection.iife.js"></script>
+            <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/selection.iife.js?ver=<?php echo esc_attr(bars2026_asset_version('selection.iife.js')); ?>"></script>
             <?php
         }
         ?>
