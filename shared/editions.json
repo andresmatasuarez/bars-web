@@ -87,11 +87,6 @@
             "logo": "resources/bars2026/sponsors/auspiciante_atlas@2x.png",
             "href": "https://www.atlascines.com/",
             "alt": "Atlas Cines"
-          },
-          {
-            "logo": "resources/bars2025/sponsors/auspiciante_quintadimension.png",
-            "href": "http://www.quintadimension.com/",
-            "alt": "Quinta Dimensión"
           }
         ]
       },
@@ -166,6 +161,11 @@
       {
         "title": "Colaboran",
         "items": [
+          {
+            "logo": "resources/bars2025/sponsors/auspiciante_quintadimension.png",
+            "href": "http://www.quintadimension.com/",
+            "alt": "Quinta Dimensión"
+          },
           {
             "logo": "resources/bars2025/sponsors/auspiciante_rafma.png",
             "href": "https://www.facebook.com/pages/RAFMA-Red-Argentina-de-Festivales-y-Muestras-Audiovisuales/151718504869922",
