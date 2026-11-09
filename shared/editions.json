@@ -105,6 +105,11 @@
             "ownLine": true
           },
           {
+            "logo": "resources/bars2026/sponsors/auspiciante_bancociudad@2x.png",
+            "href": "https://bancociudad.com.ar/",
+            "alt": "Banco Ciudad"
+          },
+          {
             "logo": "resources/bars2025/sponsors/auspiciante_mubi.png",
             "href": "https://mubi.com/",
             "alt": "MUBI"
