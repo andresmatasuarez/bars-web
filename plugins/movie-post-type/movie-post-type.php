@@ -134,6 +134,9 @@
 
 		// Bars 2026 new sections
 		'sarliEnFilmico' => array ( 'label' => 'Sarli en fílmico', 'value' => 'sarliEnFilmico' ),
+		'monstruosDelMasAca' => array ( 'label' => 'Monstruos del más acá', 'value' => 'monstruosDelMasAca' ),
+		'clasicosDelNuevoFantasticoArgentino' => array ( 'label' => 'Clásicos del nuevo fantástico argentino', 'value' => 'clasicosDelNuevoFantasticoArgentino' ),
+		'panoramaLatino' => array ( 'label' => 'Panorama latino', 'value' => 'panoramaLatino' ),
 	);
 
 	function initialize(){
