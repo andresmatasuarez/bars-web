@@ -33,10 +33,12 @@ $callClosed = Editions::isCallClosed($edition);
 
     <!-- Content -->
     <div class="relative z-10 h-full flex flex-col justify-center px-5 lg:px-20 py-16 lg:py-20">
-        <div class="max-w-[1280px] w-full mx-auto <?php if ($poster): ?>lg:flex lg:items-center lg:gap-12<?php endif; ?>">
+        <div class="max-w-[1280px] w-full mx-auto <?php if ($poster): ?>lg:flex lg:items-start lg:gap-12<?php endif; ?>">
             <?php if ($poster): ?>
-            <!-- Poster (desktop only) -->
-            <div class="hidden lg:block lg:flex-shrink-0">
+            <!-- Poster (desktop only). Its top lines up with the top of the "BUENOS AIRES"
+                 letters, whatever the poster's shape: 71px = edition badge (34px) + its
+                 margin (32px) + space above the letters inside the title line (5px). -->
+            <div class="hidden lg:block lg:flex-shrink-0 lg:mt-[71px]">
                 <div class="relative">
                     <div class="absolute -inset-12 bg-bars-primary/15 rounded-full blur-3xl"></div>
                     <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>" target="_blank" rel="noopener">
