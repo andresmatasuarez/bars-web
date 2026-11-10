@@ -1,5 +1,5 @@
-# PHP Composer
-vendor/
+# PHP Composer (only the theme's own vendor/ folder, not assets/javascripts/vendor/)
+/vendor/
 composer.phar
 
 # Theme-specific build artifacts
