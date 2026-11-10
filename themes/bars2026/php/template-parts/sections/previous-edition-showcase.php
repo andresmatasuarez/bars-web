@@ -21,6 +21,7 @@ $prev_spot = !empty($prev['spot']) ? $prev['spot'] : '';
 
 // Determine what to display
 $display_poster = (!$poster && $prev_poster) ? $prev_poster : null;
+$display_poster_small = $display_poster ? Editions::posterForPage($prev) : null; // smaller copy for the page; the link keeps the full poster
 $display_spot_url = $prev_spot;
 
 // Nothing to display at all
@@ -80,7 +81,7 @@ $GLOBALS['bars_section_index']++;
                 <div class="relative">
                     <div class="absolute -inset-12 bg-bars-primary/15 rounded-full blur-3xl"></div>
                     <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($display_poster); ?>" target="_blank" rel="noopener">
-                        <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($display_poster); ?>"
+                        <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($display_poster_small); ?>"
                              alt="Afiche BARS <?php echo esc_attr(Editions::romanNumerals($prev)); ?>"
                              class="relative w-[220px] lg:w-[280px] rounded-bars-md border border-white/10 shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300">
                     </a>
@@ -135,7 +136,7 @@ $GLOBALS['bars_section_index']++;
             <div class="relative">
                 <div class="absolute -inset-12 bg-bars-primary/15 rounded-full blur-3xl"></div>
                 <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($display_poster); ?>" target="_blank" rel="noopener">
-                    <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($display_poster); ?>"
+                    <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($display_poster_small); ?>"
                          alt="Afiche BARS <?php echo esc_attr(Editions::romanNumerals($prev)); ?>"
                          class="relative w-[280px] lg:w-[340px] rounded-bars-md border border-white/10 shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300">
                 </a>

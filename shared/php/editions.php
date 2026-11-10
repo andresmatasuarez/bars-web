@@ -186,6 +186,22 @@ class Editions {
     return isset($edition['venues']) ? $edition['venues'] : null;
   }
 
+  /**
+   * Poster file to show on a page (home hero, previous edition section): the small
+   * copy ("posterSmall") when the edition has one, otherwise the full "poster".
+   * Links to the poster and share images keep using the full "poster".
+   */
+  public static function posterForPage($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (!empty($edition['posterSmall'])) {
+      return $edition['posterSmall'];
+    }
+    return !empty($edition['poster']) ? $edition['poster'] : null;
+  }
+
   public static function call($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();

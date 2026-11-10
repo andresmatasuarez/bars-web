@@ -10,6 +10,7 @@ $from = Editions::from($edition);
 $to = Editions::to($edition);
 $venues = Editions::venues($edition);
 $poster = !empty($edition['poster']) ? $edition['poster'] : '';
+$poster_small = Editions::posterForPage($edition); // smaller copy for the page; the link keeps the full poster
 
 // State detection for CTAs
 $movieCount = countMovieEntriesForEdition($edition);
@@ -42,7 +43,7 @@ $callClosed = Editions::isCallClosed($edition);
                 <div class="relative">
                     <div class="absolute -inset-12 bg-bars-primary/15 rounded-full blur-3xl"></div>
                     <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>" target="_blank" rel="noopener">
-                        <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>"
+                        <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster_small); ?>"
                              alt="Afiche BARS <?php echo esc_attr($edition_number); ?>"
                              class="relative w-[300px] rounded-bars-md border border-white/10 shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300">
                     </a>
@@ -151,7 +152,7 @@ $callClosed = Editions::isCallClosed($edition);
                     <div class="relative">
                         <div class="absolute -inset-8 bg-bars-primary/15 rounded-full blur-2xl"></div>
                         <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>" target="_blank" rel="noopener">
-                            <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>"
+                            <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster_small); ?>"
                                  alt="Afiche BARS <?php echo esc_attr($edition_number); ?>"
                                  class="relative w-[220px] rounded-bars-md border border-white/10 shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300">
                         </a>
