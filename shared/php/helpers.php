@@ -102,8 +102,8 @@
   }
 
   function parseScreenings($screeningsValue) {
-    $screenings = array_filter(explode(',', $screeningsValue)); // removes empty screenings
-    $screenings = array_map('trim', $screenings);
+    $screenings = array_map('trim', explode(',', $screeningsValue));
+    $screenings = array_filter($screenings, 'strlen'); // removes empty screenings, also a stray ", "
     $screenings = array_map('parseScreening', $screenings);
     $screenings = array_values(array_filter($screenings)); // removes screenings that could not be read
     usort($screenings, 'sortByDateString');
