@@ -22,7 +22,6 @@ export default function MobileFilterModal({ isOpen, onClose }: MobileFilterModal
     sharedLists,
     activeSharedListIds,
     toggleSharedList,
-    requestDeleteSharedList,
     sharedListMovieCountsForTab,
     listSubTab,
     watchlistListFilters,

@@ -29,14 +29,12 @@ export default function ScreeningCard({
   const date = screening.isoDate ? new Date(screening.isoDate) : null;
   const isStreaming = screening.streaming;
   let venueName = '';
-  let venueLink: string | undefined;
 
   try {
     const venues = Editions.venues(currentEdition);
     const venue = venues[screening.venue];
     if (venue) {
       venueName = venue.name;
-      venueLink = venue.link;
     }
   } catch {
     venueName = screening.venue;

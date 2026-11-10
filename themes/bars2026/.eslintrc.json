@@ -29,5 +29,11 @@
     "import/no-duplicates": "error",
     "unused-imports/no-unused-imports": "error",
     "react/react-in-jsx-scope": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.config.js"],
+      "env": { "node": true }
+    }
+  ]
 }
