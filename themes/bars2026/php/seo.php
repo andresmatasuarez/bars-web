@@ -398,10 +398,17 @@ function bars_seo_get_image_meta() {
         }
     }
 
-    // Fallback: current edition poster
-    $edition = Editions::current();
-    if (!empty($edition['poster'])) {
-        return array('url' => get_template_directory_uri() . '/' . $edition['poster'], 'width' => 0, 'height' => 0);
+    // Fallback: current edition poster. Uses the small copy when there is one:
+    // share previews load faster, and some apps reportedly skip large images.
+    // The real size is sent so previews can render on the first share.
+    $edition_poster = Editions::posterForPage(Editions::current());
+    if ($edition_poster) {
+        $size = @getimagesize(get_template_directory() . '/' . $edition_poster);
+        return array(
+            'url' => get_template_directory_uri() . '/' . $edition_poster,
+            'width' => $size ? (int) $size[0] : 0,
+            'height' => $size ? (int) $size[1] : 0,
+        );
     }
 
     return $empty;
