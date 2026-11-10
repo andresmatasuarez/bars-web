@@ -202,6 +202,34 @@ class Editions {
     return !empty($edition['poster']) ? $edition['poster'] : null;
   }
 
+  /**
+   * The edition's two colors, taken from its poster ("colors" in editions.json):
+   * 'linkAccent' (links, active menu line) and 'badgeText' (dates, titles on hover,
+   * page glow). Returns null when the edition has no colors or a color is not
+   * written as #rrggbb. The site then keeps its default colors from main.css.
+   */
+  public static function colors($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    if (empty($edition['colors'])) {
+      return null;
+    }
+
+    $colors = $edition['colors'];
+    foreach (array('linkAccent', 'badgeText') as $key) {
+      if (!isset($colors[$key]) || !preg_match('/^#[0-9a-fA-F]{6}$/', $colors[$key])) {
+        return null;
+      }
+    }
+
+    return array(
+      'linkAccent' => $colors['linkAccent'],
+      'badgeText' => $colors['badgeText'],
+    );
+  }
+
   public static function call($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();
