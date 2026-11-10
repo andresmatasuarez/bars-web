@@ -41,7 +41,7 @@ $callClosed = Editions::isCallClosed($edition);
                  margin (32px) + space above the letters inside the title line (5px). -->
             <div class="hidden lg:block lg:flex-shrink-0 lg:mt-[71px]">
                 <div class="relative">
-                    <div class="absolute -inset-12 bg-bars-primary/15 rounded-full blur-3xl"></div>
+                    <div class="absolute -inset-12 bg-bars-edition-glow/15 rounded-full blur-3xl"></div>
                     <a href="<?php echo get_template_directory_uri() . '/' . esc_attr($poster); ?>" target="_blank" rel="noopener">
                         <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($poster_small); ?>"
                              alt="Afiche BARS <?php echo esc_attr($edition_number); ?>"

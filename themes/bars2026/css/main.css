@@ -76,6 +76,9 @@ html {
   /* Line under the active menu item. header.php sets it to the edition's link color
      when the edition has poster colors. */
   --color-bars-edition-line: #8b0000;
+  /* Glow behind the home poster, and at the top of inner pages when the edition has
+     poster colors. header.php sets it to the edition's date color. */
+  --color-bars-edition-glow: #8b0000;
 
   /* Border radius */
   --radius-bars-sm: 4px;

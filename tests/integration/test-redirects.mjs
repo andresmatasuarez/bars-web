@@ -1015,6 +1015,20 @@ if (CURRENT_COLORS) {
     '/programacion/',
     'border-bars-edition-line',
   );
+
+  // J7: The glow behind the home poster and at the top of inner pages uses the date color
+  await testHtmlContains(
+    'J7: Home page sets the glow color',
+    '/',
+    `--color-bars-edition-glow:\\s*${escapeRegex(CURRENT_COLORS.badgeText)}`,
+  );
+
+  // J8: Inner pages show the glow at the top
+  await testHtmlContains(
+    'J8: /noticias has the edition glow at the top',
+    '/noticias/',
+    'data-edition-glow',
+  );
 } else {
   // J4: Without poster colors, the page keeps the default colors from main.css
   await testHtmlNotContains(

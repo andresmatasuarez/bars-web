@@ -26,6 +26,11 @@ $subtitle = isset($_args['subtitle']) ? $_args['subtitle'] : '';
         <img src="<?php echo get_template_directory_uri(); ?>/resources/sala2-halftone.png"
              alt=""
              class="w-full h-full object-cover opacity-90 grayscale-[0.3]">
+        <?php if (Editions::colors()): ?>
+        <!-- Edition glow: tints the top of the image with the poster's color, then adds a soft light -->
+        <div data-edition-glow class="absolute inset-0 mix-blend-color opacity-80" style="background: radial-gradient(ellipse 70% 60% at 50% 15%, var(--color-bars-edition-glow) 0%, transparent 70%)"></div>
+        <div class="absolute inset-0 opacity-25" style="background: radial-gradient(ellipse 60% 45% at 50% 10%, var(--color-bars-edition-glow) 0%, transparent 70%)"></div>
+        <?php endif; ?>
         <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 0%, var(--color-bars-bg-dark) 90%)"></div>
     </div>
 

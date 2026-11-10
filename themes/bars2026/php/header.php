@@ -28,10 +28,10 @@ $nav_items = [
 
     <?php wp_head(); ?>
 
-    <?php // The current edition's poster colors replace the default link, date and menu line colors from main.css.
+    <?php // The current edition's poster colors replace the default link, date, menu line and glow colors from main.css.
     $edition_colors = Editions::colors(); // Values are checked as #rrggbb.
     if ($edition_colors) : ?>
-    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-line:<?php echo $edition_colors['linkAccent']; ?>}</style>
+    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-line:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-edition-glow:<?php echo $edition_colors['badgeText']; ?>}</style>
     <?php endif; ?>
 </head>
 
