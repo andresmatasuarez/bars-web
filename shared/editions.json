@@ -16,6 +16,7 @@
     },
     "poster": "resources/bars2026/bars2026_afiche.jpg",
     "posterSmall": "resources/bars2026/bars2026_afiche_700w.jpg",
+    "colors": { "linkAccent": "#5FCB7C", "badgeText": "#4CC4B2" },
     "programme": null,
     "spot": "https://www.youtube.com/watch?v=gPBq2auZmeI",
     "call": {
@@ -230,6 +231,7 @@
       }
     },
     "poster": "resources/bars2025/bars2025_afiche.jpg",
+    "colors": { "linkAccent": "#D9B896", "badgeText": "#CC7F5C" },
     "programme": null,
     "spot": "https://www.youtube.com/watch?v=gPBq2auZmeI",
     "call": {
@@ -469,6 +471,7 @@
       }
     },
     "poster": "resources/bars2024/bars2024_afiche.jpg",
+    "colors": { "linkAccent": "#F58997", "badgeText": "#EE4C55" },
     "programme": "resources/bars2024/bars2024_programme.jpg",
     "spot": "https://www.youtube.com/watch?v=MF0c0yAMP1I",
     "call": {
@@ -720,6 +723,7 @@
       }
     },
     "poster": "resources/bars2023/bars2023_afiche.jpg",
+    "colors": { "linkAccent": "#52AAEF", "badgeText": "#8F86F0" },
     "programme": "resources/bars2023/bars2023_programme.jpg",
     "spot": "https://www.youtube.com/watch?v=pfATBeeYJDA",
     "call": {
@@ -960,6 +964,7 @@
       }
     },
     "poster": "resources/bars2022/bars2022_afiche.jpg",
+    "colors": { "linkAccent": "#D4B45E", "badgeText": "#A6BC7E" },
     "programme": "resources/bars2022/bars2022_programme.jpg",
     "spot": "https://www.youtube.com/watch?v=DYCiEs_qUoM",
     "call": {
