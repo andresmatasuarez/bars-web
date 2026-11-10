@@ -4,6 +4,15 @@
   "workspaces": [
     "themes/*"
   ],
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.5"
+    },
+    "cpx2": {
+      "glob": "^14.0.4",
+      "minimatch": "^11.0.5"
+    }
+  },
   "config": {
     "pluginsSrc": "plugins/*/*.{php,js}",
     "pluginsDest": "./wp-plugins"
