@@ -867,12 +867,13 @@ await testCanonical(
 
 groupHeader('Group G: Meta descriptions');
 
-// G1: Front page description contains "Terror"
+// G1: Front page description mentions terror (the tagline writes it in lowercase:
+// "Festival Internacional de Cine de terror, fantástico y bizarro")
 await testMetaName(
-  'G1: Front page meta description contains "Terror"',
+  'G1: Front page meta description mentions terror',
   '/',
   'description',
-  'Terror',
+  '[Tt]error',
 );
 
 // G2: Movie modal has non-empty meta description
