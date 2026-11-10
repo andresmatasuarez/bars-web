@@ -70,7 +70,7 @@ describe('resolveEntries', () => {
     vi.stubGlobal('MOVIES', [movie]);
 
     const day = new Date(isoDate);
-    const entry = `${movie.id}_[${raw}]`;
+    const entry = `${movie.id}_[${raw}]` as const;
     expect(resolveEntries([entry], [day])).toEqual([entry]);
   });
 
@@ -82,7 +82,7 @@ describe('resolveEntries', () => {
     });
     vi.stubGlobal('MOVIES', [movie]);
 
-    const entry = `${movie.id}_[${raw}]`;
+    const entry = `${movie.id}_[${raw}]` as const;
     // Pass empty days array — always-available doesn't depend on days
     expect(resolveEntries([entry], [])).toEqual([entry]);
   });
