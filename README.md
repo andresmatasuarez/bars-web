@@ -196,7 +196,8 @@ From the root:
 - `npm run build:bars2013` / `npm run build:bars2026` - Build theme for production
 - `npm run lint:bars2013` / `npm run lint:bars2026` - Run ESLint
 - `npm run test:bars2026` - Run test suite (shared + bars2026)
-- `npm test` - Run all tests (unit + integration)
+- `npm test` - Run all tests (unit + deploy checks + integration)
+- `npm run test:scripts` - Run the deploy safety check tests (`scripts/*.test.mjs`)
 - `npm run test:integration` - Run integration tests (requires Docker)
 - `npm run dev:plugins` - Watch and copy plugin files to `wp-plugins/`
 - `npm run build:plugins` - Build plugins for production
@@ -262,9 +263,10 @@ HTTP-level tests that run against the Docker WordPress instance. See [tests/inte
 Uses `rsync` over SSH for incremental deploys. See [docs/deploy.md](docs/deploy.md) for full documentation.
 
 ```sh
-npm run build         # Build everything
 npm run deploy        # Deploy everything (plugins + both themes + server config)
 ```
+
+A deploy only runs from a clean `master` whose installed packages match `package-lock.json` (run `npm ci` after switching branches), and it builds what it uploads, so there is no separate build step. See [Safety checks](docs/deploy.md#safety-checks).
 
 ## Server Access
 

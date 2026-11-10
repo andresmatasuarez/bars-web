@@ -79,7 +79,7 @@ npm run test:integration  # From root (requires Docker running)
 ### All tests
 
 ```bash
-npm test  # Runs unit tests (bars2026) + integration tests
+npm test  # Runs unit tests (bars2026) + deploy check tests (scripts/) + integration tests
 ```
 
 Key conventions:
