@@ -983,21 +983,32 @@ await testOg(
 
 groupHeader('Group J: Edition colors');
 
-const CURRENT_COLORS = editions[0].colors;
+// The site uses the colors of the newest edition that has them, so a new edition
+// without colors yet keeps the previous edition's colors (Editions::colors()).
+const COLORS_EDITION = [...editions].sort((a, b) => b.number - a.number).find((e) => e.colors);
+const SITE_COLORS = COLORS_EDITION ? COLORS_EDITION.colors : null;
 
-if (CURRENT_COLORS) {
-  const linkAccentRule = `--color-bars-link-accent:\\s*${escapeRegex(CURRENT_COLORS.linkAccent)}`;
-  const badgeTextRule = `--color-bars-badge-text:\\s*${escapeRegex(CURRENT_COLORS.badgeText)}`;
+if (SITE_COLORS) {
+  const linkAccentRule = `--color-bars-link-accent:\\s*${escapeRegex(SITE_COLORS.linkAccent)}`;
+  const badgeTextRule = `--color-bars-badge-text:\\s*${escapeRegex(SITE_COLORS.badgeText)}`;
 
-  // J1: Home page uses the current edition's link color
-  await testHtmlContains('J1: Home page sets the edition link color', '/', linkAccentRule);
-
-  // J2: Home page uses the current edition's date color
-  await testHtmlContains('J2: Home page sets the edition date color', '/', badgeTextRule);
-
-  // J3: A past edition's programme still uses the current edition's colors
+  // J1: Home page uses the edition link color
   await testHtmlContains(
-    `J3: /programacion?e=${PAST_NUM} keeps the current edition colors`,
+    `J1: Home page sets the edition link color (edition ${COLORS_EDITION.number})`,
+    '/',
+    linkAccentRule,
+  );
+
+  // J2: Home page uses the edition date color
+  await testHtmlContains(
+    `J2: Home page sets the edition date color (edition ${COLORS_EDITION.number})`,
+    '/',
+    badgeTextRule,
+  );
+
+  // J3: A past edition's programme uses the same colors as the rest of the site
+  await testHtmlContains(
+    `J3: /programacion?e=${PAST_NUM} keeps the site's edition colors`,
     `/programacion/?e=${PAST_NUM}`,
     linkAccentRule,
   );
@@ -1006,7 +1017,7 @@ if (CURRENT_COLORS) {
   await testHtmlContains(
     'J5: Home page sets the menu line color',
     '/',
-    `--color-bars-edition-line:\\s*${escapeRegex(CURRENT_COLORS.linkAccent)}`,
+    `--color-bars-edition-line:\\s*${escapeRegex(SITE_COLORS.linkAccent)}`,
   );
 
   // J6: The active menu item draws its line with that color
@@ -1020,7 +1031,7 @@ if (CURRENT_COLORS) {
   await testHtmlContains(
     'J7: Home page sets the glow color',
     '/',
-    `--color-bars-edition-glow:\\s*${escapeRegex(CURRENT_COLORS.badgeText)}`,
+    `--color-bars-edition-glow:\\s*${escapeRegex(SITE_COLORS.badgeText)}`,
   );
 
   // J8: Inner pages show the glow at the top
@@ -1030,9 +1041,9 @@ if (CURRENT_COLORS) {
     'data-edition-glow',
   );
 } else {
-  // J4: Without poster colors, the page keeps the default colors from main.css
+  // J4: When no edition has poster colors, the page keeps the default colors from main.css
   await testHtmlNotContains(
-    'J4: Home page has no edition colors when the edition has none',
+    'J4: Home page has no edition colors when no edition has them',
     '/',
     'id="bars-edition-colors"',
   );

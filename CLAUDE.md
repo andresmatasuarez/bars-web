@@ -160,7 +160,7 @@ TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directo
 - **TypeScript/JS files**: Import directly via `import EDITIONS from '@shared/editions.json'`
 - **PHP files**: Use `shared/php/editions.php` which loads and parses `editions.json` behind the scenes, exposing helper functions like `Editions::venues()`, `Editions::from()`, `Editions::to()`, etc.
 - **When you need festival data in PHP**, always check the `Editions` class first for an existing helper. If none exists, add a new static method to `shared/php/editions.php` following the existing patterns in that file. Do not create theme-local wrapper functions around `Editions`.
-- **Edition colors**: each edition can have `colors` (two hex values picked by hand from its poster). bars2026 uses the current edition's colors for links, dates, the active menu line and a glow at the top of pages. To pick them for a new edition, use the `edition-colors` skill (`.claude/skills/edition-colors/`).
+- **Edition colors**: each edition can have `colors` (two hex values picked by hand from its poster). bars2026 uses the newest edition's colors for links, dates, the active menu line and a glow at the top of pages. A new edition without colors keeps the previous edition's colors until its own are picked. To pick them for a new edition, use the `edition-colors` skill (`.claude/skills/edition-colors/`).
 
 ### Sponsor Logos
 

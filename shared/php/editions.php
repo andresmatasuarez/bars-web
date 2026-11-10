@@ -206,11 +206,25 @@ class Editions {
    * The edition's two colors, taken from its poster ("colors" in editions.json):
    * 'linkAccent' (links, active menu line) and 'badgeText' (dates, titles on hover,
    * page glow). Returns null when the edition has no colors or a color is not
-   * written as #rrggbb. The site then keeps its default colors from main.css.
+   * written as #rrggbb.
+   *
+   * Without an edition, returns the colors of the newest edition that has them. A new
+   * edition added before its poster exists (for example, to open the call) then keeps
+   * the previous edition's colors until its own are picked. Returns null when no
+   * edition has colors, and the site uses the default colors from main.css.
    */
   public static function colors($edition = NULL) {
     if (is_null($edition)){
-      $edition = self::current();
+      $newest = NULL;
+      $newestColors = NULL;
+      foreach (self::$editions as $candidate) {
+        $candidateColors = self::colors($candidate);
+        if ($candidateColors && (is_null($newest) || $candidate['number'] > $newest['number'])) {
+          $newest = $candidate;
+          $newestColors = $candidateColors;
+        }
+      }
+      return $newestColors;
     }
 
     if (empty($edition['colors'])) {

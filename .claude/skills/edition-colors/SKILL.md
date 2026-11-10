@@ -11,9 +11,9 @@ Each edition has two colors taken from its poster. They live in `shared/editions
 "colors": { "linkAccent": "#5FCB7C", "badgeText": "#4CC4B2" }
 ```
 
-The bars2026 theme uses the **current** edition's colors on every page, including past edition pages such as `/programacion?e=24`. `Editions::colors()` reads them and `header.php` writes them into the page as CSS variables: `--color-bars-link-accent` and `--color-bars-edition-line` get color 1, `--color-bars-badge-text` and `--color-bars-edition-glow` get color 2. The defaults live in `themes/bars2026/css/main.css`.
+The bars2026 theme uses the colors of the **newest edition that has them** on every page, including past edition pages such as `/programacion?e=24`. A new edition added before its poster exists (for example, to open the call) keeps the previous edition's colors until its own are picked. `Editions::colors()` reads them and `header.php` writes them into the page as CSS variables: `--color-bars-link-accent` and `--color-bars-edition-line` get color 1, `--color-bars-badge-text` and `--color-bars-edition-glow` get color 2. The defaults live in `themes/bars2026/css/main.css`.
 
-| Key                    | Default when missing (`main.css`)                                     | Where it shows                                                                                                            |
+| Key                    | Default when no edition has colors (`main.css`)                       | Where it shows                                                                                                            |
 | ---------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `linkAccent` (color 1) | gold `#d4a574` (red `#8b0000` for the menu line)                      | links, "← Volver…" links, notes with a side line, the line under the active menu item                                     |
 | `badgeText` (color 2)  | coral `#d4726a` (red glow on the home poster, no glow on inner pages) | dates, titles on hover, small inline links, jury section names, glow at the top of inner pages and behind the home poster |
