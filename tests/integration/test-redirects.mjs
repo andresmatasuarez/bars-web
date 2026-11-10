@@ -1013,18 +1013,19 @@ if (SITE_COLORS) {
     linkAccentRule,
   );
 
-  // J5: The line under the active menu item uses the edition's link color
+  // J5: Color 1 accents (menu line, header edition number, home badge and icons) use
+  // the edition's link color
   await testHtmlContains(
-    'J5: Home page sets the menu line color',
+    'J5: Home page sets the edition accent color',
     '/',
-    `--color-bars-edition-line:\\s*${escapeRegex(SITE_COLORS.linkAccent)}`,
+    `--color-bars-edition-accent:\\s*${escapeRegex(SITE_COLORS.linkAccent)}`,
   );
 
   // J6: The active menu item draws its line with that color
   await testHtmlContains(
-    'J6: Active menu item on /programacion uses the menu line color',
+    'J6: Active menu item on /programacion uses the edition accent color',
     '/programacion/',
-    'border-bars-edition-line',
+    'border-bars-edition-accent',
   );
 
   // J7: The glow behind the home poster and at the top of inner pages uses the date color
@@ -1040,6 +1041,36 @@ if (SITE_COLORS) {
     '/noticias/',
     'data-edition-glow',
   );
+
+  // J9: The edition number next to "BARS" in the header uses the edition accent color
+  await testHtmlContains(
+    `J9: Header shows "BARS ${toRoman(CURRENT_NUM)}" with the number in the accent color`,
+    '/',
+    `BARS\\s*<span class="text-bars-edition-accent">${toRoman(CURRENT_NUM)}</span>`,
+  );
+
+  // J10: The "EDICIÓN … • year" badge on the home page uses the edition accent color
+  await testHtmlContains(
+    'J10: Home edition badge uses the edition accent color',
+    '/',
+    'border border-bars-edition-accent rounded-bars-sm[^"]*">\\s*<span class="[^"]*text-bars-edition-accent">\\s*EDICIÓN',
+  );
+
+  // J11: The edition, dates and venue icons on the home page use the edition accent color
+  {
+    const desc = 'J11: Home edition/dates/venue icons use the edition accent color';
+    try {
+      const html = await fetchHtml('/');
+      const count = html.split('<svg class="w-5 h-5 text-bars-edition-accent"').length - 1;
+      if (count >= 3) {
+        pass(desc);
+      } else {
+        fail(desc, `expected at least 3 accent-colored icons, found ${count}`);
+      }
+    } catch (err) {
+      fail(desc, `fetch failed for ${BASE_URL}/: ${err.message}`);
+    }
+  }
 } else {
   // J4: When no edition has poster colors, the page keeps the default colors from main.css
   await testHtmlNotContains(

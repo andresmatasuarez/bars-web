@@ -53,8 +53,8 @@ $callClosed = Editions::isCallClosed($edition);
 
             <div class="<?php echo $poster ? 'lg:flex-1 lg:min-w-0' : 'max-w-[700px]'; ?>">
                 <!-- Edition Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 border border-bars-primary rounded-bars-sm mb-6 lg:mb-8">
-                    <span class="text-[10px] lg:text-xs font-semibold tracking-[2px] text-bars-primary">
+                <div class="inline-flex items-center gap-2 px-4 py-2 border border-bars-edition-accent rounded-bars-sm mb-6 lg:mb-8">
+                    <span class="text-[10px] lg:text-xs font-semibold tracking-[2px] text-bars-edition-accent">
                         EDICIÓN <?php echo esc_html($edition_number); ?> • <?php echo esc_html(Editions::year($edition)); ?>
                     </span>
                 </div>
@@ -73,7 +73,7 @@ $callClosed = Editions::isCallClosed($edition);
                 <div class="flex flex-col lg:flex-row lg:flex-nowrap gap-4 lg:gap-8 mb-8 lg:mb-10">
                     <!-- Edition - Clapperboard icon -->
                     <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
-                        <?php echo bars_icon('ticket', 'w-5 h-5 text-bars-primary'); ?>
+                        <?php echo bars_icon('ticket', 'w-5 h-5 text-bars-edition-accent'); ?>
                         <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
                             EDICIÓN <?php echo esc_html($edition_number); ?>
                         </span>
@@ -81,7 +81,7 @@ $callClosed = Editions::isCallClosed($edition);
 
                     <!-- Dates - Calendar icon -->
                     <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
-                        <?php echo bars_icon('calendar', 'w-5 h-5 text-bars-primary'); ?>
+                        <?php echo bars_icon('calendar', 'w-5 h-5 text-bars-edition-accent'); ?>
                         <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
                             <?php echo esc_html(strtoupper(Editions::datesLabel($edition))); ?>
                         </span>
@@ -96,10 +96,10 @@ $callClosed = Editions::isCallClosed($edition);
                             <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
                                 <?php if (!empty($venue['online'])): ?>
                                 <!-- Online venue - Monitor Play icon -->
-                                <?php echo bars_icon('monitor-play', 'w-5 h-5 text-bars-primary'); ?>
+                                <?php echo bars_icon('monitor-play', 'w-5 h-5 text-bars-edition-accent'); ?>
                                 <?php else: ?>
                                 <!-- Physical venue - Map Pin icon -->
-                                <?php echo bars_icon('map-pin', 'w-5 h-5 text-bars-primary'); ?>
+                                <?php echo bars_icon('map-pin', 'w-5 h-5 text-bars-edition-accent'); ?>
                                 <?php endif; ?>
                                 <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
                                     <?php echo esc_html(strtoupper($venue['name'])); ?>
@@ -108,7 +108,7 @@ $callClosed = Editions::isCallClosed($edition);
                         <?php endforeach; ?>
                     <?php else: ?>
                         <div class="flex items-center gap-2 whitespace-nowrap shrink-0">
-                            <?php echo bars_icon('map-pin', 'w-5 h-5 text-bars-primary'); ?>
+                            <?php echo bars_icon('map-pin', 'w-5 h-5 text-bars-edition-accent'); ?>
                             <span class="font-body text-sm lg:text-base font-medium tracking-wider text-bars-text-primary">
                                 LUGAR A CONFIRMAR
                             </span>

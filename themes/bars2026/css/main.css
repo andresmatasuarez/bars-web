@@ -73,9 +73,11 @@ html {
   --color-bars-divider: rgba(255, 255, 255, 0.08);
   --color-bars-link-accent: #d4a574;
   --color-bars-badge-text: #d4726a;
-  /* Line under the active menu item. header.php sets it to the edition's link color
-     when the edition has poster colors. */
-  --color-bars-edition-line: #8b0000;
+  /* Color 1 accents: the line under the active menu item, the edition number next to
+     "BARS" in the header, and the home page edition badge and info icons. Red by
+     default; header.php sets it to the edition's link color when there are poster
+     colors. */
+  --color-bars-edition-accent: #8b0000;
   /* Glow behind the home poster, and at the top of inner pages when the edition has
      poster colors. header.php sets it to the edition's date color. */
   --color-bars-edition-glow: #8b0000;

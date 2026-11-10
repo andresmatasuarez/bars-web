@@ -4,7 +4,6 @@
  * @package BARS2026
  */
 
-$edition_title = Editions::getTitle();
 
 $nav_items = [
     ['slug' => 'noticias',     'label' => 'Noticias',          'mobile_label' => 'Noticias'],
@@ -31,7 +30,7 @@ $nav_items = [
     <?php // The poster colors of the newest edition that has them replace the default link, date, menu line and glow colors from main.css.
     $edition_colors = Editions::colors(); // Values are checked as #rrggbb.
     if ($edition_colors) : ?>
-    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-line:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-edition-glow:<?php echo $edition_colors['badgeText']; ?>}</style>
+    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-edition-glow:<?php echo $edition_colors['badgeText']; ?>}</style>
     <?php endif; ?>
 </head>
 
@@ -47,7 +46,7 @@ $nav_items = [
                  alt="BARS Logo"
                  class="w-8 h-8 lg:w-11 lg:h-11 object-contain">
             <span class="font-display text-xl lg:text-[28px] tracking-wider text-bars-text-primary">
-                <?php echo esc_html($edition_title); ?>
+                BARS <span class="text-bars-edition-accent"><?php echo esc_html(Editions::romanNumerals()); ?></span>
             </span>
         </a>
 
@@ -61,7 +60,7 @@ $nav_items = [
                 <li>
                     <?php if ($is_active): ?>
                     <a href="<?php echo home_url('/' . $item['slug']); ?>"
-                       class="text-[13px] font-semibold tracking-wider uppercase text-white border-b-2 border-bars-edition-line pb-1 transition-colors">
+                       class="text-[13px] font-semibold tracking-wider uppercase text-white border-b-2 border-bars-edition-accent pb-1 transition-colors">
                         <?php echo esc_html($item['label']); ?>
                     </a>
                     <?php else: ?>
@@ -112,7 +111,7 @@ $nav_items = [
             <?php if ($is_active): ?>
             <a href="<?php echo home_url('/' . $item['slug']); ?>"
                class="flex items-center gap-3 font-heading text-[32px] font-medium text-white">
-                <span class="block w-1 h-8 bg-bars-edition-line rounded-sm"></span>
+                <span class="block w-1 h-8 bg-bars-edition-accent rounded-sm"></span>
                 <?php echo esc_html($item['mobile_label']); ?>
             </a>
             <?php else: ?>
