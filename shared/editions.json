@@ -15,6 +15,7 @@
       }
     },
     "poster": "resources/bars2026/bars2026_afiche.jpg",
+    "posterSmall": "resources/bars2026/bars2026_afiche_700w.jpg",
     "programme": null,
     "spot": "https://www.youtube.com/watch?v=gPBq2auZmeI",
     "call": {
