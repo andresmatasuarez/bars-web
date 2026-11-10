@@ -30,3 +30,4 @@ npm run test:integration
 | **H** | JSON-LD structured data                                  | `seo.php`            |
 | **I** | Miscellaneous SEO (noindex, robots.txt, og:type)         | `seo.php`            |
 | **J** | Edition colors from the poster                           | `header.php`         |
+| **K** | Built bundles include one copy of React                  | `vite/*.config.ts`   |

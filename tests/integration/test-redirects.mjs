@@ -1081,6 +1081,49 @@ if (SITE_COLORS) {
 }
 
 // ---------------------------------------------------------------------------
+// Group K: Built bundles (wp-themes/bars2026)
+// ---------------------------------------------------------------------------
+
+groupHeader('Group K: Built bundles');
+
+/**
+ * A bundle must take React from one node_modules folder only. Two copies (for example
+ * bars2013's React 18 hoisted to the root next to bars2026's React 19) break every
+ * hook with "Cannot read properties of null (reading 'useState')".
+ */
+function testSingleReact(desc, mapPath) {
+  let sources;
+  try {
+    sources = JSON.parse(readFileSync(mapPath, 'utf8')).sources;
+  } catch (err) {
+    fail(desc, `cannot read ${mapPath}: ${err.message}`);
+    return;
+  }
+  const folders = new Set(
+    sources
+      .filter((s) => /node_modules\/react\//.test(s))
+      .map((s) => s.slice(0, s.indexOf('node_modules/react/'))),
+  );
+  if (folders.size !== 1) {
+    fail(desc, `React comes from ${folders.size} folders: ${[...folders].join(', ') || 'none'}`);
+    return;
+  }
+  pass(desc);
+}
+
+// K1: The programme app has one React
+testSingleReact(
+  'K1: selection.iife.js bundles one copy of React',
+  'wp-themes/bars2026/selection.iife.js.map',
+);
+
+// K2: The main theme script has one React
+testSingleReact(
+  'K2: bars2026.iife.js bundles one copy of React',
+  'wp-themes/bars2026/bars2026.iife.js.map',
+);
+
+// ---------------------------------------------------------------------------
 // 3. Summary
 // ---------------------------------------------------------------------------
 

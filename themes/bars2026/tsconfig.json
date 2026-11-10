@@ -1,6 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    // Vite 8 declares its types only in package.json "exports", which "Node" resolution
+    // ignores; it would then find the root's older Vite types instead.
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["../../shared/*"]
