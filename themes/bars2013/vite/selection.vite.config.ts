@@ -38,5 +38,12 @@ export default defineConfig((mode) => ({
       fileName: 'selection',
       formats: ['iife'],
     },
+
+    rolldownOptions: {
+      output: {
+        // Start the file with "use strict", as builds before Vite 8 did
+        strict: true,
+      },
+    },
   },
 }));

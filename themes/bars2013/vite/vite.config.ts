@@ -29,5 +29,20 @@ export default defineConfig({
       fileName: 'bars',
       formats: ['iife'],
     },
+
+    rolldownOptions: {
+      output: {
+        // Start the file with "use strict", as builds before Vite 8 did
+        strict: true,
+        // The compiled LESS must be style.css: it carries the theme header that WordPress
+        // reads, and header.php links to it. Vite 8 would name it bars.css.
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.names.some((name) => name.endsWith('.css'))) {
+            return 'style.css';
+          }
+          return 'assets/[name][extname]';
+        },
+      },
+    },
   },
 });

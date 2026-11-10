@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node",
+    // Vite 8 declares its types only in package.json "exports", which "Node"
+    // resolution ignores; TypeScript would then fall back to other copies.
+    "moduleResolution": "bundler",
     "target": "es5",
     "module": "es2022",
     "lib": ["es2017", "dom"],

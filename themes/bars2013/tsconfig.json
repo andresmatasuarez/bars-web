@@ -1,6 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    // bars2013 has no tests, and Vitest is installed only for bars2026
+    "types": ["vite/client", "node"],
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["../../shared/*"]
