@@ -52,6 +52,9 @@
       preg_match('/(\s*streaming!(?<venue>([A-Za-z]+))?:\s*)?(?P<date>[^\s]+)\s*/', $screening, $matches);
       $rawDate = strtolower(trim($matches['date']));
       $date = $rawDate === DATE_FULL_TAG ? null : dateWithoutTime(parseDate($rawDate . ' ' . $tz->getName(), 'm-d-Y e'));
+      if ($rawDate !== DATE_FULL_TAG && $date === null) {
+        return skipInvalidScreening($screening);
+      }
       return array(
         'raw' => $screening,
         'streaming' => true,
@@ -75,6 +78,9 @@
     $date = strtolower(trim($matches['date']));
     $time = strtolower(trim($matches['time']));
     $date = parseDate($date . ' ' . $time . ' ' . $tz->getName(), 'm-d-Y H:i e');
+    if ($date === null) {
+      return skipInvalidScreening($originalRaw);
+    }
     $result = array(
       'raw' => $originalRaw,
       'venue' => strtolower(trim($matches['venue'])),
@@ -88,10 +94,18 @@
     return $result;
   }
 
+  // A screening that cannot be read (for example "22hs" instead of "22:00") is left out
+  // instead of breaking the whole page. It is logged so it can be fixed in WP admin.
+  function skipInvalidScreening($raw) {
+    error_log('BARS: skipped a screening that could not be read: "' . $raw . '"');
+    return null;
+  }
+
   function parseScreenings($screeningsValue) {
     $screenings = array_filter(explode(',', $screeningsValue)); // removes empty screenings
     $screenings = array_map('trim', $screenings);
     $screenings = array_map('parseScreening', $screenings);
+    $screenings = array_values(array_filter($screenings)); // removes screenings that could not be read
     usort($screenings, 'sortByDateString');
     return $screenings;
   }
@@ -105,6 +119,9 @@
   }
 
   function dateWithoutTime($date) {
+    if (!$date) {
+      return null;
+    }
     $newDate = dateWithTZ(new DateTime());
     $newDate->setTimestamp($date->getTimestamp());
     return $newDate->settime(0,0);
@@ -116,9 +133,16 @@
     }
 
     if (!isset($format) || $format === 'c') {
-      $date = new DateTime($date);
+      try {
+        $date = new DateTime($date);
+      } catch (Exception $e) {
+        return null; // text that is not a date
+      }
     } else {
       $date = DateTime::createFromFormat($format, $date);
+    }
+    if (!$date) {
+      return null; // the text does not match the format
     }
     return dateWithTZ($date);
   }
