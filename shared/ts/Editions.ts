@@ -4,11 +4,20 @@ import integerToRoman from '@shared/ts/integerToRoman';
 import { parseDate } from './helpers';
 import { Venues } from './types';
 
+type EditionInJson = (typeof EDITIONS)[number];
+
 /**
  * TODO
  * specify the actual type instead using `typeof`
+ *
+ * The festival dates (`days.from` / `days.to`) can be missing: an edition can be
+ * announced before its dates are known, and `Editions.from()` / `Editions.to()`
+ * return null then. The type inferred from editions.json cannot show this while
+ * every edition in the file has dates, so it is stated here.
  */
-export type SingleEdition = (typeof EDITIONS)[number];
+export type SingleEdition = Omit<EditionInJson, 'days'> & {
+  days: Omit<EditionInJson['days'], 'from' | 'to'> & { from?: string; to?: string };
+};
 
 export default class Editions {
   /**
