@@ -31,6 +31,11 @@ describe('getCurrentEdition', () => {
     vi.stubGlobal('location', { search: '?e=26' });
     expect(getCurrentEdition().number).toBe(26);
   });
+
+  it('returns edition 25 when ?edition=25 (the parameter bars2013 uses)', () => {
+    vi.stubGlobal('location', { search: '?edition=25' });
+    expect(getCurrentEdition().number).toBe(25);
+  });
 });
 
 describe('isLatestEdition', () => {
