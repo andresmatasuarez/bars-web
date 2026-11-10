@@ -27,6 +27,12 @@ $nav_items = [
     <?php endif; ?>
 
     <?php wp_head(); ?>
+
+    <?php // The current edition's poster colors replace the default link and date colors from main.css.
+    $edition_colors = Editions::colors(); // Values are checked as #rrggbb.
+    if ($edition_colors) : ?>
+    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>}</style>
+    <?php endif; ?>
 </head>
 
 <body <?php body_class('bg-bars-bg-dark text-bars-text-primary font-body antialiased'); ?>>

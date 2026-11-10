@@ -23,6 +23,7 @@
  *   G: Meta descriptions — seo.php
  *   H: JSON-LD structured data — seo.php
  *   I: Miscellaneous SEO (noindex, robots.txt, og:type) — seo.php
+ *   J: Edition colors from the poster — header.php
  */
 
 import { execSync } from 'node:child_process';
@@ -975,6 +976,39 @@ await testOg(
   'og:type',
   '^profile$',
 );
+
+// ---------------------------------------------------------------------------
+// Group J: Edition colors (header.php)
+// ---------------------------------------------------------------------------
+
+groupHeader('Group J: Edition colors');
+
+const CURRENT_COLORS = editions[0].colors;
+
+if (CURRENT_COLORS) {
+  const linkAccentRule = `--color-bars-link-accent:\\s*${escapeRegex(CURRENT_COLORS.linkAccent)}`;
+  const badgeTextRule = `--color-bars-badge-text:\\s*${escapeRegex(CURRENT_COLORS.badgeText)}`;
+
+  // J1: Home page uses the current edition's link color
+  await testHtmlContains('J1: Home page sets the edition link color', '/', linkAccentRule);
+
+  // J2: Home page uses the current edition's date color
+  await testHtmlContains('J2: Home page sets the edition date color', '/', badgeTextRule);
+
+  // J3: A past edition's programme still uses the current edition's colors
+  await testHtmlContains(
+    `J3: /programacion?e=${PAST_NUM} keeps the current edition colors`,
+    `/programacion/?e=${PAST_NUM}`,
+    linkAccentRule,
+  );
+} else {
+  // J4: Without poster colors, the page keeps the default colors from main.css
+  await testHtmlNotContains(
+    'J4: Home page has no edition colors when the edition has none',
+    '/',
+    'id="bars-edition-colors"',
+  );
+}
 
 // ---------------------------------------------------------------------------
 // 3. Summary

@@ -29,3 +29,4 @@ npm run test:integration
 | **G** | Meta descriptions                                        | `seo.php`            |
 | **H** | JSON-LD structured data                                  | `seo.php`            |
 | **I** | Miscellaneous SEO (noindex, robots.txt, og:type)         | `seo.php`            |
+| **J** | Edition colors from the poster                           | `header.php`         |
