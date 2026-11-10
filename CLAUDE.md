@@ -223,6 +223,8 @@ npm run deploy:bars2026   # Deploy bars2026 theme
 npm run deploy:config     # Deploy server config (.htaccess)
 ```
 
+**Safety checks** (`scripts/deploy-checks.mjs`, tested by `npm run test:scripts`): a deploy refuses to run unless you are on `master`, `git status` is clean (no uncommitted or untracked files), and the installed packages match `package-lock.json` (compared with `node_modules/.package-lock.json`; run `npm ci` after switching branches). It then builds each theme/plugin target itself before uploading, so the upload always matches the current commit. `--unsafe-skip-checks` deploys anyway, for emergencies only.
+
 **Force full deploy** (re-transfers all files regardless of checksum):
 ```bash
 npm run deploy:bars2026 -- --force

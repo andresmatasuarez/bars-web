@@ -2,6 +2,8 @@ import { execSync } from 'node:child_process';
 import path from 'node:path';
 import fs from 'node:fs';
 
+import { findDeployProblems } from './deploy-checks.mjs';
+
 // --- Configuration ---
 
 const SITE_ROOT =
@@ -44,10 +46,57 @@ const DEPLOY_TARGETS = {
   ],
 };
 
+// npm script that builds each target's local folder. The deploy runs it first, so the
+// uploaded files always come from the current checkout. `config` has nothing to build.
+const BUILD_SCRIPTS = {
+  plugins: 'build:plugins',
+  bars2013: 'build:bars2013',
+  bars2026: 'build:bars2026',
+};
+
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 5000;
 
 // --- Helpers ---
+
+function readJson(file) {
+  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
+}
+
+function currentRepoState() {
+  const git = (cmd) => execSync(`git ${cmd}`, { encoding: 'utf8' });
+  return {
+    branch: git('rev-parse --abbrev-ref HEAD').trim(),
+    changedFiles: git('status --porcelain').split('\n').filter(Boolean),
+    lockfile: readJson('package-lock.json'),
+    installedLockfile: readJson('node_modules/.package-lock.json'),
+  };
+}
+
+/** Stops the deploy unless the repository is in a state that is safe to deploy. */
+function checkSafeToDeploy({ skipChecks }) {
+  const problems = findDeployProblems(currentRepoState());
+  if (problems.length === 0) return;
+
+  const report = problems.map((problem) => `\n  - ${problem}`).join('');
+  if (skipChecks) {
+    console.warn(`\n--unsafe-skip-checks: deploying anyway despite:${report}\n`);
+    return;
+  }
+  console.error(`\nNot deploying:${report}`);
+  console.error('\n(Emergency only: --unsafe-skip-checks deploys anyway.)');
+  process.exit(1);
+}
+
+function buildTargets(targetNames) {
+  const names = targetNames.includes('all') ? Object.keys(DEPLOY_TARGETS) : targetNames;
+  for (const name of names) {
+    const script = BUILD_SCRIPTS[name];
+    if (!script) continue;
+    console.log(`\nBuilding ${name} (npm run ${script})...`);
+    execSync(`npm run ${script}`, { stdio: 'inherit' });
+  }
+}
 
 function resolveTargets(args) {
   const targets = [];
@@ -125,22 +174,30 @@ function deployTarget(localDir, remoteDir, { noDelete, excludes, ...options }) {
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const dryRun = args.includes('--dry-run');
+const skipChecks = args.includes('--unsafe-skip-checks');
 const targetArgs = args.filter((a) => !a.startsWith('--'));
 
 if (targetArgs.length === 0) {
   console.error(
-    'Usage: node --env-file=.env scripts/deploy.mjs [--force] [--dry-run] <target> [target...]',
+    'Usage: node --env-file=.env scripts/deploy.mjs [--force] [--dry-run] [--unsafe-skip-checks] <target> [target...]',
   );
   console.error('  targets: plugins, bars2013, bars2026, config, all');
-  console.error('  --force:   Re-transfer all files regardless of checksum');
-  console.error('  --dry-run: Preview what would be transferred');
+  console.error('  --force:              Re-transfer all files regardless of checksum');
+  console.error('  --dry-run:            Preview what would be transferred');
+  console.error(
+    '  --unsafe-skip-checks: Deploy even when not on a clean master with the lockfile packages (emergency only)',
+  );
   process.exit(1);
 }
 
 const sshHost = process.env.SSH_HOST || 'bars';
 const targets = resolveTargets(targetArgs);
 
+checkSafeToDeploy({ skipChecks });
+
 try {
+  buildTargets(targetArgs);
+
   if (force) console.log('--force: re-transferring all files.');
   if (dryRun) console.log('--dry-run: previewing changes only.');
   console.log('\nDeploying:');
