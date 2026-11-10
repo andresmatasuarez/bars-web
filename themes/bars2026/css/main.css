@@ -73,6 +73,9 @@ html {
   --color-bars-divider: rgba(255, 255, 255, 0.08);
   --color-bars-link-accent: #d4a574;
   --color-bars-badge-text: #d4726a;
+  /* Line under the active menu item. header.php sets it to the edition's link color
+     when the edition has poster colors. */
+  --color-bars-edition-line: #8b0000;
 
   /* Border radius */
   --radius-bars-sm: 4px;

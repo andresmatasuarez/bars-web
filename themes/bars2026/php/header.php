@@ -28,10 +28,10 @@ $nav_items = [
 
     <?php wp_head(); ?>
 
-    <?php // The current edition's poster colors replace the default link and date colors from main.css.
+    <?php // The current edition's poster colors replace the default link, date and menu line colors from main.css.
     $edition_colors = Editions::colors(); // Values are checked as #rrggbb.
     if ($edition_colors) : ?>
-    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>}</style>
+    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-line:<?php echo $edition_colors['linkAccent']; ?>}</style>
     <?php endif; ?>
 </head>
 
@@ -61,7 +61,7 @@ $nav_items = [
                 <li>
                     <?php if ($is_active): ?>
                     <a href="<?php echo home_url('/' . $item['slug']); ?>"
-                       class="text-[13px] font-semibold tracking-wider uppercase text-white border-b-2 border-bars-primary pb-1 transition-colors">
+                       class="text-[13px] font-semibold tracking-wider uppercase text-white border-b-2 border-bars-edition-line pb-1 transition-colors">
                         <?php echo esc_html($item['label']); ?>
                     </a>
                     <?php else: ?>
@@ -112,7 +112,7 @@ $nav_items = [
             <?php if ($is_active): ?>
             <a href="<?php echo home_url('/' . $item['slug']); ?>"
                class="flex items-center gap-3 font-heading text-[32px] font-medium text-white">
-                <span class="block w-1 h-8 bg-bars-primary rounded-sm"></span>
+                <span class="block w-1 h-8 bg-bars-edition-line rounded-sm"></span>
                 <?php echo esc_html($item['mobile_label']); ?>
             </a>
             <?php else: ?>

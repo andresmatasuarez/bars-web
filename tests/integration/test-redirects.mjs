@@ -1001,6 +1001,20 @@ if (CURRENT_COLORS) {
     `/programacion/?e=${PAST_NUM}`,
     linkAccentRule,
   );
+
+  // J5: The line under the active menu item uses the edition's link color
+  await testHtmlContains(
+    'J5: Home page sets the menu line color',
+    '/',
+    `--color-bars-edition-line:\\s*${escapeRegex(CURRENT_COLORS.linkAccent)}`,
+  );
+
+  // J6: The active menu item draws its line with that color
+  await testHtmlContains(
+    'J6: Active menu item on /programacion uses the menu line color',
+    '/programacion/',
+    'border-bars-edition-line',
+  );
 } else {
   // J4: Without poster colors, the page keeps the default colors from main.css
   await testHtmlNotContains(
