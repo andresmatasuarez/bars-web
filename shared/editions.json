@@ -32,8 +32,8 @@
     },
     "pressPasses": {
       "deadline": "2025-11-09T03:00:00.000Z",
-      "pickupFrom": "2025-11-20T03:00:00.000Z",
-      "pickupTo": "2025-11-27T03:00:00.000Z",
+      "pickupFrom": "2026-11-19T03:00:00.000Z",
+      "pickupTo": "2026-11-26T03:00:00.000Z",
       "pickupAdditionalInfo": "de 16 a 22hs",
       "credentialsFormURL": "https://docs.google.com/forms/d/e/1FAIpQLSdRuVCCRvMdD00DbqT8CBvPmNh6S6ByyGxMhABx9nCcnmHnMA/viewform"
     },
