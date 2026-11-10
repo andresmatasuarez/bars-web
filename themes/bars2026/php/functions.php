@@ -105,3 +105,75 @@ function bars2026_setup() {
 }
 add_action('after_setup_theme', 'bars2026_setup');
 
+/**
+ * Title for archive pages (category, tag, author, date). Works on WP 3.9:
+ * the_archive_title() needs WP 4.1, and calling it was a fatal error.
+ */
+function bars2026_archive_title() {
+    if (is_category()) {
+        $title = 'Categoría: ' . single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = 'Etiqueta: ' . single_tag_title('', false);
+    } elseif (is_author()) {
+        $author = get_queried_object();
+        $title = 'Autor: ' . ($author ? $author->display_name : '');
+    } elseif (is_year()) {
+        $title = 'Año: ' . get_the_date('Y');
+    } elseif (is_month()) {
+        $title = 'Mes: ' . get_the_date('F \d\e Y');
+    } elseif (is_day()) {
+        $title = 'Día: ' . get_the_date('j \d\e F \d\e Y');
+    } elseif (is_post_type_archive()) {
+        $title = post_type_archive_title('', false);
+    } elseif (is_tax()) {
+        $title = single_term_title('', false);
+    } else {
+        $title = 'Archivo';
+    }
+    echo $title;
+}
+
+/**
+ * Page links for a list of posts, with the same look as the news page.
+ * Works on WP 3.9: the_posts_pagination() needs WP 4.1, and calling it
+ * was a fatal error. $query defaults to the main query.
+ */
+function bars2026_pagination($query = null) {
+    if (!$query) {
+        global $wp_query;
+        $query = $wp_query;
+    }
+    if ($query->max_num_pages < 2) {
+        return;
+    }
+
+    $big = 999999999; // placeholder page number, replaced by %#%
+    $links = paginate_links(array(
+        'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format'    => '/page/%#%/',
+        'total'     => $query->max_num_pages,
+        'current'   => max(1, get_query_var('paged')),
+        'type'      => 'array',
+        'prev_text' => '<span class="hidden lg:inline">← Anterior</span><span class="lg:hidden">←</span>',
+        'next_text' => '<span class="hidden lg:inline">Siguiente →</span><span class="lg:hidden">→</span>',
+        'mid_size'  => 1,
+    ));
+    if (!$links) {
+        return;
+    }
+
+    echo '<nav class="flex items-center justify-center gap-2 mt-12">';
+    foreach ($links as $link) {
+        if (strpos($link, 'current') !== false) {
+            echo '<span class="inline-flex items-center justify-center rounded text-[13px] lg:text-[13px] font-semibold text-white bg-bars-primary px-3.5 py-2.5 lg:px-3.5 lg:py-2.5">'
+                . strip_tags($link) . '</span>';
+        } else {
+            echo str_replace(
+                '<a ',
+                '<a class="inline-flex items-center justify-center rounded text-[13px] lg:text-[13px] font-medium text-white/60 bg-[#1A1A1A] px-3 py-2 lg:px-3.5 lg:py-2.5 hover:bg-[#252525] transition-colors" ',
+                $link
+            );
+        }
+    }
+    echo '</nav>';
+}

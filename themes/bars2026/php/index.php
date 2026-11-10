@@ -18,7 +18,7 @@ get_header();
                 </h1>
             <?php elseif (is_archive()): ?>
                 <h1 class="font-display text-4xl lg:text-6xl tracking-wider text-bars-text-primary">
-                    <?php the_archive_title(); ?>
+                    <?php bars2026_archive_title(); ?>
                 </h1>
             <?php elseif (is_search()): ?>
                 <h1 class="font-display text-4xl lg:text-6xl tracking-wider text-bars-text-primary">
@@ -63,15 +63,7 @@ get_header();
                 </div>
 
                 <!-- Pagination -->
-                <div class="mt-12 flex justify-center">
-                    <?php
-                    the_posts_pagination(array(
-                        'prev_text' => '← Anterior',
-                        'next_text' => 'Siguiente →',
-                        'class' => 'flex gap-2',
-                    ));
-                    ?>
-                </div>
+                <?php bars2026_pagination(); ?>
             <?php else: ?>
                 <p class="text-bars-text-muted text-center py-12">
                     No se encontró contenido.
