@@ -8,7 +8,7 @@ description: Use when a new edition's poster is ready and its two site colors ne
 Each edition has two colors taken from its poster. They live in `shared/editions.json`, next to `poster`:
 
 ```json
-"colors": { "linkAccent": "#5FCB7C", "badgeText": "#4CC4B2" }
+"colors": { "linkAccent": "#5FCB7C", "badgeText": "#50F6AB" }
 ```
 
 The bars2026 theme uses the colors of the **newest edition that has them** on every page, including past edition pages such as `/programacion?e=24`. A new edition added before its poster exists (for example, to open the call) keeps the previous edition's colors until its own are picked. `Editions::colors()` reads them and `header.php` writes them into the page as CSS variables: `--color-bars-link-accent` and `--color-bars-edition-accent` get color 1, `--color-bars-badge-text` and `--color-bars-edition-glow` get color 2. The defaults live in `themes/bars2026/css/main.css`.
@@ -34,12 +34,12 @@ Pick by looking at the poster. Do not write a script that finds the most common 
 
 ## Colors so far
 
-| Year | Color 1 (`linkAccent`)                          | Color 2 (`badgeText`)                       |
-| ---- | ----------------------------------------------- | ------------------------------------------- |
-| 2022 | `#D4B45E` dust ochre (dust and road sign)       | `#A6BC7E` sage (helmet glass and haze)      |
-| 2023 | `#52AAEF` neon blue (poster text, robot lights) | `#8F86F0` violet (girl's shirt, shadows)    |
-| 2024 | `#F58997` moon rose (halo of the moon)          | `#EE4C55` moon red (the red moon)           |
-| 2025 | `#D9B896` parchment (the paper)                 | `#CC7F5C` sienna (the ink drawing)          |
-| 2026 | `#5FCB7C` glow green (the crowd's glow)         | `#4CC4B2` shadow teal (the crowd's shadows) |
+| Year | Color 1 (`linkAccent`)                          | Color 2 (`badgeText`)                    |
+| ---- | ----------------------------------------------- | ---------------------------------------- |
+| 2022 | `#D4B45E` dust ochre (dust and road sign)       | `#A6BC7E` sage (helmet glass and haze)   |
+| 2023 | `#52AAEF` neon blue (poster text, robot lights) | `#8F86F0` violet (girl's shirt, shadows) |
+| 2024 | `#F58997` moon rose (halo of the moon)          | `#EE4C55` moon red (the red moon)        |
+| 2025 | `#D9B896` parchment (the paper)                 | `#CC7F5C` sienna (the ink drawing)       |
+| 2026 | `#5FCB7C` glow green (the crowd's glow)         | `#50F6AB` mint (the "XXVII" at the top)  |
 
 Add each new edition to this table.

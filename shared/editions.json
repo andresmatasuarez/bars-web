@@ -16,7 +16,7 @@
     },
     "poster": "resources/bars2026/bars2026_afiche.jpg",
     "posterSmall": "resources/bars2026/bars2026_afiche_700w.jpg",
-    "colors": { "linkAccent": "#5FCB7C", "badgeText": "#4CC4B2" },
+    "colors": { "linkAccent": "#5FCB7C", "badgeText": "#50F6AB" },
     "programme": null,
     "spot": "https://www.youtube.com/watch?v=gPBq2auZmeI",
     "call": {
