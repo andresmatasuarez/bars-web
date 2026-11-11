@@ -29,7 +29,7 @@ function get_sponsor_container_classes($title) {
     if (strpos($title_lower, 'organiz') !== false) {
         return 'max-w-[600px]';
     } elseif (strpos($title_lower, 'auspic') !== false) {
-        return 'max-w-[700px]';
+        return 'max-w-[800px]'; // five logos per row on desktop
     }
     return '';
 }
