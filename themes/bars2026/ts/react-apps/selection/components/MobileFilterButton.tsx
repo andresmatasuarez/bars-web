@@ -30,7 +30,7 @@ export default function MobileFilterButton({ onOpen }: MobileFilterButtonProps) 
           : 'Filtrar por sección'}
       </span>
       {hasActiveFilters && (
-        <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-bars-primary px-1 text-[10px] font-semibold text-white tabular-nums">
+        <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-bars-edition-accent px-1 text-[10px] font-semibold text-bars-on-edition-accent tabular-nums">
           {filterCount}
         </span>
       )}

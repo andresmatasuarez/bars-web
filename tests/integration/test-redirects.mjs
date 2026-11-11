@@ -1072,6 +1072,14 @@ if (SITE_COLORS) {
       fail(desc, `fetch failed for ${BASE_URL}/: ${err.message}`);
     }
   }
+
+  // J12: Text on a color 1 background (selected tabs and filters on the programme
+  // page) turns dark, because poster colors are light
+  await testHtmlContains(
+    'J12: Home page sets dark text for color 1 backgrounds',
+    '/',
+    '--color-bars-on-edition-accent:\\s*#0a0a0a',
+  );
 } else {
   // J4: When no edition has poster colors, the page keeps the default colors from main.css
   await testHtmlNotContains(

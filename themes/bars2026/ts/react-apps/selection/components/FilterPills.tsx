@@ -182,13 +182,17 @@ export default function FilterPills() {
           className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
             ${
               activeCategories.length === 0
-                ? 'bg-bars-primary border border-bars-primary text-white'
+                ? 'bg-bars-edition-accent border border-bars-edition-accent text-bars-on-edition-accent'
                 : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
             }
           `}
         >
           Todos
-          <span className="rounded-full bg-white/20 py-0.5 px-2 text-[11px] leading-none font-semibold text-white tabular-nums">
+          <span
+            className={`rounded-full py-0.5 px-2 text-[11px] leading-none font-semibold tabular-nums ${
+              activeCategories.length === 0 ? 'bg-current/20' : 'bg-white/20 text-white'
+            }`}
+          >
             {Array.from(sectionMovieCounts.values()).reduce((a, b) => a + b, 0)}
           </span>
         </button>
@@ -202,13 +206,17 @@ export default function FilterPills() {
             className={`inline-flex items-center gap-1.5 rounded-bars-pill px-4 py-2 text-xs font-medium transition-colors cursor-pointer
               ${
                 activeCategories.includes(id)
-                  ? 'bg-bars-primary border border-bars-primary text-white'
+                  ? 'bg-bars-edition-accent border border-bars-edition-accent text-bars-on-edition-accent'
                   : 'border border-bars-border-light text-bars-text-muted hover:text-white hover:border-white/40'
               }
             `}
           >
             {label}
-            <span className="rounded-full bg-white/20 py-0.5 px-2 text-[11px] leading-none font-semibold text-white tabular-nums">
+            <span
+              className={`rounded-full py-0.5 px-2 text-[11px] leading-none font-semibold tabular-nums ${
+                activeCategories.includes(id) ? 'bg-current/20' : 'bg-white/20 text-white'
+              }`}
+            >
               {sectionMovieCounts.get(id) ?? 0}
             </span>
           </button>

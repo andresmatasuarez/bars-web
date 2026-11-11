@@ -36,7 +36,7 @@ function IconTab({
       onClick={() => setActiveTab(tab)}
       className={`flex flex-col items-center justify-center flex-shrink-0
         w-[49px] lg:w-[57px] h-[54px] lg:h-[60px] rounded-bars-sm transition-colors cursor-pointer
-        ${active ? 'bg-bars-primary text-white' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
+        ${active ? 'bg-bars-edition-accent text-bars-on-edition-accent' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
       `}
     >
       {icon}
@@ -148,7 +148,7 @@ export default function DayTabs() {
                 onClick={() => setActiveTab(tab)}
                 className={`flex flex-col items-center justify-center flex-shrink-0
                   w-[49px] lg:w-[57px] h-[54px] lg:h-[60px] rounded-bars-sm transition-colors cursor-pointer
-                  ${active ? 'bg-bars-primary text-white' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
+                  ${active ? 'bg-bars-edition-accent text-bars-on-edition-accent' : 'bg-bars-bg-card text-bars-text-muted hover:bg-bars-bg-medium'}
                   ${past && !active && !allPast ? 'opacity-50' : ''}
                 `}
               >

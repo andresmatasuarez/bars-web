@@ -28,9 +28,10 @@ $nav_items = [
     <?php wp_head(); ?>
 
     <?php // The poster colors of the newest edition that has them replace the default link, date, menu line and glow colors from main.css.
+    // Poster colors are light, so text on a color 1 background (a selected tab) turns dark.
     $edition_colors = Editions::colors(); // Values are checked as #rrggbb.
     if ($edition_colors) : ?>
-    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-edition-glow:<?php echo $edition_colors['badgeText']; ?>}</style>
+    <style id="bars-edition-colors">:root{--color-bars-link-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-badge-text:<?php echo $edition_colors['badgeText']; ?>;--color-bars-edition-accent:<?php echo $edition_colors['linkAccent']; ?>;--color-bars-edition-glow:<?php echo $edition_colors['badgeText']; ?>;--color-bars-on-edition-accent:#0a0a0a}</style>
     <?php endif; ?>
 </head>
 

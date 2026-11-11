@@ -11,6 +11,10 @@ import EDITIONS from '@shared/editions.json';
 // background too, which is darker.
 const CARD_BACKGROUND = '#1a1a1a';
 
+// Text on a color 1 background when there are poster colors (--color-bars-on-edition-accent
+// in themes/bars2026/php/header.php).
+const DARK_TEXT = '#0a0a0a';
+
 // WCAG AA minimum contrast for normal-size text.
 const MIN_CONTRAST = 4.5;
 
@@ -50,6 +54,15 @@ describe('edition colors', () => {
         MIN_CONTRAST,
       );
       expect(contrastRatio(colors.badgeText, CARD_BACKGROUND)).toBeGreaterThanOrEqual(MIN_CONTRAST);
+    },
+  );
+
+  // Selected tabs and filters on the programme page fill with color 1 and show dark
+  // text on it (--color-bars-on-edition-accent, set in header.php).
+  it.each(editionsWithColors)(
+    'edition $year has a link color that dark text is easy to read on',
+    ({ colors }) => {
+      expect(contrastRatio(DARK_TEXT, colors.linkAccent)).toBeGreaterThanOrEqual(MIN_CONTRAST);
     },
   );
 });

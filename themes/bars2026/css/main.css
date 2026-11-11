@@ -74,10 +74,14 @@ html {
   --color-bars-link-accent: #d4a574;
   --color-bars-badge-text: #d4726a;
   /* Color 1 accents: the line under the active menu item, the edition number next to
-     "BARS" in the header, and the home page edition badge and info icons. Red by
-     default; header.php sets it to the edition's link color when there are poster
-     colors. */
+     "BARS" in the header, the home page edition badge and info icons, and the selected
+     tab and filter on the programme page. Red by default; header.php sets it to the
+     edition's link color when there are poster colors. */
   --color-bars-edition-accent: #8b0000;
+  /* Text on a color 1 background, such as a selected tab. White on the default red;
+     header.php sets it to dark when there are poster colors, because poster colors are
+     light (editionColors.test.ts checks that dark text is easy to read on them). */
+  --color-bars-on-edition-accent: #ffffff;
   /* Glow behind the home poster, and at the top of inner pages when the edition has
      poster colors. header.php sets it to the edition's date color. */
   --color-bars-edition-glow: #8b0000;
