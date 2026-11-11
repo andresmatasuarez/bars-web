@@ -18,7 +18,7 @@
     "posterSmall": "resources/bars2026/bars2026_afiche_700w.jpg",
     "colors": { "linkAccent": "#5FCB7C", "badgeText": "#50F6AB" },
     "programme": null,
-    "spot": "https://www.youtube.com/watch?v=gPBq2auZmeI",
+    "spot": null,
     "call": {
       "to": "2026-08-08T02:59:59.999Z",
       "authorization": {
