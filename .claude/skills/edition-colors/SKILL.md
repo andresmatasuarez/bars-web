@@ -20,6 +20,15 @@ The bars2026 theme uses the colors of the **newest edition that has them** on ev
 
 The red `#8b0000`, the black backgrounds and the white text never change. Buttons stay red.
 
+## Where the poster colors go
+
+Two rules from the site owner decide where a poster color may go:
+
+- The site's own style (red, black, white) must not get lost. The poster colors are accents on top of it.
+- The site's style and the poster colors must look harmonious together.
+
+In practice, the poster colors go around the edges of a page: the header, the glow at the top, text links, the top of the home page, and the selected tab and filter above the programme list. Red stays on the content: buttons, the programme list (the "JUE 20" day pill, the clock next to each time, the section badges on cards) and anything that repeats on every card. "Mi lista" stays red in the filters and sub-tabs because red is the personal list's own color, the way each shared list has its own color. Never put a poster color right next to a red element in the same small area: some poster colors, such as green, clash with red when they touch. Check a change with the last few editions' colors and with no colors, not only with this year's.
+
 ## How to pick the colors
 
 Pick by looking at the poster. Do not write a script that finds the most common colors: the largest areas of a poster are usually haze, black or the festival red, and those are the wrong choices.
