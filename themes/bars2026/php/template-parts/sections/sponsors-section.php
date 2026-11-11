@@ -38,13 +38,6 @@ endif;
 
 <section class="bg-gradient-to-b from-[#121212] to-bars-bg-elevated py-16 lg:py-20">
     <div class="max-w-[1280px] mx-auto px-5 lg:px-20">
-        <!-- Header -->
-        <div class="text-center mb-12 lg:mb-16">
-            <h2 class="font-heading text-2xl lg:text-5xl font-medium text-bars-text-primary">
-                El festival se realiza con el apoyo de
-            </h2>
-        </div>
-
         <!-- Sponsor Groups -->
         <div class="flex flex-col gap-12 lg:gap-16">
             <?php foreach ($sponsors as $group): ?>
