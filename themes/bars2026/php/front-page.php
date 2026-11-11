@@ -144,7 +144,7 @@ $GLOBALS['bars_section_index'] = 0;
         </div>
 
         <a href="<?php echo home_url('/festival'); ?>"
-           class="text-base text-bars-link-accent hover:text-white transition-colors">
+           class="text-base text-bars-primary hover:text-white transition-colors">
             Ver más →
         </a>
         <?php if ($metrics['fallback']): ?>
