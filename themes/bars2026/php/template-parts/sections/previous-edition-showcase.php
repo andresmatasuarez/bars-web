@@ -24,6 +24,10 @@ $display_poster = (!$poster && $prev_poster) ? $prev_poster : null;
 $display_poster_small = $display_poster ? Editions::posterForPage($prev) : null; // smaller copy for the page; the link keeps the full poster
 $display_spot_url = $prev_spot;
 
+// "EDICIÓN … · year" uses the previous edition's own color 1 (red when it has no colors)
+$prev_colors = Editions::colors($prev); // checked as #rrggbb
+$label_style = $prev_colors ? ' style="color: ' . $prev_colors['linkAccent'] . '"' : '';
+
 // Nothing to display at all
 if (!$display_poster && !$display_spot_url) return;
 
@@ -65,7 +69,7 @@ $GLOBALS['bars_section_index']++;
     <div class="<?php echo $has_both ? 'max-w-[1080px]' : 'max-w-[900px]'; ?> mx-auto">
         <!-- Section Header -->
         <div class="text-center mb-8 lg:mb-12">
-            <p class="text-xs font-semibold tracking-[3px] uppercase text-bars-primary mb-3">
+            <p class="text-xs font-semibold tracking-[3px] uppercase text-bars-primary mb-3"<?php echo $label_style; ?>>
                 <?php echo $edition_label; ?>
             </p>
             <h2 class="font-heading text-3xl lg:text-5xl font-medium text-bars-text-primary">

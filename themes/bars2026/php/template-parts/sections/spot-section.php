@@ -7,7 +7,7 @@
 $edition = Editions::current();
 $edition_number = Editions::romanNumerals($edition);
 $spot_url = !empty($edition['spot']) ? $edition['spot'] : '';
-if (!$spot_url) return;
+if (!$spot_url) return; // previous-edition-showcase.php shows the previous edition's spot
 
 // Extract YouTube video ID from URL
 $video_id = '';
@@ -28,11 +28,12 @@ $GLOBALS['bars_section_index']++;
     <div class="max-w-[900px] mx-auto">
         <!-- Section Header -->
         <div class="text-center mb-8 lg:mb-12">
-            <p class="text-xs font-semibold tracking-[3px] uppercase text-bars-primary mb-3">
+            <!-- Color 1 of the site: the edition's poster color, or red before it has a poster -->
+            <p class="text-xs font-semibold tracking-[3px] uppercase text-bars-edition-accent mb-3">
                 EDICI&Oacute;N <?php echo esc_html($edition_number); ?>
             </p>
             <h2 class="font-heading text-3xl lg:text-5xl font-medium text-bars-text-primary">
-                Spot Oficial
+                Spot oficial
             </h2>
         </div>
 
