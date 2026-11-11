@@ -107,7 +107,7 @@
         <!-- Footer Bottom -->
         <div class="flex justify-start">
             <p class="font-body text-[13px] text-bars-text-subtle">
-                Ciudad de Buenos Aires, Argentina
+                <?php echo esc_html(date_i18n('Y')); ?> - Ciudad de Buenos Aires, Argentina
             </p>
         </div>
     </div>
