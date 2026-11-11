@@ -134,6 +134,16 @@
           {
             "logo": "resources/bars2026/sponsors/auspiciante_latamclassics@2x.png",
             "alt": "Latam Classics"
+          },
+          {
+            "logo": "resources/bars2026/sponsors/auspiciante_fernet1882@2x.png",
+            "href": "https://www.fernet1882.com/",
+            "alt": "Fernet 1882"
+          },
+          {
+            "logo": "resources/bars2026/sponsors/auspiciante_fiter@2x.png",
+            "href": "https://fiter.com/AR",
+            "alt": "Fiter"
           }
         ]
       },
