@@ -27,7 +27,7 @@ $nav_items = [
 
     <?php wp_head(); ?>
 
-    <?php // The poster colors of the newest edition that has them replace the default link, date, menu line and glow colors from main.css.
+    <?php // Once the current edition has its poster, its poster colors replace the default link, date, menu line and glow colors from main.css.
     // Poster colors are light, so text on a color 1 background (a selected tab) turns dark.
     $edition_colors = Editions::colors(); // Values are checked as #rrggbb.
     if ($edition_colors) : ?>

@@ -208,23 +208,15 @@ class Editions {
    * page glow). Returns null when the edition has no colors or a color is not
    * written as #rrggbb.
    *
-   * Without an edition, returns the colors of the newest edition that has them. A new
-   * edition added before its poster exists (for example, to open the call) then keeps
-   * the previous edition's colors until its own are picked. Returns null when no
-   * edition has colors, and the site uses the default colors from main.css.
+   * Without an edition, returns the site's colors: the current edition's, once it has
+   * its poster. Before that (between festivals, while no edition is announced yet, or
+   * before its colors are picked), returns null and the site uses the default colors
+   * from main.css.
    */
   public static function colors($edition = NULL) {
     if (is_null($edition)){
-      $newest = NULL;
-      $newestColors = NULL;
-      foreach (self::$editions as $candidate) {
-        $candidateColors = self::colors($candidate);
-        if ($candidateColors && (is_null($newest) || $candidate['number'] > $newest['number'])) {
-          $newest = $candidate;
-          $newestColors = $candidateColors;
-        }
-      }
-      return $newestColors;
+      $current = self::current();
+      return empty($current['poster']) ? null : self::colors($current);
     }
 
     if (empty($edition['colors'])) {

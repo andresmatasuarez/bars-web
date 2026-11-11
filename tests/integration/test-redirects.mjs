@@ -984,10 +984,11 @@ await testOg(
 
 groupHeader('Group J: Edition colors');
 
-// The site uses the colors of the newest edition that has them, so a new edition
-// without colors yet keeps the previous edition's colors (Editions::colors()).
-const COLORS_EDITION = [...editions].sort((a, b) => b.number - a.number).find((e) => e.colors);
-const SITE_COLORS = COLORS_EDITION ? COLORS_EDITION.colors : null;
+// The site uses the current edition's colors once it has its poster. Before that
+// (between festivals, while no edition is announced yet), it uses the default colors
+// (Editions::colors()).
+const COLORS_EDITION = [...editions].sort((a, b) => b.number - a.number)[0];
+const SITE_COLORS = COLORS_EDITION.poster && COLORS_EDITION.colors ? COLORS_EDITION.colors : null;
 
 if (SITE_COLORS) {
   const linkAccentRule = `--color-bars-link-accent:\\s*${escapeRegex(SITE_COLORS.linkAccent)}`;
@@ -1081,9 +1082,9 @@ if (SITE_COLORS) {
     '--color-bars-on-edition-accent:\\s*#0a0a0a',
   );
 } else {
-  // J4: When no edition has poster colors, the page keeps the default colors from main.css
+  // J4: Before the current edition has its poster, the page keeps the default colors from main.css
   await testHtmlNotContains(
-    'J4: Home page has no edition colors when no edition has them',
+    'J4: Home page has no edition colors before the current edition has its poster',
     '/',
     'id="bars-edition-colors"',
   );
