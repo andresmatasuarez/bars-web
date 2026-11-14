@@ -1,5 +1,7 @@
+import { useTimeZone, VIEWER_TIME_ZONES } from './__fixtures__/timeZone';
 import {
   dateHasPassed,
+  getBuenosAiresDayOfMonth,
   getDayName,
   getDayNumber,
   isDateBetween,
@@ -8,6 +10,33 @@ import {
   parseDate,
   serializeDate,
 } from './helpers';
+
+describe('getBuenosAiresDayOfMonth', () => {
+  // Tuesday 24 at 22:40 in Buenos Aires: Wednesday 25 in London, Madrid and Tokyo.
+  const lateScreening = new Date('2026-11-24T22:40:00-03:00');
+  // Tuesday 24 at 00:30 in Buenos Aires: still Monday 23 in New York.
+  const earlyScreening = new Date('2026-11-24T00:30:00-03:00');
+
+  describe.each(VIEWER_TIME_ZONES)('viewer in %s', (timeZone) => {
+    useTimeZone(timeZone);
+
+    it('returns the Buenos Aires day of a late screening', () => {
+      expect(getBuenosAiresDayOfMonth(lateScreening)).toBe(24);
+    });
+
+    it('returns the Buenos Aires day of an early screening', () => {
+      expect(getBuenosAiresDayOfMonth(earlyScreening)).toBe(24);
+    });
+  });
+
+  describe('viewer in Europe/London', () => {
+    useTimeZone('Europe/London');
+
+    it('really runs in London, where the late screening is on the 25th', () => {
+      expect(lateScreening.getDate()).toBe(25);
+    });
+  });
+});
 
 describe('parseDate', () => {
   it('parses a string date', () => {

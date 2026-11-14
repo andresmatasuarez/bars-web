@@ -1,6 +1,7 @@
 import Editions, { SingleEdition } from '@shared/ts/Editions';
 import {
   dateHasPassed,
+  getBuenosAiresDayOfMonth,
   isTodayInBuenosAires,
   isTodayInBuenosAiresBetween,
 } from '@shared/ts/helpers';
@@ -109,7 +110,7 @@ export default function ScreeningCard({
               {getSpanishDayAbbr(date)}
             </span>
             <span className={`font-display ${numFontSize} leading-none text-white`}>
-              {date.getDate()}
+              {getBuenosAiresDayOfMonth(date)}
             </span>
           </div>
         ) : isStreaming ? (

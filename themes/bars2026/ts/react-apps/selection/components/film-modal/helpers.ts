@@ -1,5 +1,6 @@
 import Editions, { SingleEdition } from '@shared/ts/Editions';
 import {
+  BUENOS_AIRES_TIME_ZONE,
   dateHasPassed,
   isTodayInBuenosAires,
   isTodayInBuenosAiresBetween,
@@ -10,8 +11,12 @@ import {
   Screening,
 } from '@shared/ts/types';
 
+/** The weekday of `date` in Buenos Aires, wherever the viewer is ("MAR", "MIÉ", ...). */
 export function getSpanishDayAbbr(date: Date): string {
-  const day = date.toLocaleDateString('es-AR', { weekday: 'short' });
+  const day = date.toLocaleDateString('es-AR', {
+    weekday: 'short',
+    timeZone: BUENOS_AIRES_TIME_ZONE,
+  });
   return day.replace('.', '').toUpperCase().slice(0, 3);
 }
 

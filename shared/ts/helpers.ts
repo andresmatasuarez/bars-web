@@ -33,8 +33,22 @@ export function dateHasPassed(date: Date): boolean {
   return dateWithoutTime < now;
 }
 
+/** The festival's time zone. Screening dates and times are Buenos Aires dates and times. */
+export const BUENOS_AIRES_TIME_ZONE = 'America/Argentina/Buenos_Aires';
+
 const fmtBuenosAires = (d: Date) =>
-  d.toLocaleDateString('en-CA', { timeZone: 'America/Argentina/Buenos_Aires' });
+  d.toLocaleDateString('en-CA', { timeZone: BUENOS_AIRES_TIME_ZONE });
+
+/**
+ * The day of the month of `date` in Buenos Aires. `date.getDate()` gives the day in the
+ * viewer's time zone instead: a screening at 22:40 in Buenos Aires is already the next day
+ * in Europe.
+ */
+export function getBuenosAiresDayOfMonth(date: Date): number {
+  return Number(
+    date.toLocaleDateString('en-US', { day: 'numeric', timeZone: BUENOS_AIRES_TIME_ZONE }),
+  );
+}
 
 export function isTodayInBuenosAires(date: Date): boolean {
   return fmtBuenosAires(date) === fmtBuenosAires(new Date());

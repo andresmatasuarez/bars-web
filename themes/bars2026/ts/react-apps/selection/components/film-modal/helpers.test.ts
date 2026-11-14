@@ -3,6 +3,7 @@ import {
   createRegularStreaming,
   createTraditionalScreening,
 } from '@shared/ts/__fixtures__/movies';
+import { useTimeZone, VIEWER_TIME_ZONES } from '@shared/ts/__fixtures__/timeZone';
 import Editions from '@shared/ts/Editions';
 import type { Screening } from '@shared/ts/types';
 
@@ -17,6 +18,20 @@ describe('getSpanishDayAbbr', () => {
   it('returns DOM for a Sunday (period stripped)', () => {
     // 2024-01-07 is a Sunday
     expect(getSpanishDayAbbr(new Date('2024-01-07T12:00:00'))).toBe('DOM');
+  });
+
+  describe.each(VIEWER_TIME_ZONES)('viewer in %s', (timeZone) => {
+    useTimeZone(timeZone);
+
+    it('returns the Buenos Aires weekday of a late screening', () => {
+      // Tuesday 24 at 22:40 in Buenos Aires is already Wednesday in London
+      expect(getSpanishDayAbbr(new Date('2026-11-24T22:40:00-03:00'))).toBe('MAR');
+    });
+
+    it('returns the Buenos Aires weekday of an early screening', () => {
+      // Tuesday 24 at 00:30 in Buenos Aires is still Monday in New York
+      expect(getSpanishDayAbbr(new Date('2026-11-24T00:30:00-03:00'))).toBe('MAR');
+    });
   });
 });
 
