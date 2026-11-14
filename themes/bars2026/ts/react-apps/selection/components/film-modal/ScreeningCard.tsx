@@ -77,14 +77,10 @@ export default function ScreeningCard({
     }
   } else if (isTraditionalScreening(screening)) {
     buttonLink = screening.ticketUrl;
-    if (buttonLink) {
-      const screeningDateTime = new Date(screening.isoDate);
-      const [hours, minutes] = screening.time.split(':').map(Number);
-      screeningDateTime.setTime(screeningDateTime.getTime() + hours * 3600000 + minutes * 60000);
-      if (new Date() > screeningDateTime) {
-        buttonEnabled = false;
-        disabledCaption = 'Ya no disponible';
-      }
+    // isoDate already holds the start time: "2026-11-24T22:40:00-03:00"
+    if (buttonLink && new Date() > new Date(screening.isoDate)) {
+      buttonEnabled = false;
+      disabledCaption = 'Ya no disponible';
     }
   }
 
