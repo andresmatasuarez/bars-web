@@ -201,6 +201,11 @@
             "alt": "Flavio Greco Paglia Dibujante - Ilustrador"
           },
           {
+            "logo": "resources/bars2025/sponsors/auspiciante_enchulame_la_camara.png",
+            "href": "https://www.enchulamerental.com/",
+            "alt": "Enchulame la cámara"
+          },
+          {
             "logo": "resources/bars2025/sponsors/auspiciante_lacripta.png",
             "href": "http://reservas.salaslacripta.com.ar/",
             "alt": "Salas La Cripta"
@@ -214,6 +219,11 @@
             "logo": "resources/bars2025/sponsors/auspiciante_culturageekandpop.png",
             "href": "https://elian.neftis.tv/",
             "alt": "Cultura Geek & Pop"
+          },
+          {
+            "logo": "resources/bars2025/sponsors/auspiciante_flixxo.png",
+            "href": "https://www.flixxo.com/",
+            "alt": "Flixxo"
           }
         ]
       }
