@@ -23,21 +23,18 @@ export function getDayNumber(date: Date): string {
   return pad(date.getDate(), 2);
 }
 
-export function dateHasPassed(date: Date): boolean {
-  const now = new Date();
-  now.setHours(0, 0, 0, 0);
-
-  const dateWithoutTime = new Date(date);
-  dateWithoutTime.setHours(0, 0, 0, 0);
-
-  return dateWithoutTime < now;
-}
-
 /** The festival's time zone. Screening dates and times are Buenos Aires dates and times. */
 export const BUENOS_AIRES_TIME_ZONE = 'America/Argentina/Buenos_Aires';
 
-const fmtBuenosAires = (d: Date) =>
-  d.toLocaleDateString('en-CA', { timeZone: BUENOS_AIRES_TIME_ZONE });
+/** The Buenos Aires day of `date` as "YYYY-MM-DD", wherever the viewer is. */
+export function getBuenosAiresDateKey(date: Date): string {
+  return date.toLocaleDateString('en-CA', { timeZone: BUENOS_AIRES_TIME_ZONE });
+}
+
+/** Whether the day of `date` is before today, both in Buenos Aires. */
+export function dateHasPassed(date: Date): boolean {
+  return getBuenosAiresDateKey(date) < getBuenosAiresDateKey(new Date());
+}
 
 /**
  * The day of the month of `date` in Buenos Aires. `date.getDate()` gives the day in the
@@ -51,12 +48,12 @@ export function getBuenosAiresDayOfMonth(date: Date): number {
 }
 
 export function isTodayInBuenosAires(date: Date): boolean {
-  return fmtBuenosAires(date) === fmtBuenosAires(new Date());
+  return getBuenosAiresDateKey(date) === getBuenosAiresDateKey(new Date());
 }
 
 export function isTodayInBuenosAiresBetween(from: Date, to: Date): boolean {
-  const today = fmtBuenosAires(new Date());
-  return fmtBuenosAires(from) <= today && today <= fmtBuenosAires(to);
+  const today = getBuenosAiresDateKey(new Date());
+  return getBuenosAiresDateKey(from) <= today && today <= getBuenosAiresDateKey(to);
 }
 
 export function isDateBetween(date: Date, from: Date, to: Date): boolean {

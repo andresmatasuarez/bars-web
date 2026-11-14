@@ -3,6 +3,7 @@ import {
   createMovie,
   createTraditionalScreening,
 } from '@shared/ts/__fixtures__/movies';
+import { useTimeZone, VIEWER_TIME_ZONES } from '@shared/ts/__fixtures__/timeZone';
 
 import { getInitialTab, resolveEntries } from './DataProvider';
 
@@ -52,6 +53,31 @@ describe('getInitialTab', () => {
 
     const result = getInitialTab(days);
     expect(result).toEqual({ type: 'day', date: days[0] });
+  });
+
+  describe.each(VIEWER_TIME_ZONES)('viewer in %s', (timeZone) => {
+    useTimeZone(timeZone);
+
+    // Festival days start at midnight in Buenos Aires, like those of Editions.days()
+    const festivalDays = () => [
+      new Date('2026-11-19T00:00:00-03:00'),
+      new Date('2026-11-20T00:00:00-03:00'),
+      new Date('2026-11-21T00:00:00-03:00'),
+    ];
+
+    it('opens on today in Buenos Aires late in the evening', () => {
+      // Friday 20 at 21:30 in Buenos Aires is already Saturday 21 in UTC
+      vi.setSystemTime(new Date('2026-11-20T21:30:00-03:00'));
+      const days = festivalDays();
+      expect(getInitialTab(days)).toEqual({ type: 'day', date: days[1] });
+    });
+
+    it('opens on today in Buenos Aires early in the morning', () => {
+      // Saturday 21 at 00:30 in Buenos Aires is still Friday 20 in New York
+      vi.setSystemTime(new Date('2026-11-21T00:30:00-03:00'));
+      const days = festivalDays();
+      expect(getInitialTab(days)).toEqual({ type: 'day', date: days[2] });
+    });
   });
 });
 

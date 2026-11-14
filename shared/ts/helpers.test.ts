@@ -109,6 +109,23 @@ describe('dateHasPassed', () => {
   it('returns false for tomorrow', () => {
     expect(dateHasPassed(new Date('2025-11-21T15:00:00.000Z'))).toBe(false);
   });
+
+  describe.each(VIEWER_TIME_ZONES)('viewer in %s', (timeZone) => {
+    useTimeZone(timeZone);
+
+    beforeEach(() => {
+      // Saturday 21 at 22:30 in Buenos Aires: already Sunday 22 in London and Tokyo
+      vi.setSystemTime(new Date('2026-11-21T22:30:00-03:00'));
+    });
+
+    it("returns false for today's festival day in Buenos Aires", () => {
+      expect(dateHasPassed(new Date('2026-11-21T00:00:00-03:00'))).toBe(false);
+    });
+
+    it('returns true for the day before in Buenos Aires', () => {
+      expect(dateHasPassed(new Date('2026-11-20T00:00:00-03:00'))).toBe(true);
+    });
+  });
 });
 
 describe('isTodayInBuenosAires', () => {

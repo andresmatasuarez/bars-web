@@ -1,5 +1,5 @@
 import Editions, { SingleEdition } from '@shared/ts/Editions';
-import { dateHasPassed, isDateBetween, serializeDate } from '@shared/ts/helpers';
+import { dateHasPassed, getBuenosAiresDateKey } from '@shared/ts/helpers';
 import {
   DayGroup,
   getAlwaysAvailableScreenings,
@@ -135,20 +135,13 @@ export function getInitialTab(days: Date[]): ActiveTab {
   // Festival has passed: show all
   if (dateHasPassed(lastDay)) return { type: 'all' };
 
-  const now = new Date();
-  const from = days[0];
+  // During the festival: today's tab. "Today" is the day in Buenos Aires: at 21:00 there it
+  // is already the next day in UTC, and the viewer may be in another time zone.
+  const today = getBuenosAiresDateKey(new Date());
+  const todayTab = days.find((d) => getBuenosAiresDateKey(d) === today);
+  if (todayTab) return { type: 'day', date: todayTab };
 
-  if (isDateBetween(now, from, lastDay)) {
-    // Find today
-    const today = days.find((d) => {
-      const dStr = serializeDate(d).split('T')[0];
-      const nowStr = serializeDate(now).split('T')[0];
-      return dStr === nowStr;
-    });
-    if (today) return { type: 'day', date: today };
-  }
-
-  // Before festival: first day
+  // Before festival (or no screenings today): first day
   return { type: 'day', date: days[0] };
 }
 
