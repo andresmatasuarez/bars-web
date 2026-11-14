@@ -1,4 +1,4 @@
-import { dateHasPassed, serializeDate } from '@shared/ts/helpers';
+import { dateHasPassed, getBuenosAiresDayOfMonth, serializeDate } from '@shared/ts/helpers';
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 import { ActiveTab, useData } from '../data/DataProvider';
@@ -78,7 +78,7 @@ export default function DayTabs() {
     daysWithMovies.map((date) => ({
       tab: { type: 'day' as const, date },
       label: getDayAbbrev(date),
-      sublabel: String(date.getDate()),
+      sublabel: String(getBuenosAiresDayOfMonth(date)),
       past: dateHasPassed(date),
     }));
 

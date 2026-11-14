@@ -1,3 +1,5 @@
+import { useTimeZone, VIEWER_TIME_ZONES } from '@shared/ts/__fixtures__/timeZone';
+
 import { getDayAbbrev } from './dayUtils';
 
 describe('getDayAbbrev', () => {
@@ -12,5 +14,19 @@ describe('getDayAbbrev', () => {
     ['2024-01-07', 'DOM'],
   ])('returns Spanish abbreviation for %s → %s', (dateStr, expected) => {
     expect(getDayAbbrev(new Date(dateStr + 'T12:00:00'))).toBe(expected);
+  });
+
+  describe.each(VIEWER_TIME_ZONES)('viewer in %s', (timeZone) => {
+    useTimeZone(timeZone);
+
+    it('returns the Buenos Aires weekday of a festival day', () => {
+      // Days start at midnight in Buenos Aires: still Wednesday 18 in New York
+      expect(getDayAbbrev(new Date('2026-11-19T00:00:00-03:00'))).toBe('JUE');
+    });
+
+    it('returns the Buenos Aires weekday of a late screening', () => {
+      // Tuesday 24 at 22:40 in Buenos Aires: already Wednesday 25 in London
+      expect(getDayAbbrev(new Date('2026-11-24T22:40:00-03:00'))).toBe('MAR');
+    });
   });
 });

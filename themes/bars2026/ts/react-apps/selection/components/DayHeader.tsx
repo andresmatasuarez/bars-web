@@ -1,3 +1,5 @@
+import { getBuenosAiresDayOfMonth } from '@shared/ts/helpers';
+
 import { getDayAbbrev } from './dayUtils';
 import { ChevronDownIcon } from './icons';
 
@@ -10,7 +12,7 @@ type Props = {
 
 export default function DayHeader({ date, collapsible, collapsed, onToggle }: Props) {
   const abbrev = getDayAbbrev(date);
-  const day = date.getDate();
+  const day = getBuenosAiresDayOfMonth(date);
 
   return (
     <div

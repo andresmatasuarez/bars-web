@@ -6,6 +6,7 @@ import {
   createScreeningWithMovie,
   createTraditionalScreening,
 } from './__fixtures__/movies';
+import { useTimeZone, VIEWER_TIME_ZONES } from './__fixtures__/timeZone';
 import {
   compareScreenings,
   getAlwaysAvailableScreenings,
@@ -341,5 +342,17 @@ describe('groupByDayAndTimeSlot', () => {
     );
     const result = groupByDayAndTimeSlot([s1, s2]);
     expect(result[0].timeSlots.get('20:00')).toHaveLength(2);
+  });
+
+  describe.each(VIEWER_TIME_ZONES)('viewer in %s', (timeZone) => {
+    useTimeZone(timeZone);
+
+    it('dates each day at midnight in Buenos Aires', () => {
+      const late = createScreeningWithMovie(
+        createTraditionalScreening({ isoDate: '2026-11-24T22:40:00-03:00', time: '22:40' }),
+      );
+      const [group] = groupByDayAndTimeSlot([late]);
+      expect(group.date.toISOString()).toBe('2026-11-24T03:00:00.000Z');
+    });
   });
 });

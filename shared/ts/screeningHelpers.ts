@@ -126,9 +126,21 @@ export function getAlwaysAvailableScreenings(
 }
 
 export type DayGroup = {
+  /** Midnight in Buenos Aires on that day, like the days of `Editions.days()`. */
   date: Date;
   timeSlots: Map<string, ScreeningWithMovie<TraditionalScreening | RegularStreamingScreening>[]>;
 };
+
+/**
+ * Midnight in Buenos Aires on the day of `isoDate`: "2026-11-24T22:40:00-03:00" gives
+ * 2026-11-24 00:00 in Buenos Aires. `isoDate` ends with the Buenos Aires UTC offset, and the
+ * day's midnight keeps it.
+ */
+function startOfBuenosAiresDay(isoDate: string): Date {
+  const [day, time] = isoDate.split('T');
+  const offset = time.slice('HH:MM:SS'.length); // "-03:00"
+  return new Date(`${day}T00:00:00${offset}`);
+}
 
 /** Group screenings first by day, then by time slot within each day. Days sorted chronologically. */
 export function groupByDayAndTimeSlot(
@@ -148,8 +160,10 @@ export function groupByDayAndTimeSlot(
     if (existing) {
       existing.screenings.push(screening);
     } else {
-      const [year, month, day] = dateKey.split('-').map(Number);
-      dayMap.set(dateKey, { date: new Date(year, month - 1, day), screenings: [screening] });
+      dayMap.set(dateKey, {
+        date: startOfBuenosAiresDay(screening.isoDate),
+        screenings: [screening],
+      });
     }
   }
 
