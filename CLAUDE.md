@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Buenos Aires Rojo Sangre Film Festival website - a monorepo with npm workspaces containing a WordPress theme built using Vite, TypeScript, React, and LESS.
 
+`bars2026` is the only live theme. Since November 2026, `bars2013` is archival only: it gets no updates, fixes or deploys, and the site will not switch back to it. When code in `shared/` changes, update it for `bars2026` only.
+
 ## Production Environment
 
 As of February 2026, the live site runs **PHP 5.6.40** and **WordPress 3.9**. All PHP code must be compatible with both:
