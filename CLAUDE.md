@@ -164,12 +164,14 @@ TypeScript and Vite configs use `@shared/*` alias to reference `shared/` directo
 
 ### Sponsor Logos
 
-Sponsor logos live in `shared/resources/{edition}/sponsors/` and `editions.json` points to them (`sponsors[].items[].logo`). They are PNGs with a transparent background in two formats:
+Sponsor logos live in `shared/resources/{edition}/sponsors/` and `editions.json` points to them (`sponsors[].items[].logo`). Each edition keeps all its logos in its own folder and never points to another edition's folder. When a sponsor from a past edition comes back, copy its logo into the new edition's folder.
+
+They are PNGs with a transparent background in two formats:
 
 - Up to 2025: 140×80.
 - From 2026 on: 280×160 (double size, sharper on high-resolution screens). These file names end in `@2x`, for example `auspiciante_bars@2x.png`, so scripts can find them with `*@2x.png`.
 
-The sponsor section shows both formats at the same height, so they can be mixed in one edition.
+A logo copied from a past edition keeps its old size and name (for example a 140×80 `auspiciante_flixxo.png` in `bars2026/sponsors/`) until someone gets the original and makes an `@2x` version. The sponsor section shows both formats at the same height, so they can be mixed in one edition.
 
 ### Shared Template Parts (bars2026)
 
