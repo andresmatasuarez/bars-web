@@ -37,10 +37,7 @@ import useFilmModal from './useFilmModal';
 import useSharedLists, { SharedList } from './useSharedLists';
 
 export type ActiveTab =
-  | { type: 'day'; date: Date }
-  | { type: 'online' }
-  | { type: 'all' }
-  | { type: 'watchlist' };
+  { type: 'day'; date: Date } | { type: 'online' } | { type: 'all' } | { type: 'watchlist' };
 
 type DataContextType = {
   currentEdition: SingleEdition;
