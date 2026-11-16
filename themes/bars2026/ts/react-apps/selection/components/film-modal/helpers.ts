@@ -11,6 +11,21 @@ import {
   Screening,
 } from '@shared/ts/types';
 
+/**
+ * Wraps each part of `text` between blank lines in a <p>, so a blank line typed in the
+ * WordPress admin shows as a new paragraph. Single line breaks stay as they are, and the
+ * browser shows them as a space: texts copied from PDFs often break lines in the middle
+ * of a sentence. Any HTML in `text` is kept, so it must come from the admin.
+ */
+export function blankLinesToParagraphs(text: string): string {
+  return text
+    .split(/(?:\r?\n[ \t]*){2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph !== '')
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join('');
+}
+
 /** The weekday of `date` in Buenos Aires, wherever the viewer is ("MAR", "MIÉ", ...). */
 export function getSpanishDayAbbr(date: Date): string {
   const day = date.toLocaleDateString('es-AR', {

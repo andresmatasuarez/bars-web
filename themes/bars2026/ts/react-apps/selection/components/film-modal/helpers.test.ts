@@ -7,7 +7,46 @@ import { useTimeZone, VIEWER_TIME_ZONES } from '@shared/ts/__fixtures__/timeZone
 import Editions from '@shared/ts/Editions';
 import type { Screening } from '@shared/ts/types';
 
-import { getSpanishDayAbbr, resolveShortVerState } from './helpers';
+import { blankLinesToParagraphs, getSpanishDayAbbr, resolveShortVerState } from './helpers';
+
+describe('blankLinesToParagraphs', () => {
+  it('wraps a text with no blank lines in one paragraph', () => {
+    expect(blankLinesToParagraphs('Una película.')).toBe('<p>Una película.</p>');
+  });
+
+  it('starts a new paragraph at each blank line', () => {
+    expect(blankLinesToParagraphs('Uno.\r\n\r\nDos.\n\nTres.')).toBe(
+      '<p>Uno.</p><p>Dos.</p><p>Tres.</p>',
+    );
+  });
+
+  it('counts several blank lines, or lines with only spaces, as one break', () => {
+    expect(blankLinesToParagraphs('Uno.\r\n\r\n\r\nDos.\n  \t\nTres.')).toBe(
+      '<p>Uno.</p><p>Dos.</p><p>Tres.</p>',
+    );
+  });
+
+  it('keeps single line breaks inside a paragraph', () => {
+    // Texts copied from PDFs break lines in the middle of a sentence
+    expect(blankLinesToParagraphs('Entre los muros de\r\nun convento.')).toBe(
+      '<p>Entre los muros de\r\nun convento.</p>',
+    );
+  });
+
+  it('keeps the HTML in the text', () => {
+    expect(blankLinesToParagraphs('<b>Se exhibe con</b><br>un corto')).toBe(
+      '<p><b>Se exhibe con</b><br>un corto</p>',
+    );
+  });
+
+  it('ignores blank lines at the start and the end', () => {
+    expect(blankLinesToParagraphs('\r\n\r\nUno.\r\n\r\n')).toBe('<p>Uno.</p>');
+  });
+
+  it('returns an empty string for a text with only blank lines', () => {
+    expect(blankLinesToParagraphs(' \r\n\r\n ')).toBe('');
+  });
+});
 
 describe('getSpanishDayAbbr', () => {
   it('returns JUE for a Thursday', () => {
