@@ -22,13 +22,15 @@ define('BARS_OG_JPEG_QUALITY', 90);
 
 /**
  * Cache-busting version for OG images. After changing the image generation
- * logic, do TWO things:
- *   1. Increment this number — it is appended as ?v=N to the og:image URL,
- *      forcing social platforms (Facebook, Twitter, WhatsApp, etc.) to
- *      re-fetch instead of serving their cached copy.
- *   2. Clear both local and remote caches so images are regenerated:
- *      npm run og:clear:local   (local Docker)
- *      npm run og:clear:remote  (live site via SSH)
+ * logic or a logo they use, increment this number:
+ *   - It is appended as ?v=N to the og:image URL, forcing social platforms
+ *     (Facebook, Twitter, WhatsApp, etc.) to re-fetch instead of serving
+ *     their cached copy.
+ *   - The first film page visited after the deploy deletes the images saved
+ *     with the old number (bars_og_check_edition()), so they are made again.
+ * To clear the saved images by hand anyway:
+ *   npm run og:clear:local   (local Docker)
+ *   npm run og:clear:remote  (live site via SSH)
  */
 define('BARS_OG_VERSION', 3);
 
@@ -587,12 +589,14 @@ function bars_og_generate($post) {
 // --------------------------------------------------------------------------
 
 /**
- * Purge the entire OG image cache when the festival edition changes.
+ * Purge the entire OG image cache when the festival edition or
+ * BARS_OG_VERSION changes.
  *
- * Compares a stored edition number in og-cache/.edition against the
- * current edition. If they differ (or the marker is missing), all
- * cached JPEGs are deleted and the marker is updated. Runs once —
- * on the first request after the edition changes.
+ * og-cache/.edition stores "<edition number>:<BARS_OG_VERSION>" (for
+ * example "27:3"). If it differs from the current pair (or the marker is
+ * missing), all cached JPEGs are deleted and the marker is updated. Runs
+ * once, on the first request after a new edition or a deploy that raises
+ * BARS_OG_VERSION.
  */
 function bars_og_check_edition() {
     $cache_dir = bars_og_get_cache_dir();
@@ -601,21 +605,21 @@ function bars_og_check_edition() {
     }
     $marker = $cache_dir . '/.edition';
     $current = Editions::current();
-    $current_number = $current['number'];
+    $current_key = $current['number'] . ':' . BARS_OG_VERSION;
 
     $stored = file_exists($marker) ? trim(file_get_contents($marker)) : '';
-    if ($stored === (string) $current_number) {
+    if ($stored === $current_key) {
         return;
     }
 
-    // Edition changed — purge all cached images
+    // Edition or image version changed — purge all cached images
     $files = glob($cache_dir . '/*.jpg');
     if ($files) {
         foreach ($files as $file) {
             @unlink($file);
         }
     }
-    @file_put_contents($marker, $current_number);
+    @file_put_contents($marker, $current_key);
 }
 
 /**

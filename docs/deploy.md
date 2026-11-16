@@ -111,7 +111,7 @@ npm run download:assets -- --force
 
 ## OG cache clear
 
-Clears the remote OG image cache (forces regeneration on next page visit):
+Clears the remote OG image cache (forces regeneration on next page visit). A deploy that raises `BARS_OG_VERSION` in `themes/bars2026/php/og-image.php` does this by itself, on the first film page visited after the deploy, so this command is only for clearing by hand:
 
 ```sh
 npm run og:clear:remote

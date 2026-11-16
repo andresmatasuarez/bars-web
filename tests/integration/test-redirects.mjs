@@ -804,6 +804,65 @@ if (MOVIE_PAST) {
   );
 }
 
+// D9 and D10: og-cache/.edition remembers the edition and BARS_OG_VERSION the saved share
+// images were made with. A film page keeps them while both stay the same, and deletes them
+// by itself when either changes (after a deploy that raises BARS_OG_VERSION).
+{
+  const ogVersion = Number(
+    readFileSync('themes/bars2026/php/og-image.php', 'utf8').match(
+      /define\('BARS_OG_VERSION',\s*(\d+)\)/,
+    )[1],
+  );
+  const cacheDir = '/var/www/html/wp-content/uploads/og-cache';
+  // Runs as www-data, like Apache, so Apache can still change these files later
+  const ogCache = (cmd) => {
+    try {
+      return execSync(`docker compose exec -T -u www-data wordpress sh -c "${cmd}"`, {
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'pipe'],
+      }).trim();
+    } catch {
+      return '';
+    }
+  };
+  const visitWithMarker = async (marker) => {
+    ogCache(
+      `mkdir -p ${cacheDir} && printf '${marker}' > ${cacheDir}/.edition && touch ${cacheDir}/stale-test.jpg`,
+    );
+    await fetchHtml(`/programacion/?f=${MOVIE_CURRENT}`);
+    return {
+      marker: ogCache(`cat ${cacheDir}/.edition`),
+      staleKept: ogCache(`test -e ${cacheDir}/stale-test.jpg && echo yes || echo no`) === 'yes',
+    };
+  };
+  const current = `${CURRENT_NUM}:${ogVersion}`;
+
+  // D9: Same edition and version: the saved images stay
+  {
+    const desc = `D9: Share images made with ${current} stay while nothing changes`;
+    const r = await visitWithMarker(current);
+    if (r.staleKept && r.marker === current) {
+      pass(desc);
+    } else {
+      fail(desc, `marker '${r.marker}', saved image ${r.staleKept ? 'kept' : 'deleted'}`);
+    }
+  }
+
+  // D10: An older version: the saved images are deleted and the marker is updated
+  {
+    const old = `${CURRENT_NUM}:${ogVersion - 1}`;
+    const desc = `D10: Share images made with ${old} are deleted after BARS_OG_VERSION ${ogVersion}`;
+    const r = await visitWithMarker(old);
+    if (!r.staleKept && r.marker === current) {
+      pass(desc);
+    } else {
+      fail(desc, `marker '${r.marker}', saved image ${r.staleKept ? 'kept' : 'deleted'}`);
+    }
+  }
+
+  ogCache(`rm -f ${cacheDir}/stale-test.jpg`);
+}
+
 // ── Group E: Movieblock native URL redirects (301) ──
 
 groupHeader('Group E: Movieblock native URL redirects (301)');

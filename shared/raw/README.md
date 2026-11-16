@@ -28,7 +28,7 @@ The source file changes every year. It may have separate layers or be a flat ima
 4. Export it 256 px tall, with metadata removed (`-strip` in ImageMagick), as `shared/resources/barsYYYY/barsYYYY_luna.png`. Keep the source file in `shared/raw/barsYYYY/`.
 5. Check it at 32 and 44 px tall on the site's background color (`#0a0a0a`): the round part and the obelisk must still be clear.
 6. Add `"moon": "resources/barsYYYY/barsYYYY_luna.png"` to the edition in `shared/editions.json`.
-7. Check a film's share image. If films of that edition already had share images, raise `BARS_OG_VERSION` in `themes/bars2026/php/og-image.php` and clear the share image cache (see `CLAUDE.md`).
+7. Check a film's share image. If films of that edition already had share images, raise `BARS_OG_VERSION` in `themes/bars2026/php/og-image.php`. After the deploy, the server deletes the old share images by itself and makes new ones.
 
 ### Example: 2026 (edition 27)
 
