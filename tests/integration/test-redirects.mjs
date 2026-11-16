@@ -1189,6 +1189,20 @@ if (SITE_MOON) {
   await testJsonLd('L5: Organization logo keeps the classic moon', '/', 'Organization', (s) =>
     /bars_logo_dark\.png$/.test(s.logo),
   );
+
+  // L7: The moon has its real width and height, so the browser saves its space and
+  // "BARS XXVII" does not jump while the image loads. A PNG keeps its width and height
+  // in bytes 16-23.
+  {
+    const png = readFileSync(`shared/resources/${SITE_MOON.replace(/^resources\//, '')}`);
+    const width = png.readUInt32BE(16);
+    const height = png.readUInt32BE(20);
+    await testHtmlContains(
+      `L7: Header moon has width="${width}" height="${height}"`,
+      '/',
+      `${moonImg}\\s+width="${width}"\\s+height="${height}"`,
+    );
+  }
 } else {
   // L6: Without an edition moon, the header shows the classic moon
   await testHtmlContains(

@@ -43,11 +43,19 @@ $nav_items = [
     <div class="flex items-center justify-between h-full max-w-[1280px] mx-auto">
         <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
-            <?php $edition_moon = Editions::moon(); ?>
-            <?php if ($edition_moon): ?>
+            <?php
+            // The edition's moon, with its real size so the browser saves its space and the
+            // text does not jump while it loads. Without the file, the classic moon is shown.
+            $edition_moon = Editions::moon();
+            $edition_moon_path = $edition_moon ? get_template_directory() . '/' . $edition_moon : '';
+            $edition_moon_size = ($edition_moon_path && file_exists($edition_moon_path)) ? getimagesize($edition_moon_path) : false;
+            ?>
+            <?php if ($edition_moon_size): ?>
             <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($edition_moon); ?>"
                  alt="BARS Logo"
-                 class="h-8 w-auto lg:h-11">
+                 class="h-8 w-auto lg:h-11"
+                 width="<?php echo (int) $edition_moon_size[0]; ?>"
+                 height="<?php echo (int) $edition_moon_size[1]; ?>">
             <?php else: ?>
             <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo_dark.png"
                  alt="BARS Logo"
