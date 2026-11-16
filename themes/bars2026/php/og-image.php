@@ -391,29 +391,37 @@ function bars_og_generate($post) {
         $og_edition = Editions::current();
     }
 
-    // Logo in top-left
+    // Logo in top-left: the edition's moon, or the classic moon when the
+    // edition has none or its file cannot be read
     $logo_right_edge = $pad_x; // fallback if no logo
-    $logo_path = get_template_directory() . '/resources/bars_logo_dark.png';
+    $logo_paths = array();
     $moon = Editions::moon($og_edition);
-    if ($moon && file_exists(get_template_directory() . '/' . $moon)) {
-        $logo_path = get_template_directory() . '/' . $moon;
+    if ($moon) {
+        $logo_paths[] = get_template_directory() . '/' . $moon;
     }
-    if (file_exists($logo_path)) {
-        $logo = imagecreatefrompng($logo_path);
-        if ($logo) {
-            imagealphablending($logo, true);
-            $logo_src_w = imagesx($logo);
-            $logo_src_h = imagesy($logo);
-            // Scale logo to fit within top bar height with padding
-            $logo_max_h = $top_bar_h - 16; // 8px padding top+bottom
-            $logo_scale = $logo_max_h / $logo_src_h;
-            $logo_dst_w = (int) round($logo_src_w * $logo_scale);
-            $logo_dst_h = (int) round($logo_src_h * $logo_scale);
-            $logo_y = (int) (($top_bar_h - $logo_dst_h) / 2);
-            imagecopyresampled($canvas, $logo, $pad_x, $logo_y, 0, 0, $logo_dst_w, $logo_dst_h, $logo_src_w, $logo_src_h);
-            imagedestroy($logo);
-            $logo_right_edge = $pad_x + $logo_dst_w;
+    $logo_paths[] = get_template_directory() . '/resources/bars_logo_dark.png';
+    $logo = false;
+    foreach ($logo_paths as $logo_path) {
+        if (file_exists($logo_path)) {
+            $logo = @imagecreatefrompng($logo_path);
+            if ($logo) {
+                break;
+            }
         }
+    }
+    if ($logo) {
+        imagealphablending($logo, true);
+        $logo_src_w = imagesx($logo);
+        $logo_src_h = imagesy($logo);
+        // Scale logo to fit within top bar height with padding
+        $logo_max_h = $top_bar_h - 16; // 8px padding top+bottom
+        $logo_scale = $logo_max_h / $logo_src_h;
+        $logo_dst_w = (int) round($logo_src_w * $logo_scale);
+        $logo_dst_h = (int) round($logo_src_h * $logo_scale);
+        $logo_y = (int) (($top_bar_h - $logo_dst_h) / 2);
+        imagecopyresampled($canvas, $logo, $pad_x, $logo_y, 0, 0, $logo_dst_w, $logo_dst_h, $logo_src_w, $logo_src_h);
+        imagedestroy($logo);
+        $logo_right_edge = $pad_x + $logo_dst_w;
     }
 
     // Edition title left-aligned after logo (e.g. "BARS XXVI")
