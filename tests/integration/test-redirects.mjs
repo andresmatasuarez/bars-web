@@ -24,6 +24,7 @@
  *   H: JSON-LD structured data — seo.php
  *   I: Miscellaneous SEO (noindex, robots.txt, og:type) — seo.php
  *   J: Edition colors from the poster — header.php
+ *   L: Edition moon — header.php
  */
 
 import { execSync } from 'node:child_process';
@@ -1132,6 +1133,70 @@ testSingleReact(
   'K2: bars2026.iife.js bundles one copy of React',
   'wp-themes/bars2026/bars2026.iife.js.map',
 );
+
+// ---------------------------------------------------------------------------
+// Group L: Edition moon (header.php)
+// ---------------------------------------------------------------------------
+
+groupHeader('Group L: Edition moon');
+
+// The header shows the current edition's own moon ("moon" in editions.json) in place
+// of the classic moon. The footer and the Organization logo always keep the classic one.
+const SITE_MOON = COLORS_EDITION.moon || null;
+
+if (SITE_MOON) {
+  const moonImg = `src="[^"]*/${escapeRegex(SITE_MOON)}"\\s+alt="BARS Logo"\\s+class="h-8 w-auto lg:h-11"`;
+
+  // L1: The header shows the current edition's moon, full height
+  await testHtmlContains(
+    `L1: Header shows the edition ${COLORS_EDITION.number} moon`,
+    '/',
+    moonImg,
+  );
+
+  // L2: The built theme serves the moon file
+  {
+    const desc = `L2: The theme serves ${SITE_MOON}`;
+    const url = `${BASE_URL}/wp-content/themes/bars2026/${SITE_MOON}`;
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
+      const type = res.headers.get('content-type') || '';
+      if (res.status === 200 && type.startsWith('image/png')) {
+        pass(desc);
+      } else {
+        fail(desc, `${url} returned ${res.status} (${type || 'no content-type'})`);
+      }
+    } catch (err) {
+      fail(desc, `fetch failed for ${url}: ${err.message}`);
+    }
+  }
+
+  // L3: A past edition's programme keeps the current edition's moon, like the colors
+  await testHtmlContains(
+    `L3: /programacion?e=${PAST_NUM} keeps the current edition's moon in the header`,
+    `/programacion/?e=${PAST_NUM}`,
+    moonImg,
+  );
+
+  // L4: The footer keeps the classic moon
+  await testHtmlContains(
+    'L4: Footer keeps the classic moon',
+    '/',
+    '<footer[\\s\\S]*?resources/bars_logo_dark\\.png',
+  );
+
+  // L5: The logo given to Google (Organization JSON-LD) keeps the classic moon
+  await testJsonLd('L5: Organization logo keeps the classic moon', '/', 'Organization', (s) =>
+    /bars_logo_dark\.png$/.test(s.logo),
+  );
+} else {
+  // L6: Without an edition moon, the header shows the classic moon
+  await testHtmlContains(
+    'L6: Header shows the classic moon when the edition has none',
+    '/',
+    '<header[\\s\\S]*?resources/bars_logo_dark\\.png[\\s\\S]*?</header>',
+  );
+}
 
 // ---------------------------------------------------------------------------
 // 3. Summary

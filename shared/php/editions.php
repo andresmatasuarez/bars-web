@@ -236,6 +236,19 @@ class Editions {
     );
   }
 
+  /**
+   * The edition's own moon with the obelisk, cut from its poster art ("moon" in
+   * editions.json), as a path relative to the theme folder. Returns null when the
+   * edition has none; the site then shows the classic moon.
+   */
+  public static function moon($edition = NULL) {
+    if (is_null($edition)){
+      $edition = self::current();
+    }
+
+    return !empty($edition['moon']) ? $edition['moon'] : null;
+  }
+
   public static function call($edition = NULL){
     if (is_null($edition)){
       $edition = self::current();

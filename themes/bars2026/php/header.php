@@ -43,9 +43,16 @@ $nav_items = [
     <div class="flex items-center justify-between h-full max-w-[1280px] mx-auto">
         <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
+            <?php $edition_moon = Editions::moon(); ?>
+            <?php if ($edition_moon): ?>
+            <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($edition_moon); ?>"
+                 alt="BARS Logo"
+                 class="h-8 w-auto lg:h-11">
+            <?php else: ?>
             <img src="<?php echo get_template_directory_uri(); ?>/resources/bars_logo_dark.png"
                  alt="BARS Logo"
                  class="w-8 h-8 lg:w-11 lg:h-11 object-contain">
+            <?php endif; ?>
             <span class="font-display text-xl lg:text-[28px] tracking-wider text-bars-text-primary">
                 BARS <span class="text-bars-edition-accent"><?php echo esc_html(Editions::romanNumerals()); ?></span>
             </span>
