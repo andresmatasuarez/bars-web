@@ -51,7 +51,7 @@ $nav_items = [
             $edition_moon_size = ($edition_moon_path && file_exists($edition_moon_path)) ? getimagesize($edition_moon_path) : false;
             ?>
             <?php if ($edition_moon_size): ?>
-            <img src="<?php echo get_template_directory_uri() . '/' . esc_attr($edition_moon); ?>"
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/' . $edition_moon); ?>"
                  alt="BARS Logo"
                  class="h-8 w-auto lg:h-11"
                  width="<?php echo (int) $edition_moon_size[0]; ?>"
