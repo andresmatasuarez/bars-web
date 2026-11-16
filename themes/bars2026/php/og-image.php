@@ -30,7 +30,7 @@ define('BARS_OG_JPEG_QUALITY', 90);
  *      npm run og:clear:local   (local Docker)
  *      npm run og:clear:remote  (live site via SSH)
  */
-define('BARS_OG_VERSION', 2);
+define('BARS_OG_VERSION', 3);
 
 // --------------------------------------------------------------------------
 // Cache helpers
@@ -373,9 +373,29 @@ function bars_og_generate($post) {
     // --- Top bar ---
     imagefilledrectangle($canvas, 0, 0, BARS_OG_WIDTH - 1, $top_bar_h - 1, $overlay);
 
+    // The film's edition (the current one if the film has none): its title goes in
+    // the top bar, and its own moon, when it has one, replaces the classic logo.
+    $type = get_post_type($post);
+    $edition_key = ($type === 'movieblock') ? '_movieblock_edition' : '_movie_edition';
+    $edition_meta = get_post_meta($post->ID, $edition_key, true);
+    $og_edition = null;
+    if ($edition_meta) {
+        $number = intval(str_replace('bars', '', $edition_meta));
+        if ($number) {
+            $og_edition = Editions::getByNumber($number);
+        }
+    }
+    if (!$og_edition) {
+        $og_edition = Editions::current();
+    }
+
     // Logo in top-left
     $logo_right_edge = $pad_x; // fallback if no logo
     $logo_path = get_template_directory() . '/resources/bars_logo_dark.png';
+    $moon = Editions::moon($og_edition);
+    if ($moon && file_exists(get_template_directory() . '/' . $moon)) {
+        $logo_path = get_template_directory() . '/' . $moon;
+    }
     if (file_exists($logo_path)) {
         $logo = imagecreatefrompng($logo_path);
         if ($logo) {
@@ -395,22 +415,7 @@ function bars_og_generate($post) {
     }
 
     // Edition title left-aligned after logo (e.g. "BARS XXVI")
-    $type = get_post_type($post);
-    $edition_key = ($type === 'movieblock') ? '_movieblock_edition' : '_movie_edition';
-    $edition_meta = get_post_meta($post->ID, $edition_key, true);
-    $edition_title = '';
-    if ($edition_meta) {
-        $number = intval(str_replace('bars', '', $edition_meta));
-        if ($number) {
-            $edition = Editions::getByNumber($number);
-            if ($edition) {
-                $edition_title = Editions::getTitle($edition);
-            }
-        }
-    }
-    if (!$edition_title) {
-        $edition_title = Editions::getTitle();
-    }
+    $edition_title = Editions::getTitle($og_edition);
 
     $edition_size = 28;
     $bbox = imagettfbbox($edition_size, 0, $font_bebas, $edition_title);
