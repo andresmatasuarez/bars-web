@@ -90,6 +90,17 @@ if [ ! -f "$MARKER_INIT" ]; then
 fi
 
 # ---------------------------------------------------------------------------
+# Let Apache (www-data) write to uploads, on every start.
+#
+# This script and WP-CLI run as root, so the seed import (and any `wp` command
+# that saves a file) leaves root-owned folders in uploads. Apache then cannot
+# save media or the share images in uploads/og-cache, and film pages quietly
+# fall back to the plain poster.
+# ---------------------------------------------------------------------------
+mkdir -p "$WP_PATH/wp-content/uploads"
+chown -R www-data:www-data "$WP_PATH/wp-content/uploads"
+
+# ---------------------------------------------------------------------------
 # Start Apache.
 # ---------------------------------------------------------------------------
 echo "==> Starting Apache..."

@@ -751,11 +751,13 @@ await testOg(
   `e=${PAST_NUM}`,
 );
 
-// D3: Movie has og:image (non-empty)
-await testOgExists(
-  'D3: Current movie has og:image',
+// D3: Movie og:image is the share image made by og-image.php (logo, edition, title),
+// not the plain poster that pages fall back to when the image cannot be made
+await testOg(
+  'D3: Current movie og:image is its share image',
   `/programacion/?f=${MOVIE_CURRENT}`,
   'og:image',
+  '/wp-content/uploads/og-cache/movie-\\d+\\.jpg\\?v=\\d+$',
 );
 
 // D4: Movie og:title contains the movie's WP title
