@@ -24,6 +24,7 @@
  *   H: JSON-LD structured data — seo.php
  *   I: Miscellaneous SEO (noindex, robots.txt, og:type) — seo.php
  *   J: Edition colors from the poster — header.php
+ *   K: Built bundles (one copy of React) — wp-themes/bars2026
  *   L: Edition moon — header.php
  */
 
