@@ -3,6 +3,7 @@ import { compareScreenings } from '@shared/ts/screeningHelpers';
 import { Movie, MovieSections } from '@shared/ts/types';
 
 import BackHeader from './BackHeader';
+import { blankLinesToParagraphs } from './helpers';
 import HeroSection from './HeroSection';
 import ScreeningCard from './ScreeningCard';
 import TrailerEmbed from './TrailerEmbed';
@@ -70,9 +71,10 @@ export default function RegularFilmMobile({
                 dangerouslySetInnerHTML={{ __html: movie.synopsis }}
               />
               {movie.comments && (
-                <div className="border-l-2 border-white/20 pl-3 text-sm leading-[1.7] text-white/60 italic mt-4">
-                  {movie.comments}
-                </div>
+                <div
+                  className="border-l-2 border-white/20 pl-3 text-sm leading-[1.7] text-white/60 italic mt-4 [&_p+p]:mt-3 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
+                  dangerouslySetInnerHTML={{ __html: blankLinesToParagraphs(movie.comments) }}
+                />
               )}
             </div>
           )}

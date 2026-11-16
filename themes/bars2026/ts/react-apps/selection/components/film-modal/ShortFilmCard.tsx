@@ -2,7 +2,7 @@ import { SingleEdition } from '@shared/ts/Editions';
 import { Screening, ShortFilm } from '@shared/ts/types';
 import { useRef } from 'react';
 
-import { resolveShortVerState } from './helpers';
+import { blankLinesToParagraphs, resolveShortVerState } from './helpers';
 import useLetterboxCrop from './useLetterboxCrop';
 
 type ShortFilmCardProps = {
@@ -72,9 +72,10 @@ export function ShortFilmCard({ short: s, screenings, currentEdition }: ShortFil
           />
         )}
         {s.comments && (
-          <div className="border-l border-white/15 pl-2 text-[11px] leading-[1.5] text-white/35 italic mt-1">
-            {s.comments}
-          </div>
+          <div
+            className="border-l border-white/15 pl-2 text-[11px] leading-[1.5] text-white/35 italic mt-1 [&_p+p]:mt-2 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
+            dangerouslySetInnerHTML={{ __html: blankLinesToParagraphs(s.comments) }}
+          />
         )}
         <VerButton short={s} screenings={screenings} currentEdition={currentEdition} />
       </div>
@@ -110,9 +111,10 @@ export function DesktopShortCard({ short: s, screenings, currentEdition }: Short
           />
         )}
         {s.comments && (
-          <div className="border-l border-white/15 pl-2 text-[11px] leading-[1.4] text-white/20 italic mt-1">
-            {s.comments}
-          </div>
+          <div
+            className="border-l border-white/15 pl-2 text-[11px] leading-[1.4] text-white/20 italic mt-1 [&_p+p]:mt-2 [&_a]:text-bars-link-accent [&_a]:no-underline [&_a:hover]:underline [&_a]:transition-opacity"
+            dangerouslySetInnerHTML={{ __html: blankLinesToParagraphs(s.comments) }}
+          />
         )}
         <VerButton short={s} screenings={screenings} currentEdition={currentEdition} />
       </div>
