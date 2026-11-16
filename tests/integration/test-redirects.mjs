@@ -36,7 +36,10 @@ import { readFileSync } from 'node:fs';
 // ---------------------------------------------------------------------------
 
 const BASE_URL = 'http://localhost:8083';
-const WP_CMD = 'docker compose exec -T wordpress wp --allow-root';
+// WP-CLI runs as www-data, the user Apache runs as. Saving a film creates
+// uploads/og-cache when it is missing (bars_og_invalidate_cache()); as root, Apache
+// could then not save share images there.
+const WP_CMD = 'docker compose exec -T -u www-data wordpress wp';
 
 // Dynamic edition discovery from shared/editions.json
 const editions = JSON.parse(readFileSync('shared/editions.json', 'utf8'));
